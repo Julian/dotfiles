@@ -1,0 +1,12 @@
+[extensions]
+mq =
+hgext.record =
+
+[merge-tools]
+filemerge.executable = gvim
+filemerge.args = -d $local $other
+filemerge.checkchanged = true
+filemerge.gui = true
+
+[ui]
+username = Julian Berman <Julian+Hg@GrayVines.com>
