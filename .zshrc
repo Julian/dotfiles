@@ -64,6 +64,9 @@ export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
 export GREP_OPTIONS='--color=auto'
+
+export NODE_PATH="/usr/local/lib/node/"
+
 export PYTHONSTARTUP=~/.pythonrc
 
 # colorize ls
@@ -77,7 +80,7 @@ then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
 
-    export PATH=/usr/local/share/python:/usr/local/share/python3:/Developer/usr/bin:$PATH:/usr/local/sbin
+    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
     # export C_INCLUDE_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/include
     # export LIBRARY_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/lib
 
