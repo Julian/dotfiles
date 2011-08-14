@@ -1,5 +1,65 @@
 set nocompatible                       " turn off vi compatible, should be first
 
+" ==========
+" : Vundle :
+" ==========
+
+filetype off
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle (required!)
+Bundle 'gmarik/vundle'
+
+Bundle 'dahu/VimRegexTutor'
+Bundle 'ervandew/supertab'
+Bundle 'fs111/pydoc.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'mbadran/headlights'
+Bundle 'mileszs/ack.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'reinh/vim-makegreen'
+Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+Bundle 'sontek/rope-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-surround'
+
+Bundle 'L9'
+Bundle 'Conque-Shell'
+Bundle 'lodgeit.vim'
+Bundle 'FuzzyFinder'
+Bundle 'pep8'
+Bundle 'taglist.vim'
+Bundle 'TaskList.vim'
+
+Bundle 'git://git.wincent.com/command-t.git'
+
+" =========
+" : Basic :
+" =========
+
+filetype plugin indent on
+syntax on
+
+set encoding=utf8
+set hidden
+set history=100		               " command line history
+set lazyredraw                         " no redraw during macros (much faster)
+set linebreak
+set nowrap
+set report=0                           " :cmd always shows changed line count
+set undolevels=500                     " more undo
+
+" CHECKME: Is this good for non OSX too
+set clipboard+=unnamed                 " share clipboard with system clipboard
+
+" CHECKME
+" Disable the colorcolumn when switching modes.  Make sure this is the
+" first autocmd for the filetype here
+" autocmd FileType * setlocal colorcolumn=0
 " ============
 " : Mappings :
 " ============
@@ -84,6 +144,9 @@ nnoremap <leader><space> :nohlsearch<cr>
 " Remove trailing whitespace
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
+" Toggle how long lines are displayed
+map <F11> :set wrap!<CR>
+
 " fix syntax highlighting errors
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
@@ -121,39 +184,6 @@ map <leader>N :set makeprg=nosetests\|:call MakeGreen()<CR>
 map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
 
 map <leader>3 :set guifont=Inconsolata:h12<CR>:vsp<CR>:vsp<CR>
-
-" ============
-" : Pathogen :
-" ============
-
-filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-
-" =========
-" : Basic :
-" =========
-
-syntax on
-filetype on
-filetype plugin indent on
-
-set encoding=utf8
-set hidden
-set history=100		               " command line history
-set lazyredraw                         " no redraw during macros (much faster)
-set linebreak
-set nowrap
-set report=0                           " :cmd always shows changed line count
-set undolevels=500                     " more undo
-
-" CHECKME: Is this good for non OSX too
-set clipboard+=unnamed                 " share clipboard with system clipboard
-
-" CHECKME
-" Disable the colorcolumn when switching modes.  Make sure this is the
-" first autocmd for the filetype here
-" autocmd FileType * setlocal colorcolumn=0
 
 " ==============
 " : Completion :
