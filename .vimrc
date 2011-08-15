@@ -50,6 +50,7 @@ set history=100		               " command line history
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
 set nowrap
+set pastetoggle=<F2>                   " use f2 to toggle paste mode
 set report=0                           " :cmd always shows changed line count
 set undolevels=500                     " more undo
 
@@ -258,6 +259,11 @@ set shortmess+=atI                     " show shorter messages
 set spell                              " spell checking
 set title                              " change window title to filename
 
+set splitbelow                         " new :sp go on bottom
+set splitright                         " new :vsp go on right
+
+set timeoutlen=500                     " shorten the amount of time to wait
+
 " no bells or blinking
 set noerrorbells
 set vb t_vb=
@@ -310,6 +316,7 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 let g:miniBufExplMapWindowNavVim = 1
 
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 " =====================
 " : FileType Specific :
