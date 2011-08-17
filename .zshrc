@@ -1,3 +1,17 @@
+#--- Options -----------------------------------------------------------------
+
+# Changing Directories
+
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+
+# History
+
+setopt HIST_IGNORE_DUPS       # ignore duplicates if last cmd is same
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY   # append lines to history incrementally
+setopt SHARE_HISTORY
+
 #--- Aliases -----------------------------------------------------------------
 
 # Suffix Aliases
@@ -12,6 +26,13 @@ alias playalbums='mplayer */* -shuffle'
 alias nosecov='coverage run --branch --source=. `which nosetests`'
 alias nosecov3='coverage-3.2 run --branch --source=. `which nosetests-3.2`'
 alias ad='ssh julian@arch-desktop -t tmux a'
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+
+# assumes OSX has gnu coreutils installed from homebrew
+alias ls='ls --color=auto --human-readable --group-directories-first'
+alias vi='vim'
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Basically type '...' to get '../..' with successive .'s adding /..
@@ -49,11 +70,8 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 export HISTSIZE=200
 export HISTFILE=~/.zsh_history
 export SAVEHIST=200
-export SHARE_HISTORY
 
 # setopt AUTO_CD            # allows typing dir instead of cd dir
-setopt HISTIGNOREDUPS       # ignore duplicates if last cmd is same
-setopt INC_APPEND_HISTORY   # append lines to history incrementally
 setopt NO_BEEP              # shh!
 setopt EXTENDED_GLOB        # extended patterns support
 
@@ -73,20 +91,12 @@ export PYTHONSTARTUP=~/.pythonrc
 if [[ "$OSTYPE" == "darwin10.0" ]]
 then
     alias chrome="open /Applications/Google\ Chrome.app"
-
-    # assumes OSX has gnu coreutils installed, otherwise use ls -G
-    alias ls='/usr/local/bin/ls --color=auto --human-readable --group-directories-first'
-
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-    alias vi='vim'
 
+    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
     # export C_INCLUDE_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/include
     # export LIBRARY_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/lib
-
-    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
-else
-    alias ls='ls --color --human-readable --group-directories-first'
 fi
 
 # LS_COLORS
