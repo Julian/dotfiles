@@ -11,16 +11,22 @@ call vundle#rc()
 " let Vundle manage Vundle (required!)
 Bundle 'gmarik/vundle'
 
+" temporary stuff
 Bundle 'dahu/VimRegexTutor'
+
+" permanent stuff
 Bundle 'ervandew/supertab'
 Bundle 'fs111/pydoc.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mbadran/headlights'
 Bundle 'mileszs/ack.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'othree/html5.vim'
 Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'sjl/gundo.vim'
 Bundle 'sontek/rope-vim'
 Bundle 'tpope/vim-fugitive'
@@ -185,6 +191,10 @@ map <leader>N :set makeprg=nosetests\|:call MakeGreen()<CR>
 map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
 
 map <leader>3 :set guifont=Inconsolata:h12<CR>:vsp<CR>:vsp<CR>
+
+" reST / similar surround a line with -- and ==
+nnoremap <leader>- yyPVr-yyjp
+nnoremap <leader>= yyPVr=yyjp
 
 " ==============
 " : Completion :
