@@ -125,7 +125,10 @@ channels = (
   { name = "#math-software"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#mathematics"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#pypy"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#tmux"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#tmux"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#webgamedev"; chatnet = "freenode"; },
+  { name = "#pocoo"; chatnet = "freenode"; },
+  { name = "##c-friendly"; chatnet = "freenode"; }
 );
 
 aliases = {
