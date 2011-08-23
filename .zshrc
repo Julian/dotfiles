@@ -32,7 +32,8 @@ alias egrep='egrep --color=auto'
 
 # assumes OSX has gnu coreutils installed from homebrew
 alias ls='ls --color=auto --human-readable --group-directories-first'
-alias vi='vim'
+
+eval  $( dircolors -b $HOME/.dircolors )
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Basically type '...' to get '../..' with successive .'s adding /..
@@ -81,28 +82,20 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
-export GREP_OPTIONS='--color=auto'
+export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 
 export NODE_PATH="/usr/local/lib/node/"
 
 export PYTHONSTARTUP=~/.pythonrc
 
-# colorize ls
 if [[ "$OSTYPE" == "darwin10.0" ]]
 then
     alias chrome="open /Applications/Google\ Chrome.app"
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
-    export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
     # export C_INCLUDE_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/include
     # export LIBRARY_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/lib
 fi
-
-# LS_COLORS
-eval $( dircolors -b $HOME/Dropbox/Programming/zsh/LS_COLORS/LS_COLORS )
-
-# end colorize ls
 
 export PATH=/usr/local/bin:$PATH
 
