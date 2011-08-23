@@ -18,9 +18,9 @@ setopt SHARE_HISTORY
 alias -s tex=vim
 
 # Global Aliases
-alias -g CA="2>&1 | cat -A"
-alias -g C='| wc -l'
-alias -g DN=/dev/null
+# alias -g CA="2>&1 | cat -A"
+# alias -g C='| wc -l'
+# alias -g DN=/dev/null
 
 alias playalbums='mplayer */* -shuffle'
 alias nosecov='coverage run --branch --source=. `which nosetests`'
@@ -33,7 +33,7 @@ alias egrep='egrep --color=auto'
 # assumes OSX has gnu coreutils installed from homebrew
 alias ls='ls --color=auto --human-readable --group-directories-first'
 
-eval  $( dircolors -b $HOME/.dircolors )
+eval $( dircolors -b $HOME/.dircolors )
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Basically type '...' to get '../..' with successive .'s adding /..
@@ -90,8 +90,6 @@ export PYTHONSTARTUP=~/.pythonrc
 
 if [[ "$OSTYPE" == "darwin10.0" ]]
 then
-    alias chrome="open /Applications/Google\ Chrome.app"
-
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
     # export C_INCLUDE_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/include
     # export LIBRARY_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/lib
