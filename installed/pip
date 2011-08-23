@@ -14,6 +14,7 @@ distribute
 docutils
 fancycompleter
 gdata
+gprof2dot
 lxml
 mock
 networkx
@@ -27,12 +28,14 @@ pudb
 py
 pygraphviz
 pyparsing
+pyprof2calltree
 pyrepl
 pytest
 python-dateutil
 pytz
 rope
 ropemode
+sympy
 urwid
 wmctrl
 wsgiref

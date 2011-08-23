@@ -12,7 +12,10 @@ ctags
 despotify
 djview4
 djvulibre
+dwarffortress
+emacs
 findutils
+fish
 fossil
 gdbm
 gdk-pixbuf
@@ -21,6 +24,7 @@ git
 glib
 gnu-typist
 graphviz
+grep
 growlnotify
 gtk+
 irssi
@@ -35,9 +39,11 @@ libtiff
 libvorbis
 lua
 macvim
+mutt
 nethack
 node
 pango
+pcre
 pkg-config
 pypy
 pyqt
@@ -50,7 +56,9 @@ scons
 scrypt
 sip
 sqlite
+terminus-font
 tmux
+tokyo-cabinet
 vimpager
 w3m
 watch
