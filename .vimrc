@@ -14,14 +14,19 @@ Bundle 'gmarik/vundle'
 " temporary stuff
 Bundle 'dahu/VimRegexTutor'
 
+" Snipmate Dependencies
+Bundle 'honza/snipmate-snippets'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+
 " permanent stuff
 Bundle 'ervandew/supertab'
 Bundle 'fs111/pydoc.vim'
+Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mbadran/headlights'
 Bundle 'mileszs/ack.vim'
-Bundle 'msanders/snipmate.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/html5.vim'
 Bundle 'reinh/vim-makegreen'
@@ -33,10 +38,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-surround'
 
-Bundle 'L9'
 Bundle 'Conque-Shell'
 Bundle 'lodgeit.vim'
-Bundle 'FuzzyFinder'
 Bundle 'pep8'
 Bundle 'taglist.vim'
 Bundle 'TaskList.vim'
@@ -162,14 +165,13 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 let g:pep8_map='<leader>8'
 
 map <leader>a :TlistToggle<CR>
-map <leader>f :CommandT<CR>
 map <leader>g :GundoToggle<CR>
 map <leader>k <Esc>:Ack!<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>p :Lodgeit<CR>
-map <leader>t :CommandT
 map <leader>td <Plug>TaskList
+map <leader>tt :CommandT<CR>
 map <leader>y :set spell!<CR>
 map <leader>z :vsp ~/.zshrc<CR><C-W>_
 
@@ -177,8 +179,8 @@ map <leader>tb :ConqueTermSplit bpython<CR>
 map <leader>tB :ConqueTermVSplit bpython<CR>
 map <leader>tc :ConqueTermSplit bpython-3.2<CR>
 map <leader>tC :ConqueTermVSplit bpython-3.2<CR>
-map <leader>tt :ConqueTermSplit zsh<CR>
-map <leader>tT :ConqueTermVSplit zsh<CR>
+map <leader>tz :ConqueTermSplit zsh<CR>
+map <leader>tZ :ConqueTermVSplit zsh<CR>
 map <leader>to :ConqueTermSplit python3<CR>
 map <leader>tO :ConqueTermVSplit python3<CR>
 map <leader>tp :ConqueTermSplit python<CR>
@@ -264,11 +266,13 @@ set laststatus=2                       " always show status line
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 set confirm                            " show confirm dialog instead of warn
+set display+=lastline                  " show as much of lastline possible
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set shortmess+=atI                     " show shorter messages
 set spell                              " spell checking
 set title                              " change window title to filename
 
+set equalalways                        " hopefully fix how often :sp's mess up
 set splitbelow                         " new :sp go on bottom
 set splitright                         " new :vsp go on right
 
