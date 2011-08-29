@@ -115,20 +115,16 @@ channels = (
   { name = "#zsh"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "##c"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#bpython"; chatnet = "Freenode"; autojoin = "yes"; },
-  { 
-    name = "##python-friendly";
-    chatnet = "Freenode";
-    autojoin = "yes";
-  },
   { name = "#reddit-dev"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#twisted"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#math-software"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#mathematics"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#pypy"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#tmux"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#webgamedev"; chatnet = "freenode"; },
   { name = "#pocoo"; chatnet = "freenode"; },
-  { name = "##c-friendly"; chatnet = "freenode"; }
+  { name = "##c-friendly"; chatnet = "freenode"; },
+  { name = "pocoo"; chatnet = "freenode"; },
+  { name = "#python-dev"; chatnet = "freenode"; }
 );
 
 aliases = {
@@ -294,6 +290,13 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
