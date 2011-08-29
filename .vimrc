@@ -41,7 +41,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'Conque-Shell'
 Bundle 'lodgeit.vim'
 Bundle 'pep8'
-Bundle 'taglist.vim'
 Bundle 'TaskList.vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
@@ -55,13 +54,11 @@ syntax on
 
 set encoding=utf8
 set hidden
-set history=100		               " command line history
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
 set nowrap
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 set report=0                           " :cmd always shows changed line count
-set undolevels=500                     " more undo
 
 " CHECKME: Is this good for non OSX too
 set clipboard+=unnamed                 " share clipboard with system clipboard
@@ -70,8 +67,9 @@ set clipboard+=unnamed                 " share clipboard with system clipboard
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
 " autocmd FileType * setlocal colorcolumn=0
+
 " ============
-" : Mappings :
+" : Bindings :
 " ============
 
 let mapleader=","
@@ -164,7 +162,7 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 " PEP8
 let g:pep8_map='<leader>8'
 
-map <leader>a :TlistToggle<CR>
+map <leader>a :TagbarToggle<CR>
 map <leader>g :GundoToggle<CR>
 map <leader>k <Esc>:Ack!<CR>
 map <leader>l :set list!<CR>
@@ -211,6 +209,7 @@ set showcmd		               " display incomplete commands
 set wildmenu                           " file completion helper window
 set wildmode=longest:full,full
 set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc
+set suffixes+=.backup
 
 " close preview window automatically when we move around
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -239,6 +238,19 @@ if exists("&colorcolumn")
     set colorcolumn=+1
 endif
 
+" ===========
+" : History :
+" ===========
+
+set history=500		               " command line history
+set undolevels=500                     " more undo
+set viminfo='1000,f1,:1000,/1000       " more viminfo
+
+set backup
+
+set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
+set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
+
 " ==========
 " : Indent :
 " ==========
@@ -254,9 +266,6 @@ colorscheme molokai
 
 set background=dark
 
-set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
-set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
-
 set guifont=Inconsolata:h14
 set guioptions-=T
 set guioptions-=L
@@ -269,7 +278,7 @@ set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set shortmess+=atI                     " show shorter messages
-set spell                              " spell checking
+" set spell                              " spell checking
 set title                              " change window title to filename
 
 set equalalways                        " hopefully fix how often :sp's mess up
@@ -300,7 +309,10 @@ endif
 set backspace=indent,eol,start         " backspacing over everything in insert
 set nostartofline                      " never jump back to start of line
 set ruler		               " show the cursor position all the time
+
 set scrolloff=2                        " keep lines above and below cursor
+set sidescrolloff=2                    " same for horizontal
+
 set virtualedit=block
 
 " ==========
@@ -321,7 +333,7 @@ set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " makes # of spaces = 4 for new tab
 set softtabstop=4           " makes the spaces feel like tab
 set tabstop=8               " makes # of spaces = 8 for preexisitng tab
-"
+
 " ===================
 " : Plugin Settings :
 " ===================
@@ -331,6 +343,39 @@ let g:miniBufExplMapWindowNavVim = 1
 
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+
+" ============
+" : Autocmds :
+" ============
+
+if has("eval")
+
+    " If we're in a wide window, enable line numbers.
+    fun! <SID>WindowWidth()
+        if winwidth(0) > 90
+            setlocal foldcolumn=2
+            setlocal number
+        else
+            setlocal nonumber
+            setlocal foldcolumn=0
+        endif
+    endfun
+
+endif
+
+if has("autocmd") && has("eval")
+
+    " Automagic line numbers
+    autocmd BufEnter * :call <SID>WindowWidth()
+
+    " Always do a full syntax refresh
+    autocmd BufEnter * syntax sync fromstart
+
+    " For help files, make <Return> behave like <C-]> (jump to tag)
+    autocmd FileType help nmap <buffer> <Return> <C-]>
+
+endif
+
 
 " =====================
 " : FileType Specific :
