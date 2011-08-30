@@ -1,2 +1,6 @@
 [user]
 	email = Julian+git@GrayVines.com
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
