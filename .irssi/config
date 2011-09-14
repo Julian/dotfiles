@@ -13,7 +13,14 @@ servers = (
     chatnet = "QuakeNet";
     port = "6667";
   },
-  { address = "irc.oftc.net"; chatnet = "OFTC"; port = "6667"; },
+  {
+    address = "irc.oftc.net";
+    chatnet = "OFTC";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
   {
     address = "irc.gamesurge.net";
     chatnet = "GameSurge";
@@ -101,8 +108,6 @@ chatnets = {
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#python"; chatnet = "Freenode"; autojoin = "yes"; },
   { 
     name = "#python-offtopic";
@@ -120,11 +125,11 @@ channels = (
   { name = "#math-software"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#pypy"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#tmux"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#webgamedev"; chatnet = "freenode"; },
-  { name = "#pocoo"; chatnet = "freenode"; },
-  { name = "##c-friendly"; chatnet = "freenode"; },
-  { name = "pocoo"; chatnet = "freenode"; },
-  { name = "#python-dev"; chatnet = "freenode"; }
+  { name = "#webgamedev"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#pocoo"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "##c-friendly"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#python-dev"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#urwid"; chatnet = "oftc"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -320,9 +325,21 @@ settings = {
   };
 };
 hilights = ( { text = "tos9"; nick = "no"; word = "no"; } );
+ignores = (
+  { mask = "bbot2"; level = "ALL"; },
+  { mask = "CIA-123"; level = "ALL"; },
+  { mask = "py-bb"; level = "ALL"; },
+  { mask = "kenaan"; level = "ALL"; },
+  { mask = "CIA-74"; level = "ALL"; }
+);
 windows = {
-  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  1 = {
+    immortal = "yes";
+    name = "(status)";
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+  };
   2 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
@@ -333,6 +350,7 @@ windows = {
     );
   };
   3 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
@@ -343,6 +361,7 @@ windows = {
     );
   };
   4 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
@@ -353,6 +372,7 @@ windows = {
     );
   };
   5 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
@@ -363,6 +383,7 @@ windows = {
     );
   };
   6 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
@@ -373,6 +394,7 @@ windows = {
     );
   };
   7 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
@@ -383,18 +405,149 @@ windows = {
     );
   };
   8 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+  };
+  9 = {
+    name = "hilight";
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    sticky = "yes";
+    parent = "21";
+  };
+  10 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##python-friendly";
+        name = "#vim";
         tag = "freenode";
       }
     );
   };
-  9 = { name = "hilight"; sticky = "yes"; };
+  11 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#zsh";
+        tag = "freenode";
+      }
+    );
+  };
+  12 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##c";
+        tag = "freenode";
+      }
+    );
+  };
+  13 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twisted";
+        tag = "freenode";
+      }
+    );
+  };
+  14 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#math-software";
+        tag = "freenode";
+      }
+    );
+  };
+  15 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pypy";
+        tag = "freenode";
+      }
+    );
+  };
+  16 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#tmux";
+        tag = "freenode";
+      }
+    );
+  };
+  17 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#webgamedev";
+        tag = "freenode";
+      }
+    );
+  };
+  18 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pocoo";
+        tag = "freenode";
+      }
+    );
+  };
+  19 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##c-friendly";
+        tag = "freenode";
+      }
+    );
+  };
+  20 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python-dev";
+        tag = "freenode";
+      }
+    );
+  };
+  21 = { name = "junk"; level = "JOINS PARTS QUITS"; sticky = "yes"; };
+  22 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#urwid";
+        tag = "OFTC";
+      }
+    );
+  };
 };
 mainwindows = {
-  1 = { first_line = "8"; lines = "46"; };
-  9 = { first_line = "1"; lines = "7"; };
+  4 = { first_line = "4"; lines = "23"; };
+  21 = { first_line = "1"; lines = "3"; };
 };
