@@ -25,7 +25,7 @@ alias -s tex=vim
 alias playalbums='mplayer */* -shuffle'
 alias nosecov='coverage run --branch --source=. `which nosetests`'
 alias nosecov3='coverage-3.2 run --branch --source=. `which nosetests-3.2`'
-alias ad='ssh julian@arch-desktop -t tmux a'
+alias arssi="ssh julian@arch-desktop -t 'tmux attach-session -t irssi || tmux new-session -s irssi'"
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -90,9 +90,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 if [[ "$OSTYPE" == darwin* ]]
 then
-    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/python3:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
-    # export C_INCLUDE_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/include
-    # export LIBRARY_PATH=/Developer/SDKs/MacOSX10.5.sdk/usr/lib
+    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
 fi
 
 export PATH=/usr/local/bin:$PATH
