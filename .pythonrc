@@ -41,5 +41,13 @@ if 'DJANGO_SETTINGS_MODULE' in os.environ:
     M = DjangoModels()
     C = Client()
 
+try:
+    import readline
+except ImportError:
+    print "Module readline not available."
+else:
+    import rlcompleter
+    readline.parse_and_bind("tab: complete")
+
 del os
 del sys

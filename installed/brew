@@ -12,10 +12,8 @@ ctags
 despotify
 djview4
 djvulibre
-dwarffortress
-emacs
+dwarf-fortress
 findutils
-fish
 fossil
 gdbm
 gdk-pixbuf
@@ -26,7 +24,6 @@ gnu-typist
 graphviz
 grep
 growlnotify
-gtk+
 irssi
 jasper
 jpeg
@@ -37,7 +34,7 @@ libiconv
 libogg
 libtiff
 libvorbis
-lua
+luajit
 macvim
 mutt
 nethack
@@ -51,9 +48,9 @@ python
 python3
 qt
 readline
-scala
 scons
 scrypt
+sdl
 sip
 sqlite
 terminus-font
