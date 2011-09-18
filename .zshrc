@@ -90,6 +90,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 if [[ "$OSTYPE" == darwin* ]]
 then
+    export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
 fi
 
