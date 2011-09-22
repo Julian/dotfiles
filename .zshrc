@@ -49,6 +49,11 @@ bindkey . rationalise-dot
 
 #--- Completion --------------------------------------------------------------
 
+# Completions
+fpath=(~/.zsh/zsh-completions $fpath)
+autoload -U compinit
+compinit
+
 # Use cache for slow functions
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
@@ -100,3 +105,5 @@ bindkey -v                  # set vim bindings in zsh
 
 PS1="%15<...<%~%# "
 RPS1="%B%n%b@%m"
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
