@@ -49,6 +49,11 @@ bindkey . rationalise-dot
 
 #--- Completion --------------------------------------------------------------
 
+# Completions
+fpath=(~/.zsh/zsh-completions $fpath)
+autoload -U compinit
+compinit
+
 # Use cache for slow functions
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
