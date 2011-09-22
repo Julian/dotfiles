@@ -100,3 +100,5 @@ bindkey -v                  # set vim bindings in zsh
 
 PS1="%15<...<%~%# "
 RPS1="%B%n%b@%m"
+
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
