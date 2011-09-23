@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
 " temporary stuff
 Bundle 'dahu/VimRegexTutor'
 
-" Snipmate Dependencies
+" snipmate dependencies
 Bundle 'honza/snipmate-snippets'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -42,6 +42,7 @@ Bundle 'Conque-Shell'
 Bundle 'lodgeit.vim'
 Bundle 'pep8'
 Bundle 'TaskList.vim'
+Bundle 'YankRing.vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
 
