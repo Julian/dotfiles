@@ -1,18 +1,37 @@
-set charset="UTF-8"
-set editor="vim -c \"set spell spelllang=en\""
-set folder="~/Mail"
-set include=yes                         # Include the message in replies.
-set mbox_type=Maildir
-set nobeep                              # We don't need no beeping software.
-set pager_context=3                     # Display 3 lines of context in pager.
-set realname="Julian Berman"
-set shell='/bin/zsh'
+set realname = "Julian Berman"
 
-set postponed=+Drafts
-set record=+Sent
-set spoolfile=+Inbox
+set from = "Julian@GrayVines.com"
+set use_from = yes
+set envelope_from = yes
+
+set charset = "UTF-8"
+set nobeep                                # We don't need no beeping software.
+
+set mbox_type = Maildir
+set spoolfile = "~/Mail/"
+set folder = "~/Mail"
+
+set postponed = "+.Drafts"
+set record = "+.Sent"
 
 
+mailboxes ! + `\
+for file in ~/Maildir/.*; do \
+box=$(basename "$file"); \
+if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+-a ! "$box" = '.subscriptions' ]; then \
+echo -n "\"+$box\" "; \
+fi; \
+done`
+
+
+set editor = "vim -c \"set spell spelllang=en\""
+set edit_headers = yes
+set include = yes                         # Include the message in replies.
+set pager_context=3                       # Display 3 lines of context in pager.
+
+
+# key bindings
 bind pager k previous-line
 bind pager < previous-line
 bind pager j next-line
@@ -21,3 +40,10 @@ bind pager down next-page
 bind pager up previous-page
 bind index [ previous-line
 bind index ] next-line
+
+macro index c "?" "open a different folder"
+macro pager c "?" "open a different folder"
+
+# colors
+color index red black ~N
+color index red black ~O
