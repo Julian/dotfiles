@@ -1,0 +1,6 @@
+MAILDIR=$HOME/Mail/
+DEFAULT=$MAILDIR
+
+LOGFILE=$HOME/.procmail.log
+LOG=""
+VERBOSE=yes
