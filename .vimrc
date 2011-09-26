@@ -345,6 +345,9 @@ let g:miniBufExplMapWindowNavVim = 1
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
+let yankring_history_dir = '$HOME/.vim'
+let yankring_history_file = '.yankring_history'
+
 " ============
 " : Autocmds :
 " ============

@@ -1,3 +1,39 @@
+export HISTSIZE=200
+export HISTFILE=~/.zsh_history
+export SAVEHIST=200
+
+setopt NO_BEEP              # shh!
+setopt EXTENDED_GLOB        # extended patterns support
+
+export EDITOR="vim"
+
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+
+export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
+
+export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
+
+export NODE_PATH="/usr/local/lib/node/"
+
+export PYTHONSTARTUP=~/.pythonrc
+
+if [[ "$OSTYPE" == darwin* ]]
+then
+    export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
+fi
+
+export PATH=/usr/local/bin:$PATH
+
+bindkey -v                  # set vim bindings in zsh
+
+#--- Prompt ------------------------------------------------------------------
+
+PS1="%15<...<%~%# "
+RPS1="%B%n%b@%m"
+
 #--- Options -----------------------------------------------------------------
 
 # Changing Directories
@@ -72,38 +108,5 @@ zstyle ':completion:*' squeeze-slashes true
 
 # cd will never select the parent directory (e.g.: cd ../<TAB>):
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
-
-export HISTSIZE=200
-export HISTFILE=~/.zsh_history
-export SAVEHIST=200
-
-# setopt AUTO_CD            # allows typing dir instead of cd dir
-setopt NO_BEEP              # shh!
-setopt EXTENDED_GLOB        # extended patterns support
-
-export EDITOR="vim"
-
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-
-export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
-
-export NODE_PATH="/usr/local/lib/node/"
-
-export PYTHONSTARTUP=~/.pythonrc
-
-if [[ "$OSTYPE" == darwin* ]]
-then
-    export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
-fi
-
-export PATH=/usr/local/bin:$PATH
-
-bindkey -v                  # set vim bindings in zsh
-
-PS1="%15<...<%~%# "
-RPS1="%B%n%b@%m"
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
