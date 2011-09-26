@@ -344,7 +344,8 @@ ignores = (
   { mask = "kenaan"; level = "ALL"; },
   { mask = "CIA-74"; level = "ALL"; },
   { mask = "CIA-80"; level = "ALL"; },
-  { mask = "CIA-25"; level = "ALL"; }
+  { mask = "CIA-25"; level = "ALL"; },
+  { mask = "CIA-31"; level = "ALL"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
@@ -608,3 +609,4 @@ windows = {
   21 = { name = "hilight"; sticky = "yes"; parent = "20"; };
 };
 mainwindows = { 20 = { first_line = "1"; lines = "26"; }; };
+logs = { };
