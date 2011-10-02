@@ -17,8 +17,6 @@ export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
 export NODE_PATH="/usr/local/lib/node/"
 
-export PYTHONSTARTUP=~/.pythonrc
-
 if [[ "$OSTYPE" == darwin* ]]
 then
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
@@ -27,7 +25,15 @@ fi
 
 export PATH=/usr/local/bin:$PATH
 
-bindkey -v                  # set vim bindings in zsh
+export PYTHONSTARTUP=~/.pythonrc
+
+# virtualenvwrapper (needs to be sourced *after* the PATH is set correctly)
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Development
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+source virtualenvwrapper.sh
 
 #--- Prompt ------------------------------------------------------------------
 
@@ -35,6 +41,8 @@ PS1="%15<...<%~%# "
 RPS1="%B%n%b@%m"
 
 #--- Options -----------------------------------------------------------------
+
+bindkey -v                  # set vim bindings in zsh
 
 # Changing Directories
 
