@@ -54,6 +54,7 @@ filetype plugin indent on
 syntax on
 
 set encoding=utf8
+set autoread                           " automatically reload unmodified bufs
 set hidden
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
@@ -160,13 +161,11 @@ map <F11> :set wrap!<CR>
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
-" PEP8
-let g:pep8_map='<leader>8'
-
 map <leader>a :TagbarToggle<CR>
 map <leader>g :GundoToggle<CR>
 map <leader>k <Esc>:Ack!<CR>
 map <leader>l :set list!<CR>
+map <leader>m :silent make<CR><C-L>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>p :Lodgeit<CR>
 map <leader>td <Plug>TaskList
