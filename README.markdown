@@ -10,3 +10,6 @@ Install
 * Symlink zsh-syntax-highlighting into .config
 * Run `BundleInstall` in vim to install Bundles
 * Run `rake make` in .vim/bundle/command-t
+* mkdirs
+    * $HOME/{.virtualenvs, Development}
+* Check installed/pip
