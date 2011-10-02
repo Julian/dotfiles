@@ -4,6 +4,7 @@ atk
 bazaar
 bcrypt
 bdw-gc
+cairo
 clojure
 contacts
 coreutils
@@ -21,6 +22,7 @@ gettext
 git
 glib
 gnu-typist
+gnupg
 graphviz
 grep
 growlnotify
@@ -41,6 +43,7 @@ nethack
 node
 pango
 pcre
+pixman
 pkg-config
 pypy
 pyqt
