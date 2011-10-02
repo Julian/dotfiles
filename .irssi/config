@@ -345,7 +345,8 @@ ignores = (
   { mask = "CIA-74"; level = "ALL"; },
   { mask = "CIA-80"; level = "ALL"; },
   { mask = "CIA-25"; level = "ALL"; },
-  { mask = "CIA-31"; level = "ALL"; }
+  { mask = "CIA-31"; level = "ALL"; },
+  { mask = "py-bb_"; level = "ALL"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
