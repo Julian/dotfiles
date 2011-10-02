@@ -1,6 +1,10 @@
 MAILDIR=$HOME/Mail/
+PMDIR=$HOME/.procmail
 DEFAULT=$MAILDIR
 
-LOGFILE=$HOME/.procmail.log
-LOG=""
-VERBOSE=yes
+LOGFILE=$MAILDIR/log.`date +%y-%m-%d`
+LOG="
+"
+
+# Mailing Lists
+INCLUDERC=$PMDIR/mailing_lists.rc
