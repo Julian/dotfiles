@@ -23,7 +23,7 @@ then
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
 fi
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin:$PATH
 
 export PYTHONSTARTUP=~/.pythonrc
 
