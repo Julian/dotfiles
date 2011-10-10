@@ -10,5 +10,10 @@ TO DO
         * *.pyc
         * __pycache__
 
+* arch
+    * remap ctrl lock
+    * fix unicode
+    * write out w3m settings
+
 * Write an install script
     * util/LS_COLORS
