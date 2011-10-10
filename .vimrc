@@ -15,14 +15,14 @@ Bundle 'gmarik/vundle'
 Bundle 'dahu/VimRegexTutor'
 
 " snipmate dependencies
-Bundle 'honza/snipmate-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+" Bundle 'honza/snipmate-snippets'
+" Bundle 'MarcWeber/vim-addon-mw-utils'
+" Bundle 'tomtom/tlib_vim'
 
 " permanent stuff
 Bundle 'ervandew/supertab'
 Bundle 'fs111/pydoc.vim'
-Bundle 'garbas/vim-snipmate'
+" Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mbadran/headlights'
@@ -278,7 +278,6 @@ set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
 set shortmess+=atI                     " show shorter messages
-" set spell                              " spell checking
 set title                              " change window title to filename
 
 set equalalways                        " hopefully fix how often :sp's mess up
@@ -324,6 +323,12 @@ set smartcase                          " case-sensitive if upper in search term
 set incsearch		               " do incremental searching
 set hlsearch                           " hilight searches
 
+" ============
+" : Spelling :
+" ============
+
+set spellfile=~/.vim/spellfile.add
+
 " ==============
 " : Whitespace :
 " ==============
@@ -346,6 +351,11 @@ let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 let yankring_history_dir = '$HOME/.vim'
 let yankring_history_file = '.yankring_history'
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
+let g:SuperTabLongestEnhanced = 1                " enhanced longest complete
+let g:SuperTabLongestHighlight = 1               " preselect first result
 
 " ============
 " : Autocmds :
@@ -394,7 +404,6 @@ autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " Python
 "au BufRead *.py compiler nose
 au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
 
 au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
