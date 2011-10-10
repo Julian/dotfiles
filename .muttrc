@@ -14,9 +14,11 @@ set folder = "~/Mail"
 set postponed = "+.Drafts"
 set record = "+.Sent"
 
+set imap_check_subscribed                 # download IMAP folders
+set smtp_url="smtp://Julian@GrayVines.com@imap.gmail.com:587"
 
 mailboxes ! + `\
-for file in ~/Maildir/.*; do \
+for file in ~/Mail/.*; do \
 box=$(basename "$file"); \
 if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
 -a ! "$box" = '.subscriptions' ]; then \
@@ -24,6 +26,9 @@ echo -n "\"+$box\" "; \
 fi; \
 done`
 
+set smart_wrap = yes
+set sort = 'threads'
+set sort_aux = 'last-date-received'
 
 set editor = "vim -c \"set spell spelllang=en\""
 set edit_headers = yes
