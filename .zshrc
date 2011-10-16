@@ -1,3 +1,5 @@
+export ZSH=$HOME/.zsh       # zsh configuration directory
+
 export HISTSIZE=200
 export HISTFILE=~/.zsh_history
 export SAVEHIST=200
