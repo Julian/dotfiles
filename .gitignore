@@ -1,5 +1,9 @@
 .DS_Store
-.vim/.yankring_history*
+
+.irssi/sasl.auth
+
 .vim/bundle
 .vim/sessions
-.irssi/sasl.auth
+.vim/.yankring_history*
+
+.zsh/cache
