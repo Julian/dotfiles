@@ -15,5 +15,13 @@ TO DO
     * fix unicode
     * write out w3m settings
 
+* virtualenv
+    * install pudb & pdb by default
+    * fix trial and twistd to point correctly inside a venv
+
+* misc
+    * write pre-commit hook / script to delete .pyc/o (prevent lingering test)
+    * move stuff to .config
+
 * Write an install script
     * util/LS_COLORS
