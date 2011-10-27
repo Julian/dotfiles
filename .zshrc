@@ -78,9 +78,6 @@ alias nosecov='coverage run --branch --source=. `which nosetests`'
 alias nosecov3='coverage-3.2 run --branch --source=. `which nosetests-3.2`'
 alias arssi="ssh julian@arch-desktop -t 'tmux attach-session -t irssi || tmux new-session -s irssi'"
 
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-
 # assumes OSX has gnu coreutils installed from homebrew
 alias ls='ls --color=auto --human-readable --group-directories-first'
 
