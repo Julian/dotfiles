@@ -6,6 +6,7 @@ some options set when installed:
 
 * mutt
     * --sidebar-patch
+    * --trash-patch
 
 * macvim
     * --override-system-vim
