@@ -11,36 +11,40 @@ call vundle#rc()
 " let Vundle manage Vundle (required!)
 Bundle 'gmarik/vundle'
 
+" themes
+Bundle 'sickill/vim-sunburst'
+Bundle 'sickill/vim-monokai'
+
 " temporary stuff
 Bundle 'dahu/VimRegexTutor'
 
 " snipmate dependencies
-" Bundle 'honza/snipmate-snippets'
-" Bundle 'MarcWeber/vim-addon-mw-utils'
-" Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
 
 " permanent stuff
 Bundle 'ervandew/supertab'
 Bundle 'fs111/pydoc.vim'
-" Bundle 'garbas/vim-snipmate'
+Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'majutsushi/tagbar'
 Bundle 'mbadran/headlights'
 Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'othree/html5.vim'
 Bundle 'reinh/vim-makegreen'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'sjl/gundo.vim'
 Bundle 'sontek/rope-vim'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-surround'
 
 Bundle 'Conque-Shell'
+Bundle 'jpythonfold.vim'
 Bundle 'lodgeit.vim'
 Bundle 'pep8'
+Bundle 'Pydiction'
 Bundle 'TaskList.vim'
 Bundle 'YankRing.vim'
 
@@ -59,11 +63,12 @@ set hidden
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
 set nowrap
-set pastetoggle=<F2>                   " use f2 to toggle paste mode
 set report=0                           " :cmd always shows changed line count
 
-" CHECKME: Is this good for non OSX too
 set clipboard+=unnamed                 " share clipboard with system clipboard
+set pastetoggle=<F2>                   " use f2 to toggle paste mode
+
+set tags=./tags;$HOME                  " look up until $HOME for tags
 
 " CHECKME
 " Disable the colorcolumn when switching modes.  Make sure this is the
@@ -192,6 +197,8 @@ map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
 
 map <leader>3 :set guifont=Inconsolata:h12<CR>:vsp<CR>:vsp<CR>
 
+map <leader><leader> :b#<CR>
+
 " reST / similar surround a line with -- and ==
 nnoremap <leader>- yyPVr-yyjp
 nnoremap <leader>= yyPVr=yyjp
@@ -242,7 +249,7 @@ endif
 " : History :
 " ===========
 
-set history=500		               " command line history
+set history=256		               " command line history
 set undolevels=500                     " more undo
 set viminfo='1000,f1,:1000,/1000       " more viminfo
 
@@ -250,12 +257,6 @@ set backup
 
 set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
 set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
-
-" ==========
-" : Indent :
-" ==========
-
-set autoindent
 
 " =============
 " : Interface :
@@ -265,6 +266,8 @@ set t_Co=256
 colorscheme molokai
 
 set background=dark
+
+set formatoptions-=r                   " do not insert comment char after enter
 
 set guifont=Inconsolata:h14
 set guioptions-=T
@@ -333,6 +336,11 @@ set spellfile=~/.vim/spellfile.add
 " : Whitespace :
 " ==============
 
+set autoindent
+
+set indentkeys-=:
+set indentkeys-=0#
+
 set expandtab               " insert space instead of tab 
 set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " makes # of spaces = 4 for new tab
@@ -343,14 +351,19 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 " : Plugin Settings :
 " ===================
 
-" Navigate using hjkl
-let g:miniBufExplMapWindowNavVim = 1
+let g:is_posix = 1
 
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+
+let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 
 let yankring_history_dir = '$HOME/.vim'
 let yankring_history_file = '.yankring_history'
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
@@ -394,20 +407,18 @@ endif
 " : FileType Specific :
 " =====================
 
-" HTML/Mako
-autocmd BufNewFile,BufRead *.mako,*.mak setlocal ft=html
-autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd BufNewFile,BufRead *.tac setlocal filetype=python
+autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
 
-" CSS
+autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
-" Python
-"au BufRead *.py compiler nose
 au FileType python set omnifunc=pythoncomplete#Complete
-
 au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
 let python_highlight_all=1
+
 
 " TODO: Mapping / something to split 2 windows at 79 chars, toggling the right
 " one on and off (like a test_ file), with tags (,a) at the left
