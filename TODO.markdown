@@ -16,8 +16,12 @@ TO DO
     * write out w3m settings
 
 * virtualenv
-    * install pudb & pdb by default
-    * fix trial and twistd to point correctly inside a venv
+    * install by default
+        * pudb
+        * pdb++
+        * nose? trial?
+        * coverage?
+        * bpython?
 
 * misc
     * write pre-commit hook / script to delete .pyc/o (prevent lingering test)
