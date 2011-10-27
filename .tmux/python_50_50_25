@@ -1,0 +1,10 @@
+# Python Layout
+# vim / bpython / sh
+# 50-50 vertical split
+# Left side full height, right side 75-25 horizontal split
+
+select-pane -t 0
+split-window -h -p 50 'bpython'
+select-pane -t 1
+split-window -v -p 25
+select-pane -t 0

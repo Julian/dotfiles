@@ -1,0 +1,6 @@
+# Python Layout
+# vim / bpython
+# 50-4line horizontal split
+
+select-pane -t 0
+split-window -l 4 'bpython'
