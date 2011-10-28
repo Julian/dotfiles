@@ -53,6 +53,10 @@ bind generic 1g first-entry
 bind generic <Home> first-entry
 bind generic G last-entry
 bind generic <End> last-entry
+
+bind index gg first-entry
+bind index G last-entry
+
 bind pager i noop
 
 bind pager q exit
