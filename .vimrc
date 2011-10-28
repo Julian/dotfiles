@@ -338,7 +338,7 @@ set spellfile=~/.vim/spellfile.add
 
 set autoindent
 
-set indentkeys-=:
+set indentkeys-=<:>
 set indentkeys-=0#
 
 set expandtab               " insert space instead of tab 
