@@ -23,10 +23,11 @@ if [[ "$OSTYPE" == darwin* ]]
 then
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
-elif [[ -a /etc/arch ]]
+elif [[ -a /etc/arch-release ]]
 then
     # "Arch -- Let's Make Python Difficult, Together."
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
+    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
 fi
 
 export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin:$PATH
