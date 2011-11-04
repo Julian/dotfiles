@@ -1,11 +1,14 @@
+#  /* vim: set filetype=python : */
+
 import logging
 import os
 import sys
 
 logger = logging.getLogger(__name__)
 
+
 # Enable Pretty Printing for stdout
-def pprint_displayhook(value):
+def _pprint_displayhook(value):
     import pprint
 
     if value is not None:
@@ -18,13 +21,13 @@ def pprint_displayhook(value):
 
         pprint.pprint(value)
 
-sys.displayhook = pprint_displayhook
+sys.displayhook = _pprint_displayhook
 
 # bpython + django
 try:
-     from django.core.management import setup_environ
-     import settings
-     setup_environ(settings)
+    from django.core.management import setup_environ
+    import settings
+    setup_environ(settings)
 except:
     pass
 
