@@ -197,8 +197,6 @@ map <leader>r :RopeRename<CR>
 map <leader>N :set makeprg=nosetests\|:call MakeGreen()<CR>
 map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
 
-map <leader>3 :set guifont=Inconsolata:h12<CR>:vsp<CR>:vsp<CR>
-
 map <leader><leader> :b#<CR>
 
 " reST / similar surround a line with -- and ==
@@ -271,11 +269,6 @@ set background=dark
 
 set formatoptions-=r                   " do not insert comment char after enter
 
-set guifont=Inconsolata:h14
-set guioptions-=T
-set guioptions-=L
-set guioptions-=r
-
 set laststatus=2                       " always show status line
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
@@ -293,12 +286,23 @@ set timeoutlen=500                     " shorten the amount of time to wait
 
 " no bells or blinking
 set noerrorbells
+set novisualbell
 set vb t_vb=
 
-" VERIFYME
 if has("gui_running")
-    set fuoptions=maxvert,maxhorz
-    au GUIEnter * set fullscreen
+    if has("gui_macvim")
+        set fuoptions=maxvert,maxhorz
+        set guifont=Inconsolata:h14
+        au GUIEnter * set fullscreen
+    elseif has("gui_gtk2")
+        set guifont=Inconsolata\ 13
+    endif
+
+    set guioptions-=T
+    set guioptions-=L
+    set guioptions-=m
+    set guioptions-=r
+
 endif
 
 if has('mouse')
@@ -355,7 +359,11 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 
 let g:is_posix = 1
 
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+if filereadable('/usr/local/bin/ctags')
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+else
+    let g:tagbar_ctags_bin = '/usr/bin/ctags'
+endif
 
 let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 
