@@ -43,6 +43,8 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 source virtualenvwrapper.sh
 
+export PYTHON_TEST_RUNNER=`which trial`
+
 #--- Prompt ------------------------------------------------------------------
 
 PS1="%15<...<%~%# "
@@ -69,14 +71,11 @@ setopt SHARE_HISTORY
 # Suffix Aliases
 alias -s tex=vim
 
-# Global Aliases
-# alias -g CA="2>&1 | cat -A"
-# alias -g C='| wc -l'
-# alias -g DN=/dev/null
+# noglobs
+alias git='noglob git'
+alias grep='noglob grep'
 
 alias playalbums='mplayer */* -shuffle'
-alias nosecov='coverage run --branch --source=. `which nosetests`'
-alias nosecov3='coverage-3.2 run --branch --source=. `which nosetests-3.2`'
 alias arssi="ssh julian@arch-desktop -t 'tmux attach-session -t irssi || tmux new-session -s irssi'"
 
 # assumes OSX has gnu coreutils installed from homebrew
@@ -95,6 +94,14 @@ fi
 }
 zle -N rationalise-dot
 bindkey . rationalise-dot
+
+#--- Functions ---------------------------------------------------------------
+
+mkpkg() {
+    mkdir -p $1/test
+    touch $1/__init__.py
+    touch $1/test/__init__.py
+}
 
 #--- Completion --------------------------------------------------------------
 
@@ -123,3 +130,5 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+disable r
