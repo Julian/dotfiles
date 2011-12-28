@@ -40,6 +40,7 @@ Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 Bundle 'Conque-Shell'
@@ -102,6 +103,10 @@ noremap ` '
 noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
+
+" very magic please
+nnoremap / /\v
+cnoremap s/ s/\v
 
 " reverse line join
 nnoremap <Leader>J ddpkJ
@@ -347,7 +352,7 @@ set autoindent
 set indentkeys-=<:>
 set indentkeys-=0#
 
-set expandtab               " insert space instead of tab 
+set expandtab               " insert space instead of tab
 set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " makes # of spaces = 4 for new tab
 set softtabstop=4           " makes the spaces feel like tab
@@ -369,6 +374,9 @@ let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 
 let yankring_history_dir = '$HOME/.vim'
 let yankring_history_file = '.yankring_history'
+
+" NERDTree
+let NERDTreeIgnore = ['^_trial_temp$', '^__pycache__$', '^htmlcov$', '^_\?build$', 'egg-info$', '\~$']
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
