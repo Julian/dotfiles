@@ -1,0 +1,2 @@
+# Make sshd accept the locale settings so that unicode works
+AcceptEnv LANG LC_* LANGUAGE
