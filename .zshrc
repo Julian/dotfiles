@@ -98,9 +98,9 @@ bindkey . rationalise-dot
 #--- Functions ---------------------------------------------------------------
 
 mkpkg() {
-    mkdir -p $1/test
+    mkdir -p $1/tests
     touch $1/__init__.py
-    touch $1/test/__init__.py
+    touch $1/tests/__init__.py
 }
 
 #--- Completion --------------------------------------------------------------
