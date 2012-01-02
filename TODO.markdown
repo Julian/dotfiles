@@ -15,6 +15,13 @@ TO DO
     * fix unicode
     * write out w3m settings
 
+* irssi
+    * ignore +v
+    * ignore nick changes
+        * unless recently talked
+        * if name in nick
+            * foo -> foo|afk
+
 * virtualenv
     * install by default
         * pudb
@@ -22,6 +29,7 @@ TO DO
         * nose? trial?
         * coverage?
         * bpython?
+    * if dir has a bin directory add to path
 
 * misc
     * write pre-commit hook / script to delete .pyc/o (prevent lingering test)
