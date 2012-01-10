@@ -21,6 +21,8 @@ export NODE_PATH="/usr/local/lib/node/"
 
 if [[ "$OSTYPE" == darwin* ]]
 then
+    alias brew='GREP_OPTIONS= brew'
+
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
     export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$PATH:/usr/local/sbin
 elif [[ -a /etc/arch-release ]]
@@ -73,7 +75,6 @@ alias -s tex=vim
 
 # noglobs
 alias git='noglob git'
-alias grep='noglob grep'
 
 alias playalbums='mplayer */* -shuffle'
 alias arssi="ssh julian@arch-desktop -t 'tmux attach-session -t irssi || tmux new-session -s irssi'"
