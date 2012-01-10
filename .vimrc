@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 " themes
 Bundle 'sickill/vim-sunburst'
 Bundle 'sickill/vim-monokai'
+Bundle 'CSApprox'
 
 " temporary stuff
 Bundle 'dahu/VimRegexTutor'
@@ -104,10 +105,6 @@ noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
-" very magic please
-nnoremap / /\v
-cnoremap s/ s/\v
-
 " reverse line join
 nnoremap <Leader>J ddpkJ
 
@@ -174,10 +171,10 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 map <leader>a :TagbarToggle<CR>
+nmap <leader>d <C-W>1_
 map <leader>g :GundoToggle<CR>
 map <leader>k <Esc>:Ack!<CR>
 map <leader>l :set list!<CR>
-map <leader>m :silent make<CR><C-L>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>p :Lodgeit<CR>
 map <leader>td <Plug>TaskList
@@ -205,8 +202,11 @@ map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
 map <leader><leader> :b#<CR>
 
 " reST / similar surround a line with -- and ==
-nnoremap <leader>- yyPVr-yyjp
-nnoremap <leader>= yyPVr=yyjp
+nnoremap <leader>m- yyPVr-
+nnoremap <leader>m= yyPVr=
+
+nnoremap <leader>M- yyPVr-yyjp
+nnoremap <leader>M= yyPVr=yyjp
 
 " ==============
 " : Completion :
@@ -268,9 +268,8 @@ set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 " =============
 
 set t_Co=256
-colorscheme molokai
-
 set background=dark
+colorscheme molokai                    " needs to be after set background
 
 set formatoptions-=r                   " do not insert comment char after enter
 
@@ -430,6 +429,8 @@ autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
 
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
+au Filetype rst setlocal expandtab textwidth=79
 
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class,with
