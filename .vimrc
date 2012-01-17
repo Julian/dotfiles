@@ -29,6 +29,7 @@ Bundle 'ervandew/supertab'
 Bundle 'fs111/pydoc.vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'mbadran/headlights'
 Bundle 'michaeljsmith/vim-indent-object'
@@ -171,7 +172,7 @@ noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 map <leader>a :TagbarToggle<CR>
-nmap <leader>d <C-W>1_
+nmap <leader>d <C-W>0_
 map <leader>g :GundoToggle<CR>
 map <leader>k <Esc>:Ack!<CR>
 map <leader>l :set list!<CR>
@@ -348,9 +349,6 @@ set spellfile=~/.vim/spellfile.add
 
 set autoindent
 
-set indentkeys-=<:>
-set indentkeys-=0#
-
 set expandtab               " insert space instead of tab
 set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " makes # of spaces = 4 for new tab
@@ -433,8 +431,8 @@ autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 au Filetype rst setlocal expandtab textwidth=79
 
 au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 let python_highlight_all=1
 
