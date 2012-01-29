@@ -1,7 +1,9 @@
-[user]
-	email = Julian+git@GrayVines.com
-	name = Julian Berman
+[color]
+    ui = true
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
+[user]
+    email = Julian+git@GrayVines.com
+    name = Julian Berman
