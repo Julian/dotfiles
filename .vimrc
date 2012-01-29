@@ -12,9 +12,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " themes
-Bundle 'sickill/vim-sunburst'
+Bundle 'KevinGoodsell/vim-csexact'
 Bundle 'sickill/vim-monokai'
-Bundle 'CSApprox'
 
 " temporary stuff
 Bundle 'dahu/VimRegexTutor'
@@ -31,7 +30,6 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
-Bundle 'mbadran/headlights'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
@@ -384,6 +382,9 @@ let g:indent_guides_start_level = 2
 let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
 let g:SuperTabLongestEnhanced = 1                " enhanced longest complete
 let g:SuperTabLongestHighlight = 1               " preselect first result
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
 
 " ============
 " : Autocmds :
