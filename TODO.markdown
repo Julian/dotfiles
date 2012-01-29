@@ -34,6 +34,7 @@ TO DO
 * misc
     * write pre-commit hook / script to delete .pyc/o (prevent lingering test)
     * move stuff to .config
+    * write a thing for vim / bpaste
 
 * Write an install script
     * util/LS_COLORS
