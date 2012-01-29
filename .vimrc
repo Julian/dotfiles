@@ -25,17 +25,14 @@ Bundle 'tomtom/tlib_vim'
 
 " permanent stuff
 Bundle 'ervandew/supertab'
-Bundle 'fs111/pydoc.vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
 Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'sjl/gundo.vim'
 Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
@@ -45,13 +42,15 @@ Bundle 'tpope/vim-surround'
 
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
-Bundle 'lodgeit.vim'
 Bundle 'pep8'
 Bundle 'Pydiction'
 Bundle 'TaskList.vim'
 Bundle 'YankRing.vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
+
+" disabled stuff
+" Bundle 'sjl/gundo.vim'
 
 " =========
 " : Basic :
@@ -172,7 +171,6 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 map <leader>a :TagbarToggle<CR>
 nmap <leader>d <C-W>0_
 map <leader>g :GundoToggle<CR>
-map <leader>k <Esc>:Ack!<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>p :Lodgeit<CR>
@@ -430,6 +428,9 @@ autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softta
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 au Filetype rst setlocal expandtab textwidth=79
+
+" Compile coffeescript on write (requires vim-coffee-script)
+au BufWritePost *.coffee silent CoffeeMake!
 
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
