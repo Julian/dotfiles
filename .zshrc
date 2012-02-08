@@ -24,7 +24,7 @@ then
     alias brew='GREP_OPTIONS= brew'
 
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/Developer/usr/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:/usr/local/sbin
+    export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/share/npm/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:/Developer/usr/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:/usr/local/sbin
 elif [[ -a /etc/arch-release ]]
 then
     # "Arch -- Let's Make Python Difficult, Together."
