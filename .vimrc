@@ -18,21 +18,17 @@ Bundle 'sickill/vim-monokai'
 " temporary stuff
 Bundle 'dahu/VimRegexTutor'
 
-" snipmate dependencies
-Bundle 'honza/snipmate-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-
 " permanent stuff
 Bundle 'ervandew/supertab'
-Bundle 'garbas/vim-snipmate'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'orftz/sbd.vim'
 Bundle 'othree/html5.vim'
 Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
+Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
@@ -333,6 +329,10 @@ set smartcase                          " case-sensitive if upper in search term
 set incsearch		               " do incremental searching
 set hlsearch                           " hilight searches
 
+if filereadable("/usr/local/bin/grep") " if there's a newer grep, use it
+    set grepprg=/usr/local/bin/grep
+endif
+
 " ============
 " : Spelling :
 " ============
@@ -427,14 +427,14 @@ autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
-au Filetype rst setlocal expandtab textwidth=79
+autocmd Filetype rst setlocal expandtab textwidth=79 makeprg=rst2html.py\ %
 
 " Compile coffeescript on write (requires vim-coffee-script)
-au BufWritePost *.coffee silent CoffeeMake!
+autocmd BufWritePost *.coffee silent CoffeeMake!
 
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-au BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 let python_highlight_all=1
 
