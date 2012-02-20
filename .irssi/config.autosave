@@ -132,6 +132,7 @@ channels = (
   { name = "#twisted.web"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#sqlalchemy"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "##minerva"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#reddit-gamedev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#macdev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#django"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "##cardboard"; chatnet = "freenode"; autojoin = "yes"; },
