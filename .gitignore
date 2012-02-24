@@ -6,4 +6,6 @@
 .vim/sessions
 .vim/.yankring_history*
 
+.tmux/tmux.conf.local
+
 .zsh/cache

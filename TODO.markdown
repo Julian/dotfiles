@@ -38,3 +38,4 @@ TO DO
 
 * Write an install script
     * util/LS_COLORS
+    * tmux.conf.os symlinked to tmux.conf.local
