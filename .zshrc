@@ -48,6 +48,12 @@ source virtualenvwrapper.sh
 
 export PYTHON_TEST_RUNNER=`which trial`
 
+
+# Use Keychain for ssh-agent handling
+if (( $+commands[keychain] )) ; then
+    eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
+fi
+
 #--- Prompt ------------------------------------------------------------------
 
 PS1="%15<...<%~%# "
