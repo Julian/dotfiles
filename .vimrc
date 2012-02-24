@@ -39,11 +39,12 @@ Bundle 'tpope/vim-surround'
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
 Bundle 'pep8'
-Bundle 'Pydiction'
+" Bundle 'Pydiction'
 Bundle 'TaskList.vim'
 Bundle 'YankRing.vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " disabled stuff
 " Bundle 'sjl/gundo.vim'
@@ -427,15 +428,19 @@ autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
+autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 iskeyword+=: textwidth=79
+
 autocmd Filetype rst setlocal expandtab textwidth=79 makeprg=rst2html.py\ %
 
 " Compile coffeescript on write (requires vim-coffee-script)
 autocmd BufWritePost *.coffee silent CoffeeMake!
+autocmd FileType coffee setlocal textwidth=79
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+let g:tex_flavor='latex'
 let python_highlight_all=1
 
 
