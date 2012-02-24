@@ -17,8 +17,9 @@ servers = (
     address = "irc.oftc.net";
     chatnet = "OFTC";
     port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs";
     autoconnect = "yes";
   },
   {
