@@ -54,6 +54,9 @@ if (( $+commands[keychain] )) ; then
     eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
 fi
 
+# disable flow control
+stty -ixon
+
 #--- Prompt ------------------------------------------------------------------
 
 PS1="%15<...<%~%# "
