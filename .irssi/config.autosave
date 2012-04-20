@@ -132,7 +132,6 @@ channels = (
   { name = "#twisted.web"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#sqlalchemy"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "##minerva"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#reddit-gamedev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#macdev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#django"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "##cardboard"; chatnet = "freenode"; autojoin = "yes"; },
@@ -355,6 +354,27 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_2 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_2 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_3 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_3 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_4 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_4 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
