@@ -25,7 +25,6 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'othree/html5.vim'
-Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
 Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
@@ -43,10 +42,15 @@ Bundle 'pep8'
 Bundle 'TaskList.vim'
 Bundle 'YankRing.vim'
 
+Bundle 'pydave/AsyncCommand'
+Bundle 'jimf/vim-red-green'
+Bundle 'jimf/vim-async-make-green'
+
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " disabled / saved for later
+" Bundle 'reinh/vim-makegreen'
 " Bundle 'orftz/sbd.vim'
 " Bundle 'sjl/gundo.vim'
 
