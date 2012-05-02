@@ -24,7 +24,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'orftz/sbd.vim'
 Bundle 'othree/html5.vim'
 Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
@@ -47,7 +46,8 @@ Bundle 'YankRing.vim'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
-" disabled stuff
+" disabled / saved for later
+" Bundle 'orftz/sbd.vim'
 " Bundle 'sjl/gundo.vim'
 
 " =========
