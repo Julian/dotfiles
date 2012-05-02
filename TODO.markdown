@@ -37,5 +37,6 @@ TO DO
     * write a thing for vim / bpaste
 
 * Write an install script
-    * util/LS_COLORS
+    * util/LS\_COLORS
     * tmux.conf.os symlinked to tmux.conf.local
+    * Add the login credentials section to a .pypirc.template
