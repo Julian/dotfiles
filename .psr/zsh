@@ -1,0 +1,10 @@
+* () forks a subshell
+* {} blocks
+* > foo1 > foo2 and MULTIOS
+* cd old_dir new_dir
+* bg, disown, &|
+* limit
+* vared
+* diff =(foo) =(bar)
+* print -P
+* mailpath
