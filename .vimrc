@@ -24,9 +24,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'orftz/sbd.vim'
 Bundle 'othree/html5.vim'
-Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/nerdtree'
 Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
@@ -35,6 +33,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
 
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
@@ -43,10 +42,16 @@ Bundle 'pep8'
 Bundle 'TaskList.vim'
 Bundle 'YankRing.vim'
 
+Bundle 'pydave/AsyncCommand'
+Bundle 'jimf/vim-red-green'
+Bundle 'jimf/vim-async-make-green'
+
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
-" disabled stuff
+" disabled / saved for later
+" Bundle 'reinh/vim-makegreen'
+" Bundle 'orftz/sbd.vim'
 " Bundle 'sjl/gundo.vim'
 
 " =========
@@ -58,6 +63,7 @@ syntax on
 
 set encoding=utf8
 set autoread                           " automatically reload unmodified bufs
+set gdefault
 set hidden
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
@@ -86,9 +92,8 @@ cnoreabbrev Wq wq
 cnoreabbrev W w
 cnoreabbrev Q q
 
-" CHECKME
 " don't use Ex mode, use Q for formatting
-" map Q gq
+map Q gqap
 
 " change Y to act like C, D
 map Y y$
@@ -249,12 +254,15 @@ endif
 " ===========
 
 set history=256		               " command line history
-set undolevels=500                     " more undo
 set viminfo='1000,f1,:1000,/1000       " more viminfo
 
 set backup
-
 set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
+
+set undodir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
+set undofile
+set undolevels=500                     " more undo
+
 set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 
 " =============
