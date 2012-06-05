@@ -1,0 +1,7 @@
+URxvt.depth: 32
+URxvt.font: xft:terminus:size=10
+URxvt.scrollbar: false
+
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: chromium
+URxvt.matcher.button: 1
