@@ -1,0 +1,4 @@
+* commit -v
+* branch --merged
+* shortlog
+* format-patch

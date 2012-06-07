@@ -11,3 +11,9 @@
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "util/solarized"]
+	path = util/solarized
+	url = https://github.com/altercation/solarized.git
+[submodule "util/irssi-colors-solarized"]
+	path = util/irssi-colors-solarized
+	url = https://github.com/huyz/irssi-colors-solarized.git

@@ -318,7 +318,7 @@ formats = {
     pubmsg_hilight = "{pubmsghinick $0 $3 $[-9]1}$2";
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-9]1{msgchannel $2}}$3";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00312$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00309$0}}$1";
     #0
     pubmsg_channel = "{pubmsgnick $3 {pubnick $[-9]0}{msgchannel $1}}$2";
 
