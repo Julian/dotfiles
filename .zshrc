@@ -62,10 +62,16 @@ setopt PROMPT_SUBST
 
 bindkey -v                    # set vim bindings in zsh
 
+if [[ -n $SSH_CONNECTION ]] ; then
+    KEYTIMEOUT=15
+else
+    KEYTIMEOUT=5
+fi
+
 # Changing Directories
 
+DIRSTACKSIZE=8
 setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
 
 # History
 
@@ -121,3 +127,6 @@ mkpkg() {
 }
 
 disable r
+
+bindkey '^b' send-break
+bindkey '^o' accept-line-and-down-history
