@@ -19,6 +19,7 @@ Bundle 'sickill/vim-monokai'
 Bundle 'dahu/VimRegexTutor'
 
 " permanent stuff
+Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
