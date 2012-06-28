@@ -121,14 +121,6 @@ fi
 zle -N rationalise-dot
 bindkey . rationalise-dot
 
-#--- Functions ---------------------------------------------------------------
-
-mkpkg() {
-    mkdir -p $1/tests
-    touch $1/__init__.py
-    touch $1/tests/__init__.py
-}
-
 disable r
 
 bindkey '^b' send-break
