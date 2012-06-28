@@ -1,0 +1,50 @@
+#! /usr/bin/env python2
+
+import datetime
+import os
+import sys
+import textwrap
+
+
+name = sys.argv[1]
+
+os.mkdir(name)
+os.mkdir(os.path.join(name, name.lower()))
+os.mkdir(os.path.join(name, name.lower(), "tests"))
+
+open(os.path.join(name, "README.rst"), "w").close()
+open(os.path.join(name, name.lower(), "__init__.py"), "w").close()
+open(os.path.join(name, name.lower(), "tests", "__init__.py"), "w").close()
+
+with open(os.path.join(name, "COPYING"), "w") as copying:
+    copying.write(
+        textwrap.dedent("""
+        Copyright (c) %s Julian Berman
+
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+
+        The above copyright notice and this permission notice shall be included in
+        all copies or substantial portions of the Software.
+
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+        THE SOFTWARE.
+        """).lstrip() % datetime.datetime.now().year
+    )
+
+
+with open(os.path.join(name, "setup.py"), "w") as setup:
+    pass
+
+
+with open(os.path.join(name, "tox.ini"), "w") as setup:
+    pass
