@@ -21,11 +21,9 @@ Bundle 'dahu/VimRegexTutor'
 " permanent stuff
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'ervandew/supertab'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
@@ -35,6 +33,13 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+
+" HTML5 / CSS / JS / Coffee
+Bundle 'groenewege/vim-less'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
+Bundle 'skammer/vim-css-color'
 
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
@@ -431,8 +436,9 @@ endif
 " : FileType Specific :
 " =====================
 
-autocmd BufNewFile,BufRead *.tac setlocal filetype=python
+autocmd BufNewFile,BufRead *.j2 setlocal filetype=jinja
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
+autocmd BufNewFile,BufRead *.tac setlocal filetype=python
 
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
