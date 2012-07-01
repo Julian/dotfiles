@@ -81,44 +81,22 @@ mouse = [
     Click([alt], "Button2", lazy.window.bring_to_front())
 ]
 
-# Next, we specify group names, and use the group position to generate
-# a key binding for it.
-
 groups = [
-     Group('home'),
-     Group('emacs'),
-     Group('mail'),
-     Group('stats'),
-     Group('terminal'),
-     Group('weechat'),
-     Group('music'),
-     Group('skype'),
-     Group('etc')
+     Group('Terminal'),
+     Group('Browser'),
+     Group('Mail'),
+     Group('Extra'),
+     Group('Extra'),
 ]
 
-for index, grp in enumerate(groups):
+for index, group in enumerate(groups, 1):
+    index = str(index)
+    keys.extend([
+        Key([alt], index, lazy.group[group.name].toscreen()),
+        Key([alt, "shift"], index, lazy.window.togroup(group.name)),
+        Key([sup, "shift"], index, lazy.group.swap_groups(group.name))
+])
 
-     # index is the position in the group list grp is the group object.
-     # We assign each group object a set of keys based on it's
-     # position in the list.
-
-     # Eventually we will implement a function to change the name based
-     # on what window is active in that group.
-
-     keys.extend([
-
-             # switch to group
-         Key([alt], str(index+1), lazy.group[grp.name].toscreen()),
-
-             # send to group
-         Key([alt, "shift"], str(index+1), lazy.window.togroup(grp.name)),
-
-             # swap with group
-         Key([sup, "shift"], str(index+1), lazy.group.swap_groups(grp.name))
-    ])
-
-
-# Three simple layout instances:
 
 layouts = [
     layout.Max(),
@@ -135,10 +113,11 @@ default_data = dict(fontsize=12,
 
 # we need a screen or else qtile won't load
 screens = [
-    Screen(bottom = bar.Bar([widget.GroupBox(**default_data),
-                             widget.WindowName(**default_data),
-                             widget.Clock(**default_data)],
-                             27,))]
+    Screen(bottom=bar.Bar([widget.GroupBox(**default_data),
+                           widget.WindowName(**default_data),
+                           widget.Clock(**default_data)],
+                          27,))
+]
 
 
 @hook.subscribe.client_new
@@ -149,16 +128,7 @@ def dialogs(window):
 
 
 @hook.subscribe.startup
-def runner():
-     import subprocess
-
-     """
-     Run after qtile is started
-     """
-
-     # startup-script is simple a list of programs to run
-     # subprocess.Popen('startup-script')
-
+def on_startup():
      # terminal programs behave weird with regards to window titles
      # we open them separately and in a defined order so that the
      # client_new hook has time to group them by the window title
@@ -166,3 +136,4 @@ def runner():
 
      # subprocess.Popen(['urxvt', '-e', 'ncmpcpp-opener'])
      # subprocess.Popen(['urxvt', '-e', 'weechat-curses'])
+    pass
