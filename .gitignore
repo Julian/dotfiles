@@ -9,3 +9,5 @@
 .tmux/tmux.conf.local
 
 .zsh/cache
+
+*.pyc
