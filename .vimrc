@@ -12,7 +12,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " themes
-Bundle 'KevinGoodsell/vim-csexact'
+" Bundle 'KevinGoodsell/vim-csexact'
 Bundle 'sickill/vim-monokai'
 
 " temporary stuff
