@@ -39,7 +39,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
-Bundle 'skammer/vim-css-color'
+" Bundle 'skammer/vim-css-color'
 
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
