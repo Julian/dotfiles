@@ -13,3 +13,4 @@ Install
 * mkdirs
     * $HOME/{.virtualenvs, Development}
 * Check installed/pip
+* Symlink something to ~/.wallpaper
