@@ -1,18 +1,23 @@
-#! /bin/sh
+#! /bin/zsh
+
+export BROWSER=chromium
+export DE=qtile
+
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 [[ -f ~/.Xresources.colorscheme ]] && xrdb -merge ~/.Xresources.colorscheme
 
-xsetroot -cursor_name left_ptr &
+[[ -x /usr/bin/qiv ]] && /usr/bin/qiv -n -z ~/.wallpaper
+[[ -x /usr/bin/xscreensaver ]] && /usr/bin/xscreensaver -no-splash &
 
-#
-# caps lock is ctrl, alt is ctrl, windows is alt 
-setxkbmap -option ctrl:nocaps -option altwin:ctrl_alt_win
+xsetroot -cursor_name left_ptr &
+setxkbmap -option ctrl:nocaps -option altwin:swap_lalt_lwin
 
 
 if [[ $1 == "gnome" ]]
 then
-    exec gnome-session
-else
-    exec qtile
+    DE=gnome-session
 fi
+
+
+exec ck-launch-session $DE
