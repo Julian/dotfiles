@@ -46,5 +46,19 @@ with open(os.path.join(name, "setup.py"), "w") as setup:
     pass
 
 
-with open(os.path.join(name, "tox.ini"), "w") as setup:
-    pass
+with open(os.path.join(name, "tox.ini"), "w") as tox:
+    tox.write(
+        textwrap.dedent("""
+        [tox]
+        envlist = py27, pypy
+
+        [testenv]
+        commands =
+            trial pyvi
+            {envpython} -m doctest README.rst
+
+        deps =
+            mock
+            twisted
+        """).lstrip()
+    )
