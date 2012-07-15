@@ -21,13 +21,12 @@ keys = [
     Key(["control"], "Left", lazy.group.prevgroup()),
     Key(["control"], "Right", lazy.group.nextgroup()),
 
-    # APPLICATION LAUNCHERS
-    Key([ALT, "shift"], "Return", lazy.spawn("urxvt")),
-    Key([ALT, "shift"], "b", lazy.spawn(os.getenv("BROWSER"))),
-    Key([ALT, "shift"], "g", lazy.spawn("gimp")),
-    Key([ALT, "shift"], "v", lazy.spawn("vlc")),
+    Key([], "XF86Launch5", lazy.spawn("urxvt")),
+    Key([], "XF86Launch6", lazy.spawn(os.getenv("BROWSER"))),
+    Key([], "XF86Launch7", lazy.spawn("gimp")),
+    Key([], "XF86Launch8", lazy.spawn("vlc")),
+    Key([], "XF86Launch9", lazy.spawn("vlc")),
 
-    # AUDIO
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 5%-")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 5%+")),
     Key([], "XF86AudioMute", lazy.spawn("amixer sset Master toggle")),
@@ -96,4 +95,5 @@ def on_startup():
     subprocess.Popen(["urxvt"])
     subprocess.Popen([os.getenv("BROWSER")])
     # TODO: Figure out how to catch the next window event only and have the
-    #       browser window sent to another group
+    #       browser window sent to another group.
+    #       Also probably don't run these if they're open already.
