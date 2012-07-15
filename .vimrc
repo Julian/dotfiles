@@ -181,6 +181,7 @@ nmap <leader>d <C-W>0_
 map <leader>g :GundoToggle<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
+map <leader>s :!trial %<CR>
 map <leader>p :Lodgeit<CR>
 map <leader>td <Plug>TaskList
 map <leader>tt :CommandT<CR>
