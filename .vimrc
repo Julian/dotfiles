@@ -24,6 +24,7 @@ Bundle 'ervandew/supertab'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'mikewest/vimroom'
 Bundle 'scrooloose/nerdtree'
 Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
@@ -185,6 +186,7 @@ map <leader>s :!trial %<CR>
 map <leader>p :Lodgeit<CR>
 map <leader>td <Plug>TaskList
 map <leader>tt :CommandT<CR>
+nnoremap <leader>w :VimroomToggle<CR>
 map <leader>y :set spell!<CR>
 map <leader>z :vsp ~/.zshrc<CR><C-W>_
 
@@ -276,9 +278,15 @@ set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 " : Interface :
 " =============
 
-set t_Co=256
 set background=dark
-colorscheme molokai                    " needs to be after set background
+
+if &t_Co > 8
+    set t_Co=256
+    colorscheme molokai                    " needs to be after set background
+else
+    colorscheme desert
+endif
+
 
 set formatoptions-=r                   " do not insert comment char after enter
 
