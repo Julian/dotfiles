@@ -13,7 +13,7 @@ export VIRTUALENV_USE_DISTRIBUTE=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
-source virtualenvwrapper.sh
+source virtualenvwrapper_lazy.sh
 
 export PYTHON_TEST_RUNNER=`which trial`
 
@@ -123,5 +123,24 @@ bindkey . rationalise-dot
 
 disable r
 
+# Disable the shell reserved word time if /usr/bin/time is present
+if [[ -x /usr/bin/time ]]; then
+    disable -r time
+fi
+
 bindkey '^b' send-break
 bindkey '^o' accept-line-and-down-history
+
+
+# Make ^Z toggle between ^Z and fg
+function ctrlz() {
+if [[ $#BUFFER == 0 ]]; then
+    fg
+    zle redisplay
+else
+    zle push-input
+fi
+}
+
+zle -N ctrlz
+bindkey '^Z' ctrlz
