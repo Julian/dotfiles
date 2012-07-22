@@ -387,6 +387,9 @@ else
     let g:tagbar_ctags_bin = '/usr/bin/ctags'
 endif
 
+" Clear the CommandT window with any of these
+let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
+
 let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 
 let yankring_history_dir = '$HOME/.vim'
