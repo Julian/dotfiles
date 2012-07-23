@@ -1,3 +1,3 @@
-snippet pudb "Set a trace point in pudb." b
-import pudb; pudb.set_trace()
+snippet pdb "Insert a trace point in a debugger." !b
+import ${1:pudb}; $1.set_trace()
 endsnippet
