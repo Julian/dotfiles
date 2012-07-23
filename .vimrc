@@ -421,9 +421,9 @@ if has("eval")
     fun! <SID>WindowWidth()
         if winwidth(0) > 90
             setlocal foldcolumn=2
-            setlocal number
+            setlocal relativenumber
         else
-            setlocal nonumber
+            setlocal norelativenumber
             setlocal foldcolumn=0
         endif
     endfun
