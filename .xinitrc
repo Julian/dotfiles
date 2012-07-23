@@ -11,7 +11,21 @@ export DE=qtile
 [[ -x /usr/bin/xscreensaver ]] && /usr/bin/xscreensaver -no-splash &
 
 xsetroot -cursor_name left_ptr &
-setxkbmap -option ctrl:nocaps -option altwin:swap_lalt_lwin
+
+
+# Caps Lock: Super
+# Control_L: Meta
+# Windows: Alt
+# Alt_L: Control
+# Alt_R: Control
+# Menu: Compose
+# Control_R: Hyper (Not yet implemented)
+
+setxkbmap \
+    -option caps:super \
+    -option altwin:ctrl_alt_win
+    -option ctrl:lctrl_meta \
+    -option compose:menu
 
 
 if [[ $1 == "gnome" ]]

@@ -16,10 +16,10 @@ RIGHT_CLICK = "Button3"
 
 
 keys = [
-    Key([SUPER], "Tab", lazy.layout.next()),
-    Key([SUPER, "shift"], "Tab", lazy.layout.previous()),
-    Key(["control"], "Left", lazy.group.prevgroup()),
-    Key(["control"], "Right", lazy.group.nextgroup()),
+    Key(["control"], "Tab", lazy.layout.next()),
+    Key(["control", "shift"], "Tab", lazy.layout.previous()),
+    Key([SUPER], "Left", lazy.group.prevgroup()),
+    Key([SUPER], "Right", lazy.group.nextgroup()),
 
     Key([], "XF86Launch5", lazy.spawn("urxvt")),
     Key([], "XF86Launch6", lazy.spawn(os.getenv("BROWSER"))),
@@ -38,11 +38,11 @@ keys = [
 ]
 
 mouse = [
-    Drag([SUPER], LEFT_CLICK, lazy.window.set_position_floating(),
+    Drag(["control"], LEFT_CLICK, lazy.window.set_position_floating(),
         start=lazy.window.get_position()),
-    Drag([SUPER], RIGHT_CLICK, lazy.window.set_size_floating(),
+    Drag(["control"], RIGHT_CLICK, lazy.window.set_size_floating(),
         start=lazy.window.get_size()),
-    Click([SUPER], MIDDLE_CLICK, lazy.window.bring_to_front())
+    Click(["control"], MIDDLE_CLICK, lazy.window.bring_to_front())
 ]
 
 groups = [
@@ -56,8 +56,8 @@ groups = [
 for index, group in enumerate(groups, 1):
     index = str(index)
     keys.extend([
-        Key(["control"], index, lazy.group[group.name].toscreen()),
-        Key(["control", "shift"], index, lazy.window.togroup(group.name)),
+        Key([SUPER], index, lazy.group[group.name].toscreen()),
+        Key([SUPER, "shift"], index, lazy.window.togroup(group.name)),
         Key([ALT, "shift"], index, lazy.group.swap_groups(group.name))
 ])
 
