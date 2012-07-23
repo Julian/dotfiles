@@ -245,6 +245,16 @@ aliases = {
   h = "help";
   0 = "/window 10";
   s = "/window goto (status)";
+  41 = "/window 41";
+  42 = "/window 42";
+  43 = "/window 43";
+  44 = "/window 44";
+  45 = "/window 45";
+  46 = "/window 46";
+  47 = "/window 47";
+  48 = "/window 48";
+  49 = "/window 49";
+  50 = "/window 50";
 };
 
 statusbar = {
@@ -367,6 +377,13 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_2 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_2 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
