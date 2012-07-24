@@ -13,7 +13,7 @@ export NODE_PATH="/usr/local/lib/node/"
 if [[ "$OSTYPE" == darwin* ]]
 then
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-    path=(/usr/local/share/python/ /usr/local/share/pypy/ /usr/local/share/python3/ $(/usr/local/bin/brew --prefix ruby)/bin/ $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin/ /Developer/usr/bin/ $path)
+    path=(/usr/local/share/python /usr/local/share/pypy /usr/local/share/python3 $(/usr/local/bin/brew --prefix ruby)/bin $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin $path)
 elif [[ -a /etc/arch-release ]]
 then
     # "Arch -- Let's Make Python Difficult, Together."
@@ -21,6 +21,6 @@ then
     export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
 fi
 
-path=(/usr/local/bin/ $HOME/.local/bin/ /usr/local/sbin/ $path)
+path=(/usr/local/bin $HOME/.local/bin /usr/local/sbin $path)
 
 export PYTHONSTARTUP=~/.pythonrc
