@@ -113,7 +113,7 @@ noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
 " reverse line join
-nnoremap <Leader>J ddpkJ
+nnoremap <leader>J ddpkJ
 
 " toggle fold
 nnoremap <space> za
@@ -179,6 +179,7 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 map <leader>a :TagbarToggle<CR>
 nmap <leader>d <C-W>0_
+nmap <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
 map <leader>g :GundoToggle<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
@@ -295,7 +296,7 @@ set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
-set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
+set listchars=tab:▸\ ,eol:¬
 set shortmess+=atI                     " show shorter messages
 set title                              " change window title to filename
 
