@@ -410,6 +410,7 @@ settings = {
     autolog = "yes";
     autolog_path = "~/.irclogs/%Y/$tag/$0.%m-%d.log";
     autolog_level = "ALL -CRAP -CLIENTCRAP -CTCPS -JOINS -PARTS -QUITS -MODES";
+    activity_hide_level = "JOINS PARTS QUITS KICKS MODES NICKS";
   };
   "perl/core/scripts" = {
     awl_maxlines = "5";
