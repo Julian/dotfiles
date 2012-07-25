@@ -23,6 +23,7 @@ def _pprint_displayhook(value):
 
 sys.displayhook = _pprint_displayhook
 
+
 # bpython + django
 try:
     from django.core.management import setup_environ
@@ -30,6 +31,7 @@ try:
     setup_environ(settings)
 except:
     pass
+
 
 # If we're working with a Django project, set up the environment
 if 'DJANGO_SETTINGS_MODULE' in os.environ:
@@ -47,6 +49,82 @@ if 'DJANGO_SETTINGS_MODULE' in os.environ:
     M = DjangoModelAggregate()
     C = Client()
 
+
+def edit(editor=None, *args, **kwargs):
+    """
+    Open a file in a preferred editor and execute it after the editor exits.
+
+    `editor` specifies what editor to execute. The default is to infer it from
+    the $EDITOR environment variable. Any additional positional arguments will
+    be passed to the editor's process as argv.
+
+    Keyword only arguments include:
+        `content`: An initial set of lines to include in the created file
+                   (default: None)
+        `globals`: A dict containing the globals in which to execute the file
+                   (default: globals())
+        `write_globals`: A boolean specifying whether to write out a commented
+                         out series of lines containing the globals to the
+                         created file (useful for tab completion, default:
+                         True)
+        `retry`: Prompt to re-edit the file if an exception is raised on
+                 execution (default: False)
+        `add_history`: A callable that will be called for each line in the
+                       edited file, that should add the line to the history, or
+                       None to turn this feature off. (default:
+                       `readline.add_history`)
+
+    """
+
+    import os
+    import subprocess
+    import tempfile
+    import traceback
+
+    try:
+        from readline import add_history
+    except ImportError:
+        add_history = kwargs.get("add_history")
+    else:
+        add_history = kwargs.get("add_history", add_history)
+
+    editor = editor or os.environ.get("EDITOR")
+    content = kwargs.get("content", "")
+    globals_ = kwargs.get("globals", globals())
+    write_globals = kwargs.get("write_globals", True)
+    retry = kwargs.get("retry", False)
+
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as tmp:
+        if content:
+            tmp.writelines(content)
+        if globals_ and write_globals:
+            tmp.write("# Globals:\n")
+            tmp.writelines("#    {}\n".format(g) for g in globals_)
+
+    while True:
+        subprocess.call((editor, tmp.name,) + args)
+
+        if add_history is not None:
+            with open(tmp.name) as f:
+                for line in f:
+                    add_history(line.rstrip())
+
+        try:
+            execfile(tmp.name, globals_)
+        except Exception:
+            if retry:
+                traceback.print_exc()
+                answer = raw_input("Continue editing? [y]: ")
+                if not answer or answer.lower() == "y":
+                    continue
+            raise
+
+        break
+
+    os.remove(tmp.name)
+
+
 try:
     import readline
 except ImportError:
@@ -55,5 +133,6 @@ else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
     del readline, rlcompleter
+
 
 del logging, os, sys
