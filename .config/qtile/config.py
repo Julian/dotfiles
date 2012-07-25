@@ -97,3 +97,25 @@ def on_startup():
     # TODO: Figure out how to catch the next window event only and have the
     #       browser window sent to another group.
     #       Also probably don't run these if they're open already.
+
+
+@hook.subscribe.client_focus
+def focus_changed_to(window):
+    # Unswap Caps Lock and Alt for urxvt
+    if window.name == "urxvt":
+        subprocess.Popen(["setxkbmap", "-option", ""])
+        subprocess.Popen([
+            "setxkbmap",
+            "-option", "ctrl:nocaps",
+            "-option", "altwin:swap_lalt_lwin",
+            "-option", "compose:menu",
+        ])
+    else:
+        subprocess.Popen(["setxkbmap", "-option", ""])
+        subprocess.Popen([
+            "setxkbmap",
+            "-option", "caps:super",
+            "-option", "altwin:ctrl_alt_win",
+            "-option", "ctrl:lctrl_meta",
+            "-option", "compose:menu",
+        ])
