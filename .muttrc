@@ -30,6 +30,9 @@ set pager_context=3                       # Display 3 lines of context in pager.
 set query_command="contacts -f '%he	%fn %ln' %s"
 bind editor <Tab> complete-query          # tab completion
 
+# MIME
+auto_view text/html
+
 
 # key bindings
 bind index up previous-entry
