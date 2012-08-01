@@ -149,7 +149,8 @@ channels = (
   { name = "#love"; chatnet = "OFTC"; autojoin = "yes"; },
   { name = "#twisted-dev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#raspberrypi"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#luakit"; chatnet = "OFTC"; autojoin = "yes"; }
+  { name = "#luakit"; chatnet = "OFTC"; autojoin = "yes"; },
+  { name = "#pelican"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
