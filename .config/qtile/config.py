@@ -1,4 +1,4 @@
-import functools
+import itertools
 import os
 import subprocess
 
@@ -15,9 +15,20 @@ MIDDLE_CLICK = "Button2"
 RIGHT_CLICK = "Button3"
 
 
+def command_tab(qtile):
+    groups = itertools.chain.from_iterable(itertools.repeat(qtile.groups, 3))
+
+    for group in groups:
+        if group != qtile.currentGroup:
+            continue
+        else:
+            group = next(group for group in groups if group.windows)
+            qtile.currentScreen.setGroup(group)
+            return
+
+
 keys = [
-    Key(["control"], "Tab", lazy.layout.next()),
-    Key(["control", "shift"], "Tab", lazy.layout.previous()),
+    Key(["control"], "Tab", lazy.function(command_tab)),
     Key([SUPER], "Left", lazy.group.prevgroup()),
     Key([SUPER], "Right", lazy.group.nextgroup()),
 
@@ -45,16 +56,11 @@ mouse = [
     Click(["control"], MIDDLE_CLICK, lazy.window.bring_to_front())
 ]
 
-groups = [
-     Group("Terminal"),
-     Group("Browser"),
-     Group("Mail"),
-     Group("Extra"),
-     Group("Extra"),
-]
+groups = [Group(name) for name in "asdf"]
 
 for index, group in enumerate(groups, 1):
     index = str(index)
+
     keys.extend([
         Key([SUPER], index, lazy.group[group.name].toscreen()),
         Key([SUPER, "shift"], index, lazy.window.togroup(group.name)),
@@ -70,7 +76,7 @@ layouts = [
 
 
 # orange text on grey background
-default_data = dict(fontsize=12,
+default_data = dict(fontsize=14,
                     foreground="FF6600",
                     background="1D1D1D",
                     font="ttf-droid")
