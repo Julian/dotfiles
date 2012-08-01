@@ -47,6 +47,7 @@ Bundle 'jpythonfold.vim'
 Bundle 'pep8'
 " Bundle 'Pydiction'
 Bundle 'TaskList.vim'
+Bundle 'VimClojure'
 Bundle 'YankRing.vim'
 
 Bundle 'pydave/AsyncCommand'
@@ -408,9 +409,6 @@ let g:indent_guides_start_level = 2
 let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
 let g:SuperTabLongestEnhanced = 1                " enhanced longest complete
 let g:SuperTabLongestHighlight = 1               " preselect first result
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
 
 " ============
 " : Autocmds :
