@@ -21,6 +21,7 @@ Bundle 'dahu/VimRegexTutor'
 " permanent stuff
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'ervandew/supertab'
+Bundle 'jpalardy/vim-slime'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
@@ -45,7 +46,6 @@ Bundle 'othree/html5.vim'
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
 Bundle 'pep8'
-" Bundle 'Pydiction'
 Bundle 'TaskList.vim'
 Bundle 'VimClojure'
 Bundle 'YankRing.vim'
@@ -61,6 +61,8 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " Bundle 'reinh/vim-makegreen'
 " Bundle 'orftz/sbd.vim'
 " Bundle 'sjl/gundo.vim'
+"
+" Bundle 'Pydiction'
 
 " =========
 " : Basic :
@@ -140,14 +142,6 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 
-" tabs
-nmap <C-S-tab> :tabprevious<CR>
-nmap <C-tab> :tabnext<CR>
-map <C-S-tab> :tabprevious<CR>
-map <C-tab> :tabnext<CR>
-imap <C-S-tab> <Esc>:tabprevious<CR>i
-imap <C-tab> <Esc>:tabnext<CR>i
-
 " unbind cursor keys
 for prefix in ['i', 'n', 'v']
   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
@@ -160,7 +154,7 @@ map <leader>v :vsp ~/.vimrc<CR><C-W>_
 " TODO: Use winwidth() to :sp instead if window width would be less than a " half
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" VERIFYME: change to toggle
+" TODO: change to toggle
 " open/close the quickfix window
 nmap <leader>c :copen<CR>
 nmap <leader>cc :cclose<CR>
@@ -178,7 +172,7 @@ map <F11> :set wrap!<CR>
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
-map <leader>a :TagbarToggle<CR>
+nmap <leader>a :TagbarToggle<CR>
 nmap <leader>d <C-W>0_
 nmap <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
 map <leader>g :GundoToggle<CR>
@@ -186,9 +180,9 @@ map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
 map <leader>p :Lodgeit<CR>
-map <leader>td <Plug>TaskList
+nmap <leader>td <Plug>TaskList
 map <leader>tt :CommandT<CR>
-nnoremap <leader>w :VimroomToggle<CR>
+nmap <silent> <leader>w <Plug>VimroomToggle
 map <leader>y :set spell!<CR>
 map <leader>z :vsp ~/.zshrc<CR><C-W>_
 
@@ -409,6 +403,18 @@ let g:indent_guides_start_level = 2
 let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
 let g:SuperTabLongestEnhanced = 1                " enhanced longest complete
 let g:SuperTabLongestHighlight = 1               " preselect first result
+
+" Slime
+let g:slime_target = "tmux"
+
+" VimClojure
+let g:vimclojure#ParenRainbow = 1
+
+" AsyncMakeGreen
+let g:async_make_green_success_prefix = ' ✓ '
+let g:async_make_green_failure_prefix = ' ✖ '
+let g:async_make_green_default_success_text = 'All tests passed'
+
 
 " ============
 " : Autocmds :
