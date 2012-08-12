@@ -1,3 +1,8 @@
 snippet pdb "Insert a trace point in a debugger." !b
 import ${1:pudb}; $1.set_trace()
 endsnippet
+
+snippet test "Test case method" !b
+def test_${1}(self):
+    ${2:pass}
+endsnippet

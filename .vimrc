@@ -45,7 +45,6 @@ Bundle 'othree/html5.vim'
 
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
-Bundle 'pep8'
 Bundle 'VimClojure'
 Bundle 'YankRing.vim'
 
@@ -58,7 +57,6 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " disabled / saved for later
 " Bundle 'reinh/vim-makegreen'
-" Bundle 'orftz/sbd.vim'
 " Bundle 'sjl/gundo.vim'
 "
 " Bundle 'Pydiction'
@@ -406,13 +404,17 @@ let g:SuperTabLongestHighlight = 1               " preselect first result
 " Slime
 let g:slime_target = "tmux"
 
+" Syntastic
+let g:syntastic_error_symbol="✖"
+let g:syntastic_warning_symbol="✦"
+
+" UltiSnips
+let g:UltiSnipsListSnippets = "<C-K>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " VimClojure
 let g:vimclojure#ParenRainbow = 1
-
-" AsyncMakeGreen
-let g:async_make_green_success_prefix = ' ✓ '
-let g:async_make_green_failure_prefix = ' ✖ '
-let g:async_make_green_default_success_text = 'All tests passed'
 
 
 " ============
