@@ -46,7 +46,6 @@ Bundle 'othree/html5.vim'
 Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
 Bundle 'pep8'
-Bundle 'TaskList.vim'
 Bundle 'VimClojure'
 Bundle 'YankRing.vim'
 
@@ -180,7 +179,7 @@ map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
 map <leader>p :Lodgeit<CR>
-nmap <leader>td <Plug>TaskList
+nmap <leader>td :topleft split TODO<CR><C-W>6_
 map <leader>tt :CommandT<CR>
 nmap <silent> <leader>w <Plug>VimroomToggle
 map <leader>y :set spell!<CR>
@@ -392,7 +391,7 @@ let yankring_history_dir = '$HOME/.vim'
 let yankring_history_file = '.yankring_history'
 
 " NERDTree
-let NERDTreeIgnore = ['^_trial_temp$', '^__pycache__$', '^htmlcov$', '^_\?build$', 'egg-info$', '\~$']
+let NERDTreeIgnore = ['^_trial_temp$', '^__pycache__$', '^htmlcov$', '^_\?build$', 'egg-info$', '\~$', '.pyc$']
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
