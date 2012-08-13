@@ -21,7 +21,6 @@ Bundle 'dahu/VimRegexTutor'
 " permanent stuff
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'ervandew/supertab'
-Bundle 'jpalardy/vim-slime'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
@@ -35,6 +34,9 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+
+Bundle 'benmills/vimux'
+Bundle 'julienr/vimux-pyutils'
 
 " HTML5 / CSS / JS / Coffee
 Bundle 'groenewege/vim-less'
@@ -132,13 +134,6 @@ inoremap # X#
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
-" completion
-inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-" TODO: add back <CR> map (see vim tips wiki), but I'm getting a bug
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-
 " unbind cursor keys
 for prefix in ['i', 'n', 'v']
   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
@@ -146,8 +141,15 @@ for prefix in ['i', 'n', 'v']
   endfor
 endfor
 
+" completion
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+" TODO: add back <CR> map (see vim tips wiki), but I'm getting a bug
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+
 " ,v open .vimrc, ,V reloads (save first)
-map <leader>v :vsp ~/.vimrc<CR><C-W>_
+map <leader>v :vsp ~/.vimrc<CR><C-W>L
 " TODO: Use winwidth() to :sp instead if window width would be less than a " half
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
@@ -171,28 +173,22 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 nmap <leader>a :TagbarToggle<CR>
 nmap <leader>d <C-W>0_
-nmap <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
-map <leader>g :GundoToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>:TagbarToggle<CR>
+map <leader>f :CommandTBuffer<CR>
+map <leader>g :CommandT<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
-map <leader>p :Lodgeit<CR>
-nmap <leader>td :topleft split TODO<CR><C-W>6_
-map <leader>tt :CommandT<CR>
+" map <leader>p :Lodgeit<CR>
+map <leader>u :GundoToggle<CR>
 nmap <silent> <leader>w <Plug>VimroomToggle
 map <leader>y :set spell!<CR>
-map <leader>z :vsp ~/.zshrc<CR><C-W>_
+map <leader>z :vsp ~/.zshrc<CR><C-W>L
 
-map <leader>tb :ConqueTermSplit bpython<CR>
-map <leader>tB :ConqueTermVSplit bpython<CR>
-map <leader>tc :ConqueTermSplit bpython-3.2<CR>
-map <leader>tC :ConqueTermVSplit bpython-3.2<CR>
-map <leader>tz :ConqueTermSplit zsh<CR>
-map <leader>tZ :ConqueTermVSplit zsh<CR>
-map <leader>to :ConqueTermSplit python3<CR>
-map <leader>tO :ConqueTermVSplit python3<CR>
-map <leader>tp :ConqueTermSplit python<CR>
-map <leader>tP :ConqueTermVSplit python<CR>
+nmap <leader>td :topleft split TODO<CR><C-W>6_
+nmap <leader>tj :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
+nmap <leader>tl :VimuxRunLastCommand<CR>
+nmap <leader>tq :VimuxCloseRunner<CR>
 
 map <leader>j :RopeGotoDefinition<CR>
 map <leader>r :RopeRename<CR>
@@ -400,9 +396,6 @@ let g:indent_guides_start_level = 2
 let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
 let g:SuperTabLongestEnhanced = 1                " enhanced longest complete
 let g:SuperTabLongestHighlight = 1               " preselect first result
-
-" Slime
-let g:slime_target = "tmux"
 
 " Syntastic
 let g:syntastic_error_symbol="✖"
