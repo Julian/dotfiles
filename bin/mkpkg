@@ -54,11 +54,11 @@ with open(os.path.join(name, "tox.ini"), "w") as tox:
 
         [testenv]
         commands =
-            trial pyvi
+            trial {name}
             {envpython} -m doctest README.rst
 
         deps =
             mock
             twisted
-        """).lstrip()
+        """).lstrip().format(name=name.lower())
     )
