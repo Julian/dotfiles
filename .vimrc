@@ -188,6 +188,8 @@ map <leader>z :vsp ~/.zshrc<CR><C-W>L
 nmap <leader>td :topleft split TODO<CR><C-W>6_
 nmap <leader>tj :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
 nmap <leader>tl :VimuxRunLastCommand<CR>
+nmap <leader>tt :call VimuxRunCommand("clear; tox")<CR>
+nmap <leader>t, :call VimuxRunCommand("clear; tox -e py27")<CR>
 nmap <leader>tq :VimuxCloseRunner<CR>
 
 map <leader>j :RopeGotoDefinition<CR>
@@ -391,6 +393,8 @@ let NERDTreeIgnore = ['^_trial_temp$', '^__pycache__$', '^htmlcov$', '^_\?build$
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
+let g:Powerline_symbols = 'unicode'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"  " try to guess completion

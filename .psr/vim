@@ -22,3 +22,4 @@ Keys
 * sentence and block movements
 
 * bind something to <C-f>n
+* put average lines per fn/class somewhere (statusbar?)
