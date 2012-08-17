@@ -21,7 +21,6 @@ Bundle 'dahu/VimRegexTutor'
 " permanent stuff
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'ervandew/supertab'
-Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
@@ -55,6 +54,7 @@ Bundle 'pydave/AsyncCommand'
 Bundle 'jimf/vim-red-green'
 Bundle 'jimf/vim-async-make-green'
 
+Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " disabled / saved for later
@@ -171,9 +171,8 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 nmap <leader>a :TagbarToggle<CR>
 nmap <leader>d <C-W>0_
 nmap <leader>e :NERDTreeToggle<CR>:TagbarToggle<CR>
-map <leader>f :CtrlPBuffer<CR>
-map <leader>g :CtrlP<CR>
-map <leader>h :CtrlPMRU<CR>
+map <leader>f :CommandTBuffer<CR>
+map <leader>g :CommandT<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
