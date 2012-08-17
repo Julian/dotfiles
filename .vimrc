@@ -93,7 +93,7 @@ set tags=./tags;$HOME                  " look up until $HOME for tags
 " : Bindings :
 " ============
 
-let mapleader=","
+let mapleader = "\<space>"
 
 " quick fingers
 cnoreabbrev WQ wq
@@ -116,9 +116,6 @@ noremap g` g'
 
 " reverse line join
 nnoremap <leader>J ddpkJ
-
-" toggle fold
-nnoremap <space> za
 
 " line numbers
 nmap <C-N><C-N> :set invnumber<CR>
@@ -159,7 +156,7 @@ nmap <leader>c :copen<CR>
 nmap <leader>cc :cclose<CR>
 
 " hide matches
-nnoremap <leader><space> :nohlsearch<cr>
+nnoremap <leader>' :nohlsearch<cr>
 
 " Remove trailing whitespace
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
@@ -199,7 +196,7 @@ map <leader>r :RopeRename<CR>
 map <leader>N :set makeprg=nosetests\|:call MakeGreen()<CR>
 map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
 
-map <leader><leader> :b#<CR>
+map <leader><tab> :b#<CR>
 
 " reST / similar surround a line with -- and ==
 nnoremap <leader>m- yyPVr-
