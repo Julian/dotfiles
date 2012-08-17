@@ -4,6 +4,7 @@
 
 .vim/bundle
 .vim/sessions
+.vim/.netrwhist
 .vim/.yankring_history*
 
 .tmux/tmux.conf.local
