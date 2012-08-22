@@ -12,5 +12,8 @@ Install
 * Run `rake make` in .vim/bundle/command-t
 * mkdirs
     * $HOME/{.virtualenvs, Development}
+* Symlink .virtualenvs/\*
+* Symlink tmux.conf.os to tmux.conf.local
+* Add login credentials to pypirc
 * Check installed/pip
 * Symlink something to ~/.wallpaper

@@ -1,0 +1,2 @@
+#! /bin/zsh
+pip install -r requirements-every-virtualenv.txt
