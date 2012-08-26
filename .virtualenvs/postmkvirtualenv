@@ -1,2 +1,2 @@
 #! /bin/zsh
-pip install -r requirements-every-virtualenv.txt
+pip install -r $WORKON_HOME/requirements-every-virtualenv.txt
