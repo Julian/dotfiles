@@ -35,8 +35,14 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 
-Bundle 'benmills/vimux'
-Bundle 'julienr/vimux-pyutils'
+if !has("gui_running") || !has("clientserver")
+    Bundle 'benmills/vimux'
+    Bundle 'julienr/vimux-pyutils'
+else
+    Bundle 'pydave/AsyncCommand'
+    Bundle 'jimf/vim-red-green'
+    Bundle 'jimf/vim-async-make-green'
+endif
 
 " HTML5 / CSS / JS / Coffee
 Bundle 'groenewege/vim-less'
@@ -49,10 +55,6 @@ Bundle 'Conque-Shell'
 Bundle 'jpythonfold.vim'
 Bundle 'VimClojure'
 Bundle 'YankRing.vim'
-
-Bundle 'pydave/AsyncCommand'
-Bundle 'jimf/vim-red-green'
-Bundle 'jimf/vim-async-make-green'
 
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
@@ -298,21 +300,6 @@ set noerrorbells
 set novisualbell
 set vb t_vb=
 
-if has("gui_running")
-    if has("gui_macvim")
-        set fuoptions=maxvert,maxhorz
-        set guifont=Inconsolata:h14
-        au GUIEnter * set fullscreen
-    elseif has("gui_gtk2")
-        set guifont=Inconsolata\ 13
-    endif
-
-    set guioptions-=T
-    set guioptions-=L
-    set guioptions-=m
-    set guioptions-=r
-
-endif
 
 if has('mouse')
   set mouse=a
