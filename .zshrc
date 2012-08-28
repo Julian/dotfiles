@@ -5,6 +5,8 @@ setopt EXTENDED_GLOB        # extended patterns support
 
 export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 
+export XDG_CONFIG_HOME=$HOME/.config
+
 # virtualenvwrapper (needs to be sourced *after* the PATH is set correctly)
 # TODO: Use a virtualenv.ini
 export WORKON_HOME=$HOME/.virtualenvs
@@ -14,6 +16,8 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 # export PIP_REQUIRE_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV=true
 source virtualenvwrapper_lazy.sh
+
+export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 
 export PYTHON_TEST_RUNNER=`which trial`
 
