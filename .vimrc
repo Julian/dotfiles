@@ -175,6 +175,7 @@ nmap <leader>d <C-W>0_
 nmap <leader>e :NERDTreeToggle<CR>:TagbarToggle<CR>
 map <leader>f :CommandTBuffer<CR>
 map <leader>g :CommandT<CR>
+nmap <leader>k :call <SID>ToggleExpando()<CR>
 map <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
@@ -412,6 +413,25 @@ if has("eval")
         else
             setlocal norelativenumber
             setlocal foldcolumn=0
+        endif
+    endfun
+
+    " Expand the active window
+    fun! <SID>ToggleExpando()
+        if !exists("s:expando_enabled")
+            let s:expando_enabled = 0
+            normal 30>
+            return <SID>ToggleExpando()
+        else
+            augroup expando
+                au!
+                if !s:expando_enabled
+                    au WinEnter * :normal 45>
+                    let s:expando_enabled = 1
+                else
+                    let s:expando_enabled = 0
+                endif
+            augroup END
         endif
     endfun
 
