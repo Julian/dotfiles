@@ -86,10 +86,9 @@ set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
 set tags=./tags;$HOME                  " look up until $HOME for tags
 
-" CHECKME
-" Disable the colorcolumn when switching modes.  Make sure this is the
-" first autocmd for the filetype here
-" autocmd FileType * setlocal colorcolumn=0
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
 
 " ============
 " : Bindings :
@@ -115,6 +114,8 @@ noremap ` '
 noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
+
+nnoremap <CR> :nohlsearch<CR>
 
 " reverse line join
 nnoremap <leader>J ddpkJ
@@ -156,9 +157,6 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " open/close the quickfix window
 nmap <leader>c :copen<CR>
 nmap <leader>cc :cclose<CR>
-
-" hide matches
-nnoremap <leader>' :nohlsearch<cr>
 
 " Remove trailing whitespace
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
