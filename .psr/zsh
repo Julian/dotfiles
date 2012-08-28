@@ -1,4 +1,5 @@
 * () forks a subshell
+* set -e stuff will stop the command immediately on an error (useful with ())
 * {} blocks
 * > foo1 > foo2 and MULTIOS
 * cd old_dir new_dir
