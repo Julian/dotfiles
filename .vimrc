@@ -38,10 +38,6 @@ Bundle 'tpope/vim-unimpaired'
 if !has("gui_running") || !has("clientserver")
     Bundle 'benmills/vimux'
     Bundle 'julienr/vimux-pyutils'
-else
-    Bundle 'pydave/AsyncCommand'
-    Bundle 'jimf/vim-red-green'
-    Bundle 'jimf/vim-async-make-green'
 endif
 
 " HTML5 / CSS / JS / Coffee

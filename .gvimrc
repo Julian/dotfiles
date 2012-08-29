@@ -1,7 +1,3 @@
-Bundle 'pydave/AsyncCommand'
-Bundle 'jimf/vim-red-green'
-Bundle 'jimf/vim-async-make-green'
-
 if has("gui_gtk2")
     set guifont=Inconsolata\ 14,Terminus\ 14,Consolas\ 14
 elseif has("gui_photon")
