@@ -17,3 +17,4 @@ Install
 * Add login credentials to pypirc
 * Check installed/pip
 * Symlink something to ~/.wallpaper
+* make sure pyflakes is installed for syntastic
