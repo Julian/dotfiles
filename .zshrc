@@ -65,6 +65,11 @@ RPS1="%B%n%b@%m"
 
 setopt PROMPT_SUBST
 
+#--- Bindings ----------------------------------------------------------------
+
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+
 #--- Options -----------------------------------------------------------------
 
 bindkey -v                    # set vim bindings in zsh
