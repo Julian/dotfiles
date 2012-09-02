@@ -1,3 +1,4 @@
 set editing-mode vi
+set keymap vi-insert
 tab: complete
 set blink-matching-paren on
