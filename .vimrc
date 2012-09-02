@@ -213,7 +213,7 @@ set showcmd		               " display incomplete commands
 
 set wildmenu                           " file completion helper window
 set wildmode=longest:full,full
-set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc
+set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,_trial_temp/**
 set suffixes+=.backup
 
 " close preview window automatically when we move around
