@@ -8,17 +8,29 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle (required!)
+" Let Vundle manage Vundle (required!).
 Bundle 'gmarik/vundle'
 
-" themes
-" Bundle 'KevinGoodsell/vim-csexact'
+" --- Themes ---
 Bundle 'sickill/vim-monokai'
 
-" temporary stuff
+" --- Temporary ---
 Bundle 'dahu/VimRegexTutor'
 
-" permanent stuff
+" --- Additional Filetype Support ---
+Bundle 'groenewege/vim-less'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'othree/html5.vim'
+Bundle 'tpope/vim-git'
+Bundle 'vim-ruby/vim-ruby'
+
+Bundle 'VimClojure'
+
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+
+" --- Plugins ---
+
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'ervandew/supertab'
 Bundle 'Lokaltog/vim-powerline'
@@ -30,34 +42,25 @@ Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
 
 if !has("gui_running") || !has("clientserver")
     Bundle 'benmills/vimux'
     Bundle 'julienr/vimux-pyutils'
 endif
 
-" HTML5 / CSS / JS / Coffee
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'othree/html5.vim'
-" Bundle 'skammer/vim-css-color'
-
 Bundle 'Conque-Shell'
-Bundle 'VimClojure'
 Bundle 'YankRing.vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
-" disabled / saved for later
+" --- Disabled / Saved ---
+" Bundle 'KevinGoodsell/vim-csexact'
 " Bundle 'reinh/vim-makegreen'
+" Bundle 'skammer/vim-css-color'
 " Bundle 'sjl/gundo.vim'
-"
+
 " Bundle 'Pydiction'
 
 " =========
@@ -139,7 +142,7 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 
-" ,v open .vimrc, ,V reloads (save first)
+" v open .vimrc, V reloads (save first)
 map <leader>v :vsp ~/.vimrc<CR><C-W>L
 " TODO: Use winwidth() to :sp instead if window width would be less than a " half
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
