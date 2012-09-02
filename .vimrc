@@ -33,7 +33,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-ruby/vim-ruby'
 
 if !has("gui_running") || !has("clientserver")
     Bundle 'benmills/vimux'
@@ -80,10 +80,6 @@ set clipboard+=unnamed                 " share clipboard with system clipboard
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
 set tags=./tags;$HOME                  " look up until $HOME for tags
-
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
 
 " ============
 " : Bindings :
