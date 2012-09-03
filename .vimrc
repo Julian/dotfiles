@@ -142,9 +142,6 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 
-" TODO: Use winwidth() to :sp instead if window width would be less than a " half
-map <leader>v :vsp ~/.vimrc<CR><C-W>L
-
 " TODO: change to toggle
 " open/close the quickfix window
 nmap <leader>c :copen<CR>
@@ -171,6 +168,7 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
 " map <leader>p :Lodgeit<CR>
 map <leader>u :GundoToggle<CR>
+nmap <leader>v :call <SID>SplitByWidth('~/.vimrc')<CR>
 nmap <silent> <leader>w <Plug>VimroomToggle
 map <leader>y :set spell!<CR>
 map <leader>z :vsp ~/.zshrc<CR><C-W>L
@@ -396,6 +394,19 @@ let g:vimclojure#ParenRainbow = 1
 " ============
 
 if has("eval")
+
+    " Split a window vertically if it would have at least 79 chars plus a bit
+    " of padding, otherwise split it horizontally
+    fun! <SID>SplitByWidth(path)
+        let padding = 5  " columns
+        let path_to_split = a:path
+
+        if winwidth(0) >= (79 + padding) * 2
+            exec 'vsplit ' . path_to_split
+        else
+            exec 'split ' . path_to_split
+        endif
+    endfun
 
     " If we're in a wide window, enable line numbers.
     fun! <SID>WindowWidth()
