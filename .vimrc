@@ -142,10 +142,8 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 
-" v open .vimrc, V reloads (save first)
-map <leader>v :vsp ~/.vimrc<CR><C-W>L
 " TODO: Use winwidth() to :sp instead if window width would be less than a " half
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>v :vsp ~/.vimrc<CR><C-W>L
 
 " TODO: change to toggle
 " open/close the quickfix window
@@ -442,6 +440,11 @@ if has("autocmd") && has("eval")
     " For help files, make <Return> behave like <C-]> (jump to tag)
     autocmd FileType help nmap <buffer> <Return> <C-]>
 
+    " Jump to the last known cursor position if it's valid (from the docs)
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 endif
 
 
@@ -467,6 +470,8 @@ autocmd FileType coffee setlocal textwidth=79
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+autocmd BufWritePost .vimrc source $MYVIMRC
 
 let g:tex_flavor='latex'
 let python_highlight_all=1
