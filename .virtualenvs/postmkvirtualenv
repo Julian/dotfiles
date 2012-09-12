@@ -1,2 +1,3 @@
 #! /bin/zsh
-pip install -r $WORKON_HOME/requirements-every-virtualenv.txt
+version=`python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1`
+pip install -r "$WORKON_HOME/requirements-every-virtualenv-py$version.txt"

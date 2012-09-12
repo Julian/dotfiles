@@ -1,4 +1,4 @@
-pudb
-pdbpp
 bpython
+pdbpp
+pudb
 twisted
