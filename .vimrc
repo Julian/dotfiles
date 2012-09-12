@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 
 " --- Themes ---
 Bundle 'sickill/vim-monokai'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 
 " --- Temporary ---
 Bundle 'dahu/VimRegexTutor'
