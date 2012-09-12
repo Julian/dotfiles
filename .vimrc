@@ -404,6 +404,7 @@ if has("eval")
 
         if winwidth(0) >= (79 + padding) * 2
             exec 'vsplit ' . path_to_split
+            normal L
         else
             exec 'split ' . path_to_split
         endif
@@ -468,26 +469,22 @@ autocmd BufNewFile,BufRead *.j2 setlocal filetype=jinja
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
 autocmd BufNewFile,BufRead *.tac setlocal filetype=python
 
-autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
-autocmd FileType tex setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 iskeyword+=: textwidth=79
-
-autocmd Filetype rst setlocal expandtab textwidth=79 makeprg=rst2html.py\ %
+autocmd FileType html,xhtml,xml setlocal shiftwidth=2 softtabstop=2
+autocmd Filetype rst setlocal textwidth=79 makeprg=rst2html.py\ %
+autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 iskeyword+=: textwidth=79
 
 " Compile coffeescript on write (requires vim-coffee-script)
 autocmd BufWritePost *.coffee silent CoffeeMake!
 autocmd FileType coffee setlocal textwidth=79
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal expandtab textwidth=79 shiftwidth=4 tabstop=8 softtabstop=4 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType python setlocal textwidth=79 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 autocmd BufWritePost .vimrc source $MYVIMRC
 
 let g:tex_flavor='latex'
 let python_highlight_all=1
-
 
 " TODO: Mapping / something to split 2 windows at 79 chars, toggling the right
 " one on and off (like a test_ file), with tags (,a) at the left
