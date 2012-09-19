@@ -24,3 +24,4 @@ Keys
 * bind something to <C-f>n
 * put average lines per fn/class somewhere (statusbar?)
 * Make intelligent font size decision based on window and term width
+* Try vam, maybe use it to selectively load ftplugins
