@@ -210,7 +210,7 @@ set showcmd		               " display incomplete commands
 
 set wildmenu                           " file completion helper window
 set wildmode=longest:full,full
-set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,_trial_temp/**,*.egg-info/**,build/**,htmlcov/**
+set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,_trial_temp/**,*.egg-info/**,build/**,htmlcov/**,dist/**,MANIFEST
 set suffixes+=.backup
 
 " close preview window automatically when we move around
@@ -478,7 +478,7 @@ autocmd BufWritePost *.coffee silent CoffeeMake!
 autocmd FileType coffee setlocal textwidth=79
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal textwidth=79 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType python set textwidth=79 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 autocmd BufWritePost .vimrc source $MYVIMRC
