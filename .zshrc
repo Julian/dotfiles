@@ -8,7 +8,6 @@ export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 export XDG_CONFIG_HOME=$HOME/.config
 
 # virtualenvwrapper (needs to be sourced *after* the PATH is set correctly)
-# TODO: Use a virtualenv.ini
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Development
 export VIRTUALENV_USE_DISTRIBUTE=true
