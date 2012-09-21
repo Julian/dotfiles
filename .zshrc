@@ -31,7 +31,7 @@ stty -ixon
 #--- Completion --------------------------------------------------------------
 
 # Completions
-fpath=(~/.zsh/zsh-completions $fpath)
+fpath=(~/.zsh/zsh-completions/src $fpath)
 autoload -U compinit
 compinit
 
