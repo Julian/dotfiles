@@ -13,8 +13,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Development
 export VIRTUALENV_USE_DISTRIBUTE=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
-# export PIP_REQUIRE_VIRTUALENV=true
-export PIP_RESPECT_VIRTUALENV=true
 source virtualenvwrapper_lazy.sh
 
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
