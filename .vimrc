@@ -362,6 +362,11 @@ let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 let yankring_history_dir = '$HOME/.vim'
 let yankring_history_file = '.yankring_history'
 
+" Yankring nnoremaps to remap Y. See :h yankring-custom-maps
+function! YRRunAfterMaps()
+    nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
+endfunction
+
 " NERDTree
 let NERDTreeIgnore = ['^_trial_temp$', '^__pycache__$', '^htmlcov$', '^_\?build$', 'egg-info$', '\~$', '.pyc$']
 
