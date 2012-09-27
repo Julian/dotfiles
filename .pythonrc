@@ -73,6 +73,9 @@ def edit(editor=None, *args, **kwargs):
                        edited file, that should add the line to the history, or
                        None to turn this feature off. (default:
                        `readline.add_history`)
+        `filter_globals`: A function that will be used to filter the globals
+                          when outputted. The default is to exclude any name
+                          that starts with an underscore.
 
     """
 
@@ -93,6 +96,7 @@ def edit(editor=None, *args, **kwargs):
     globals_ = kwargs.get("globals", globals())
     write_globals = kwargs.get("write_globals", True)
     retry = kwargs.get("retry", False)
+    matches = kwargs.get("filter_globals", lambda n : not n.startswith("_"))
 
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as tmp:
@@ -100,7 +104,8 @@ def edit(editor=None, *args, **kwargs):
             tmp.writelines(content)
         if globals_ and write_globals:
             tmp.write("# Globals:\n")
-            tmp.writelines("#    {}\n".format(g) for g in globals_)
+            matching = (g for g in globals_ if matches(g))
+            tmp.writelines("#    {}\n".format(g) for g in matching)
 
     while True:
         subprocess.call((editor, tmp.name,) + args)
@@ -135,4 +140,4 @@ else:
     del readline, rlcompleter
 
 
-del logging, os, sys
+del logger, logging, os, sys
