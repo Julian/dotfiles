@@ -160,12 +160,10 @@ inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
 nmap <leader>a :TagbarToggle<CR>
 nmap <leader>d <C-W>0_
-nmap <leader>e :NERDTreeToggle<CR>:TagbarToggle<CR>
 map <leader>f :CommandTBuffer<CR>
 map <leader>g :CommandT<CR>
 nmap <leader>k :call <SID>ToggleExpando()<CR>
 map <leader>l :set list!<CR>
-map <leader>n :NERDTreeToggle<CR>
 map <leader>s :!trial %<CR>
 " map <leader>p :Lodgeit<CR>
 map <leader>u :GundoToggle<CR>
@@ -371,9 +369,6 @@ let yankring_history_file = '.yankring_history'
 function! YRRunAfterMaps()
     nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
 endfunction
-
-" NERDTree
-let NERDTreeIgnore = ['^_trial_temp$', '^__pycache__$', '^htmlcov$', '^_\?build$', 'egg-info$', '\~$', '.pyc$']
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
