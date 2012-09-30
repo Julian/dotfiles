@@ -210,8 +210,13 @@ set showcmd		               " display incomplete commands
 
 set wildmenu                           " file completion helper window
 set wildmode=longest:full,full
-set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,_trial_temp/**,*.egg-info/**,build/**,htmlcov/**,dist/**,MANIFEST
+set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,**/_trial_temp/**,*.egg-info/**,**/build/**,**/htmlcov/**,**/dist/**,MANIFEST
 set suffixes+=.backup
+
+if filereadable("/usr/share/dict/words") "
+    set dictionary+=/usr/share/dict/words
+endif
+
 
 " close preview window automatically when we move around
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -264,7 +269,7 @@ set background=dark
 
 if &t_Co > 8
     set t_Co=256
-    colorscheme molokai                    " needs to be after set background
+    colorscheme Tomorrow               " needs to be after set background
 else
     colorscheme desert
 endif
