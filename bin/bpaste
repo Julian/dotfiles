@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+import optparse
+import sys
+import urlparse
+import xmlrpclib
+
+
+URL = 'http://bpaste.net/'
+
+
+def pastebin(source, syntax, parent=''):
+    """Upload to a pastebin and output the URL"""
+    pasteservice = xmlrpclib.ServerProxy(urlparse.urljoin(URL, '/xmlrpc/'))
+    paste_id = pasteservice.pastes.newPaste(syntax, source, parent)
+    return urlparse.urljoin(URL, '/show/%s/' % (paste_id, ))
+
+
+def main(args=None):
+    if args is None:
+        args = sys.argv[1:]
+
+    parser = optparse.OptionParser()
+    parser.add_option('-p', dest='parent', type='string', default='')
+    parser.add_option("-s", dest="syntax", type='string', default='pycon',
+                  help="Syntax highlighting: py, bash, sql, xml, c, c++, etc")
+    options, args = parser.parse_args(args)
+    if args:
+        parser.print_usage()
+        return 1
+
+    source = sys.stdin.read()
+    try:
+        url = pastebin(source, options.syntax, options.parent)
+    except xmlrpclib.Error, exc:
+        print >> sys.stderr, 'Paste failed:', exc
+    else:
+        print 'Paste succeeded, available as', url
+
+    return 0
+
+
+
+if __name__ == '__main__':
+    sys.exit(main())
