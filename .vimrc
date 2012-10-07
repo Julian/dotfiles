@@ -268,7 +268,7 @@ set background=dark
 
 if &t_Co > 8
     set t_Co=256
-    colorscheme Tomorrow               " needs to be after set background
+    colorscheme Tomorrow-Night         " needs to be after set background
 else
     colorscheme desert
 endif
