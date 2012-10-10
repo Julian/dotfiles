@@ -64,6 +64,10 @@ setopt PROMPT_SUBST
 
 #--- Bindings ----------------------------------------------------------------
 
+bindkey "^B" send-break
+bindkey "^O" accept-line-and-down-history
+bindkey "^R" history-incremental-search-backward
+
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search up-line-or-beginning-search
@@ -137,9 +141,6 @@ disable r
 if [[ -x /usr/bin/time ]]; then
     disable -r time
 fi
-
-bindkey '^b' send-break
-bindkey '^o' accept-line-and-down-history
 
 
 # Make ^Z toggle between ^Z and fg
