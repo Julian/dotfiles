@@ -52,6 +52,7 @@ if !has("gui_running") || !has("clientserver")
     Bundle 'julienr/vimux-pyutils'
 endif
 
+Bundle 'argtextobj.vim'
 Bundle 'Conque-Shell'
 Bundle 'YankRing.vim'
 
@@ -80,8 +81,8 @@ set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
 set nowrap
 set report=0                           " :cmd always shows changed line count
+set textwidth=79
 
-set clipboard+=unnamed                 " share clipboard with system clipboard
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
 set tags=./tags;$HOME                  " look up until $HOME for tags
@@ -475,22 +476,12 @@ autocmd BufNewFile,BufRead *.j2 setlocal filetype=jinja
 autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
 autocmd BufNewFile,BufRead *.tac setlocal filetype=python
 
-autocmd FileType html,xhtml,xml setlocal shiftwidth=2 softtabstop=2
-autocmd Filetype rst setlocal textwidth=79 makeprg=rst2html.py\ %
-autocmd FileType tex setlocal shiftwidth=2 softtabstop=2 iskeyword+=: textwidth=79
-
 " Compile coffeescript on write (requires vim-coffee-script)
 autocmd BufWritePost *.coffee silent CoffeeMake!
-autocmd FileType coffee setlocal textwidth=79
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python set textwidth=79 indentkeys-=<:>,0# cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd BufRead *.py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 autocmd BufWritePost .vimrc source $MYVIMRC
 
 let g:tex_flavor='latex'
-let python_highlight_all=1
 
 " TODO: Mapping / something to split 2 windows at 79 chars, toggling the right
 " one on and off (like a test_ file), with tags (,a) at the left
