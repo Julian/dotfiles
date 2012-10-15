@@ -57,7 +57,11 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #--- Prompt ------------------------------------------------------------------
 
-PS1="%15<...<%~%# "
+autoload -U colors && colors
+
+PS1="
+%15<...<%~
+%(!.$fg[red]⊙%{$reset_color%}.$fg[cyan]⊙%{$reset_color%})  "
 RPS1="%B%n%b@%m"
 
 setopt PROMPT_SUBST
