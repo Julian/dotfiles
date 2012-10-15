@@ -125,7 +125,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=LightGrey gui=NONE guifg=LightGrey
 nnoremap <leader>. :lcd %:p:h<CR>
 
 " Fix broken # behavior
-inoremap # X#
+inoremap # X<BS>#
 
 " recover from accidental c-u
 inoremap <c-u> <c-g>u<c-u>
@@ -411,7 +411,7 @@ if has("eval")
 
         if winwidth(0) >= (79 + padding) * 2
             exec 'vsplit ' . path_to_split
-            normal L
+            wincmd L
         else
             exec 'split ' . path_to_split
         endif
@@ -432,13 +432,13 @@ if has("eval")
     fun! <SID>ToggleExpando()
         if !exists("s:expando_enabled")
             let s:expando_enabled = 0
-            normal 30>
+            30wincmd >
             return <SID>ToggleExpando()
         else
             augroup expando
                 au!
                 if !s:expando_enabled
-                    au WinEnter * :normal 45>
+                    au WinEnter * :45wincmd >
                     let s:expando_enabled = 1
                 else
                     let s:expando_enabled = 0
