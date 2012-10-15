@@ -11,6 +11,6 @@ set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 " Make inserting closing delimiters automatically reindent the container and
 " move to the end again
-inoremap <buffer> } }u=a}/}<CR><Right>
-inoremap <buffer> ] ]u=a]/]<CR><Right>
-inoremap <buffer> ) )u=a)/)<CR><Right>
+inoremap <buffer> } }u=a}/}<CR><Right>:nohlsearch<CR>
+inoremap <buffer> ] ]u=a]/]<CR><Right>:nohlsearch<CR>
+inoremap <buffer> ) )u=a)/)<CR><Right>:nohlsearch<CR>
