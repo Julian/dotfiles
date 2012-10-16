@@ -278,6 +278,8 @@ endif
 set formatoptions-=r                   " do not insert comment char after enter
 
 set laststatus=2                       " always show status line
+
+" doesn't actually do anything since we've got Powerline but kept just in case
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 set confirm                            " show confirm dialog instead of warn
