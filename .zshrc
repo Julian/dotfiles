@@ -122,8 +122,14 @@ alias git='noglob git'
 alias playalbums='mplayer */* -shuffle'
 alias arssi="ssh julian@arch-desktop -t 'tmux attach-session -t irssi || tmux new-session -s irssi'"
 
-# assumes OSX has gnu coreutils installed from homebrew
-alias ls='ls --color=auto --human-readable --group-directories-first'
+
+if ls --color &> /dev/null; then
+    # assumes OSX has gnu coreutils installed from homebrew
+    alias ls='ls --color=auto --human-readable --group-directories-first'
+else
+    alias ls='ls -Gh'
+fi
+
 
 eval $( dircolors -b $HOME/.dircolors )
 
