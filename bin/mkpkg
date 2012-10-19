@@ -43,7 +43,48 @@ with open(os.path.join(name, "COPYING"), "w") as copying:
 
 
 with open(os.path.join(name, "setup.py"), "w") as setup:
-    pass
+    setup.write(
+        textwrap.dedent("""
+        from distutils.core import setup
+
+        from {0} import __version__
+
+
+        with open("README.rst") as readme:
+            long_description = readme.read()
+
+
+        classifiers = [
+            "Development Status :: 3 - Alpha",
+            "License :: OSI Approved :: MIT License",
+            "Operating System :: OS Independent",
+            "Programming Language :: Python",
+            "Programming Language :: Python :: 2",
+            "Programming Language :: Python :: 2.6",
+            "Programming Language :: Python :: 2.7",
+            "Programming Language :: Python :: 3",
+            "Programming Language :: Python :: 3.1",
+            "Programming Language :: Python :: 3.2",
+            "Programming Language :: Python :: 3.3",
+            "Programming Language :: Python :: Implementation :: CPython",
+            "Programming Language :: Python :: Implementation :: PyPy",
+        ]
+
+
+        setup(
+            name="{0}",
+            version=__version__,
+            packages=["{0}", "{0}.tests"],
+            author="Julian Berman",
+            author_email="Julian@GrayVines.com",
+            classifiers=classifiers,
+            description="",
+            license="MIT/X",
+            long_description=long_description,
+            url="",
+        )
+        """).lstrip().format(name.lower())
+    )
 
 
 with open(os.path.join(name, "tox.ini"), "w") as tox:
