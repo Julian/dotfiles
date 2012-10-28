@@ -33,7 +33,9 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " --- Plugins ---
 
 Bundle 'alfredodeza/coveragepy.vim'
+" Bundle 'davidhalter/jedi-vim'
 Bundle 'ervandew/supertab'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
@@ -398,6 +400,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " VimClojure
 let g:vimclojure#ParenRainbow = 1
 
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#goto_command = "<leader>\\"
+let g:jedi#get_definition_command = "<leader>`"
 
 " ============
 " : Autocmds :
