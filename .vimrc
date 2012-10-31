@@ -25,6 +25,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-git'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'xhr/vim-io'
 
 Bundle 'VimClojure'
 
@@ -33,7 +34,7 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " --- Plugins ---
 
 Bundle 'alfredodeza/coveragepy.vim'
-" Bundle 'davidhalter/jedi-vim'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'ervandew/supertab'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
@@ -220,9 +221,12 @@ if filereadable("/usr/share/dict/words") "
 endif
 
 
-" close preview window automatically when we move around
-autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+augroup cursorMove
+    " close preview window automatically when we move around
+    au!
+    autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+augroup END
 
 " ===========
 " : Folding :
@@ -458,20 +462,25 @@ endif
 
 if has("autocmd") && has("eval")
 
-    " Automagic line numbers
-    autocmd BufEnter * :call <SID>WindowWidth()
+    augroup misc
+        au!
 
-    " Always do a full syntax refresh
-    autocmd BufEnter * syntax sync fromstart
+        " Automagic line numbers
+        autocmd BufEnter * :call <SID>WindowWidth()
 
-    " For help files, make <Return> behave like <C-]> (jump to tag)
-    autocmd FileType help nmap <buffer> <Return> <C-]>
+        " Always do a full syntax refresh
+        autocmd BufEnter * syntax sync fromstart
 
-    " Jump to the last known cursor position if it's valid (from the docs)
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
+        " For help files, make <Return> behave like <C-]> (jump to tag)
+        autocmd FileType help nmap <buffer> <Return> <C-]>
+
+        " Jump to the last known cursor position if it's valid (from the docs)
+        autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal g`\"" |
+            \ endif
+    augroup END
+
 endif
 
 
@@ -479,14 +488,17 @@ endif
 " : FileType Specific :
 " =====================
 
-autocmd BufNewFile,BufRead *.j2 setlocal filetype=jinja
-autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
-autocmd BufNewFile,BufRead *.tac setlocal filetype=python
+augroup filetypes
+    au!
+    autocmd BufNewFile,BufRead *.j2 setlocal filetype=jinja
+    autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
+    autocmd BufNewFile,BufRead *.tac setlocal filetype=python
 
-" Compile coffeescript on write (requires vim-coffee-script)
-autocmd BufWritePost *.coffee silent CoffeeMake!
+    " Compile coffeescript on write (requires vim-coffee-script)
+    autocmd BufWritePost *.coffee silent CoffeeMake!
 
-autocmd BufWritePost .vimrc source $MYVIMRC
+    autocmd BufWritePost .vimrc source $MYVIMRC
+augroup END
 
 let g:tex_flavor='latex'
 
