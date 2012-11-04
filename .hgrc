@@ -2,6 +2,7 @@
 color =
 fetch =
 mq =
+progress =
 purge =
 hgext.record =
 
