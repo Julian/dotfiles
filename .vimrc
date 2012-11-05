@@ -34,7 +34,6 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " --- Plugins ---
 
 Bundle 'alfredodeza/coveragepy.vim'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'ervandew/supertab'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
@@ -42,13 +41,17 @@ Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'mikewest/vimroom'
 Bundle 'scrooloose/syntastic'
-Bundle 'SirVer/ultisnips'
 Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+
+if has("python")
+    Bundle 'davidhalter/jedi-vim'
+    Bundle 'SirVer/ultisnips'
+endif
 
 if !has("gui_running") || !has("clientserver")
     Bundle 'benmills/vimux'
