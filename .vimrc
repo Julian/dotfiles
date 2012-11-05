@@ -172,8 +172,8 @@ map <leader>f :CommandTBuffer<CR>
 map <leader>g :CommandT<CR>
 nmap <leader>k :call <SID>ToggleExpando()<CR>
 map <leader>l :set list!<CR>
+map <leader>p o<C-R>"<Esc>
 map <leader>s :!trial %<CR>
-" map <leader>p :Lodgeit<CR>
 map <leader>u :GundoToggle<CR>
 nmap <leader>v :call <SID>SplitByWidth('~/.vimrc')<CR>
 nmap <silent> <leader>w <Plug>VimroomToggle
