@@ -192,6 +192,7 @@ map <leader>r :RopeRename<CR>
 
 map <leader>N :set makeprg=nosetests\|:call MakeGreen()<CR>
 map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
+map <leader>P o<C-R>*<Esc>
 
 map <leader><tab> :b#<CR>
 
