@@ -75,7 +75,8 @@ precmd () {
     vcs_info
 }
 
-PS1='%15<...<%~ ${vcs_info_msg_0_}
+PS1='
+%15<...<%~ ${vcs_info_msg_0_}
 %(!.%{$fg[red]%}⊙%{$reset_color%}.%{$fg[cyan]%}⊙%{$reset_color%})  '
 RPS1='%B%n%b@%m'
 
