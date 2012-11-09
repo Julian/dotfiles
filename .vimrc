@@ -203,7 +203,6 @@ nnoremap <leader>m= yyPVr=
 nnoremap <leader>M- yyPVr-yyjp
 nnoremap <leader>M= yyPVr=yyjp
 
-imap <C-l> <space>=><space>
 
 " ==============
 " : Completion :
