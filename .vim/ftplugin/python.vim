@@ -14,3 +14,5 @@ set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 inoremap <buffer> } }<C-G>u<C-O>=a}<C-O>/}<CR><Right><C-O>:nohlsearch<CR>
 inoremap <buffer> ] ]<C-G>u<C-O>=a]<C-O>/]<CR><Right><C-O>:nohlsearch<CR>
 inoremap <buffer> ) )<C-G>u<C-O>=a)<C-O>/)<CR><Right><C-O>:nohlsearch<CR>
+
+map <F9> :!python "%:p"<CR>
