@@ -15,6 +15,8 @@
     prompt = false
 
 [alias]
+    bm = branch --merged
+    bn = branch --no-merged
     ci = commit
     co = checkout
     di = diff
