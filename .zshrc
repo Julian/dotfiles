@@ -71,14 +71,29 @@ zstyle ':vcs_info:*' actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5} on %F{2}%b%F{3}|
 zstyle ':vcs_info:*' formats '%F{5}(%f%s%F{5})%F{3}-%F{5} on %F{2}%b%F{5}%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
+prompt_jobs() {
+    PROMPT_JOBS=''
+
+    running_job_count=`jobs -r | wc -l`
+    stopped_job_count=`jobs -s | wc -l`
+
+    if (( running_job_count > 0 )) ; then
+        PROMPT_JOBS=" %{$fg[green]%}●%{$reset_color%}"
+    fi
+    if (( stopped_job_count > 0 )) ; then
+        PROMPT_JOBS="$PROMPT_JOBS %{$fg[yellow]%}●%{$reset_color%}"
+    fi
+}
+
 precmd () {
+    prompt_jobs
     vcs_info
 }
 
 PS1='
 %15<...<%~ ${vcs_info_msg_0_}
 %(!.%{$fg[red]%}⊙%{$reset_color%}.%{$fg[cyan]%}⊙%{$reset_color%})  '
-RPS1='%B%n%b@%m'
+RPS1='%B%n%b@%m$PROMPT_JOBS'
 
 
 #--- Bindings ----------------------------------------------------------------
