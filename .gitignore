@@ -1,6 +1,7 @@
 .DS_Store
 
 .irssi/sasl.auth
+.irssi/config.autosave
 
 .vim/bundle
 .vim/sessions
