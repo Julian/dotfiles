@@ -710,12 +710,10 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#lua";
+        name = "#wheretomeetup";
         tag = "freenode";
       }
     );
-    sticky = "yes";
-    parent = "46";
   };
   20 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -723,7 +721,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#coffeescript";
+        name = "#lua";
         tag = "freenode";
       }
     );
@@ -736,7 +734,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#sqlalchemy";
+        name = "#coffeescript";
         tag = "freenode";
       }
     );
@@ -749,7 +747,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##minerva";
+        name = "#sqlalchemy";
         tag = "freenode";
       }
     );
@@ -762,7 +760,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pelican";
+        name = "##minerva";
         tag = "freenode";
       }
     );
@@ -775,7 +773,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#macdev";
+        name = "#pelican";
         tag = "freenode";
       }
     );
@@ -788,7 +786,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#reddit-dev";
+        name = "#macdev";
         tag = "freenode";
       }
     );
@@ -801,7 +799,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##cardboard";
+        name = "#reddit-dev";
         tag = "freenode";
       }
     );
@@ -814,7 +812,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##cardboard-dev";
+        name = "##cardboard";
         tag = "freenode";
       }
     );
@@ -827,7 +825,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#0x10c";
+        name = "##cardboard-dev";
         tag = "freenode";
       }
     );
@@ -840,7 +838,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#0x10c-std";
+        name = "#0x10c";
         tag = "freenode";
       }
     );
@@ -853,7 +851,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#nycpython";
+        name = "#0x10c-std";
         tag = "freenode";
       }
     );
@@ -866,7 +864,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#0x10c-dev";
+        name = "#nycpython";
         tag = "freenode";
       }
     );
@@ -879,7 +877,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#ruby";
+        name = "#0x10c-dev";
         tag = "freenode";
       }
     );
@@ -892,7 +890,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#ruby-lang";
+        name = "#ruby";
         tag = "freenode";
       }
     );
@@ -905,7 +903,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#clojure";
+        name = "#ruby-lang";
         tag = "freenode";
       }
     );
@@ -918,8 +916,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#love";
-        tag = "OFTC";
+        name = "#clojure";
+        tag = "freenode";
       }
     );
     sticky = "yes";
@@ -931,7 +929,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#luakit";
+        name = "#love";
         tag = "OFTC";
       }
     );
@@ -944,8 +942,8 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#clojurescript";
-        tag = "freenode";
+        name = "#luakit";
+        tag = "OFTC";
       }
     );
     sticky = "yes";
@@ -957,7 +955,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#gamedev";
+        name = "#clojurescript";
         tag = "freenode";
       }
     );
@@ -970,7 +968,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#raspberrypi";
+        name = "#gamedev";
         tag = "freenode";
       }
     );
@@ -983,7 +981,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-gamedev";
+        name = "#raspberrypi";
         tag = "freenode";
       }
     );
@@ -996,7 +994,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#divmod";
+        name = "#python-gamedev";
         tag = "freenode";
       }
     );
@@ -1009,7 +1007,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##ivoire";
+        name = "#divmod";
         tag = "freenode";
       }
     );
@@ -1022,33 +1020,33 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "##ivoire";
+        tag = "freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "46";
+  };
+  44 = {
+    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "#io";
         tag = "freenode";
       }
     );
   };
-  44 = { name = "hilight"; level = "HILIGHTS"; sticky = "yes"; };
-  45 = {
+  45 = { name = "hilight"; level = "HILIGHTS"; sticky = "yes"; };
+  46 = {
     immortal = "yes";
     name = "info";
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     sticky = "yes";
-    parent = "46";
-  };
-  46 = {
-    level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
-    items = (
-      {
-        type = "QUERY";
-        chat_type = "IRC";
-        name = "*highlight";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
   };
 };
 mainwindows = {
-  46 = { first_line = "4"; lines = "47"; };
-  44 = { first_line = "1"; lines = "3"; };
+  46 = { first_line = "4"; lines = "37"; };
+  45 = { first_line = "1"; lines = "3"; };
 };
