@@ -178,7 +178,7 @@ map <leader>u :GundoToggle<CR>
 nmap <leader>v :call <SID>SplitByWidth('~/.vimrc')<CR>
 nmap <silent> <leader>w <Plug>VimroomToggle
 map <leader>y :set spell!<CR>
-map <leader>z :vsp ~/.zshrc<CR><C-W>L
+nmap <leader>z :call <SID>SplitByWidth('~/.zshrc')<CR>
 
 nmap <leader>td :topleft split TODO<CR><C-W>6_
 nmap <leader>tj :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
