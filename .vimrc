@@ -151,11 +151,6 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 
-" TODO: change to toggle
-" open/close the quickfix window
-nmap <leader>c :copen<CR>
-nmap <leader>cc :cclose<CR>
-
 " Remove trailing whitespace
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -166,42 +161,35 @@ map <F11> :set wrap!<CR>
 noremap <F12> <Esc>:syntax sync fromstart<CR>
 inoremap <F12> <C-o>:syntax sync fromstart<CR>
 
-nmap <leader>a :TagbarToggle<CR>
-nmap <leader>d <C-W>0_
-map <leader>f :CommandTBuffer<CR>
-map <leader>g :CommandT<CR>
-nmap <leader>k :call <SID>ToggleExpando()<CR>
-map <leader>l :set list!<CR>
-map <leader>p o<C-R>"<Esc>
-map <leader>s :!trial %<CR>
-map <leader>u :GundoToggle<CR>
-nmap <leader>v :call <SID>SplitByWidth('~/.vimrc')<CR>
-nmap <silent> <leader>w <Plug>VimroomToggle
-map <leader>y :set spell!<CR>
-nmap <leader>z :call <SID>SplitByWidth('~/.zshrc')<CR>
+nmap          <leader>a     :TagbarToggle<CR>
+nmap          <leader>c     :call <SID>ToggleQuickfix('c')<CR>
+nmap          <leader>d     <C-W>0_
+nmap          <leader>f     :CommandTBuffer<CR>
+nmap          <leader>g     :CommandT<CR>
+nmap          <leader>k     :call <SID>ToggleExpando()<CR>
+nmap          <leader>l     :set list!<CR>
+nmap          <leader>p     o<C-R>"<Esc>
+nmap          <leader>s     :!trial %<CR>
+nmap          <leader>u     :GundoToggle<CR>
+nmap          <leader>v     :call <SID>SplitByWidth('~/.vimrc')<CR>
+nmap <silent> <leader>w     <Plug>VimroomToggle
+nmap          <leader>y     :set spell!<CR>
+nmap          <leader>z     :call <SID>SplitByWidth('~/.zshrc')<CR>
 
-nmap <leader>td :topleft split TODO<CR><C-W>6_
-nmap <leader>tj :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
-nmap <leader>tl :VimuxRunLastCommand<CR>
-nmap <leader>tt :call VimuxRunCommand("clear; tox")<CR>
-nmap <leader>t, :call VimuxRunCommand("clear; tox -e py27")<CR>
-nmap <leader>tq :VimuxCloseRunner<CR>
+" TODO: nmap <leader>t<leader> run last test command
+nmap          <leader>td    :topleft split TODO<CR><C-W>6_
+nmap          <leader>tj    :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
+nmap          <leader>tl    :VimuxRunLastCommand<CR>
+nmap          <leader>tt    :call VimuxRunCommand("clear; tox")<CR>
+nmap          <leader>t,    :call VimuxRunCommand("clear; tox -e py27")<CR>
+nmap          <leader>tq    :VimuxCloseRunner<CR>
 
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+nmap          <leader>j     :RopeGotoDefinition<CR>
+nmap          <leader>r     :RopeRename<CR>
 
-map <leader>N :set makeprg=nosetests\|:call MakeGreen()<CR>
-map <leader>O :set makeprg=nosetests3\|:call MakeGreen()<CR>
-map <leader>P o<C-R>*<Esc>
+nmap          <leader>P     o<C-R>*<Esc>
 
-map <leader><tab> :b#<CR>
-
-" reST / similar surround a line with -- and ==
-nnoremap <leader>m- yyPVr-
-nnoremap <leader>m= yyPVr=
-
-nnoremap <leader>M- yyPVr-yyjp
-nnoremap <leader>M= yyPVr=yyjp
+nmap          <leader><tab> :b#<CR>
 
 
 " ==============
@@ -439,6 +427,27 @@ if has("eval")
         else
             setlocal norelativenumber
             setlocal foldcolumn=0
+        endif
+    endfun
+
+    " Toggle the quick fix window
+    fun! <SID>ToggleQuickfix(bind_key)
+        " This is broken if someone decides to do copen or cclose without using
+        " the mapping, but just look at the ugliness required to do it properly
+        " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
+        let key = a:bind_key
+
+        if !exists("s:quickfix_open")
+            let s:quickfix_open = 0
+            return <SID>ToggleQuickfix(key)
+        else
+            if s:quickfix_open
+                :cclose
+                let s:quickfix_open = 0
+            else
+                :copen
+                let s:quickfix_open = 1
+            endif
         endif
     endfun
 
