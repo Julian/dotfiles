@@ -49,7 +49,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 if has("python")
-    Bundle 'davidhalter/jedi-vim'
+    " Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
 endif
 
@@ -120,9 +120,6 @@ noremap g` g'
 
 nnoremap <CR> :nohlsearch<CR>
 
-" reverse line join
-nnoremap <leader>J ddpkJ
-
 " line numbers
 nmap <C-N><C-N> :set invnumber<CR>
 highlight LineNr term=bold cterm=NONE ctermfg=LightGrey gui=NONE guifg=LightGrey
@@ -151,45 +148,44 @@ inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 
-" Remove trailing whitespace
-nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
-
 " Toggle how long lines are displayed
-map <F11> :set wrap!<CR>
-
+nmap          <F11>             :set wrap!<CR>
 " fix syntax highlighting errors
-noremap <F12> <Esc>:syntax sync fromstart<CR>
-inoremap <F12> <C-o>:syntax sync fromstart<CR>
+noremap       <F12>             <Esc>:syntax sync fromstart<CR>
+inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
-nmap          <leader>a     :TagbarToggle<CR>
-nmap          <leader>c     :call <SID>ToggleQuickfix('c')<CR>
-nmap          <leader>d     <C-W>0_
-nmap          <leader>f     :CommandTBuffer<CR>
-nmap          <leader>g     :CommandT<CR>
-nmap          <leader>k     :call <SID>ToggleExpando()<CR>
-nmap          <leader>l     :set list!<CR>
-nmap          <leader>p     o<C-R>"<Esc>
-nmap          <leader>s     :!trial %<CR>
-nmap          <leader>u     :GundoToggle<CR>
-nmap          <leader>v     :call <SID>SplitByWidth('~/.vimrc')<CR>
-nmap <silent> <leader>w     <Plug>VimroomToggle
-nmap          <leader>y     :set spell!<CR>
-nmap          <leader>z     :call <SID>SplitByWidth('~/.zshrc')<CR>
+nmap          <leader>a         :TagbarToggle<CR>
+nmap          <leader>c         :call <SID>ToggleQuickfix('c')<CR>
+nmap          <leader>d         <C-W>0_
+nmap          <leader>f         :CommandTBuffer<CR>
+nmap          <leader>g         :CommandT<CR>
+nmap          <leader>k         :call <SID>ToggleExpando()<CR>
+nmap          <leader>l         :set list!<CR>
+nmap          <leader>p         o<C-R>"<Esc>
+nmap          <leader>s         :!trial %<CR>
+nmap          <leader>u         :GundoToggle<CR>
+nmap          <leader>v         :call <SID>SplitByWidth('~/.vimrc')<CR>
+nmap <silent> <leader>w         <Plug>VimroomToggle
+nmap          <leader>y         :set spell!<CR>
+nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
 
-" TODO: nmap <leader>t<leader> run last test command
-nmap          <leader>td    :topleft split TODO<CR><C-W>6_
-nmap          <leader>tj    :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
-nmap          <leader>tl    :VimuxRunLastCommand<CR>
-nmap          <leader>tt    :call VimuxRunCommand("clear; tox")<CR>
-nmap          <leader>t,    :call VimuxRunCommand("clear; tox -e py27")<CR>
-nmap          <leader>tq    :VimuxCloseRunner<CR>
+nmap          <leader>td        :topleft split TODO<CR><C-W>6_
+nmap          <leader>tj        :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
+nmap          <leader>t<leader> :VimuxRunLastCommand<CR>
+nmap          <leader>tt        :call VimuxRunCommand("clear; tox")<CR>
+nmap          <leader>t,        :call VimuxRunCommand("clear; tox -e py27")<CR>
+nmap          <leader>tq        :VimuxCloseRunner<CR>
 
-nmap          <leader>j     :RopeGotoDefinition<CR>
-nmap          <leader>r     :RopeRename<CR>
+nmap          <leader>j         :RopeGotoDefinition<CR>
+nmap          <leader>r         :RopeRename<CR>
 
-nmap          <leader>P     o<C-R>*<Esc>
+" reverse line join
+nnoremap      <leader>J         ddpkJ
+nnoremap      <leader>P         o<C-R>*<Esc>
+" Remove trailing whitespace
+nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
-nmap          <leader><tab> :b#<CR>
+nmap          <leader><tab>     :b#<CR>
 
 
 " ==============
