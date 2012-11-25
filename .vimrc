@@ -127,9 +127,6 @@ highlight LineNr term=bold cterm=NONE ctermfg=LightGrey gui=NONE guifg=LightGrey
 " set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
-" Fix broken # behavior
-inoremap # X<BS>#
-
 " recover from accidental c-u
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
