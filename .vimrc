@@ -124,12 +124,14 @@ nnoremap <CR> :nohlsearch<CR>
 nmap <C-N><C-N> :set invnumber<CR>
 highlight LineNr term=bold cterm=NONE ctermfg=LightGrey gui=NONE guifg=LightGrey
 
-" set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
 
-" recover from accidental c-u
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+" make undo less drastic + prevent accidental irreversible undo
+" not sure why cr one is not working
+inoremap <BS> <BS><C-G>u
+" inoremap <CR> <C-G>u<CR>
+inoremap <DEL> <DEL><C-G>u
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
 
 " unbind cursor keys
 for prefix in ['i', 'n', 'v']
@@ -181,6 +183,9 @@ nnoremap      <leader>J         ddpkJ
 nnoremap      <leader>P         o<C-R>*<Esc>
 " Remove trailing whitespace
 nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
+
+" set working directory
+nnoremap      <leader>.         :lcd %:p:h<CR>
 
 nmap          <leader><tab>     :b#<CR>
 
