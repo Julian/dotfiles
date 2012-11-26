@@ -93,9 +93,16 @@ precmd () {
     vcs_info
 }
 
+prompt_char='⊙'
+
+if [[ -z $USE_MINI_PROMPT ]]; then
 PS1='
 %15<...<%~ ${vcs_info_msg_0_}
-%(!.%{$fg[red]%}⊙%{$reset_color%}.%{$fg[cyan]%}⊙%{$reset_color%})  '
+%(!.%{$fg[red]%}$prompt_char%{$reset_color%}.%{$fg[cyan]%}$prompt_char%{$reset_color%})  '
+else
+    PS1='%15<...<%~ $prompt_char '
+fi
+
 RPS1='%B%n%b@%m$PROMPT_JOBS'
 
 
