@@ -1,3 +1,3 @@
-imap <C-l> <space>=><space>
+imap <buffer> <C-l> <space>=><space>
 
-map <F9> :!ruby "%:p"<CR>
+map <buffer> <F9> :!ruby "%:p"<CR>
