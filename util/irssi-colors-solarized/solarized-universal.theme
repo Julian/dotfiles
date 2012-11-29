@@ -368,6 +368,6 @@ abstracts = {
 formats = {
   "fe-common/core" = {
     daychange = "           %g-----%w-%W-%n Day changed to %%D %W-%w-%g-----%n";
-    pubmsg = "{pubmsgnick $2 {pubnick \00302$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00307$0}}$1";
   };
 };
