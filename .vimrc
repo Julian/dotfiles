@@ -34,12 +34,14 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " --- Plugins ---
 
 Bundle 'alfredodeza/coveragepy.vim'
+Bundle 'b4winckler/vim-angry'
 Bundle 'ervandew/supertab'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'mikewest/vimroom'
+Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/syntastic'
 Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
@@ -49,7 +51,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 if has("python")
-    " Bundle 'davidhalter/jedi-vim'
+    Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
 endif
 
@@ -58,7 +60,6 @@ if !has("gui_running") || !has("clientserver")
     Bundle 'julienr/vimux-pyutils'
 endif
 
-Bundle 'argtextobj.vim'
 Bundle 'Conque-Shell'
 Bundle 'YankRing.vim'
 
@@ -66,7 +67,6 @@ Bundle 'git://git.wincent.com/command-t.git'
 
 " --- Disabled / Saved ---
 " Bundle 'KevinGoodsell/vim-csexact'
-" Bundle 'reinh/vim-makegreen'
 " Bundle 'skammer/vim-css-color'
 " Bundle 'sjl/gundo.vim'
 
@@ -154,18 +154,19 @@ noremap       <F12>             <Esc>:syntax sync fromstart<CR>
 inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
 nmap          <leader>a         :TagbarToggle<CR>
-nmap          <leader>c         :call <SID>ToggleQuickfix('c')<CR>
+nmap          <leader>c         :set spell!<CR>
 nmap          <leader>d         <C-W>0_
 nmap          <leader>f         :CommandTBuffer<CR>
 nmap          <leader>g         :CommandT<CR>
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
 nmap          <leader>p         o<C-R>"<Esc>
+nmap          <leader>q         :call <SID>ToggleQuickfix('c')<CR>
 nmap          <leader>s         :!trial %<CR>
 nmap          <leader>u         :GundoToggle<CR>
 nmap          <leader>v         :call <SID>SplitByWidth('~/.vimrc')<CR>
 nmap <silent> <leader>w         <Plug>VimroomToggle
-nmap          <leader>y         :set spell!<CR>
+nmap          <leader>y         "*y
 nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
 
 nmap          <leader>td        :topleft split TODO<CR><C-W>6_
@@ -188,6 +189,8 @@ nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap      <leader>.         :lcd %:p:h<CR>
 
 nmap          <leader><tab>     :b#<CR>
+
+vmap          <leader>y         "*y
 
 
 " ==============
