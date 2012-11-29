@@ -176,8 +176,7 @@ nmap          <leader>tt        :call VimuxRunCommand("clear; tox")<CR>
 nmap          <leader>t,        :call VimuxRunCommand("clear; tox -e py27")<CR>
 nmap          <leader>tq        :VimuxCloseRunner<CR>
 
-nmap          <leader>j         :RopeGotoDefinition<CR>
-nmap          <leader>r         :RopeRename<CR>
+nmap          <leader>j         :call MakeGreen()<CR>
 
 " reverse line join
 nnoremap      <leader>J         ddpkJ
@@ -187,6 +186,8 @@ nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
 " set working directory
 nnoremap      <leader>.         :lcd %:p:h<CR>
+nmap          <leader>]         :RopeGotoDefinition<CR>
+nmap          <leader>[         :RopeRename<CR>
 
 nmap          <leader><tab>     :b#<CR>
 
