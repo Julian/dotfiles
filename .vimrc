@@ -393,6 +393,7 @@ let g:syntastic_warning_symbol="✦"
 let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 
 " VimClojure
 let g:vimclojure#ParenRainbow = 1
