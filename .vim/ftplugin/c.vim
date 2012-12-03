@@ -1,1 +1,3 @@
-map <buffer> <F9> :!gcc --o "%:p:r.out" "%:p" && "%:p:r.out"<CR>
+map <buffer> <F9> :!clang -o "%:p:r" "%:p" && "%:p:r"<CR>
+
+imap <buffer> <C-l> ->
