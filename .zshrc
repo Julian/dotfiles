@@ -16,7 +16,7 @@ source virtualenvwrapper_lazy.sh
 
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 
-export PYTHON_TEST_RUNNER=`which trial`
+export PYTHON_TEST_RUNNER=$commands[trial]
 
 
 # Use Keychain for ssh-agent handling
@@ -160,7 +160,10 @@ alias -s tex=vim
 alias git='noglob git'
 
 alias playalbums='mplayer */* -shuffle'
-alias arssi="ssh julian@arch-desktop -t 'tmux attach-session -t irssi || tmux new-session -s irssi'"
+
+if [[ "$OSTYPE" == darwin* && -n $commands[brew] ]]; then
+    alias up="brew update && brew upgrade"
+fi
 
 
 if ls --color &> /dev/null; then
