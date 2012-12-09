@@ -170,7 +170,7 @@ nmap          <leader>y         "*y
 nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
 
 nmap          <leader>td        :topleft split TODO<CR><C-W>6_
-nmap          <leader>tj        :call VimuxRunCommand("clear; $PYTHON_TEST_RUNNER " . bufname("%"))<CR>
+nmap          <leader>tj        :call VimuxRunCommand(<SID>RunTestFile(<SID>FindTestFile("%")))<CR>
 nmap          <leader>t<leader> :VimuxRunLastCommand<CR>
 nmap          <leader>tt        :call VimuxRunCommand("clear; tox")<CR>
 nmap          <leader>t,        :call VimuxRunCommand("clear; tox -e py27")<CR>
@@ -264,11 +264,11 @@ set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 " : Interface :
 " =============
 
-set background=dark
+set background=dark                    " make sure this is before colorschemes
 
 if &t_Co > 8
     set t_Co=256
-    colorscheme Tomorrow-Night         " needs to be after set background
+    colorscheme Tomorrow-Night-Eighties
 else
     colorscheme desert
 endif
@@ -410,7 +410,7 @@ if has("eval")
 
     " Split a window vertically if it would have at least 79 chars plus a bit
     " of padding, otherwise split it horizontally
-    fun! <SID>SplitByWidth(path)
+    function! <SID>SplitByWidth(path)
         let padding = 5  " columns
         let path_to_split = a:path
 
@@ -423,7 +423,7 @@ if has("eval")
     endfun
 
     " If we're in a wide window, enable line numbers.
-    fun! <SID>WindowWidth()
+    function! <SID>WindowWidth()
         if winwidth(0) > 90
             setlocal foldcolumn=2
             setlocal relativenumber
@@ -434,7 +434,7 @@ if has("eval")
     endfun
 
     " Toggle the quick fix window
-    fun! <SID>ToggleQuickfix(bind_key)
+    function! <SID>ToggleQuickfix(bind_key)
         " This is broken if someone decides to do copen or cclose without using
         " the mapping, but just look at the ugliness required to do it properly
         " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
@@ -455,7 +455,7 @@ if has("eval")
     endfun
 
     " Expand the active window
-    fun! <SID>ToggleExpando()
+    function! <SID>ToggleExpando()
         if !exists("s:expando_enabled")
             let s:expando_enabled = 0
             30wincmd >
@@ -472,6 +472,15 @@ if has("eval")
             augroup END
         endif
     endfun
+
+    function! <SID>RunTestFile(path)
+        let runner = b:test_runner
+        return "clear; " . runner . " " . a:path
+    endfunction
+
+    function! <SID>FindTestFile(path)
+        return expand(a:path)
+    endfunction
 
 endif
 

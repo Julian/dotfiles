@@ -16,3 +16,5 @@ inoremap <buffer> ] ]<C-G>u<C-O>=a]<C-O>/]<CR><Right><C-O>:nohlsearch<CR>
 inoremap <buffer> ) )<C-G>u<C-O>=a)<C-O>/)<CR><Right><C-O>:nohlsearch<CR>
 
 map <buffer> <F9> :!python "%:p"<CR>
+
+let b:test_runner = expand("$PYTHON_TEST_RUNNER")
