@@ -323,7 +323,7 @@ abstracts = {
   prompt = "$c$*%n> ";
 
   # This controls each part of a statusbor, including the outer brackets of adv_windowlist
-  sb = " $* %M|%n";
+  sb = " │$* %M│%n";
   # The mode is next to your NICK and the channel
   # %Y = brightyellow (Solarized: base00, i.e. 2nd darkest gray)
   sbmode = "%b(%n+$*%b)%n";
