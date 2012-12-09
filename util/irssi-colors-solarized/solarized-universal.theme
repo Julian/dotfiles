@@ -293,10 +293,10 @@ abstracts = {
   # default backround for "default" statusbar group
   # NOTE: this impacts the statusbar of an inactive window and the edges of adv_windowlist
   # %7 = white (wich looks gray on a regular terminal with white bg)
-  sb_default_bg = "%k%7";
+  sb_default_bg = "%k%2";
 
   # background for topicbar at the top (defaults to sb_default_bg)
-  sb_topic_bg = "%W%0";
+  sb_topic_bg = "%W%6";
 
   # background for the statusbar of active window. You can also give
   # the foreground color.
