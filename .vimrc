@@ -51,7 +51,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 if has("python")
-    Bundle 'davidhalter/jedi-vim'
+    " Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
 endif
 
