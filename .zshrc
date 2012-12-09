@@ -16,7 +16,8 @@ source virtualenvwrapper_lazy.sh
 
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 
-export PYTHON_TEST_RUNNER=$commands[trial]
+# A name, not a path, so that the appropriate venved bin can be used
+export PYTHON_TEST_RUNNER="trial"
 
 
 # Use Keychain for ssh-agent handling

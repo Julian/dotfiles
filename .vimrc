@@ -170,7 +170,7 @@ nmap          <leader>y         "*y
 nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
 
 nmap          <leader>td        :topleft split TODO<CR><C-W>6_
-nmap          <leader>tj        :call VimuxRunCommand(<SID>RunTestFile(<SID>FindTestFile("%")))<CR>
+nmap          <leader>tj        :call VimuxRunCommand(<SID>RunTestFile(FindTestFile(expand("%"))))<CR>
 nmap          <leader>t<leader> :VimuxRunLastCommand<CR>
 nmap          <leader>tt        :call VimuxRunCommand("clear; tox")<CR>
 nmap          <leader>t,        :call VimuxRunCommand("clear; tox -e py27")<CR>
@@ -479,7 +479,7 @@ if has("eval")
     endfunction
 
     function! <SID>FindTestFile(path)
-        return expand(a:path)
+        return a:path
     endfunction
 
 endif
