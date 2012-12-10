@@ -27,3 +27,7 @@ function! FindTestFile(path)
 
     return fnamemodify(path, ":h") . "/tests/test_" . fnamemodify(path, ":t")
 endfunction
+
+function! RunTestSuite(path)
+    return "tox -e py27"
+endfunction

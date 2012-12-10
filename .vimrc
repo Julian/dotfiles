@@ -170,10 +170,10 @@ nmap          <leader>y         "*y
 nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
 
 nmap          <leader>td        :topleft split TODO<CR><C-W>6_
-nmap          <leader>tj        :call VimuxRunCommand(<SID>RunTestFile(FindTestFile(expand("%"))))<CR>
+nmap          <leader>tj        :call VimuxRunCommand("clear; " . RunTestFile(FindTestFile(expand("%"))))<CR>
 nmap          <leader>t<leader> :VimuxRunLastCommand<CR>
 nmap          <leader>tt        :call VimuxRunCommand("clear; tox")<CR>
-nmap          <leader>t,        :call VimuxRunCommand("clear; tox -e py27")<CR>
+nmap          <leader>t,        :call VimuxRunCommand("clear; " .  RunTestSuite(expand("%")))<CR>
 nmap          <leader>tq        :VimuxCloseRunner<CR>
 
 nmap          <leader>j         :call MakeGreen()<CR>
@@ -272,9 +272,6 @@ if &t_Co > 8
 else
     colorscheme desert
 endif
-
-
-set formatoptions-=r                   " do not insert comment char after enter
 
 set laststatus=2                       " always show status line
 
@@ -473,13 +470,17 @@ if has("eval")
         endif
     endfun
 
-    function! <SID>RunTestFile(path)
+    function! RunTestFile(path)
         let runner = b:test_runner
-        return "clear; " . runner . " " . a:path
+        return runner . " " . a:path
     endfunction
 
-    function! <SID>FindTestFile(path)
+    function! FindTestFile(path)
         return a:path
+    endfunction
+
+    function! RunTestSuite(path)
+        return RunTestFile(FindTestFile(path))
     endfunction
 
 endif
@@ -522,6 +523,12 @@ augroup filetypes
     autocmd BufWritePost *.coffee silent CoffeeMake!
 
     autocmd BufWritePost .vimrc source $MYVIMRC
+augroup END
+
+augroup formatstupidity
+    " ftplugins are stupid and try to mess with formatoptions
+    au!
+    autocmd BufNewFile,BufRead * setlocal formatoptions-=ro formatoptions+=j
 augroup END
 
 let g:tex_flavor='latex'
