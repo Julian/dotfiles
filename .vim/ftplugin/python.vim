@@ -21,7 +21,7 @@ let b:test_runner = expand("$PYTHON_TEST_RUNNER")
 
 function! FindTestFile(path)
     let path = a:path
-    if search("^class \i*(TestCase)", "nw")
+    if search("^class \\i*(TestCase)", "nw")
         return path
     endif
 
