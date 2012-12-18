@@ -107,19 +107,6 @@ fi
 RPS1='%B%n%b@%m$PROMPT_JOBS'
 
 
-#--- Bindings ----------------------------------------------------------------
-
-bindkey "^B" send-break
-bindkey "^O" accept-line-and-down-history
-bindkey "^R" history-incremental-search-backward
-
-autoload -Uz up-line-or-beginning-search
-autoload -Uz down-line-or-beginning-search
-zle -N up-line-or-beginning-search up-line-or-beginning-search
-zle -N down-line-or-beginning-search down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
-
 #--- Options -----------------------------------------------------------------
 
 bindkey -v                    # set vim bindings in zsh
@@ -149,6 +136,19 @@ setopt HIST_REDUCE_BLANKS     # remove trailing whitespace
 setopt HIST_VERIFY            # confirm before rubbing
 setopt INC_APPEND_HISTORY     # append lines to history incrementally
 setopt SHARE_HISTORY
+
+#--- Bindings ----------------------------------------------------------------
+
+bindkey "^B" send-break
+bindkey "^O" accept-line-and-down-history
+bindkey "^R" history-incremental-search-backward
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search up-line-or-beginning-search
+zle -N down-line-or-beginning-search down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 
 #--- Aliases -----------------------------------------------------------------
 
