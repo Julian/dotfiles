@@ -6,7 +6,6 @@ let s:python = substitute(system('which pypy || which python'), '\n', '', '')
 let s:condent = substitute(system('which condent'), '\n', '', '')
 exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
 
-setlocal indentkeys-=<:>,0#
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
 " Make inserting closing delimiters automatically reindent the container and
