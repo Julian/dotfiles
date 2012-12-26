@@ -15,18 +15,3 @@ inoremap <buffer> ] ]<C-G>u<C-O>=a]<C-O>/]<CR><Right><C-O>:nohlsearch<CR>
 inoremap <buffer> ) )<C-G>u<C-O>=a)<C-O>/)<CR><Right><C-O>:nohlsearch<CR>
 
 map <buffer> <F9> :!python "%:p"<CR>
-
-let b:test_runner = expand("$PYTHON_TEST_RUNNER")
-
-function! FindTestFile(path)
-    let path = a:path
-    if search("^class \\i*(TestCase)", "nw")
-        return path
-    endif
-
-    return fnamemodify(path, ":h") . "/tests/test_" . fnamemodify(path, ":t")
-endfunction
-
-function! RunTestSuite(path)
-    return "tox -e py27"
-endfunction

@@ -8,6 +8,8 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+set runtimepath+=~/Development/vim-runt
+
 " Let Vundle manage Vundle (required!).
 Bundle 'gmarik/vundle'
 
@@ -22,12 +24,13 @@ Bundle 'dahu/VimRegexTutor'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'othree/html5.vim'
+Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-git'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xhr/vim-io'
 
-Bundle 'VimClojure'
 
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
@@ -160,23 +163,24 @@ nmap          <leader>f         :CommandTBuffer<CR>
 nmap          <leader>g         :CommandT<CR>
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
+nmap          <leader>m         :call MakeGreen()<CR>
 nmap          <leader>p         o<C-R>"<Esc>
 nmap          <leader>q         :call <SID>ToggleQuickfix('c')<CR>
 nmap          <leader>s         :!trial %<CR>
+nmap          <leader>t         :topleft split TODO<CR><C-W>6_
 nmap          <leader>u         :GundoToggle<CR>
 nmap          <leader>v         :call <SID>SplitByWidth('~/.vimrc')<CR>
 nmap <silent> <leader>w         <Plug>VimroomToggle
 nmap          <leader>y         "*y
 nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
 
-nmap          <leader>td        :topleft split TODO<CR><C-W>6_
-nmap          <leader>tj        :call VimuxRunCommand("clear; " . RunTestFile(FindTestFile(expand("%"))))<CR>
-nmap          <leader>t<leader> :VimuxRunLastCommand<CR>
-nmap          <leader>tt        :call VimuxRunCommand("clear; tox")<CR>
-nmap          <leader>t,        :call VimuxRunCommand("clear; " .  RunTestSuite(expand("%")))<CR>
-nmap          <leader>tq        :VimuxCloseRunner<CR>
+nmap          <leader>jj        :call VimuxRunCommand("clear; " .  TestRunnerCommand(FindTestFile(expand("%"))))<CR>
+nmap          <leader>jl        :call ToggleTestLock()<CR>
+nmap          <leader>jt        :call VimuxRunCommand("clear; tox")<CR>
+nmap          <leader>js        :call VimuxRunCommand("clear; " .  RunTestSuite(expand("%")))<CR>
+nmap          <leader>jq        :VimuxCloseRunner<CR>
+nmap          <leader>j<leader> :VimuxRunLastCommand<CR>
 
-nmap          <leader>j         :call MakeGreen()<CR>
 
 " reverse line join
 nnoremap      <leader>J         ddpkJ
@@ -461,7 +465,7 @@ if has("eval")
             augroup expando
                 au!
                 if !s:expando_enabled
-                    au WinEnter * :45wincmd >
+                    autocmd WinEnter * :45wincmd >
                     let s:expando_enabled = 1
                 else
                     let s:expando_enabled = 0
@@ -469,20 +473,6 @@ if has("eval")
             augroup END
         endif
     endfun
-
-    function! RunTestFile(path)
-        let runner = b:test_runner
-        return runner . " " . a:path
-    endfunction
-
-    function! FindTestFile(path)
-        return a:path
-    endfunction
-
-    function! RunTestSuite(path)
-        return RunTestFile(FindTestFile(path))
-    endfunction
-
 endif
 
 if has("autocmd") && has("eval")
