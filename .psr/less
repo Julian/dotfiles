@@ -1,0 +1,4 @@
+* -S disables soft line breaks for horizontal scrolling
+* +command runs command each time a new file is opened
+* &pattern filters lines matching the pattern
+* v opens file in editor 
