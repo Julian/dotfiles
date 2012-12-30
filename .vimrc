@@ -8,8 +8,6 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-set runtimepath+=~/Development/vim-runt
-
 " Let Vundle manage Vundle (required!).
 Bundle 'gmarik/vundle'
 
@@ -61,6 +59,12 @@ endif
 if !has("gui_running") || !has("clientserver")
     Bundle 'benmills/vimux'
     Bundle 'julienr/vimux-pyutils'
+endif
+
+if isdirectory(expand("~/Development/vim-runt"))
+    set runtimepath+=~/Development/vim-runt
+else
+    Bundle 'Julian/vim-runt'
 endif
 
 Bundle 'Conque-Shell'
