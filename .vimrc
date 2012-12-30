@@ -163,6 +163,7 @@ inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 nmap          <leader>a         :TagbarToggle<CR>
 nmap          <leader>c         :set spell!<CR>
 nmap          <leader>d         <C-W>0_
+nmap          <leader>e         :SplitByWidth 
 nmap          <leader>f         :CommandTBuffer<CR>
 nmap          <leader>g         :CommandT<CR>
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
@@ -426,6 +427,9 @@ if has("eval")
             exec 'split ' . path_to_split
         endif
     endfun
+
+    command! -nargs=1 -complete=file SplitByWidth call <SID>SplitByWidth('<args>')
+    cabbrev Sw SplitByWidth
 
     " If we're in a wide window, enable line numbers.
     function! <SID>WindowWidth()
