@@ -1,1 +1,2 @@
-text/html;  w3m -dump -o document_charset=%{charset} '%s'; nametemplate=%s.html; copiousoutput
+text/html; open %s &; test=test -n "$DISPLAY"; needsterminal;
+text/html;  w3m -dump -o document_charset=%{charset} '%s'; nametemplate=%s.html; copiousoutput;
