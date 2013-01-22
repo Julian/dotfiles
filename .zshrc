@@ -178,16 +178,23 @@ fi
 eval $( dircolors -b $HOME/.dircolors )
 
 # This was written entirely by Michael Magnusson (Mikachu)
-# Basically type '...' to get '../..' with successive .'s adding /..
-function rationalise-dot() {
-if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-else
-    LBUFFER+=.
-fi
+# Type '...' to get '../..' with successive .'s adding /..
+function _rationalise-dot() {
+  local MATCH MBEGIN MEND
+  if [[ $LBUFFER =~ '(^|/| |	|'$'\n''|\||;|&)\.\.$' ]]; then
+    LBUFFER+=/
+    zle self-insert
+    zle self-insert
+  else
+    zle self-insert
+  fi
 }
-zle -N rationalise-dot
-bindkey . rationalise-dot
+
+zle -N _rationalise-dot
+bindkey . _rationalise-dot
+
+# without this, typing a . aborts incremental history search
+bindkey -M isearch . self-insert
 
 disable r
 
