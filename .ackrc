@@ -3,3 +3,5 @@
 --sort-files
 
 --ignore-dir=.tox
+--ignore-dir=htmlcov
+--ignore-dir=build
