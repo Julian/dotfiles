@@ -125,7 +125,7 @@ noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
-nnoremap <CR> :nohlsearch<CR>
+nnoremap <CR> <ESC>:nohlsearch<CR>
 
 " line numbers
 nmap <C-N><C-N> :set invnumber<CR>
