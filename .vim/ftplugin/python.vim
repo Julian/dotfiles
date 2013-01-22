@@ -10,8 +10,8 @@ setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=
 
 " Make inserting closing delimiters automatically reindent the container and
 " move to the end again
-inoremap <buffer> } }<C-G>u<C-O>=a}<C-O>/}<CR><Right><C-O>:nohlsearch<CR>
-inoremap <buffer> ] ]<C-G>u<C-O>=a]<C-O>/]<CR><Right><C-O>:nohlsearch<CR>
-inoremap <buffer> ) )<C-G>u<C-O>=a)<C-O>/)<CR><Right><C-O>:nohlsearch<CR>
+inoremap <buffer> } }<C-G>u<C-O>=a}<C-O>']<Right>
+inoremap <buffer> ] ]<C-G>u<C-O>=a]<C-O>']<Right>
+inoremap <buffer> ) )<C-G>u<C-O>=a)<C-O>']<Right>
 
 map <buffer> <F9> :!python "%:p"<CR>
