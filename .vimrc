@@ -67,7 +67,6 @@ else
     Bundle 'Julian/vim-runt'
 endif
 
-Bundle 'Conque-Shell'
 Bundle 'YankRing.vim'
 
 Bundle 'git://git.wincent.com/command-t.git'
@@ -125,7 +124,7 @@ noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
-nnoremap <CR> <ESC>:nohlsearch<CR>
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " line numbers
 nmap <C-N><C-N> :set invnumber<CR>
