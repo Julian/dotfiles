@@ -331,7 +331,9 @@ set smartcase                          " case-sensitive if upper in search term
 set incsearch		               " do incremental searching
 set hlsearch                           " hilight searches
 
-if filereadable("/usr/local/bin/grep") " if there's a newer grep, use it
+if executable("ag")                        " if the silver searcher's around...
+    set grepprg=ag\ --column
+elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
     set grepprg=/usr/local/bin/grep
 endif
 
