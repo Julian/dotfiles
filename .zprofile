@@ -8,3 +8,5 @@ fi
 path=(/usr/local/bin $HOME/.local/bin /usr/local/sbin $path)
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export EDITOR="vim"
