@@ -170,6 +170,7 @@ nmap          <leader>l         :set list!<CR>
 nmap          <leader>m         :call MakeGreen()<CR>
 nmap          <leader>p         o<C-R>"<Esc>
 nmap          <leader>q         :call <SID>ToggleQuickfix('c')<CR>
+nmap          <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nmap          <leader>s         :!trial %<CR>
 nmap          <leader>t         :topleft split TODO<CR><C-W>6_
 nmap          <leader>u         :GundoToggle<CR>
@@ -527,7 +528,8 @@ augroup END
 augroup formatstupidity
     " ftplugins are stupid and try to mess with formatoptions
     au!
-    autocmd BufNewFile,BufRead * setlocal formatoptions-=ro formatoptions+=j
+    autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
+    autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=j
 augroup END
 
 let g:tex_flavor='latex'
