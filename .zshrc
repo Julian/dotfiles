@@ -7,13 +7,14 @@ export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 
 export XDG_CONFIG_HOME=$HOME/.config
 
-# virtualenvwrapper (needs to be sourced *after* the PATH is set correctly)
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Development
-export VIRTUALENV_USE_DISTRIBUTE=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-source virtualenvwrapper_lazy.sh
-
+# virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
+if [[ -n $commands[virtualenvwrapper_lazy.sh] ]]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Development
+    export VIRTUALENV_USE_DISTRIBUTE=true
+    export PIP_VIRTUALENV_BASE=$WORKON_HOME
+    source virtualenvwrapper_lazy.sh
+fi
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 
 # A name, not a path, so that the appropriate venved bin can be used
