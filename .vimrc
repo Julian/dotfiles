@@ -410,6 +410,14 @@ let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_command = "<leader>\\"
 let g:jedi#get_definition_command = "<leader>`"
 
+augroup rainbowparentheses
+    au!
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+augroup END
+
 " ============
 " : Autocmds :
 " ============
