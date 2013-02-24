@@ -1,0 +1,19 @@
+#! /usr/bin/env python
+
+import argparse
+
+
+def main(arguments):
+    if arguments.command == "link":
+        pass
+
+
+parser = argparse.ArgumentParser(description="Dotfiles installer")
+
+subparsers = parser.add_subparsers(help="utility commands", dest="command")
+
+link = subparsers.add_parser(
+    "link", help="Link the dotfiles into their proper locations.",
+)
+
+main(parser.parse_args())
