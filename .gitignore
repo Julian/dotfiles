@@ -3,6 +3,8 @@
 .irssi/sasl.auth
 .irssi/config.autosave
 
+.vagrant
+
 .vim/bundle
 .vim/sessions
 .vim/.netrwhist
