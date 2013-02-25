@@ -448,12 +448,12 @@ if has("eval")
     function! <SID>WindowWidth()
         if winwidth(0) > 90
             setlocal foldcolumn=2
-            if exists("&relativenumber)
+            if exists("&relativenumber")
                 setlocal relativenumber
             endif
         else
             setlocal foldcolumn=0
-            if exists("&relativenumber)
+            if exists("&relativenumber")
                 setlocal norelativenumber
             endif
         endif
