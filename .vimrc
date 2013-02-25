@@ -263,8 +263,11 @@ set viminfo='1000,f1,:1000,/1000       " more viminfo
 set backup
 set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
 
-set undodir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
-set undofile
+if exists("&undofile")
+    set undofile
+    set undodir=~/.vim/sessions,~/tmp,/tmp  " ... undos
+endif
+
 set undolevels=500                     " more undo
 
 set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
