@@ -27,8 +27,7 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-git'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'xhr/vim-io'
-
+Bundle 'derekwyatt/vim-scala'
 
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
