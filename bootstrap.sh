@@ -1,7 +1,9 @@
-#! /bin/bash
+#! /bin/sh
 
 set -e
 
+DOTFILES_URL='https://github.com/Julian/dotfiles.git'
+DOTFILES_DEST=~/.dotfiles
 DEVELOPMENT=~/Development
 
 
@@ -13,24 +15,39 @@ main()
 
 clone_dotfiles()
 {
-    if [ ! -d ~/.dotfiles ]; then
+    echo 'Setting up the dotfiles repo.'
+
+    if [ ! -d $DOTFILES_DEST ]; then
         setup
 
+        printf "Cloning $DOTFILES_URL into $DOTFILES_DEST... "
+
         ensure_installed git
-        git clone --quiet --recursive https://github.com/Julian/dotfiles.git ~/.dotfiles
+        (
+            git clone --quiet $DOTFILES_URL $DOTFILES_DEST
+            cd $DOTFILES_DEST
+            git submodule --quiet init
+            git submodule --quiet update
+        )
+
+        printf 'done\n'
+    else
+        echo "Existing dotfiles found in $DOTFILES_DEST."
     fi
 }
 
 setup()
 {
     if [ "$OSTYPE" = darwin* ]; then
-        install_homebrew
+        ensure_has_homebrew
     fi
 }
 
-install_homebrew()
+ensure_has_homebrew()
 {
-    bin_exists brew || {
+    printf 'Checking for homebrew... '
+     bin_exists brew && printf 'found\n' || {
+        printf 'installing\n'
         ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     }
 }
@@ -58,7 +75,9 @@ ensure_installed()
 
 install()
 {
+    printf "Installing $@..."
     sudo apt-get install --yes --force-yes $@
+    printf 'done\n'
 }
 
 continue_with_ansible()
