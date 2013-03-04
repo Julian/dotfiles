@@ -308,7 +308,7 @@ set vb t_vb=
 
 
 if has('mouse')
-  set mouse=a
+  set mouse=nv                         " ugh no mouse while typing (normal+vis)
   set mousemodel=popup
 endif
 
