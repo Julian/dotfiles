@@ -8,10 +8,16 @@ exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
+function! Reindent(delimiter)
+    execute "normal! va" . a:delimiter . "o"
+    normal! ?\i*
+    normal! =
+endfunction
+
 " Make inserting closing delimiters automatically reindent the container and
 " move to the end again
-inoremap <buffer> } }<C-G>u<C-O>=a}<C-O>']<Right>
-inoremap <buffer> ] ]<C-G>u<C-O>=a]<C-O>']<Right>
-inoremap <buffer> ) )<C-G>u<C-O>=a)<C-O>']<Right>
+inoremap <buffer> } }<C-G>u<C-O>:call Reindent('}')<CR>
+inoremap <buffer> ] ]<C-G>u<C-O>:call Reindent(']')<CR>
+inoremap <buffer> ) )<C-G>u<C-O>:call Reindent(')')<CR>
 
 map <buffer> <F9> :!python "%:p"<CR>
