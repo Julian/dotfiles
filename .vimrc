@@ -159,7 +159,7 @@ noremap       <F12>             <Esc>:syntax sync fromstart<CR>
 inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
 nmap          <leader>a         :TagbarToggle<CR>
-nmap          <leader>c         :set spell!<CR>
+nmap          <leader>b         o<C-R>"<Esc>
 nmap          <leader>d         <C-W>0_
 nmap          <leader>e         :SplitByWidth 
 nmap          <leader>f         :CommandTBuffer<CR>
@@ -167,16 +167,16 @@ nmap          <leader>g         :CommandT<CR>
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
 nmap          <leader>m         :call MakeGreen()<CR>
-nmap          <leader>p         o<C-R>"<Esc>
+nmap          <leader>p         "*p
 nmap          <leader>q         :call <SID>ToggleQuickfix('c')<CR>
 nmap          <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nmap          <leader>s         :!trial %<CR>
+nmap          <leader>s         :set spell!<CR>
 nmap          <leader>t         :topleft split TODO<CR><C-W>6_
 nmap          <leader>u         :GundoToggle<CR>
-nmap          <leader>v         :call <SID>SplitByWidth('~/.vimrc')<CR>
+nmap          <leader>v         :SplitByWidth ~/.vimrc<CR>
 nmap <silent> <leader>w         <Plug>VimroomToggle
 nmap          <leader>y         "*y
-nmap          <leader>z         :call <SID>SplitByWidth('~/.zshrc')<CR>
+nmap          <leader>z         :SplitByWidth ~/.zshrc<CR>
 
 nmap          <leader>jj        :call VimuxRunCommand("clear; " .  TestRunnerCommand(FindTestFile(expand("%"))))<CR>
 nmap          <leader>jl        :call ToggleTestLock()<CR>
@@ -279,7 +279,7 @@ set background=dark                    " make sure this is before colorschemes
 
 if &t_Co > 8
     set t_Co=256
-    colorscheme Tomorrow-Night-Eighties
+    colorscheme Monokai
 else
     colorscheme desert
 endif
