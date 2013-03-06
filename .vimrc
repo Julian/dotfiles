@@ -1,5 +1,7 @@
 set nocompatible                       " turn off vi compatible, should be first
 
+let mapleader = "\<space>"
+
 " ==========
 " : Vundle :
 " ==========
@@ -50,6 +52,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
+Bundle 'YankRing.vim'
+
 if has("python")
     " Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
@@ -66,9 +70,17 @@ else
     Bundle 'Julian/vim-runt'
 endif
 
-Bundle 'YankRing.vim'
+if has("ruby")
+    Bundle 'git://git.wincent.com/command-t.git'
 
-Bundle 'git://git.wincent.com/command-t.git'
+    nmap          <leader>f         :CommandTBuffer<CR>
+    nmap          <leader>g         :CommandT<CR>
+else
+    Bundle 'kien/ctrlp.vim'
+
+    nmap          <leader>f         :CtrlPBuffer<CR>
+    nmap          <leader>g         :CtrlP<CR>
+endif
 
 " --- Disabled / Saved ---
 " Bundle 'KevinGoodsell/vim-csexact'
@@ -101,8 +113,6 @@ set tags=./tags;$HOME                  " look up until $HOME for tags
 " ============
 " : Bindings :
 " ============
-
-let mapleader = "\<space>"
 
 " quick fingers
 cnoreabbrev WQ wq
@@ -162,8 +172,8 @@ nmap          <leader>a         :TagbarToggle<CR>
 nmap          <leader>b         o<C-R>"<Esc>
 nmap          <leader>d         <C-W>0_
 nmap          <leader>e         :SplitByWidth 
-nmap          <leader>f         :CommandTBuffer<CR>
-nmap          <leader>g         :CommandT<CR>
+"             <leader>f         Set above to CommandTBuffer or CtrlPBuffer
+"             <leader>g         Set above to CommandT or CtrlP
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
 nmap          <leader>m         :call MakeGreen()<CR>
