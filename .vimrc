@@ -386,7 +386,7 @@ let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 
 let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 
-let g:yankring_history_dir = '$VIM'
+let g:yankring_history_dir = '$HOME/.vim/'
 let g:yankring_history_file = '.yankring_history'
 let g:yankring_min_element_length = 2
 
