@@ -175,6 +175,7 @@ nmap          <leader>t         :topleft split TODO<CR><C-W>6_
 nmap          <leader>u         :GundoToggle<CR>
 nmap          <leader>v         :SplitByWidth ~/.vimrc<CR>
 nmap <silent> <leader>w         <Plug>VimroomToggle
+nmap <silent> <leader>x         :YRShow<CR>
 nmap          <leader>y         "*y
 nmap          <leader>z         :SplitByWidth ~/.zshrc<CR>
 
@@ -375,8 +376,9 @@ let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 
 let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 
-let yankring_history_dir = '$HOME/.vim'
-let yankring_history_file = '.yankring_history'
+let g:yankring_history_dir = '$VIM'
+let g:yankring_history_file = '.yankring_history'
+let g:yankring_min_element_length = 2
 
 " Yankring nnoremaps to remap Y. See :h yankring-custom-maps
 function! YRRunAfterMaps()
