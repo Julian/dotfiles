@@ -31,7 +31,6 @@ Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-git'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'derekwyatt/vim-scala'
 
 Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
@@ -293,11 +292,11 @@ set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 " : Interface :
 " =============
 
-set background=dark                    " make sure this is before colorschemes
+set background=light                   " make sure this is before colorschemes
 
 if &t_Co > 8
     set t_Co=256
-    colorscheme Monokai
+    colorscheme hemisu
 else
     colorscheme desert
 endif
