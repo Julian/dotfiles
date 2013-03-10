@@ -1,16 +1,16 @@
 [submodule ".vim/bundle/vundle"]
 	path = .vim/bundle/vundle
-	url = http://github.com/gmarik/vundle.git
+	url = https://github.com/gmarik/vundle.git
         ignore = all
 [submodule "util/LS_COLORS"]
 	path = util/LS_COLORS
-	url = git://github.com/trapd00r/LS_COLORS.git
+	url = https://github.com/trapd00r/LS_COLORS.git
 [submodule "util/zsh-syntax-highlighting"]
 	path = .zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "util/solarized"]
 	path = util/solarized
 	url = https://github.com/altercation/solarized.git
@@ -19,4 +19,4 @@
 	url = https://github.com/huyz/irssi-colors-solarized.git
 [submodule ".zsh/zsh-history-substring-search"]
 	path = .zsh/zsh-history-substring-search
-	url = git@github.com:zsh-users/zsh-history-substring-search.git
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
