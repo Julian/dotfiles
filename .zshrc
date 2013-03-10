@@ -8,7 +8,7 @@ export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 export XDG_CONFIG_HOME=$HOME/.config
 
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
-if [[ -n $commands[virtualenvwrapper_lazy.sh] ]]; then
+if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     export WORKON_HOME=$HOME/.virtualenvs
     export PROJECT_HOME=$HOME/Development
     export VIRTUALENV_USE_DISTRIBUTE=true
@@ -137,6 +137,10 @@ setopt HIST_REDUCE_BLANKS     # remove trailing whitespace
 setopt HIST_VERIFY            # confirm before rubbing
 setopt INC_APPEND_HISTORY     # append lines to history incrementally
 setopt SHARE_HISTORY
+
+# Jobs
+
+setopt AUTO_RESUME            # resume existing jobs if command matches
 
 #--- Bindings ----------------------------------------------------------------
 
