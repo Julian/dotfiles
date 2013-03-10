@@ -1,3 +1,8 @@
+snippet mm "Create a magic method" !b
+def __${1}__(self${2}):
+    ${3:pass}
+endsnippet
+
 snippet pdb "Insert a trace point in a debugger." !b
 import sys; stdout, stderr, sys.stdout, sys.stderr = sys.stdout, sys.stderr, sys.__stdout__, sys.__stderr__; import ${1:pudb}; $1.set_trace(); sys.stdout, sys.stderr = stdout, stderr
 endsnippet
