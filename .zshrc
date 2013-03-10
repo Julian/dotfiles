@@ -55,7 +55,9 @@ zstyle ':completion:*' squeeze-slashes true
 # cd will never select the parent directory (e.g.: cd ../<TAB>):
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+# make sure history-substring-search is after syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Auto-quote urls
 autoload -U url-quote-magic
@@ -147,13 +149,6 @@ setopt AUTO_RESUME            # resume existing jobs if command matches
 bindkey "^B" send-break
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
-
-autoload -Uz up-line-or-beginning-search
-autoload -Uz down-line-or-beginning-search
-zle -N up-line-or-beginning-search up-line-or-beginning-search
-zle -N down-line-or-beginning-search down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
 
 #--- Aliases -----------------------------------------------------------------
 
