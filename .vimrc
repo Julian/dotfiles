@@ -108,17 +108,22 @@ set textwidth=79
 
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
+set cryptmethod=blowfish               " use blowfish for encryption
+
 set tags=./tags;$HOME                  " look up until $HOME for tags
 
 " ============
 " : Bindings :
 " ============
 
-" quick fingers
+" quick fingers / for encryption use vim -xn
+cnoreabbrev Q q
+cnoreabbrev Sp sp
+cnoreabbrev Vsp vsp
 cnoreabbrev WQ wq
 cnoreabbrev Wq wq
 cnoreabbrev W w
-cnoreabbrev Q q
+cnoreabbrev X x
 
 " don't use Ex mode, use Q for formatting
 map Q gqap
@@ -452,7 +457,7 @@ if has("eval")
         endif
     endfun
 
-    command! -nargs=1 -complete=file SplitByWidth call <SID>SplitByWidth('<args>')
+    command! -nargs=1 -complete=file_in_path SplitByWidth call <SID>SplitByWidth('<args>')
     cabbrev Sw SplitByWidth
 
     " If we're in a wide window, enable line numbers.
