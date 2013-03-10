@@ -449,13 +449,14 @@ if has("eval")
     " of padding, otherwise split it horizontally
     function! <SID>SplitByWidth(path)
         let padding = 5  " columns
-        let path_to_split = a:path
 
-        if winwidth(0) >= (79 + padding) * 2
-            exec 'vsplit ' . path_to_split
+        if bufname('%') == ''
+            exec 'edit ' . a:path
+        elseif winwidth(0) >= (79 + padding) * 2
+            exec 'vsplit ' . a:path
             wincmd L
         else
-            exec 'split ' . path_to_split
+            exec 'split ' . a:path
         endif
     endfun
 
