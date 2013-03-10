@@ -14,8 +14,10 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " --- Themes ---
-Bundle 'sickill/vim-monokai'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'noahfrederick/Hemisu'
+Bundle 'sickill/vim-monokai'
 
 " --- Temporary ---
 Bundle 'dahu/VimRegexTutor'
