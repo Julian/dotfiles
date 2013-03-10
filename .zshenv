@@ -8,6 +8,7 @@ export NODE_PATH="/usr/local/lib/node/"
 
 if [[ "$OSTYPE" == darwin* ]]
 then
+    export BROWSER='open'
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 elif [[ -a /etc/arch-release ]]
 then
