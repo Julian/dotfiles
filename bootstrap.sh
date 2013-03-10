@@ -10,7 +10,7 @@ DEVELOPMENT=~/Development
 main()
 {
     clone_dotfiles
-    continue_with_ansible
+    continue_with_dot
 }
 
 clone_dotfiles()
@@ -20,7 +20,7 @@ clone_dotfiles()
     if [ ! -d $DOTFILES_DEST ]; then
         setup
 
-        printf "Cloning $DOTFILES_URL into $DOTFILES_DEST... "
+        echo "Cloning $DOTFILES_URL into $DOTFILES_DEST..."
 
         ensure_installed git
         (
@@ -29,8 +29,6 @@ clone_dotfiles()
             git submodule --quiet init
             git submodule --quiet update
         )
-
-        printf 'done\n'
     else
         echo "Existing dotfiles found in $DOTFILES_DEST."
     fi
@@ -76,19 +74,12 @@ ensure_installed()
 install()
 {
     printf "Installing $@..."
-    sudo apt-get install --yes --force-yes $@
+    sudo apt-get install --quiet --yes --force-yes $@
     printf 'done\n'
 }
 
-continue_with_ansible()
+continue_with_dot()
 {
-    if [ ! -d "$DEVELOPMENT/ansible" ]; then
-        git clone --quiet https://github.com/ansible/ansible.git $DEVELOPMENT/ansible
-    fi
-
-    ensure_python_installed paramiko yaml jinja2
-
-    source ~/Development/ansible/hacking/env-setup >/dev/null
     exec ~/.dotfiles/dot link
 }
 
