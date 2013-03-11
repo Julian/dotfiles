@@ -1,19 +1,64 @@
 #! /usr/bin/env python
 
+from glob import iglob as glob
 import argparse
+import errno
+import os
+import sys
 
 
 def main(arguments):
-    if arguments.command == "link":
-        pass
+    if arguments.command == "help":
+        parser.print_help()
+    elif arguments.command == "link":
+        link(arguments)
+    sys.exit(0)
+
+
+def link(arguments):
+    ignored = set([
+        ".git",
+        ".gitignore",
+    ])
+
+    for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
+        if dotfile in ignored:
+            continue
+
+        dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
+
+        try:
+            os.symlink(dotfile, dest)
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                raise
+            print "{0} already exists! Skipping...".format(dest)
+        else:
+            print "Linked {0} into {1}".format(dotfile, dest)
 
 
 parser = argparse.ArgumentParser(description="Dotfiles installer")
 
 subparsers = parser.add_subparsers(help="utility commands", dest="command")
 
-link = subparsers.add_parser(
+help_parser = subparsers.add_parser("help")
+link_parser = subparsers.add_parser(
     "link", help="Link the dotfiles into their proper locations.",
+)
+link_parser.add_argument(
+    "-b", "--bin-dir",
+    default=os.path.expanduser("~/.local/bin"),
+    help="the directory to use for local binaries",
+)
+link_parser.add_argument(
+    "-d", "--dest-dir",
+    default=os.path.expanduser("~"),
+    help="the directory to link into",
+)
+link_parser.add_argument(
+    "--dotfiles",
+    default=os.path.expanduser("~/.dotfiles/"),
+    help="the dotfiles to link",
 )
 
 main(parser.parse_args())
