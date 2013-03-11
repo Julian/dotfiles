@@ -1,5 +1,8 @@
 .DS_Store
 
+.config/pudb/saved-breakpoints
+.config/pudb/shell-history
+
 .irssi/sasl.auth
 .irssi/config.autosave
 
