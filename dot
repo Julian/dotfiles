@@ -18,6 +18,11 @@ def main(arguments):
 
 
 def make_symlinks(arguments):
+    """
+    Symlink all the dotfiles into the destination directory.
+
+    """
+
     ignored = set([
         ".git",
         ".gitignore",
@@ -28,15 +33,27 @@ def make_symlinks(arguments):
             continue
 
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
+        symlink_unless_present(dotfile, dest)
 
-        try:
-            os.symlink(dotfile, dest)
-        except OSError as e:
-            if e.errno != errno.EEXIST:
-                raise
-            print "{0} already exists! Skipping...".format(dest)
-        else:
-            print "Linked {0} into {1}".format(dotfile, dest)
+    colors = os.path.join(arguments.dotfiles, "util", "LS_COLORS", "LS_COLORS")
+    dest = os.path.join(arguments.dest_dir, ".dircolors")
+    symlink_unless_present(colors, dest)
+
+
+def symlink_unless_present(file, dest):
+    """
+    Symlink a file into the destination unless it exists already.
+
+    """
+
+    try:
+        os.symlink(file, dest)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+        print "{0} already exists! Skipping...".format(dest)
+    else:
+        print "Linked {0} into {1}".format(file, dest)
 
 
 def set_up_vim(arguments):
