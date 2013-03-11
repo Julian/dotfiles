@@ -80,7 +80,7 @@ install()
 
 continue_with_dot()
 {
-    exec ~/.dotfiles/dot link
+    exec ~/.dotfiles/dot install
 }
 
 ensure_python_installed()

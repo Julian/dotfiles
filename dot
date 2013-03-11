@@ -4,18 +4,20 @@ from glob import iglob as glob
 import argparse
 import errno
 import os
+import subprocess
 import sys
 
 
 def main(arguments):
     if arguments.command == "help":
         parser.print_help()
-    elif arguments.command == "link":
-        link(arguments)
+    elif arguments.command == "install":
+        make_symlinks(arguments)
+        set_up_vim(arguments)
     sys.exit(0)
 
 
-def link(arguments):
+def make_symlinks(arguments):
     ignored = set([
         ".git",
         ".gitignore",
@@ -37,25 +39,34 @@ def link(arguments):
             print "Linked {0} into {1}".format(dotfile, dest)
 
 
+def set_up_vim(arguments):
+    """
+    Install the Bundles.
+
+    """
+
+    subprocess.check_call(["vim", "-c", ":BundleInstall", "-c", ":quitall"])
+
+
 parser = argparse.ArgumentParser(description="Dotfiles installer")
 
 subparsers = parser.add_subparsers(help="utility commands", dest="command")
 
 help_parser = subparsers.add_parser("help")
-link_parser = subparsers.add_parser(
-    "link", help="Link the dotfiles into their proper locations.",
+install_parser = subparsers.add_parser(
+    "install", help="Install the dotfiles into their proper locations.",
 )
-link_parser.add_argument(
+install_parser.add_argument(
     "-b", "--bin-dir",
     default=os.path.expanduser("~/.local/bin"),
     help="the directory to use for local binaries",
 )
-link_parser.add_argument(
+install_parser.add_argument(
     "-d", "--dest-dir",
     default=os.path.expanduser("~"),
     help="the directory to link into",
 )
-link_parser.add_argument(
+install_parser.add_argument(
     "--dotfiles",
     default=os.path.expanduser("~/.dotfiles/"),
     help="the dotfiles to link",
