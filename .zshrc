@@ -207,8 +207,7 @@ fi
 # Make ^Z toggle between ^Z and fg
 function ctrlz() {
 if [[ $#BUFFER == 0 ]]; then
-    fg
-    zle redisplay
+    fg >/dev/null 2>&1 && zle redisplay
 else
     zle push-input
 fi
