@@ -143,7 +143,6 @@ fi
 
 
 if ls --color &> /dev/null; then
-    # assumes OSX has gnu coreutils installed from homebrew
     alias ls='ls --color=auto --human-readable --group-directories-first'
 else
     alias ls='ls -Gh'
@@ -173,8 +172,8 @@ bindkey -M isearch . self-insert
 
 disable r
 
-# Disable the shell reserved word time if /usr/bin/time is present
-if [[ -x /usr/bin/time ]]; then
+# Disable the shell reserved word time if a binary is present
+if (( $+commands[time] )); then
     disable -r time
 fi
 
@@ -193,6 +192,9 @@ bindkey '^Z' ctrlz
 
 #--- Misc --------------------------------------------------------------------
 
+export ACKRC=$XDG_CONFIG_HOME/ackrc
+export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
+
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
 # A name, not a path, so that the appropriate venved bin can be used
 export PYTHON_TEST_RUNNER="trial"
@@ -207,7 +209,6 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
 fi
 
 export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
-export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 
 # Use Keychain for ssh-agent handling
 if (( $+commands[keychain] )) ; then
