@@ -232,7 +232,7 @@ set showcmd		               " display incomplete commands
 set wildmenu                           " file completion helper window
 set wildmode=longest:full,full
 set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,**/_trial_temp/**,*.egg-info/**,**/build/**,**/htmlcov/**,**/dist/**,MANIFEST,**/_build/**
-set suffixes+=.backup
+set suffixes+=.backup,.ini             " lower priority when completing
 
 if filereadable("/usr/share/dict/words") "
     set dictionary+=/usr/share/dict/words
