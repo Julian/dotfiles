@@ -1,27 +1,6 @@
 setopt NO_BEEP              # shh!
 setopt EXTENDED_GLOB        # extended patterns support
 
-export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
-
-# virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
-if (( $+commands[virtualenvwrapper_lazy.sh] )); then
-    export WORKON_HOME=$HOME/.virtualenvs
-    export PROJECT_HOME=$HOME/Development
-    export VIRTUALENV_USE_DISTRIBUTE=true
-    export PIP_VIRTUALENV_BASE=$WORKON_HOME
-    source virtualenvwrapper_lazy.sh
-fi
-export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
-
-# A name, not a path, so that the appropriate venved bin can be used
-export PYTHON_TEST_RUNNER="trial"
-
-
-# Use Keychain for ssh-agent handling
-if (( $+commands[keychain] )) ; then
-    eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
-fi
-
 # disable flow control
 stty -ixon
 
@@ -211,3 +190,26 @@ fi
 
 zle -N ctrlz
 bindkey '^Z' ctrlz
+
+#--- Misc --------------------------------------------------------------------
+
+export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
+# A name, not a path, so that the appropriate venved bin can be used
+export PYTHON_TEST_RUNNER="trial"
+
+# virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
+if (( $+commands[virtualenvwrapper_lazy.sh] )); then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/Development
+    export VIRTUALENV_USE_DISTRIBUTE=true
+    export PIP_VIRTUALENV_BASE=$WORKON_HOME
+    source virtualenvwrapper_lazy.sh
+fi
+
+export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
+export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
+
+# Use Keychain for ssh-agent handling
+if (( $+commands[keychain] )) ; then
+    eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
+fi

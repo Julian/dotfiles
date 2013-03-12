@@ -21,5 +21,3 @@ then
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
     export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
 fi
-
-export PYTHONSTARTUP=~/.pythonrc
