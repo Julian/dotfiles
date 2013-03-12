@@ -1,11 +1,10 @@
 #! /bin/zsh
 
-export BROWSER=chromium
 export DE=qtile
 
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-[[ -f ~/.Xresources.colorscheme ]] && xrdb -merge ~/.Xresources.colorscheme
+[[ -f $XDG_CONFIG_HOME/X11/Xresources ]] && xrdb -merge $XDG_CONFIG_HOME/X11/Xresources 
+[[ -f $XDG_CONFIG_HOME/X11/Xresources.colorscheme ]] && xrdb -merge $XDG_CONFIG_HOME/X11/Xresources.colorscheme
 
 [[ -x /usr/bin/qiv ]] && /usr/bin/qiv -n -z ~/.wallpaper
 [[ -x /usr/bin/xscreensaver ]] && /usr/bin/xscreensaver -no-splash &

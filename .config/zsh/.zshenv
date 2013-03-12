@@ -4,13 +4,15 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
+export BROWSER=chromium
+
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
 export NODE_PATH="/usr/local/lib/node/"
 
 if [[ "$OSTYPE" == darwin* ]]
 then
-    export BROWSER='open'
+    export BROWSER=open
     export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 elif [[ -a /etc/arch-release ]]
 then
