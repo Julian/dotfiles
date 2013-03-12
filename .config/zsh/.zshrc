@@ -150,7 +150,7 @@ else
 fi
 
 
-eval $( dircolors -b $HOME/.dircolors )
+eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Type '...' to get '../..' with successive .'s adding /..
