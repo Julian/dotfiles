@@ -194,6 +194,7 @@ bindkey '^Z' ctrlz
 
 export ACKRC=$XDG_CONFIG_HOME/ackrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
+export XINITRC=$XDG_CONFIG_HOME/xinitrc
 
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
 # A name, not a path, so that the appropriate venved bin can be used
