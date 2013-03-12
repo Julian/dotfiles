@@ -193,6 +193,7 @@ bindkey '^Z' ctrlz
 #--- Misc --------------------------------------------------------------------
 
 export ACKRC=$XDG_CONFIG_HOME/ackrc
+export INPUTRC=$XDG_CONFIG_HOME/inputrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 export XINITRC=$XDG_CONFIG_HOME/xinitrc
 
