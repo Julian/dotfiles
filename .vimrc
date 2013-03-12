@@ -193,7 +193,7 @@ nmap          <leader>v         :SplitByWidth ~/.vimrc<CR>
 nmap <silent> <leader>w         <Plug>VimroomToggle
 nmap <silent> <leader>x         :YRShow<CR>
 nmap          <leader>y         "*y
-nmap          <leader>z         :SplitByWidth ~/.zshrc<CR>
+nmap          <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
 nmap          <leader>jj        :call VimuxRunCommand("clear; " .  TestRunnerCommand(FindTestFile(expand("%"))))<CR>
 nmap          <leader>jl        :call ToggleTestLock()<CR>
