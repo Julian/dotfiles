@@ -1,11 +1,7 @@
-export ZSH=$HOME/.zsh       # zsh configuration directory
-
 setopt NO_BEEP              # shh!
 setopt EXTENDED_GLOB        # extended patterns support
 
 export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
-
-export XDG_CONFIG_HOME=$HOME/.config
 
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
@@ -32,13 +28,13 @@ stty -ixon
 #--- Completion --------------------------------------------------------------
 
 # Completions
-fpath=(~/.zsh/zsh-completions/src $fpath)
+fpath=($ZSHPLUGINS/zsh-completions/src $fpath)
 autoload -U compinit
 compinit
 
 # Use cache for slow functions
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path $ZDOTDIR/cache
 
 #  Fuzzy completion matching
 zstyle ':completion:*' completer _complete _match _approximate
@@ -56,8 +52,8 @@ zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 # make sure history-substring-search is after syntax-highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSHPLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Auto-quote urls
 autoload -U url-quote-magic
@@ -128,7 +124,7 @@ setopt AUTO_PUSHD
 # History
 
 HISTSIZE=1000
-HISTFILE=~/.zsh_history
+HISTFILE=$ZDOTDIR/history
 SAVEHIST=1000
 
 setopt EXTENDED_HISTORY       # store date and execution times

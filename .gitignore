@@ -15,6 +15,7 @@
 
 .tmux/tmux.conf.local
 
-.zsh/cache
+.config/zsh/cache
+.config/zsh/history
 
 *.pyc

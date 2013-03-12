@@ -6,10 +6,10 @@
 	path = util/LS_COLORS
 	url = https://github.com/trapd00r/LS_COLORS.git
 [submodule "util/zsh-syntax-highlighting"]
-	path = .zsh/zsh-syntax-highlighting
+	path = .config/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".zsh/zsh-completions"]
-	path = .zsh/zsh-completions
+[submodule ".config/zsh/plugins/zsh-completions"]
+	path = .config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "util/solarized"]
 	path = util/solarized
@@ -17,6 +17,6 @@
 [submodule "util/irssi-colors-solarized"]
 	path = util/irssi-colors-solarized
 	url = https://github.com/huyz/irssi-colors-solarized.git
-[submodule ".zsh/zsh-history-substring-search"]
-	path = .zsh/zsh-history-substring-search
+[submodule ".config/zsh/plugins/zsh-history-substring-search"]
+	path = .config/zsh/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
