@@ -176,6 +176,7 @@ inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
 nmap          <leader>a         :TagbarToggle<CR>
 nmap          <leader>b         o<C-R>"<Esc>
+nmap          <leader>c         :SplitByWidth $XDG_CONFIG_HOME/
 nmap          <leader>d         <C-W>0_
 nmap          <leader>e         :SplitByWidth 
 "             <leader>f         Set above to CommandTBuffer or CtrlPBuffer
