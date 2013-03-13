@@ -1,4 +1,6 @@
-export ZSHPLUGINS=$ZDOTDIR/plugins/
+export ZSHPLUGINS=$ZDOTDIR/plugins
+
+export XDG_DATA_HOME=$HOME/.local/share
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
@@ -8,7 +10,7 @@ export BROWSER=chromium
 
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
-export NODE_PATH="/usr/local/lib/node/"
+export NODE_PATH=/usr/local/lib/node
 
 if [[ "$OSTYPE" == darwin* ]]
 then

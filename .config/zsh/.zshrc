@@ -195,6 +195,7 @@ bindkey '^Z' ctrlz
 export ACKRC=$XDG_CONFIG_HOME/ackrc
 export INPUTRC=$XDG_CONFIG_HOME/inputrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
+export TASKRC=$XDG_CONFIG_HOME/taskrc
 export XINITRC=$XDG_CONFIG_HOME/xinitrc
 
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
