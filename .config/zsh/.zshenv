@@ -1,5 +1,6 @@
 export ZSHPLUGINS=$ZDOTDIR/plugins
 
+export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 export LC_ALL="en_US.UTF-8"
