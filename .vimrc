@@ -293,7 +293,7 @@ set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 " : Interface :
 " =============
 
-set background=light                   " make sure this is before colorschemes
+set background=dark                    " make sure this is before colorschemes
 
 if &t_Co > 8
     set t_Co=256
