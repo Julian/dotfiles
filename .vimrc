@@ -28,7 +28,7 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'othree/html5.vim'
-Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-git'
 Bundle 'vim-ruby/vim-ruby'
 
@@ -445,22 +445,27 @@ augroup END
 
 if has("eval")
 
-    " Split a window vertically if it would have at least 79 chars plus a bit
-    " of padding, otherwise split it horizontally
-    function! <SID>SplitByWidth(path)
+    function! s:SplitByWidthCommand(qargs)
+        echo a:qargs
         let padding = 5  " columns
 
         if bufname('%') == ''
-            exec 'edit ' . a:path
+            exec 'edit ' . a:qargs
         elseif winwidth(0) >= (79 + padding) * 2
-            exec 'vsplit ' . a:path
+            exec 'vsplit ' . a:qargs
             wincmd L
         else
-            exec 'split ' . a:path
+            exec 'split ' . a:qargs
         endif
+    endfunction
+
+    " Split a window vertically if it would have at least 79 chars plus a bit
+    " of padding, otherwise split it horizontally
+    function! SplitByWidth(path)
+        <SID>SplitByWidthCommand(a:path)
     endfun
 
-    command! -nargs=1 -complete=file_in_path SplitByWidth call <SID>SplitByWidth('<args>')
+    command! -nargs=* -complete=file_in_path SplitByWidth call <SID>SplitByWidthCommand('<args>')
     cabbrev Sw SplitByWidth
 
     " If we're in a wide window, enable line numbers.
