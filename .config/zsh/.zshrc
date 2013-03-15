@@ -15,6 +15,9 @@ compinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $ZDOTDIR/cache
 
+# Ignore completion for non-existant commands
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
 #  Fuzzy completion matching
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
@@ -33,6 +36,14 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 # make sure history-substring-search is after syntax-highlighting
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSHPLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+#--- Modules -----------------------------------------------------------------
+
+autoload -U zcalc
+
+# Suffix aliases
+autoload -U zsh-mime-setup
+zsh-mime-setup
 
 # Auto-quote urls
 autoload -U url-quote-magic
