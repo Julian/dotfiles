@@ -212,8 +212,8 @@ nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
 " set working directory
 nnoremap      <leader>.         :lcd %:p:h<CR>
-nmap          <leader>]         :RopeGotoDefinition<CR>
-nmap          <leader>[         :RopeRename<CR>
+nmap          <leader>]         :cnext<CR>
+nmap          <leader>[         :cprevious<CR>
 
 nmap          <leader><tab>     :b#<CR>
 
