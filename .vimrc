@@ -27,6 +27,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'klen/python-mode'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-git'
@@ -37,6 +38,7 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " --- Plugins ---
 
 Bundle 'alfredodeza/coveragepy.vim'
+Bundle 'alfredodeza/pytest.vim'
 Bundle 'b4winckler/vim-angry'
 Bundle 'ervandew/supertab'
 Bundle 'Lokaltog/vim-easymotion'
@@ -46,7 +48,6 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'mikewest/vimroom'
 Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/syntastic'
-Bundle 'sontek/rope-vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
@@ -185,7 +186,7 @@ nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
 nmap          <leader>m         :call MakeGreen()<CR>
 nmap          <leader>p         "*p
-nmap          <leader>q         :call <SID>ToggleQuickfix('c')<CR>
+nmap          <leader>q         :call <SID>ToggleQuickfix()<CR>
 nmap          <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nmap          <leader>s         :set spell!<CR>
 nmap          <leader>t         :topleft split TODO<CR><C-W>6_
@@ -484,15 +485,13 @@ if has("eval")
     endfun
 
     " Toggle the quick fix window
-    function! <SID>ToggleQuickfix(bind_key)
+    function! <SID>ToggleQuickfix()
         " This is broken if someone decides to do copen or cclose without using
         " the mapping, but just look at the ugliness required to do it properly
         " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
-        let key = a:bind_key
-
         if !exists("s:quickfix_open")
             let s:quickfix_open = 0
-            return <SID>ToggleQuickfix(key)
+            return <SID>ToggleQuickfix()
         else
             if s:quickfix_open
                 :cclose
