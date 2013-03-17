@@ -21,4 +21,27 @@ inoremap <buffer> } }<C-G>u<C-O>:call Reindent('}')<CR><Right>
 inoremap <buffer> ] ]<C-G>u<C-O>:call Reindent(']')<CR><Right>
 inoremap <buffer> ) )<C-G>u<C-O>:call Reindent(')')<CR><Right>
 
+nmap <silent><Leader>jf <Esc>:Pytest file<CR>
+nmap <silent><Leader>jc <Esc>:Pytest class<CR>
+nmap <silent><Leader>jm <Esc>:Pytest method<CR>
+
+nmap <silent><Leader>jn <Esc>:Pytest next<CR>
+nmap <silent><Leader>jp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>je <Esc>:Pytest error<CR>
+
+map <buffer> gd :RopeGotoDefinition<CR>
+
 map <buffer> <F9> :!python "%:p"<CR>
+
+" Add support for virtualenvs
+python << EOF
+import os
+import sys
+import vim
+
+virtual_env = os.environ.get("VIRTUAL_ENV")
+if virtual_env is not None:
+    sys.path.insert(0, virtual_env)
+    activate_this = os.path.join(virtual_env, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
