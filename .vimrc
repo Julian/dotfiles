@@ -142,11 +142,6 @@ noremap g` g'
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-" line numbers
-nmap <C-N><C-N> :set invnumber<CR>
-highlight LineNr term=bold cterm=NONE ctermfg=LightGrey gui=NONE guifg=LightGrey
-
-
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
 inoremap <BS> <BS><C-G>u
