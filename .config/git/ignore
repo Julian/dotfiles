@@ -23,4 +23,6 @@ Thumbs.db
 
 # Temporary Files #
 # --------------- #
+.ropeproject/
+htmlcov/
 _trial_temp/
