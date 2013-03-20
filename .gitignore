@@ -16,6 +16,7 @@
 .tmux/tmux.conf.local
 
 .config/bpython/history
+.config/zsh/.zcompdump
 .config/zsh/cache
 .config/zsh/history
 
