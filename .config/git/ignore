@@ -23,6 +23,8 @@ Thumbs.db
 
 # Temporary Files #
 # --------------- #
+.gitignore
+.coverage
 .ropeproject/
 htmlcov/
 _trial_temp/
