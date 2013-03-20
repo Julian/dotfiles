@@ -398,6 +398,9 @@ function! YRRunAfterMaps()
     nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
 endfunction
 
+" python-mode
+let g:pymode_utils_whitespaces = 0
+
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
