@@ -1,8 +1,5 @@
 .DS_Store
 
-.config/pudb/saved-breakpoints
-.config/pudb/shell-history
-
 .irssi/sasl.auth
 .irssi/config.autosave
 
@@ -16,6 +13,9 @@
 .tmux/tmux.conf.local
 
 .config/bpython/history
+.config/pip/pip.log
+.config/pudb/saved-breakpoints
+.config/pudb/shell-history
 .config/zsh/.zcompdump
 .config/zsh/cache
 .config/zsh/history
