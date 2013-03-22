@@ -26,5 +26,6 @@ Thumbs.db
 .gitignore
 .coverage
 .ropeproject/
+__pycache__/
 htmlcov/
 _trial_temp/
