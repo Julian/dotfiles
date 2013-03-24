@@ -203,6 +203,9 @@ bindkey '^Z' ctrlz
 
 #--- Misc --------------------------------------------------------------------
 
+typeset -aU mailpath
+mailpath=($HOME/Mail $mailpath)
+
 export ACKRC=$XDG_CONFIG_HOME/ackrc
 export INPUTRC=$XDG_CONFIG_HOME/inputrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
