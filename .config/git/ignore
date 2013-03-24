@@ -23,9 +23,12 @@ Thumbs.db
 
 # Temporary Files #
 # --------------- #
+.pep8
+*.pyc
 .gitignore
 .coverage
 .ropeproject/
 __pycache__/
 htmlcov/
 _trial_temp/
+twistd.log
