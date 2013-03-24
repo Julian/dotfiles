@@ -33,6 +33,11 @@ map <buffer> gd :RopeGotoDefinition<CR>
 
 map <buffer> <F9> :!python "%:p"<CR>
 
+" --------------------- from here on requires +python -------------------------
+if !has("python")
+    finish
+endif
+
 " Add support for virtualenvs
 python << EOF
 import os
