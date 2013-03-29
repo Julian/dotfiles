@@ -11,6 +11,7 @@ setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=
 function! Reindent(delimiter)
     execute "normal! va" . a:delimiter . "o"
     normal! ?\i*
+    normal! o
     normal! =
     normal! ']
 endfunction
