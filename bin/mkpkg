@@ -1,12 +1,26 @@
 #! /usr/bin/env python2
 
+import argparse
 import datetime
 import os
-import sys
 import textwrap
 
 
-name = sys.argv[1]
+def dedent(*args, **kwargs):
+    return textwrap.dedent(*args, **kwargs).lstrip("\n")
+
+
+parser = argparse.ArgumentParser(
+    description="Oh how exciting! Create a new Python package.",
+)
+parser.add_argument("name", help="the package name")
+parser.add_argument(
+    "--use-distutils",
+    help="Use distutils instead of distribute.",
+)
+
+arguments = parser.parse_args()
+name = arguments.name
 
 os.mkdir(name)
 os.mkdir(os.path.join(name, name.lower()))
@@ -18,7 +32,7 @@ open(os.path.join(name, name.lower(), "tests", "__init__.py"), "w").close()
 
 with open(os.path.join(name, "COPYING"), "w") as copying:
     copying.write(
-        textwrap.dedent("""
+        dedent("""
         Copyright (c) %s Julian Berman
 
         Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -38,16 +52,23 @@ with open(os.path.join(name, "COPYING"), "w") as copying:
         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
-        """).lstrip() % datetime.datetime.now().year
+        """) % datetime.datetime.now().year
     )
 
 
+if arguments.use_distutils:
+    setup = "from distutils.core import setup"
+    packages = """["{0}", "{0}.tests"]""".format(name.lower())
+else:
+    setup = "from setuptools import find_packages, setup"
+    packages = "find_packages()"
+
 with open(os.path.join(name, "setup.py"), "w") as setup:
     setup.write(
-        textwrap.dedent("""
-        from distutils.core import setup
+        dedent("""
+        {setup_import}
 
-        from {0} import __version__
+        from {name} import __version__
 
 
         with open("README.rst") as readme:
@@ -72,9 +93,9 @@ with open(os.path.join(name, "setup.py"), "w") as setup:
 
 
         setup(
-            name="{0}",
+            name="{name}",
             version=__version__,
-            packages=["{0}", "{0}.tests"],
+            packages={packages},
             author="Julian Berman",
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
@@ -83,13 +104,13 @@ with open(os.path.join(name, "setup.py"), "w") as setup:
             long_description=long_description,
             url="",
         )
-        """).lstrip().format(name.lower())
+        """).format(name=name.lower(), setup_import=setup, packages=packages)
     )
 
 
 with open(os.path.join(name, "tox.ini"), "w") as tox:
     tox.write(
-        textwrap.dedent("""
+        dedent("""
         [tox]
         envlist = py27, pypy
 
@@ -101,5 +122,5 @@ with open(os.path.join(name, "tox.ini"), "w") as tox:
         deps =
             mock
             twisted
-        """).lstrip().format(name=name.lower())
+        """).format(name=name.lower())
     )
