@@ -1,0 +1,1 @@
+../../util/irssi-notifier/notifier.pl
