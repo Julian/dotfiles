@@ -2,38 +2,115 @@
 
 import argparse
 import datetime
+import errno
 import os
+import pwd
+import sys
 import textwrap
 
 
-def dedent(*args, **kwargs):
-    return textwrap.dedent(*args, **kwargs).lstrip("\n")
+VERSION_CLASSIFIERS = {
+    "py24" : "Programming Language :: Python :: 2.4",
+    "py25" : "Programming Language :: Python :: 2.5",
+    "py26" : "Programming Language :: Python :: 2.6",
+    "py27" : "Programming Language :: Python :: 2.7",
+    "py30" : "Programming Language :: Python :: 2.0",
+    "py31" : "Programming Language :: Python :: 3.1",
+    "py32" : "Programming Language :: Python :: 3.2",
+    "py33" : "Programming Language :: Python :: 3.3",
+    "py34" : "Programming Language :: Python :: 3.4",
+    "py35" : "Programming Language :: Python :: 3.5",
+}
 
+
+def dedented(*args, **kwargs):
+    return textwrap.dedent(*args, **kwargs).lstrip("\n")
 
 parser = argparse.ArgumentParser(
     description="Oh how exciting! Create a new Python package.",
 )
 parser.add_argument("name", help="the package name")
 parser.add_argument(
+    "--author",
+    default=pwd.getpwuid(os.getuid()).pw_gecos,
+    help="the name of the package author",
+)
+parser.add_argument(
     "--use-distutils",
+    action="store_true",
     help="Use distutils instead of distribute.",
+)
+parser.add_argument(
+    "-s", "--supports",
+    action="append",
+    help="a version of Python supported by the package",
+    choices=(
+        "py24",
+        "py25",
+        "py26",
+        "py27",
+        "py30",
+        "py31",
+        "py32",
+        "py33",
+        "jython",
+        "pypy",
+    ),
+    default=["py26", "py27", "py32", "py33", "pypy"],
 )
 
 arguments = parser.parse_args()
 name = arguments.name
 
-os.mkdir(name)
-os.mkdir(os.path.join(name, name.lower()))
-os.mkdir(os.path.join(name, name.lower(), "tests"))
+if arguments.use_distutils:
+    setup = "from distutils.core import setup"
+    packages = """["{0}", "{0}.tests"]""".format(name.lower())
+else:
+    setup = "from setuptools import find_packages, setup"
+    packages = "find_packages()"
 
-open(os.path.join(name, "README.rst"), "w").close()
-open(os.path.join(name, name.lower(), "__init__.py"), "w").close()
-open(os.path.join(name, name.lower(), "tests", "__init__.py"), "w").close()
 
-with open(os.path.join(name, "COPYING"), "w") as copying:
-    copying.write(
-        dedent("""
-        Copyright (c) %s Julian Berman
+def make_classifiers(supports=arguments.supports):
+    supports = sorted(supports)
+
+    for classifier in (
+        "Development Status :: 3 - Alpha",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+    ):
+        yield classifier
+
+    for version in supports:
+        if version in VERSION_CLASSIFIERS:
+            yield VERSION_CLASSIFIERS[version]
+
+    if any(
+        version.startswith("py2") or version in {"jython", "pypy"}
+        for version in supports
+    ):
+        yield "Programming Language :: Python :: 2"
+
+    if any(version.startswith("py3") for version in supports):
+        yield "Programming Language :: Python :: 3"
+
+    yield "Programming Language :: Python :: Implementation :: CPython"
+
+    if "pypy" in supports:
+        yield "Programming Language :: Python :: Implementation :: PyPy"
+
+    if "jython" in supports:
+        yield "Programming Language :: Python :: Implementation :: Jython"
+
+classifiers = "\n{0}\n        ".format(
+    ",\n".join('            "' + c + '"' for c in make_classifiers())
+)
+
+
+files = {
+    os.path.join(name, "README.rst") : "",
+    os.path.join(name, "COPYING") : """
+        Copyright (c) {now.year} {author}
 
         Permission is hereby granted, free of charge, to any person obtaining a copy
         of this software and associated documentation files (the "Software"), to deal
@@ -52,20 +129,9 @@ with open(os.path.join(name, "COPYING"), "w") as copying:
         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
-        """) % datetime.datetime.now().year
-    )
+        """.format(now=datetime.datetime.now(), author=arguments.author),
 
-
-if arguments.use_distutils:
-    setup = "from distutils.core import setup"
-    packages = """["{0}", "{0}.tests"]""".format(name.lower())
-else:
-    setup = "from setuptools import find_packages, setup"
-    packages = "find_packages()"
-
-with open(os.path.join(name, "setup.py"), "w") as setup:
-    setup.write(
-        dedent("""
+    os.path.join(name, "setup.py") : """
         {setup_import}
 
         from {name} import __version__
@@ -75,28 +141,14 @@ with open(os.path.join(name, "setup.py"), "w") as setup:
             long_description = readme.read()
 
 
-        classifiers = [
-            "Development Status :: 3 - Alpha",
-            "License :: OSI Approved :: MIT License",
-            "Operating System :: OS Independent",
-            "Programming Language :: Python",
-            "Programming Language :: Python :: 2",
-            "Programming Language :: Python :: 2.6",
-            "Programming Language :: Python :: 2.7",
-            "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.1",
-            "Programming Language :: Python :: 3.2",
-            "Programming Language :: Python :: 3.3",
-            "Programming Language :: Python :: Implementation :: CPython",
-            "Programming Language :: Python :: Implementation :: PyPy",
-        ]
+        classifiers = [{classifiers}]
 
 
         setup(
             name="{name}",
             version=__version__,
             packages={packages},
-            author="Julian Berman",
+            author="{author}",
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
             description="",
@@ -104,15 +156,17 @@ with open(os.path.join(name, "setup.py"), "w") as setup:
             long_description=long_description,
             url="",
         )
-        """).format(name=name.lower(), setup_import=setup, packages=packages)
-    )
+        """.format(
+            author=arguments.author,
+            name=name.lower(),
+            setup_import=setup,
+            classifiers=classifiers,
+            packages=packages,
+        ),
 
-
-with open(os.path.join(name, "tox.ini"), "w") as tox:
-    tox.write(
-        dedent("""
+    os.path.join(name, "tox.ini") : """
         [tox]
-        envlist = py27, pypy
+        envlist = {supports}
 
         [testenv]
         commands =
@@ -122,5 +176,27 @@ with open(os.path.join(name, "tox.ini"), "w") as tox:
         deps =
             mock
             twisted
-        """).format(name=name.lower())
-    )
+        """.format(
+            name=name.lower(),
+            supports=", ".join(sorted(arguments.supports)),
+        ),
+
+    os.path.join(name, name.lower(), "__init__.py") : "",
+    os.path.join(name, name.lower(), "tests", "__init__.py") : "",
+}
+
+try:
+    os.mkdir(name)
+except OSError as err:
+    if err.errno == errno.EEXIST:
+        sys.exit("{0} already exists!".format(name))
+
+for path, content in files.iteritems():
+    try:
+        os.makedirs(os.path.dirname(path))
+    except OSError as err:
+        if err.errno != errno.EEXIST:
+            raise
+
+    with open(path, "wb") as file:
+        file.write(dedented(content))
