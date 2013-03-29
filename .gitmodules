@@ -20,3 +20,6 @@
 [submodule ".config/zsh/plugins/zsh-history-substring-search"]
 	path = .config/zsh/plugins/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "util/irssi-notifier"]
+	path = util/irssi-notifier
+	url = git@github.com:paddykontschak/irssi-notifier.git
