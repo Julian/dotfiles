@@ -10,7 +10,13 @@
 *.o
 *.so
 
-# OS generated files #
+*.egg-info
+_build
+build
+dist
+MANIFEST
+
+# OS Generated Files #
 # ------------------ #
 .DS_Store
 .DS_Store?
@@ -23,12 +29,20 @@ Thumbs.db
 
 # Temporary Files #
 # --------------- #
-.pep8
 *.pyc
-.gitignore
-.coverage
-.ropeproject/
+*.pyo
 __pycache__/
-htmlcov/
+
 _trial_temp/
+
+.coverage
+htmlcov/
+
+.tox
+
+# Other Junk #
+# ---------- #
+.gitignore
+.pep8
+.ropeproject/
 twistd.log
