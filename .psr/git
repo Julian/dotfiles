@@ -3,3 +3,5 @@
 * shortlog
 * format-patch
 * rev-list lists revisions (good for looping over them)
+* git checkout {--ours|--theirs} filename.txt and some stupid syntax with git
+    show :N:foo.txt
