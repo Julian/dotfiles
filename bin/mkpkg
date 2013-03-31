@@ -9,6 +9,15 @@ import sys
 import textwrap
 
 
+STATUS_CLASSIFIERS = {
+    "planning" : "Development Status :: 1 - Planning",
+    "prealpha" : "Development Status :: 2 - Pre-Alpha",
+    "alpha" : "Development Status :: 3 - Alpha",
+    "beta" : "Development Status :: 4 - Beta",
+    "stable" : "Development Status :: 5 - Production/Stable",
+    "mature" : "Development Status :: 6 - Mature",
+    "inactive" : "Development Status :: 7 - Inactive",
+}
 VERSION_CLASSIFIERS = {
     "py24" : "Programming Language :: Python :: 2.4",
     "py25" : "Programming Language :: Python :: 2.5",
@@ -36,6 +45,17 @@ parser.add_argument(
     help="the name of the package author",
 )
 parser.add_argument(
+    "--status",
+    choices=STATUS_CLASSIFIERS,
+    default="alpha",
+    help="the initial package development status",
+)
+parser.add_argument(
+    "--initial-version",
+    default="0.1.0-dev",
+    help="the initial package version",
+)
+parser.add_argument(
     "--use-distutils",
     action="store_true",
     help="Use distutils instead of distribute.",
@@ -44,18 +64,7 @@ parser.add_argument(
     "-s", "--supports",
     action="append",
     help="a version of Python supported by the package",
-    choices=(
-        "py24",
-        "py25",
-        "py26",
-        "py27",
-        "py30",
-        "py31",
-        "py32",
-        "py33",
-        "jython",
-        "pypy",
-    ),
+    choices=sorted(VERSION_CLASSIFIERS) + ["jython", "pypy"],
     default=["py26", "py27", "py32", "py33", "pypy"],
 )
 
@@ -73,8 +82,9 @@ else:
 def make_classifiers(supports=arguments.supports):
     supports = sorted(supports)
 
+    yield STATUS_CLASSIFIERS[arguments.status]
+
     for classifier in (
-        "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
@@ -132,17 +142,17 @@ files = {
         """.format(now=datetime.datetime.now(), author=arguments.author),
 
     os.path.join(name, "setup.py") : """
+        import os
+
         {setup_import}
 
         from {name} import __version__
 
 
-        with open("README.rst") as readme:
+        with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
             long_description = readme.read()
 
-
         classifiers = [{classifiers}]
-
 
         setup(
             name="{name}",
@@ -152,7 +162,7 @@ files = {
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
             description="",
-            license="MIT/X",
+            license="MIT",
             long_description=long_description,
             url="",
         )
@@ -181,7 +191,9 @@ files = {
             supports=", ".join(sorted(arguments.supports)),
         ),
 
-    os.path.join(name, name.lower(), "__init__.py") : "",
+    os.path.join(name, name.lower(), "__init__.py") : """
+        __version__ = "{version}"
+        """.format(version=arguments.initial_version),
     os.path.join(name, name.lower(), "tests", "__init__.py") : "",
 }
 
