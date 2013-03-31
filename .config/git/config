@@ -9,6 +9,7 @@
     tool = vimdiff
 
 [merge]
+    conflictstyle = diff3
     tool = vimdiff
 
 [difftool]
