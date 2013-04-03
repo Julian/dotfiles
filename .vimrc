@@ -569,6 +569,3 @@ augroup formatstupidity
 augroup END
 
 let g:tex_flavor='latex'
-
-" TODO: Mapping / something to split 2 windows at 79 chars, toggling the right
-" one on and off (like a test_ file), with tags (,a) at the left
