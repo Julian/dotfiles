@@ -27,7 +27,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'klen/python-mode'
+Bundle 'klen/rope-vim'
 Bundle 'othree/html5.vim'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-git'
@@ -397,9 +397,6 @@ let g:yankring_min_element_length = 2
 function! YRRunAfterMaps()
     nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
 endfunction
-
-" python-mode
-let g:pymode_utils_whitespaces = 0
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
