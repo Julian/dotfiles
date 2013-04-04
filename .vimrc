@@ -62,11 +62,6 @@ if has("python")
     Bundle 'SirVer/ultisnips'
 endif
 
-if !has("gui_running") || !has("clientserver")
-    Bundle 'benmills/vimux'
-    Bundle 'julienr/vimux-pyutils'
-endif
-
 if isdirectory(expand("~/Development/vim-runt"))
     set runtimepath+=~/Development/vim-runt
 else
@@ -193,12 +188,12 @@ nmap <silent> <leader>x         :YRShow<CR>
 nmap          <leader>y         "*y
 nmap          <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
-nmap          <leader>jj        :call VimuxRunCommand("clear; " .  TestRunnerCommand(FindTestFile(expand("%"))))<CR>
-nmap          <leader>jl        :call ToggleTestLock()<CR>
-nmap          <leader>jt        :call VimuxRunCommand("clear; tox")<CR>
-nmap          <leader>js        :call VimuxRunCommand("clear; " .  RunTestSuite(expand("%")))<CR>
-nmap          <leader>jq        :VimuxCloseRunner<CR>
-nmap          <leader>j<leader> :VimuxRunLastCommand<CR>
+nmap          <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
+nmap          <leader>jl        :ToggleTestLock<CR>
+nmap          <leader>jt        :Dispatch! tox<CR>
+nmap          <leader>js        :Dispatch! RunTestSuite(expand("%")))<CR>
+nmap          <leader>jq        :Copen<CR>
+nmap          <leader>j<leader> :Dispatch<CR>
 
 
 " reverse line join
