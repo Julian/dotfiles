@@ -40,9 +40,14 @@ htmlcov/
 
 .tox
 
+.vagrant
+
 # Other Junk #
 # ---------- #
 .gitignore
 .pep8
 .ropeproject/
 twistd.log
+
+Gemfile.lock
+Berksfile.lock
