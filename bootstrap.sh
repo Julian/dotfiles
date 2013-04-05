@@ -7,6 +7,11 @@ DOTFILES_DEST=~/.dotfiles
 DEVELOPMENT=~/Development
 
 
+if [ -z "$DOTFILES_DEBUG" ]; then
+    git_verbosity='--quiet'
+fi
+
+
 main()
 {
     clone_dotfiles
@@ -24,10 +29,10 @@ clone_dotfiles()
 
         ensure_installed git
         (
-            git clone --quiet $DOTFILES_URL $DOTFILES_DEST
+            git clone $git_verbosity $DOTFILES_URL $DOTFILES_DEST
             cd $DOTFILES_DEST
-            git submodule --quiet init
-            git submodule --quiet update
+            git submodule $git_verbosity init
+            git submodule $git_verbosity update
         )
     else
         echo "Existing dotfiles found in $DOTFILES_DEST."
