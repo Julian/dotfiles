@@ -55,8 +55,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
-Bundle 'YankRing.vim'
-
 if has("python")
     " Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
@@ -383,15 +381,6 @@ endif
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 
 let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
-
-let g:yankring_history_dir = '$HOME/.vim/'
-let g:yankring_history_file = '.yankring_history'
-let g:yankring_min_element_length = 2
-
-" Yankring nnoremaps to remap Y. See :h yankring-custom-maps
-function! YRRunAfterMaps()
-    nnoremap Y   :<C-U>YRYankCount 'y$'<CR>
-endfunction
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
