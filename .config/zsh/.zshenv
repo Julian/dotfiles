@@ -11,12 +11,18 @@ export BROWSER=chromium
 
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
-export NODE_PATH=/usr/local/lib/node
+typeset -aU gopath
+typeset -T GOPATH gopath
+gopath=($XDG_DATA_HOME/go)
+
+typeset -aU nodepath
+typeset -T NODEPATH nodepath
+nodepath=(/usr/local/lib/node)
 
 if [[ "$OSTYPE" == darwin* ]]
 then
     export BROWSER=open
-    export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+    nodepath=(/usr/local/lib/node_modules $nodepath)
 elif [[ -a /etc/arch-release ]]
 then
     # "Arch -- Let's Make Python Difficult, Together."
