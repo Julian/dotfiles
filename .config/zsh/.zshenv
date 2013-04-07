@@ -14,10 +14,12 @@ export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 typeset -aU gopath
 typeset -T GOPATH gopath
 gopath=($XDG_DATA_HOME/go)
+export GOPATH
 
 typeset -aU nodepath
 typeset -T NODEPATH nodepath
 nodepath=(/usr/local/lib/node)
+export NODEPATH
 
 if [[ "$OSTYPE" == darwin* ]]
 then
