@@ -40,6 +40,12 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("name", help="the package name")
 parser.add_argument(
+    "--single", "--no-package",
+    action="store_true",
+    dest="single_module",
+    help="create a single module rather than a package",
+)
+parser.add_argument(
     "--author",
     default=pwd.getpwuid(os.getuid()).pw_gecos,
     help="the name of the package author",
@@ -67,6 +73,12 @@ parser.add_argument(
     choices=sorted(VERSION_CLASSIFIERS) + ["jython", "pypy"],
     default=["py26", "py27", "py32", "py33", "pypy"],
 )
+parser.add_argument(
+    "-t", "--test-runner",
+    help="the test runner to use",
+    choices=["pytest", "trial"],
+    default="trial",
+)
 
 arguments = parser.parse_args()
 name = arguments.name
@@ -77,6 +89,35 @@ if arguments.use_distutils:
 else:
     setup = "from setuptools import find_packages, setup"
     packages = "find_packages()"
+
+init_contents = """
+    __version__ = "{version}"
+""".format(version=arguments.initial_version)
+
+if arguments.single_module:
+    packages = "()"
+    modules = '["{name}"]'.format(name=name.lower())
+    tests = "tests.py"
+
+    additional_files = {
+        os.path.join(name, name.lower() + ".py") : init_contents,
+        os.path.join(name, "tests.py") : "",
+    }
+else:
+    modules = "()"
+    tests = name.lower()
+
+    additional_files = {
+        os.path.join(name, name.lower(), "__init__.py") : init_contents,
+        os.path.join(name, name.lower(), "tests", "__init__.py") : "",
+    }
+
+if arguments.test_runner == "pytest":
+    test_runner = "py.test"
+    test_deps = ["pytest"]
+elif arguments.test_runner == "trial":
+    test_runner = "trial"
+    test_deps = ["twisted"]
 
 
 def make_classifiers(supports=arguments.supports):
@@ -158,6 +199,7 @@ files = {
             name="{name}",
             version=__version__,
             packages={packages},
+            py_modules={modules},
             author="{author}",
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
@@ -172,6 +214,7 @@ files = {
             setup_import=setup,
             classifiers=classifiers,
             packages=packages,
+            modules=modules,
         ),
 
     os.path.join(name, "tox.ini") : """
@@ -180,22 +223,20 @@ files = {
 
         [testenv]
         commands =
-            trial {name}
+            {test_runner} {tests}
             {{envpython}} -m doctest README.rst
 
         deps =
-            mock
-            twisted
+            {test_deps}
         """.format(
-            name=name.lower(),
             supports=", ".join(sorted(arguments.supports)),
+            test_runner=test_runner,
+            tests=tests,
+            test_deps="\n    ".join(test_deps),
         ),
-
-    os.path.join(name, name.lower(), "__init__.py") : """
-        __version__ = "{version}"
-        """.format(version=arguments.initial_version),
-    os.path.join(name, name.lower(), "tests", "__init__.py") : "",
 }
+files.update(additional_files)
+
 
 try:
     os.mkdir(name)
