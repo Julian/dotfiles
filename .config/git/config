@@ -6,6 +6,7 @@
     ui = true
 
 [diff]
+    algorithm = histogram
     tool = vimdiff
 
 [merge]
@@ -22,6 +23,7 @@
     co = checkout
     di = diff
     dc = diff --cached
+    dd = diff --diff-algorithm=default
     st = status
     amend = commit --amend
 
