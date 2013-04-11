@@ -134,6 +134,9 @@ noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
+" Do substitution repeat in visual mode
+vnoremap & :&&<CR>
+
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 " make undo less drastic + prevent accidental irreversible undo
