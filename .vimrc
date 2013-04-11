@@ -432,7 +432,7 @@ if has("eval")
         echo a:qargs
         let padding = 5  " columns
 
-        if bufname('%') == ''
+        if bufname('%') == '' && getline(1, '$') == ['']
             exec 'edit ' . a:qargs
         elseif winwidth(0) >= (79 + padding) * 2
             exec 'vsplit ' . a:qargs
