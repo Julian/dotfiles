@@ -168,9 +168,9 @@ inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
 nmap          <leader>a         :TagbarToggle<CR>
 nmap          <leader>b         o<C-R>"<Esc>
-nmap          <leader>c         :SplitByWidth $XDG_CONFIG_HOME/
+nmap          <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
 nmap          <leader>d         <C-W>0_
-nmap          <leader>e         :SplitByWidth 
+nmap          <leader>e         :SplitByWidth<CR>:CommandT 
 "             <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "             <leader>g         Set above to CommandT or CtrlP
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
