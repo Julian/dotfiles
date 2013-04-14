@@ -21,6 +21,10 @@ typeset -T NODEPATH nodepath
 nodepath=(/usr/local/lib/node)
 export NODEPATH
 
+typeset -aU pythonpath
+typeset -T PYTHONPATH pythonpath
+export PYTHONPATH
+
 if [[ "$OSTYPE" == darwin* ]]
 then
     export BROWSER=open
