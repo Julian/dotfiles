@@ -37,10 +37,10 @@
 
     head = !git l -1
     h = !git head
-    hp = "!. ./helpers && show_git_head"
+    hp = "!. $XDG_CONFIG_HOME/git/helpers && show_git_head"
     r = !git l -30
     ra = !git r --all
-    l = "!. ./helpers && pretty_git_log"
+    l = "!. $XDG_CONFIG_HOME/git/helpers && pretty_git_log"
     la = !git l --all
 
 [push]
