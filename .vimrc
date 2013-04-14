@@ -429,10 +429,13 @@ augroup END
 if has("eval")
 
     function! s:SplitByWidthCommand(qargs)
-        echo a:qargs
         let padding = 5  " columns
 
         if bufname('%') == '' && getline(1, '$') == ['']
+            if a:qargs == ''
+                return
+            endif
+
             exec 'edit ' . a:qargs
         elseif winwidth(0) >= (79 + padding) * 2
             exec 'vsplit ' . a:qargs
