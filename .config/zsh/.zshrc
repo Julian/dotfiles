@@ -207,6 +207,7 @@ typeset -aU mailpath
 mailpath=($HOME/Mail $mailpath)
 
 export ACKRC=$XDG_CONFIG_HOME/ackrc
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npmrc
 export INPUTRC=$XDG_CONFIG_HOME/inputrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 export PIP_CONFIG_FILE=$XDG_CONFIG_HOME/pip/config
