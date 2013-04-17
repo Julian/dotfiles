@@ -1,3 +1,0 @@
-bpython
-nose
-pudb
