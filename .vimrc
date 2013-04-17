@@ -23,7 +23,6 @@ Bundle 'sickill/vim-monokai'
 Bundle 'dahu/VimRegexTutor'
 
 " --- Additional Filetype Support ---
-Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -45,8 +44,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'mikewest/vimroom'
-Bundle 'reinh/vim-makegreen'
 Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tcomment_vim'
@@ -176,7 +173,6 @@ nmap          <leader>e         :SplitByWidth<CR>:CommandT
 "             <leader>g         Set above to CommandT or CtrlP
 nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
-nmap          <leader>m         :call MakeGreen()<CR>
 nmap          <leader>p         "*p
 nmap          <leader>q         :call <SID>ToggleQuickfix()<CR>
 nmap          <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
