@@ -113,9 +113,9 @@ setopt AUTO_PUSHD
 
 # History
 
-HISTSIZE=1000
+HISTSIZE=100000
 HISTFILE=$ZDOTDIR/history
-SAVEHIST=1000
+SAVEHIST=$HISTSIZE
 
 setopt EXTENDED_HISTORY       # store date and execution times
 setopt HIST_IGNORE_DUPS       # ignore duplicates if last cmd is same
