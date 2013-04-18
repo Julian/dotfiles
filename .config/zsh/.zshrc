@@ -163,6 +163,7 @@ else
     alias ls='ls -Gh'
 fi
 
+function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 
 eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
 
