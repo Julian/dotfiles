@@ -132,7 +132,11 @@ setopt AUTO_RESUME            # resume existing jobs if command matches
 
 #--- Bindings ----------------------------------------------------------------
 
+autoload -U edit-command-line
+zle -N edit-command-line
+
 bindkey "^B" send-break
+bindkey "^E" edit-command-line
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
 
