@@ -489,7 +489,6 @@ if has("eval")
     function! <SID>ToggleExpando()
         if !exists("s:expando_enabled")
             let s:expando_enabled = 0
-            30wincmd >
             return <SID>ToggleExpando()
         else
             augroup expando
@@ -497,8 +496,10 @@ if has("eval")
                 if !s:expando_enabled
                     autocmd WinEnter * :45wincmd >
                     let s:expando_enabled = 1
+                    30wincmd >
                 else
                     let s:expando_enabled = 0
+                    wincmd =
                 endif
             augroup END
         endif
