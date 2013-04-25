@@ -18,9 +18,9 @@ endfunction
 
 " Make inserting closing delimiters automatically reindent the container and
 " move to the end again
-inoremap <buffer> } }<C-G>u<C-O>:call Reindent('}')<CR><Right>
-inoremap <buffer> ] ]<C-G>u<C-O>:call Reindent(']')<CR><Right>
-inoremap <buffer> ) )<C-G>u<C-O>:call Reindent(')')<CR><Right>
+" inoremap <buffer> } }<C-G>u<C-O>:call Reindent('}')<CR><Right>
+" inoremap <buffer> ] ]<C-G>u<C-O>:call Reindent(']')<CR><Right>
+" inoremap <buffer> ) )<C-G>u<C-O>:call Reindent(')')<CR><Right>
 
 nmap <silent><Leader>jf <Esc>:Pytest file<CR>
 nmap <silent><Leader>jc <Esc>:Pytest class<CR>
