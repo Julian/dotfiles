@@ -315,7 +315,7 @@ set vb t_vb=
 
 
 if has('mouse')
-  set mouse=nv                         " ugh no mouse while typing (normal+vis)
+  set mouse=v                          " ugh no mouse while typing, just visual
   set mousemodel=popup
 endif
 
@@ -522,11 +522,19 @@ if has("autocmd") && has("eval")
 
         " Jump to the last known cursor position if it's valid (from the docs)
         autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal g`\"" |
+            \ if line("'\"") > 0 && line("'\"") <= line("$")                  |
+            \   exe "normal g`\""                                             |
             \ endif
-    augroup END
 
+        " Follow symlinks when opening files. Good for Fugitive.
+        autocmd BufNew,BufReadPost *
+        \ let b:original_file = fnameescape(expand('<afile>:p'))              |
+        \ if getftype(b:original_file) == 'link'                              |
+        \     let b:target_file = fnamemodify(resolve(b:original_file), ':p') |
+        \     execute 'silent! file ' . fnameescape(b:target_file)            |
+        \ endif
+
+    augroup END
 endif
 
 
