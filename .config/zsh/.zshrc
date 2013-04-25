@@ -35,7 +35,6 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 # make sure history-substring-search is after syntax-highlighting
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSHPLUGINS/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 #--- Modules -----------------------------------------------------------------
 
@@ -139,6 +138,13 @@ bindkey "^B" send-break
 bindkey "^E" edit-command-line
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search up-line-or-beginning-search
+zle -N down-line-or-beginning-search down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 
 #--- Aliases -----------------------------------------------------------------
 
