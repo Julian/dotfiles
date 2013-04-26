@@ -268,7 +268,7 @@ endif
 " : History :
 " ===========
 
-set history=256		               " command line history
+set history=1000                       " command line history
 set viminfo='1000,f1,:1000,/1000       " more viminfo
 
 set backup
