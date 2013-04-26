@@ -85,8 +85,6 @@ endif
 " Bundle 'skammer/vim-css-color'
 " Bundle 'sjl/gundo.vim'
 
-" Bundle 'Pydiction'
-
 " =========
 " : Basic :
 " =========
