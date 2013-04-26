@@ -218,7 +218,7 @@ vmap          <leader>y         "*y
 set completeopt=menuone,longest,preview " follow type in autocomplete
 set pumheight=6                        " Keep a small completion window
 
-set showcmd		               " display incomplete commands
+set showcmd                            " display incomplete commands
 
 set wildmenu                           " file completion helper window
 set wildmode=longest:full,full
@@ -326,7 +326,7 @@ endif
 
 set backspace=indent,eol,start         " backspacing over everything in insert
 set nostartofline                      " never jump back to start of line
-set ruler		               " show the cursor position all the time
+set ruler                              " show the cursor position all the time
 
 set scrolloff=2                        " keep lines above and below cursor
 set sidescrolloff=2                    " same for horizontal
@@ -339,7 +339,7 @@ set virtualedit=block
 
 set ignorecase
 set smartcase                          " case-sensitive if upper in search term
-set incsearch		               " do incremental searching
+set incsearch                          " do incremental searching
 set hlsearch                           " hilight searches
 
 if executable("ag")                        " if the silver searcher's around...
