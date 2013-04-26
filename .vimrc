@@ -40,11 +40,13 @@ Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'b4winckler/vim-angry'
 Bundle 'ervandew/supertab'
+Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/neocomplcache'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-abolish'
@@ -241,17 +243,17 @@ set suffixes+=.backup,.ini             " lower priority when completing
 
 set complete-=i                        " this is slow apparently.
 
-if filereadable("/usr/share/dict/words")
-    set dictionary+=/usr/share/dict/words
-endif
+" if filereadable("/usr/share/dict/words")
+"     set dictionary+=/usr/share/dict/words
+" endif
 
 
-augroup cursorMove
-    " close preview window automatically when we move around
-    au!
-    autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
-augroup END
+" augroup cursorMove
+"     " close preview window automatically when we move around
+"     au!
+"     autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
+"     autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+" augroup END
 
 " ===========
 " : Folding :
@@ -407,6 +409,12 @@ let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
 
 let g:Powerline_symbols = 'unicode'
 
