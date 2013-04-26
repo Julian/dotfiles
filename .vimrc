@@ -137,8 +137,9 @@ noremap g' g`
 noremap g` g'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
-" Do substitution repeat in visual mode
-vnoremap & :&&<CR>
+" Preserve flags for &, and add it in visual mode.
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
