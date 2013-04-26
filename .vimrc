@@ -210,7 +210,7 @@ nnoremap      <leader>.         :lcd %:p:h<CR>
 nmap          <leader>]         :cnext<CR>
 nmap          <leader>[         :cprevious<CR>
 nmap          <leader>-         :next<CR>
-nmap          <leader>+         :previous<CR>
+nmap          <leader>=         :previous<CR>
 
 nmap          <leader><tab>     :b#<CR>
 
