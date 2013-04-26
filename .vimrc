@@ -232,7 +232,7 @@ set suffixes+=.backup,.ini             " lower priority when completing
 
 set complete-=i                        " this is slow apparently.
 
-if filereadable("/usr/share/dict/words") "
+if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
 
