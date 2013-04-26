@@ -171,6 +171,18 @@ nmap          <F11>             :set wrap!<CR>
 noremap       <F12>             <Esc>:syntax sync fromstart<CR>
 inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
+" Leader mappings
+" ---------------
+"
+" Here are explanations for non-self-explanatory ones:
+"
+"   b : paste last deletion on its own line despite it being charwise
+"   d : minimize a window
+"   B : paste system clipboard on its own line despite it not having a newline
+"   J : reverse line join (line squash)
+"   S : remove trailing whitespace
+"   . : set the working directory in the local window
+
 nmap          <leader>a         :TagbarToggle<CR>
 nmap          <leader>b         o<C-R>"<Esc>
 nmap          <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
@@ -197,13 +209,10 @@ nmap          <leader>jq        :Copen<CR>
 nmap          <leader>j<leader> :Dispatch<CR>
 
 
-" reverse line join
+nnoremap      <leader>B         o<C-R>*<Esc>
 nnoremap      <leader>J         ddpkJ
-nnoremap      <leader>P         o<C-R>*<Esc>
-" Remove trailing whitespace
 nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
-" set working directory
 nnoremap      <leader>.         :lcd %:p:h<CR>
 nmap          <leader>]         :cnext<CR>
 nmap          <leader>[         :cprevious<CR>
