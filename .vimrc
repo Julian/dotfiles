@@ -292,7 +292,11 @@ set background=dark                    " make sure this is before colorschemes
 if &t_Co > 8
     set t_Co=256
     colorscheme hemisu
-else
+elseif &t_Co == 8
+    if $TERM !~# '^linux'
+        set t_Co=16
+    endif
+
     colorscheme desert
 endif
 
