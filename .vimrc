@@ -271,7 +271,7 @@ endif
 " ===========
 
 set history=1000                       " command line history
-set viminfo='1000,f1,:1000,/1000       " more viminfo
+set viminfo='50,s100                   " 50 files' marks, non-huge registers
 
 set backup
 set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
