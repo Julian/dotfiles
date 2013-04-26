@@ -53,6 +53,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-tbone'
 
