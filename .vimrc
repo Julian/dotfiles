@@ -183,13 +183,10 @@ nmap          <leader>k         :call <SID>ToggleExpando()<CR>
 nmap          <leader>l         :set list!<CR>
 nmap          <leader>p         "*p
 nmap          <leader>q         :call <SID>ToggleQuickfix()<CR>
-nmap          <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nmap          <leader>s         :set spell!<CR>
 nmap          <leader>t         :topleft split TODO<CR><C-W>6_
-nmap          <leader>u         :GundoToggle<CR>
+nmap          <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nmap          <leader>v         :SplitByWidth ~/.vimrc<CR>
-nmap <silent> <leader>w         <Plug>VimroomToggle
-nmap <silent> <leader>x         :YRShow<CR>
 nmap          <leader>y         "*y
 nmap          <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
