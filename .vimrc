@@ -88,8 +88,12 @@ endif
 " : Basic :
 " =========
 
-filetype plugin indent on
-syntax on
+if has('autocmd')
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
 
 set encoding=utf8
 set autoread                           " automatically reload unmodified bufs
