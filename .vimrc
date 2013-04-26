@@ -229,6 +229,8 @@ set wildmode=longest:full,full
 set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,**/_trial_temp/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,MANIFEST,**/_build/**
 set suffixes+=.backup,.ini             " lower priority when completing
 
+set complete-=i                        " this is slow apparently.
+
 if filereadable("/usr/share/dict/words") "
     set dictionary+=/usr/share/dict/words
 endif
