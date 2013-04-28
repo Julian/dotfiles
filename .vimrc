@@ -167,6 +167,9 @@ nmap          <F11>             :set wrap!<CR>
 noremap       <F12>             <Esc>:syntax sync fromstart<CR>
 inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
 
+" surround doesn't support deleting a function surround for some reason
+nmap dsf Bdiwds)
+
 " Leader mappings
 " ---------------
 "
