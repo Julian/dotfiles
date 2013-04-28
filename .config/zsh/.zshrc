@@ -148,7 +148,10 @@ bindkey '^[[B' down-line-or-beginning-search
 
 #--- Aliases -----------------------------------------------------------------
 
-alias brew='GREP_OPTIONS= brew'
+if (( $+commands[brew] )); then
+    alias brew='GREP_OPTIONS= brew'
+    alias up="brew update && brew upgrade"
+fi
 
 # Suffix Aliases
 alias -s tex=vim
@@ -156,22 +159,15 @@ alias -s tex=vim
 # noglobs
 alias git='noglob git'
 
-alias playalbums='mplayer */* -shuffle'
-
-if [[ "$OSTYPE" == darwin* && -n $commands[brew] ]]; then
-    alias up="brew update && brew upgrade"
-fi
-
-
 if ls --color &> /dev/null; then
     alias ls='ls --color=auto --human-readable --group-directories-first'
 else
     alias ls='ls -Gh'
 fi
 
-function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
-
 eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
+
+function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Type '...' to get '../..' with successive .'s adding /..
