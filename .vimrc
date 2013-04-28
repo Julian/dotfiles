@@ -161,12 +161,6 @@ for prefix in ['i', 'n', 'v']
   endfor
 endfor
 
-" completion
-inoremap <expr>   <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr>   <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr>   <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr>   <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-
 " Toggle how long lines are displayed
 nmap          <F11>             :set wrap!<CR>
 " fix syntax highlighting errors
