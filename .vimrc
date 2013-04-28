@@ -237,9 +237,9 @@ set suffixes+=.backup,.ini             " lower priority when completing
 
 set complete-=i                        " this is slow apparently.
 
-" if filereadable("/usr/share/dict/words")
-"     set dictionary+=/usr/share/dict/words
-" endif
+if filereadable("/usr/share/dict/words")
+    set dictionary+=/usr/share/dict/words
+endif
 
 
 " augroup cursorMove
@@ -403,10 +403,12 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " neocomplcache
+let g:neocomplcache_disabled_sources_list = {'_' : ['dictionary_complete']}
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_max_list = 10
 
 let g:Powerline_symbols = 'unicode'
 
