@@ -397,8 +397,6 @@ endif
 " Clear the CommandT window with any of these
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 
-let g:pydiction_location = '$HOME/.vim/bundle/Pydiction'
-
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
