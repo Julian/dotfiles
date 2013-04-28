@@ -193,7 +193,7 @@ nmap          <leader>q         :call <SID>ToggleQuickfix()<CR>
 nmap          <leader>s         :set spell!<CR>
 nmap          <leader>t         :topleft split TODO<CR><C-W>6_
 nmap          <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nmap          <leader>v         :SplitByWidth ~/.vimrc<CR>
+nmap          <leader>v         :SplitByWidth $MYVIMRC<CR>
 nmap          <leader>y         "*y
 nmap          <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
@@ -546,14 +546,6 @@ if has("autocmd") && has("eval")
             \ if line("'\"") > 0 && line("'\"") <= line("$")                  |
             \   exe "normal g`\""                                             |
             \ endif
-
-        " Follow symlinks when opening files. Good for Fugitive.
-        autocmd BufNew,BufReadPost *
-        \ let b:original_file = fnameescape(expand('<afile>:p'))              |
-        \ if getftype(b:original_file) == 'link'                              |
-        \     let b:target_file = fnamemodify(resolve(b:original_file), ':p') |
-        \     execute 'silent! file ' . fnameescape(b:target_file)            |
-        \ endif
 
     augroup END
 endif
