@@ -182,51 +182,55 @@ nmap dsf Bdiwds)
 "
 "   b : paste last deletion on its own line despite it being charwise
 "   d : minimize a window
+"   n : search forward, but not anything currently displayed
 "   B : paste system clipboard on its own line despite it not having a newline
 "   J : reverse line join (line squash)
+"   N : search backward, but not anything currently displayed
 "   S : remove trailing whitespace
 "   . : set the working directory in the local window
 
-nmap          <leader>a         :TagbarToggle<CR>
-nmap          <leader>b         o<C-R>"<Esc>
-nmap          <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
-nmap          <leader>d         <C-W>0_
-nmap          <leader>e         :SplitByWidth<CR>:CommandT 
+nnoremap      <leader>a         :TagbarToggle<CR>
+nnoremap      <leader>b         o<C-R>"<Esc>
+nnoremap      <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
+nnoremap      <leader>d         <C-W>0_
+nnoremap      <leader>e         :SplitByWidth<CR>:CommandT 
 "             <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "             <leader>g         Set above to CommandT or CtrlP
-nmap          <leader>k         :call <SID>ToggleExpando()<CR>
-nmap          <leader>l         :set list!<CR>
-nmap          <leader>p         "*p
-nmap          <leader>q         :call <SID>ToggleQuickfix()<CR>
-nmap          <leader>s         :set spell!<CR>
-nmap          <leader>t         :topleft split TODO<CR><C-W>6_
-nmap          <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nmap          <leader>v         :SplitByWidth $MYVIMRC<CR>
-nmap          <leader>y         "*y
-nmap          <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
+nnoremap      <leader>k         :call <SID>ToggleExpando()<CR>
+nnoremap      <leader>l         :set list!<CR>
+nnoremap      <leader>n         <C-F>n
+nnoremap      <leader>p         "*p
+nnoremap      <leader>q         :call <SID>ToggleQuickfix()<CR>
+nnoremap      <leader>s         :set spell!<CR>
+nnoremap      <leader>t         :topleft split TODO<CR><C-W>6_
+nnoremap      <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
+nnoremap      <leader>v         :SplitByWidth $MYVIMRC<CR>
+nnoremap      <leader>y         "*y
+nnoremap      <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
-nmap          <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
-nmap          <leader>jl        :ToggleTestLock<CR>
-nmap          <leader>jt        :Dispatch! tox<CR>
-nmap          <leader>js        :Dispatch! RunTestSuite(expand("%")))<CR>
-nmap          <leader>jq        :Copen<CR>
-nmap          <leader>j<leader> :Dispatch<CR>
+nnoremap      <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
+nnoremap      <leader>jl        :ToggleTestLock<CR>
+nnoremap      <leader>jt        :Dispatch! tox<CR>
+nnoremap      <leader>js        :Dispatch! RunTestSuite(expand("%")))<CR>
+nnoremap      <leader>jq        :Copen<CR>
+nnoremap      <leader>j<leader> :Dispatch<CR>
+
 
 
 nnoremap      <leader>B         o<C-R>*<Esc>
 nnoremap      <leader>J         ddpkJ
+nnoremap      <leader>N         <C-F>N
 nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
 nnoremap      <leader>.         :lcd %:p:h<CR>
-nmap          <leader>]         :cnext<CR>
-nmap          <leader>[         :cprevious<CR>
-nmap          <leader>-         :next<CR>
-nmap          <leader>=         :previous<CR>
+nnoremap      <leader>]         :cnext<CR>
+nnoremap      <leader>[         :cprevious<CR>
+nnoremap      <leader>-         :next<CR>
+nnoremap      <leader>=         :previous<CR>
 
-nmap          <leader><tab>     :b#<CR>
+nnoremap      <leader><tab>     :b#<CR>
 
-vmap          <leader>y         "*y
-
+vnoremap      <leader>y         "*y
 
 " ==============
 " : Completion :
