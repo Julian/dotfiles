@@ -546,6 +546,9 @@ if has("autocmd") && has("eval")
     augroup misc
         au!
 
+        " Keep splits equal on resize
+        autocmd VimResized * :wincmd =
+
         " Automagic line numbers
         autocmd BufEnter * :call <SID>WindowWidth()
 
