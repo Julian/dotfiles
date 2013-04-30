@@ -74,13 +74,13 @@ endif
 if has("ruby")
     Bundle 'git://git.wincent.com/command-t.git'
 
-    nmap          <leader>f         :CommandTBuffer<CR>
-    nmap          <leader>g         :CommandT<CR>
+    nnoremap      <leader>f         :CommandTBuffer<CR>
+    nnoremap      <leader>g         :CommandT<CR>
 else
     Bundle 'kien/ctrlp.vim'
 
-    nmap          <leader>f         :CtrlPBuffer<CR>
-    nmap          <leader>g         :CtrlP<CR>
+    nnoremap      <leader>f         :CtrlPBuffer<CR>
+    nnoremap      <leader>g         :CtrlP<CR>
 endif
 
 " --- Disabled / Saved ---
