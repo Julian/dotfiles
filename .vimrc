@@ -438,8 +438,7 @@ let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 " VimClojure
 let g:vimclojure#ParenRainbow = 1
 
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#goto_command = "<leader>\\"
+let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
 
 augroup rainbowparentheses
