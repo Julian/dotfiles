@@ -105,9 +105,13 @@ set gdefault
 set hidden
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
-set nowrap
 set report=0                           " :cmd always shows changed line count
 set textwidth=79
+
+set nowrap
+set showbreak=↪
+
+set fillchars=diff:⣿,vert:│
 
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
