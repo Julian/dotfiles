@@ -23,6 +23,7 @@ Bundle 'sickill/vim-monokai'
 Bundle 'dahu/VimRegexTutor'
 
 " --- Additional Filetype Support ---
+Bundle 'guns/vim-clojure-static'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/rainbow_parentheses.vim'
