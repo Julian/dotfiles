@@ -217,7 +217,6 @@ nnoremap      <leader>jq        :Copen<CR>
 nnoremap      <leader>j<leader> :Dispatch<CR>
 
 
-
 nnoremap      <leader>B         o<C-R>*<Esc>
 nnoremap      <leader>J         ddpkJ
 nnoremap      <leader>N         <C-F>N
@@ -232,6 +231,7 @@ nnoremap      <leader>=         :previous<CR>
 nnoremap      <leader><tab>     :b#<CR>
 
 vnoremap      <leader>y         "*y
+
 
 " ==============
 " : Completion :
