@@ -23,6 +23,8 @@ zle -N down-line-or-beginning-search down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 
+source $ZSHPLUGINS/zsh-fuzzy-match/fuzzy-match.zsh
+
 #--- Completion --------------------------------------------------------------
 
 # Completions
