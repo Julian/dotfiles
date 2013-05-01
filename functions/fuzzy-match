@@ -1,0 +1,210 @@
+# Main widget logic.
+#
+# Theoretically, this can be extended by providing a source,
+# which can be any program that understands a simple protocol via stdio
+#
+# It can send:
+#
+#		CLEAR - Clears the output list
+#		APPEND:[result] - Appends a single result to the output list
+#		GET - Queries for the currently typed pattern
+#	
+#	It should also accept:
+#	
+#		PATTERN:[pattern] - This is the response to GET
+#		RESTART - Stop yielding matches and start again(this happens when the
+#							user modified the text)
+#
+# Every message in the protocol should be terminated with the null byte(0)
+fuzzy-match() {
+	emulate -L zsh
+	setopt local_options extended_glob
+	unsetopt monitor
+
+	# Save current zle state
+	typeset -Ag old_state state
+	old_state=()
+	old_state[LBUFFER]=$LBUFFER
+	old_state[RBUFFER]=$RBUFFER
+	old_state[PREDISPLAY]=$PREDISPLAY
+	old_state[POSTDISPLAY]=$POSTDISPLAY
+	if [[ ${#region_highlight} -ne 0 ]]; then 
+		set -a "old_state[region_highlight]" ("${region_highlight[@]}")
+	fi
+	BUFFER=''
+	local action=$2
+
+	# TODO find a way to match newlines in subcript glob patterns without using
+	# this hack
+	IFS=$'\n'
+	# widget-specific state, global for easy sharing across functions.
+	state=(
+	nl '[[:IFS:]]'
+	selected_line 0
+	last_selected_line 0
+	lines 0
+	max_lines $(( LINES - 3 ))
+	text ''
+	)
+
+	# initialize configuration
+	zstyle -s ':fuzzy-match:highlight' selected "state[hi_selected]" ||\
+		state[hi_selected]='standout'
+	zstyle -s ':fuzzy-match:highlight' matched "state[hi_matched]" ||\
+		state[hi_matched]='fg=green,underline'
+	zstyle -s ':fuzzy-match:highlight' title "state[hi_title]" ||\
+		state[hi_title]='bold'
+
+	# The first item in 'region_highlight' is used for the line cursor, second for
+	# the title
+	PREDISPLAY=$'\nFuzzy match: '
+	region_highlight=("" "P1 13 $state[hi_title]")
+
+	# initialize source program
+	local source_prog=$1
+	if [[ -z $source_prog ]]; then
+		source_prog="_fuzzy-match-file-glob"
+	fi
+
+	# start the source prog as a coprocess
+	coproc $source_prog $state[max_lines]
+	local source_pid=$! 
+	disown
+	local coproc_out
+
+	# copy coproc fd to $coproc_out so it can be used by zle -F
+	exec {coproc_out}<&p
+
+	# make zle invoke _fuzzy-match-coproc-receive
+	zle -F $coproc_out _fuzzy-match-coproc-receive
+
+	# Intercept basic editing widgets
+	zle -N accept-line _fuzzy-match-accept-line
+	zle -N self-insert _fuzzy-match-self-insert
+	zle -N backward-delete-char _fuzzy-match-backward-delete-char
+	zle -N vi-backward-delete-char _fuzzy-match-backward-delete-char
+	zle -N delete-char _fuzzy-match-delete-char
+	zle -N vi-delete-char _fuzzy-match-delete-char
+	zle -N up-line-or-history _fuzzy-match-go-up
+	zle -N down-line-or-history _fuzzy-match-go-down
+
+	# use recursive edit, so we inherit the user keymap and override only what is
+	# needed
+	zle recursive-edit
+
+	# restore default widgets
+	zle -A .accept-line accept-line
+	zle -A .self-insert self-insert
+	zle -A .backward-delete-char backward-delete-char
+	zle -A .vi-backward-delete-char vi-backward-delete-char
+	zle -A .delete-char delete-char
+	zle -A .vi-delete-char vi-delete-char
+	zle -A .up-line-or-history up-line-or-history
+	zle -A .down-line-or-history down-line-or-history
+
+	# restore initial zle state
+	LBUFFER=$old_state[LBUFFER]
+	RBUFFER=$old_state[RBUFFER]
+	PREDISPLAY=$old_state[PREDISPLAY]
+	POSTDISPLAY=$old_state[POSTDISPLAY]
+	if [[ -n $old_state[region_highlight] ]]; then
+		region_highlight=($old_state[region_highlight])
+	else
+		region_highlight=()
+	fi
+
+	# refresh
+	zle -Rc
+
+	# if something was selected, save before deleting the state hashtable
+	local text=$state[text]
+
+	# delete globals set
+	unset old_state state IFS
+
+	# cleanup source process
+	kill $source_pid &> /dev/null
+
+	echo "$@" > /tmp/args
+	if [[ -n $text ]]; then
+		if [[ -n $3 ]]; then
+			# set REPLY and return to the calling widget
+			REPLY=$text
+		elif [[ -z $LBUFFER ]]; then
+			# Nothing was typed, if an action was provided as second argument, invoke
+			# it, else just edit the file
+			if [[ -n $2 ]]; then
+				LBUFFER="$2 ${text:q}"
+			else
+				LBUFFER="${EDITOR:-vi} ${text:q}"
+			fi
+			zle accept-line
+		else
+			# append the filename and let the user confirm
+			if [[ $LBUFFER[-1] != $' ' ]]; then
+				LBUFFER+=$' '
+			fi
+			LBUFFER+=${text:q}
+			zle -Rc
+		fi
+	else
+		zle send-break
+	fi
+}
+
+_fuzzy-match-coproc-receive() {
+	local cmd item hi_selected=$state[hi_selected]
+	integer buffer_len base_idx
+	if read -d $'\0' -r -u $1 cmd; then
+		case $cmd in
+			CLEAR)
+				POSTDISPLAY=''
+				state[lines]=0
+				state[selected_line]=0
+				state[last_selected_line]=0
+				region_highlight=$region_highlight[1,2]
+				;;
+			APPEND*)
+				(( state[lines] == state[max_lines] )) && return
+				buffer_len=${#BUFFER}
+				(( base_idx = buffer_len + 1 ))
+				item=${cmd#APPEND\:}
+				_fuzzy-match-highlight-item $(( buffer_len + $#POSTDISPLAY )) $item
+				POSTDISPLAY+=$'\n'
+				POSTDISPLAY+=$item
+				(( state[lines]++ ))
+				if (( state[selected_line] == 0 )); then
+					# automatically select the first line
+					state[selected_line]=1
+					region_highlight[1]="$base_idx $(( base_idx + $#item )) $hi_selected"
+				fi
+				state[incomplete_line]=''
+				;;
+			GET)
+				print -p -N "PATTERN:$BUFFER"
+				;;
+		esac
+		zle -Rc
+	fi
+}
+
+# highlight a single result. this constructs a pattern with the buffer escaped
+# contents, and appends the #ia1 flags for approximate/case insensitive
+# matching. also, since there seems to be no easy way to find the exact match
+# length, we use the buffer length for limiting the highlighted text
+_fuzzy-match-highlight-item() {
+	local idx len end_idx start_idx=$1 item=$2 hi_matched=$state[hi_matched]\
+		pattern="(#ia1)(${${BUFFER:q}//\//?})"
+	# find the index of the first match after the last '/' (the filename)
+	idx=${${item##*/}[(i)$pattern]}
+	if (( ${item[(i)/]} <= $#item )); then
+		(( idx += ${#${item%/*}} + 1 ))
+	fi
+	(( idx > $#item )) && return
+	(( start_idx += idx )) 
+	(( end_idx = start_idx + $#BUFFER ))
+	region_highlight+="$start_idx $end_idx $hi_matched"
+}
+
+
+zle -N fuzzy-match
