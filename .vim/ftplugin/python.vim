@@ -30,8 +30,6 @@ nmap <silent><Leader>jn <Esc>:Pytest next<CR>
 nmap <silent><Leader>jp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>je <Esc>:Pytest error<CR>
 
-map <buffer> gd :RopeGotoDefinition<CR>
-
 map <buffer> <F9> :!python "%:p"<CR>
 
 " --------------------- from here on requires +python -------------------------
