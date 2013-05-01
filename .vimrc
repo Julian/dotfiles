@@ -201,7 +201,6 @@ nnoremap      <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap      <leader>l         :set list!<CR>
 nnoremap      <leader>n         <C-F>n
 nnoremap      <leader>p         "*p
-nnoremap      <leader>q         :call <SID>ToggleQuickfix()<CR>
 nnoremap      <leader>s         :set spell!<CR>
 nnoremap      <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap      <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
