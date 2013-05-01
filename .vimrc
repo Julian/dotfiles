@@ -61,7 +61,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-tbone'
 
 if has("python")
-    " Bundle 'davidhalter/jedi-vim'
+    Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
 endif
 
@@ -416,8 +416,17 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " neocomplcache
-let g:neocomplcache_disabled_sources_list = {'_' : ['dictionary_complete']}
+let g:neocomplcache_force_overwrite_completefunc = 1
+if !exists('g:neocomplcache_force_omni_patterns')
+        let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
+if !exists('g:neocomplcache_omni_functions')
+        let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_auto_select = 0
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
@@ -445,6 +454,8 @@ let g:vimclojure#ParenRainbow = 1
 
 let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_tabs_not_buffers = 0
 
 augroup rainbowparentheses
     au!
