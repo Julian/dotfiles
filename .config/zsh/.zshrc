@@ -4,6 +4,25 @@ setopt EXTENDED_GLOB        # extended patterns support
 # disable flow control
 stty -ixon
 
+#--- Bindings ----------------------------------------------------------------
+
+bindkey -v                    # set vim bindings in zsh
+
+autoload -U edit-command-line
+zle -N edit-command-line
+
+bindkey "^B" send-break
+bindkey "^E" edit-command-line
+bindkey "^O" accept-line-and-down-history
+bindkey "^R" history-incremental-search-backward
+
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search up-line-or-beginning-search
+zle -N down-line-or-beginning-search down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+
 #--- Completion --------------------------------------------------------------
 
 # Completions
@@ -97,8 +116,6 @@ RPS1='%B%n%b@%m$PROMPT_JOBS'
 
 #--- Options -----------------------------------------------------------------
 
-bindkey -v                    # set vim bindings in zsh
-
 if [[ -n $SSH_CONNECTION ]] ; then
     KEYTIMEOUT=15
 else
@@ -128,23 +145,6 @@ setopt SHARE_HISTORY
 # Jobs
 
 setopt AUTO_RESUME            # resume existing jobs if command matches
-
-#--- Bindings ----------------------------------------------------------------
-
-autoload -U edit-command-line
-zle -N edit-command-line
-
-bindkey "^B" send-break
-bindkey "^E" edit-command-line
-bindkey "^O" accept-line-and-down-history
-bindkey "^R" history-incremental-search-backward
-
-autoload -Uz up-line-or-beginning-search
-autoload -Uz down-line-or-beginning-search
-zle -N up-line-or-beginning-search up-line-or-beginning-search
-zle -N down-line-or-beginning-search down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
 
 #--- Aliases -----------------------------------------------------------------
 
