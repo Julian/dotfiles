@@ -49,6 +49,7 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplcache'
 Bundle 'terryma/vim-multiple-cursors'
+Bundle 'terryma/vim-expand-region'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-dispatch'
@@ -167,11 +168,14 @@ for prefix in ['i', 'n', 'v']
   endfor
 endfor
 
+noremap         <F10>      :set spell!<CR>
+
 " Toggle how long lines are displayed
-nmap          <F11>             :set wrap!<CR>
+noremap         <F11>      :set wrap!<CR>
+
 " fix syntax highlighting errors
-noremap       <F12>             <Esc>:syntax sync fromstart<CR>
-inoremap      <F12>             <C-o>:syntax sync fromstart<CR>
+noremap         <F12>      <Esc>:syntax sync fromstart<CR>
+inoremap        <F12>      <C-o>:syntax sync fromstart<CR>
 
 " surround doesn't support deleting a function surround for some reason
 nmap dsf Bdiwds)
@@ -184,52 +188,54 @@ nmap dsf Bdiwds)
 "   b : paste last deletion on its own line despite it being charwise
 "   d : minimize a window
 "   n : search forward, but not anything currently displayed
-"   B : paste system clipboard on its own line despite it not having a newline
+"   u : undo/redo toggle
+"e   B : paste system clipboard on its own line despite it not having a newline
 "   J : reverse line join (line squash)
 "   N : search backward, but not anything currently displayed
 "   S : remove trailing whitespace
 "   . : set the working directory in the local window
 
-nnoremap      <leader>a         :TagbarToggle<CR>
-nnoremap      <leader>b         o<C-R>"<Esc>
-nnoremap      <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
-nnoremap      <leader>d         :wincmd _<CR>
-nnoremap      <leader>e         :SplitByWidth<CR>:CommandT 
-"             <leader>f         Set above to CommandTBuffer or CtrlPBuffer
-"             <leader>g         Set above to CommandT or CtrlP
-nnoremap      <leader>k         :call <SID>ToggleExpando()<CR>
-nnoremap      <leader>l         :set list!<CR>
-nnoremap      <leader>n         <C-F>n
-nnoremap      <leader>p         "*p
-nnoremap      <leader>s         :set spell!<CR>
-nnoremap      <leader>t         :topleft split TODO<CR><C-W>6_
-nnoremap      <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nnoremap      <leader>v         :SplitByWidth $MYVIMRC<CR>
-nnoremap      <leader>y         "*y
-nnoremap      <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
+nnoremap        <leader>a         :TagbarToggle<CR>
+nnoremap        <leader>b         o<C-R>"<Esc>
+nnoremap        <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
+nnoremap        <leader>d         :wincmd _<CR>
+nnoremap        <leader>e         :SplitByWidth<CR>:CommandT 
+"               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
+"               <leader>g         Set above to CommandT or CtrlP
+nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
+nnoremap        <leader>l         :set list!<CR>
+nnoremap        <leader>n         <C-F>n
+nnoremap        <leader>p         "*p
+map             <leader>r         <Plug>(expand_region_expand)
+map             <leader>s         <Plug>(expand_region_shrink)
+nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
+nnoremap        <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
+nnoremap        <leader>v         :SplitByWidth $MYVIMRC<CR>
+nnoremap        <leader>y         "*y
+nnoremap        <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
-nnoremap      <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
-nnoremap      <leader>jl        :ToggleTestLock<CR>
-nnoremap      <leader>jt        :Dispatch! tox<CR>
-nnoremap      <leader>js        :Dispatch! RunTestSuite(expand("%")))<CR>
-nnoremap      <leader>jq        :Copen<CR>
-nnoremap      <leader>j<leader> :Dispatch<CR>
+nnoremap        <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
+nnoremap        <leader>jl        :ToggleTestLock<CR>
+nnoremap        <leader>jt        :Dispatch! tox<CR>
+nnoremap        <leader>js        :Dispatch! RunTestSuite(expand("%")))<CR>
+nnoremap        <leader>jq        :Copen<CR>
+nnoremap        <leader>j<leader> :Dispatch<CR>
 
 
-nnoremap      <leader>B         o<C-R>*<Esc>
-nnoremap      <leader>J         ddpkJ
-nnoremap      <leader>N         <C-F>N
-nnoremap      <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap        <leader>B         o<C-R>*<Esc>
+nnoremap        <leader>J         ddpkJ
+nnoremap        <leader>N         <C-F>N
+nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
-nnoremap      <leader>.         :lcd %:p:h<CR>
-nnoremap      <leader>]         :cnext<CR>
-nnoremap      <leader>[         :cprevious<CR>
-nnoremap      <leader>-         :next<CR>
-nnoremap      <leader>=         :previous<CR>
+nnoremap        <leader>.         :lcd %:p:h<CR>
+nnoremap        <leader>]         :cnext<CR>
+nnoremap        <leader>[         :cprevious<CR>
+nnoremap        <leader>-         :next<CR>
+nnoremap        <leader>=         :previous<CR>
 
-nnoremap      <leader><tab>     :b#<CR>
+nnoremap        <leader><tab>     :b#<CR>
 
-vnoremap      <leader>y         "*y
+vnoremap        <leader>y         "*y
 
 
 " ==============
