@@ -192,7 +192,7 @@ nmap dsf Bdiwds)
 nnoremap      <leader>a         :TagbarToggle<CR>
 nnoremap      <leader>b         o<C-R>"<Esc>
 nnoremap      <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
-nnoremap      <leader>d         <C-W>0_
+nnoremap      <leader>d         :wincmd _<CR>
 nnoremap      <leader>e         :SplitByWidth<CR>:CommandT 
 "             <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "             <leader>g         Set above to CommandT or CtrlP
@@ -333,6 +333,8 @@ set title                              " change window title to filename
 set equalalways                        " hopefully fix how often :sp's mess up
 set splitbelow                         " new :sp go on bottom
 set splitright                         " new :vsp go on right
+
+set winminheight=0                     " allow totally minimizing a window
 
 set timeoutlen=500                     " shorten the amount of time to wait
 
