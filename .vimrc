@@ -36,6 +36,7 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " --- Plugins ---
 
+Bundle 'airblade/vim-gitgutter'
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'b4winckler/vim-angry'
