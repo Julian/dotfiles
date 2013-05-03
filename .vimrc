@@ -40,14 +40,11 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'b4winckler/vim-angry'
-Bundle 'ervandew/supertab'
-Bundle 'JazzCore/neocomplcache-ultisnips'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplcache'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tomtom/tcomment_vim'
@@ -60,9 +57,9 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-tbone'
+Bundle 'Valloric/YouCompleteMe'
 
 if has("python")
-    Bundle 'davidhalter/jedi-vim'
     Bundle 'SirVer/ultisnips'
 endif
 
@@ -422,29 +419,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
-" neocomplcache
-let g:neocomplcache_force_overwrite_completefunc = 1
-if !exists('g:neocomplcache_force_omni_patterns')
-        let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_omni_patterns['python'] = '[^. \t]\.\w*'
-if !exists('g:neocomplcache_omni_functions')
-        let g:neocomplcache_omni_functions = {}
-endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_auto_select = 0
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_max_list = 10
-
 let g:Powerline_symbols = 'unicode'
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"  " try to guess completion
-let g:SuperTabLongestEnhanced = 1                " enhanced longest complete
-let g:SuperTabLongestHighlight = 1               " preselect first result
 
 " Syntastic
 let g:syntastic_error_symbol="✖"
@@ -461,7 +436,6 @@ let g:vimclojure#ParenRainbow = 1
 
 let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
-let g:jedi#popup_on_dot = 0
 let g:jedi#use_tabs_not_buffers = 0
 
 augroup rainbowparentheses
