@@ -1,0 +1,12 @@
+#! /usr/bin/env python
+"""
+Print the paths of the module(s) given on the command line.
+
+"""
+
+import pkgutil
+import sys
+
+
+for module in sys.argv[1:]:
+    print pkgutil.get_loader(module).filename
