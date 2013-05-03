@@ -150,6 +150,9 @@ setopt AUTO_RESUME            # resume existing jobs if command matches
 
 #--- Aliases -----------------------------------------------------------------
 
+alias di=diff
+alias v='vim +CommandT'
+
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
     alias up="brew update && brew upgrade"
