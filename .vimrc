@@ -225,6 +225,8 @@ nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
 nnoremap        <leader>.         :lcd %:p:h<CR>
+nnoremap        <leader>;         :lprevious<CR>
+nnoremap        <leader>'         :lnext<CR>
 nnoremap        <leader>]         :cnext<CR>
 nnoremap        <leader>[         :cprevious<CR>
 nnoremap        <leader>-         :next<CR>
@@ -255,14 +257,6 @@ set complete-=i                        " this is slow apparently.
 if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
 endif
-
-
-" augroup cursorMove
-"     " close preview window automatically when we move around
-"     au!
-"     autocmd CursorMovedI * if pumvisible() == 0|silent! pclose|endif
-"     autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
-" augroup END
 
 " ===========
 " : Folding :
