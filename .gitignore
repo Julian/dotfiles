@@ -21,4 +21,7 @@
 .config/zsh/cache
 .config/zsh/history
 
+.emacs.d/el-get
+.emacs.d/**/*~
+
 *.pyc
