@@ -1,3 +1,8 @@
+; === Basic ===
+(global-hl-line-mode 1)
+
+; === el-get ===
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
@@ -9,6 +14,10 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync)
+
+; === Plugins ===
+
+(require 'color-theme-solarized)
 
 (require 'evil)
 (evil-mode 1)
