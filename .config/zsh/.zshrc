@@ -15,6 +15,7 @@ bindkey "^B" send-break
 bindkey "^E" edit-command-line
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
+bindkey "^U" undo
 
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
