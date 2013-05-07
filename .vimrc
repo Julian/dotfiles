@@ -45,6 +45,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'scrooloose/syntastic'
+Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'terryma/vim-expand-region'
 Bundle 'tomtom/tcomment_vim'
@@ -81,10 +82,6 @@ else
     nnoremap      <leader>g         :CtrlP<CR>
 endif
 
-" --- Disabled / Saved ---
-" Bundle 'KevinGoodsell/vim-csexact'
-" Bundle 'skammer/vim-css-color'
-" Bundle 'sjl/gundo.vim'
 
 " =========
 " : Basic :
@@ -206,8 +203,9 @@ nnoremap        <leader>p         "*p
 map             <leader>r         <Plug>(expand_region_expand)
 map             <leader>s         <Plug>(expand_region_shrink)
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
-nnoremap        <leader>u         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
+nnoremap        <leader>u         :GundoToggle<CR>
 nnoremap        <leader>v         :SplitByWidth $MYVIMRC<CR>
+nnoremap        <leader>w         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>y         "*y
 nnoremap        <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
 
