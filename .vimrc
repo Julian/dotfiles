@@ -539,6 +539,7 @@ if has("autocmd") && has("eval")
             \ endif
 
     augroup END
+
 endif
 
 
@@ -556,6 +557,9 @@ augroup filetypes
     autocmd BufWritePost *.coffee silent CoffeeMake!
 
     autocmd BufWritePost .vimrc source $MYVIMRC
+
+    " Auto-close fugitive buffers
+    autocmd BufReadPost fugitive://* set bufhidden=delete
 augroup END
 
 augroup formatstupidity
