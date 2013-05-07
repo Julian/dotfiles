@@ -119,6 +119,7 @@ set tags=./tags;$HOME                  " look up until $HOME for tags
 " ============
 
 " quick fingers / for encryption use vim -xn
+cnoreabbrev E e
 cnoreabbrev Q q
 cnoreabbrev Qa qa
 cnoreabbrev Sp sp
