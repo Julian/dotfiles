@@ -183,9 +183,8 @@ nmap dsf Bdiwds)
 "   b : paste last deletion on its own line despite it being charwise
 "   d : minimize a window
 "   n : search forward, but not anything currently displayed
-"   u : undo/redo toggle
-"e   B : paste system clipboard on its own line despite it not having a newline
-"   J : reverse line join (line squash)
+"   w : undo/redo toggle
+"   B : paste system clipboard on its own line despite it not having a newline
 "   N : search backward, but not anything currently displayed
 "   S : remove trailing whitespace
 "   . : set the working directory in the local window
@@ -219,7 +218,6 @@ nnoremap        <leader>j<leader> :Dispatch<CR>
 
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap        <leader>J         ddpkJ
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 
@@ -406,8 +404,6 @@ endif
 
 " Clear the CommandT window with any of these
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
-
-let g:Powerline_symbols = 'unicode'
 
 " Syntastic
 let g:syntastic_error_symbol="✖"
