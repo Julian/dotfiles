@@ -191,9 +191,9 @@ nmap dsf Bdiwds)
 
 nnoremap        <leader>a         :TagbarToggle<CR>
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>c         :SplitByWidth<CR>:CommandT $XDG_CONFIG_HOME<CR>
+nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
 nnoremap        <leader>d         :wincmd _<CR>
-nnoremap        <leader>e         :SplitByWidth<CR>:CommandT 
+nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
@@ -204,10 +204,10 @@ map             <leader>r         <Plug>(expand_region_expand)
 map             <leader>s         <Plug>(expand_region_shrink)
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>u         :GundoToggle<CR>
-nnoremap        <leader>v         :SplitByWidth $MYVIMRC<CR>
+nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>y         "*y
-nnoremap        <leader>z         :SplitByWidth $ZDOTDIR/.zshrc<CR>
+nnoremap        <leader>z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
 nnoremap        <leader>jl        :ToggleTestLock<CR>
@@ -433,7 +433,9 @@ augroup END
 
 if has("eval")
 
-    function! s:SplitByWidthCommand(qargs)
+    " Split a window vertically if it would have at least 79 chars plus a bit
+    " of padding, otherwise split it horizontally
+    function! s:SplitSensiblyCommand(qargs)
         let padding = 5  " columns
 
         if bufname('%') == '' && getline(1, '$') == ['']
@@ -450,14 +452,12 @@ if has("eval")
         endif
     endfunction
 
-    " Split a window vertically if it would have at least 79 chars plus a bit
-    " of padding, otherwise split it horizontally
-    function! SplitByWidth(path)
-        <SID>SplitByWidthCommand(a:path)
+    function! SplitSensibly(path)
+        <SID>SplitSensiblyCommand(a:path)
     endfun
 
-    command! -nargs=* -complete=file_in_path SplitByWidth call <SID>SplitByWidthCommand('<args>')
-    cabbrev Sw SplitByWidth
+    command! -nargs=* -complete=file_in_path SplitSensibly call <SID>SplitSensiblyCommand('<args>')
+    command! -nargs=* -complete=file_in_path Ss call <SID>SplitSensiblyCommand('<args>')
 
     " If we're in a wide window, enable line numbers.
     function! <SID>WindowWidth()
