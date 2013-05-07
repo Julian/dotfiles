@@ -1,3 +1,7 @@
+--exclude=@/Users/Julian/.config/git/ignore
+
+--python-kinds=-i
+
 --langdef=Scala
 --langmap=Scala:.scala
 --regex-Scala=/^[ \t]*class[ \t]*([a-zA-Z0-9_]+)/\1/c,classes/
