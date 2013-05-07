@@ -15,7 +15,7 @@ Bundle 'gmarik/vundle'
 
 " --- Themes ---
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
 Bundle 'noahfrederick/Hemisu'
 Bundle 'sickill/vim-monokai'
 
@@ -242,17 +242,17 @@ vnoremap        <leader>y         "*y
 " ==============
 
 " insert mode completion
-set completeopt=menuone,longest,preview " follow type in autocomplete
-set pumheight=6                        " Keep a small completion window
+set completeopt=menuone,longest,preview     " follow type in autocomplete
+set pumheight=6                             " Keep a small completion window
 
-set showcmd                            " display incomplete commands
+set showcmd                                 " display incomplete commands
 
-set wildmenu                           " file completion helper window
+set wildmenu                                " file completion helper window
 set wildmode=longest:full,full
 set wildignore+=*.o,*.obj,*.swp,*.bak,*.git,*.pyc,**/_trial_temp/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,MANIFEST,**/_build/**
-set suffixes+=.backup,.ini             " lower priority when completing
+set suffixes+=.backup,.ini                  " lower priority when completing
 
-set complete-=i                        " this is slow apparently.
+set complete-=i                             " this is slow apparently.
 
 if filereadable("/usr/share/dict/words")
     set dictionary+=/usr/share/dict/words
@@ -285,8 +285,8 @@ endif
 " : History :
 " ===========
 
-set history=1000                       " command line history
-set viminfo='50,s100                   " 50 files' marks, non-huge registers
+set history=1000                            " command line history
+set viminfo='50,s100                        " 50 file marks, non-huge registers
 
 set backup
 set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
@@ -296,7 +296,7 @@ if exists("&undofile")
     set undodir=~/.vim/sessions,~/tmp,/tmp  " ... undos
 endif
 
-set undolevels=500                     " more undo
+set undolevels=500                          " more undo
 
 set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 
@@ -408,11 +408,6 @@ endif
 " Clear the CommandT window with any of these
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
 let g:Powerline_symbols = 'unicode'
 
 " Syntastic
@@ -424,9 +419,6 @@ let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
-
-" VimClojure
-let g:vimclojure#ParenRainbow = 1
 
 let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
