@@ -19,9 +19,6 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
 Bundle 'noahfrederick/Hemisu'
 Bundle 'sickill/vim-monokai'
 
-" --- Temporary ---
-Bundle 'dahu/VimRegexTutor'
-
 " --- Additional Filetype Support ---
 Bundle 'guns/vim-clojure-static'
 Bundle 'hail2u/vim-css3-syntax'
