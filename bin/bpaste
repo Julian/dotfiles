@@ -1,4 +1,13 @@
 #!/usr/bin/env python
+"""
+CLI to bpaste.net
+
+Not written by me (Julian Berman), I got it from ikanobori or Trundle but it's
+public domain and has been floated around since old Lodgeit days. Some day I'll
+spiff it up a tiny bit though...
+
+"""
+
 import optparse
 import sys
 import urlparse
