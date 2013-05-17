@@ -137,6 +137,8 @@ noremap ' `
 noremap ` '
 noremap g' g`
 noremap g` g'
+noremap ]' ]`
+noremap ]` ]'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
 " Preserve flags for &, and add it in visual mode.
