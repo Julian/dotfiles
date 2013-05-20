@@ -219,6 +219,7 @@ nnoremap        <leader>j<leader> :Dispatch<CR>
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap        <leader>U         :BundleInstall!<CR>
 
 nnoremap        <leader>.         :lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
