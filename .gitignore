@@ -13,6 +13,7 @@
 .tmux/tmux.conf.local
 
 .config/bpython/history
+.config/notmuch/
 .config/pip/pip.log
 .config/pudb/saved-breakpoints
 .config/pudb/shell-history
