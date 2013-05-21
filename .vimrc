@@ -191,12 +191,12 @@ nmap dsf Bdiwds)
 nnoremap        <leader>a         :TagbarToggle<CR>
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
-nnoremap        <leader>d         :wincmd _<CR>
 nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :set list!<CR>
+nnoremap        <leader>m         :wincmd _<CR>
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
 map             <leader>r         <Plug>(expand_region_expand)
