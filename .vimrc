@@ -406,6 +406,7 @@ endif
 
 " Clear the CommandT window with any of these
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
+let g:CommandTMatchWindowAtTop=1
 
 " Syntastic
 let g:syntastic_error_symbol="✖"
