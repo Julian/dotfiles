@@ -109,6 +109,8 @@ set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
 set cryptmethod=blowfish               " use blowfish for encryption
 
+set isfname-==                         " remove =, which probably is an assign
+
 set tags=./tags;$HOME                  " look up until $HOME for tags
 
 " ============
