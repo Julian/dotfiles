@@ -233,6 +233,7 @@ nnoremap        <leader>=         :previous<CR>
 
 nnoremap        <leader><tab>     :b#<CR>
 
+vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
 
 
