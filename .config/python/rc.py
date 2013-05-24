@@ -103,7 +103,7 @@ def edit(editor=None, *args, **kwargs):
         if content:
             tmp.writelines(content)
         if globals_ and write_globals:
-            tmp.write("# Globals:\n")
+            tmp.write("\n\n# Globals:\n")
             matching = (g for g in globals_ if matches(g))
             tmp.writelines("#    {}\n".format(g) for g in matching)
 
