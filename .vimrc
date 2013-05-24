@@ -411,6 +411,23 @@ endif
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 let g:CommandTMatchWindowAtTop=1
 
+let g:expand_region_text_objects = {
+    \ 'iw'  :0,
+    \ 'aw'  :0,
+    \ 'iW'  :0,
+    \ 'aW'  :0,
+    \ 'i"'  :0,
+    \ 'i''' :0,
+    \ 'i]'  :1,
+    \ 'i)'  :1,
+    \ 'i}'  :1,
+    \ 'ip'  :0,
+    \ 'ii'  :0,
+    \ 'ai'  :0,
+    \ 'iI'  :0,
+    \ 'aI'  :0,
+    \ }
+
 " Syntastic
 let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
