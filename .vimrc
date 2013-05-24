@@ -487,10 +487,14 @@ if has("eval")
         if winwidth(0) > 90
             if exists("&relativenumber")
                 setlocal relativenumber
+            elseif exists("&number")
+                setlocal number
             endif
         else
             if exists("&relativenumber")
                 setlocal norelativenumber
+            elseif exists("&number")
+                setlocal nonumber
             endif
         endif
     endfun
