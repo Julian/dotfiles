@@ -479,8 +479,8 @@ if has("eval")
         <SID>SplitSensiblyCommand(a:path)
     endfun
 
-    command! -nargs=* -complete=file_in_path SplitSensibly call <SID>SplitSensiblyCommand('<args>')
-    command! -nargs=* -complete=file_in_path Ss call <SID>SplitSensiblyCommand('<args>')
+    command! -nargs=* -complete=file SplitSensibly call <SID>SplitSensiblyCommand('<args>')
+    command! -nargs=* -complete=file Ss call <SID>SplitSensiblyCommand('<args>')
 
     " If we're in a wide window, enable line numbers.
     function! <SID>WindowWidth()
