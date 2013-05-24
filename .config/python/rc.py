@@ -61,6 +61,8 @@ def edit(editor=None, *args, **kwargs):
     Keyword only arguments include:
         `content`: An initial set of lines to include in the created file
                    (default: None)
+        `delete`:  Delete the file after it is executed. If `False`, deletes
+                   the file when the interpreter is exited. (default: True)
         `globals`: A dict containing the globals in which to execute the file
                    (default: globals())
         `write_globals`: A boolean specifying whether to write out a commented
@@ -79,10 +81,12 @@ def edit(editor=None, *args, **kwargs):
 
     """
 
+    import atexit
     import os
     import subprocess
     import tempfile
     import traceback
+    global __last_edited_file__
 
     try:
         from readline import add_history
@@ -93,30 +97,37 @@ def edit(editor=None, *args, **kwargs):
 
     editor = editor or os.environ.get("EDITOR")
     content = kwargs.get("content", "")
+    delete = kwargs.get("delete", True)
     globals_ = kwargs.get("globals", globals())
     write_globals = kwargs.get("write_globals", True)
     retry = kwargs.get("retry", False)
     matches = kwargs.get("filter_globals", lambda n : not n.startswith("_"))
 
+    try:
+        editing, deleted_already = __last_edited_file__
+        if editing is None:
+            raise NameError()
+    except NameError:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as tmp:
+            if content:
+                tmp.writelines(content)
+            if globals_ and write_globals:
+                tmp.write("\n\n# Globals:\n")
+                matching = (g for g in globals_ if matches(g))
+                tmp.writelines("#    {}\n".format(g) for g in matching)
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as tmp:
-        if content:
-            tmp.writelines(content)
-        if globals_ and write_globals:
-            tmp.write("\n\n# Globals:\n")
-            matching = (g for g in globals_ if matches(g))
-            tmp.writelines("#    {}\n".format(g) for g in matching)
+        editing, deleted_already = __last_edited_file__ = tmp.name, False
 
     while True:
-        subprocess.call((editor, tmp.name,) + args)
+        subprocess.call((editor, editing,) + args)
 
         if add_history is not None:
-            with open(tmp.name) as f:
+            with open(editing) as f:
                 for line in f:
                     add_history(line.rstrip())
 
         try:
-            execfile(tmp.name, globals_)
+            execfile(editing, globals_)
         except Exception:
             if retry:
                 traceback.print_exc()
@@ -127,7 +138,13 @@ def edit(editor=None, *args, **kwargs):
 
         break
 
-    os.remove(tmp.name)
+    if delete:
+        os.remove(editing)
+        __last_edited_file__ = None, None
+    else:
+        if not deleted_already:
+            atexit.register(os.remove, editing)
+            __last_edited_file__ = editing, True
 
 
 try:
