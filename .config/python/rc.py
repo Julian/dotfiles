@@ -54,30 +54,28 @@ def edit(editor=None, *args, **kwargs):
     """
     Open a file in a preferred editor and execute it after the editor exits.
 
-    `editor` specifies what editor to execute. The default is to infer it from
-    the $EDITOR environment variable. Any additional positional arguments will
-    be passed to the editor's process as argv.
+    :argument str editor: the editor to invoke. If unspecified, the default is
+        to infer it from the :envvar:`$EDITOR` environment variable.
+    :argument \*args: additional positional arguments, passed to the editor's
+        process as argv.
 
-    Keyword only arguments include:
-        `content`: An initial set of lines to include in the created file
-                   (default: None)
-        `delete`:  Delete the file after it is executed. If `False`, deletes
-                   the file when the interpreter is exited. (default: True)
-        `globals`: A dict containing the globals in which to execute the file
-                   (default: globals())
-        `write_globals`: A boolean specifying whether to write out a commented
-                         out series of lines containing the globals to the
-                         created file (useful for tab completion, default:
-                         True)
-        `retry`: Prompt to re-edit the file if an exception is raised on
-                 execution (default: False)
-        `add_history`: A callable that will be called for each line in the
-                       edited file, that should add the line to the history, or
-                       None to turn this feature off. (default:
-                       `readline.add_history`)
-        `filter_globals`: A function that will be used to filter the globals
-                          when outputted. The default is to exclude any name
-                          that starts with an underscore.
+    :argument str content: an initial set of lines to include in the created
+        file (default: None)
+    :argument bool delete: Delete the file after it is executed. If ``False``,
+        deletes the file when the interpreter is exited. (default: ``True``)
+    :argument bool retry: Prompt to re-edit the file if an exception is raised
+        on execution (default: ``False``)
+    :argument bool write_globals: whether to write out a commented-out series
+        of lines containing the globals to the created file (useful for tab
+        completion, default: ``True``)
+    :argument callable filter_globals: used to filter the globals when
+        outputted. The default is to exclude any name that starts with an
+        underscore.
+    :argument callable add_history: called for each line in the edited file
+        after it is written to add the line to the history. If ``None``,
+        turns this feature off. (default: :func:`readline.add_history`)
+    :argument dict globals: a dict containing the globals in which to execute
+        the file (default: ``globals()``)
 
     """
 
