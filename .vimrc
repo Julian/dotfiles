@@ -332,6 +332,8 @@ set equalalways                        " hopefully fix how often :sp's mess up
 set splitbelow                         " new :sp go on bottom
 set splitright                         " new :vsp go on right
 
+set switchbuf=useopen,                 " use open windows when switching
+
 set winminheight=0                     " allow totally minimizing a window
 
 set timeoutlen=500                     " shorten the amount of time to wait
