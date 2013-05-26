@@ -319,8 +319,9 @@ endif
 
 set laststatus=2                       " always show status line
 
-" doesn't actually do anything since we've got Powerline but kept just in case
-set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+if !g:powerline_loaded
+    set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+endif
 
 set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
