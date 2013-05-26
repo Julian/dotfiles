@@ -319,7 +319,7 @@ endif
 
 set laststatus=2                       " always show status line
 
-if !g:powerline_loaded
+if &statusline!~"powerline" && (!exists("g:powerline_loaded") || !g:powerline_loaded)
     set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 endif
 
