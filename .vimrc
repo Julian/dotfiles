@@ -39,7 +39,6 @@ Bundle 'alfredodeza/pytest.vim'
 Bundle 'b4winckler/vim-angry'
 Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'scrooloose/syntastic'
@@ -67,6 +66,14 @@ if isdirectory(expand("~/Development/vim-runt"))
 else
     Bundle 'Julian/vim-runt'
 endif
+
+try
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
+catch
+    Bundle 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim'}
+endtry
 
 if has("ruby")
     Bundle 'git://git.wincent.com/command-t.git'
