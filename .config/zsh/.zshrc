@@ -214,6 +214,12 @@ fi
 zle -N ctrlz
 bindkey '^Z' ctrlz
 
+# tmux helpers
+function :sp () { tmux split-window }
+function :Sp () { tmux split-window }
+function :vsp () { tmux split-window -h }
+function :Vsp () { tmux split-window -h }
+
 #--- Misc --------------------------------------------------------------------
 
 typeset -aU mailpath
