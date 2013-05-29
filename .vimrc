@@ -80,11 +80,13 @@ if has("ruby")
 
     nnoremap      <leader>f         :CommandTBuffer<CR>
     nnoremap      <leader>g         :CommandT<CR>
+    nnoremap      <leader>h         :CommandTTag<CR>
 else
     Bundle 'kien/ctrlp.vim'
 
     nnoremap      <leader>f         :CtrlPBuffer<CR>
     nnoremap      <leader>g         :CtrlP<CR>
+    nnoremap      <leader>h         :CtrlPTag<CR>
 endif
 
 
@@ -119,7 +121,7 @@ set cryptmethod=blowfish               " use blowfish for encryption
 
 set isfname-==                         " remove =, which probably is an assign
 
-set tags=./tags;$HOME                  " look up until $HOME for tags
+set tags=./.tags,./tags;$HOME          " look up until $HOME for tags
 
 " ============
 " : Bindings :
@@ -204,6 +206,7 @@ nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<C
 nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
+"               <leader>h         Set above to CommandTTags or CtrlPTag
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :set list!<CR>
 nnoremap        <leader>m         :wincmd _<CR>
