@@ -447,6 +447,27 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 
+if has("autocmd") && has("eval")
+    function! g:UltiSnips_Complete()
+        call UltiSnips_ExpandSnippet()
+        if g:ulti_expand_res == 0
+            if pumvisible()
+                return "\<C-n>"
+            else
+                call UltiSnips_JumpForwards()
+                if g:ulti_jump_forwards_res == 0
+                return "\<TAB>"
+                endif
+            endif
+        endif
+        return ""
+    endfunction
+
+    augroup ultisnips_ycm
+        au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+    augroup END
+endif
+
 let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
 let g:jedi#use_tabs_not_buffers = 0
