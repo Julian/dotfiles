@@ -52,4 +52,5 @@ twistd.log
 Gemfile.lock
 Berksfile.lock
 
+.tags
 tags
