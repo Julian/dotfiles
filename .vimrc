@@ -203,6 +203,7 @@ nmap dsf Bdiwds)
 nnoremap        <leader>a         :TagbarToggle<CR>
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
+map             <leader>d         <Plug>(expand_region_expand)
 nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
@@ -212,12 +213,11 @@ nnoremap        <leader>l         :set list!<CR>
 nnoremap        <leader>m         :wincmd _<CR>
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
-map             <leader>r         <Plug>(expand_region_expand)
+nnoremap        <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 map             <leader>s         <Plug>(expand_region_shrink)
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>u         :GundoToggle<CR>
 nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>y         "*y
 nnoremap        <leader>z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
 
