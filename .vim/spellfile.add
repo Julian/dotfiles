@@ -13,3 +13,5 @@ Meetup
 backporting
 argparse
 str
+whitelist
+MySQL
