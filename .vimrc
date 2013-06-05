@@ -10,6 +10,8 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+let s:load_dynamic_plugins=$VIM_LOAD_DYNAMIC_PLUGINS != "false"
+
 " Let Vundle manage Vundle (required!).
 Bundle 'gmarik/vundle'
 
@@ -55,9 +57,12 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-tbone'
-Bundle 'Valloric/YouCompleteMe'
 
-if has("python")
+if s:load_dynamic_plugins
+    Bundle 'Valloric/YouCompleteMe'
+endif
+
+if has("python") && s:load_dynamic_plugins
     Bundle 'SirVer/ultisnips'
 endif
 
@@ -67,15 +72,17 @@ else
     Bundle 'Julian/vim-runt'
 endif
 
-try
-    python from powerline.vim import setup as powerline_setup
-    python powerline_setup()
-    python del powerline_setup
-catch
-    Bundle 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim'}
-endtry
+if s:load_dynamic_plugins
+    try
+        python from powerline.vim import setup as powerline_setup
+        python powerline_setup()
+        python del powerline_setup
+    catch
+        Bundle 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim'}
+    endtry
+endif
 
-if has("ruby")
+if has("ruby") && s:load_dynamic_plugins
     Bundle 'git://git.wincent.com/command-t.git'
 
     nnoremap      <leader>f         :CommandTBuffer<CR>
@@ -332,7 +339,10 @@ endif
 set laststatus=2                       " always show status line
 
 if &statusline!~"powerline" && (!exists("g:powerline_loaded") || !g:powerline_loaded)
-    set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+    set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
+    if exists("g:loaded_fugitive")
+        set statusline+=\ %{fugitive#statusline()}
+    endif
 endif
 
 set confirm                            " show confirm dialog instead of warn
@@ -452,7 +462,7 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 
-if has("autocmd") && has("eval")
+if has("autocmd") && exists("did_UltiSnips_vim")
     function! g:UltiSnips_Complete()
         call UltiSnips_ExpandSnippet()
         if g:ulti_expand_res == 0
@@ -477,13 +487,15 @@ let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
 let g:jedi#use_tabs_not_buffers = 0
 
-augroup rainbowparentheses
-    au!
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-augroup END
+if has("autocmd") && exists(":RainbowParenthesesToggle")
+    augroup rainbowparentheses
+        au!
+        au VimEnter * RainbowParenthesesToggle
+        au Syntax * RainbowParenthesesLoadRound
+        au Syntax * RainbowParenthesesLoadSquare
+        au Syntax * RainbowParenthesesLoadBraces
+    augroup END
+endif
 
 " ============
 " : Autocmds :
