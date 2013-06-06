@@ -240,7 +240,7 @@ export PYTHON_TEST_RUNNER="trial"
 
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
-    export WORKON_HOME=$HOME/.virtualenvs
+    export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
     export PROJECT_HOME=$HOME/Development
     export VIRTUALENV_USE_DISTRIBUTE=true
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
