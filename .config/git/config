@@ -26,6 +26,7 @@
     dd = diff --diff-algorithm=default
     st = status
     amend = commit --amend
+    authors = shortlog -sn
 
     # Fancy logging.
     #   h = head
