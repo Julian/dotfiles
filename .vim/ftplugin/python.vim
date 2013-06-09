@@ -6,7 +6,8 @@ exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
-nnoremap <buffer> gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <buffer> gd :YcmCompleter GoToDeclaration<CR>
+nnoremap <buffer> [d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 function! Reindent(delimiter)
     execute "normal! va" . a:delimiter . "o"
