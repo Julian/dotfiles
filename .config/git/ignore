@@ -47,7 +47,9 @@ htmlcov/
 .gitignore
 .pep8
 .ropeproject/
+
 twistd.log
+twistd.pid
 
 Gemfile.lock
 Berksfile.lock
