@@ -159,6 +159,10 @@ if (( $+commands[brew] )); then
     alias up="brew update && brew upgrade"
 fi
 
+if (( $+commands[weechat-curses] )); then
+    alias weechat="weechat-curses -d $XDG_CONFIG_HOME/weechat"
+fi
+
 # Suffix Aliases
 alias -s tex=vim
 
