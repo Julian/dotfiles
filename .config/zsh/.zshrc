@@ -246,7 +246,7 @@ export PYTHON_TEST_RUNNER="trial"
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
     export PROJECT_HOME=$HOME/Development
-    export VIRTUALENV_USE_DISTRIBUTE=true
+    export VIRTUALENV_USE_SETUPTOOLS=true
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
     source virtualenvwrapper_lazy.sh
 fi
