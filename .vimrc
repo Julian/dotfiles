@@ -35,6 +35,7 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 
 " --- Plugins ---
 
+Bundle 'AndrewRadev/switch.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'alfredodeza/pytest.vim'
@@ -225,6 +226,7 @@ map             <leader>s         <Plug>(expand_region_shrink)
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>u         :GundoToggle<CR>
 nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
+nnoremap        <leader>w         :Switch<CR>
 nnoremap        <leader>y         "*y
 nnoremap        <leader>z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
 
