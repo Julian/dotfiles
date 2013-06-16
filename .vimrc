@@ -246,10 +246,10 @@ nnoremap        <leader>U         :BundleInstall!<CR>
 nnoremap        <leader>.         :lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
 nnoremap        <leader>'         :lnext<CR>
-nnoremap        <leader>]         :cnext<CR>
 nnoremap        <leader>[         :cprevious<CR>
-nnoremap        <leader>-         :next<CR>
-nnoremap        <leader>=         :previous<CR>
+nnoremap        <leader>]         :cnext<CR>
+nnoremap        <leader>-         :previous<CR>
+nnoremap        <leader>=         :next<CR>
 
 nnoremap        <leader><tab>     :b#<CR>
 
