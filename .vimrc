@@ -44,6 +44,7 @@ Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
@@ -216,6 +217,7 @@ nnoremap        <leader>e         :SplitSensibly<CR>:CommandT
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
 "               <leader>h         Set above to CommandTTags or CtrlPTag
+nnoremap        <leader>i         :IndentGuidesToggle<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :set list!<CR>
 nnoremap        <leader>m         :wincmd _<CR>
