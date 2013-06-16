@@ -48,7 +48,6 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'terryma/vim-expand-region'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-dispatch'
@@ -212,7 +211,6 @@ nmap dsf Bdiwds)
 nnoremap        <leader>a         :TagbarToggle<CR>
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
-map             <leader>d         <Plug>(expand_region_expand)
 nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
@@ -224,7 +222,6 @@ nnoremap        <leader>m         :wincmd _<CR>
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-map             <leader>s         <Plug>(expand_region_shrink)
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>u         :GundoToggle<CR>
 nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
@@ -436,23 +433,6 @@ endif
 " Clear the CommandT window with any of these
 let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
 let g:CommandTMatchWindowAtTop=1
-
-let g:expand_region_text_objects = {
-    \ 'iw'  :0,
-    \ 'aw'  :0,
-    \ 'iW'  :0,
-    \ 'aW'  :0,
-    \ 'i"'  :0,
-    \ 'i''' :0,
-    \ 'i]'  :1,
-    \ 'i)'  :1,
-    \ 'i}'  :1,
-    \ 'ip'  :0,
-    \ 'ii'  :0,
-    \ 'ai'  :0,
-    \ 'iI'  :0,
-    \ 'aI'  :0,
-    \ }
 
 " Syntastic
 let g:syntastic_error_symbol="✖"
