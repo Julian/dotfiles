@@ -1,4 +1,5 @@
 #! /bin/zsh
-pip install -U distribute
+easy_install -U setuptools
+pip install https://bitbucket.org/pypa/setuptools/downloads/distribute-0.7.zip
 version=`python -V 2>&1 | cut -d " " -f 2 | cut -d "." -f 1`
 pip install -r "$WORKON_HOME/requirements-every-virtualenv.txt"
