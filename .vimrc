@@ -250,6 +250,7 @@ nnoremap        <leader>[         :cprevious<CR>
 nnoremap        <leader>]         :cnext<CR>
 nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
+nnoremap        <leader>\         :call <SID>DoCommentTagFormat()<CR>
 
 nnoremap        <leader><tab>     :b#<CR>
 
@@ -566,6 +567,30 @@ if has("eval")
             augroup END
         endif
     endfun
+
+    " Format tagged comment blocks based on the post-tag indentation
+    let b:comment_tags = ['TODO', 'XXX', 'FIXME']
+    function! CommentTagFormat()
+        let line_number = v:lnum
+        let first_line = getline(line_number)
+        let comment_leader = split(&commentstring, '%s')[0]
+        let comment = '^\s*' . comment_leader . '\s*'
+
+        for pattern in map(copy(b:comment_tags), 'comment . v:val . ":\\?\\s*"')
+            if first_line =~ pattern
+                let indent = len(matchstr(first_line, pattern)) - len(comment_leader)
+                let second_line = getline(line_number + 1)
+                call setline(line_number + 1, substitute(second_line, comment, comment_leader . repeat(' ', indent), ''))
+                break
+            endif
+        endfor
+        return 1
+    endfunction
+
+    function! <SID>DoCommentTagFormat()
+        setlocal formatoptions+=2
+        setlocal formatexpr=CommentTagFormat()
+    endfunction
 endif
 
 if has("autocmd") && has("eval")
