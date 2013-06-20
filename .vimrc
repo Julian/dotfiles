@@ -610,9 +610,6 @@ if has("autocmd") && has("eval")
         " Keep splits equal on resize
         autocmd VimResized * :wincmd =
 
-        " Keep splits equal on resize
-        autocmd VimResized * :wincmd =
-
         " Automagic line numbers
         autocmd BufEnter * :call <SID>WindowWidth()
 
