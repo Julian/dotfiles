@@ -135,15 +135,22 @@ set tags=./.tags,./tags;$HOME          " look up until $HOME for tags
 " : Bindings :
 " ============
 
-" quick fingers / for encryption use vim -xn
-cnoreabbrev E e
-cnoreabbrev Q q
-cnoreabbrev Qa qa
-cnoreabbrev Sp sp
-cnoreabbrev Vsp vsp
-cnoreabbrev WQ wq
-cnoreabbrev Wq wq
-cnoreabbrev W w
+if has("user_commands")
+    " quick fingers
+    command! -bang -complete=file -nargs=? E e<bang> <args>
+    command! -bang -complete=file -nargs=? Sp sp<bang> <args>
+    command! -bang -complete=file -nargs=? Vsp vsp<bang> <args>
+    command! -bang -complete=file -nargs=? W w<bang> <args>
+    command! -bang -complete=file -nargs=? WQ wq<bang> <args>
+    command! -bang -complete=file -nargs=? Wq wq<bang> <args>
+    command! -bang Q q<bang>
+    command! -bang Qa qa<bang>
+    command! -bang QA qa<bang>
+    command! -bang Wa wa<bang>
+    command! -bang WA wa<bang>
+endif
+
+" this one is reserved unfortunately, but for encryption just use vim -xn
 cnoreabbrev X x
 
 " don't use Ex mode, use Q for formatting
