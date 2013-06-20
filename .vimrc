@@ -97,6 +97,8 @@ else
     nnoremap      <leader>h         :CtrlPTag<CR>
 endif
 
+silent! runtime macros/matchit.vim
+
 
 " =========
 " : Basic :
