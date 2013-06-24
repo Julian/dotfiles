@@ -178,6 +178,7 @@ fi
 eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
 
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
+function cdc() { cd **/*$1*/ }
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Type '...' to get '../..' with successive .'s adding /..
