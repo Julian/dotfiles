@@ -26,3 +26,9 @@ UI
 %r
 Firefox
 IE
+https
+__init__
+__getitem__
+__iter__
+defaultdict
+iterable
