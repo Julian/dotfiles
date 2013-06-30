@@ -223,9 +223,9 @@ nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
 nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
 nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
-"               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
-"               <leader>g         Set above to CommandT or CtrlP
-"               <leader>h         Set above to CommandTTags or CtrlPTag
+"               <leader>f         Set above to fuzzy buffer selection
+"               <leader>g         Set above to fuzzy file selection
+"               <leader>h         Set above to fuzzy tag selection
 nnoremap        <leader>i         :IndentGuidesToggle<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :set list!<CR>
