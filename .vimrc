@@ -42,6 +42,7 @@ Bundle 'alfredodeza/pytest.vim'
 Bundle 'b4winckler/vim-angry'
 Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
+Bundle 'jmcantrell/vim-diffchanges'
 Bundle 'majutsushi/tagbar'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -220,6 +221,7 @@ nmap dsf Bdiwds)
 nnoremap        <leader>a         :TagbarToggle<CR>
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
+nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
 nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
 "               <leader>f         Set above to CommandTBuffer or CtrlPBuffer
 "               <leader>g         Set above to CommandT or CtrlP
