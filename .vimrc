@@ -36,6 +36,7 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 " --- Plugins ---
 
 Bundle 'AndrewRadev/switch.vim'
+Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'alfredodeza/coveragepy.vim'
 Bundle 'alfredodeza/pytest.vim'
@@ -72,16 +73,6 @@ if isdirectory(expand("~/Development/vim-runt"))
     set runtimepath+=~/Development/vim-runt
 else
     Bundle 'Julian/vim-runt'
-endif
-
-if s:load_dynamic_plugins
-    try
-        python from powerline.vim import setup as powerline_setup
-        python powerline_setup()
-        python del powerline_setup
-    catch
-        Bundle 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim'}
-    endtry
 endif
 
 if has("ruby") && s:load_dynamic_plugins
@@ -351,7 +342,7 @@ endif
 
 set laststatus=2                       " always show status line
 
-if &statusline!~"powerline" && (!exists("g:powerline_loaded") || !g:powerline_loaded)
+if &statusline!~?'airline\|powerline' && (!exists("g:powerline_loaded") || !g:powerline_loaded)
     set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
     if exists("g:loaded_fugitive")
         set statusline+=\ %{fugitive#statusline()}
