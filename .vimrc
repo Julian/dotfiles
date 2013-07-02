@@ -487,6 +487,9 @@ if has("autocmd") && exists(":RainbowParenthesesToggle")
     augroup END
 endif
 
+" Vimple
+nmap <nop> <Plug>VimpleMRU
+
 " ============
 " : Autocmds :
 " ============
