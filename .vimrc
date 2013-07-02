@@ -469,7 +469,7 @@ if has("autocmd") && exists("did_UltiSnips_vim")
     endfunction
 
     augroup ultisnips_ycm
-        au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+        autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
     augroup END
 endif
 
@@ -479,11 +479,11 @@ let g:jedi#use_tabs_not_buffers = 0
 
 if has("autocmd") && exists(":RainbowParenthesesToggle")
     augroup rainbowparentheses
-        au!
-        au VimEnter * RainbowParenthesesToggle
-        au Syntax * RainbowParenthesesLoadRound
-        au Syntax * RainbowParenthesesLoadSquare
-        au Syntax * RainbowParenthesesLoadBraces
+        autocmd!
+        autocmd VimEnter * RainbowParenthesesToggle
+        autocmd Syntax * RainbowParenthesesLoadRound
+        autocmd Syntax * RainbowParenthesesLoadSquare
+        autocmd Syntax * RainbowParenthesesLoadBraces
     augroup END
 endif
 
@@ -562,7 +562,7 @@ if has("eval")
             return <SID>ToggleExpando()
         else
             augroup expando
-                au!
+                autocmd!
                 if !s:expando_enabled
                     autocmd WinEnter * :45wincmd >
                     let s:expando_enabled = 1
@@ -603,7 +603,7 @@ endif
 if has("autocmd") && has("eval")
 
     augroup misc
-        au!
+        autocmd!
 
         " Keep splits equal on resize
         autocmd VimResized * :wincmd =
@@ -633,7 +633,7 @@ endif
 " =====================
 
 augroup filetypes
-    au!
+    autocmd!
     autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
     autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
     autocmd BufNewFile,BufRead *.tac setlocal filetype=python
@@ -649,7 +649,7 @@ augroup END
 
 augroup formatstupidity
     " ftplugins are stupid and try to mess with formatoptions
-    au!
+    autocmd!
     autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
     autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=j
 augroup END
