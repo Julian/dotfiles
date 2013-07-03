@@ -245,6 +245,9 @@ nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :BundleInstall!<CR>
 
+nnoremap        <leader>DD        :profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
+nnoremap        <leader>DQ        :profile pause<CR>:noautocmd quitall!<CR>
+
 nnoremap        <leader>.         :lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
 nnoremap        <leader>'         :lnext<CR>
