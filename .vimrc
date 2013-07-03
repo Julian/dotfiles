@@ -477,7 +477,7 @@ let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
 let g:jedi#use_tabs_not_buffers = 0
 
-if has("autocmd") && exists(":RainbowParenthesesToggle")
+if has("autocmd")
     augroup rainbowparentheses
         autocmd!
         autocmd VimEnter * RainbowParenthesesToggle
