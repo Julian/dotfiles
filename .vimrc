@@ -176,24 +176,28 @@ inoremap <DEL> <DEL><C-G>u
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
-" unbind cursor keys
-for prefix in ['i', 'n', 'v']
-  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-    exe prefix . "noremap " . key . " <Nop>"
-  endfor
-endfor
-
-noremap         <F10>      :set spell!<CR>
-
-" Toggle how long lines are displayed
-noremap         <F11>      :set wrap!<CR>
-
-" fix syntax highlighting errors
-noremap         <F12>      <Esc>:syntax sync fromstart<CR>
-inoremap        <F12>      <C-o>:syntax sync fromstart<CR>
-
 " surround doesn't support deleting a function surround for some reason
 nmap dsf Bdiwds)
+
+let s:all_modes_mappings = {
+    \   '<F8>'  : ':TagbarToggle<CR>',
+    \   '<F9>'  : ':make<CR>',
+    \   '<F10>' : ':set spell!<CR>',
+    \   '<F11>' : ':set wrap!<CR>',
+    \   '<F12>' : ':syntax sync fromstart<CR>',
+    \
+    \   '<Up>' : '<Nop>',
+    \   '<Down>' : '<Nop>',
+    \   '<Left>' : '<Nop>',
+    \   '<Right>' : '<Nop>'
+    \
+    \}
+
+for [key, value] in items(s:all_modes_mappings)
+    exec 'nnoremap ' . key . ' ' . value
+    exec 'inoremap ' . key . ' <C-O>' . value
+    exec 'vnoremap ' . key . ' ' . value
+endfor
 
 " Leader mappings
 " ---------------
