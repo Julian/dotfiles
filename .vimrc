@@ -45,10 +45,10 @@ Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
 Bundle 'jmcantrell/vim-diffchanges'
 Bundle 'majutsushi/tagbar'
+Bundle 'mbbill/undotree'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-abolish'
@@ -225,7 +225,7 @@ nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
-nnoremap        <leader>u         :GundoToggle<CR>
+nnoremap        <leader>u         :UndotreeToggle<CR>
 nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         :Switch<CR>
 nnoremap        <leader>y         "*y
@@ -454,6 +454,8 @@ let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
+
+let g:undotree_TreeNodeShape = '✷'
 
 if has("autocmd") && exists("did_UltiSnips_vim")
     function! g:UltiSnips_Complete()
