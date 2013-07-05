@@ -406,6 +406,14 @@ elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
     set grepprg=/usr/local/bin/grep
 endif
 
+" ==============
+" : Formatting :
+" ==============
+
+if executable("par")
+    set formatprg=par
+endif
+
 " ============
 " : Spelling :
 " ============
