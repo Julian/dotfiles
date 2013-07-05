@@ -311,20 +311,20 @@ endif
 " : History :
 " ===========
 
-set history=10000                           " command line history
-set viminfo='50,s100                        " 50 file marks, non-huge registers
+set directory=$XDG_CACHE_HOME/vim/swap,~/tmp,/tmp   " sawp files
+set history=10000                                   " command line history
+set viminfo='50,s100,n$XDG_CACHE_HOME/vim/info      " 50 marks, unhuge register
 
 set backup
-set backupdir=~/.vim/sessions,~/tmp,/tmp    " put backups and...
+set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
 
 if exists("&undofile")
     set undofile
-    set undodir=~/.vim/sessions,~/tmp,/tmp  " ... undos
+    set undodir=$XDG_CACHE_HOME/undo,~/tmp,/tmp
 endif
 
-set undolevels=500                          " more undo
+set undolevels=500                                  " more undo
 
-set directory=~/.vim/sessions,~/tmp,/tmp    " swap files here instead of .
 
 " =============
 " : Interface :
