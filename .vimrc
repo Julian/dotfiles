@@ -311,7 +311,7 @@ endif
 " : History :
 " ===========
 
-set history=1000                            " command line history
+set history=10000                           " command line history
 set viminfo='50,s100                        " 50 file marks, non-huge registers
 
 set backup
