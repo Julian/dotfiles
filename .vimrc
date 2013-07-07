@@ -235,6 +235,7 @@ nnoremap        <leader>w         :Switch<CR>
 nnoremap        <leader>y         "*y
 nnoremap        <leader>z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
 
+nnoremap        <leader>jd        :Dispatch! detox<CR>
 nnoremap        <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
 nnoremap        <leader>jl        :ToggleTestLock<CR>
 nnoremap        <leader>jt        :Dispatch! tox<CR>
