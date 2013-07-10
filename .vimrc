@@ -115,7 +115,7 @@ set textwidth=79
 set nowrap
 set showbreak=↪
 
-set fillchars=diff:·,vert:│
+set fillchars=diff:·
 
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
