@@ -178,7 +178,7 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
 " surround doesn't support deleting a function surround for some reason
-nmap dsf Bdiwds)
+nmap dsf Bdt(ds)
 
 let s:all_modes_mappings = {
     \   '<F8>'  : ':TagbarToggle<CR>',
