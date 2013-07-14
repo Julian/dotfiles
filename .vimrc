@@ -181,11 +181,12 @@ inoremap <C-W> <C-G>u<C-W>
 nmap dsf Bdt(ds)
 
 let s:all_modes_mappings = {
+    \   '<F7>'  : ':syntax sync fromstart<CR>',
     \   '<F8>'  : ':TagbarToggle<CR>',
     \   '<F9>'  : ':make<CR>',
-    \   '<F10>' : ':set spell!<CR>',
-    \   '<F11>' : ':set wrap!<CR>',
-    \   '<F12>' : ':syntax sync fromstart<CR>',
+    \   '<F10>' : ':set list!<CR>',
+    \   '<F11>' : ':set spell!<CR>',
+    \   '<F12>' : ':set wrap!<CR>',
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
@@ -214,7 +215,6 @@ endfor
 "   S : remove trailing whitespace
 "   . : set the working directory in the local window
 
-nnoremap        <leader>a         :TagbarToggle<CR>
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
 nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
