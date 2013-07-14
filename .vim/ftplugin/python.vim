@@ -31,7 +31,10 @@ nmap <buffer> <silent><Leader>jn <Esc>:Pytest next<CR>
 nmap <buffer> <silent><Leader>jp <Esc>:Pytest previous<CR>
 nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 
-map <buffer> <F9> :!python "%:p"<CR>
+nmap <LocalLeader>a F[i.<Esc>lds]ds"ds'
+nmap <LocalLeader>d T.Xysw]lysiw"
+
+setlocal makeprg="python"
 
 " --------------------- from here on requires +python -------------------------
 if !has("python")
