@@ -1,6 +1,7 @@
 set nocompatible                       " turn off vi compatible, should be first
 
 let mapleader = "\<space>"
+let maplocalleader = ","
 
 " ==========
 " : Vundle :
