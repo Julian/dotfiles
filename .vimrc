@@ -17,12 +17,14 @@ let s:load_dynamic_plugins=$VIM_LOAD_DYNAMIC_PLUGINS != "false"
 Bundle 'gmarik/vundle'
 
 " --- Themes ---
+
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
 Bundle 'noahfrederick/Hemisu'
 Bundle 'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
+
 Bundle 'guns/vim-clojure-static'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
@@ -196,9 +198,9 @@ let s:all_modes_mappings = {
     \}
 
 for [key, value] in items(s:all_modes_mappings)
-    exec 'nnoremap ' . key . ' ' . value
-    exec 'inoremap ' . key . ' <C-O>' . value
-    exec 'vnoremap ' . key . ' ' . value
+    execute 'nnoremap ' . key . ' ' . value
+    execute 'inoremap ' . key . ' <C-O>' . value
+    execute 'vnoremap ' . key . ' ' . value
 endfor
 
 " Leader mappings
@@ -504,12 +506,12 @@ if has("eval")
                 return
             endif
 
-            exec 'edit ' . a:qargs
+            execute 'edit ' . a:qargs
         elseif winwidth(0) >= (79 + padding) * 2
-            exec 'vsplit ' . a:qargs
+            execute 'vsplit ' . a:qargs
             wincmd L
         else
-            exec 'split ' . a:qargs
+            execute 'split ' . a:qargs
         endif
     endfunction
 
