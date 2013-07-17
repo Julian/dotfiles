@@ -17,3 +17,5 @@ set guioptions-=T
 set guioptions-=L
 set guioptions-=m
 set guioptions-=r
+
+colorscheme jellybeans
