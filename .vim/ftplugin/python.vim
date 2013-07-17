@@ -34,6 +34,8 @@ nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 nmap <LocalLeader>a F[i.<Esc>lds]ds"ds'
 nmap <LocalLeader>d T.Xysw]lysiw"
 
+vmap <LocalLeader>' :s/'/"
+
 setlocal makeprg="python"
 
 " --------------------- from here on requires +python -------------------------
