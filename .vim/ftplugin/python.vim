@@ -34,9 +34,7 @@ nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 nmap <LocalLeader>a F[i.<Esc>lds]ds"ds'
 nmap <LocalLeader>d T.Xysw]lysiw"
 
-vmap <LocalLeader>' :s/'/"
-
-setlocal makeprg="python"
+vmap <LocalLeader>' :s/'/"<CR>
 
 " --------------------- from here on requires +python -------------------------
 if !has("python")
@@ -49,9 +47,9 @@ import os
 import sys
 import vim
 
-virtual_env = os.environ.get("VIRTUAL_ENV")
-if virtual_env is not None:
-    sys.path.insert(0, virtual_env)
-    activate_this = os.path.join(virtual_env, 'bin/activate_this.py')
+virtualenv = os.environ.get("VIRTUALENV")
+if virtualenv is not None:
+    sys.path.insert(0, virtualenv)
+    activate_this = os.path.join(virtualenv, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
