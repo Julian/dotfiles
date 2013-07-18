@@ -126,7 +126,7 @@ set fillchars=diff:·
 
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
 
-set cryptmethod=blowfish               " use blowfish for encryption
+silent! set cryptmethod=blowfish       " use blowfish for encryption
 
 set isfname-==                         " remove =, which probably is an assign
 
@@ -346,7 +346,7 @@ set background=dark                    " make sure this is before colorschemes
 
 if &t_Co > 8
     set t_Co=256
-    colorscheme hemisu
+    silent colorscheme hemisu
 elseif &t_Co == 8
     if $TERM !~# '^linux'
         set t_Co=16
