@@ -188,12 +188,13 @@ inoremap <C-W> <C-G>u<C-W>
 nmap dsf Bdt(ds)
 
 let s:all_modes_mappings = {
-    \   '<F7>'  : ':syntax sync fromstart<CR>',
-    \   '<F8>'  : ':TagbarToggle<CR>',
-    \   '<F9>'  : ':make<CR>',
+    \   '<F6>'  : ':IndentGuidesToggle<CR>',
+    \   '<F7>'  : ':TagbarToggle<CR>',
+    \   '<F8>'  : ':make<CR>',
+    \   '<F9>'  : ':syntax sync fromstart<CR>',
     \   '<F10>' : ':set list!<CR>',
-    \   '<F11>' : ':set spell!<CR>',
-    \   '<F12>' : ':set wrap!<CR>',
+    \   '<F11>' : ':set wrap!<CR>',
+    \   '<F12>' : ':set spell!<CR>',
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
@@ -229,7 +230,6 @@ nnoremap        <leader>e         :SplitSensibly<CR>:CommandT
 "               <leader>f         Set above to fuzzy buffer selection
 "               <leader>g         Set above to fuzzy file selection
 "               <leader>h         Set above to fuzzy tag selection
-nnoremap        <leader>i         :IndentGuidesToggle<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :set list!<CR>
 nnoremap        <leader>m         :wincmd _<CR>
