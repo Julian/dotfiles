@@ -178,6 +178,7 @@ inoremap <C-W> <C-G>u<C-W>
 nmap dsf Bdt(ds)
 
 let s:all_modes_mappings = {
+    \   '<F5>'  : ':SignifyToggle<CR>',
     \   '<F6>'  : ':IndentGuidesToggle<CR>',
     \   '<F7>'  : ':TagbarToggle<CR>',
     \   '<F8>'  : ':make<CR>',
