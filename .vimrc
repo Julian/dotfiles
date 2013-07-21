@@ -69,6 +69,10 @@ Bundle 'kana/vim-textobj-indent'
 Bundle 'bps/vim-textobj-python'
 Bundle 'kana/vim-textobj-user'
 
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'tsukkee/unite-tag'
+
 if s:load_dynamic_plugins
     Bundle 'Valloric/YouCompleteMe'
 endif
@@ -81,20 +85,6 @@ if isdirectory(expand("~/Development/vim-runt"))
     set runtimepath+=~/Development/vim-runt
 else
     Bundle 'Julian/vim-runt'
-endif
-
-if has("ruby") && s:load_dynamic_plugins
-    Bundle 'git://git.wincent.com/command-t.git'
-
-    nnoremap      <leader>f         :CommandTBuffer<CR>
-    nnoremap      <leader>g         :CommandT<CR>
-    nnoremap      <leader>h         :CommandTTag<CR>
-else
-    Bundle 'kien/ctrlp.vim'
-
-    nnoremap      <leader>f         :CtrlPBuffer<CR>
-    nnoremap      <leader>g         :CtrlP<CR>
-    nnoremap      <leader>h         :CtrlPTag<CR>
 endif
 
 silent! runtime macros/matchit.vim
@@ -226,15 +216,16 @@ endfor
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
 nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
-nnoremap        <leader>e         :SplitSensibly<CR>:CommandT 
-"               <leader>f         Set above to fuzzy buffer selection
-"               <leader>g         Set above to fuzzy file selection
-"               <leader>h         Set above to fuzzy tag selection
+nnoremap        <leader>e         :SplitSensibly<CR>:Unite -no-split -start-insert file_rec/async:
+nnoremap        <leader>f         :<C-u>Unite -no-split -buffer-name=buffers buffer<CR>
+nnoremap        <leader>g         :<C-u>Unite -no-split -buffer-name=files file_rec/async<CR>
+nnoremap        <leader>h         :<C-u>Unite -no-split -buffer-name=tags tag<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
-nnoremap        <leader>l         :set list!<CR>
+nnoremap        <leader>l         :<C-u>Unite -no-split -buffer-name=lines line<CR>
 nnoremap        <leader>m         :wincmd _<CR>
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
+nnoremap        <leader>q         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>u         :UndotreeToggle<CR>
@@ -271,6 +262,7 @@ nnoremap        <leader>}         :cnfile<CR>
 nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
 nnoremap        <leader>\         :call <SID>DoCommentTagFormat()<CR>
+nnoremap        <leader>/         :Unite -no-split -buffer-name=grep grep:.<CR>
 
 nnoremap        <leader><tab>     :b#<CR>
 
@@ -464,10 +456,6 @@ else
     let g:tagbar_ctags_bin = '/usr/bin/ctags'
 endif
 
-" Clear the CommandT window with any of these
-let g:CommandTCancelMap=['<ESC>', '<C-c>', '<C-[>']
-let g:CommandTMatchWindowAtTop=1
-
 " Syntastic
 let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
@@ -484,15 +472,16 @@ let g:jedi#goto_command = "gd"
 let g:jedi#get_definition_command = "<leader>`"
 let g:jedi#use_tabs_not_buffers = 0
 
-if has("autocmd")
-    augroup rainbowparentheses
-        autocmd!
-        autocmd VimEnter * RainbowParenthesesToggle
-        autocmd Syntax * RainbowParenthesesLoadRound
-        autocmd Syntax * RainbowParenthesesLoadSquare
-        autocmd Syntax * RainbowParenthesesLoadBraces
-    augroup END
-endif
+" more stupid things with default mappings
+let g:signify_mapping_next_hunk = ''
+let g:signify_mapping_prev_hunk = ''
+let g:signify_mapping_toggle_highlight = '<nop>'
+let g:signify_mapping_toggle = '<nop>'
+
+" YouCompleteMe
+let g:ycm_filetype_blacklist = {
+    \ 'unite' : 1,
+    \}
 
 " Vimple
 nmap <nop> <Plug>VimpleMRU
