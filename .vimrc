@@ -46,6 +46,7 @@ Bundle 'b4winckler/vim-angry'
 Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
 Bundle 'godlygeek/tabular'
+Bundle 'kshenoy/vim-signature'
 Bundle 'jmcantrell/vim-diffchanges'
 Bundle 'majutsushi/tagbar'
 Bundle 'mhinz/vim-signify'
@@ -233,7 +234,6 @@ nnoremap        <leader>u         :UndotreeToggle<CR>
 nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         :Switch<CR>
 nnoremap        <leader>y         "*y
-nnoremap        <leader>z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>jd        :Dispatch! detox<CR>
 nnoremap        <leader>jj        :Dispatch TestRunnerCommand(FindTestFile(expand("%"))))<CR>
@@ -249,6 +249,7 @@ nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :BundleInstall!<CR>
+nnoremap        <leader>Z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
 nnoremap        <leader>DQ        :profile pause<CR>:noautocmd quitall!<CR>
