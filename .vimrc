@@ -266,6 +266,8 @@ nnoremap        <leader>;         :lprevious<CR>
 nnoremap        <leader>'         :lnext<CR>
 nnoremap        <leader>[         :cprevious<CR>
 nnoremap        <leader>]         :cnext<CR>
+nnoremap        <leader>{         :cpfile<CR>
+nnoremap        <leader>}         :cnfile<CR>
 nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
 nnoremap        <leader>\         :call <SID>DoCommentTagFormat()<CR>
