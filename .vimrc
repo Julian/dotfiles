@@ -475,8 +475,8 @@ let g:jedi#get_definition_command = "<leader>`"
 let g:jedi#use_tabs_not_buffers = 0
 
 " more stupid things with default mappings
-let g:signify_mapping_next_hunk = ''
-let g:signify_mapping_prev_hunk = ''
+let g:signify_mapping_next_hunk = '<nop>'
+let g:signify_mapping_prev_hunk = '<nop>'
 let g:signify_mapping_toggle_highlight = '<nop>'
 let g:signify_mapping_toggle = '<nop>'
 
