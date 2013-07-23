@@ -216,7 +216,6 @@ endfor
 "   . : set the working directory in the local window
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>c         :SplitSensibly<CR>:CommandT $XDG_CONFIG_HOME<CR>
 nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
 nnoremap        <leader>e         :SplitSensibly<CR>:Unite -no-split -start-insert file_rec/async:
 nnoremap        <leader>f         :<C-u>Unite -no-split -buffer-name=buffers buffer<CR>
@@ -245,6 +244,7 @@ nnoremap        <leader>j<leader> :Dispatch<CR>
 
 
 nnoremap        <leader>B         o<C-R>*<Esc>
+nnoremap  <expr><leader>C         ":SplitSensibly<CR>:Unite -no-split -buffer-name=config file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
