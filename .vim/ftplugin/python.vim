@@ -1,5 +1,9 @@
 let python_highlight_all=1
 
+let b:switch_definitions = [
+    \ ["assertEqual", "assertNotEqual"],
+\ ]
+
 let s:python = substitute(system('which pypy || which python'), '\n', '', '')
 let s:condent = substitute(system('which condent'), '\n', '', '')
 exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
