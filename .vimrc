@@ -217,7 +217,7 @@ endfor
 
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
-nnoremap        <leader>e         :SplitSensibly<CR>:Unite -no-split -start-insert file_rec/async:
+nnoremap        <leader>e         :SplitSensibly<CR>:Unite -no-split file_rec/async:
 nnoremap        <leader>f         :<C-u>Unite -no-split -buffer-name=buffers buffer<CR>
 nnoremap        <leader>g         :<C-u>Unite -no-split -buffer-name=files file_rec/async<CR>
 nnoremap        <leader>h         :<C-u>Unite -no-split -buffer-name=tags tag<CR>
@@ -228,10 +228,10 @@ nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
 nnoremap        <leader>q         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
+nnoremap        <leader>s         :Switch<CR>
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>u         :UndotreeToggle<CR>
 nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         :Switch<CR>
 nnoremap        <leader>y         "*y
 
 nnoremap        <leader>jd        :Dispatch! detox<CR>
