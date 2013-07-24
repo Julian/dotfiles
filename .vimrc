@@ -179,14 +179,14 @@ inoremap <C-W> <C-G>u<C-W>
 nmap dsf Bdt(ds)
 
 let s:all_modes_mappings = {
-    \   '<F5>'  : ':SignifyToggle<CR>',
-    \   '<F6>'  : ':IndentGuidesToggle<CR>',
-    \   '<F7>'  : ':TagbarToggle<CR>',
-    \   '<F8>'  : ':make<CR>',
-    \   '<F9>'  : ':syntax sync fromstart<CR>',
-    \   '<F10>' : ':set list!<CR>',
-    \   '<F11>' : ':set wrap!<CR>',
-    \   '<F12>' : ':set spell!<CR>',
+    \   '<F5>'  : ':<C-U>SignifyToggle<CR>',
+    \   '<F6>'  : ':<C-U>IndentGuidesToggle<CR>',
+    \   '<F7>'  : ':<C-U>TagbarToggle<CR>',
+    \   '<F8>'  : ':<C-U>make<CR>',
+    \   '<F9>'  : ':<C-U>UndotreeToggle<CR>',
+    \   '<F10>' : ':<C-U>set list!<CR>',
+    \   '<F11>' : ':<C-U>set wrap!<CR>',
+    \   '<F12>' : ':<C-U>set spell!<CR>',
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
@@ -216,22 +216,21 @@ endfor
 "   . : set the working directory in the local window
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :DiffChangesDiffToggle<CR>
-nnoremap        <leader>e         :SplitSensibly<CR>:Unite -no-split file_rec/async:
-nnoremap        <leader>f         :<C-u>Unite -no-split -buffer-name=buffers buffer<CR>
-nnoremap        <leader>g         :<C-u>Unite -no-split -buffer-name=files file_rec/async<CR>
-nnoremap        <leader>h         :<C-u>Unite -no-split -buffer-name=tags tag<CR>
+nnoremap        <leader>d         :<C-U>DiffChangesDiffToggle<CR>
+nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Unite -no-split file_rec/async:
+nnoremap        <leader>f         :<C-U>Unite -no-split -buffer-name=buffers buffer<CR>
+nnoremap        <leader>g         :<C-U>Unite -no-split -buffer-name=files file_rec/async<CR>
+nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
-nnoremap        <leader>l         :<C-u>Unite -no-split -buffer-name=lines line<CR>
+nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
 nnoremap        <leader>m         :wincmd _<CR>
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
-nnoremap        <leader>q         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
-nnoremap        <leader>r         :set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nnoremap        <leader>s         :Switch<CR>
+nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
+nnoremap        <leader>s         :<C-U>Switch<CR>
 nnoremap        <leader>t         :topleft split TODO<CR><C-W>6_
-nnoremap        <leader>u         :UndotreeToggle<CR>
-nnoremap        <leader>v         :SplitSensibly $MYVIMRC<CR>
+nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
+nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
 
 nnoremap        <leader>jd        :Dispatch! detox<CR>
@@ -244,17 +243,17 @@ nnoremap        <leader>j<leader> :Dispatch<CR>
 
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap  <expr><leader>C         ":SplitSensibly<CR>:Unite -no-split -buffer-name=config file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
-nnoremap        <leader>S         :%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap        <leader>U         :BundleInstall!<CR>
-nnoremap        <leader>Z         :SplitSensibly $ZDOTDIR/.zshrc<CR>
+nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap        <leader>U         :<C-U>BundleInstall!<CR>
+nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
-nnoremap        <leader>DD        :profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
-nnoremap        <leader>DQ        :profile pause<CR>:noautocmd quitall!<CR>
+nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
+nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
-nnoremap        <leader>.         :lcd %:p:h<CR>
+nnoremap        <leader>.         :<C-U>lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
 nnoremap        <leader>'         :lnext<CR>
 nnoremap        <leader>[         :cprevious<CR>
@@ -263,10 +262,10 @@ nnoremap        <leader>{         :cpfile<CR>
 nnoremap        <leader>}         :cnfile<CR>
 nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
-nnoremap        <leader>\         :call <SID>DoCommentTagFormat()<CR>
-nnoremap        <leader>/         :Unite -no-split -buffer-name=grep grep:.<CR>
+nnoremap        <leader>\         :<C-U>call <SID>DoCommentTagFormat()<CR>
+nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.<CR>
 
-nnoremap        <leader><tab>     :b#<CR>
+nnoremap        <leader><tab>     <C-^>
 
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
