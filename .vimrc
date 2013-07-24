@@ -461,6 +461,8 @@ endif
 let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
 
+let g:tcommentMaps = 0
+
 " UltiSnips
 let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
