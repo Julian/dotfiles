@@ -449,7 +449,7 @@ let g:is_posix = 1
 let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 let g:airline_linecolumn_prefix = '␤ '
-let g:airline_fugitive_prefix = '⎇ '
+let g:airline_branch_prefix = '⎇ '
 
 if filereadable('/usr/local/bin/ctags')
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
