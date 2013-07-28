@@ -481,11 +481,6 @@ let g:signify_mapping_prev_hunk = '<nop>'
 let g:signify_mapping_toggle_highlight = '<nop>'
 let g:signify_mapping_toggle = '<nop>'
 
-" YouCompleteMe
-let g:ycm_filetype_blacklist = {
-    \ 'unite' : 1,
-    \}
-
 " Vimple
 nmap <nop> <Plug>VimpleMRU
 
