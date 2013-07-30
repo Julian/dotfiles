@@ -3,4 +3,11 @@
 # See https://github.com/pypa/pip/issues/72
 require-virtualenv = false
 respect-virtualenv = true
+
 download-cache = ~/Library/Caches/pip
+timeout = 15
+allow-all-external = false
+no-allow-insecure = false
+
+use-wheel = true
+wheel-dir = ~/.local/share/pip/wheels
