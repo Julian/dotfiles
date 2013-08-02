@@ -618,7 +618,7 @@ if has("autocmd") && has("eval")
         " Jump to the last known cursor position if it's valid (from the docs)
         autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$")                  |
-            \   exe "normal g`\""                                             |
+            \   execute "normal! g`\""                                             |
             \ endif
 
     augroup END
