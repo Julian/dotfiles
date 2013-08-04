@@ -25,6 +25,7 @@
     dc = diff --cached
     dd = diff --diff-algorithm=default
     df = diff --name-only
+    ff = merge --ff-only
     st = status
     amend = commit --amend
     authors = shortlog -sn
