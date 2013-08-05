@@ -46,6 +46,7 @@ Bundle 'b4winckler/vim-angry'
 Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
 Bundle 'godlygeek/tabular'
+Bundle 'kana/vim-submode'
 Bundle 'kshenoy/vim-signature'
 Bundle 'jmcantrell/vim-diffchanges'
 Bundle 'majutsushi/tagbar'
@@ -53,6 +54,7 @@ Bundle 'mhinz/vim-signify'
 Bundle 'mbbill/undotree'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/syntastic'
+Bundle 't9md/vim-quickhl'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-abolish'
@@ -223,7 +225,7 @@ nnoremap        <leader>g         :<C-U>Unite -no-split -buffer-name=files file_
 nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
-nnoremap        <leader>m         :wincmd _<CR>
+nnoremap        <leader>m         <Plug>(quickhl#toggle)
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
@@ -244,6 +246,7 @@ nnoremap        <leader>j<leader> :Dispatch<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap        <leader>M         <Plug>(quickhl#clear_all)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
@@ -252,6 +255,8 @@ nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
+
+nnoremap        <leader>0         :wincmd _<CR>
 
 nnoremap        <leader>.         :<C-U>lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
@@ -267,6 +272,7 @@ nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.
 
 nnoremap        <leader><tab>     <C-^>
 
+vnoremap        <leader>m         <Plug>(quickhl#toggle)
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
 
