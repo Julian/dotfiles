@@ -73,6 +73,7 @@ Bundle 'bps/vim-textobj-python'
 Bundle 'kana/vim-textobj-user'
 
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/vimproc'
 Bundle 'tsukkee/unite-tag'
 
@@ -177,8 +178,11 @@ inoremap <DEL> <DEL><C-G>u
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
-" surround doesn't support deleting a function surround for some reason
+" delete a surrounding function call (which surround doesn't support OOTB)
 nmap dsf Bdt(ds)
+
+" quote a word
+nmap yq ysiw"
 
 let s:all_modes_mappings = {
     \   '<F5>'  : ':<C-U>SignifyToggle<CR>',
