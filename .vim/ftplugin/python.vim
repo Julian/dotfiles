@@ -2,6 +2,7 @@ let python_highlight_all=1
 
 let b:switch_definitions = [
     \ ["assertEqual", "assertNotEqual"],
+    \ ["min", "max"],
 \ ]
 
 let s:python = substitute(system('which pypy || which python'), '\n', '', '')
