@@ -29,6 +29,7 @@
     st = status
     amend = commit --amend
     authors = shortlog -sn
+    ctags = "!.git/hooks/ctags"
 
     # Fancy logging.
     #   h = head

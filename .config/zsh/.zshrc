@@ -236,6 +236,7 @@ typeset -aU mailpath
 mailpath=($HOME/Mail $mailpath)
 
 export ACKRC=$XDG_CONFIG_HOME/ackrc
+export GIT_TEMPLATE_DIR=$XDG_CONFIG_HOME/git/template
 export HTTPIE_CONFIG_DIR=$XDG_CONFIG_HOME/httpie
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npmrc
 export INPUTRC=$XDG_CONFIG_HOME/inputrc
