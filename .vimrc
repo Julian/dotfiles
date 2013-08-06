@@ -125,7 +125,7 @@ silent! set cryptmethod=blowfish       " use blowfish for encryption
 
 set isfname-==                         " remove =, which probably is an assign
 
-set tags=.tags,tags;$HOME          " look up until $HOME for tags
+set tags=.tags,tags,.git/tags;$HOME    " look up until $HOME for tags
 
 " ============
 " : Bindings :
