@@ -663,3 +663,15 @@ augroup formatstupidity
 augroup END
 
 let g:tex_flavor='latex'
+
+" ============================
+" : Local / Project Specific :
+" ============================
+
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
+
+if filereadable('.vimrc.local')
+    source .vimrc.local
+endif

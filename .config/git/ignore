@@ -45,7 +45,6 @@ htmlcov/
 # Other Junk #
 # ---------- #
 .gitignore
-.pep8
 .ropeproject/
 
 twistd.log
@@ -56,3 +55,6 @@ Berksfile.lock
 
 .tags
 tags
+
+.pep8
+.vimrc.local
