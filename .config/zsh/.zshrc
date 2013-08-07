@@ -246,8 +246,10 @@ export TASKRC=$XDG_CONFIG_HOME/taskrc
 export XINITRC=$XDG_CONFIG_HOME/xinitrc
 
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
+export PYTHONDONTWRITEBYTECODE=true
+export PYTHONWARNINGS='default'
 # A name, not a path, so that the appropriate venved bin can be used
-export PYTHON_TEST_RUNNER="trial"
+export PYTHON_TEST_RUNNER='trial'
 
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
