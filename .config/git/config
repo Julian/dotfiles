@@ -20,6 +20,7 @@
     bm = branch --merged
     bn = branch --no-merged
     ci = commit
+    cm = commit -m
     co = checkout
     di = diff
     dc = diff --cached
