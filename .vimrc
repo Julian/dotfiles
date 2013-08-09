@@ -188,11 +188,11 @@ let s:all_modes_mappings = {
     \   '<F5>'  : ':<C-U>SignifyToggle<CR>',
     \   '<F6>'  : ':<C-U>IndentGuidesToggle<CR>',
     \   '<F7>'  : ':<C-U>TagbarToggle<CR>',
-    \   '<F8>'  : ':<C-U>make<CR>',
-    \   '<F9>'  : ':<C-U>UndotreeToggle<CR>',
+    \   '<F8>'  : ':<C-U>UndotreeToggle<CR>',
+    \   '<F9>'  : ':<C-U>make<CR>',
     \   '<F10>' : ':<C-U>set list!<CR>',
-    \   '<F11>' : ':<C-U>set wrap!<CR>',
-    \   '<F12>' : ':<C-U>set spell!<CR>',
+    \   '<F11>' : ':<C-U>set spell!<CR>',
+    \   '<F12>' : ':<C-U>set wrap!<CR>',
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
@@ -213,12 +213,12 @@ endfor
 " Here are explanations for non-self-explanatory ones:
 "
 "   b : paste last deletion on its own line despite it being charwise
-"   d : minimize a window
 "   n : search forward, but not anything currently displayed
-"   w : undo/redo toggle
+"   u : undo/redo toggle
 "   B : paste system clipboard on its own line despite it not having a newline
 "   N : search backward, but not anything currently displayed
 "   S : remove trailing whitespace
+"   0 : minimize a window
 "   . : set the working directory in the local window
 
 nnoremap        <leader>b         o<C-R>"<Esc>
@@ -229,7 +229,7 @@ nnoremap        <leader>g         :<C-U>Unite -no-split -buffer-name=files file_
 nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
 nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
-nnoremap        <leader>m         <Plug>(quickhl#toggle)
+nmap            <leader>m         <Plug>(quickhl-toggle)
 nnoremap        <leader>n         <C-F>n
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
@@ -250,7 +250,7 @@ nnoremap        <leader>j<leader> :Dispatch<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
-nnoremap        <leader>M         <Plug>(quickhl#clear_all)
+nmap            <leader>M         <Plug>(quickhl-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
@@ -276,7 +276,7 @@ nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.
 
 nnoremap        <leader><tab>     <C-^>
 
-vnoremap        <leader>m         <Plug>(quickhl#toggle)
+vmap            <leader>m         <Plug>(quickhl-toggle)
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
 
@@ -317,7 +317,7 @@ set cursorline                         " hilight current line
 
 set showmatch                          " show matching brackets for a moment
 set matchpairs+=<:>
-set matchtime=5                        " show for how long
+set matchtime=5                        " show for how long (*tenths* of second)
 
 " show a line at column 79
 if exists("&colorcolumn")
