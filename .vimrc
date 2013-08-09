@@ -350,9 +350,13 @@ set undolevels=500                                  " more undo
 
 set background=dark                    " make sure this is before colorschemes
 
-if &t_Co > 8
+let g:preferred_colorscheme = 'hemisu'
+
+if has('gui_running')
+    execute 'silent colorscheme ' . g:preferred_colorscheme
+elseif &t_Co > 8
     set t_Co=256
-    silent colorscheme hemisu
+    execute 'silent colorscheme ' . g:preferred_colorscheme
 elseif &t_Co == 8
     if $TERM !~# '^linux'
         set t_Co=16
