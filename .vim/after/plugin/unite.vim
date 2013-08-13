@@ -14,8 +14,8 @@ if has("autocmd")
         map <silent><buffer> <Esc><Esc> <Plug>(unite_exit)
         imap <silent><buffer> <Esc><Esc> <Plug>(unite_exit)
 
-        silent iunmap <buffer><C-H>
-        silent iunmap <buffer><BS>
+        silent! iunmap <buffer><C-H>
+        silent! iunmap <buffer><BS>
     endfunction
 
     augroup unite
