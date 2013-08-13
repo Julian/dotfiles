@@ -170,8 +170,8 @@ alias -s tex=vim
 alias git='noglob git'
 
 if (( $+commands[ag] )); then
-    AG_OPTIONS='--smart-case --ignore htmlcov --ignore .min.js'
-    alias ag="ag $AG_OPTIONS"
+    AG_OPTIONS='--smart-case --ignore htmlcov --ignore *.min.js'
+    alias ag="noglob ag $AG_OPTIONS"
 fi
 
 if ls --color &> /dev/null; then
