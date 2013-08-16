@@ -6,8 +6,11 @@ let b:switch_definitions = [
 \ ]
 
 let s:python = substitute(system('which pypy || which python'), '\n', '', '')
-let s:condent = substitute(system('which condent'), '\n', '', '')
-exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
+let s:condent = system('which condent')
+if !v:shell_error
+    let s:condent = substitute(s:condent, '\n', '', '')
+    exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
+endif
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
