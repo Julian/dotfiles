@@ -13,6 +13,16 @@ call vundle#rc()
 
 let s:load_dynamic_plugins=$VIM_LOAD_DYNAMIC_PLUGINS != "false"
 
+function! <SID>Develop(bundle)
+    let bundle_directory = $DEVELOPMENT . '/' . a:bundle
+    if isdirectory(bundle_directory)
+        let &runtimepath .= ',' . bundle_directory
+    else
+        Bundle 'Julian/' . a:bundle
+    endif
+endfunction
+command! -nargs=1 Develop call <SID>Develop('<args>')
+
 " Let Vundle manage Vundle (required!).
 Bundle 'gmarik/vundle'
 
@@ -46,6 +56,7 @@ Bundle 'b4winckler/vim-angry'
 Bundle 'dahu/vim-fanfingtastic'
 Bundle 'dahu/vimple'
 Bundle 'godlygeek/tabular'
+Bundle 'kana/vim-vspec'
 Bundle 'kana/vim-submode'
 Bundle 'kshenoy/vim-signature'
 Bundle 'jmcantrell/vim-diffchanges'
@@ -77,18 +88,15 @@ Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/vimproc'
 Bundle 'tsukkee/unite-tag'
 
+Develop vim-runt
+Develop vim-textobj-variable-segment
+
 if s:load_dynamic_plugins
     Bundle 'Valloric/YouCompleteMe'
 endif
 
 if has("python") && s:load_dynamic_plugins
     Bundle 'SirVer/ultisnips'
-endif
-
-if isdirectory(expand("~/Development/vim-runt"))
-    set runtimepath+=~/Development/vim-runt
-else
-    Bundle 'Julian/vim-runt'
 endif
 
 silent! runtime macros/matchit.vim
