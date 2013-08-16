@@ -55,7 +55,7 @@ import os
 import sys
 import vim
 
-virtualenv = os.environ.get("VIRTUALENV")
+virtualenv = os.environ.get("VIRTUAL_ENV")
 if virtualenv is not None:
     sys.path.insert(0, virtualenv)
     activate_this = os.path.join(virtualenv, 'bin/activate_this.py')
