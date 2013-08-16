@@ -291,9 +291,19 @@ set pumheight=6                             " Keep a small completion window
 set showcmd                                 " display incomplete commands
 
 set suffixes+=.backup,.hbm,.ini             " lower priority when completing
+
 set wildmenu                                " file completion helper window
 set wildmode=longest:full,full
-set wildignore+=*.db,*.o,*.obj,*.swp,*.bak,*.git,*.pyc,**/_trial_temp/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,MANIFEST,**/_build/**
+
+set wildignore+=*.db,*.o,*.obj
+set wildignore+=*.swp,*.bak,*.lock
+set wildignore+=*.git,*.svn
+set wildignore+=MANIFEST,*.pyc,**/_trial_temp/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,**/_build/**,**/.tox/**
+set wildignore+=**/.vim-flavor/**
+set wildignore+=*DS_Store*
+set wildignore+=**/tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.app,*.dmg,*.pdf,*.so
 
 set complete-=i                             " this is slow apparently.
 
