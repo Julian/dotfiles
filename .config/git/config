@@ -30,6 +30,7 @@
     ff = merge --ff-only
     noff = merge --no-ff
     st = status
+    x = commit -m
     amend = commit --amend
     authors = shortlog -sn
     ctags = "!.git/hooks/ctags"
