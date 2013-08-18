@@ -21,8 +21,17 @@ autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search up-line-or-beginning-search
 zle -N down-line-or-beginning-search down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
+
+if [[ -f $ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]]; then
+    source $ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}  # Load keys
+else
+    printf 'Couldn''t load a key map.\nRunning zkbd.\n\n'
+    autoload -Uz zkbd
+    zkbd
+fi
+
+[[ -n ${key[Up]}   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
+[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-beginning-search
 
 source $ZSHPLUGINS/zsh-fuzzy-match/fuzzy-match.zsh
 
