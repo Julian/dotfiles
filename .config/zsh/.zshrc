@@ -180,7 +180,13 @@ else
     alias ls='ls -Gh'
 fi
 
-eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
+if $commands[dircolors]
+    eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
+fi
+
+if $commands[fasd]
+    eval "$(fasd --init auto)"
+fi
 
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
