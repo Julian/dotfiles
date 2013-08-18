@@ -78,9 +78,9 @@ Bundle 'tpope/vim-rhubarb'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-tbone'
 
-Bundle 'kana/vim-textobj-function'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'bps/vim-textobj-python'
+Bundle 'kana/vim-textobj-syntax'
 Bundle 'kana/vim-textobj-user'
 
 Bundle 'Shougo/unite.vim'
