@@ -169,22 +169,22 @@ alias -s tex=vim
 # noglobs
 alias git='noglob git'
 
-if (( $+commands[ag] )); then
-    AG_OPTIONS='--smart-case --ignore htmlcov --ignore *.min.js'
-    alias ag="noglob ag $AG_OPTIONS"
-fi
-
 if ls --color &> /dev/null; then
     alias ls='ls --color=auto --human-readable --group-directories-first'
 else
     alias ls='ls -Gh'
 fi
 
-if $commands[dircolors]
+if (( $+commands[ag] )); then
+    AG_OPTIONS='--smart-case --ignore htmlcov --ignore *.min.js'
+    alias ag="noglob ag $AG_OPTIONS"
+fi
+
+if (( $+commands[dircolors] )); then
     eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
 fi
 
-if $commands[fasd]
+if (( $+commands[fasd])); then
     eval "$(fasd --init auto)"
 fi
 
