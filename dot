@@ -29,7 +29,7 @@ def make_symlinks(arguments):
     ])
 
     for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
-        if dotfile in ignored:
+        if os.path.basename(dotfile) in ignored:
             continue
 
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
@@ -62,7 +62,7 @@ def set_up_vim(arguments):
 
     """
 
-    subprocess.check_call(["vim", "-c", ":BundleInstall", "-c", ":quitall"])
+    subprocess.check_call(["vim", "-E", "-c", ":BundleInstall", "-c", ":quitall"])
 
 
 parser = argparse.ArgumentParser(description="Dotfiles installer")
