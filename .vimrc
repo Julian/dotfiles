@@ -188,7 +188,7 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
 " delete a surrounding function call (which surround doesn't support OOTB)
-nmap dsf Bdt(ds)
+nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 
 " quote a word
 nmap yq ysiw"
