@@ -248,6 +248,9 @@ nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoption
 nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
 
+nmap            <leader>ch        daAbvaAo<Esc>P
+nmap            <leader>cl        daavaa<Esc>p
+
 nnoremap        <leader>ta        :Tabularize /
 nnoremap        <leader>tl        :ToggleTestLock<CR>
 nnoremap        <leader>to        :topleft split TODO<CR><C-W>6_
