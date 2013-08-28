@@ -17,8 +17,9 @@ if has("autocmd")
           \     '.'))
 
     function! <SID>Unite_Settings()
-        map <silent><buffer> <Esc><Esc> <Plug>(unite_exit)
-        imap <silent><buffer> <Esc><Esc> <Plug>(unite_exit)
+        nmap <buffer> <Esc> <Plug>(unite_exit)
+        imap <buffer> <Esc> <Plug>(unite_exit)
+        imap <buffer> <C-c> <Plug>(unite_insert_leave)
 
         silent! iunmap <buffer><C-H>
         silent! iunmap <buffer><BS>
