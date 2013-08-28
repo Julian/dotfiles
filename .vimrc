@@ -230,6 +230,9 @@ endfor
 "   0 : minimize a window
 "   . : set the working directory in the local window
 
+nnoremap        <leader><leader>  :Unite buffer file file_mru tag<CR>
+
+
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>DiffChangesDiffToggle<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Unite -no-split file_rec/async:
@@ -272,7 +275,9 @@ nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
+
 nnoremap        <leader>0         :wincmd _<CR>
+
 
 nnoremap        <leader>.         :<C-U>lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
@@ -286,7 +291,9 @@ nnoremap        <leader>=         :next<CR>
 nnoremap        <leader>\         :<C-U>call <SID>DoCommentTagFormat()<CR>
 nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.<CR>
 
+
 nnoremap        <leader><tab>     <C-^>
+
 
 vmap            <leader>m         <Plug>(quickhl-toggle)
 vnoremap        <leader>p         "*p
