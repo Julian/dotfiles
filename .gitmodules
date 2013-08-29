@@ -1,6 +1,6 @@
-[submodule ".vim/bundle/vundle"]
-	path = .vim/bundle/vundle
-	url = https://github.com/gmarik/vundle.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
         ignore = all
 [submodule "util/LS_COLORS"]
 	path = util/LS_COLORS
