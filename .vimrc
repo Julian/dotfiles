@@ -3,13 +3,14 @@ set nocompatible                       " turn off vi compatible, should be first
 let mapleader = "\<space>"
 let maplocalleader = ","
 
-" ==========
-" : Vundle :
-" ==========
+" ===========
+" : Plugins :
+" ===========
 
-filetype off
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 let s:load_dynamic_plugins=$VIM_LOAD_DYNAMIC_PLUGINS != "false"
 
@@ -18,86 +19,83 @@ function! <SID>Develop(bundle)
     if isdirectory(bundle_directory)
         let &runtimepath .= ',' . bundle_directory
     else
-        Bundle 'Julian/' . a:bundle
+        call neobundle#parser#bundle("'Julian/" . a:bundle . "'")
     endif
 endfunction
 command! -nargs=1 Develop call <SID>Develop('<args>')
 
-" Let Vundle manage Vundle (required!).
-Bundle 'gmarik/vundle'
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
 
 " --- Themes ---
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
-Bundle 'noahfrederick/Hemisu'
-Bundle 'sickill/vim-monokai'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
+NeoBundle 'noahfrederick/Hemisu'
+NeoBundle 'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
 
-Bundle 'guns/vim-clojure-static'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'othree/html5.vim'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-git'
-Bundle 'vim-ruby/vim-ruby'
-
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " --- Plugins ---
 
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'bling/vim-airline'
-Bundle 'alfredodeza/coveragepy.vim'
-Bundle 'alfredodeza/pytest.vim'
-Bundle 'b4winckler/vim-angry'
-Bundle 'dahu/vim-fanfingtastic'
-Bundle 'dahu/vimple'
-Bundle 'godlygeek/tabular'
-Bundle 'kana/vim-vspec'
-Bundle 'kana/vim-submode'
-Bundle 'kshenoy/vim-signature'
-Bundle 'jmcantrell/vim-diffchanges'
-Bundle 'majutsushi/tagbar'
-Bundle 'mhinz/vim-signify'
-Bundle 'mbbill/undotree'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/syntastic'
-Bundle 't9md/vim-quickhl'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-obsession'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rhubarb'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-tbone'
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'alfredodeza/coveragepy.vim'
+NeoBundle 'alfredodeza/pytest.vim'
+NeoBundle 'b4winckler/vim-angry'
+NeoBundle 'dahu/vim-fanfingtastic'
+NeoBundle 'dahu/vimple'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'kana/vim-vspec'
+NeoBundle 'kana/vim-submode'
+NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'jmcantrell/vim-diffchanges'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 't9md/vim-quickhl'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-obsession'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-rhubarb'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-tbone'
 
-Bundle 'kana/vim-textobj-indent'
-Bundle 'bps/vim-textobj-python'
-Bundle 'kana/vim-textobj-syntax'
-Bundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'bps/vim-textobj-python'
+NeoBundle 'kana/vim-textobj-syntax'
+NeoBundle 'kana/vim-textobj-user'
 
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/unite-outline'
-Bundle 'Shougo/vimproc'
-Bundle 'tsukkee/unite-tag'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'tsukkee/unite-tag'
 
 Develop vim-runt
 Develop vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
-    Bundle 'Valloric/YouCompleteMe'
+    NeoBundle 'Valloric/YouCompleteMe'
 endif
 
 if has("python") && s:load_dynamic_plugins
-    Bundle 'SirVer/ultisnips'
+    NeoBundle 'SirVer/ultisnips'
 endif
 
 silent! runtime macros/matchit.vim
@@ -269,7 +267,7 @@ nmap            <leader>M         <Plug>(quickhl-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap        <leader>U         :<C-U>BundleInstall!<CR>
+nnoremap        <leader>U         :<C-U>NeoBundleInstall!<CR>
 nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
