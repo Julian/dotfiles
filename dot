@@ -26,6 +26,7 @@ def make_symlinks(arguments):
     ignored = set([
         ".git",
         ".gitignore",
+        ".gitmodules",
     ])
 
     for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
