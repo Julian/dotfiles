@@ -64,7 +64,7 @@ def set_up_vim(arguments):
     """
 
     if not os.path.isfile(arguments.vim):
-        print "Can't find a vim at {0}! Skipping...".format(arguemnts.vim)
+        print "Can't find a vim at {0}! Skipping...".format(arguments.vim)
         return
 
     subprocess.check_call(
