@@ -62,7 +62,13 @@ def set_up_vim(arguments):
 
     """
 
-    subprocess.check_call(["vim", "-E", "-c", ":BundleInstall", "-c", ":quitall"])
+    if not os.path.isfile(arguments.vim):
+        print "Can't find a vim at {0}! Skipping...".format(arguemnts.vim)
+        return
+
+    subprocess.check_call(
+        [arguments.vim, "-E", "-c", ":NeoBundleInstall", "-c", ":quitall"],
+    )
 
 
 parser = argparse.ArgumentParser(description="Dotfiles installer")
@@ -87,6 +93,11 @@ install_parser.add_argument(
     "--dotfiles",
     default=os.path.expanduser("~/.dotfiles/"),
     help="the dotfiles to link",
+)
+install_parser.add_argument(
+    "--vim",
+    default=("/usr/bin/vim"),
+    help="the vim binary to set up",
 )
 
 main(parser.parse_args())
