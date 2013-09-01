@@ -21,6 +21,9 @@ if has("autocmd")
         imap <buffer> <Esc> <Plug>(unite_exit)
         imap <buffer> <C-c> <Plug>(unite_insert_leave)
 
+        nmap <buffer> <C-y> <Plug>(unite_narrowing_path)
+        imap <buffer> <C-y> <Plug>(unite_narrowing_path)
+
         silent! iunmap <buffer><C-H>
         silent! iunmap <buffer><BS>
     endfunction
