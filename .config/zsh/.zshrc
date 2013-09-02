@@ -185,8 +185,13 @@ else
 fi
 
 if (( $+commands[ag] )); then
-    AG_OPTIONS='--smart-case --ignore htmlcov --ignore *.min.js'
+    AG_OPTIONS='--smart-case'
     alias ag="noglob ag $AG_OPTIONS"
+
+    # Find the pattern in tests / not in tests
+    alias agg="ag --ignore '*test*'"
+    alias agp="ag --ignore '*test*' -G '\.py'"
+    alias agt="ag -G '\btests?\b'"
 fi
 
 if (( $+commands[dircolors] )); then
