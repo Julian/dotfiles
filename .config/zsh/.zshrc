@@ -176,6 +176,7 @@ fi
 alias -s tex=vim
 
 # noglobs
+alias find='noglob find'
 alias git='noglob git'
 
 if ls --color &> /dev/null; then
