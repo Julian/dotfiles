@@ -267,7 +267,7 @@ nmap            <leader>M         <Plug>(quickhl-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap        <leader>U         :<C-U>Unite -no-start-insert neobundle/update<CR>
+nnoremap        <leader>U         :<C-U>Unite -auto-quit -log -no-start-insert -wrap neobundle/update<CR>
 nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
