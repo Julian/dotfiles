@@ -32,6 +32,8 @@ fi
 
 [[ -n ${key[Up]}   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" vi-beginning-of-line
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" vi-end-of-line
 
 source $ZSHPLUGINS/zsh-fuzzy-match/fuzzy-match.zsh
 
