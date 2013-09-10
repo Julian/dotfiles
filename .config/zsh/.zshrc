@@ -179,6 +179,8 @@ alias -s tex=vim
 alias find='noglob find'
 alias git='noglob git'
 
+alias sed="sed -E"
+
 if ls --color &> /dev/null; then
     alias ls='ls --color=auto --human-readable --group-directories-first'
 else
