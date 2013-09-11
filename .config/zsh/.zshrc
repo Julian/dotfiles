@@ -164,6 +164,7 @@ setopt AUTO_RESUME            # resume existing jobs if command matches
 
 alias di=diff
 alias v='vim +CommandT'
+alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
