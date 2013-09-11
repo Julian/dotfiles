@@ -44,7 +44,6 @@ htmlcov/
 
 # Other Junk #
 # ---------- #
-.gitignore
 .ropeproject/
 
 twistd.log
