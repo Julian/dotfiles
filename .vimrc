@@ -277,6 +277,7 @@ nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 nnoremap        <leader>0         :wincmd _<CR>
 
 
+nnoremap        <leader>`         :<C-U>call <SID>DoCommentTagFormat()<CR>
 nnoremap        <leader>.         :<C-U>lcd %:p:h<CR>
 nnoremap        <leader>;         :lprevious<CR>
 nnoremap        <leader>'         :lnext<CR>
@@ -286,7 +287,8 @@ nnoremap        <leader>{         :cpfile<CR>
 nnoremap        <leader>}         :cnfile<CR>
 nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
-nnoremap        <leader>\         :<C-U>call <SID>DoCommentTagFormat()<CR>
+nnoremap        <leader><BS>      :earlier 1f<CR>
+nnoremap        <leader>\         :later 1f<CR>
 nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.<CR>
 
 
@@ -512,10 +514,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 
 let g:undotree_TreeNodeShape = '✷'
-
-let g:jedi#goto_command = "gd"
-let g:jedi#get_definition_command = "<leader>`"
-let g:jedi#use_tabs_not_buffers = 0
 
 " more stupid things with default mappings
 let g:signify_mapping_next_hunk = '<nop>'
