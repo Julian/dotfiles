@@ -294,3 +294,7 @@ export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 if (( $+commands[keychain] )) ; then
     eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
 fi
+
+#--- Local -------------------------------------------------------------------
+
+[[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local

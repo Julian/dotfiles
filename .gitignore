@@ -18,6 +18,7 @@
 .config/pudb/saved-breakpoints*
 .config/pudb/shell-history
 .config/zsh/.zcompdump
+.config/zsh/.zshrc.local
 .config/zsh/cache
 .config/zsh/history
 
