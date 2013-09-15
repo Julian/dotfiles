@@ -262,7 +262,7 @@ nnoremap        <leader>t<leader> :Dispatch<CR>
 
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config -input=. file:$HOME file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
 nmap            <leader>M         <Plug>(quickhl-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
