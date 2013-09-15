@@ -521,9 +521,6 @@ let g:signify_mapping_prev_hunk = '<nop>'
 let g:signify_mapping_toggle_highlight = '<nop>'
 let g:signify_mapping_toggle = '<nop>'
 
-" Vimple
-nmap <nop> <Plug>VimpleMRU
-
 " ============
 " : Autocmds :
 " ============
