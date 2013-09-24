@@ -1,10 +1,7 @@
-from __future__ import with_statement
+from __future__ import print_function, with_statement
 
-import logging
 import os
 import sys
-
-logger = logging.getLogger(__name__)
 
 
 # Enable Pretty Printing for stdout
@@ -148,11 +145,11 @@ def edit(editor=None, *args, **kwargs):
 try:
     import readline
 except ImportError:
-    logger.error("Module readline not available.")
+    print("Module readline not available.")
 else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
     del readline, rlcompleter
 
 
-del logger, logging, os, sys
+del os, sys
