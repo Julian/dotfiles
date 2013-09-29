@@ -2438,11 +2438,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>995 113 445 270 0 0 1440 878 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>310 207 924 485 0 0 1440 878 </string>
+	<string>310 208 924 485 0 0 1440 878 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 294 592 584 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1080 0 0 1920 1058 </string>
+	<string>0 0 1440 900 0 0 1440 878 </string>
+	<key>NeverWarnAboutShortLivedSessions_C486FF47-7BD9-4F7A-83FF-079BCF967B09</key>
+	<true/>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -5272,7 +5274,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-08-16T03:31:40Z</date>
+	<date>2013-09-18T12:50:31Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
