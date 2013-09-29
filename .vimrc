@@ -51,7 +51,6 @@ NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'alfredodeza/coveragepy.vim'
 NeoBundle 'alfredodeza/pytest.vim'
-NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kana/vim-vspec'
 NeoBundle 'kana/vim-submode'
@@ -61,11 +60,11 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 't9md/vim-quickhl'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-dispatch'
@@ -493,6 +492,17 @@ let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇ '
+
+nmap [a <Plug>Argumentative_Prev
+nmap ]a <Plug>Argumentative_Next
+xmap [a <Plug>Argumentative_XPrev
+xmap ]a <Plug>Argumentative_XNext
+nmap <aa <Plug>Argumentative_MoveLeft
+nmap >aa <Plug>Argumentative_MoveRight
+omap ia <Plug>Argumentative_OpPendingInnerTextObject
+omap aa <Plug>Argumentative_OpPendingOuterTextObject
+xmap ia <Plug>Argumentative_InnerTextObject
+xmap aa <Plug>Argumentative_OuterTextObject
 
 if filereadable('/usr/local/bin/ctags')
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
