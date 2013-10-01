@@ -13,6 +13,7 @@ if !v:shell_error
 endif
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+setlocal makeprg=python\ %
 
 nnoremap <buffer> gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <buffer> [d :YcmCompleter GoToDefinitionElseDeclaration<CR>
