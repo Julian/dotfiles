@@ -567,12 +567,14 @@ if has("eval")
     function! <SID>WindowWidth()
         if winwidth(0) > 90
             if exists("&relativenumber")
+                setlocal number
                 setlocal relativenumber
             elseif exists("&number")
                 setlocal number
             endif
         else
             if exists("&relativenumber")
+                setlocal nonumber
                 setlocal norelativenumber
             elseif exists("&number")
                 setlocal nonumber
