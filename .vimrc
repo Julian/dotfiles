@@ -25,7 +25,14 @@ endfunction
 command! -nargs=1 Develop call <SID>Develop('<args>')
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 
 " --- Themes ---
 
@@ -83,7 +90,7 @@ NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'kana/vim-textobj-user'
 
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
+NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
 NeoBundle 'tsukkee/unite-tag'
 
 Develop vim-runt
