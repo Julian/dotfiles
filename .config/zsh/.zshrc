@@ -168,7 +168,7 @@ alias v='vim +CommandT'
 # ss<x> aliases:
 # t: tmux attach
 # x: X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
-function sst() { ssh -t $@ 'tmux at' }
+function sst() { ssh -t $@ 'tmux attach || tmux' }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
 if (( $+commands[brew] )); then
