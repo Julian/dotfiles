@@ -300,6 +300,7 @@ aliases = {
   98 = "/window 98";
   99 = "/window 99";
   access = "/msg ChanServ access";
+  history = "/quote HISTORY";
 };
 
 statusbar = {
@@ -429,13 +430,6 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_2 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
-    awl_3 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_3 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
