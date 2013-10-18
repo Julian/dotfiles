@@ -260,6 +260,7 @@ nmap            <leader>ch        daAbvaAo<Esc>P
 nmap            <leader>cl        daavaa<Esc>p
 
 nnoremap        <leader>ta        :Tabularize /
+nnoremap  <expr><leader>tj        ":e " . FindTestFile(expand("%")) . "<CR>"
 nnoremap        <leader>tl        :ToggleTestLock<CR>
 nnoremap        <leader>to        :topleft split TODO<CR><C-W>6_
 nnoremap        <leader>tt        :Dispatch! tox<CR>
@@ -300,6 +301,7 @@ nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.
 
 
 nnoremap        <leader><tab>     <C-^>
+nnoremap  <expr><leader><CR>      ":!" . $PYTHON_TEST_RUNNER . " " . expand("%:h") . "<CR>"
 
 
 vmap            <leader>m         <Plug>(quickhl-toggle)
