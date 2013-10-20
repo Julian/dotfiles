@@ -39,7 +39,7 @@ def make_symlinks(arguments):
     bin_dir = os.path.abspath(os.path.normpath(arguments.bin_dir))
     try:
         os.makedirs(bin_dir)
-    except IOError as error:
+    except OSError as error:
         if error.errno != errno.EEXIST:
             raise
 
