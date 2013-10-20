@@ -25,9 +25,9 @@ zle -N down-line-or-beginning-search down-line-or-beginning-search
 if [[ -f $ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]]; then
     source $ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}  # Load keys
 else
-    printf 'Couldn''t load a key map.\nRunning zkbd.\n\n'
-    autoload -Uz zkbd
-    zkbd
+    echo "Couldn't load a key map. Loading the default..."
+    echo "Run autoload -Uz zkbd; zkbd if you'd like to generate one instead."
+    source $ZDOTDIR/.zkbd/default-keymap
 fi
 
 [[ -n ${key[Up]}   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
