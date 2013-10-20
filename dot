@@ -36,9 +36,16 @@ def make_symlinks(arguments):
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
         symlink_unless_present(dotfile, dest)
 
-    colors = os.path.join(arguments.dotfiles, "util", "LS_COLORS", "LS_COLORS")
-    dest = os.path.join(arguments.dest_dir, ".dircolors")
-    symlink_unless_present(colors, dest)
+    bin_dir = os.path.abspath(os.path.normpath(arguments.bin_dir))
+    try:
+        os.makedirs(bin_dir)
+    except IOError as error:
+        if error.errno != errno.EEXIST:
+            raise
+
+    for dotfile in glob(os.path.join(arguments.dotfiles, "bin", ".*")):
+        dest = os.path.join(bin_dir, os.path.basename(dotfile))
+        symlink_unless_present(dotfile, dest)
 
 
 def symlink_unless_present(file, dest):
