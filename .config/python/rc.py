@@ -1,4 +1,4 @@
-from __future__ import print_function, with_statement
+from __future__ import with_statement
 
 import os
 import sys
@@ -145,7 +145,7 @@ def edit(editor=None, *args, **kwargs):
 try:
     import readline
 except ImportError:
-    print("Module readline not available.")
+    sys.stdout.write("Module readline not available.\n")
 else:
     import rlcompleter
     readline.parse_and_bind("tab: complete")
