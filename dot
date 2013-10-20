@@ -67,7 +67,7 @@ def set_up_vim(arguments):
         print "Can't find a vim at {0}! Skipping...".format(arguments.vim)
         return
 
-    subprocess.check_call(
+    subprocess.Popen(
         [arguments.vim, "-E", "-c", ":NeoBundleInstall", "-c", ":quitall"],
     )
 
