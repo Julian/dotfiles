@@ -533,9 +533,10 @@ let g:syntastic_mode_map = {"mode" : "passive"}
 let g:tcommentMaps = 0
 
 " UltiSnips
+let g:UltiSnipsExpandTrigger = "<C-J>"
 let g:UltiSnipsListSnippets = "<C-K>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<C-N>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-P>"
 let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 
 let g:undotree_TreeNodeShape = '✷'
