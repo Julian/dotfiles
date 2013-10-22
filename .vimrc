@@ -98,7 +98,12 @@ Develop vim-textobj-brace
 Develop vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
-    NeoBundle 'Valloric/YouCompleteMe'
+    NeoBundle 'Valloric/YouCompleteMe', {
+        \ 'build': {
+        \                'unix': './install.sh --clang-completer',
+        \                'mac': './install.sh --clang-completer'
+        \          }
+        \}
 endif
 
 if has("python") && s:load_dynamic_plugins
