@@ -307,7 +307,10 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     source virtualenvwrapper_lazy.sh
 fi
 
-export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
+if [[ "$(grep --version)" =~ "BSD" ]]; then
+else
+    export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
+fi
 
 # Use Keychain for ssh-agent handling
 if (( $+commands[keychain] )) ; then
