@@ -11,11 +11,37 @@ bindkey -v                    # set vim bindings in zsh
 autoload -U edit-command-line
 zle -N edit-command-line
 
+# If we're in tmux, then ^A is our prefix. Otherwise, bind it to 'move a thing
+# into tmux'. This only works on Linux. Also I haven't ever tried it yet.
+function ctrla() {
+    if [[ -e "$TMUX" ]] && (( $+commands[reptyr] )); then
+        kill -TSTP $$
+        bg >/dev/null 2>&1
+        disown
+        tmux new-window "$SHELL -c 'reptyr $$'"
+        tmux attach
+    else
+        zle push-input
+    fi
+}
+
 bindkey "^B" send-break
 bindkey "^E" edit-command-line
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^U" undo
+
+# Make ^Z toggle between ^Z and fg
+function ctrlz() {
+if [[ $#BUFFER == 0 ]]; then
+    fg >/dev/null 2>&1 && zle redisplay
+else
+    zle push-input
+fi
+}
+
+zle -N ctrlz
+bindkey '^Z' ctrlz
 
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
@@ -242,18 +268,6 @@ if (( $+commands[time] )); then
     disable -r time
 fi
 
-
-# Make ^Z toggle between ^Z and fg
-function ctrlz() {
-if [[ $#BUFFER == 0 ]]; then
-    fg >/dev/null 2>&1 && zle redisplay
-else
-    zle push-input
-fi
-}
-
-zle -N ctrlz
-bindkey '^Z' ctrlz
 
 # tmux helpers
 function :sp () { tmux split-window }
