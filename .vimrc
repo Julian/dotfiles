@@ -39,7 +39,6 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
 NeoBundle 'noahfrederick/Hemisu'
-NeoBundle 'rking/vim-detailed'
 NeoBundle 'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
@@ -393,7 +392,7 @@ set undolevels=500                                  " more undo
 
 set background=dark                    " make sure this is before colorschemes
 
-let g:preferred_colorscheme = 'detailed'
+let g:preferred_colorscheme = 'hemisu'
 
 if has('gui_running')
     execute 'silent colorscheme ' . g:preferred_colorscheme
