@@ -529,7 +529,8 @@ let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
 let g:syntastic_mode_map = {"mode" : "passive"}
 
-let g:tcommentMaps = 0
+let g:tcommentMapLeader1 = ''
+let g:tcommentMapLeader2 = ''
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = "<C-J>"
