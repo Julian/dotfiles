@@ -43,23 +43,23 @@ NeoBundle 'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
 
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'kchmck/vim-coffee-script'
+NeoBundleLazy 'guns/vim-clojure-static', {
+    \ 'autoload': {'filetypes': ['clojure']}
+    \ }
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'tpope/vim-fireplace'
+NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
 NeoBundle 'tpope/vim-git'
-NeoBundle 'vim-ruby/vim-ruby'
+NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby']}}
 
 " --- Plugins ---
 
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'alfredodeza/coveragepy.vim'
-NeoBundle 'alfredodeza/pytest.vim'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'kana/vim-vspec'
+NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
+NeoBundle 'alfredodeza/pytest.vim', {'autoload': {'filetypes': ['python']}}
+NeoBundleLazy 'godlygeek/tabular', {'autoload': {'commands': 'Tabularize'}}
+NeoBundleLazy 'kana/vim-vspec'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'jmcantrell/vim-diffchanges'
@@ -84,7 +84,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-tbone'
 
 NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'bps/vim-textobj-python'
+NeoBundleLazy 'bps/vim-textobj-python', {'autoload': {'filetypes': ['python']}}
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'kana/vim-textobj-user'
 
@@ -99,10 +99,10 @@ Develop vim-textobj-variable-segment
 if s:load_dynamic_plugins
     NeoBundle 'Valloric/YouCompleteMe', {
         \ 'build': {
-        \                'unix': './install.sh --clang-completer',
-        \                'mac': './install.sh --clang-completer'
-        \          }
-        \}
+        \         'unix': './install.sh --clang-completer',
+        \         'mac': './install.sh --clang-completer'
+        \     }
+        \ }
 endif
 
 if has("python") && s:load_dynamic_plugins
@@ -699,9 +699,6 @@ augroup filetypes
     autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
     autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
     autocmd BufNewFile,BufRead *.tac setlocal filetype=python
-
-    " Compile coffeescript on write (requires vim-coffee-script)
-    autocmd BufWritePost *.coffee silent CoffeeMake!
 
     autocmd BufWritePost .vimrc source $MYVIMRC
 
