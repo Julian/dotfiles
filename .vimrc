@@ -554,6 +554,7 @@ let g:signify_mapping_prev_hunk = '<nop>'
 let g:signify_mapping_toggle_highlight = '<nop>'
 let g:signify_mapping_toggle = '<nop>'
 
+let g:signify_update_on_bufenter = 0
 let g:signify_vcs_list = ['git', 'hg']
 
 " ============
