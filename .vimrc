@@ -133,7 +133,7 @@ set report=0                           " :cmd always shows changed line count
 set textwidth=79
 
 set nowrap
-set showbreak=↪\ 
+let &showbreak='↪\ '
 
 set fillchars=diff:·
 
