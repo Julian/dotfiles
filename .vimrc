@@ -182,6 +182,13 @@ noremap ]' ]`
 noremap ]` ]'
 " sunmap ' sunmap ` sunmap g' sunmap g`
 
+" Very magic by default
+nnoremap / /\v
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+nnoremap :s/ :s/\v
+
 " Preserve flags for &, and add it in visual mode.
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
