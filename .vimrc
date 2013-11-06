@@ -66,7 +66,7 @@ NeoBundle 'jmcantrell/vim-diffchanges'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mbbill/undotree'
-NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload': {'commands': 'IndentGuidesToggle'}}
 NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rhysd/clever-f.vim'
@@ -181,13 +181,6 @@ noremap g` g'
 noremap ]' ]`
 noremap ]` ]'
 " sunmap ' sunmap ` sunmap g' sunmap g`
-
-" Very magic by default
-nnoremap / /\v
-vnoremap / /\v
-nnoremap ? ?\v
-vnoremap ? ?\v
-nnoremap :s/ :s/\v
 
 " Preserve flags for &, and add it in visual mode.
 nnoremap & :&&<CR>
