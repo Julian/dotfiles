@@ -203,6 +203,8 @@ nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 nmap yq ysiw"
 
 let s:all_modes_mappings = {
+    \   '<F3>'  : ':<C-U>DiffChangesDiffToggle<CR>',
+    \   '<F4>'  : ':<C-U>call <SID>ToggleExpando()<CR>',
     \   '<F5>'  : ':<C-U>SignifyToggle<CR>',
     \   '<F6>'  : ':<C-U>IndentGuidesToggle<CR>',
     \   '<F7>'  : ':<C-U>TagbarToggle<CR>',
@@ -243,13 +245,11 @@ nnoremap        <leader><leader>  :Unite buffer file file_mru tag<CR>
 
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>DiffChangesDiffToggle<CR>
+nnoremap        <leader>d         :<C-U>Unite -no-split -buffer-name=files file_rec/async<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Unite -no-split file_rec/async:
 nnoremap        <leader>f         :<C-U>Unite -no-split -buffer-name=buffers buffer_tab<CR>
-nnoremap        <leader>g         :<C-U>Unite -no-split -buffer-name=files file_rec/async<CR>
 nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=files file<CR>
 nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
-nnoremap        <leader>k         :call <SID>ToggleExpando()<CR>
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
 nmap            <leader>m         <Plug>(quickhl-toggle)
 nnoremap        <leader>n         <C-F>n
