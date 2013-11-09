@@ -189,13 +189,16 @@ setopt AUTO_RESUME            # resume existing jobs if command matches
 #--- Aliases -----------------------------------------------------------------
 
 alias di=diff
-alias v='vim +CommandT'
 
 # ss<x> aliases:
 # t: tmux attach
 # x: X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
 function sst() { ssh -t $@ 'tmux attach || tmux' }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
+
+if (( $+commands[selecta] )); then
+    alias v='vim $(find . -type f | selecta)'
+fi
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
