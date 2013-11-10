@@ -44,9 +44,9 @@ NeoBundle 'sickill/vim-monokai'
 " --- Additional Filetype Support ---
 
 NeoBundleLazy 'guns/vim-clojure-static', {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload': {'filetypes': ['css','scss','sass']}}
+NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload': {'filetypes': ['css', 'scss', 'sass']}}
 NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundleLazy 'leshill/vim-json', {'autoload': {'filetypes': ['javascript','json']}}
+NeoBundleLazy 'leshill/vim-json', {'autoload': {'filetypes': ['javascript', 'json']}}
 NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': ['html']}}
 NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
 NeoBundle 'tpope/vim-git'
