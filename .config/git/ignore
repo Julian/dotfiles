@@ -46,6 +46,8 @@ htmlcov/
 # ---------- #
 .ropeproject/
 
+Session.vim
+
 twistd.log
 twistd.pid
 
