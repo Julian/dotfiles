@@ -60,13 +60,13 @@ NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
 NeoBundle 'alfredodeza/pytest.vim', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'godlygeek/tabular', {'autoload': {'commands': 'Tabularize'}}
 NeoBundleLazy 'kana/vim-vspec'
-NeoBundle 'kana/vim-submode'
+NeoBundleLazy 'kana/vim-submode'
 NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'jmcantrell/vim-diffchanges'
+NeoBundleLazy 'jmcantrell/vim-diffchanges', {'autoload': {'commands': ['DiffChangesDiffToggle']}}
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mbbill/undotree'
-NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload': {'commands': 'IndentGuidesToggle'}}
+NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload': {'commands': ['IndentGuidesToggle']}}
 NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rhysd/clever-f.vim'
@@ -77,7 +77,7 @@ NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-obsession'
+NeoBundleLazy 'tpope/vim-obsession',  {'autoload': {'commands': ['Obsession']}}
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'tpope/vim-surround'
@@ -89,7 +89,7 @@ NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'kana/vim-textobj-user'
 
 NeoBundle 'Shougo/unite.vim'
-NeoBundleLazy 'Shougo/unite-outline', {'autoload':{'unite_sources':'outline'}}
+NeoBundleLazy 'Shougo/unite-outline', {'autoload': {'unite_sources': 'outline'}}
 NeoBundle 'tsukkee/unite-tag'
 
 Develop vim-runt
