@@ -97,12 +97,7 @@ Develop vim-textobj-brace
 Develop vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
-    NeoBundle 'Valloric/YouCompleteMe', {
-        \ 'build': {
-        \         'unix': './install.sh --clang-completer',
-        \         'mac': './install.sh --clang-completer'
-        \     }
-        \ }
+    NeoBundle 'Valloric/YouCompleteMe'
 endif
 
 if has("python") && s:load_dynamic_plugins
@@ -133,7 +128,7 @@ set report=0                           " :cmd always shows changed line count
 set textwidth=79
 
 set nowrap
-let &showbreak='↪\ '
+let &showbreak='↪   '
 
 set fillchars=diff:·
 
