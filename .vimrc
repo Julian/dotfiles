@@ -202,6 +202,8 @@ nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 " quote a word
 nmap yq ysiw"
 
+"       '<F1>' is set to help
+"       '<F2>' is set to pastetoggle
 let s:all_modes_mappings = {
     \   '<F3>'  : ':<C-U>DiffChangesDiffToggle<CR>',
     \   '<F4>'  : ':<C-U>call <SID>ToggleExpando()<CR>',
