@@ -250,8 +250,8 @@ nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Unite -no-split -buffer-name=files file_rec/async<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Unite -no-split file_rec/async:
 nnoremap        <leader>f         :<C-U>Unite -no-split -buffer-name=buffers buffer_tab<CR>
-nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=files file<CR>
 nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
+nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=files file<CR>
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
 nmap            <leader>m         <Plug>(quickhl-toggle)
 nnoremap        <leader>n         <C-F>n
@@ -261,6 +261,13 @@ nnoremap        <leader>s         :<C-U>Switch<CR>
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
+
+nnoremap        <leader>gb         :<C-U>Gblame<CR>
+nnoremap        <leader>gd         :<C-U>Gdiff<CR>
+nnoremap        <leader>ge         :<C-U>Gedit<CR>
+nnoremap        <leader>gr         :<C-U>Gread<CR>
+nnoremap        <leader>gs         :<C-U>Gstatus<CR>
+nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
 nmap            <leader>ch        daAbvaAo<Esc>P
 nmap            <leader>cl        daavaa<Esc>p
