@@ -162,6 +162,9 @@ else
     KEYTIMEOUT=5
 fi
 
+# Sane Quoting: '' escapes a single quote inside single quotes
+setopt RC_QUOTES
+
 # Changing Directories
 
 DIRSTACKSIZE=8
