@@ -181,7 +181,7 @@ setopt HIST_IGNORE_DUPS       # ignore duplicates if last cmd is same
 setopt HIST_IGNORE_SPACE      # ignore lines beginning with spaces
 setopt HIST_EXPIRE_DUPS_FIRST # delete dupes from history first
 setopt HIST_REDUCE_BLANKS     # remove trailing whitespace
-setopt HIST_VERIFY            # confirm before rubbing
+setopt HIST_VERIFY            # confirm before running
 setopt INC_APPEND_HISTORY     # append lines to history incrementally
 setopt SHARE_HISTORY
 
