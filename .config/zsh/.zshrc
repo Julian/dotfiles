@@ -199,13 +199,13 @@ alias di=diff
 function sst() { ssh -t $@ 'tmux attach || tmux' }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
-if (( $+commands[selecta] )); then
-    alias v='vim $(find . -type f | selecta)'
-fi
-
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
     alias up="brew update && brew upgrade"
+fi
+
+if (( $+commands[selecta] )); then
+    alias v='vim $(find . -type f | selecta)'
 fi
 
 if (( $+commands[weechat-curses] )); then
@@ -247,6 +247,11 @@ fi
 
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
+
+
+if (( $+commands[trial] )); then
+    function t() { pwd=$(basename $(pwd)); $PYTHON_TEST_RUNNER $@ $pwd:l }
+fi
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Type '...' to get '../..' with successive .'s adding /..
