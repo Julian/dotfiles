@@ -33,7 +33,7 @@ Thumbs.db
 *.pyo
 __pycache__/
 
-_trial_temp/
+_trial_temp*/
 
 .coverage
 htmlcov/
