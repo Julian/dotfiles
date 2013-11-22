@@ -250,7 +250,7 @@ function cdc() { cd **/*$1*/ }
 
 
 if (( $+commands[trial] )); then
-    function t() { pwd=$(basename $(pwd)); $PYTHON_TEST_RUNNER $@ $pwd:l }
+    function t() { $PYTHON_TEST_RUNNER $@ ${"$(basename $(pwd))":l} }
 fi
 
 # This was written entirely by Michael Magnusson (Mikachu)
