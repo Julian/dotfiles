@@ -316,6 +316,8 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     export VIRTUALENV_USE_SETUPTOOLS=true
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
     source virtualenvwrapper_lazy.sh
+
+    alias p='workon ${$(pwd):t}'
 fi
 
 if [[ "$(grep --version)" =~ "BSD" ]]; then
