@@ -246,7 +246,7 @@ nnoremap        <leader>d         :<C-U>Unite -no-split -buffer-name=files file_
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Unite -no-split file_rec/async:
 nnoremap        <leader>f         :<C-U>Unite -no-split -buffer-name=buffers buffer_tab<CR>
 nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
-nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=files file<CR>
+nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=test_tags -input=test tag<CR>
 nnoremap        <leader>k         :<C-U>Unite -no-split -buffer-name=tests -input=tests/test_ file_rec/async<CR>
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
 nmap            <leader>m         <Plug>(quickhl-toggle)
