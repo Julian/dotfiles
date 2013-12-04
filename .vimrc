@@ -82,6 +82,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-tbone'
+NeoBundle 'Valodim/vim-zsh-completion'
 
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundleLazy 'bps/vim-textobj-python', {'autoload': {'filetypes': ['python']}}
