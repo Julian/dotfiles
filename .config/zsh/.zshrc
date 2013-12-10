@@ -322,7 +322,7 @@ fi
 
 if [[ "$(grep --version)" =~ "BSD" ]]; then
 else
-    export GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
+    GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 fi
 
 # Use Keychain for ssh-agent handling
