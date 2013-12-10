@@ -67,7 +67,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'mbbill/undotree'
 NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload': {'commands': ['IndentGuidesToggle']}}
-NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -517,16 +516,7 @@ let g:airline_right_sep = '«'
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇ '
 
-nmap [a <Plug>Argumentative_Prev
-nmap ]a <Plug>Argumentative_Next
-xmap [a <Plug>Argumentative_XPrev
-xmap ]a <Plug>Argumentative_XNext
-nmap <aa <Plug>Argumentative_MoveLeft
-nmap >aa <Plug>Argumentative_MoveRight
-omap ia <Plug>Argumentative_OpPendingInnerTextObject
-omap aa <Plug>Argumentative_OpPendingOuterTextObject
-xmap ia <Plug>Argumentative_InnerTextObject
-xmap aa <Plug>Argumentative_OuterTextObject
+let g:exchange_no_mappings = '1'
 
 if filereadable('/usr/local/bin/ctags')
     let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
