@@ -72,6 +72,7 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 't9md/vim-quickhl'
+NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-dispatch'
@@ -162,6 +163,9 @@ endif
 
 " this one is reserved unfortunately, but for encryption just use vim -xn
 cnoreabbrev X x
+
+" use cc for S, I don't use it very often. Use S for Exchange (Swap) instead
+map S <Plug>Exchange
 
 " don't use Ex mode, use Q for formatting
 map Q gqap
