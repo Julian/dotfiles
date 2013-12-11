@@ -269,9 +269,6 @@ nnoremap        <leader>gr         :<C-U>Gread<CR>
 nnoremap        <leader>gs         :<C-U>Gstatus<CR>
 nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
-nmap            <leader>ch        daAbvaAo<Esc>P
-nmap            <leader>cl        daavaa<Esc>p
-
 nnoremap        <leader>ta        :Tabularize /
 nnoremap  <expr><leader>tj        ":e " . FindTestFile(expand("%")) . "<CR>"
 nnoremap        <leader>tl        :ToggleTestLock<CR>
