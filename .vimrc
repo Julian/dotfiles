@@ -386,7 +386,7 @@ set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
 
 if exists("&undofile")
     set undofile
-    set undodir=$XDG_CACHE_HOME/undo,~/tmp,/tmp
+    set undodir=$XDG_CACHE_HOME/vim/undo,$HOME/tmp,/tmp
 endif
 
 set undolevels=500                                  " more undo
