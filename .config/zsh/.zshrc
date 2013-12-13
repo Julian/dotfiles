@@ -249,9 +249,16 @@ function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
 
-if (( $+commands[trial] )); then
-    function t() { $PYTHON_TEST_RUNNER $@ ${"$(basename $(pwd))":l} }
-fi
+# Run tests on current directory in a corresponding venv, otherwise globally
+function t() {
+    local project=${"$(basename $(pwd))":l}
+    local venv_runner=$WORKON_HOME/$project/bin/$PYTHON_TEST_RUNNER
+    if [[ -f "$venv_runner" ]]; then
+        $venv_runner $@ $project
+    else
+        $PYTHON_TEST_RUNNER $@ ${"$(basename $(pwd))":l}
+    fi
+}
 
 # This was written entirely by Michael Magnusson (Mikachu)
 # Type '...' to get '../..' with successive .'s adding /..
