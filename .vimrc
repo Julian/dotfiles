@@ -70,7 +70,7 @@ NeoBundle 'mbbill/undotree'
 NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload': {'commands': ['IndentGuidesToggle']}}
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'scrooloose/syntastic'
+NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'commands': ['SyntasticCheck']}}
 NeoBundle 't9md/vim-quickhl'
 NeoBundle 'tommcdo/vim-exchange'
 NeoBundle 'tomtom/tcomment_vim'
@@ -513,6 +513,8 @@ let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_branch_prefix = '⎇ '
+" We have Syntastic lazy-loaded which makes airline unhappy.
+let g:airline#extensions#syntastic#enabled = 0
 
 let g:exchange_no_mappings = '1'
 
