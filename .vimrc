@@ -25,7 +25,7 @@ endfunction
 command! -nargs=1 Develop call <SID>Develop('<args>')
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
+NeoBundle      'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
       \     'cygwin' : 'make -f make_cygwin.mak',
@@ -36,74 +36,74 @@ NeoBundle 'Shougo/vimproc', {
 
 " --- Themes ---
 
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'chriskempson/tomorrow-theme', {'rtp' : 'vim/'}
-NeoBundle 'noahfrederick/Hemisu'
-NeoBundle 'sickill/vim-monokai'
+NeoBundle      'altercation/vim-colors-solarized'
+NeoBundle      'chriskempson/tomorrow-theme',       {'rtp' : 'vim/'}
+NeoBundle      'noahfrederick/Hemisu'
+NeoBundle      'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
 
-NeoBundleLazy 'guns/vim-clojure-static', {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload': {'filetypes': ['css', 'scss', 'sass']}}
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundleLazy 'leshill/vim-json', {'autoload': {'filetypes': ['javascript', 'json']}}
-NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': ['html']}}
-NeoBundleLazy 'tpope/vim-fireplace', {'autoload': {'filetypes': ['clojure']}}
-NeoBundle 'tpope/vim-git'
-NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby']}}
+NeoBundleLazy  'guns/vim-clojure-static',           {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'hail2u/vim-css3-syntax',            {'autoload': {'filetypes': ['css', 'scss', 'sass']}}
+NeoBundle      'kien/rainbow_parentheses.vim'
+NeoBundleLazy  'leshill/vim-json',                  {'autoload': {'filetypes': ['javascript', 'json']}}
+NeoBundleLazy  'othree/html5.vim',                  {'autoload': {'filetypes': ['html']}}
+NeoBundleLazy  'tpope/vim-fireplace',               {'autoload': {'filetypes': ['clojure']}}
+NeoBundle      'tpope/vim-git'
+NeoBundleLazy  'vim-ruby/vim-ruby',                 {'autoload': {'filetypes': ['ruby']}}
 
 " --- Plugins ---
 
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'b4winckler/vim-angry'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
-NeoBundle 'alfredodeza/pytest.vim', {'autoload': {'filetypes': ['python']}}
-NeoBundleLazy 'godlygeek/tabular', {'autoload': {'commands': 'Tabularize'}}
-NeoBundleLazy 'kana/vim-vspec'
-NeoBundleLazy 'kana/vim-submode'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundleLazy 'jmcantrell/vim-diffchanges', {'autoload': {'commands': ['DiffChangesDiffToggle']}}
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'mbbill/undotree'
-NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload': {'commands': ['IndentGuidesToggle']}}
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundleLazy 'scrooloose/syntastic', {'autoload': {'commands': ['SyntasticCheck']}}
-NeoBundle 't9md/vim-quickhl'
-NeoBundle 'tommcdo/vim-exchange'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundleLazy 'tpope/vim-obsession',  {'autoload': {'commands': ['Obsession']}}
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-rhubarb'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-tbone'
-NeoBundle 'Valodim/vim-zsh-completion'
+NeoBundle      'AndrewRadev/switch.vim'
+NeoBundle      'b4winckler/vim-angry'
+NeoBundle      'bling/vim-airline'
+NeoBundle      'alfredodeza/coveragepy.vim',        {'autoload': {'filetypes': ['python']}}
+NeoBundle      'alfredodeza/pytest.vim',            {'autoload': {'filetypes': ['python']}}
+NeoBundleLazy  'godlygeek/tabular',                 {'autoload': {'commands': 'Tabularize'}}
+NeoBundleLazy  'kana/vim-vspec'
+NeoBundleLazy  'kana/vim-submode'
+NeoBundle      'kshenoy/vim-signature'
+NeoBundleLazy  'jmcantrell/vim-diffchanges',        {'autoload': {'commands': ['DiffChangesDiffToggle']}}
+NeoBundle      'majutsushi/tagbar'
+NeoBundle      'mhinz/vim-signify'
+NeoBundle      'mbbill/undotree'
+NeoBundleLazy  'nathanaelkane/vim-indent-guides',   {'autoload': {'commands': ['IndentGuidesToggle']}}
+NeoBundle      'Raimondi/delimitMate'
+NeoBundle      'rhysd/clever-f.vim'
+NeoBundleLazy  'scrooloose/syntastic',              {'autoload': {'commands': ['SyntasticCheck']}}
+NeoBundle      't9md/vim-quickhl'
+NeoBundle      'tommcdo/vim-exchange'
+NeoBundle      'tomtom/tcomment_vim'
+NeoBundle      'tpope/vim-abolish'
+NeoBundle      'tpope/vim-dispatch'
+NeoBundle      'tpope/vim-endwise'
+NeoBundle      'tpope/vim-fugitive'
+NeoBundleLazy  'tpope/vim-obsession',               {'autoload': {'commands': ['Obsession']}}
+NeoBundle      'tpope/vim-repeat'
+NeoBundle      'tpope/vim-rhubarb'
+NeoBundle      'tpope/vim-surround'
+NeoBundle      'tpope/vim-tbone'
+NeoBundle      'Valodim/vim-zsh-completion'
 
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundleLazy 'bps/vim-textobj-python', {'autoload': {'filetypes': ['python']}}
-NeoBundle 'kana/vim-textobj-syntax'
-NeoBundle 'kana/vim-textobj-user'
+NeoBundle      'kana/vim-textobj-indent'
+NeoBundleLazy  'bps/vim-textobj-python',            {'autoload': {'filetypes': ['python']}}
+NeoBundle      'kana/vim-textobj-syntax'
+NeoBundle      'kana/vim-textobj-user'
 
-NeoBundle 'Shougo/unite.vim'
-NeoBundleLazy 'Shougo/unite-outline', {'autoload': {'unite_sources': 'outline'}}
-NeoBundle 'tsukkee/unite-tag'
+NeoBundle      'Shougo/unite.vim'
+NeoBundleLazy  'Shougo/unite-outline',              {'autoload': {'unite_sources': 'outline'}}
+NeoBundle      'tsukkee/unite-tag'
 
-Develop vim-runt
-Develop vim-textobj-brace
-Develop vim-textobj-variable-segment
+Develop         vim-runt
+Develop         vim-textobj-brace
+Develop         vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
     NeoBundle 'Valloric/YouCompleteMe'
 endif
 
 if has("python") && s:load_dynamic_plugins
-    NeoBundle 'SirVer/ultisnips'
+    NeoBundle  'SirVer/ultisnips'
 endif
 
 silent! runtime macros/matchit.vim
