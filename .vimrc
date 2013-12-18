@@ -55,7 +55,7 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby']}}
 " --- Plugins ---
 
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'b4winkler/vim-angry'
+NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'alfredodeza/coveragepy.vim', {'autoload': {'filetypes': ['python']}}
 NeoBundle 'alfredodeza/pytest.vim', {'autoload': {'filetypes': ['python']}}
