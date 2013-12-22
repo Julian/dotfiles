@@ -164,8 +164,10 @@ endif
 " this one is reserved unfortunately, but for encryption just use vim -xn
 cnoreabbrev X x
 
-" use cc for S, I don't use it very often. Use S for Exchange (Swap) instead
-map S <Plug>Exchange
+" use cl for s, I don't use it very often. Use s for Exchange (Swap) instead
+map s <Plug>(Exchange)
+map sxx <Plug>(ExchangeClear)
+map S <Plug>(ExchangeLine)
 
 " don't use Ex mode, use Q for formatting
 map Q gqap
