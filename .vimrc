@@ -531,6 +531,7 @@ let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
 let g:syntastic_mode_map = {"mode" : "passive"}
 
+let g:tcommentTextObjectInlineComment = 'ix'
 let g:tcommentMapLeader1 = ''
 let g:tcommentMapLeader2 = ''
 
