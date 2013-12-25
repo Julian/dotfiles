@@ -100,10 +100,10 @@ Develop         vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
     NeoBundle 'Valloric/YouCompleteMe'
-endif
 
-if has("python") && s:load_dynamic_plugins
-    NeoBundle  'SirVer/ultisnips'
+    if has("python")
+        NeoBundle  'SirVer/ultisnips'
+    endif
 endif
 
 silent! runtime macros/matchit.vim
