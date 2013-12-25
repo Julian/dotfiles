@@ -40,10 +40,16 @@ nmap <buffer> <silent><Leader>jn <Esc>:Pytest next<CR>
 nmap <buffer> <silent><Leader>jp <Esc>:Pytest previous<CR>
 nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 
-nmap <LocalLeader>a F[i.<Esc>lds]ds"ds'
-nmap <LocalLeader>d T.Xysw]lysiw"
+" a / d
+"       foo.bar.baz <=> foo["bar"]["baz"]
+" f / i
+"       from foo import bar <=> import foo
+nmap <buffer> <silent><LocalLeader>a F[i.<Esc>lds]ds"ds'
+nmap <buffer> <silent><LocalLeader>d T.Xysw]lysiw"
+nmap <buffer> <silent><LocalLeader>f :s/^import \(\i*\)/from \1 import /<CR>$
+nmap <buffer> <silent><LocalLeader>i :s/^from \(\i*\) import .*/import \1/<CR>
 
-vmap <LocalLeader>' :s/'/"<CR>
+vmap <buffer> <silent><LocalLeader>' :s/'/"<CR>
 
 " --------------------- from here on requires +python -------------------------
 if !has("python")
