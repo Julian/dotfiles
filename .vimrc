@@ -86,7 +86,7 @@ NeoBundle      'tpope/vim-tbone'
 NeoBundle      'Valodim/vim-zsh-completion'
 
 NeoBundle      'kana/vim-textobj-indent'
-NeoBundleLazy  'bps/vim-textobj-python',            {'autoload': {'filetypes': ['python']}}
+NeoBundleLazy  'Julian/vim-textobj-python',         {'autoload': {'filetypes': ['python']}}
 NeoBundle      'kana/vim-textobj-syntax'
 NeoBundle      'kana/vim-textobj-user'
 
