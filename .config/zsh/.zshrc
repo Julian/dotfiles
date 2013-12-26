@@ -235,6 +235,7 @@ if (( $+commands[ag] )); then
     alias agg="ag --ignore '*test*'"
     alias agp="ag --ignore '*test*' -G '\.py'"
     alias agt="ag -G '\btests?\b'"
+    alias agtp="ag -G '\btests?\b.*\.py'"
 fi
 
 if (( $+commands[dircolors] )); then
