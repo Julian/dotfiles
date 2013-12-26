@@ -5,7 +5,7 @@ let b:switch_definitions = [
     \ ["min", "max"],
 \ ]
 
-let s:python = substitute(system('which pypy || which python'), '\n', '', '')
+let s:python = substitute(system('which python || which pypy'), '\n', '', '')
 let s:condent = system('which condent')
 if !v:shell_error
     let s:condent = substitute(s:condent, '\n', '', '')
@@ -14,6 +14,10 @@ endif
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 setlocal makeprg=python\ %
+
+setlocal matchpairs-=<:>
+let b:delimitMate_nesting_quotes = ['"']
+let b:delimitMate_expand_cr = 1
 
 nnoremap <buffer> gd :YcmCompleter GoToDeclaration<CR>
 nnoremap <buffer> [d :YcmCompleter GoToDefinitionElseDeclaration<CR>
