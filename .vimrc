@@ -511,6 +511,8 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 
 let g:is_posix = 1
 
+let g:tex_flavor='latex'
+
 let g:airline_left_sep = '»'
 let g:airline_right_sep = '«'
 let g:airline_linecolumn_prefix = '␤ '
@@ -666,60 +668,55 @@ if has("eval")
         setlocal formatoptions+=2
         setlocal formatexpr=CommentTagFormat()
     endfunction
+
+    if has("autocmd")
+        augroup misc
+            autocmd!
+
+            " Keep splits equal on resize
+            autocmd VimResized * :wincmd =
+
+            " Automagic line numbers
+            autocmd BufEnter * :call <SID>WindowWidth()
+
+            " Always do a full syntax refresh
+            autocmd BufEnter * syntax sync fromstart
+
+            " For help files, make <Return> behave like <C-]> (jump to tag)
+            autocmd FileType help nmap <buffer> <Return> <C-]>
+
+            " Jump to the last known cursor position if it's valid (from the docs)
+            autocmd BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$")                  |
+                \   execute "normal! g`\""                                             |
+                \ endif
+
+        augroup END
+
+    " =====================
+    " : FileType Specific :
+    " =====================
+
+        augroup filetypes
+            autocmd!
+            autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
+            autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
+            autocmd BufNewFile,BufRead *.tac setlocal filetype=python
+
+            autocmd BufWritePost .vimrc source $MYVIMRC
+
+            " Auto-close fugitive buffers
+            autocmd BufReadPost fugitive://* set bufhidden=delete
+        augroup END
+
+        augroup formatstupidity
+            " ftplugins are stupid and try to mess with formatoptions
+            autocmd!
+            autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
+            autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=j
+        augroup END
+    endif
 endif
-
-if has("autocmd") && has("eval")
-
-    augroup misc
-        autocmd!
-
-        " Keep splits equal on resize
-        autocmd VimResized * :wincmd =
-
-        " Automagic line numbers
-        autocmd BufEnter * :call <SID>WindowWidth()
-
-        " Always do a full syntax refresh
-        autocmd BufEnter * syntax sync fromstart
-
-        " For help files, make <Return> behave like <C-]> (jump to tag)
-        autocmd FileType help nmap <buffer> <Return> <C-]>
-
-        " Jump to the last known cursor position if it's valid (from the docs)
-        autocmd BufReadPost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$")                  |
-            \   execute "normal! g`\""                                             |
-            \ endif
-
-    augroup END
-
-endif
-
-
-" =====================
-" : FileType Specific :
-" =====================
-
-augroup filetypes
-    autocmd!
-    autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
-    autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
-    autocmd BufNewFile,BufRead *.tac setlocal filetype=python
-
-    autocmd BufWritePost .vimrc source $MYVIMRC
-
-    " Auto-close fugitive buffers
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-augroup END
-
-augroup formatstupidity
-    " ftplugins are stupid and try to mess with formatoptions
-    autocmd!
-    autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
-    autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=j
-augroup END
-
-let g:tex_flavor='latex'
 
 " ============================
 " : Local / Project Specific :
