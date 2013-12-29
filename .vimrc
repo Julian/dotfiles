@@ -528,6 +528,26 @@ else
     let g:tagbar_ctags_bin = '/usr/bin/ctags'
 endif
 
+" signature
+let g:SignatureMap = {
+      \ 'Leader'             :  "m",
+      \ 'PlaceNextMark'      :  ",",
+      \ 'PurgeMarks'         :  "<Space>",
+      \ 'PurgeMarkers'       :  "<BS>",
+      \ 'GotoNextLineAlpha'  :  "",
+      \ 'GotoPrevLineAlpha'  :  "",
+      \ 'GotoNextSpotAlpha'  :  "",
+      \ 'GotoPrevSpotAlpha'  :  "",
+      \ 'GotoNextLineByPos'  :  "",
+      \ 'GotoPrevLineByPos'  :  "",
+      \ 'GotoNextSpotByPos'  :  "",
+      \ 'GotoPrevSpotByPos'  :  "",
+      \ 'GotoNextMarker'     :  "]-",
+      \ 'GotoPrevMarker'     :  "[-",
+      \ 'GotoNextMarkerAny'  :  "]=",
+      \ 'GotoPrevMarkerAny'  :  "[=",
+      \ }
+
 " Syntastic
 let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
