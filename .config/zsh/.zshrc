@@ -250,17 +250,6 @@ function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
 
-# Run tests on current directory in a corresponding venv, otherwise globally
-function t() {
-    local project=${"$(basename $(pwd))":l}
-    local venv_runner=$WORKON_HOME/$project/bin/$PYTHON_TEST_RUNNER
-    if [[ -f "$venv_runner" ]]; then
-        $venv_runner $@ $project
-    else
-        $PYTHON_TEST_RUNNER $@ ${"$(basename $(pwd))":l}
-    fi
-}
-
 # This was written entirely by Michael Magnusson (Mikachu)
 # Type '...' to get '../..' with successive .'s adding /..
 function _rationalise-dot() {
@@ -313,9 +302,19 @@ export XINITRC=$XDG_CONFIG_HOME/xinitrc
 
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
 export PYTHONDONTWRITEBYTECODE=true
-export PYTHONWARNINGS='default'
-# A name, not a path, so that the appropriate venved bin can be used
-export PYTHON_TEST_RUNNER='trial'
+export PYTHONWARNINGS=default
+# Specified relatively, so that we can find it in a venv if necessary.
+export PYTHON_TEST_RUNNER=trial
+
+if [[ "$(grep --version)" =~ "BSD" ]]; then
+else
+    GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
+fi
+
+# Use Keychain for ssh-agent handling
+if (( $+commands[keychain] )) ; then
+    eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
+fi
 
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
@@ -328,15 +327,30 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     alias p='workon ${$(pwd):t}'
 fi
 
-if [[ "$(grep --version)" =~ "BSD" ]]; then
-else
-    GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
-fi
+# Run tests on current directory in a corresponding venv, otherwise globally
+function t() {
+    local project=${"$(basename $(pwd))":l}
+    local venv_runner=~[$PYTHON_TEST_RUNNER]
+    if [[ -f "$venv_runner" ]]; then
+        $venv_runner $@ $project
+    else
+        $PYTHON_TEST_RUNNER $@ $project
+    fi
+}
 
-# Use Keychain for ssh-agent handling
-if (( $+commands[keychain] )) ; then
-    eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
-fi
+#--- Named Directories -------------------------------------------------------
+
+function zsh_directory_name() {
+    # Search for a venv binary in the venv corresponding to the cwd
+    local project=${"$(basename $(pwd))":l}
+    local venv=$WORKON_HOME/$project/bin
+    if [[ -d "$venv" ]]; then
+        typeset -ga reply
+        reply=($venv/$2)
+    else
+        return 1
+    fi
+}
 
 #--- Local -------------------------------------------------------------------
 
