@@ -32,3 +32,5 @@ __getitem__
 __iter__
 defaultdict
 iterable
+grep
+plugin

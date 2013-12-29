@@ -380,7 +380,7 @@ endif
 " : History :
 " ===========
 
-set directory=$XDG_CACHE_HOME/vim/swap,~/tmp,/tmp   " sawp files
+set directory=$XDG_CACHE_HOME/vim/swap,~/tmp,/tmp   " swap files
 set history=10000                                   " command line history
 set viminfo='50,s100,n$XDG_CACHE_HOME/vim/info      " 50 marks, unhuge register
 
