@@ -329,6 +329,9 @@ fi
 
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
+    emulate -L zsh
+    unsetopt NO_MATCH
+
     local project=${"$(basename $(pwd))":l}
     local venv_runner=~[$PYTHON_TEST_RUNNER]
     if [[ -f "$venv_runner" ]]; then
