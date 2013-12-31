@@ -403,16 +403,9 @@ set background=dark                    " make sure this is before colorschemes
 
 let g:preferred_colorscheme = 'hemisu'
 
-if has('gui_running')
+if has('gui_running') || &t_Co > 8
     execute 'silent colorscheme ' . g:preferred_colorscheme
-elseif &t_Co > 8
-    set t_Co=256
-    execute 'silent colorscheme ' . g:preferred_colorscheme
-elseif &t_Co == 8
-    if $TERM !~# '^linux'
-        set t_Co=16
-    endif
-
+else
     colorscheme desert
 endif
 
