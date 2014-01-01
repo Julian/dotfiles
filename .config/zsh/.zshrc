@@ -56,10 +56,12 @@ else
     source $ZDOTDIR/.zkbd/default-keymap
 fi
 
-[[ -n ${key[Up]}   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
-[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-beginning-search
-[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" vi-beginning-of-line
-[[ -n ${key[End]} ]] && bindkey "${key[End]}" vi-end-of-line
+[[ -n ${key[Up]}       ]] && bindkey "${key[Up]}"       up-line-or-beginning-search
+[[ -n ${key[Down]}     ]] && bindkey "${key[Down]}"     down-line-or-beginning-search
+[[ -n ${key[Home]}     ]] && bindkey "${key[Home]}"     vi-beginning-of-line
+[[ -n ${key[End]}      ]] && bindkey "${key[End]}"      vi-end-of-line
+[[ -n ${key[PageUp]}   ]] && bindkey "${key[PageUp]}"   beginning-of-history
+[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-history
 
 source $ZSHPLUGINS/zsh-fuzzy-match/fuzzy-match.zsh
 
