@@ -243,6 +243,8 @@ if (( $+commands[dircolors] )); then
 fi
 
 if (( $+commands[fasd])); then
+    export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
+    export _FASD_VIMINFO=$XDG_CACHE_HOME/vim/info
     eval "$(fasd --init auto)"
 fi
 
