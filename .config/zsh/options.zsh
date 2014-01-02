@@ -1,5 +1,12 @@
 #--- Options -----------------------------------------------------------------
 
+setopt NO_BEEP              # shh!
+setopt EXTENDED_GLOB        # extended patterns support
+
+# disable flow control
+unsetopt FLOW_CONTROL
+stty -ixon
+
 # Sane Quoting: '' escapes a single quote inside single quotes
 setopt RC_QUOTES
 

@@ -56,3 +56,11 @@ fi
 [[ -n ${key[End]}      ]] && bindkey "${key[End]}"      vi-end-of-line
 [[ -n ${key[PageUp]}   ]] && bindkey "${key[PageUp]}"   beginning-of-history
 [[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-history
+
+
+# decrease wait times, unless on SSH (this should really be done in an alias)
+if [[ -n $SSH_CONNECTION ]] ; then
+    KEYTIMEOUT=15
+else
+    KEYTIMEOUT=5
+fi
