@@ -1,5 +1,11 @@
 #--- Bindings ----------------------------------------------------------------
 
+# Some defaults for things not in zkbd
+typeset -A key
+key[Ctrl+Up]='\e[1;5A'
+key[Ctrl+Down]='\e[1;5B'
+key[Shift+Tab]='\e[Z'
+
 bindkey -v                    # set vim bindings in zsh
 
 autoload -U edit-command-line
@@ -50,12 +56,14 @@ else
     source $ZDOTDIR/.zkbd/default-keymap
 fi
 
-[[ -n ${key[Up]}       ]] && bindkey "${key[Up]}"       up-line-or-beginning-search
-[[ -n ${key[Down]}     ]] && bindkey "${key[Down]}"     down-line-or-beginning-search
-[[ -n ${key[Home]}     ]] && bindkey "${key[Home]}"     vi-beginning-of-line
-[[ -n ${key[End]}      ]] && bindkey "${key[End]}"      vi-end-of-line
-[[ -n ${key[PageUp]}   ]] && bindkey "${key[PageUp]}"   beginning-of-history
-[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-history
+[[ -n ${key[Up]}        ]] && bindkey "${key[Up]}"          up-line-or-beginning-search
+[[ -n ${key[Down]}      ]] && bindkey "${key[Down]}"        down-line-or-beginning-search
+[[ -n ${key[Home]}      ]] && bindkey "${key[Home]}"        vi-beginning-of-line
+[[ -n ${key[End]}       ]] && bindkey "${key[End]}"         vi-end-of-line
+[[ -n ${key[PageUp]}    ]] && bindkey "${key[PageUp]}"      beginning-of-history
+[[ -n ${key[PageDown]}  ]] && bindkey "${key[PageDown]}"    end-of-history
+
+[[ -n ${key[Shift+Tab]} ]] && bindkey "${key[Shift+Tab]}"   reverse-menu-completion
 
 
 # decrease wait times, unless on SSH (this should really be done in an alias)
