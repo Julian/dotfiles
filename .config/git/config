@@ -35,7 +35,7 @@
     amend = commit --amend
     authors = shortlog -sn
     ctags = "!.git/hooks/ctags"
-    forkedme = !sh -c 'git remote add $1 https://github.com/$1/$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-))' -
+    fork = !sh -c 'git remote add $1 https://github.com/$1/$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-))' -
 
     # Fancy logging.
     #   h = head
