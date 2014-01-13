@@ -506,13 +506,6 @@ let g:is_posix = 1
 
 let g:tex_flavor='latex'
 
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_branch_prefix = '⎇ '
-" We have Syntastic lazy-loaded which makes airline unhappy.
-let g:airline#extensions#syntastic#enabled = 0
-
 let g:exchange_no_mappings = '1'
 
 if filereadable('/usr/local/bin/ctags')
