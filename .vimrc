@@ -54,6 +54,7 @@ NeoBundleLazy  'vim-ruby/vim-ruby',                 {'autoload': {'filetypes': [
 
 " --- Plugins ---
 
+NeoBundle      'AndrewRadev/splitjoin.vim'
 NeoBundle      'AndrewRadev/switch.vim'
 NeoBundle      'b4winckler/vim-angry'
 NeoBundle      'bling/vim-airline'
