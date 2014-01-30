@@ -91,6 +91,9 @@ if (( $+commands[time] )); then
 fi
 
 
+alias :q=exit
+alias :w='echo Haha no.'
+
 # tmux helpers
 function :sp () { tmux split-window }
 function :Sp () { tmux split-window }
