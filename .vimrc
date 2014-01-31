@@ -171,7 +171,8 @@ map sxx <Plug>(ExchangeClear)
 map S <Plug>(ExchangeLine)
 
 " don't use Ex mode, use Q for formatting
-map Q gqap
+nmap Q gqap
+vmap Q gq
 
 " change Y to act like C, D
 map Y y$
