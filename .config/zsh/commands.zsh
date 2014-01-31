@@ -27,6 +27,9 @@ fi
 # Suffix Aliases
 alias -s tex=vim
 
+# Try to get myself to stop typing fg; stop putting it in the history
+alias fg=' fg'
+
 # noglobs
 alias find='noglob find'
 alias git='noglob git'
