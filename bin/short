@@ -1,0 +1,6 @@
+#! /bin/sh
+
+# Sort stuff ignoring the first line (presumably a header)
+read line
+echo $line
+exec sort $@
