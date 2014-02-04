@@ -108,7 +108,7 @@ function t() {
     emulate -L zsh
     unsetopt NO_MATCH
 
-    local project=${"$(basename $(pwd))":l}
+    local project=${$(pwd):t:l}
     local venv_runner=~[$PYTHON_TEST_RUNNER]
     if [[ -f "$venv_runner" ]]; then
         $venv_runner $@ $project

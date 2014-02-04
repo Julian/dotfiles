@@ -63,7 +63,7 @@ fi
 
 function zsh_directory_name() {
     # Search for a venv binary in the venv corresponding to the cwd
-    local project=${"$(basename $(pwd))":l}
+    local project=${$(pwd):t:l}
     local venv=$WORKON_HOME/$project/bin
     if [[ -d "$venv" ]]; then
         typeset -ga reply
