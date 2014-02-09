@@ -48,6 +48,10 @@ if (( $+commands[keychain] )) ; then
     eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)
 fi
 
+if (( $+commands[berks] )); then
+    export BERKSHELF_PATH=$XDG_DATA_HOME/berkshelf
+fi
+
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
