@@ -20,6 +20,8 @@
 [alias]
     bm = branch --merged
     bn = branch --no-merged
+    brm = branch --remote --merged
+    brn = branch --remote --no-merged
     ci = commit
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     cm = commit -m
