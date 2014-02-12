@@ -6,8 +6,7 @@ alias di=diff
 # t: tmux attach
 # x: X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
 function sst() {
-    local get_shell='import os, pwd; print pwd.getpwuid(os.getuid()).pw_shell'
-    ssh -t $@ "$(python -c $get_shell) -l -c 'tmux attach || tmux'"
+    ssh -t $@ '$SHELL -l -c "tmux attach || tmux"'
 }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
