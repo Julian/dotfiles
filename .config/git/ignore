@@ -34,6 +34,7 @@ Thumbs.db
 __pycache__/
 
 _trial_temp*/
+_trial_temp*.lock
 
 .coverage
 htmlcov/
