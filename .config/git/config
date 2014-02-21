@@ -17,6 +17,9 @@
 [difftool]
     prompt = false
 
+[rebase]
+    autostash = true
+
 [alias]
     bm = branch --merged
     bn = branch --no-merged
