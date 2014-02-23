@@ -43,6 +43,9 @@ htmlcov/
 
 .vagrant
 
+.kitchen
+.kitchen.local.yml
+
 # Other Junk #
 # ---------- #
 .ropeproject/
