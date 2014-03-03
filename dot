@@ -74,7 +74,7 @@ def set_up_vim(arguments):
         print "Can't find a vim at {0}! Skipping...".format(arguments.vim)
         return
 
-    cache = os.environ.get("XDG_CACHE_HOME", os.expanduser("~/.cache"))
+    cache = os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))
     try:
         os.makedirs(os.path.join(cache, "vim"))
     except OSError as error:
