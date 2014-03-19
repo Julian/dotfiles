@@ -10,7 +10,10 @@ function main() {
 }
 
 function notify() {
-    tmux display-message "Done!"
+    local display_time=$(tmux show-option -g -v display-time)
+    tmux set-option -g -q display-time 3000
+    tmux display-message "Finished: $argv"
+    tmux set-option -g -q display-time $display_time
 }
 
 main
