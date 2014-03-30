@@ -25,6 +25,7 @@
     bn = branch --no-merged
     brm = branch --remote --merged
     brn = branch --remote --no-merged
+    c = clone --recursive
     ci = commit
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     cm = commit -m
@@ -36,6 +37,7 @@
     ff = merge --ff-only
     noff = merge --no-ff
     up = !git remote update --prune; git merge --ff-only @{u}
+    s = status -s
     st = status
     x = commit -m
     amend = commit --amend
@@ -61,3 +63,19 @@
 
 [push]
     default = simple
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+    insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
