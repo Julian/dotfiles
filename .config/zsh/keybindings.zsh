@@ -63,7 +63,7 @@ fi
 [[ -n ${key[PageUp]}    ]] && bindkey "${key[PageUp]}"      beginning-of-history
 [[ -n ${key[PageDown]}  ]] && bindkey "${key[PageDown]}"    end-of-history
 
-[[ -n ${key[Shift+Tab]} ]] && bindkey "${key[Shift+Tab]}"   reverse-menu-completion
+[[ -n ${key[Shift+Tab]} ]] && bindkey "${key[Shift+Tab]}"   reverse-menu-complete
 
 
 # decrease wait times, unless on SSH (this should really be done in an alias)
