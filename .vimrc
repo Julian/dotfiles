@@ -260,6 +260,7 @@ nnoremap        <leader>k         :<C-U>Unite -no-split -buffer-name=tests -inpu
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
 nmap            <leader>m         <Plug>(quickhl-toggle)
 nnoremap        <leader>n         <C-F>n
+nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
@@ -675,6 +676,17 @@ if has("eval")
     function! <SID>DoCommentTagFormat()
         setlocal formatoptions+=2
         setlocal formatexpr=CommentTagFormat()
+    endfunction
+
+    " Edit file under cursor (not matching :help 'isfname) (:help gf)
+    " Deliberately left off terminating <cr> if filename can't be found
+    " to allow user to modify before execution. (:help cWORD)
+    function! EditFileWORD()
+    let file = expand('<cWORD>')
+    if findfile(file, &path) != ''
+        let file .= "\<cr>"
+    endif
+    return ":SplitSensibly " . file
     endfunction
 
     if has("autocmd")
