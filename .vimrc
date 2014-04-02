@@ -76,10 +76,12 @@ NeoBundle      't9md/vim-quickhl'
 NeoBundle      'tommcdo/vim-exchange'
 NeoBundle      'tomtom/tcomment_vim'
 NeoBundle      'tpope/vim-abolish'
+NeoBundleLazy  'tpope/vim-bundler',                 {'autoload': {'filetypes': ['ruby']}}
 NeoBundle      'tpope/vim-dispatch'
 NeoBundle      'tpope/vim-endwise'
 NeoBundle      'tpope/vim-fugitive'
 NeoBundleLazy  'tpope/vim-obsession',               {'autoload': {'commands': ['Obsession']}}
+NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': ['ruby']}}
 NeoBundle      'tpope/vim-repeat'
 NeoBundle      'tpope/vim-rhubarb'
 NeoBundle      'tpope/vim-surround'
@@ -719,6 +721,7 @@ if has("eval")
 
         augroup filetypes
             autocmd!
+            autocmd BufNewFile,BufRead Gemfile,Gemfile.lock setlocal filetype=ruby
             autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
             autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
             autocmd BufNewFile,BufRead *.tac setlocal filetype=python
