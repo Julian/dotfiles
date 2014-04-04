@@ -22,8 +22,10 @@
     autostash = true
 
 [alias]
+    b = branch
     bm = branch --merged
     bn = branch --no-merged
+    br = branch --remote
     brm = branch --remote --merged
     brn = branch --remote --no-merged
     c = clone --recursive
