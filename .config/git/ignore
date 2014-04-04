@@ -57,6 +57,7 @@ twistd.pid
 
 Gemfile.lock
 Berksfile.lock
+.pryrc
 
 .tags
 tags
