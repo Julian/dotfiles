@@ -73,6 +73,7 @@ NeoBundle      'Raimondi/delimitMate'
 NeoBundle      'rhysd/clever-f.vim'
 NeoBundleLazy  'scrooloose/syntastic',              {'autoload': {'commands': ['SyntasticCheck']}}
 NeoBundle      't9md/vim-quickhl'
+NeoBundleLazy  'thoughtbot/vim-rspec',              {'autoload': {'filetypes': ['ruby']}}
 NeoBundle      'tommcdo/vim-exchange'
 NeoBundle      'tomtom/tcomment_vim'
 NeoBundle      'tpope/vim-abolish'
