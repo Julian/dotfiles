@@ -94,6 +94,7 @@ NeoBundleLazy  'Julian/vim-textobj-python',         {'autoload': {'filetypes': [
 NeoBundle      'kana/vim-textobj-syntax'
 NeoBundle      'kana/vim-textobj-user'
 
+NeoBundleLazy  'Shougo/neomru.vim',                 {'autoload': {'unite_sources': 'file_mru'}}
 NeoBundle      'Shougo/unite.vim'
 NeoBundleLazy  'Shougo/unite-outline',              {'autoload': {'unite_sources': 'outline'}}
 NeoBundle      'tsukkee/unite-tag'
