@@ -11,6 +11,12 @@ export BROWSER=chromium
 
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
+typeset -aU gem_path
+typeset -T GEM_PATH gem_path
+export GEM_HOME=$XDG_DATA_HOME/gems
+gem_path=($GEM_HOME)
+export GEM_PATH
+
 typeset -aU gopath
 typeset -T GOPATH gopath
 gopath=($XDG_DATA_HOME/go)

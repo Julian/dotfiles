@@ -3,6 +3,7 @@ typeset -U path
 if [[ "$OSTYPE" == darwin* ]] ; then
     path=(
         /usr/local/share/pypy
+        ${gem_path/%//bin}
         ${gopath/%//bin}
         /usr/local/share/npm/bin
         $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
