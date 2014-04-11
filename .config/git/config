@@ -39,7 +39,7 @@
     df = diff --name-only
     ff = merge --ff-only
     noff = merge --no-ff
-    up = !git remote update --prune; git merge --ff-only @{u}
+    up = "!git remote update --prune; git merge --ff-only @{u}"
     s = status -s
     st = status
     x = commit -m
