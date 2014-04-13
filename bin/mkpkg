@@ -67,6 +67,12 @@ parser.add_argument(
     help="Use distutils instead of distribute.",
 )
 parser.add_argument(
+    "-S", "--no-style",
+    action="store_false",
+    dest="style",
+    help="Don't run pyflakes by default in tox runs.",
+)
+parser.add_argument(
     "-s", "--supports",
     action="append",
     help="a version of Python supported by the package",
@@ -157,6 +163,10 @@ classifiers = "\n{0}\n        ".format(
     ",\n".join('            "' + c + '"' for c in make_classifiers())
 )
 
+tox_envlist = sorted(arguments.supports)
+if arguments.style:
+    tox_envlist.append("style")
+
 
 files = {
     os.path.join(name, "README.rst") : """
@@ -226,17 +236,22 @@ files = {
 
     os.path.join(name, "tox.ini") : """
         [tox]
-        envlist = {supports}
+        envlist = {envlist}
 
         [testenv]
         commands =
             {test_runner} {tests}
             {{envpython}} -m doctest README.rst
-
         deps =
             {test_deps}
+
+        [testenv:style]
+        commands =
+            pyflakes [] {tests}
+        deps =
+            pyflakes
         """.format(
-            supports=", ".join(sorted(arguments.supports)),
+            envlist=", ".join(tox_envlist),
             test_runner=test_runner,
             tests=tests,
             test_deps="\n    ".join(test_deps),
