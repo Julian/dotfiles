@@ -103,14 +103,15 @@ Develop         vim-runt
 Develop         vim-textobj-brace
 Develop         vim-textobj-variable-segment
 
-if s:load_dynamic_plugins
-    NeoBundle 'Valloric/YouCompleteMe'
-endif
-
 if executable("tmux")
     NeoBundle  'tpope/vim-tbone'
     NeoBundle  'wellle/tmux-complete.vim'
     let g:tmuxcomplete#trigger = ''
+endif
+
+if s:load_dynamic_plugins
+    NeoBundle 'davidhalter/jedi-vim'
+    NeoBundle 'Shougo/neocomplete'
 endif
 
 silent! runtime macros/matchit.vim

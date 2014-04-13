@@ -1,5 +1,7 @@
 let python_highlight_all=1
 
+setlocal omnifunc=jedi#completions
+
 let b:switch_definitions = [
     \ ["assertAlmostEqual", "assertNotAlmostEqual"],
     \ ["assertEqual", "assertNotEqual"],
