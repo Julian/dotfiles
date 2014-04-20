@@ -250,7 +250,6 @@ endfor
 "   N : search backward, but not anything currently displayed
 "   S : remove trailing whitespace
 "   0 : minimize a window
-"   . : set the working directory in the local window
 
 nnoremap        <leader><leader>  :Unite buffer file file_mru tag<CR>
 
@@ -307,7 +306,7 @@ nnoremap        <leader>0         :wincmd _<CR>
 
 
 nnoremap        <leader>`         :<C-U>call <SID>DoCommentTagFormat()<CR>
-nnoremap        <leader>.         :<C-U>lcd %:p:h<CR>
+nnoremap        <leader>.         :<C-U>setlocal autochdir<CR>
 nnoremap        <leader>;         :lprevious<CR>
 nnoremap        <leader>'         :lnext<CR>
 nnoremap        <leader>[         :cprevious<CR>
