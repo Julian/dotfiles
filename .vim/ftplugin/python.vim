@@ -1,7 +1,11 @@
 let python_highlight_all=1
 
 let b:switch_definitions = [
+    \ ["assertAlmostEqual", "assertNotAlmostEqual"],
     \ ["assertEqual", "assertNotEqual"],
+    \ ["assertIn", "assertNotIn"],
+    \ ["assertIsInstance", "assertNotIsInstance"],
+    \ ["assertRegexpMatches", "assertNotRegexpMatches"],
     \ ["min", "max"],
 \ ]
 
