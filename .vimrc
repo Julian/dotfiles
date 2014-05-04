@@ -106,10 +106,6 @@ Develop         vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
     NeoBundle 'Valloric/YouCompleteMe'
-
-    if has("python")
-        NeoBundle  'SirVer/ultisnips'
-    endif
 endif
 
 silent! runtime macros/matchit.vim
@@ -549,13 +545,6 @@ let g:syntastic_mode_map = {"mode" : "passive"}
 let g:tcommentTextObjectInlineComment = 'ix'
 let g:tcommentMapLeader1 = ''
 let g:tcommentMapLeader2 = ''
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger = "<C-J>"
-let g:UltiSnipsListSnippets = "<C-K>"
-let g:UltiSnipsJumpForwardTrigger = "<C-N>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-P>"
-let g:UltiSnipsDontReverseSearchPath="1"        " appears needed to overwrite
 
 let g:undotree_TreeNodeShape = '✷'
 
