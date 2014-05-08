@@ -27,6 +27,7 @@ function ctrla() {
 
 bindkey "^B" send-break
 bindkey "^E" edit-command-line
+bindkey "^K" push-input
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^U" undo
