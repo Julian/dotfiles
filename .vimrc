@@ -166,6 +166,15 @@ endif
 " this one is reserved unfortunately, but for encryption just use vim -xn
 cnoreabbrev X x
 
+" testing mappings
+nnoremap      <expr><CR>      ":Dispatch " . runt#file()       .   "<CR>"
+nnoremap    <silent>d<CR>      :call SplitSensibly(runt#find_file())<CR>
+nnoremap      <expr>dc        ":Dispatch " . runt#class()      .   "<CR>"
+nnoremap      <expr>dm        ":Dispatch " . runt#method()     .   "<CR>"
+nnoremap            dx         :Dispatch     tox                    <CR>
+nnoremap            dK         :call runt#lock()<CR>
+nnoremap      <expr>dS        ":Dispatch " . runt#suite()      .   "<CR>"
+
 " use cl for s, I don't use it very often. Use s for Exchange (Swap) instead
 map s <Plug>(Exchange)
 map sxx <Plug>(ExchangeClear)
@@ -275,16 +284,6 @@ nnoremap        <leader>gr         :<C-U>Gread<CR>
 nnoremap        <leader>gs         :<C-U>Gstatus<CR>
 nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
-nnoremap        <leader>ta        :Tabularize /
-nnoremap  <expr><leader>tj        ":e " . FindTestFile(expand("%")) . "<CR>"
-nnoremap        <leader>tl        :ToggleTestLock<CR>
-nnoremap        <leader>to        :topleft split TODO<CR><C-W>6_
-nnoremap        <leader>tt        :Dispatch! tox<CR>
-nnoremap        <leader>ts        :Dispatch! RunTestSuite(expand("%")))<CR>
-nnoremap        <leader>tq        :Copen<CR>
-nnoremap        <leader>t<leader> :Dispatch<CR>
-
-
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config -input=. file:$HOME file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
 nmap            <leader>M         <Plug>(quickhl-reset)
@@ -317,7 +316,6 @@ nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.
 
 
 nnoremap        <leader><tab>     <C-^>
-nnoremap  <expr><leader><CR>      ":!" . $PYTHON_TEST_RUNNER . " " . expand("%:h") . "<CR>"
 
 
 vmap            <leader>m         <Plug>(quickhl-toggle)
@@ -583,7 +581,7 @@ if has("eval")
     endfunction
 
     function! SplitSensibly(path)
-        <SID>SplitSensiblyCommand(a:path)
+        call <SID>SplitSensiblyCommand(a:path)
     endfun
 
     command! -nargs=* -complete=file SplitSensibly call <SID>SplitSensiblyCommand('<args>')
