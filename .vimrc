@@ -172,7 +172,7 @@ nnoremap    <silent>d<CR>      :call SplitSensibly(runt#find_file(expand("%")))<
 nnoremap      <expr>dc        ":Dispatch " . runt#class(expand("%"), getpos("."))   .   "<CR>"
 nnoremap      <expr>dm        ":Dispatch " . runt#method(expand("%"), getpos("."))  .   "<CR>"
 nnoremap            dx         :Dispatch     tox                                         <CR>
-nnoremap            dK         :call runt#lock()<CR>
+nnoremap            dK         :call runt#follow()<CR>
 nnoremap      <expr>dS        ":Dispatch " . runt#suite(expand("%"))                .   "<CR>"
 
 " use cl for s, I don't use it very often. Use s for Exchange (Swap) instead
