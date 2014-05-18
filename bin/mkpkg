@@ -64,7 +64,7 @@ parser.add_argument(
 parser.add_argument(
     "--use-distutils",
     action="store_true",
-    help="Use distutils instead of distribute.",
+    help="Use distutils instead of setuptools.",
 )
 parser.add_argument(
     "-S", "--no-style",
