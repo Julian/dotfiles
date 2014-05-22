@@ -33,6 +33,7 @@
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     cm = commit -m
     co = checkout
+    cp = cherry-pick
     di = diff
     dc = diff --cached
     dd = diff --diff-algorithm=default
