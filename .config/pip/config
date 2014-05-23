@@ -4,7 +4,6 @@
 require-virtualenv = false
 respect-virtualenv = true
 
-download-cache = ~/Library/Caches/pip
 timeout = 15
 allow-all-external = false
 no-allow-insecure = false
