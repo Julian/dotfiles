@@ -43,13 +43,20 @@ NeoBundle      'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
 
-NeoBundleLazy  'guns/vim-clojure-static',           {'autoload': {'filetypes': ['clojure']}}
 NeoBundleLazy  'hail2u/vim-css3-syntax',            {'autoload': {'filetypes': ['css', 'scss', 'sass']}}
 NeoBundle      'kien/rainbow_parentheses.vim'
 NeoBundleLazy  'leshill/vim-json',                  {'autoload': {'filetypes': ['javascript', 'json']}}
 NeoBundleLazy  'othree/html5.vim',                  {'autoload': {'filetypes': ['html']}}
-NeoBundleLazy  'tpope/vim-fireplace',               {'autoload': {'filetypes': ['clojure']}}
 NeoBundle      'tpope/vim-git'
+
+NeoBundleLazy  'guns/vim-clojure-highlight',        {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'guns/vim-clojure-static',           {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'tpope/vim-fireplace',               {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'tpope/vim-leiningen',               {'autoload': {'filetypes': ['clojure']}}
+
+NeoBundleLazy  'thoughtbot/vim-rspec',              {'autoload': {'filetypes': ['ruby']}}
+NeoBundleLazy  'tpope/vim-bundler',                 {'autoload': {'filetypes': ['ruby']}}
+NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy  'vim-ruby/vim-ruby',                 {'autoload': {'filetypes': ['ruby']}}
 
 " --- Plugins ---
@@ -74,16 +81,13 @@ NeoBundle      'Raimondi/delimitMate'
 NeoBundle      'rhysd/clever-f.vim'
 NeoBundleLazy  'scrooloose/syntastic',              {'autoload': {'commands': ['SyntasticCheck']}}
 NeoBundle      't9md/vim-quickhl'
-NeoBundleLazy  'thoughtbot/vim-rspec',              {'autoload': {'filetypes': ['ruby']}}
 NeoBundle      'tommcdo/vim-exchange'
 NeoBundle      'tomtom/tcomment_vim'
 NeoBundle      'tpope/vim-abolish'
-NeoBundleLazy  'tpope/vim-bundler',                 {'autoload': {'filetypes': ['ruby']}}
 NeoBundle      'tpope/vim-dispatch'
 NeoBundle      'tpope/vim-endwise'
 NeoBundle      'tpope/vim-fugitive'
 NeoBundleLazy  'tpope/vim-obsession',               {'autoload': {'commands': ['Obsession']}}
-NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': ['ruby']}}
 NeoBundle      'tpope/vim-repeat'
 NeoBundle      'tpope/vim-rhubarb'
 NeoBundle      'tpope/vim-surround'
