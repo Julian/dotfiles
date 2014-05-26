@@ -63,6 +63,7 @@ NeoBundleLazy  'vim-ruby/vim-ruby',                 {'autoload': {'filetypes': [
 
 NeoBundle      'alfredodeza/coveragepy.vim',        {'autoload': {'filetypes': ['python']}}
 NeoBundle      'alfredodeza/pytest.vim',            {'autoload': {'filetypes': ['python']}}
+NeoBundle      'AndrewRadev/linediff.vim'
 NeoBundle      'AndrewRadev/splitjoin.vim'
 NeoBundle      'AndrewRadev/switch.vim'
 NeoBundle      'b4winckler/vim-angry'
@@ -91,6 +92,7 @@ NeoBundleLazy  'tpope/vim-obsession',               {'autoload': {'commands': ['
 NeoBundle      'tpope/vim-repeat'
 NeoBundle      'tpope/vim-rhubarb'
 NeoBundle      'tpope/vim-surround'
+NeoBundle      'Valloric/MatchTagAlways',           {'autoload': {'filetypes': ['html', 'xhtml', 'xml', 'jinja']}}
 NeoBundle      'Valodim/vim-zsh-completion'
 
 NeoBundle      'kana/vim-textobj-indent'
@@ -328,6 +330,7 @@ nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.
 nnoremap        <leader><tab>     <C-^>
 
 
+vnoremap        <leader>d         :Linediff<CR>
 vmap            <leader>m         <Plug>(quickhl-toggle)
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
