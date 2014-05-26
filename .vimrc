@@ -87,7 +87,6 @@ NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': [
 NeoBundle      'tpope/vim-repeat'
 NeoBundle      'tpope/vim-rhubarb'
 NeoBundle      'tpope/vim-surround'
-NeoBundle      'tpope/vim-tbone'
 NeoBundle      'Valodim/vim-zsh-completion'
 
 NeoBundle      'kana/vim-textobj-indent'
@@ -106,6 +105,12 @@ Develop         vim-textobj-variable-segment
 
 if s:load_dynamic_plugins
     NeoBundle 'Valloric/YouCompleteMe'
+endif
+
+if executable("tmux")
+    NeoBundle  'tpope/vim-tbone'
+    NeoBundle  'wellle/tmux-complete.vim'
+    let g:tmuxcomplete#trigger = ''
 endif
 
 silent! runtime macros/matchit.vim
