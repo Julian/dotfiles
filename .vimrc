@@ -233,7 +233,7 @@ nmap yq ysiw"
 let s:all_modes_mappings = {
     \   '<F3>'  : ':<C-U>DiffChangesDiffToggle<CR>',
     \   '<F4>'  : ':<C-U>call <SID>ToggleExpando()<CR>',
-    \   '<F5>'  : ':<C-U>SignifyToggle<CR>',
+    \   '<F5>'  : ':<C-U>QuickhlCwordToggle<CR>',
     \   '<F6>'  : ':<C-U>IndentGuidesToggle<CR>',
     \   '<F7>'  : ':<C-U>TagbarToggle<CR>',
     \   '<F8>'  : ':<C-U>UndotreeToggle<CR>',
@@ -279,7 +279,7 @@ nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR
 nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=test_tags -input=test tag<CR>
 nnoremap        <leader>k         :<C-U>Unite -no-split -buffer-name=tests -input=test/test_ file_rec/async<CR>
 nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
-nmap            <leader>m         <Plug>(quickhl-toggle)
+nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap        <leader>n         <C-F>n
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
@@ -298,7 +298,7 @@ nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config -input=. file:$HOME file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
-nmap            <leader>M         <Plug>(quickhl-reset)
+nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
@@ -331,7 +331,7 @@ nnoremap        <leader><tab>     <C-^>
 
 
 vnoremap        <leader>d         :Linediff<CR>
-vmap            <leader>m         <Plug>(quickhl-toggle)
+vmap            <leader>m         <Plug>(quickhl-manual-this)
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
 
