@@ -68,6 +68,7 @@ NeoBundle      'AndrewRadev/splitjoin.vim'
 NeoBundle      'AndrewRadev/switch.vim'
 NeoBundle      'b4winckler/vim-angry'
 NeoBundle      'bling/vim-airline'
+NeoBundle      'bruno-/vim-vertical-move'
 NeoBundleLazy  'dahu/VimGym',                       {'autoload': {'commands': ['VG', 'VimGym']}}
 NeoBundleLazy  'godlygeek/tabular',                 {'autoload': {'commands': 'Tabularize'}}
 NeoBundleLazy  'kana/vim-vspec'
