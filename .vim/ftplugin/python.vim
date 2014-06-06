@@ -1,5 +1,8 @@
 let python_highlight_all=1
 
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_continue = '&sw'
+
 setlocal omnifunc=jedi#completions
 
 let b:switch_definitions = [
