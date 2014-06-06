@@ -5,6 +5,9 @@
 [color]
     ui = true
 
+[commit]
+    gpgsign = true
+
 [diff]
     algorithm = histogram
     tool = vimdiff
