@@ -44,6 +44,7 @@
     ff = merge --ff-only
     noff = merge --no-ff
     up = "!git remote update --prune; git merge --ff-only @{u}"
+    rmb = push --delete origin
     s = status -s
     st = status
     x = commit -m
