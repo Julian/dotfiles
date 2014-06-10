@@ -43,21 +43,15 @@ NeoBundle      'sickill/vim-monokai'
 
 " --- Additional Filetype Support ---
 
-NeoBundleLazy  'hail2u/vim-css3-syntax',            {'autoload': {'filetypes': ['css', 'scss', 'sass']}}
-NeoBundle      'kien/rainbow_parentheses.vim'
-NeoBundleLazy  'leshill/vim-json',                  {'autoload': {'filetypes': ['javascript', 'json']}}
-NeoBundleLazy  'othree/html5.vim',                  {'autoload': {'filetypes': ['html']}}
-NeoBundle      'tpope/vim-git'
+NeoBundle      'sheerun/vim-polyglot'
 
 NeoBundleLazy  'guns/vim-clojure-highlight',        {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'guns/vim-clojure-static',           {'autoload': {'filetypes': ['clojure']}}
 NeoBundleLazy  'tpope/vim-fireplace',               {'autoload': {'filetypes': ['clojure']}}
 NeoBundleLazy  'tpope/vim-leiningen',               {'autoload': {'filetypes': ['clojure']}}
 
 NeoBundleLazy  'thoughtbot/vim-rspec',              {'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy  'tpope/vim-bundler',                 {'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': ['ruby']}}
-NeoBundleLazy  'vim-ruby/vim-ruby',                 {'autoload': {'filetypes': ['ruby']}}
 
 " --- Plugins ---
 
@@ -73,6 +67,7 @@ NeoBundleLazy  'dahu/VimGym',                       {'autoload': {'commands': ['
 NeoBundleLazy  'godlygeek/tabular',                 {'autoload': {'commands': 'Tabularize'}}
 NeoBundleLazy  'kana/vim-vspec'
 NeoBundleLazy  'kana/vim-submode'
+NeoBundle      'kien/rainbow_parentheses.vim'
 NeoBundle      'kshenoy/vim-signature'
 NeoBundleLazy  'jmcantrell/vim-diffchanges',        {'autoload': {'commands': ['DiffChangesDiffToggle']}}
 NeoBundle      'majutsushi/tagbar'
