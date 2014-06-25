@@ -37,6 +37,7 @@
     cm = commit -m
     co = checkout
     cp = cherry-pick
+    d = diff --ignore-all-space
     di = diff
     dc = diff --cached
     dd = diff --diff-algorithm=default
