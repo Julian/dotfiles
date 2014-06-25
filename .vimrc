@@ -281,6 +281,7 @@ nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
+nnoremap        <leader>t         :<C-U>diffthis<CR>
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
