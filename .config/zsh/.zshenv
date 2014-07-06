@@ -9,6 +9,8 @@ export LANGUAGE="en_US.UTF-8"
 
 export BROWSER=chromium
 
+export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
+
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
 typeset -aU gopath
