@@ -113,7 +113,9 @@ endif
 
 if s:load_dynamic_plugins
     NeoBundle 'davidhalter/jedi-vim'
-    NeoBundle 'Shougo/neocomplete'
+    if has('lua')
+        NeoBundle 'Shougo/neocomplete'
+    endif
 endif
 
 silent! runtime macros/matchit.vim
