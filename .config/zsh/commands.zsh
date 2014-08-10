@@ -10,6 +10,16 @@ function sst() {
 }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
+# SSH SOCKS Proxy
+function tunnel() {
+    local tunnel_host=${tunnel_host:-pi.grayvines.com}
+    local tunnel_port=${tunnel_port:-8080}
+    networksetup -setsocksfirewallproxystate Wi-Fi on
+    printf 'Tunneling to %s:%s...\n' $tunnel_host $tunnel_port
+    ssh -D $tunnel_port -C -N $tunnel_host
+    networksetup -setsocksfirewallproxystate Wi-Fi off
+}
+
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
     alias up="brew update --rebase && brew upgrade"
