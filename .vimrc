@@ -359,6 +359,7 @@ set wildignore+=*DS_Store*
 set wildignore+=**/tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.app,*.dmg,*.pdf,*.so
+set wildignore+=**/.gems/**,**/.chef/checksums/**
 
 set complete-=i                             " this is slow apparently.
 
