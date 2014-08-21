@@ -90,3 +90,5 @@
 
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
+[svn]
+	rmdir = true
