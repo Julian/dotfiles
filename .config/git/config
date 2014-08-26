@@ -54,6 +54,7 @@
     authors = shortlog -sn
     ctags = "!.git/hooks/ctags"
     fork = !sh -c 'git remote add $1 https://github.com/$1/$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-))' -
+    issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
 
     # Fancy logging.
     #   h = head
