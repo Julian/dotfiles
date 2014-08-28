@@ -1,0 +1,10 @@
+#! /bin/zsh
+# Generate a SSL certificate suitable for one-off testing of things over HTTPS
+set -e
+
+local tempdir=$(python -c 'import tempfile; print tempfile.mkdtemp()')
+
+openssl req -nodes -out $tempdir/ca.pem -keyout $tempdir/privkey.pem -new -x509 -subj '/C=US/'
+cat $tempdir/ca.pem $tempdir/privkey.pem
+
+rm -r $tempdir
