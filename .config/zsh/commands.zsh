@@ -15,7 +15,7 @@ function tunnel() {
     local tunnel_host=${tunnel_host:-pi.grayvines.com}
     local tunnel_port=${tunnel_port:-8080}
     networksetup -setsocksfirewallproxystate Wi-Fi on
-    printf 'Tunneling to %s:%s...\n' $tunnel_host $tunnel_port
+    printf 'Tunneling to %s:%s...\n' $tunnel_port $tunnel_host
     ssh -D $tunnel_port -C -N $tunnel_host
     networksetup -setsocksfirewallproxystate Wi-Fi off
 }
