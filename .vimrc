@@ -185,10 +185,15 @@ nnoremap            dx         :Dispatch        tox                             
 nnoremap            dK         :call            runt#follow()                                                                                                   <CR>
 nnoremap      <expr>dS        ":Dispatch "      .   (empty(get(t:, 'runt_last_command', '')) ? runt#suite(expand("%")) : t:runt_last_command)               .  "<CR>"
 
-" use cl for s, I don't use it very often. Use s for Exchange (Swap) instead
+" Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
-map sxx <Plug>(ExchangeClear)
+map sS <Plug>(ExchangeClear)
 map S <Plug>(ExchangeLine)
+
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+nmap s<CR> :SplitjoinSplit<CR>
+nmap ss :SplitjoinJoin<CR>
 
 " don't use Ex mode, use Q for formatting
 nmap Q gqap
