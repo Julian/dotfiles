@@ -42,6 +42,7 @@ alias fg=' fg'
 # noglobs
 alias find='noglob find'
 alias git='noglob git'
+alias pip='noglob pip'
 
 alias sed="sed -E"
 
