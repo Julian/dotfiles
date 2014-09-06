@@ -10,11 +10,11 @@ if has("autocmd")
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])
 
-    call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-          \ 'ignore_pattern',
-          \ escape(
-          \     substitute(join(split(&wildignore, ","), '\|'), '**/\?', '', 'g'),
-          \     '.'))
+    call unite#custom_source(
+        \ 'file_rec,file_rec/async,file_mru,file,buffer,grep',
+        \ 'ignore_globs',
+        \ split(&wildignore, ",")
+        \ )
 
     function! <SID>Unite_Settings()
         nmap <buffer> <Esc> <Plug>(unite_exit)
