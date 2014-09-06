@@ -32,6 +32,9 @@ bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^U" undo
 
+bindkey "^[t" transpose-words
+bindkey "^[." insert-last-word
+
 # Make ^Z toggle between ^Z and fg
 function ctrlz() {
 if [[ $#BUFFER == 0 ]]; then
