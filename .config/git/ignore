@@ -46,21 +46,25 @@ htmlcov/
 .kitchen
 .kitchen.local.yml
 
-# Other Junk #
-# ---------- #
+# Python #
+# ------ #
 .ropeproject/
 
-Session.vim
+.pep8
 
 twistd.log
 twistd.pid
 
-Gemfile.lock
-Berksfile.lock
-.pryrc
+# Vim #
+# --- #
+.vimrc.local
+Session.vim
 
 .tags
 tags
 
-.pep8
-.vimrc.local
+# Ruby #
+# ---- #
+Gemfile.lock
+Berksfile.lock
+.pryrc
