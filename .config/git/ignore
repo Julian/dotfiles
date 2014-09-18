@@ -55,6 +55,8 @@ htmlcov/
 twistd.log
 twistd.pid
 
+.testr.conf
+
 # Vim #
 # --- #
 .vimrc.local
