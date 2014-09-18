@@ -357,7 +357,7 @@ set wildmode=longest:full,full
 
 set wildignore+=*.db,*.o,*.obj
 set wildignore+=*.swp,*.bak,*.lock
-set wildignore+=*.git,*.svn
+set wildignore+=*.git,*.hg,*.svn
 set wildignore+=MANIFEST,*.pyc,**/_trial_temp/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,**/_build/**,**/.tox/**
 set wildignore+=**/.vim-flavor/**
 set wildignore+=*DS_Store*
