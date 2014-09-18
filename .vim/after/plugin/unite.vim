@@ -10,7 +10,7 @@ if has("autocmd")
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])
 
-    call unite#custom_source(
+    call unite#custom#source(
         \ 'file_rec,file_rec/async,file_mru,file,buffer,grep',
         \ 'ignore_globs',
         \ split(&wildignore, ",")
