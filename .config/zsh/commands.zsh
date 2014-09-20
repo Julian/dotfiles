@@ -59,9 +59,9 @@ if (( $+commands[ag] )); then
 
     # Find the pattern in tests / not in tests
     alias agg="ag --ignore '*test*'"
-    alias agp="ag --ignore '*test*' -G '\.py'"
+    alias agp="ag --ignore '*test*' --python"
     alias agt="ag -G '\btests?\b'"
-    alias agtp="ag -G '\btests?\b.*\.py'"
+    alias agpt="ag -G '\btests?\b.*\.py'"
 fi
 
 if (( $+commands[dircolors] )); then
