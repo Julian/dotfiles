@@ -22,6 +22,7 @@ HISTFILE=$ZDOTDIR/history
 SAVEHIST=$HISTSIZE
 
 setopt EXTENDED_HISTORY       # store date and execution times
+setopt HIST_FIND_NO_DUPS      # don't show me things I scroll past
 setopt HIST_IGNORE_DUPS       # ignore duplicates if last cmd is same
 setopt HIST_IGNORE_SPACE      # ignore lines beginning with spaces
 setopt HIST_EXPIRE_DUPS_FIRST # delete dupes from history first
