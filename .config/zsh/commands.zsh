@@ -41,6 +41,7 @@ alias fg=' fg'
 
 # noglobs
 alias find='noglob find'
+alias g='noglob git'
 alias git='noglob git'
 alias pip='noglob pip'
 
