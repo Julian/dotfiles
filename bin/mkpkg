@@ -256,6 +256,14 @@ files = {
             tests=tests,
             test_deps="\n    ".join(test_deps),
         ),
+
+    os.path.join(name, ".testr.conf") : """
+    [DEFAULT]
+    test_command=python -m subunit.run discover . $LISTOPT $IDOPTION
+    test_id_option=--load-list $IDFILE
+    test_list_option=--list
+    """.format(
+    ),
 }
 files.update(additional_files)
 
