@@ -4,8 +4,12 @@ import os
 import sys
 
 
-# Enable Pretty Printing for stdout
 def _pprint_displayhook(value):
+    """
+    Pretty print things by default in the REPL.
+
+    """
+
     import pprint
 
     if value is not None:
@@ -19,32 +23,6 @@ def _pprint_displayhook(value):
         pprint.pprint(value)
 
 sys.displayhook = _pprint_displayhook
-
-
-# bpython + django
-try:
-    from django.core.management import setup_environ
-    import settings
-    setup_environ(settings)
-except:
-    pass
-
-
-# If we're working with a Django project, set up the environment
-if 'DJANGO_SETTINGS_MODULE' in os.environ:
-    from django.db.models.loading import get_models
-    from django.test.client import Client
-    from django.test.utils import (setup_test_environment,
-                                   teardown_test_environment)
-    from django.conf import settings as S
-
-    class DjangoModelAggregate(object):
-        def __init__(self):
-            for m in get_models():
-                setattr(self, m.__name__, m)
-
-    M = DjangoModelAggregate()
-    C = Client()
 
 
 def edit(editor=None, *args, **kwargs):
