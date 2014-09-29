@@ -43,6 +43,7 @@ alias fg=' fg'
 alias find='noglob find'
 alias g='noglob git'
 alias git='noglob git'
+alias parallel='noglob parallel'
 alias pip='noglob pip'
 
 alias sed="sed -E"
