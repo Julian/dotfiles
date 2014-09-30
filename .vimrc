@@ -354,6 +354,7 @@ set suffixes+=.backup,.hbm,.ini             " lower priority when completing
 
 set wildmenu                                " file completion helper window
 set wildmode=longest:full,full
+set wildignorecase                          " ignore case in completions
 
 set wildignore+=*.db,*.o,*.obj
 set wildignore+=*.swp,*.bak,*.lock
