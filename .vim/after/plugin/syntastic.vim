@@ -2,7 +2,7 @@ let g:syntastic_error_symbol="✖"
 let g:syntastic_warning_symbol="✦"
 let g:syntastic_mode_map = {
             \ "mode" : "passive",
-            \ "active_filetypes" : ["python"],
+            \ "active_filetypes" : ["html", "python"],
             \ }
 
 let g:syntastic_python_checkers = ['pyflakes']
