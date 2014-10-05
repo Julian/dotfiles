@@ -34,7 +34,6 @@
     c = clone --recursive
     ci = commit
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-    cm = commit -m
     co = checkout
     cp = cherry-pick
     d = diff --ignore-all-space --ignore-blank-lines --word-diff
@@ -46,12 +45,12 @@
     noff = merge --no-ff
     up = "!git remote update --prune; git merge --ff-only @{u}"
     rmb = push --delete origin
-    s = status -s
+    s = status --short
     st = status
-    x = commit -m
+    x = commit --message
     amend = commit --amend
     changes = log HEAD..
-    authors = shortlog -sn
+    authors = shortlog --summary --numbered
     ctags = "!.git/hooks/ctags"
     fork = !sh -c 'git remote add $1 https://github.com/$1/$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-)) && git fetch $1' -
     issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
