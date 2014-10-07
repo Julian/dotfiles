@@ -22,7 +22,7 @@ function tunnel() {
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
-    alias up="brew update --rebase && brew upgrade"
+    alias up="brew update && brew upgrade"
 fi
 
 if (( $+commands[selecta] )); then
