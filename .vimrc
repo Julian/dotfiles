@@ -101,7 +101,7 @@ NeoBundle      'Shougo/unite.vim'
 NeoBundleLazy  'Shougo/unite-outline',              {'autoload': {'unite_sources': 'outline'}}
 NeoBundle      'tsukkee/unite-tag'
 
-" Develop         vim-runt
+Develop         vim-runt
 Develop         vim-textobj-brace
 Develop         vim-textobj-variable-segment
 
@@ -358,16 +358,16 @@ if exists('&wildignorecase')
     set wildignorecase                      " ignore case in completions
 endif
 
-set wildignore+=*.db,*.o,*.obj,*.so
+set wildignore+=*.db,*.o,*.obj
 set wildignore+=*.swp,*.bak,*.lock
 set wildignore+=*.git,*.hg,*.svn
-set wildignore+=MANIFEST,*.pyc,_trial_temp/,*.egg-info/,*.egg/,build/,.coverage,htmlcov/,dist/,_build/,.tox/,.testrepository/
+set wildignore+=MANIFEST,*.pyc,**/_trial_temp/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,**/_build/**,**/.tox/**,**/.testrepository/**
 set wildignore+=**/.vim-flavor/**
 set wildignore+=*DS_Store*
-set wildignore+=tmp/
+set wildignore+=**/tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-set wildignore+=*.app,*.dmg,*.pdf
-set wildignore+=.gems/,.chef/checksums/
+set wildignore+=*.app,*.dmg,*.pdf,*.so
+set wildignore+=**/.gems/**,**/.chef/checksums/**
 
 set complete-=i                             " this is slow apparently.
 
