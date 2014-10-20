@@ -67,15 +67,17 @@ fi
 #--- Named Directories -------------------------------------------------------
 
 function zsh_directory_name() {
-    # Search for a venv binary in the venv corresponding to the cwd
-    local project=${$(pwd):t:l}
-    local venv=$WORKON_HOME/$project/bin
-    if [[ -d "$venv" ]]; then
-        typeset -ga reply
-        reply=($venv/$2)
-    else
-        return 1
+    if [[ $1 == n ]]; then
+        # Search for a venv binary in the venv corresponding to the cwd
+        local project=${$(pwd):t:l}
+        local venv=$WORKON_HOME/$project/bin
+        if [[ -d "$venv" ]]; then
+            typeset -ga reply
+            reply=($venv/$2)
+            return 0
+        fi
     fi
+    return 1
 }
 
 #--- Local -------------------------------------------------------------------
