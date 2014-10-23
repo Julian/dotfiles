@@ -58,7 +58,7 @@ if (( $+commands[ag] )); then
     AG_OPTIONS='--smart-case'
     alias ag="noglob ag $AG_OPTIONS"
 
-    alias pag='parallel -X ag'
+    alias pag='command parallel -X ag'
 
     # Find the pattern in tests / not in tests
     alias agg="ag --ignore '*test*'"
