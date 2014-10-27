@@ -15,7 +15,7 @@
 [merge]
     conflictstyle = diff3
     defaultToUpstream = true
-    log = true
+    log = 50
     tool = vimdiff
 
 [difftool]
