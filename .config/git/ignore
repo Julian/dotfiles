@@ -52,6 +52,7 @@ htmlcov/
 
 .pep8
 
+dropin.cache
 twistd.log
 twistd.pid
 
