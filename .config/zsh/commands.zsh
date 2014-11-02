@@ -20,6 +20,10 @@ function tunnel() {
     networksetup -setsocksfirewallproxystate Wi-Fi off
 }
 
+if (( $+commands[colordiff] )); then
+    alias diff='colordiff'
+fi
+
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
     alias up="brew update && brew upgrade"
