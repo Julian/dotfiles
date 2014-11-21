@@ -1,5 +1,9 @@
 #! /bin/zsh
 # Generate a SSL certificate suitable for one-off testing of things over HTTPS
+# Example usage:
+#
+#   $ twistd -n web --port ssl:port=4443:privateKey=<(sslonce) --wsgi wsgi.app
+
 set -e
 
 local tempdir=$(python -c 'import tempfile; print tempfile.mkdtemp()')
