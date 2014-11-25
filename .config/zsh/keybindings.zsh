@@ -32,6 +32,8 @@ bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
 bindkey "^U" undo
 
+bindkey "^?" backward-delete-char
+
 bindkey "^[t" transpose-words
 bindkey "^[." insert-last-word
 
