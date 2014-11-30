@@ -13,6 +13,7 @@ let b:switch_definitions = [
     \ ["assertRegexpMatches", "assertNotRegexpMatches"],
     \ ["min", "max"],
     \ ["in", "not in"],
+    \ ["==", "!="],
 \ ]
 
 let s:python = substitute(system('which python || which pypy'), '\n', '', '')
