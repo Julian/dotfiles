@@ -16,4 +16,4 @@ path=(/usr/local/bin $HOME/.local/bin /usr/local/sbin $path)
 export DEVELOPMENT=$HOME/Development
 export EDITOR=vim
 
-cdpath=($cdpath $DEVELOPMENT)
+cdpath=($cdpath ${DEVELOPMENT} ${HOME}/Desktop)

@@ -19,8 +19,6 @@ zle -N self-insert url-quote-magic
 
 source $ZSHPLUGINS/zsh-fuzzy-match/fuzzy-match.zsh
 
-cdpath=($cdpath ${HOME}/Desktop)
-
 typeset -aU mailpath
 mailpath=($HOME/Mail $mailpath)
 
