@@ -239,17 +239,18 @@ files = {
         envlist = {envlist}
 
         [testenv]
+        changedir={{envtmpdir}}
         commands =
-            {test_runner} {tests}
-            {{envpython}} -m doctest README.rst
+            {test_runner} [] {tests}
+            {{envpython}} -m doctest {toxinidir}/README.rst
         deps =
             {test_deps}
 
         [testenv:style]
         commands =
-            pyflakes [] {tests}
+            flake8 [] --max-complexity 10 {tests}
         deps =
-            pyflakes
+            flake8
         """.format(
             envlist=", ".join(tox_envlist),
             test_runner=test_runner,
