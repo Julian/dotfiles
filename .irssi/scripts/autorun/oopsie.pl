@@ -1,0 +1,1 @@
+/Users/Julian/.irssi/scripts/oopsie.pl
