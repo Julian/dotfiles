@@ -288,7 +288,7 @@ nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
-nnoremap        <leader>t         :<C-U>diffthis<CR>
+nnoremap        <leader>t         :<C-U>DiffThese<CR>
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
@@ -576,6 +576,23 @@ let g:signify_vcs_list = ['git', 'hg']
 " ============
 
 if has("eval")
+    " diffthis with some sugar
+    function! s:DiffTheseCommand()
+        if &diff
+            diffoff!
+        else
+            diffthis
+
+            let window_count = tabpagewinnr(tabpagenr(), '$')
+            if window_count == 2
+                wincmd w
+                diffthis
+                wincmd w
+            endif
+        endif
+    endfun
+
+    command! DiffThese call <SID>DiffTheseCommand()
 
     " Split a window vertically if it would have at least 79 chars plus a bit
     " of padding, otherwise split it horizontally
