@@ -25,6 +25,14 @@ typeset -T NODEPATH nodepath
 nodepath=(/usr/local/lib/node)
 export NODEPATH
 
+typeset -aU perl_local_lib_root
+typeset -T PERL_LOCAL_LIB_ROOT perl_local_lib_root
+perl_local_lib_root=(${XDG_DATA_HOME}/perl5)
+typeset -aU perl5lib
+typeset -T PERL5LIB perl5lib
+perl5lib=($perl_local_lib_root/lib/perl5)
+export PERL5LIB PERL_LOCAL_LIB_ROOT
+
 typeset -aU pythonpath
 typeset -T PYTHONPATH pythonpath
 export PYTHONPATH
