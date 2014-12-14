@@ -53,6 +53,12 @@ if (( $+commands[berks] )); then
     export BERKSHELF_PATH=$XDG_DATA_HOME/berkshelf
 fi
 
+if (( $+commands[cpan] )); then
+    export CPAN_OPTS="-I -j $XDG_CONFIG_HOME/cpan/Config.pm"
+    export PERL_MB_OPT="--install_base '${PERL5LIB}'"
+    export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
+fi
+
 # virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
 if (( $+commands[virtualenvwrapper_lazy.sh] )); then
     export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
