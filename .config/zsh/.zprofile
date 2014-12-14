@@ -5,7 +5,7 @@ if [[ "$OSTYPE" == darwin* ]] ; then
         /usr/local/share/pypy
         /usr/local/share/pypy3
         ${gopath/%//bin}
-        ${perl5lib/%//bin}
+        ${perl_local_lib_root/%//bin}
         /usr/local/share/npm/bin
         $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
         $path
