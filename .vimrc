@@ -229,7 +229,7 @@ inoremap <C-W> <C-G>u<C-W>
 nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 
 " quote a word
-nmap <expr> yq 'ysiw' . (exists('b:preferred_quote_char') ? b:preferred_quote_char : '"')
+nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 
 "       '<F1>' is set to help
 "       '<F2>' is set to pastetoggle

@@ -1,8 +1,7 @@
 setlocal shiftwidth=2
 setlocal softtabstop=2
 
-let b:preferred_quote_char = "'"
-
+let b:use_single_quotes = 1
 
 imap <buffer> <C-l> <space>=><space>
 
