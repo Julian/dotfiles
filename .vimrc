@@ -114,7 +114,7 @@ endif
 if s:load_dynamic_plugins
     NeoBundle 'davidhalter/jedi-vim'
     if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-        NeoBundle 'Shougo/neocomplete'
+        NeoBundle 'Shougo/neocomplete.vim'
     endif
 endif
 
