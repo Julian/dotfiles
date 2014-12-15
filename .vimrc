@@ -179,7 +179,7 @@ cnoreabbrev X x
 
 " testing mappings
 nnoremap      <expr><CR>      ":Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#file(expand("%")) : t:runt_last_command)                  .  "<CR>"
-nnoremap      <expr>d<CR>     ":SplitSensibly " .  runt#find_file(expand("%"))                                                                              .  "<CR>"
+nnoremap      <expr>d<CR>     ":SplitSensibly " .  runt#find_test_file_for(expand("%"))                                                                              .  "<CR>"
 nnoremap      <expr>dc        ":Dispatch "      .   (empty(get(t:, 'runt_last_command', '')) ? runt#class(expand("%"), getpos(".")) : t:runt_last_command)  .  "<CR>"
 nnoremap      <expr>dm        ":Dispatch "      .   (empty(get(t:, 'runt_last_command', '')) ? runt#method(expand("%"), getpos(".")) : t:runt_last_command) .  "<CR>"
 nnoremap            dx         :Dispatch        tox                                                                                                             <CR>
