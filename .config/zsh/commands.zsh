@@ -64,7 +64,7 @@ fi
 
 if (( $+commands[ag] )); then
     AG_OPTIONS='--smart-case'
-    alias ag="noglob ag $AG_OPTIONS"
+    alias ag="ag $AG_OPTIONS"
 
     alias pag='parallel"" -X ag'
 
