@@ -13,6 +13,7 @@ export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
+export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
 export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
 typeset -aU gopath
