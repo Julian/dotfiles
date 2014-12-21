@@ -4,15 +4,20 @@ if [[ "$OSTYPE" == darwin* ]] ; then
     path=(
         /usr/local/share/pypy
         /usr/local/share/pypy3
-        ${gopath/%//bin}
-        ${perl_local_lib_root/%//bin}
         /usr/local/share/npm/bin
         $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
         $path
     )
 fi
 
-path=(/usr/local/bin $HOME/.local/bin /usr/local/sbin $path)
+path=(
+    /usr/local/bin
+    $HOME/.local/bin
+    /usr/local/sbin
+    ${gopath/%//bin}
+    ${perl_local_lib_root/%//bin}
+    $path
+)
 
 export DEVELOPMENT=$HOME/Development
 export EDITOR=vim
