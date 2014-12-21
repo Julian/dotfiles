@@ -22,4 +22,4 @@ path=(
 export DEVELOPMENT=$HOME/Development
 export EDITOR=vim
 
-cdpath=($cdpath ${DEVELOPMENT} ${HOME}/Desktop)
+cdpath=(${DEVELOPMENT} ${HOME}/Desktop ${HOME} $cdpath)
