@@ -40,6 +40,7 @@ NeoBundle      'altercation/vim-colors-solarized'
 NeoBundle      'chriskempson/tomorrow-theme',       {'rtp' : 'vim/'}
 NeoBundle      'noahfrederick/Hemisu'
 NeoBundle      'sickill/vim-monokai'
+NeoBundle      'w0ng/vim-hybrid'
 
 " --- Additional Filetype Support ---
 
@@ -423,7 +424,7 @@ set undolevels=500                                  " more undo
 
 set background=dark                    " make sure this is before colorschemes
 
-let g:preferred_colorscheme = 'Tomorrow-Night-Eighties'
+let g:preferred_colorscheme = 'hybrid'
 
 if has('gui_running') || &t_Co > 8
     execute 'silent colorscheme ' . g:preferred_colorscheme
