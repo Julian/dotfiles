@@ -203,6 +203,9 @@ vmap Q gq
 " change Y to act like C, D
 map Y y$
 
+nnoremap : ;
+nnoremap ; :
+
 " swap ' and `
 noremap ' `
 noremap ` '
