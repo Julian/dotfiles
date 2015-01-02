@@ -189,7 +189,7 @@ nnoremap      <expr>dS        ":Dispatch "      .   (empty(get(t:, 'runt_last_co
 
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
-map sS <Plug>(ExchangeClear)
+map sx <Plug>(ExchangeClear)
 
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
