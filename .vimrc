@@ -205,6 +205,8 @@ map Y y$
 
 nnoremap : ;
 nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 
 " swap ' and `
 noremap ' `
