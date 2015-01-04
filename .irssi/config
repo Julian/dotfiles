@@ -295,6 +295,7 @@ aliases = {
   99 = "/window 99";
   access = "/msg ChanServ access";
   history = "/quote HISTORY";
+  ops = "/msg chanserv access list";
 };
 
 statusbar = {
