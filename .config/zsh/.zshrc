@@ -73,17 +73,26 @@ fi
 #--- Named Directories -------------------------------------------------------
 
 function zsh_directory_name() {
-    if [[ $1 == n ]]; then
+    if [[ $1 == n || $1 == c ]]; then
         # Search for a venv binary in the venv corresponding to the cwd
         local project=${$(pwd):t:l}
         local venv=$WORKON_HOME/$project/bin
+
         if [[ -d "$venv" ]]; then
-            typeset -ga reply
-            reply=($venv/$2)
-            return 0
+            if [[ $1 == n ]]; then  # name -> directory
+                typeset -ga reply
+                reply=($venv/$2)
+                return
+            else                    # completion
+                local expl
+                local binaries
+                _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -W "$venv" -S\]
+                return
+            fi
         fi
+    else
+        return 1
     fi
-    return 1
 }
 
 #--- Local -------------------------------------------------------------------
