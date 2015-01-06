@@ -240,16 +240,7 @@ nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 "       '<F1>' is set to help
 "       '<F2>' is set to pastetoggle
 let s:all_modes_mappings = {
-    \   '<F3>'  : ':<C-U>DiffChangesDiffToggle<CR>',
-    \   '<F4>'  : ':<C-U>call <SID>ToggleExpando()<CR>',
-    \   '<F5>'  : ':<C-U>QuickhlCwordToggle<CR>',
-    \   '<F6>'  : ':<C-U>IndentGuidesToggle<CR>',
-    \   '<F7>'  : ':<C-U>TagbarToggle<CR>',
-    \   '<F8>'  : ':<C-U>UndotreeToggle<CR>',
-    \   '<F9>'  : ':<C-U>make<CR>',
-    \   '<F10>' : ':<C-U>set list!<CR>',
-    \   '<F11>' : ':<C-U>set spell!<CR>',
-    \   '<F12>' : ':<C-U>set wrap!<CR>',
+    \   '<F12>'  : ':<C-U>make<CR>',
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
@@ -294,7 +285,17 @@ nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
 nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
-nnoremap        <leader>t         :<C-U>DiffThese<CR>
+
+nnoremap        <leader>ta        :<C-U>TagbarToggle<CR>
+nnoremap        <leader>tc        :<C-U>DiffChangesDiffToggle<CR>
+nnoremap        <leader>td        :<C-U>DiffThese<CR>
+nnoremap        <leader>te        :<C-U>call <SID>ToggleExpando()<CR>
+nnoremap        <leader>ti        :<C-U>IndentGuidesToggle<CR>
+nnoremap        <leader>tl        :<C-U>set list!<CR>
+nnoremap        <leader>ts        :<C-U>set spell!<CR>
+nnoremap        <leader>tu        :<C-U>UndotreeToggle<CR>
+nnoremap        <leader>tw        :<C-U>set wrap!<CR>
+
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
