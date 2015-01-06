@@ -86,7 +86,7 @@ function zsh_directory_name() {
             else                    # completion
                 local expl
                 local binaries
-                _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -W "$venv" -S\]
+                _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -g '*(*)' -W "$venv" -S\]
                 return
             fi
         fi
