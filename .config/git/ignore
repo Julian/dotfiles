@@ -29,18 +29,6 @@ Thumbs.db
 
 # Temporary Files #
 # --------------- #
-*.pyc
-*.pyo
-__pycache__/
-
-_trial_temp*/
-_trial_temp*.lock
-
-.coverage
-htmlcov/
-
-.tox
-
 .vagrant
 
 .kitchen
@@ -48,13 +36,24 @@ htmlcov/
 
 # Python #
 # ------ #
+*.pyc
+*.pyo
+__pycache__/
+
+dropin.cache
+twistd.*log
+twistd.*pid
+_trial_temp*/
+_trial_temp*.lock
+
 .ropeproject/
 
 .pep8
 
-dropin.cache
-twistd.log
-twistd.pid
+.coverage
+htmlcov/
+
+.tox
 
 .testr.conf
 .testrepository/
