@@ -12,17 +12,23 @@
     algorithm = histogram
     tool = vimdiff
 
+[difftool]
+    prompt = false
+
 [merge]
     conflictstyle = diff3
     defaultToUpstream = true
     log = 50
     tool = vimdiff
 
-[difftool]
-    prompt = false
+[push]
+    default = simple
 
 [rebase]
     autostash = true
+
+[svn]
+    rmdir = true
 
 [alias]
     b = branch
@@ -73,9 +79,6 @@
     l = "!. $XDG_CONFIG_HOME/git/helpers && pretty_git_log"
     la = !git l --all
 
-[push]
-    default = simple
-
 [url "git@github.com:"]
     insteadOf = "gh:"
     pushInsteadOf = "github:"
@@ -91,5 +94,3 @@
 
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
-[svn]
-    rmdir = true
