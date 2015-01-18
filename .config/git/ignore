@@ -38,6 +38,7 @@ Thumbs.db
 *.pyo
 __pycache__/
 
+.eggs/
 *.egg-info
 MANIFEST
 
