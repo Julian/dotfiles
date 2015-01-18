@@ -59,7 +59,8 @@ alias sed="sed -E"
 if ls --color &> /dev/null; then
     alias ls='ls --color=auto --human-readable --group-directories-first'
 else
-    alias ls='ls -Gh'
+    export CLICOLOR=true
+    alias ls='ls -h'
 fi
 
 if (( $+commands[ag] )); then
