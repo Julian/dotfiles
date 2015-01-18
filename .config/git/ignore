@@ -2,7 +2,7 @@
 # ================ #
 
 # Compiled source #
-# ---------------- #
+# --------------- #
 *.com
 *.class
 *.dll
@@ -10,11 +10,9 @@
 *.o
 *.so
 
-*.egg-info
 _build
 build
 dist
-MANIFEST
 
 # OS Generated Files #
 # ------------------ #
@@ -39,6 +37,9 @@ Thumbs.db
 *.pyc
 *.pyo
 __pycache__/
+
+*.egg-info
+MANIFEST
 
 dropin.cache
 twistd.*log
@@ -71,3 +72,9 @@ tags
 Gemfile.lock
 Berksfile.lock
 .pryrc
+
+# JavaScript #
+# ---------- #
+
+node_packages/
+bower_components/
