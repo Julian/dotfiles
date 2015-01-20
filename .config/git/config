@@ -15,6 +15,9 @@
 [difftool]
     prompt = false
 
+[gpg]
+    program = gpg2
+
 [merge]
     conflictstyle = diff3
     defaultToUpstream = true
