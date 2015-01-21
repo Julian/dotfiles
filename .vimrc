@@ -597,7 +597,7 @@ if has("eval")
                 wincmd w
             endif
         endif
-    endfun
+    endfunction
 
     command! DiffThese call <SID>DiffTheseCommand()
 
@@ -622,7 +622,7 @@ if has("eval")
 
     function! SplitSensibly(path)
         call <SID>SplitSensiblyCommand(a:path)
-    endfun
+    endfunction
 
     command! -nargs=* -complete=file SplitSensibly call <SID>SplitSensiblyCommand('<args>')
     command! -nargs=* -complete=file Ss call <SID>SplitSensiblyCommand('<args>')
@@ -644,7 +644,7 @@ if has("eval")
                 setlocal nonumber
             endif
         endif
-    endfun
+    endfunction
 
     " Toggle the quick fix window
     function! <SID>ToggleQuickfix()
@@ -663,7 +663,7 @@ if has("eval")
                 let s:quickfix_open = 1
             endif
         endif
-    endfun
+    endfunction
 
     " Expand the active window
     function! <SID>ToggleExpando()
@@ -683,7 +683,7 @@ if has("eval")
                 endif
             augroup END
         endif
-    endfun
+    endfunction
 
     " Format tagged comment blocks based on the post-tag indentation
     let b:comment_tags = ['TODO', 'XXX', 'FIXME']
