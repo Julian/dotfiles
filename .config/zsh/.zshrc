@@ -44,11 +44,6 @@ else
     GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 fi
 
-# Use Keychain for gpg-agent handling
-if (( $+commands[keychain] )) && (( $+commands[gpg-agent] )); then
-    eval $(keychain --eval --agents gpg --quick --quiet --inherit any id_rsa)
-fi
-
 if (( $+commands[berks] )); then
     export BERKSHELF_PATH=$XDG_DATA_HOME/berkshelf
 fi
