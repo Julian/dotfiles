@@ -61,10 +61,10 @@ nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 "       from foo import bar <=> import foo
 nmap <buffer> <silent><LocalLeader>a F[i.<Esc>lds]ds"ds'
 nmap <buffer> <silent><LocalLeader>d T.Xysw]lysiw"
-nmap <buffer> <silent><LocalLeader>f :s/^import \(\i*\)/from \1 import /<CR>$
-nmap <buffer> <silent><LocalLeader>i :s/^from \(\i*\) import .*/import \1/<CR>
+nnoremap <buffer> <silent><LocalLeader>f :s/^import \([a-zA-Z.]*\)/from \1 import /e<CR>$
+nnoremap <buffer> <silent><LocalLeader>i :s/^from \([a-zA-z.]*\) import .*/import \1/<CR>
 
-vmap <buffer> <silent><LocalLeader>' :s/'/"<CR>
+vnoremap <buffer> <silent><LocalLeader>' :s/'/"<CR>
 
 " --------------------- from here on requires +python -------------------------
 if !has("python")
