@@ -60,6 +60,7 @@ nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 " f / i
 "       from foo import bar <=> import foo
 nmap <buffer> <silent><LocalLeader>a F[i.<Esc>lds]ds"ds'
+nnoremap <buffer> <silent><LocalLeader>b lBiimport pudb; pudb.runcall(<Esc>f(cl, <Esc>
 nmap <buffer> <silent><LocalLeader>d T.Xysw]lysiw"
 nnoremap <buffer> <silent><LocalLeader>f :s/^import \([a-zA-Z.]*\)/from \1 import /e<CR>$
 nnoremap <buffer> <silent><LocalLeader>i :s/^from \([a-zA-z.]*\) import .*/import \1/<CR>
