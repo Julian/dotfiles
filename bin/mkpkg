@@ -77,7 +77,7 @@ parser.add_argument(
     action="append",
     help="a version of Python supported by the package",
     choices=sorted(VERSION_CLASSIFIERS) + ["jython", "pypy"],
-    default=["py26", "py27", "py34", "pypy"],
+    default=["py27", "py34", "pypy"],
 )
 parser.add_argument(
     "-t", "--test-runner",
