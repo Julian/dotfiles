@@ -36,9 +36,7 @@ NeoBundle      'Shougo/vimproc', {
 
 " --- Themes ---
 
-NeoBundle      'altercation/vim-colors-solarized'
 NeoBundle      'chriskempson/tomorrow-theme',       {'rtp' : 'vim/'}
-NeoBundle      'noahfrederick/Hemisu'
 NeoBundle      'sickill/vim-monokai'
 NeoBundle      'w0ng/vim-hybrid'
 
