@@ -96,17 +96,13 @@ else:
     setup = "from setuptools import find_packages, setup"
     packages = "find_packages()"
 
-init_contents = """
-    __version__ = "{version}"
-""".format(version=arguments.initial_version)
-
 if arguments.single_module:
     packages = "()"
     modules = '["{name}"]'.format(name=name.lower())
     tests = "tests.py"
 
     additional_files = {
-        os.path.join(name, name.lower() + ".py") : init_contents,
+        os.path.join(name, name.lower() + ".py") : "",
         os.path.join(name, "tests.py") : "",
     }
 else:
@@ -114,7 +110,6 @@ else:
     tests = name.lower()
 
     additional_files = {
-        os.path.join(name, name.lower(), "__init__.py") : init_contents,
         os.path.join(name, name.lower(), "tests", "__init__.py") : "",
     }
 
@@ -204,8 +199,6 @@ files = {
 
         {setup_import}
 
-        from {name} import __version__
-
 
         with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
             long_description = readme.read()
@@ -214,9 +207,10 @@ files = {
 
         setup(
             name="{name}",
-            version=__version__,
             packages={packages},
             py_modules={modules},
+            setup_requires=["vcversioner"],
+            vcversioner={{"version_module_paths": ["{name}/__init__.py"]}},
             author="{author}",
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
