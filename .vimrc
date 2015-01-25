@@ -493,8 +493,8 @@ set incsearch                          " do incremental searching
 set hlsearch                           " hilight searches
 
 if executable("ag")                        " if the silver searcher's around...
-    set grepprg=ag\ --column\ --nogroup\ --nocolor\ --smart-case
-    set grepformat=%f:%l:%c:%m,%f
+    set grepprg=ag\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
 elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
     set grepprg=/usr/local/bin/grep
 endif
