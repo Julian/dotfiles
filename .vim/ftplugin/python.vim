@@ -57,14 +57,18 @@ nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
 
 " a / d
 "       foo.bar.baz <=> foo["bar"]["baz"]
+" b
+"       foo(bar, baz) => pudb.runcall(foo, bar, baz)
 " f / i
 "       from foo import bar <=> import foo
-nmap <buffer> <silent><LocalLeader>a F[i.<Esc>lds]ds"ds'
+" k
+"       foo({"bar" : "baz"}) => foo(bar=baz)
+nmap     <buffer> <silent><LocalLeader>a F[i.<Esc>lds]ds"ds'
 nnoremap <buffer> <silent><LocalLeader>b lBiimport pudb; pudb.runcall(<Esc>f(cl, <Esc>
-nmap <buffer> <silent><LocalLeader>d T.Xysw]lysiw"
+nmap     <buffer> <silent><LocalLeader>d T.Xysw]lysiw"
 nnoremap <buffer> <silent><LocalLeader>f :s/^import \([a-zA-Z.]*\)/from \1 import /e<CR>$
 nnoremap <buffer> <silent><LocalLeader>i :s/^from \([a-zA-z.]*\) import .*/import \1/<CR>
-
+nmap     <buffer> <silent><LocalLeader>k va};s/\%V\i\?"\([^"]\+\)" \?: \?/\1=<CR>ds}
 vnoremap <buffer> <silent><LocalLeader>' :s/'/"<CR>
 
 " --------------------- from here on requires +python -------------------------
