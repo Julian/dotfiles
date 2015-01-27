@@ -544,7 +544,7 @@ endif
 " signature
 let g:SignatureMap = {
       \ 'Leader'             :  "m",
-      \ 'PlaceNextMark'      :  ",",
+      \ 'PlaceNextMark'      :  "m,",
       \ 'PurgeMarks'         :  "<Space>",
       \ 'PurgeMarkers'       :  "<BS>",
       \ 'GotoNextLineAlpha'  :  "",
