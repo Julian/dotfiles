@@ -1,6 +1,8 @@
 # Globally Ignored #
 # ================ #
 
+.git/
+
 # Compiled source #
 # --------------- #
 *.com
