@@ -6,6 +6,7 @@ import errno
 import os
 import pwd
 import sys
+import subprocess
 import textwrap
 
 
@@ -55,11 +56,6 @@ parser.add_argument(
     choices=STATUS_CLASSIFIERS,
     default="alpha",
     help="the initial package development status",
-)
-parser.add_argument(
-    "--initial-version",
-    default="0.1.0-dev",
-    help="the initial package version",
 )
 parser.add_argument(
     "--use-distutils",
@@ -193,7 +189,9 @@ files = {
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
         """.format(now=datetime.datetime.now(), author=arguments.author),
-
+    os.path.join(name, "MANIFEST.in") : """
+    include version.txt
+    """,
     os.path.join(name, "setup.py") : """
         import os
 
@@ -278,3 +276,6 @@ for path, content in files.iteritems():
 
     with open(path, "wb") as file:
         file.write(dedented(content))
+
+
+subprocess.check_call(["git", "init", name])
