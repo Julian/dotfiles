@@ -1,5 +1,6 @@
 #--- Aliases -----------------------------------------------------------------
 
+alias d=diff --ignore-space-change
 alias di=diff
 
 # ss<x> aliases:
@@ -85,7 +86,7 @@ fi
 if (( $+commands[fasd])); then
     export _FASD_DATA=$XDG_DATA_HOME/fasd/fasd
     export _FASD_VIMINFO=$XDG_CACHE_HOME/vim/info
-    eval "$(fasd --init auto)"
+    # eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 fi
 
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
