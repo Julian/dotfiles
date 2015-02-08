@@ -1,8 +1,5 @@
 #--- Aliases -----------------------------------------------------------------
 
-alias d=diff --ignore-space-change
-alias di=diff
-
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
 # t: tmux attach
@@ -26,6 +23,10 @@ function tunnel() {
 if (( $+commands[colordiff] )); then
     alias diff='colordiff'
 fi
+function d() {
+    wdiff -n $@ | diff
+}
+alias di=diff
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
