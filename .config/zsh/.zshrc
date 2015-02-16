@@ -54,24 +54,13 @@ if (( $+commands[cpan] )); then
     export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
 fi
 
-# virtualenvwraper (needs to be sourced *after* the PATH is set correctly)
-if (( $+commands[virtualenvwrapper_lazy.sh] )); then
-    export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
-    export PROJECT_HOME=$DEVELOPMENT
-    export VIRTUALENV_USE_SETUPTOOLS=true
-    export PIP_VIRTUALENV_BASE=$WORKON_HOME
-    source virtualenvwrapper_lazy.sh
-
-    alias p='workon ${$(pwd):t}'
-fi
-
 #--- Named Directories -------------------------------------------------------
 
 function zsh_directory_name() {
     if [[ $1 == n || $1 == c ]]; then
         # Search for a venv binary in the venv corresponding to the cwd
         local project=${$(pwd):t:l}
-        local venv=$WORKON_HOME/$project/bin
+        local venv=$XDG_DATA_HOME/virtualenvs/$project/bin
 
         if [[ -d "$venv" ]]; then
             if [[ $1 == n ]]; then  # name -> directory
