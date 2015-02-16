@@ -1,8 +1,5 @@
 export ZSHPLUGINS=$ZDOTDIR/plugins
 
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
-
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -46,10 +43,12 @@ export HGRCPATH
 if [[ "$OSTYPE" == darwin* ]]
 then
     export BROWSER=open
+
+    export XDG_CACHE_HOME=$HOME/Library/Caches
+    export XDG_DATA_HOME=$HOME/Library/Application\ Support
+
     nodepath=(/usr/local/lib/node_modules $nodepath)
-elif [[ -a /etc/arch-release ]]
-then
-    # "Arch -- Let's Make Python Difficult, Together."
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv2
+else
+    export XDG_CACHE_HOME=$HOME/.cache
+    export XDG_DATA_HOME=$HOME/.local/share
 fi

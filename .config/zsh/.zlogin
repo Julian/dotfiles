@@ -9,7 +9,7 @@ function compile-ssh-config() {
 EOF
     for file in ~/.ssh/config.d/*; do
         printf "\n# --- $file ---\n" >> ~/.ssh/config
-        cat $file >> ~/.ssh/config
+        sed 's;\$(XDG_CACHE_HOME|{XDG_CACHE_HOME});'"${XDG_CACHE_HOME};" $file >> ~/.ssh/config
     done
 }
 
