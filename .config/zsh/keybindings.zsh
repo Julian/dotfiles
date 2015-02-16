@@ -36,6 +36,7 @@ bindkey "^W" backward-kill-word
 
 bindkey "^?" backward-delete-char
 
+bindkey "^[l" quote-line
 bindkey "^[t" transpose-words
 bindkey "^[." insert-last-word
 
