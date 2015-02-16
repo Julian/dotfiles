@@ -27,5 +27,7 @@ zstyle ':completion:*' squeeze-slashes true
 # cd will never select the parent directory (e.g.: cd ../<TAB>):
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+zstyle ':completion:*:ls:*' file-patterns '%p:globbed-files' '*(/):directories'
+
 # make sure history-substring-search is after syntax-highlighting
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
