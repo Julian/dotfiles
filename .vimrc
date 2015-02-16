@@ -117,6 +117,7 @@ if s:load_dynamic_plugins
     endif
 endif
 
+silent! runtime ftplugin/man.vim
 silent! runtime macros/matchit.vim
 
 call neobundle#end()
