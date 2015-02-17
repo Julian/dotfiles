@@ -60,7 +60,7 @@ function zsh_directory_name() {
     if [[ $1 == n || $1 == c ]]; then
         # Search for a venv binary in the venv corresponding to the cwd
         local project=${$(pwd):t:l}
-        local venv=$XDG_DATA_HOME/virtualenvs/$project/bin
+        local venv=$VIRTUALENVS/$project/bin
 
         if [[ -d "$venv" ]]; then
             if [[ $1 == n ]]; then  # name -> directory

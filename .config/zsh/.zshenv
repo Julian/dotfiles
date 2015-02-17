@@ -46,9 +46,11 @@ then
 
     export XDG_CACHE_HOME=$HOME/Library/Caches
     export XDG_DATA_HOME=$HOME/Library/Application\ Support
+    export VIRTUALENVS=$HOME/.local/share/virtualenvs
 
     nodepath=(/usr/local/lib/node_modules $nodepath)
 else
     export XDG_CACHE_HOME=$HOME/.cache
     export XDG_DATA_HOME=$HOME/.local/share
+    export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
 fi
