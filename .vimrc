@@ -55,7 +55,6 @@ NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': [
 " --- Plugins ---
 
 NeoBundle      'alfredodeza/coveragepy.vim',        {'autoload': {'filetypes': ['python']}}
-NeoBundle      'alfredodeza/pytest.vim',            {'autoload': {'filetypes': ['python']}}
 NeoBundle      'AndrewRadev/linediff.vim'
 NeoBundle      'AndrewRadev/splitjoin.vim'
 NeoBundle      'AndrewRadev/switch.vim'
@@ -74,7 +73,6 @@ NeoBundle      'mhinz/vim-signify'
 NeoBundle      'mbbill/undotree'
 NeoBundleLazy  'nathanaelkane/vim-indent-guides',   {'autoload': {'commands': ['IndentGuidesToggle']}}
 NeoBundle      'Raimondi/delimitMate'
-NeoBundle      'rhysd/clever-f.vim'
 NeoBundleLazy  'scrooloose/syntastic',              {'autoload': {'commands': ['SyntasticCheck']}}
 NeoBundle      't9md/vim-quickhl'
 NeoBundle      'tommcdo/vim-exchange'
@@ -85,7 +83,6 @@ NeoBundle      'tpope/vim-endwise'
 NeoBundle      'tpope/vim-fugitive'
 NeoBundleLazy  'tpope/vim-obsession',               {'autoload': {'commands': ['Obsession']}}
 NeoBundle      'tpope/vim-repeat'
-NeoBundle      'tpope/vim-rhubarb'
 NeoBundle      'tpope/vim-surround'
 NeoBundle      'Valloric/MatchTagAlways',           {'autoload': {'filetypes': ['html', 'xhtml', 'xml', 'jinja']}}
 NeoBundle      'Valodim/vim-zsh-completion'

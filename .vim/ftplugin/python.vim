@@ -47,14 +47,6 @@ endfunction
 " inoremap <buffer> ] ]<C-G>u<C-O>:call Reindent(']')<CR><Right>
 " inoremap <buffer> ) )<C-G>u<C-O>:call Reindent(')')<CR><Right>
 
-nmap <buffer> <silent><Leader>jf <Esc>:Pytest file<CR>
-nmap <buffer> <silent><Leader>jc <Esc>:Pytest class<CR>
-nmap <buffer> <silent><Leader>jm <Esc>:Pytest method<CR>
-
-nmap <buffer> <silent><Leader>jn <Esc>:Pytest next<CR>
-nmap <buffer> <silent><Leader>jp <Esc>:Pytest previous<CR>
-nmap <buffer> <silent><Leader>je <Esc>:Pytest error<CR>
-
 " a / d
 "       foo.bar.baz <=> foo["bar"]["baz"]
 " b
