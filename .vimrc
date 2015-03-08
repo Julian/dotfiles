@@ -288,6 +288,7 @@ nnoremap        <leader>td        :<C-U>DiffThese<CR>
 nnoremap        <leader>te        :<C-U>call <SID>ToggleExpando()<CR>
 nnoremap        <leader>ti        :<C-U>IndentGuidesToggle<CR>
 nnoremap        <leader>tl        :<C-U>set list!<CR>
+nnoremap        <leader>tq        :<C-U>call <SID>ToggleQuickfix()<CR>
 nnoremap        <leader>ts        :<C-U>set spell!<CR>
 nnoremap        <leader>tu        :<C-U>UndotreeToggle<CR>
 nnoremap        <leader>tw        :<C-U>set wrap!<CR>
