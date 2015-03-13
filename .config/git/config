@@ -31,7 +31,7 @@
     autostash = true
 
 [rerere]
-	enabled = true
+    enabled = true
 
 [svn]
     rmdir = true
