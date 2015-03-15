@@ -72,7 +72,6 @@ NeoBundle      'majutsushi/tagbar'
 NeoBundle      'mhinz/vim-signify'
 NeoBundle      'mbbill/undotree'
 NeoBundleLazy  'nathanaelkane/vim-indent-guides',   {'autoload': {'commands': ['IndentGuidesToggle']}}
-NeoBundle      'Raimondi/delimitMate'
 NeoBundleLazy  'scrooloose/syntastic',              {'autoload': {'commands': ['SyntasticCheck']}}
 NeoBundle      't9md/vim-quickhl'
 NeoBundle      'tommcdo/vim-exchange'
