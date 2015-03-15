@@ -84,6 +84,7 @@
     ra = !git r --all
     l = "!. $XDG_CONFIG_HOME/git/helpers && pretty_git_log"
     la = !git l --all
+    q = !git r @{u}..
 
 [url "git@github.com:"]
     insteadOf = "gh:"
