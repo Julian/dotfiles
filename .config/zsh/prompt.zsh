@@ -20,10 +20,10 @@ prompt_jobs() {
     local stopped_job_count=`jobs -s | wc -l`
 
     if (( running_job_count > 0 )) ; then
-        PROMPT_JOBS=" %{$fg[green]%}●%{$reset_color%}"
+        PROMPT_JOBS=" %{%F{green}%}●%f"
     fi
     if (( stopped_job_count > 0 )) ; then
-        PROMPT_JOBS="$PROMPT_JOBS %{$fg[yellow]%}●%{$reset_color%}"
+        PROMPT_JOBS="$PROMPT_JOBS %{%F{yellow}%}●%f"
     fi
 }
 
@@ -37,7 +37,7 @@ prompt_char='⊙'
 if [[ -z $USE_MINI_PROMPT ]]; then
 PS1='
 %15<...<%~ ${vcs_info_msg_0_}
-%(!.%{$fg[red]%}$prompt_char%{$reset_color%}.%{$fg[cyan]%}$prompt_char%{$reset_color%})  '
+%(!.%{%F{red}%}$prompt_char%f.%{%F{cyan}%}$prompt_char%f)  '
 else
     PS1='%15<...<%~ $prompt_char '
 fi
