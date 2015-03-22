@@ -74,9 +74,13 @@ def set_up_vim(arguments):
         print "Can't find a vim at {0}! Skipping...".format(arguments.vim)
         return
 
-    cache = os.environ.get("XDG_CACHE_HOME", os.path.expanduser("~/.cache"))
+    zsh_cache_process = subprocess.Popen(
+        ["zsh", "-c", "echo $XDG_CACHE_HOME"], stdout=subprocess.PIPE,
+    )
+    cache_dir = zsh_cache_process.communicate()[0][:-1]
+
     try:
-        os.makedirs(os.path.join(cache, "vim"))
+        os.makedirs(os.path.join(cache_dir, "vim"))
     except OSError as error:
         if error.errno != errno.EEXIST:
             raise
