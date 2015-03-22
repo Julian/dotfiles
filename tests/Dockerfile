@@ -1,13 +1,13 @@
-FROM python:2
+FROM debian:testing
 MAINTAINER Julian Berman <Julian+Dotfiles@GrayVines.com>
 
 RUN apt-get update
-RUN apt-get install -y zsh
+RUN apt-get install -y git python-pip vim-nox zsh
 
-RUN pip install --quiet green
-RUN git clone --recursive https://github.com/Julian/dotfiles ${HOME}/.dotfiles
-RUN ${HOME}/.dotfiles/dot install
+RUN python -m pip install --quiet green
+RUN git clone --recursive https://github.com/Julian/dotfiles /root/.dotfiles
+RUN /root/.dotfiles/dot install
 
-ADD . $HOME/.dotfiles/tests
-WORKDIR $HOME/.dotfiles/tests
+ADD . /root/.dotfiles/tests
+WORKDIR /root/.dotfiles/tests
 CMD green tests
