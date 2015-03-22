@@ -55,7 +55,7 @@ NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': [
 " --- Plugins ---
 
 NeoBundle      'alfredodeza/coveragepy.vim',        {'autoload': {'filetypes': ['python']}}
-NeoBundle      'AndrewRadev/linediff.vim'
+NeoBundle      'AndrewRadev/linediff.vim',          {'autoload': {'commands': ['LineDiff']}}
 NeoBundle      'AndrewRadev/splitjoin.vim'
 NeoBundle      'AndrewRadev/switch.vim'
 NeoBundle      'b4winckler/vim-angry'
@@ -144,8 +144,6 @@ let &showbreak='↪   '
 set fillchars=diff:·
 
 set pastetoggle=<F2>                   " use f2 to toggle paste mode
-
-silent! set cryptmethod=blowfish       " use blowfish for encryption
 
 set isfname-==                         " remove =, which probably is an assign
 
