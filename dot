@@ -85,8 +85,12 @@ def set_up_vim(arguments):
         if error.errno != errno.EEXIST:
             raise
 
-    subprocess.Popen(
-        [arguments.vim, "-E", "-c", ":NeoBundleInstall", "-c", ":quitall"],
+    subprocess.call(
+        [
+            arguments.vim, "-T", "dumb", "-E",
+            "-c", "NeoBundleInstall",
+            "-c", "quitall",
+        ],
     )
 
 
