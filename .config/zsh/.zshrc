@@ -51,7 +51,7 @@ fi
 if (( $+commands[cpan] )); then
     export CPAN_OPTS="-I -j $XDG_CONFIG_HOME/cpan/Config.pm"
     export PERL_MB_OPT="--install_base '${PERL5LIB}'"
-    export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
+    export PERL_MM_OPT="INSTALL_BASE='${PERL5LIB}'"
 fi
 
 #--- Named Directories -------------------------------------------------------
