@@ -16,8 +16,8 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 prompt_jobs() {
     PROMPT_JOBS=''
 
-    local running_job_count=`jobs -r | wc -l`
-    local stopped_job_count=`jobs -s | wc -l`
+    local running_job_count=$(jobs -r | wc -l)
+    local stopped_job_count=$(jobs -s | wc -l)
 
     if (( running_job_count > 0 )) ; then
         PROMPT_JOBS=" %{%F{green}%}●%f"
