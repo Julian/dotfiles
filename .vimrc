@@ -198,6 +198,7 @@ map Y y$
 
 nnoremap : ;
 nnoremap ; :
+nnoremap q; q:
 vnoremap : ;
 vnoremap ; :
 
