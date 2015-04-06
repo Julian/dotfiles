@@ -238,8 +238,8 @@ let s:all_modes_mappings = {
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
-    \   '<Left>' : '<Nop>',
-    \   '<Right>' : '<Nop>'
+    \   '<Left>' : ':diffget',
+    \   '<Right>' : ':diffput'
     \
     \}
 
