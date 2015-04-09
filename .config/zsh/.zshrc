@@ -68,6 +68,8 @@ function zsh_directory_name() {
                 reply=($venv/$2)
                 return
             else                    # completion
+                # FIXME: if you have ~[pip]<TAB>, zsh seems to do the wrong
+                #        thing with this (it doesn't expand to the directory)
                 local expl
                 local binaries
                 _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -g '*(*)' -W "$venv" -S\]
