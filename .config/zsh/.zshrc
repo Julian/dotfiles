@@ -59,20 +59,19 @@ fi
 function zsh_directory_name() {
     if [[ $1 == n || $1 == c ]]; then
         # Search for a venv binary in the venv corresponding to the cwd
-        local project=${$(pwd):t:l}
-        local venv=$VIRTUALENVS/$project/bin
+        local venv=$(corresponding-venv --existing)
 
         if [[ -d "$venv" ]]; then
             if [[ $1 == n ]]; then  # name -> directory
                 typeset -ga reply
-                reply=($venv/$2)
+                reply=($venv/bin/$2)
                 return
             else                    # completion
                 # FIXME: if you have ~[pip]<TAB>, zsh seems to do the wrong
                 #        thing with this (it doesn't expand to the directory)
                 local expl
                 local binaries
-                _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -g '*(*)' -W "$venv" -S\]
+                _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -g '*(*)' -W "$venv/bin" -S\]
                 return
             fi
         fi

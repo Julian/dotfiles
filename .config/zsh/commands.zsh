@@ -130,16 +130,24 @@ function :Sp () { tmux split-window }
 function :vsp () { tmux split-window -h }
 function :Vsp () { tmux split-window -h }
 
+# Associated project name for the current directory
+function project() { echo ${PWD:t:l:gs/-/_} }
+
+# Find a corresponding virtualenv for the current directory.
+# With --existing, only find a virtualenv that exists, otherwise echo nothing.
+function corresponding-venv() {
+    local venv=$VIRTUALENVS/$(project)
+    [[ ${1} != "--existing" ]] || [[ -d "$venv" ]] && echo $venv
+}
+
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
     emulate -L zsh
     unsetopt NO_MATCH
-
-    local project=${PWD:t:l:gs/-/_}
     local venv_runner=~[$PYTHON_TEST_RUNNER]
     if [[ -f "$venv_runner" ]]; then
-        $venv_runner $@ $project
+        $venv_runner $@ $(project)
     else
-        $PYTHON_TEST_RUNNER $@ $project
+        $PYTHON_TEST_RUNNER $@ $(project)
     fi
 }
