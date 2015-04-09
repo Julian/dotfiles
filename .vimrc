@@ -315,6 +315,7 @@ nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile fu
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
 nnoremap  <expr><leader>VF        ":<C-U>SplitSensibly " . split(&runtimepath, ",")[0] .  "/ftplugin/" . &filetype . ".vim<CR>"
+nnoremap        <leader>VZ        :<C-U>SplitSensibly $ZDOTDIR/.zshrc.local<CR>
 
 nnoremap        <leader>0         :wincmd _<CR>
 
