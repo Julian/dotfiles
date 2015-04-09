@@ -47,6 +47,11 @@ parser.add_argument(
     help="create a single module rather than a package",
 )
 parser.add_argument(
+    "-B", "--bare",
+    action="store_true",
+    help="only create the core source files",
+)
+parser.add_argument(
     "--author",
     default=pwd.getpwuid(os.getuid()).pw_gecos,
     help="the name of the package author",
@@ -103,16 +108,16 @@ if arguments.single_module:
     modules = '["{name}"]'.format(name=name.lower())
     tests = "tests.py"
 
-    additional_files = {
-        os.path.join(name, name.lower() + ".py") : "",
-        os.path.join(name, "tests.py") : "",
+    core_source_paths = {
+        name.lower() + ".py" : "",
+        "tests.py" : "",
     }
 else:
     modules = "()"
     tests = name.lower()
 
-    additional_files = {
-        os.path.join(name, name.lower(), "tests", "__init__.py") : "",
+    core_source_paths = {
+        os.path.join(name.lower(), "tests", "__init__.py") : "",
     }
 
 if arguments.test_runner == "pytest":
@@ -264,18 +269,23 @@ files = {
     """.format(
     ),
 }
-files.update(additional_files)
 
+if arguments.bare:
+    targets = core_source_paths
+else:
+    files.update(os.path.join(name, path) for path in core_source_paths)
+    targets = files
 
-try:
-    os.mkdir(name)
-except OSError as err:
-    if err.errno == errno.EEXIST:
-        sys.exit("{0} already exists!".format(name))
-
-for path, content in files.iteritems():
     try:
-        os.makedirs(os.path.dirname(path))
+        os.mkdir(name)
+    except OSError as err:
+        if err.errno == errno.EEXIST:
+            sys.exit("{0} already exists!".format(name))
+        raise
+
+for path, content in targets.iteritems():
+    try:
+        os.makedirs(os.path.dirname(os.path.abspath(path)))
     except OSError as err:
         if err.errno != errno.EEXIST:
             raise
@@ -283,6 +293,5 @@ for path, content in files.iteritems():
     with open(path, "wb") as file:
         file.write(dedented(content))
 
-
-if arguments.sensible:
+if arguments.sensible and not arguments.bare:
     subprocess.check_call(["git", "init", name])
