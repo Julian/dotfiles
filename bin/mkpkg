@@ -69,6 +69,12 @@ parser.add_argument(
     help="Don't run pyflakes by default in tox runs.",
 )
 parser.add_argument(
+    "-V", "--no-sensibility",
+    action="store_false",
+    dest="sensible",
+    help="Don't initialize a VCS.",
+)
+parser.add_argument(
     "-s", "--supports",
     action="append",
     help="a version of Python supported by the package",
@@ -278,4 +284,5 @@ for path, content in files.iteritems():
         file.write(dedented(content))
 
 
-subprocess.check_call(["git", "init", name])
+if arguments.sensible:
+    subprocess.check_call(["git", "init", name])
