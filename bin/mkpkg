@@ -251,7 +251,7 @@ files = {
 
         [testenv:style]
         commands =
-            flake8 [] --max-complexity 10 {tests}
+            flake8 [] --max-complexity 10 {{toxinidir}}/{tests}
         deps =
             flake8
         """.format(
