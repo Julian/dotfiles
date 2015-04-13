@@ -273,7 +273,10 @@ files = {
 if arguments.bare:
     targets = core_source_paths
 else:
-    files.update(os.path.join(name, path) for path in core_source_paths)
+    files.update(
+        (os.path.join(name, path), content)
+        for path, content in core_source_paths.iteritems()
+    )
     targets = files
 
     try:
