@@ -60,6 +60,7 @@ function zsh_directory_name() {
     if [[ $1 == n || $1 == c ]]; then
         # Search for a venv binary in the venv corresponding to the cwd
         local venv=$(corresponding-venv --existing)
+        # TODO: ~[venv:python] -> $WORKON_HOME/venv/bin/python
 
         if [[ -d "$venv" ]]; then
             if [[ $1 == n ]]; then  # name -> directory
