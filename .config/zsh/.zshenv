@@ -13,6 +13,19 @@ export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
 export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
+if [[ "$OSTYPE" == darwin* ]]
+then
+    export BROWSER=open
+
+    export XDG_CACHE_HOME=$HOME/Library/Caches
+    export XDG_DATA_HOME=$HOME/Library/Application\ Support
+    export VIRTUALENVS=$HOME/.local/share/virtualenvs
+else
+    export XDG_CACHE_HOME=$HOME/.cache
+    export XDG_DATA_HOME=$HOME/.local/share
+    export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
+fi
+
 typeset -aU gopath
 typeset -T GOPATH gopath
 gopath=($XDG_DATA_HOME/go)
@@ -20,7 +33,7 @@ export GOPATH
 
 typeset -aU nodepath
 typeset -T NODEPATH nodepath
-nodepath=(/usr/local/lib/node)
+nodepath=(/usr/local/lib/node_modules /usr/local/lib/node)
 export NODEPATH
 
 typeset -aU perl_local_lib_root
@@ -39,18 +52,3 @@ typeset -aU hgrcpath
 typeset -T HGRCPATH hgrcpath
 hgrcpath=($XDG_CONFIG_HOME/hg/config.ini $XDG_CONFIG_HOME/hg/)
 export HGRCPATH
-
-if [[ "$OSTYPE" == darwin* ]]
-then
-    export BROWSER=open
-
-    export XDG_CACHE_HOME=$HOME/Library/Caches
-    export XDG_DATA_HOME=$HOME/Library/Application\ Support
-    export VIRTUALENVS=$HOME/.local/share/virtualenvs
-
-    nodepath=(/usr/local/lib/node_modules $nodepath)
-else
-    export XDG_CACHE_HOME=$HOME/.cache
-    export XDG_DATA_HOME=$HOME/.local/share
-    export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
-fi
