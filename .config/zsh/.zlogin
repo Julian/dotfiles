@@ -10,9 +10,9 @@ EOF
 }
 
 function {
-    setopt LOCAL_OPTIONS NO_NOTIFY
+    setopt LOCAL_OPTIONS
 
-    (( $+commands[git] )) && printf "Dotfiles updated: $(git --git-dir ~/.dotfiles/.git --work-tree ~/.dotfiles show --no-patch --format=%cr)\n\n"
-    (( $+commands[fortune] )) && fortune -a
-    (( $+commands[ssh] )) && [[ -d ~/.ssh/config.d/ ]] && compile-ssh-config
+    (( $+commands[git] )) && printf "Dotfiles updated: $(git --git-dir ~/.dotfiles/.git --work-tree ~/.dotfiles show --no-patch --format=%cr)\n\n" &|
+    (( $+commands[fortune] )) && fortune -a &|
+    (( $+commands[ssh] )) && [[ -d ~/.ssh/config.d/ ]] && compile-ssh-config &|
 }
