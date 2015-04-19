@@ -59,13 +59,18 @@ fi
 function zsh_directory_name() {
     if [[ $1 == n || $1 == c ]]; then
         # Search for a venv binary in the venv corresponding to the cwd
-        local venv=$(corresponding-venv --existing)
-        # TODO: ~[venv:python] -> $WORKON_HOME/venv/bin/python
+        if [[ $2 =~ '([^:]+):([^:]+)' ]]; then  # foo:bar is venv foo, bin bar
+            local venv=$(corresponding-venv --existing "$match[1]")
+            local binary="$match[2]"
+        else
+            local venv=$(corresponding-venv --existing)  # assume pwd's project
+            local binary=$2
+        fi
 
         if [[ -d "$venv" ]]; then
             if [[ $1 == n ]]; then  # name -> directory
                 typeset -ga reply
-                reply=($venv/bin/$2)
+                reply=($venv/bin/$binary)
                 return
             else                    # completion
                 # FIXME: if you have ~[pip]<TAB>, zsh seems to do the wrong
