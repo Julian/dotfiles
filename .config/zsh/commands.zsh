@@ -131,7 +131,7 @@ function :vsp () { tmux split-window -h }
 function :Vsp () { tmux split-window -h }
 
 # Associated project name for the current directory
-function project() { echo $1; echo ${${1:-PWD}:t:l:gs/-/_} }
+function project() { echo ${${1:-$PWD}:t:l:gs/-/_} }
 
 # Find a corresponding virtualenv for the current directory.
 # With --existing, only find a virtualenv that exists, otherwise echo nothing.
