@@ -57,33 +57,38 @@ fi
 #--- Named Directories -------------------------------------------------------
 
 function zsh_directory_name() {
-    if [[ $1 == n || $1 == c ]]; then
-        # Search for a venv binary in the venv corresponding to the cwd
-        if [[ $2 =~ '([^:]+):([^:]+)' ]]; then  # foo:bar is venv foo, bin bar
-            local venv=$(findenv --existing-only --name "$match[1]")
-            local binary="$match[2]"
-        else
-            local venv=$(findenv --existing-only --directory .)
-            local binary=$2
-        fi
-
-        if [[ -d "$venv" ]]; then
-            if [[ $1 == n ]]; then  # name -> directory
-                typeset -ga reply
-                reply=($venv/bin/$binary)
-                return
-            else                    # completion
-                # FIXME: if you have ~[pip]<TAB>, zsh seems to do the wrong
-                #        thing with this (it doesn't expand to the directory)
-                local expl
-                local binaries
-                _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -g '*(*)' -W "$venv/bin" -S\]
-                return
+    case "$1" in
+        n)  # Run a venv binary in a corresponding venv
+            if [[ $2 =~ '([^:]+):([^:]+)' ]]; then  # foo:bar is venv foo, bin bar
+                local binary=$(findenv --existing-only --name "$match[1]" "$match[2]")
+            else
+                local binary=$(findenv --existing-only --directory . "$2")
             fi
-        fi
-    else
-        return 1
-    fi
+
+            typeset -ga reply
+            reply=($binary)
+            return
+            ;;
+
+        c)  # Completion
+            # FIXME: Probably refactor, but here we allow foo:<nothing>, and
+            #        also this doesn't pre-filter whatever is there already
+            if [[ $2 =~ '([^:]+):([^:]*)' ]]; then
+                local venv=$(findenv --existing-only --name "$match[1]")
+            else
+                local venv=$(findenv --existing-only --directory .)
+            fi
+
+            # FIXME: if you have ~[pip]<TAB>, zsh seems to do the wrong
+            #        thing with this (it doesn't expand to the directory)
+            local expl
+            _wanted dynamic-venv-bins expl 'dynamic venv binaries' _files -g '*(*)' -W "$venv/bin" -S\]
+            return
+            ;;
+
+        *)
+            return 1
+    esac
 }
 
 #--- Local -------------------------------------------------------------------
