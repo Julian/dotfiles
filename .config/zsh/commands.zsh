@@ -30,7 +30,7 @@ alias di=diff
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
-    alias up="brew update && brew upgrade"
+    alias up="brew update && brew upgrade --all"
 fi
 
 if (( $+commands[selecta] )); then
