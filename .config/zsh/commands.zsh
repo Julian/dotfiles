@@ -136,7 +136,7 @@ function project() { echo ${${1:-$PWD}:t:l:gs/-/_} }
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
     emulate -L zsh
-    setopt LOCAL_OPTIONS MATCH
+    setopt LOCAL_OPTIONS NO_NOMATCH
     local venv_runner=~[$PYTHON_TEST_RUNNER]
     if [[ -f "$venv_runner" ]]; then
         $venv_runner $@ $(project)
