@@ -23,11 +23,13 @@ def make_symlinks(arguments):
 
     """
 
-    ignored = set([
-        ".git",
-        ".gitignore",
-        ".gitmodules",
-    ])
+    ignored = set(
+        [
+            ".git",
+            ".gitignore",
+            ".gitmodules",
+        ],
+    )
 
     for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
         if os.path.basename(dotfile) in ignored:
@@ -90,7 +92,7 @@ def set_up_vim(arguments):
             arguments.vim, "-T", "dumb", "-E",
             "-c", "NeoBundleInstall",
             "-c", "quitall",
-        ],
+        ], env={"XDG_CACHE_HOME" : cache_dir},
     )
 
 
