@@ -73,7 +73,7 @@ def set_up_vim(arguments):
 
     """
 
-    subprocess.check_call(
+    subprocess.call(
         [
             "zsh", "-c",
             "mkdir -p $XDG_CACHE_HOME/vim && "
