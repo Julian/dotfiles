@@ -122,7 +122,7 @@ install_parser.add_argument(
 )
 install_parser.add_argument(
     "--vim",
-    default=("/usr/bin/vim"),
+    default="vim",
     help="the vim binary to set up",
 )
 
