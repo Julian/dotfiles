@@ -73,24 +73,11 @@ def set_up_vim(arguments):
 
     """
 
-    if not os.path.isfile(arguments.vim):
-        print "Can't find a vim at {0}! Skipping...".format(arguments.vim)
-        return
-
-    zsh_cache_process = subprocess.Popen(
-        ["zsh", "-c", "echo $XDG_CACHE_HOME"], stdout=subprocess.PIPE,
-    )
-    cache_dir = zsh_cache_process.communicate()[0][:-1]
-
-    try:
-        os.makedirs(os.path.join(cache_dir, "vim"))
-    except OSError as error:
-        if error.errno != errno.EEXIST:
-            raise
-
     subprocess.call(
         [
-            "zsh" "-c", "{0} -T dumb -E -c NeoBundleInstall -c quitall".format(
+            "zsh" "-c",
+            "mkdir -p $XDG_CACHE_HOME/vim && "
+            "{0} -T dumb -E -c NeoBundleInstall -c quitall".format(
                 pipes.quote(arguments.vim),
             ),
         ],
