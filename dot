@@ -89,10 +89,12 @@ def set_up_vim(arguments):
 
     subprocess.call(
         [
-            "zsh", "-c", arguments.vim, "-T", "dumb", "-E",
+            arguments.vim, "-T", "dumb", "-E",
             "-c", "NeoBundleInstall",
             "-c", "quitall",
         ],
+        shell=True,
+        executable="zsh",
     )
 
 
