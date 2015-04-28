@@ -4,6 +4,7 @@ from glob import iglob as glob
 import argparse
 import errno
 import os
+import pipes
 import subprocess
 import sys
 
@@ -89,12 +90,10 @@ def set_up_vim(arguments):
 
     subprocess.call(
         [
-            arguments.vim, "-T", "dumb", "-E",
-            "-c", "NeoBundleInstall",
-            "-c", "quitall",
+            "zsh" "-c", "{0} -T dumb -E -c NeoBundleInstall -c quitall".format(
+                pipes.quote(arguments.vim),
+            ),
         ],
-        shell=True,
-        executable="zsh",
     )
 
 
