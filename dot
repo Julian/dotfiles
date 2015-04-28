@@ -89,10 +89,10 @@ def set_up_vim(arguments):
 
     subprocess.call(
         [
-            arguments.vim, "-T", "dumb", "-E",
+            "zsh", "-c", arguments.vim, "-T", "dumb", "-E",
             "-c", "NeoBundleInstall",
             "-c", "quitall",
-        ], env={"XDG_CACHE_HOME" : cache_dir},
+        ],
     )
 
 
