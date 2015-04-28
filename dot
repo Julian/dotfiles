@@ -73,9 +73,9 @@ def set_up_vim(arguments):
 
     """
 
-    subprocess.call(
+    subprocess.check_call(
         [
-            "zsh" "-c",
+            "zsh", "-c",
             "mkdir -p $XDG_CACHE_HOME/vim && "
             "{0} -T dumb -E -c NeoBundleInstall -c quitall".format(
                 pipes.quote(arguments.vim),
