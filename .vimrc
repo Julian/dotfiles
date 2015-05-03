@@ -234,7 +234,7 @@ nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 "       '<F1>' is set to help
 "       '<F2>' is set to pastetoggle
 let s:all_modes_mappings = {
-    \   '<F12>'  : ':<C-U>make<CR>',
+    \   '<F12>'  : ':<C-U>make',
     \
     \   '<Up>' : '<Nop>',
     \   '<Down>' : '<Nop>',
@@ -244,9 +244,9 @@ let s:all_modes_mappings = {
     \}
 
 for [key, value] in items(s:all_modes_mappings)
-    execute 'nnoremap ' . key . ' ' . value
-    execute 'inoremap ' . key . ' <C-O>' . value
-    execute 'vnoremap ' . key . ' ' . value
+    execute 'nnoremap ' . key . ' ' . value . '<CR>'
+    execute 'inoremap ' . key . ' <C-O>' . value . '<CR>'
+    execute 'vnoremap ' . key . ' ' . value . '<CR>'
 endfor
 
 " Leader mappings
