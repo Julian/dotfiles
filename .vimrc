@@ -236,17 +236,18 @@ nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 let s:all_modes_mappings = {
     \   '<F12>'  : ':<C-U>make',
     \
-    \   '<Up>' : '<Nop>',
-    \   '<Down>' : '<Nop>',
+    \   '<Up>' : '',
+    \   '<Down>' : '',
     \   '<Left>' : ':diffget',
     \   '<Right>' : ':diffput'
     \
     \}
 
 for [key, value] in items(s:all_modes_mappings)
-    execute 'nnoremap ' . key . ' ' . value . '<CR>'
-    execute 'inoremap ' . key . ' <C-O>' . value . '<CR>'
-    execute 'vnoremap ' . key . ' ' . value . '<CR>'
+    let value = empty(value) ? '<Nop>' : value . '<CR>'
+    execute 'nnoremap ' . key . ' ' . value
+    execute 'inoremap ' . key . ' <C-O>' . value
+    execute 'vnoremap ' . key . ' ' . value
 endfor
 
 " Leader mappings
