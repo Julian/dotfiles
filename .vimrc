@@ -114,8 +114,6 @@ if s:load_dynamic_plugins
     endif
 endif
 
-silent! runtime macros/matchit.vim
-
 call neobundle#end()
 
 " =========
@@ -712,11 +710,11 @@ if has("eval")
     " Deliberately left off terminating <cr> if filename can't be found
     " to allow user to modify before execution. (:help cWORD)
     function! EditFileWORD()
-    let file = expand('<cWORD>')
-    if findfile(file, &path) != ''
-        let file .= "\<cr>"
-    endif
-    return ":SplitSensibly " . file
+        let file = expand('<cWORD>')
+        if findfile(file, &path) != ''
+            let file .= "\<cr>"
+        endif
+        return ":SplitSensibly " . file
     endfunction
 
     if has("autocmd")
