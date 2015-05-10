@@ -623,6 +623,7 @@ if has("eval")
 
     command! -nargs=* -complete=file SplitSensibly call <SID>SplitSensiblyCommand('<args>')
     command! -nargs=* -complete=file Ss call <SID>SplitSensiblyCommand('<args>')
+    command! -nargs=* -complete=file SS call <SID>SplitSensiblyCommand('<args>')
 
     " If we're in a wide window, enable line numbers.
     function! <SID>WindowWidth()
