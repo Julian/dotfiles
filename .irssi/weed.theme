@@ -205,7 +205,7 @@ formats = {
     pubmsg_me_channel = "{pubmsgmenick $3 {menick $[-10]0}{msgchannel $1}}$2";
     pubmsg_hilight = "{pubmsghinick $0 $3 $[-10]1}$2";
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-10]1{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $2 {pubnick %N%X5A$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick %N%X39$0}}$1";
     pubmsg_channel = "{pubmsgnick $3 {pubnick $[-10]0}{msgchannel $1}}$2";
 
     #   own_msg = "{ownmsgnick $2 {ownnick $[-10]0}}$1";
