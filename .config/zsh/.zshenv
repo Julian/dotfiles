@@ -26,6 +26,9 @@ else
     export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
 fi
 
+export GEM_HOME=$XDG_DATA_HOME/gem
+export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
+
 typeset -aU gopath
 typeset -T GOPATH gopath
 gopath=($XDG_DATA_HOME/go)

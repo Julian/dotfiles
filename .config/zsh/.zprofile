@@ -14,6 +14,7 @@ path=(
     /usr/local/bin
     $HOME/.local/bin
     /usr/local/sbin
+    ${GEM_HOME}/bin
     ${gopath/%//bin}
     ${perl_local_lib_root/%//bin}
     $path
