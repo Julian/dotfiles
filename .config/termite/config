@@ -1,0 +1,5 @@
+[options]
+font = Fira Mono 9
+
+[colors]
+background = rgba(63, 63, 63, 0.98)
