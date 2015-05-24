@@ -35,6 +35,16 @@ fi
 
 if (( $+commands[selecta] )); then
     alias v='vim $(find . -type f | selecta)'
+
+    function insert-selecta-path-in-command-line() {
+        # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
+        local selected_path
+        echo
+        selected_path=$(find . -type f | selecta) || return
+        eval 'LBUFFER="$LBUFFER$selected_path "'
+        zle reset-prompt
+    }
+    zle -N insert-selecta-path-in-command-line
 fi
 
 if (( $+commands[weechat-curses] )); then
