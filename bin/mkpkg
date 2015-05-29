@@ -244,7 +244,7 @@ files = {
         [testenv]
         changedir={{envtmpdir}}
         commands =
-            {test_runner} [] {tests}
+            {envbindir}/{test_runner} [] {tests}
             {{envpython}} -m doctest {{toxinidir}}/README.rst
         deps =
             {test_deps}
