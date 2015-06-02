@@ -1,3 +1,4 @@
+let g:jedi#goto_command = ""
 let g:jedi#goto_assignments_command = ""
 let g:jedi#goto_definitions_command = "gd"
 let g:jedi#documentation_command = "K"
