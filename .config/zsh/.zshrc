@@ -38,10 +38,6 @@ else
     GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
 fi
 
-if (( $+commands[berks] )); then
-    export BERKSHELF_PATH=$XDG_DATA_HOME/berkshelf
-fi
-
 if (( $+commands[cpan] )); then
     export CPAN_OPTS="-I -j $XDG_CONFIG_HOME/cpan/Config.pm"
     export PERL_MB_OPT="--install_base '${PERL5LIB}'"
