@@ -217,11 +217,11 @@ nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>
 
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
-inoremap <BS> <BS><C-G>u
+" inoremap <BS> <BS><C-G>u
 " inoremap <CR> <C-G>u<CR>
-inoremap <DEL> <DEL><C-G>u
-inoremap <C-U> <C-G>u<C-U>
-inoremap <C-W> <C-G>u<C-W>
+" inoremap <DEL> <DEL><C-G>u
+" inoremap <C-U> <C-G>u<C-U>
+" inoremap <C-W> <C-G>u<C-W>
 
 " delete a surrounding function call (which surround doesn't support OOTB)
 nmap dsc :call search('\<', 'bc')<CR>dt(ds)
