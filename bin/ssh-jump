@@ -1,0 +1,12 @@
+#! /usr/bin/env python
+# ssh s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:/ -p /') /:/!s/$/ %p/;s/:/ /')
+
+import os
+import sys
+
+jump_and_target, port, remote_user = sys.argv[1:]
+jump, _, target = jump_and_target.partition("+")
+
+argv = ["ssh", jump, "nc", "-w1", target, port]
+
+os.execvp("ssh", argv)
