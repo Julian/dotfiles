@@ -46,13 +46,22 @@ fi
 
 #--- Named Directories -------------------------------------------------------
 
+typeset -A _memoized_venv_paths
+
 function zsh_directory_name() {
+
+    local binary=$_memoized_venv_paths[$@]
+
     case "$1" in
         n)  # Run a venv binary in a corresponding venv
-            if [[ $2 =~ '([^:]+):([^:]+)' ]]; then  # foo:bar is venv foo, bin bar
-                local binary=$(findenv --existing-only --name "$match[1]" "$match[2]")
-            else
-                local binary=$(findenv --existing-only --directory . "$2")
+            if [[ -z "$binary" ]]; then
+                if [[ $2 =~ '([^:]+):([^:]+)' ]]; then  # foo:bar is venv foo, bin bar
+                    local binary=$(findenv --existing-only --name "$match[1]" "$match[2]")
+                else
+                    local binary=$(findenv --existing-only --directory . "$2")
+                fi
+
+                _memoized_venv_paths[$@]=$binary
             fi
 
             typeset -ga reply
