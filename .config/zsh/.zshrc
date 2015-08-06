@@ -33,6 +33,8 @@ export PYTHONWARNINGS='default,ignore:Not importing directory:ImportWarning'
 # Specified relatively, so that we can find it in a venv if necessary.
 export PYTHON_TEST_RUNNER=trial
 
+export GPG_TTY=$(tty)
+
 if [[ "$(grep --version)" =~ "BSD" ]]; then
 else
     GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
