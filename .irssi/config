@@ -989,10 +989,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#insight-team";
+        name = "#music";
         tag = "MagneticSlack";
       }
     );
+    sticky = "yes";
+    parent = "38";
   };
   38 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -1000,11 +1002,10 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#music";
+        name = "#data-guild";
         tag = "MagneticSlack";
       }
     );
-    sticky = "yes";
   };
   39 = { name = "hilight"; level = "HILIGHTS"; sticky = "yes"; };
 };
