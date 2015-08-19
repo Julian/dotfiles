@@ -34,3 +34,5 @@ defaultdict
 iterable
 grep
 plugin
+github
+ssh-keyscan
