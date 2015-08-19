@@ -6,12 +6,7 @@ export LANGUAGE="en_US.UTF-8"
 
 export BROWSER=chromium
 
-export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
-
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
-
-export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
-export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
 if [[ "$OSTYPE" == darwin* ]]
 then
@@ -25,6 +20,20 @@ else
     export XDG_DATA_HOME=$HOME/.local/share
     export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
 fi
+
+export XDG_DESKTOP_DIR=$HOME/Desktop
+export XDG_DOCUMENTS_DIR=$HOME/Documents
+export XDG_DOWNLOAD_DIR=$XDG_DESKTOP_DIR
+export XDG_MUSIC_DIR=$HOME/Music
+export XDG_PICTURES_DIR=$HOME/Pictures
+export XDG_PUBLICSHARE_DIR=$HOME/Public
+export XDG_TEMPLATES_DIR=$XDG_CONFIG_HOME/templates
+export XDG_VIDEOS_DIR=$HOME/Movies
+
+export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
+
+export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
+export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
 export GEM_HOME=$XDG_DATA_HOME/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
