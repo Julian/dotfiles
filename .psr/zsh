@@ -1,4 +1,3 @@
-* () forks a subshell
 * set -e stuff will stop the command immediately on an error (useful with ())
 * {} blocks
 * > foo1 > foo2 and MULTIOS
@@ -6,6 +5,5 @@
 * bg, disown, &|
 * limit
 * vared
-* diff =(foo) =(bar)
 * print -P
 * mailpath
