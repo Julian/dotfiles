@@ -425,13 +425,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_3 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_3 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -532,7 +525,6 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
   };
   2 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -545,7 +537,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   3 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -558,7 +550,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   4 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -571,7 +563,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   5 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -584,7 +576,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   6 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -597,7 +589,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   7 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -610,7 +602,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   8 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -623,7 +615,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   9 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -636,7 +628,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   10 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -649,7 +641,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   11 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -662,7 +654,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   12 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -675,7 +667,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   13 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -688,7 +680,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   14 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -701,7 +693,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   15 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -714,7 +706,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   16 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -727,7 +719,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   17 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -740,7 +732,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   18 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -753,7 +745,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   19 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -766,7 +758,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   20 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -779,7 +771,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   21 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -792,7 +784,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   22 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -805,7 +797,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   23 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -818,7 +810,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   24 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -831,7 +823,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   25 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -844,14 +836,14 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   26 = {
     immortal = "yes";
     name = "info";
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   27 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -864,7 +856,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   28 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -877,7 +869,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   29 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -890,6 +882,7 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "1";
   };
   30 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -902,7 +895,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   31 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -915,7 +908,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   32 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -928,7 +921,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   33 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -940,6 +933,8 @@ windows = {
         tag = "MagneticSlack";
       }
     );
+    sticky = "yes";
+    parent = "1";
   };
   34 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -952,7 +947,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
   35 = {
     level = "CRAP MSGS PUBLICS NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICES CLIENTCRAP CLIENTERRORS HILIGHTS";
@@ -965,16 +960,11 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "29";
+    parent = "1";
   };
-  36 = {
-    name = "hilight";
-    level = "HILIGHTS";
-    sticky = "yes";
-    parent = "33";
-  };
+  36 = { name = "hilight"; level = "HILIGHTS"; sticky = "yes"; };
 };
 mainwindows = {
-  29 = { first_line = "6"; lines = "61"; };
-  33 = { first_line = "1"; lines = "5"; };
+  1 = { first_line = "4"; lines = "15"; };
+  36 = { first_line = "1"; lines = "3"; };
 };
