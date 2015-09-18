@@ -58,13 +58,14 @@ autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search up-line-or-beginning-search
 zle -N down-line-or-beginning-search down-line-or-beginning-search
 
-if [[ -f $ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]]; then
-    source $ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}  # Load keys
-else
-    echo "Couldn't load a key map. Loading the default..."
+keymap="$ZDOTDIR/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+if [[ ! -f "$keymap" ]]; then
+    echo "Couldn't load a keymap for $TERM / $DISPLAY / $VENDOR / $OSTYPE."
+    echo "Linking the default keymap for this system."
     echo "Run autoload -Uz zkbd; zkbd if you'd like to generate one instead."
-    source $ZDOTDIR/.zkbd/default-keymap
+    ln -s "$ZDOTDIR/.zkbd/default-keymap" "$keymap"
 fi
+source "$keymap"
 
 [[ -n ${key[Up]}        ]] && bindkey "${key[Up]}"          up-line-or-beginning-search
 [[ -n ${key[Down]}      ]] && bindkey "${key[Down]}"        down-line-or-beginning-search
