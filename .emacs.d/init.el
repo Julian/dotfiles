@@ -22,6 +22,9 @@
 (setq use-package-always-ensure t)
 
 (use-package evil)
+(use-package evil-args)
+(use-package evil-exchange)
+(use-package evil-surround)
 
 (require 'evil)
 (evil-mode 1)
