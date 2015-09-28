@@ -245,7 +245,7 @@ files = {
         [testenv]
         changedir={{envtmpdir}}
         commands =
-            {envbindir}/{test_runner} [] {tests}
+            {{envbindir}}/{test_runner} [] {tests}
             {{envpython}} -m doctest {{toxinidir}}/README.rst
         deps =
             {test_deps}
@@ -275,8 +275,7 @@ files = {
     test_command=python -m subunit.run discover . $LISTOPT $IDOPTION
     test_id_option=--load-list $IDFILE
     test_list_option=--list
-    """.format(
-    ),
+    """,
 }
 
 if arguments.bare:
