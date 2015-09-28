@@ -220,7 +220,7 @@ files = {
             packages={packages},
             py_modules={modules},
             setup_requires=["vcversioner"],
-            vcversioner={{"version_module_paths": ["{name}/__init__.py"]}},
+            vcversioner={{"version_module_paths": ["{name}/_version.py"]}},
             author="{author}",
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
@@ -255,12 +255,20 @@ files = {
             flake8 [] --max-complexity 10 {{toxinidir}}/{tests}
         deps =
             flake8
+
+        [flake8]
+        exclude = {name}/__init__.py
         """.format(
+            name=name,
             envlist=", ".join(tox_envlist),
             test_runner=test_runner,
             tests=tests,
             test_deps="\n    ".join(test_deps),
         ),
+
+    os.path.join(name, name, "__init__.py") : """
+    from {name}._version import __version__
+    """.format(name=name),
 
     os.path.join(name, ".testr.conf") : """
     [DEFAULT]
