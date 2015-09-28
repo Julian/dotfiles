@@ -30,6 +30,7 @@ VERSION_CLASSIFIERS = {
     "py33" : "Programming Language :: Python :: 3.3",
     "py34" : "Programming Language :: Python :: 3.4",
     "py35" : "Programming Language :: Python :: 3.5",
+    "py36" : "Programming Language :: Python :: 3.6",
 }
 
 
@@ -84,7 +85,7 @@ parser.add_argument(
     action="append",
     help="a version of Python supported by the package",
     choices=sorted(VERSION_CLASSIFIERS) + ["jython", "pypy"],
-    default=["py27", "py34", "pypy"],
+    default=["py27", "py35", "pypy"],
 )
 parser.add_argument(
     "-t", "--test-runner",
