@@ -180,7 +180,6 @@ nnoremap      <expr>dS        ":Dispatch "      .   (empty(get(t:, 'runt_last_co
 
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
-map sx <Plug>(ExchangeClear)
 
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
@@ -213,7 +212,7 @@ noremap ]` ]'
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR><C-L>
 
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
