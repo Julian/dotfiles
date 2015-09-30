@@ -6,6 +6,7 @@
 .vagrant
 
 .vim/bundle
+.vim/flavors
 .vim/sessions
 .vim/.netrwhist
 .vim/.yankring_history*
