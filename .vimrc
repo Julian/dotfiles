@@ -98,6 +98,7 @@ NeoBundleLazy  'Shougo/unite-outline',              {'autoload': {'unite_sources
 NeoBundle      'tsukkee/unite-tag'
 
 Develop         vim-runt
+Develop         vim-textobj-assignment
 Develop         vim-textobj-brace
 Develop         vim-textobj-variable-segment
 
