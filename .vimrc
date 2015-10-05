@@ -465,6 +465,11 @@ set noerrorbells
 set novisualbell
 set vb t_vb=
 
+" Change the cursor to an underline in insert mode
+if &term =~ 'xterm\|screen'
+    set t_SI=[4\ q
+    set t_EI=[2\ q
+endif
 
 if has('mouse')
   set mouse=v                          " ugh no mouse while typing, just visual
