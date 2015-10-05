@@ -448,7 +448,6 @@ endif
 
 set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
-set listchars=tab:▸\ ,eol:¬
 set shortmess+=atI                     " show shorter messages
 set title                              " change window title to filename
 
@@ -469,6 +468,12 @@ set vb t_vb=
 if &term =~ 'xterm\|screen'
     set t_SI=[4\ q
     set t_EI=[2\ q
+endif
+
+if has('multi_byte') || has('gui_running')
+    set listchars=tab:▸\ ,eol:¬,trail:·,extends:→,precedes:←
+else
+    set listchars=tab:>-,eol:$,trail:.,extends:>,precedes:<
 endif
 
 if has('mouse')
