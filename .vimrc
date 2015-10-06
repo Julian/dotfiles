@@ -182,7 +182,7 @@ nnoremap      <expr>dS        ":Dispatch "      .   (empty(get(t:, 'runt_last_co
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
 
-let g:jedi_smart_auto_mappings = 0
+let g:jedi#smart_auto_mappings = 0
 
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
