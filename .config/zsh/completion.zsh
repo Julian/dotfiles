@@ -24,10 +24,18 @@ zstyle -e ':completion:*:approximate:*' \
 # If using a directory as arg, remove the trailing slash (useful for ln)
 zstyle ':completion:*' squeeze-slashes true
 
+# Dircolors on completions
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
 # cd will never select the parent directory (e.g.: cd ../<TAB>):
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 zstyle ':completion:*:ls:*' file-patterns '%p:globbed-files' '*(/):directories'
+
+# Complete manual by their section
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:manuals.*' insert-sections   true
+zstyle ':completion:*:man:*' menu yes select
 
 # make sure history-substring-search is after syntax-highlighting
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
