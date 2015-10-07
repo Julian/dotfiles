@@ -62,7 +62,7 @@ NeoBundle      'b4winckler/vim-angry'
 NeoBundle      'bling/vim-airline'
 NeoBundle      'bruno-/vim-man'
 NeoBundle      'bruno-/vim-vertical-move'
-NeoBundleLazy  'dahu/VimGym',                       {'autoload': {'commands': ['VG', 'VimGym']}}
+NeoBundle      'dahu/vim-fanfingtastic'
 NeoBundleLazy  'godlygeek/tabular',                 {'autoload': {'commands': 'Tabularize'}}
 NeoBundleLazy  'kana/vim-vspec'
 NeoBundleLazy  'kana/vim-submode'
