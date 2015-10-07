@@ -96,29 +96,33 @@ parser.add_argument(
 
 arguments = parser.parse_args()
 name = arguments.name
+package_name = name.lower()
 
 if arguments.use_distutils:
     setup = "from distutils.core import setup"
-    packages = """["{0}", "{0}.tests"]""".format(name.lower())
+    packages = """["{0}", "{0}.tests"]""".format(package_name)
 else:
     setup = "from setuptools import find_packages, setup"
     packages = "find_packages()"
 
 if arguments.single_module:
     packages = "()"
-    modules = '["{name}"]'.format(name=name.lower())
+    modules = '["{name}"]'.format(name=package_name)
     tests = "tests.py"
 
     core_source_paths = {
-        name.lower() + ".py" : "",
+        package_name + ".py" : "",
         "tests.py" : "",
     }
 else:
     modules = "()"
-    tests = name.lower()
+    tests = package_name
 
     core_source_paths = {
-        os.path.join(name.lower(), "tests", "__init__.py") : "",
+        os.path.join(package_name, "tests", "__init__.py") : "",
+        os.path.join(package_name, "__init__.py") : """
+        from {name}._version import __version__
+        """.format(name=package_name),
     }
 
 if arguments.test_runner == "pytest":
@@ -216,11 +220,11 @@ files = {
         classifiers = [{classifiers}]
 
         setup(
-            name="{name}",
+            name="{package_name}",
             packages={packages},
             py_modules={modules},
             setup_requires=["vcversioner"],
-            vcversioner={{"version_module_paths": ["{name}/_version.py"]}},
+            vcversioner={{"version_module_paths": ["{package_name}/_version.py"]}},
             author="{author}",
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
@@ -231,7 +235,7 @@ files = {
         )
         """.format(
             author=arguments.author,
-            name=name.lower(),
+            package_name=package_name,
             setup_import=setup,
             classifiers=classifiers,
             packages=packages,
@@ -257,18 +261,14 @@ files = {
             flake8
 
         [flake8]
-        exclude = {name}/__init__.py
+        exclude = {package_name}/__init__.py
         """.format(
-            name=name,
+            package_name=package_name,
             envlist=", ".join(tox_envlist),
             test_runner=test_runner,
             tests=tests,
             test_deps="\n    ".join(test_deps),
         ),
-
-    os.path.join(name, name, "__init__.py") : """
-    from {name}._version import __version__
-    """.format(name=name),
 
     os.path.join(name, ".testr.conf") : """
     [DEFAULT]
