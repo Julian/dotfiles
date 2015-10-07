@@ -112,7 +112,15 @@ if arguments.single_module:
 
     core_source_paths = {
         package_name + ".py" : "",
-        "tests.py" : "",
+        "tests.py" : """
+        from unittest import TestCase
+
+        import {package_name}
+
+
+        class Test{name}(TestCase):
+            pass
+        """.format(name=name.title(), package_name=package_name),
     }
 else:
     modules = "()"
