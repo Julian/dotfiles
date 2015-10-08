@@ -14,7 +14,7 @@ import urlparse
 import xmlrpclib
 
 
-URL = 'http://bpaste.net/'
+URL = 'http://paste.pound-python.org/'
 
 
 def pastebin(source, syntax, parent=''):
