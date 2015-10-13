@@ -23,4 +23,6 @@ path=(
 export DEVELOPMENT=$HOME/Development
 export EDITOR=vim
 
+[[ -d $DEVELOPMENT ]] && export IS_DEVELOPMENT_WORKSTATION=yup
+
 cdpath=(${DEVELOPMENT} ${XDG_DESKTOP_DIR} ${HOME} $cdpath)
