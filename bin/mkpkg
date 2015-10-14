@@ -96,7 +96,7 @@ parser.add_argument(
 
 arguments = parser.parse_args()
 name = arguments.name
-package_name = name.lower()
+package_name = name.lower().replace("-", "_")
 
 if arguments.use_distutils:
     setup = "from distutils.core import setup"
