@@ -425,13 +425,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_3 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_3 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -450,7 +443,7 @@ settings = {
     window_history = "yes";
     show_names_on_join = "no";
     theme = "weed";
-    window_default_level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS";
+    window_default_level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CRAP CLIENTCRAP";
     window_check_level_first = "yes";
     activity_hide_targets = "##c ##math #tmux #qtile #pocoo #lua #coffeescript #sqlalchemy #pelican #macdev #reddit-dev #0x10c #0x10c-std #0x10c-dev #love #lua #luakit #clojurescript #raspberrypi ";
     emphasis_replace = "yes";
@@ -486,20 +479,7 @@ ignores = (
   { mask = "*afk*"; level = "NICKS"; },
   { mask = "*away*"; level = "NICKS"; },
   { mask = "*|bnc"; level = "NICKS"; },
-  { level = "JOINS"; exception = "yes"; channels = ( "#cardboard" ); },
-  { 
-    level = "JOINS";
-    exception = "yes";
-    channels = ( "#cardboard-dev" );
-  },
-  { level = "JOINS"; exception = "yes"; channels = ( "##ivoire" ); },
   { mask = "irker*"; level = "ALL"; },
-  { 
-    level = "JOINS";
-    exception = "yes";
-    channels = ( "#wheretomeetup" );
-  },
-  { mask = "aero1"; level = "ALL"; },
   {
     level = "MODES";
     pattern = "(active|away)";
@@ -691,7 +671,7 @@ windows = {
     parent = "29";
   };
   14 = {
-    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS";
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -950,7 +930,7 @@ windows = {
     parent = "29";
   };
   34 = {
-    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS";
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -963,7 +943,7 @@ windows = {
     parent = "29";
   };
   35 = {
-    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS";
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -984,7 +964,7 @@ windows = {
   };
   37 = {
     name = "hilight";
-    level = "MSGS PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP HILIGHTS";
+    level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
