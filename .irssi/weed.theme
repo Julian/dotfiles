@@ -205,7 +205,7 @@ formats = {
     pubmsg_me_channel = "{pubmsgmenick $3 {menick $[-10]0}{msgchannel $1}}$2";
     pubmsg_hilight = "{pubmsghinick $0 $3 $[-10]1}$2";
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-10]1{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $2 {pubnick %N%X39$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick %N%X3Y$0}}$1";
     pubmsg_channel = "{pubmsgnick $3 {pubnick $[-10]0}{msgchannel $1}}$2";
 
     #   own_msg = "{ownmsgnick $2 {ownnick $[-10]0}}$1";
@@ -493,7 +493,7 @@ formats = {
     joinerror_duplicate = "        %r*%K | Channel {channel $0} already exists - %rcannot create%K it";
     channel_rejoin = "        %r*%K | Channel {channel $0} is temporarily %runavailable%K. Setting up a rejoin, to not rejoin, use /rmrejoins.";
     inviting = "        %g*%K | %gInviting%K {nick $0} to {channel $1}";
-    channel_created = "        %p*%K | %W%K{channel $0} is created %_$1%_";
+    channel_created = "";
     url = "        %p*%K | %W%KHome page for {channelhilight $0}: $1";
     topic = "        %p*%K | %WTopic for channel {channel $0}: %_$1%_";
     no_topic = "        %p*%K | %WNo topic for channel %_$0%_";
