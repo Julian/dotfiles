@@ -775,7 +775,7 @@ if has("eval")
             " ftplugins are stupid and try to mess with formatoptions
             autocmd!
             autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
-            autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=j
+            autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=jln
         augroup END
     endif
 endif
