@@ -1,5 +1,7 @@
 #--- Aliases -----------------------------------------------------------------
 
+alias m='mv -nv'
+
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
 # t: tmux attach
