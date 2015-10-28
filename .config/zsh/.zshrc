@@ -23,6 +23,7 @@ export HTTPIE_CONFIG_DIR=$XDG_CONFIG_HOME/httpie
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npmrc
 export INPUTRC=$XDG_CONFIG_HOME/inputrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
+export PERL_CPANM_HOME=$XDG_CACHE_HOME/cpanm
 export PIP_CONFIG_FILE=$XDG_CONFIG_HOME/pip/config
 export TASKRC=$XDG_CONFIG_HOME/taskrc
 export XINITRC=$XDG_CONFIG_HOME/xinitrc
@@ -38,12 +39,6 @@ export GPG_TTY=$(tty)
 if [[ "$(grep --version)" =~ "BSD" ]]; then
 else
     GREP_OPTIONS='-IR --exclude-dir=.[a-zA-Z0-9]* --exclude=.* --color=auto'
-fi
-
-if (( $+commands[cpan] )); then
-    export CPAN_OPTS="-I -j $XDG_CONFIG_HOME/cpan/Config.pm"
-    export PERL_MB_OPT="--install_base '${PERL5LIB}'"
-    export PERL_MM_OPT="INSTALL_BASE='${PERL5LIB}'"
 fi
 
 #--- Named Directories -------------------------------------------------------
