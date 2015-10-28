@@ -445,7 +445,7 @@ settings = {
     theme = "weed";
     window_default_level = "MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CRAP CLIENTCRAP";
     window_check_level_first = "yes";
-    activity_hide_targets = "##c ##math #tmux #qtile #pocoo #lua #coffeescript #sqlalchemy #pelican #macdev #reddit-dev #0x10c #0x10c-std #0x10c-dev #love #lua #luakit #clojurescript #raspberrypi ";
+    activity_hide_targets = "##c ##math #tmux #qtile #pocoo #lua #coffeescript #sqlalchemy #pelican #macdev #reddit-dev";
     emphasis_replace = "yes";
     autolog = "yes";
     autolog_path = "~/.irclogs/%Y/$tag/$0.%m-%d.log";
@@ -624,7 +624,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#twisted-admin";
+        name = "#twisted-dev";
         tag = "freenode";
       }
     );
@@ -637,7 +637,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#twisted-dev";
+        name = "#pypy";
         tag = "freenode";
       }
     );
@@ -650,7 +650,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pypy";
+        name = "#tmux";
         tag = "freenode";
       }
     );
@@ -663,7 +663,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#tmux";
+        name = "#hypothesis";
         tag = "freenode";
       }
     );
@@ -676,7 +676,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#hypothesis";
+        name = "#python-dev";
         tag = "freenode";
       }
     );
@@ -689,7 +689,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-dev";
+        name = "#machomebrew";
         tag = "freenode";
       }
     );
@@ -702,7 +702,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#machomebrew";
+        name = "#pypa";
         tag = "freenode";
       }
     );
@@ -715,7 +715,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pypa";
+        name = "#pylib";
         tag = "freenode";
       }
     );
@@ -728,7 +728,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pylib";
+        name = "#nycpython";
         tag = "freenode";
       }
     );
@@ -741,7 +741,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#nycpython";
+        name = "#techcrap";
         tag = "freenode";
       }
     );
@@ -754,7 +754,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#techcrap";
+        name = "#python3";
         tag = "freenode";
       }
     );
@@ -767,7 +767,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python3";
+        name = "#sphinx-doc";
         tag = "freenode";
       }
     );
@@ -780,7 +780,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#sphinx-doc";
+        name = "#python-infra";
         tag = "freenode";
       }
     );
@@ -793,7 +793,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-infra";
+        name = "#json-schema";
         tag = "freenode";
       }
     );
@@ -806,7 +806,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#json-schema";
+        name = "#neovim";
         tag = "freenode";
       }
     );
@@ -819,19 +819,6 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#neovim";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "29";
-  };
-  26 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
         name = "#general";
         tag = "MagneticSlack";
       }
@@ -839,7 +826,7 @@ windows = {
     sticky = "yes";
     parent = "29";
   };
-  27 = {
+  26 = {
     level = "ALL";
     items = (
       {
@@ -852,7 +839,7 @@ windows = {
     sticky = "yes";
     parent = "29";
   };
-  28 = {
+  27 = {
     level = "ALL";
     items = (
       {
@@ -865,13 +852,26 @@ windows = {
     sticky = "yes";
     parent = "29";
   };
-  29 = {
+  28 = {
     level = "ALL";
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#music";
+        tag = "MagneticSlack";
+      }
+    );
+    sticky = "yes";
+    parent = "29";
+  };
+  29 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#john_s-reports";
         tag = "MagneticSlack";
       }
     );
@@ -930,45 +930,19 @@ windows = {
     parent = "29";
   };
   34 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#john_s-reports";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "29";
-  };
-  35 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#tdd";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "29";
-  };
-  36 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
     parent = "29";
   };
-  37 = {
+  35 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
 mainwindows = {
-  29 = { first_line = "10"; lines = "56"; };
-  37 = { first_line = "1"; lines = "9"; };
+  29 = { first_line = "8"; lines = "46"; };
+  35 = { first_line = "1"; lines = "7"; };
 };
