@@ -731,6 +731,18 @@ if has("eval")
         return ":SplitSensibly " . file
     endfunction
 
+    function! GdiffAll(...)
+        if a:0 > 0
+            let branch = a:1
+        else
+            let branch = 'develop'
+        endif
+
+        execute 'Git! diff --name-only ' . l:branch
+        global/./execute 'tabedit ' . getline('.') . '| Gdiff ' l:branch . ' | tabprevious'
+        close
+    endfunction
+
     if has("autocmd")
         augroup misc
             autocmd!
