@@ -1,5 +1,3 @@
---exclude=@/Users/Julian/.config/git/ignore
-
 --python-kinds=-i
 
 --langdef=Go

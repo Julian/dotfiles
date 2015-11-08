@@ -17,6 +17,7 @@ zle -N self-insert url-quote-magic
 
 #--- Misc --------------------------------------------------------------------
 
+export CTAGS="--exclude=@$XDG_CONFIG_HOME/git/ignore"
 export BUNDLE_CONFIG=$XDG_CONFIG_HOME/bundler/config
 export GIT_TEMPLATE_DIR=$XDG_CONFIG_HOME/git/template
 export HTTPIE_CONFIG_DIR=$XDG_CONFIG_HOME/httpie
