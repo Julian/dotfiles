@@ -5,10 +5,11 @@ import json
 import yaml
 
 
-file = open(sys.argv[1]) if len(sys.argv) > 1 else sys.stdin
-
-with file:
-    contents = yaml.safe_load(file)
+if len(sys.argv) > 1:
+    with open(sys.argv[1]) as file:
+        contents = yaml.safe_load(file)
+else:
+    contents = yaml.safe_load(sys.stdin)
 
 if sys.stdout.isatty():
     arguments = dict(indent=2, sort_keys=True)
