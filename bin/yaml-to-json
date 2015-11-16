@@ -4,4 +4,15 @@ import json
 
 import yaml
 
-json.dump(yaml.load(sys.stdin), sys.stdout)
+
+file = open(sys.argv[1]) if len(sys.argv) > 1 else sys.stdin
+
+with file:
+    contents = yaml.safe_load(file)
+
+if sys.stdout.isatty():
+    arguments = dict(indent=2, sort_keys=True)
+else:
+    arguments = {}
+
+json.dump(contents, sys.stdout, **arguments)
