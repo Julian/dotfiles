@@ -28,4 +28,5 @@
 .emacs.d/elpa
 .emacs.d/**/*~
 
-*.pyc
+*.idx.oft
+*.syn.oft

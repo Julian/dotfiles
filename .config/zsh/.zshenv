@@ -38,6 +38,8 @@ export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 export GEM_HOME=$XDG_DATA_HOME/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 
+export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
+
 typeset -aU gopath
 typeset -T GOPATH gopath
 gopath=($XDG_DATA_HOME/go)
