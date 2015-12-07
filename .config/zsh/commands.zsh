@@ -6,7 +6,9 @@ alias m='mv -nv'
 # p: ssh more suitable for mass parallelizing
 # t: tmux attach
 # x: X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
-alias ssp='ssh -o "ControlMaster no" -o "VisualHostKey no"'
+function ssp() {
+    parallel --nonall --sshlogin $@
+}
 function sst() {
     ssh -t $@ '$SHELL -l -c "tmux attach || tmux"'
 }
