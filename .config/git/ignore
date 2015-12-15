@@ -1,6 +1,7 @@
 # Globally Ignored #
 # ================ #
 
+.hg/
 .git/
 
 # Compiled source #
