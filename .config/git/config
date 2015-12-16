@@ -58,7 +58,7 @@
     ff = merge --ff-only
     noff = merge --no-ff
     g = log -m -G
-    up = "!git remote update --prune && git merge --ff-only @{u}"
+    up = "!git remote update --prune && git merge --ff-only @{u} && git submodule update"
     rmb = push --delete origin
     s = status --short
     st = status
