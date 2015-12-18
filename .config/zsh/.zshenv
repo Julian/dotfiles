@@ -40,10 +40,18 @@ export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
 
+typeset -aU c_include_path
+typeset -T C_INCLUDE_PATH c_include_path
+export C_INCLUDE_PATH
+
 typeset -aU gopath
 typeset -T GOPATH gopath
 gopath=($XDG_DATA_HOME/go)
 export GOPATH
+
+typeset -aU ld_library_path
+typeset -T LD_LIBRARY_PATH ld_library_path
+export LD_LIBRARY_PATH
 
 typeset -aU nodepath
 typeset -T NODEPATH nodepath
