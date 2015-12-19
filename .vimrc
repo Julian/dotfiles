@@ -215,6 +215,8 @@ xnoremap & :&&<CR>
 
 nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR><C-L>
 
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
 " inoremap <BS> <BS><C-G>u
