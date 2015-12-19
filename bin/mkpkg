@@ -249,7 +249,10 @@ files = {
             packages=packages,
             modules=modules,
         ),
-
+    os.path.join(name, ".gitignore") : """
+    /{package_name}/_version.py
+    /version.txt
+    """.format(package_name=package_name),
     os.path.join(name, "tox.ini") : """
         [tox]
         envlist = {envlist}
