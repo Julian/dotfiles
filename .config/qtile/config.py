@@ -2,9 +2,9 @@ import itertools
 import os
 import subprocess
 
-from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
-from libqtile.manager import Key, Click, Drag, Screen, Group
+from libqtile.command import lazy
+from libqtile.config import Click, Drag, Group, Key, Screen
 
 
 ALT = "mod1"
