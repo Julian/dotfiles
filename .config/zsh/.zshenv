@@ -4,8 +4,6 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
-export BROWSER=chromium
-
 export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
 
 if [[ "$OSTYPE" == darwin* ]]
@@ -16,6 +14,8 @@ then
     export XDG_DATA_HOME=$HOME/Library/Application\ Support
     export VIRTUALENVS=$HOME/.local/share/virtualenvs
 else
+    export BROWSER=chromium
+
     export XDG_CACHE_HOME=$HOME/.cache
     export XDG_DATA_HOME=$HOME/.local/share
     export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
