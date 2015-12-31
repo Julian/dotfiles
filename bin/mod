@@ -4,11 +4,20 @@ Print the paths of the module(s) given on the command line.
 
 """
 
+import os
 import pkgutil
 import sys
 
 
+exit_status = 0
+
 for module_name in sys.argv[1:]:
     module = pkgutil.get_loader(module_name)
-    if module is not None:
+    if module is None:
+        sys.stderr.write("Can't find {0!r}.\n".format(module_name))
+        exit_status = 1
+    elif module.file is None:
+        sys.stderr.write("{0!r} isn't file-backed.\n".format(module_name))
+        exit_status = 2
+    else:
         print module.filename
