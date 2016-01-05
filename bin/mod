@@ -16,7 +16,7 @@ for module_name in sys.argv[1:]:
     if module is None:
         sys.stderr.write("Can't find {0!r}.\n".format(module_name))
         exit_status = 1
-    elif module.file is None:
+    elif module_name == "sys":
         sys.stderr.write("{0!r} isn't file-backed.\n".format(module_name))
         exit_status = 2
     else:
