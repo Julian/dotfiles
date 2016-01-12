@@ -35,7 +35,7 @@ export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
 export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
-export GEM_HOME=$XDG_DATA_HOME/gem
+export GEM_HOME=$HOME/.local/share/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
