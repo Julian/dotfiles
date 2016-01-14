@@ -361,6 +361,9 @@ set suffixes+=.backup,.hbm,.ini             " lower priority when completing
 set wildmenu                                " file completion helper window
 set wildmode=longest:full,full
 if exists('&wildignorecase')
+    " TODO: Really I want wildsmartcase (which doesn't exist), but I
+    "       don't want to hit longest: if my match was because of case
+    "       insensitivity.
     set wildignorecase                      " ignore case in completions
 endif
 
