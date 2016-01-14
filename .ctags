@@ -30,3 +30,11 @@
 --regex-js=/([^= ]+)[ \t]*=[ \t]*[^']"[^"]*/\1/,string/
 
 --exclude=*.min.js
+
+--langdef=rst
+--langmap=rst:.rst
+--regex-rst=/^#+$/##########/h,headers/
+--regex-rst=/^=+$/==========/h,headers/
+--regex-rst=/^-+$/----------/h,headers/
+--regex-rst=/^\^+$/^^^^^^^^^^/h,headers/
+--regex-rst=/^\.{2}[\t]+([^:]+):$/\1/r,references/
