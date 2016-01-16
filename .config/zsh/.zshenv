@@ -19,6 +19,8 @@ else
     export XDG_CACHE_HOME=$HOME/.cache
     export XDG_DATA_HOME=$HOME/.local/share
     export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
+
+    alias open=xdg-open
 fi
 
 export XDG_DESKTOP_DIR=$HOME/Desktop
