@@ -44,9 +44,11 @@ NeoBundle      'w0ng/vim-hybrid'
 
 NeoBundle      'sheerun/vim-polyglot'
 
-NeoBundleLazy  'guns/vim-clojure-highlight',        {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'tpope/vim-fireplace',               {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'tpope/vim-leiningen',               {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'guns/vim-clojure-highlight',                 {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'guns/vim-sexp',                              {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'tpope/vim-fireplace',                        {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'tpope/vim-leiningen',                        {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy  'tpope/vim-sexp-mappings-for-regular-people', {'autoload': {'filetypes': ['clojure']}}
 
 NeoBundleLazy  'thoughtbot/vim-rspec',              {'autoload': {'filetypes': ['ruby']}}
 NeoBundleLazy  'tpope/vim-bundler',                 {'autoload': {'filetypes': ['ruby']}}
