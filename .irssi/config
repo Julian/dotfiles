@@ -119,7 +119,6 @@ channels = (
   { name = "#twisted"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#pypy"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#tmux"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#pocoo"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#python-dev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#machomebrew"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#python-testing"; chatnet = "freenode"; autojoin = "yes"; },
@@ -128,10 +127,7 @@ channels = (
   { name = "#nycpython"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#twisted-dev"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#python3"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#twisted-admin"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#sphinx-doc"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#neovim"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#readthedocs"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#pypa"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
