@@ -84,3 +84,8 @@ Berksfile.lock
 
 node_modules/
 bower_components/
+
+# Clojure #
+# ------- #
+
+.lein-repl-history
