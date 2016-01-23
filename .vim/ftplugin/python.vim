@@ -64,9 +64,11 @@ nmap     <buffer> <silent><LocalLeader>k va};s/\%V\i\?"\([^"]\+\)" \?: \?/\1=<CR
 vnoremap <buffer> <silent><LocalLeader>' :s/'/"<CR>
 
 " --------------------- from here on requires +python -------------------------
-if !has("python")
+try
+    python 'import site'
+catch
     finish
-endif
+endtry
 
 " Add support for virtualenvs
 python << EOF
