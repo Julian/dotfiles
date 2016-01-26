@@ -300,6 +300,7 @@ nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>y         "*y
 
 nnoremap        <leader>gb         :<C-U>Gblame<CR>
+nnoremap        <leader>gc         :<C-U>Gcommit<CR>
 nnoremap        <leader>gd         :<C-U>Gdiff<CR>
 nnoremap        <leader>ge         :<C-U>Gedit<CR>
 nnoremap        <leader>gr         :<C-U>Gread<CR>
@@ -565,10 +566,10 @@ endif
 
 " signature
 let g:SignatureMap = {
-      \ 'Leader'             :  "m",
-      \ 'PlaceNextMark'      :  "m,",
-      \ 'PurgeMarks'         :  "<Space>",
-      \ 'PurgeMarkers'       :  "<BS>",
+      \ 'Leader'             :  "M",
+      \ 'PlaceNextMark'      :  "M,",
+      \ 'PurgeMarks'         :  "M<Space>",
+      \ 'PurgeMarkers'       :  "M<BS>",
       \ 'GotoNextLineAlpha'  :  "",
       \ 'GotoPrevLineAlpha'  :  "",
       \ 'GotoNextSpotAlpha'  :  "",
