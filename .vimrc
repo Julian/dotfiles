@@ -375,6 +375,7 @@ set wildignore+=*.git,*.hg,*.svn
 set wildignore+=MANIFEST,*.pyc,**/_trial_temp*/**,*.egg-info/**,*.egg/**,**/build/**,**/htmlcov/**,**/dist/**,**/_build/**,**/.tox/**,**/.testrepository/**
 set wildignore+=**/.vim-flavor/**
 set wildignore+=*DS_Store*
+set wildignore+=version.txt
 set wildignore+=**/tmp/**
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.app,*.dmg,*.pdf,*.so
