@@ -5,5 +5,3 @@ require-virtualenv = false
 respect-virtualenv = true
 
 timeout = 15
-
-wheel-dir = /Users/Julian/.local/share/pip/wheels
