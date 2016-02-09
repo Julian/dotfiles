@@ -40,6 +40,9 @@ export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 export GEM_HOME=$HOME/.local/share/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 
+export LEIN_HOME=$XDG_DATA_HOME/lein
+export M2_HOME=$XDG_DATA_HOME/m2
+
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
 
 typeset -aU c_include_path
