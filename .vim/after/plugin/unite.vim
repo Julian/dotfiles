@@ -7,8 +7,8 @@ if has("autocmd")
     let g:unite_enable_start_insert = 1
     let g:unite_prompt='» '
 
-    if executable('ag')
-        let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+    if executable('l')
+        let g:unite_source_rec_async_command = ['l', '-1', '-R']
     endif
 
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
