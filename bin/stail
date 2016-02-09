@@ -1,0 +1,35 @@
+#! /usr/bin/env python
+from random import random
+
+from tubes.framing import bytesToLines, linesToBytes
+from tubes.tube import series, tube
+from tubes.protocol import factoryFromFlow
+from twisted.internet.defer import Deferred
+from twisted.internet.endpoints import serverFromString
+
+
+@tube
+class Sampler(object):
+    sample_rate = 0.5
+
+    def received(self, item):
+        if random() > self.sample_rate:
+            yield item
+
+
+def tailingFlow(fount, drain):
+    lineSampler = series(bytesToLines(), Sampler(), linesToBytes())
+    fount.flowTo(lineSampler).flowTo(drain)
+
+
+def main(reactor, listenOn="stdio:"):
+    endpoint = serverFromString(reactor=reactor, description=listenOn)
+    endpoint.listen(factoryFromFlow(tailingFlow))
+    return Deferred()
+
+
+if __name__ == '__main__':
+    from twisted.internet.task import react
+    from sys import argv
+    react(main, argv[1:])
+
