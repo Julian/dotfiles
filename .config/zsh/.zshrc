@@ -11,10 +11,6 @@ autoload -U zcalc
 autoload -U zsh-mime-setup
 zsh-mime-setup
 
-# Auto-quote urls
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
-
 #--- Misc --------------------------------------------------------------------
 
 export CTAGS="--exclude=@$XDG_CONFIG_HOME/git/ignore"
