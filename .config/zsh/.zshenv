@@ -1,3 +1,5 @@
+[[ -n "$ENABLE_ZPROF" ]] && zmodload zsh/zprof
+
 export ZSHPLUGINS=$ZDOTDIR/plugins
 
 export LC_ALL="en_US.UTF-8"
