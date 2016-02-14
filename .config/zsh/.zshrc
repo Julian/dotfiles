@@ -7,10 +7,6 @@ unset filename
 
 autoload -U zcalc
 
-# Suffix aliases
-autoload -U zsh-mime-setup
-zsh-mime-setup
-
 #--- Misc --------------------------------------------------------------------
 
 export CTAGS="--exclude=@$XDG_CONFIG_HOME/git/ignore"
