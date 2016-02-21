@@ -8,7 +8,7 @@ if has("autocmd")
     let g:unite_prompt='» '
 
     if executable('l')
-        let g:unite_source_rec_async_command = ['l', '-1', '-R']
+        let g:unite_source_rec_async_command = ['l', '-1', '-R', '-A']
     endif
 
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
