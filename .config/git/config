@@ -50,9 +50,9 @@
     cim = commit --amend -m
     co = checkout
     cp = cherry-pick
-    d = diff --ignore-all-space --ignore-blank-lines --word-diff=color
+    d = diff --ignore-all-space --ignore-blank-lines --word-diff=color --find-renames
+    dc = diff --ignore-all-space --ignore-blank-lines --word-diff=color --find-renames --cached
     di = diff
-    dc = diff --cached
     dd = diff --diff-algorithm=default
     df = diff --name-only
     ff = merge --ff-only
