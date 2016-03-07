@@ -179,7 +179,7 @@ nnoremap      <expr>dc        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_las
 nnoremap      <expr>dm        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#method(expand("%"), getpos(".")) : t:runt_last_command) .  "<CR>"
 nnoremap            dx         :w<CR>:Dispatch          tox                                                                                                         <CR>
 nnoremap            dK         :call                    runt#follow()                                                                                               <CR>
-nnoremap      <expr>dS        ":w<CR>:Dispatch "            . (empty(get(t:, 'runt_last_command', '')) ? runt#suite(expand("%")) : t:runt_last_command)               .  "<CR>"
+nnoremap      <expr>dS        ":w<CR>:Dispatch "            . (empty(get(t:, 'runt_last_command', '')) ? runt#suite(expand("%")) : t:runt_last_command)         .  "<CR>"
 
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
