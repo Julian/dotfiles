@@ -30,6 +30,7 @@
 --regex-js=/([^= ]+)[ \t]*=[ \t]*[^']"[^"]*/\1/,string/
 
 --exclude=*.min.js
+--exclude=.tox/*
 
 --langdef=rst
 --langmap=rst:.rst
