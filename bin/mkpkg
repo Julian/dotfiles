@@ -93,10 +93,20 @@ parser.add_argument(
     choices=["pytest", "trial"],
     default="trial",
 )
+parser.add_argument(
+    "--closed",
+    action="store_true",
+    help="A closed source package.",
+)
 
 arguments = parser.parse_args()
 name = arguments.name
-package_name = name.lower().replace("-", "_")
+
+if name.startswith("python-"):
+    package_name = name[len("python-"):]
+else:
+    package_name = name
+package_name = package_name.lower().replace("-", "_")
 
 if arguments.use_distutils:
     setup = "from distutils.core import setup"
@@ -141,17 +151,19 @@ elif arguments.test_runner == "trial":
     test_deps = ["twisted"]
 
 
-def make_classifiers(supports=arguments.supports):
+def make_classifiers(supports=arguments.supports, closed=arguments.closed):
     supports = sorted(supports)
 
     yield STATUS_CLASSIFIERS[arguments.status]
 
     for classifier in (
-        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
     ):
         yield classifier
+
+    if not arguments.closed:
+        yield "License :: OSI Approved :: MIT License"
 
     for version in supports:
         if version in VERSION_CLASSIFIERS:
@@ -183,18 +195,11 @@ if arguments.style:
     tox_envlist.append("style")
 
 
-files = {
-    os.path.join(name, "README.rst") : """
-    {heading}
-    {name}
-    {heading}
-    """.format(
-        heading="=" * len(name),
-        name=name,
-    ),
-    os.path.join(name, "COPYING") : """
-        Copyright (c) {now.year} {author}
-
+if arguments.closed:
+    license = "All rights reserved.\n"
+else:
+    license = dedented(
+        """
         Permission is hereby granted, free of charge, to any person obtaining a copy
         of this software and associated documentation files (the "Software"), to deal
         in the Software without restriction, including without limitation the rights
@@ -212,7 +217,24 @@ files = {
         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
-        """.format(now=datetime.datetime.now(), author=arguments.author),
+        """
+    )
+
+
+files = {
+    os.path.join(name, "README.rst") : """
+    {heading}
+    {name}
+    {heading}
+    """.format(
+        heading="=" * len(name),
+        name=name,
+    ),
+    os.path.join(name, "COPYING") : (
+        "Copyright (c) {now.year} {author}\n\n".format(
+            now=datetime.datetime.now(), author=arguments.author,
+        ) + license
+    ),
     os.path.join(name, "MANIFEST.in") : """
     include version.txt
     """,
@@ -237,7 +259,6 @@ files = {
             author_email="Julian@GrayVines.com",
             classifiers=classifiers,
             description="",
-            license="MIT",
             long_description=long_description,
             url="",
         )
