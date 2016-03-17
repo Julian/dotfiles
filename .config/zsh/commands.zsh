@@ -14,6 +14,10 @@ function sst() {
 }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
+function p() {
+    parallel --tag --progress --nonall --sshlogin - $@
+}
+
 # SSH SOCKS Proxy
 function tunnel() {
     local tunnel_host=${tunnel_host:-pi.grayvines.com}
