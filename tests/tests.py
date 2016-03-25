@@ -1,4 +1,5 @@
 from unittest import TestCase
+import time
 import pty
 import subprocess
 
@@ -33,3 +34,25 @@ class TestDotfiles(TestCase):
         plugins, _ = vim.communicate()
         self.assertTrue(plugins.split())
         self.assertIn("neobundle.vim", plugins.split())
+
+    def test_vim_and_zsh_are_not_slow_as_hell(self):
+        _, slave = pty.openpty()
+
+        start = time.time()
+        subprocess.call(
+            ["zsh", "-l", "-c", "vim +quit"],
+            stdin=slave,
+            stdout=open("/dev/null", "w"),
+        )
+        dotfiles_elapsed = time.time() - start
+
+        start = time.time()
+        subprocess.call(
+            ["zsh", "-l", "-c", "vim -u NONE +quit"],
+            stdin=slave,
+            stdout=open("/dev/null", "w"),
+            env={"RCS" : ""},
+        )
+        vanilla_elapsed = time.time() - start
+
+        self.assertLess(dotfiles_elapsed, vanilla_elapsed)
