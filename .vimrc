@@ -7,11 +7,6 @@ let maplocalleader = ","
 " : Plugins :
 " ===========
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-
 let s:load_dynamic_plugins=$VIM_LOAD_DYNAMIC_PLUGINS != "false"
 
 function! <SID>Develop(bundle)
@@ -19,85 +14,81 @@ function! <SID>Develop(bundle)
     if isdirectory(bundle_directory)
         let &runtimepath .= ',' . bundle_directory
     else
-        call neobundle#parser#bundle("'Julian/" . a:bundle . "'")
+        execute "Plug 'Julian/" . a:bundle . "'"
     endif
 endfunction
 command! -nargs=1 Develop call <SID>Develop('<args>')
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle      'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+if has('vim_starting')
+    source ~/.vim/bundle/vim-plug/plug.vim
+endif
+call plug#begin(expand('~/.vim/bundle/'))
 
 " --- Themes ---
 
-NeoBundle      'chriskempson/tomorrow-theme',       {'rtp' : 'vim/'}
-NeoBundle      'sickill/vim-monokai'
-NeoBundle      'w0ng/vim-hybrid'
+Plug      'chriskempson/tomorrow-theme',       {'rtp' : 'vim/'}
+Plug      'sickill/vim-monokai'
+Plug      'w0ng/vim-hybrid'
 
 " --- Additional Filetype Support ---
 
-NeoBundle      'sheerun/vim-polyglot'
+Plug      'sheerun/vim-polyglot'
 
-NeoBundleLazy  'guns/vim-clojure-highlight',                 {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'guns/vim-sexp',                              {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'tpope/vim-fireplace',                        {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'tpope/vim-leiningen',                        {'autoload': {'filetypes': ['clojure']}}
-NeoBundleLazy  'tpope/vim-sexp-mappings-for-regular-people', {'autoload': {'filetypes': ['clojure']}}
+Plug      'guns/vim-clojure-highlight',                 {'for': 'clojure'}
+Plug      'guns/vim-sexp',                              {'for': 'clojure'}
+Plug      'tpope/vim-fireplace',                        {'for': 'clojure'}
+Plug      'tpope/vim-leiningen',                        {'for': 'clojure'}
+Plug      'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 
-NeoBundleLazy  'thoughtbot/vim-rspec',              {'autoload': {'filetypes': ['ruby']}}
-NeoBundleLazy  'tpope/vim-bundler',                 {'autoload': {'filetypes': ['ruby']}}
-NeoBundleLazy  'tpope/vim-rails',                   {'autoload': {'filetypes': ['ruby']}}
+Plug      'thoughtbot/vim-rspec',              {'for': 'ruby'}
+Plug      'tpope/vim-bundler',                 {'for': 'ruby'}
+Plug      'tpope/vim-rails',                   {'for': 'ruby'}
 
 " --- Plugins ---
 
-NeoBundle      'alfredodeza/coveragepy.vim',        {'autoload': {'filetypes': ['python']}}
-NeoBundle      'AndrewRadev/linediff.vim',          {'autoload': {'commands': ['LineDiff']}}
-NeoBundle      'AndrewRadev/splitjoin.vim'
-NeoBundle      'AndrewRadev/switch.vim'
-NeoBundle      'b4winckler/vim-angry'
-NeoBundle      'bling/vim-airline'
-NeoBundle      'bruno-/vim-man'
-NeoBundle      'bruno-/vim-vertical-move'
-NeoBundle      'dahu/vim-fanfingtastic'
-NeoBundleLazy  'godlygeek/tabular',                 {'autoload': {'commands': 'Tabularize'}}
-NeoBundleLazy  'kana/vim-vspec'
-NeoBundleLazy  'kana/vim-submode'
-NeoBundle      'kien/rainbow_parentheses.vim'
-NeoBundle      'kshenoy/vim-signature'
-NeoBundleLazy  'jmcantrell/vim-diffchanges',        {'autoload': {'commands': ['DiffChangesDiffToggle']}}
-NeoBundle      'majutsushi/tagbar'
-NeoBundle      'mhinz/vim-signify'
-NeoBundle      'mbbill/undotree'
-NeoBundleLazy  'nathanaelkane/vim-indent-guides',   {'autoload': {'commands': ['IndentGuidesToggle']}}
-NeoBundleLazy  'scrooloose/syntastic',              {'autoload': {'commands': ['SyntasticCheck']}}
-NeoBundle      't9md/vim-quickhl'
-NeoBundle      'tommcdo/vim-exchange'
-NeoBundle      'tomtom/tcomment_vim'
-NeoBundle      'tpope/vim-abolish'
-NeoBundle      'tpope/vim-dispatch'
-NeoBundle      'tpope/vim-endwise'
-NeoBundle      'tpope/vim-fugitive'
-NeoBundleLazy  'tpope/vim-obsession',               {'autoload': {'commands': ['Obsession']}}
-NeoBundle      'tpope/vim-repeat'
-NeoBundle      'tpope/vim-surround'
-NeoBundle      'Valloric/MatchTagAlways',           {'autoload': {'filetypes': ['html', 'xhtml', 'xml', 'jinja']}}
-NeoBundle      'Valodim/vim-zsh-completion'
+Plug      'ajh17/VimCompletesMe'
+Plug      'alfredodeza/coveragepy.vim',        {'for': 'python'}
+Plug      'AndrewRadev/linediff.vim',          {'on': 'LineDiff'}
+Plug      'AndrewRadev/splitjoin.vim'
+Plug      'AndrewRadev/switch.vim'
+Plug      'b4winckler/vim-angry'
+Plug      'bling/vim-airline'
+Plug      'bruno-/vim-man'
+Plug      'bruno-/vim-vertical-move'
+Plug      'dahu/vim-fanfingtastic'
+Plug      'godlygeek/tabular',                 {'on': 'Tabularize'}
+Plug      'kana/vim-vspec'
+Plug      'kana/vim-submode'
+Plug      'kien/rainbow_parentheses.vim'
+Plug      'kshenoy/vim-signature'
+Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
+Plug      'majutsushi/tagbar'
+Plug      'mhinz/vim-signify'
+Plug      'mbbill/undotree'
+Plug      'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
+Plug      'scrooloose/syntastic',              {'on': 'SyntasticCheck'}
+Plug      't9md/vim-quickhl'
+Plug      'tommcdo/vim-exchange'
+Plug      'tomtom/tcomment_vim'
+Plug      'tpope/vim-abolish'
+Plug      'tpope/vim-dispatch'
+Plug      'tpope/vim-endwise'
+Plug      'tpope/vim-fugitive'
+Plug      'tpope/vim-obsession',               {'on': 'Obsession'}
+Plug      'tpope/vim-repeat'
+Plug      'tpope/vim-surround'
+Plug      'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
+Plug      'Valodim/vim-zsh-completion'
 
-NeoBundle      'kana/vim-textobj-indent'
-NeoBundleLazy  'Julian/vim-textobj-python',         {'autoload': {'filetypes': ['python']}}
-NeoBundle      'kana/vim-textobj-syntax'
-NeoBundle      'kana/vim-textobj-user'
+Plug      'kana/vim-textobj-indent'
+Plug      'Julian/vim-textobj-python',         {'for': 'python'}
+Plug      'kana/vim-textobj-syntax'
+Plug      'kana/vim-textobj-user'
 
-NeoBundleLazy  'Shougo/neomru.vim',                 {'autoload': {'unite_sources': 'file_mru'}}
-NeoBundle      'Shougo/unite.vim'
-NeoBundleLazy  'Shougo/unite-outline',              {'autoload': {'unite_sources': 'outline'}}
-NeoBundle      'tsukkee/unite-tag'
+Plug      'Shougo/neomru.vim'
+Plug      'Shougo/unite.vim'
+Plug      'Shougo/unite-outline'
+Plug      'tsukkee/unite-tag'
 
 Develop         vim-runt
 Develop         vim-textobj-assignment
@@ -105,19 +96,16 @@ Develop         vim-textobj-brace
 Develop         vim-textobj-variable-segment
 
 if executable("tmux")
-    NeoBundle  'tpope/vim-tbone'
-    NeoBundle  'wellle/tmux-complete.vim'
+    Plug  'tpope/vim-tbone'
+    Plug  'wellle/tmux-complete.vim'
     let g:tmuxcomplete#trigger = ''
 endif
 
 if s:load_dynamic_plugins
-    NeoBundle 'davidhalter/jedi-vim'
-    if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-        NeoBundle 'Shougo/neocomplete.vim'
-    endif
+    Plug 'davidhalter/jedi-vim'
 endif
 
-call neobundle#end()
+call plug#end()
 
 " =========
 " : Basic :
@@ -217,8 +205,6 @@ xnoremap & :&&<CR>
 
 nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR><C-L>
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
 " inoremap <BS> <BS><C-G>u
@@ -313,7 +299,7 @@ nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap        <leader>U         :<C-U>Unite -auto-quit -log -no-start-insert -wrap neobundle/update<CR>
+nnoremap        <leader>U         :<C-U>PlugUpdate<CR>
 nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
