@@ -1,0 +1,51 @@
+language: ruby
+sudo: false
+env:
+  global:
+    - DEPS=$HOME/deps
+    - PATH=$DEPS/bin:$PATH
+matrix:
+  include:
+    - env: ENV=nox
+      rvm: 1.8.7
+      addons: { apt: { packages: [vim-nox] } }
+    - env: ENV=python
+      rvm: 1.8.7
+      addons: { apt: { packages: [python2.7-dev] } }
+    - env: ENV=python3
+      rvm: 1.8.7
+      addons: { apt: { packages: [python3-dev] } }
+    - env: ENV=ruby
+      rvm: 1.8.7
+    - env: ENV=ruby
+      rvm: 2.0.0
+install: |
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+  if [ "$ENV" == "nox" ]; then
+    mkdir -p ${DEPS}/bin
+    ln -s /usr/bin/vim.nox ${DEPS}/bin/vim
+    return
+  fi
+
+  C_OPTS="--prefix=$DEPS --with-features=huge --disable-gui "
+  case "$ENV" in
+    python)
+      C_OPTS+=--enable-pythoninterp
+      ;;
+    python3)
+      C_OPTS+=--enable-python3interp
+      ;;
+    ruby)
+      C_OPTS+=--enable-rubyinterp
+      ;;
+  esac
+
+  git clone --depth 1 https://github.com/vim/vim
+  cd vim
+  ./configure $C_OPTS
+  make
+  make install
+  cd -
+script: test/run !
