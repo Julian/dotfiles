@@ -86,7 +86,7 @@ Plug      'kana/vim-textobj-syntax'
 Plug      'kana/vim-textobj-user'
 
 Plug      'Shougo/neomru.vim'
-Plug      'Shougo/unite.vim'
+Plug      'Shougo/unite.vim'            |      Plug 'Shougo/vimproc'
 Plug      'Shougo/unite-outline'
 Plug      'tsukkee/unite-tag'
 

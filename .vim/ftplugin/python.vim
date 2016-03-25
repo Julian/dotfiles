@@ -4,6 +4,7 @@ let g:pyindent_open_paren = '&sw'
 let g:pyindent_continue = '&sw'
 
 setlocal omnifunc=jedi#completions
+let b:vcm_tab_complete='omni'
 
 let b:switch_definitions = [
     \ ["assertAlmostEqual", "assertNotAlmostEqual"],
