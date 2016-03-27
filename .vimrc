@@ -613,13 +613,20 @@ if has("eval")
     function! s:SplitSensiblyCommand(qargs)
         let padding = 5  " columns
 
-        if bufname('%') == '' && getline(1, '$') == ['']
-            if a:qargs == ''
+        for window_number in range(winnr('$'))
+            let buffer_number = winbufnr(window_number)
+            let has_no_name = bufname(buffer_number) == ''
+            if has_no_name && getbufline(buffer_number, 1, '$') == ['']
+                if a:qargs != ''
+                    execute window_number . 'wincmd w'
+                    execute 'edit ' . a:qargs
+                endif
+
                 return
             endif
+        endfor
 
-            execute 'edit ' . a:qargs
-        elseif winwidth(0) >= (79 + padding) * 2
+        if winwidth(0) >= (79 + padding) * 2
             execute 'vsplit ' . a:qargs
             wincmd L
         else
