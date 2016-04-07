@@ -782,6 +782,8 @@ if has("eval")
             autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
             autocmd BufNewFile,BufRead *.tac setlocal filetype=python
 
+            autocmd BufReadCmd *.egg call zip#Browse(expand("<amatch>"))
+
             autocmd BufWritePost .vimrc source $MYVIMRC
 
             " Auto-close fugitive buffers
