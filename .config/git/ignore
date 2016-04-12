@@ -4,6 +4,8 @@
 .hg/
 .git/
 
+.cache/
+
 # Compiled source #
 # --------------- #
 *.com
