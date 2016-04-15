@@ -151,6 +151,11 @@ function :Vsp () { tmux split-window -h }
 # Associated project name for the current directory
 function project() { echo ${${1:-$PWD}:t:l:gs/-/_} }
 
+# Print a Python str
+function pp() {
+    python -c "print '$@'"
+}
+
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
     emulate -L zsh
