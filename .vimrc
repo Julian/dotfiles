@@ -48,7 +48,7 @@ Plug      'tpope/vim-rails',                   {'for': 'ruby'}
 
 Plug      'ajh17/VimCompletesMe'
 Plug      'alfredodeza/coveragepy.vim',        {'for': 'python'}
-Plug      'AndrewRadev/linediff.vim',          {'on': 'LineDiff'}
+Plug      'AndrewRadev/linediff.vim',          {'on': 'Linediff'}
 Plug      'AndrewRadev/splitjoin.vim'
 Plug      'AndrewRadev/switch.vim'
 Plug      'b4winckler/vim-angry'
