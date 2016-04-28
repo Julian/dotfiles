@@ -251,16 +251,16 @@ files = {
 
         setup(
             name="{package_name}",
-            packages={packages},
-            py_modules={modules},
-            setup_requires=["vcversioner"],
-            vcversioner={{"version_module_paths": ["{package_name}/_version.py"]}},
-            author="{author}",
-            author_email="Julian@GrayVines.com",
-            classifiers=classifiers,
             description="",
             long_description=long_description,
             url="",
+            author="{author}",
+            author_email="Julian@GrayVines.com",
+            packages={packages},
+            py_modules={modules},
+            setup_requires=["vcversioner>=2.16.0.0"],
+            vcversioner={{"version_module_paths": ["{package_name}/_version.py"]}},
+            classifiers=classifiers,
         )
         """.format(
             author=arguments.author,
@@ -279,18 +279,17 @@ files = {
         envlist = {envlist}
 
         [testenv]
-        changedir={{envtmpdir}}
+        changedir = {{envtmpdir}}
         commands =
-            {{envbindir}}/{test_runner} [] {tests}
+            {{envbindir}}/{test_runner} {{posargs:{tests}}}
             {{envpython}} -m doctest {{toxinidir}}/README.rst
         deps =
             {test_deps}
 
         [testenv:style]
+        deps = flake8
         commands =
-            flake8 [] --max-complexity 10 {{toxinidir}}/{tests}
-        deps =
-            flake8
+            flake8 {{posargs}} --max-complexity 10 {{toxinidir}}/{tests}
 
         [flake8]
         exclude = {package_name}/__init__.py
