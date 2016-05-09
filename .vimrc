@@ -613,7 +613,7 @@ if has("eval")
     function! s:SplitSensiblyCommand(qargs)
         let padding = 5  " columns
 
-        for window_number in range(winnr('$'))
+        for window_number in range(1, winnr('$'))
             let buffer_number = winbufnr(window_number)
             let has_no_name = bufname(buffer_number) == ''
             if has_no_name && getbufline(buffer_number, 1, '$') == ['']
