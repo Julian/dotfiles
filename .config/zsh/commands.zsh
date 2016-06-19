@@ -1,6 +1,7 @@
 #--- Aliases -----------------------------------------------------------------
 
 alias m='mv -nv'
+alias n=nvim
 
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
@@ -138,9 +139,6 @@ if (( $+commands[time] )); then
     disable -r time
 fi
 
-
-alias :q=exit
-alias :w='echo Haha no.'
 
 # tmux helpers
 function :sp () { tmux split-window }
