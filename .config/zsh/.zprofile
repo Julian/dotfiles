@@ -11,8 +11,8 @@ if [[ "$OSTYPE" == darwin* ]] ; then
 fi
 
 path=(
-    /usr/local/bin
     $HOME/.local/bin
+    /usr/local/bin
     /usr/local/sbin
     ${GEM_HOME}/bin
     ${gopath/%//bin}
