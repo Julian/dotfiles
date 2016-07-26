@@ -29,12 +29,19 @@ servers = (
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
   { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
   {
-    address = "irc.freenode.net";
+    address = "pi.grayvines.com";
     chatnet = "freenode";
-    port = "6697";
+    port = "1123";
     use_ssl = "yes";
     ssl_verify = "yes";
     ssl_capath = "/etc/ssl/certs";
+    autoconnect = "yes";
+  },
+  {
+    address = "pi.grayvines.com";
+    chatnet = "MagneticSlack";
+    port = "1123";
+    use_ssl = "yes";
     autoconnect = "yes";
   }
 );
@@ -423,7 +430,7 @@ settings = {
     nick = "tos9";
     timestamp_format = "%H:%M:%S";
     use_proxy = "yes";
-    proxy_address = "ec2-23-23-49-201.compute-1.amazonaws.com";
+    proxy_address = "pi.grayvines.com";
     proxy_port = "1123";
   };
   "fe-text" = { actlist_sort = "refnum"; paste_join_multiline = "no"; };
