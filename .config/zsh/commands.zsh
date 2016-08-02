@@ -54,6 +54,8 @@ if (( $+commands[selecta] )); then
         zle reset-prompt
     }
     zle -N insert-selecta-path-in-command-line
+
+    bindkey "^S" insert-selecta-path-in-command-line
 fi
 
 if (( $+commands[weechat-curses] )); then
