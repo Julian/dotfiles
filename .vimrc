@@ -224,8 +224,8 @@ nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 let s:all_modes_mappings = {
     \   '<F12>'  : ':<C-U>make',
     \
-    \   '<Up>' : '',
-    \   '<Down>' : '',
+    \   '<Up>' : ':diffget[c',
+    \   '<Down>' : 'diffget]c',
     \   '<Left>' : ':diffget',
     \   '<Right>' : ':diffput'
     \
