@@ -421,6 +421,13 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_2 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_2 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -508,6 +515,7 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "23";
   };
   2 = {
     level = "ALL";
@@ -520,7 +528,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   3 = {
     level = "ALL";
@@ -533,7 +541,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   4 = {
     level = "ALL";
@@ -546,7 +554,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   5 = {
     level = "ALL";
@@ -559,7 +567,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   6 = {
     level = "ALL";
@@ -572,7 +580,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   7 = {
     level = "ALL";
@@ -585,7 +593,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   8 = {
     level = "ALL";
@@ -598,7 +606,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   9 = {
     level = "ALL";
@@ -611,7 +619,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   10 = {
     level = "ALL";
@@ -624,7 +632,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   11 = {
     level = "ALL";
@@ -637,7 +645,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   12 = {
     level = "ALL";
@@ -650,7 +658,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   13 = {
     level = "ALL";
@@ -663,7 +671,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   14 = {
     level = "ALL";
@@ -676,22 +684,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   15 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#machomebrew";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  16 = {
     level = "ALL";
     items = (
       {
@@ -702,9 +697,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
-  17 = {
+  16 = {
     level = "ALL";
     items = (
       {
@@ -715,9 +710,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
-  18 = {
+  17 = {
     level = "ALL";
     items = (
       {
@@ -728,9 +723,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
-  19 = {
+  18 = {
     level = "ALL";
     items = (
       {
@@ -741,7 +736,20 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
+  };
+  19 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python-infra";
+        tag = "freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "23";
   };
   20 = {
     level = "ALL";
@@ -754,35 +762,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   21 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#sphinx-doc";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  22 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#python-infra";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  23 = {
     level = "ALL";
     items = (
       {
@@ -793,7 +775,32 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
+  };
+  22 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#platform-guild";
+        tag = "MagneticSlack";
+      }
+    );
+    sticky = "yes";
+    parent = "23";
+  };
+  23 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#engineering";
+        tag = "MagneticSlack";
+      }
+    );
+    sticky = "yes";
   };
   24 = {
     level = "ALL";
@@ -806,7 +813,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   25 = {
     level = "ALL";
@@ -819,22 +826,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
   26 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#lunch";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  27 = {
     level = "ALL";
     items = (
       {
@@ -845,59 +839,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
-  28 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#john_s-reports";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  29 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#analytics";
-        tag = "MagneticSlack";
-      }
-    );
-  };
-  30 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#engineering";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  31 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#platform-guild";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  32 = {
+  27 = {
     level = "ALL";
     items = (
       {
@@ -908,22 +852,33 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
-  33 = {
+  28 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#techops-public";
+        tag = "MagneticSlack";
+      }
+    );
+  };
+  29 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "1";
+    parent = "23";
   };
-  34 = {
+  30 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
 mainwindows = {
-  1 = { first_line = "4"; lines = "48"; };
-  34 = { first_line = "1"; lines = "3"; };
+  23 = { first_line = "6"; lines = "95"; };
+  30 = { first_line = "1"; lines = "5"; };
 };
