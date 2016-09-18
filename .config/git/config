@@ -38,42 +38,51 @@
     rmdir = true
 
 [alias]
+    # Existing operations
     b = branch
     bm = branch --merged
     bn = branch --no-merged
     br = branch --remote
     brm = branch --remote --merged
     brn = branch --remote --no-merged
+
     c = clone --recursive
-    ci = commit
-    cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-    cim = commit --amend -m
     co = checkout
     cp = cherry-pick
+    rmb = push --delete origin
+    tip = rebase @{u}
+
+    x = commit --message
+    ci = commit
+    cim = commit --amend -m
+
     d = diff --ignore-all-space --ignore-blank-lines --word-diff=color --find-renames
     dc = diff --ignore-all-space --ignore-blank-lines --word-diff=color --find-renames --cached
     di = diff
     dd = diff --diff-algorithm=default
     df = diff --name-only
+
+    g = log -m -G
+
     ff = merge --ff-only
     noff = merge --no-ff
-    g = log -m -G
-    up = "!git remote update --prune && git merge --ff-only @{u} && git submodule update"
-    tip = rebase @{u}
-    rmb = push --delete origin
+
     s = status --short
     st = status
-    x = commit --message
-    amend = commit --amend
+
+    good = bisect good
+    bad = bisect bad
+
+    # New operations
+    up = "!git remote update --prune && git merge --ff-only @{u} && git submodule update"
+    cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+    inc = !sh -c 'git cia && git stash --include-untracked && $@ && git stash pop'
     changes = log HEAD..
     authors = shortlog --summary --numbered
     ctags = "!.git/hooks/ctags"
     fork = !sh -c 'git remote add $1 https://github.com/$1/$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-)) && git fetch $1' -
     issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
     stale = "!git for-each-ref --sort=committerdate --shell --format=\"git log -1 --pretty=format:'%Cgreen%ci %Cred%cr%Creset%d' %(refname)\" refs/remotes/origin/ | sh"
-
-    good = bisect good
-    bad = bisect bad
 
     # Fancy logging.
     #   h = head
