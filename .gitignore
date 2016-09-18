@@ -14,6 +14,7 @@
 .tmux/tmux.conf.local
 
 .config/bpython/history
+.config/fish/fishd.*
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
 .config/notmuch/
