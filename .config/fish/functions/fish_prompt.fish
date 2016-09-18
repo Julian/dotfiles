@@ -15,5 +15,5 @@ function fish_prompt
         set suffix '>'
     end
 
-    echo -n -s (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
+    echo -e -n -s "\n" (set_color $color_cwd) (prompt_pwd) (set_color normal) "\n$suffix "
 end
