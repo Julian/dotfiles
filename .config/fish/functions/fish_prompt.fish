@@ -9,10 +9,10 @@ function fish_prompt
             else
                 set color_cwd $fish_color_cwd
             end
-            set suffix '#'
+            set suffix '√'
     case '*'
         set color_cwd $fish_color_cwd
-        set suffix '>'
+        set suffix '⤳ '
     end
 
     echo -e -n -s "\n" (set_color $color_cwd) (prompt_pwd) (set_color normal) "\n$suffix "
