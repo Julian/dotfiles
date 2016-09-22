@@ -2,6 +2,7 @@
 
 alias m='mv -nv'
 alias n=nvim
+alias p='noglob parallel --tag --progress --nonall --sshlogin - $@'
 
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
@@ -14,10 +15,6 @@ function sst() {
     ssh -t $@ '$SHELL -l -c "tmux attach || tmux"'
 }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
-
-function p() {
-    parallel --tag --progress --nonall --sshlogin - $@
-}
 
 # SSH SOCKS Proxy
 function tunnel() {
