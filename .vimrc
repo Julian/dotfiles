@@ -118,7 +118,9 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
-set encoding=utf8
+if has('vim_starting')
+    set encoding=utf8
+endif
 set autoread                           " automatically reload unmodified bufs
 set gdefault
 set hidden
@@ -224,8 +226,8 @@ nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 let s:all_modes_mappings = {
     \   '<F12>'  : ':<C-U>make',
     \
-    \   '<Up>' : ':diffget[c',
-    \   '<Down>' : 'diffget]c',
+    \   '<Up>' : ':diffget<CR>[c',
+    \   '<Down>' : ':diffget<CR>]c',
     \   '<Left>' : ':diffget',
     \   '<Right>' : ':diffput'
     \
@@ -784,7 +786,7 @@ if has("eval")
 
             autocmd BufReadCmd *.egg call zip#Browse(expand("<amatch>"))
 
-            autocmd BufWritePost .vimrc source $MYVIMRC
+            autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
             " Auto-close fugitive buffers
             autocmd BufReadPost fugitive://* set bufhidden=delete
