@@ -47,6 +47,11 @@ export M2_HOME=$XDG_DATA_HOME/m2
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
 
+typeset -aU xdg_config_dirs
+typeset -T XDG_CONFIG_DIRS xdg_config_dirs
+xdg_config_dirs=($XDG_CONFIG_HOME/local/ $xdg_config_dirs)
+export XDG_CONFIG_DIRS
+
 typeset -aU c_include_path
 typeset -T C_INCLUDE_PATH c_include_path
 export C_INCLUDE_PATH
