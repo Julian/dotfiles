@@ -61,6 +61,7 @@ Plug      'kana/vim-vspec'
 Plug      'kana/vim-submode'
 Plug      'kien/rainbow_parentheses.vim'
 Plug      'kshenoy/vim-signature'
+Plug      'jaxbot/github-issues.vim'
 Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
 Plug      'majutsushi/tagbar'
 Plug      'mhinz/vim-signify'
