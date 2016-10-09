@@ -505,7 +505,7 @@ set incsearch                          " do incremental searching
 set hlsearch                           " hilight searches
 
 if executable("rg")                        " RIP
-    set grepprg=rg\ --vimgrep\ --no-heading\ $*
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ $*
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 elseif executable("ag")                    " if the silver searcher's around...
     set grepprg=ag\ --vimgrep\ $*
