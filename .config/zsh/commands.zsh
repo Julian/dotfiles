@@ -85,6 +85,8 @@ else
     alias ls='ls -h'
 fi
 
+alias rg='rg --smart-case'
+
 if (( $+commands[ag] )); then
     AG_OPTIONS='--smart-case'
     alias ag="ag $AG_OPTIONS"
