@@ -504,7 +504,10 @@ set smartcase                          " case-sensitive if upper in search term
 set incsearch                          " do incremental searching
 set hlsearch                           " hilight searches
 
-if executable("ag")                        " if the silver searcher's around...
+if executable("rg")                        " RIP
+    set grepprg=rg\ --vimgrep\ --no-heading\ $*
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
+elseif executable("ag")                    " if the silver searcher's around...
     set grepprg=ag\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m
 elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
