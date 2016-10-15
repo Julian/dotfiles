@@ -20,7 +20,7 @@ path=(
 )
 
 export DEVELOPMENT=$HOME/Development
-export EDITOR=vim
+(( $+commands[nvim] )) && export EDITOR=nvim || export EDITOR=vim
 
 [[ -d $DEVELOPMENT ]] && export IS_DEVELOPMENT_WORKSTATION=yup
 
