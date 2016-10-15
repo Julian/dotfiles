@@ -40,7 +40,7 @@ if (( $+commands[brew] )); then
 fi
 
 if (( $+commands[selecta] )); then
-    alias v='vim $(find . -type f | selecta)'
+    alias v=$EDITOR' $(find . -type f | selecta)'
 
     function insert-selecta-path-in-command-line() {
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
