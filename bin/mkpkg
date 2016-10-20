@@ -277,10 +277,12 @@ files = {
     os.path.join(name, "tox.ini") : """
         [tox]
         envlist = {envlist}
+        skipsdist = True
 
         [testenv]
         changedir = {{envtmpdir}}
         commands =
+            {{envbindir}}/pip install {{toxinidir}}
             {{envbindir}}/{test_runner} {{posargs:{tests}}}
             {{envpython}} -m doctest {{toxinidir}}/README.rst
         deps =
