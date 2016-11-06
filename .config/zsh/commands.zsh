@@ -37,6 +37,8 @@ alias di=diff
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
     alias up="brew update && brew upgrade --all"
+elif (( $+commands[nix-env] )); then
+    alias up="nix-channel --update nixpkgs && nix-env -u '*'"
 fi
 
 if (( $+commands[selecta] )); then
