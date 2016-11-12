@@ -1,8 +1,12 @@
 #! /usr/bin/env python
 # Generate a SSL certificate suitable for one-off testing of things over HTTPS
+#
+#
 # Example usage:
 #
 #   $ twistd -n web --port ssl:port=4443:privateKey=<(sslonce) --wsgi wsgi.app
+#
+# You also will likely want to enable chrome://flags/#allow-insecure-localhost
 
 from datetime import datetime, timedelta
 import sys
