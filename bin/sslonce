@@ -37,6 +37,8 @@ certificate = x509.CertificateBuilder().subject_name(
     datetime.utcnow() + timedelta(days=1),
 ).public_key(
     key.public_key(),
+).add_extension(
+    x509.SubjectAlternativeName([x509.DNSName(u"localhost")]), critical=False,
 ).sign(key, hashes.SHA256(), default_backend())
 
 sys.stdout.write(certificate.public_bytes(serialization.Encoding.PEM))
