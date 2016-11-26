@@ -64,11 +64,6 @@ parser.add_argument(
     help="the initial package development status",
 )
 parser.add_argument(
-    "--use-distutils",
-    action="store_true",
-    help="Use distutils instead of setuptools.",
-)
-parser.add_argument(
     "-S", "--no-style",
     action="store_false",
     dest="style",
@@ -108,16 +103,8 @@ else:
     package_name = name
 package_name = package_name.lower().replace("-", "_")
 
-if arguments.use_distutils:
-    setup = "from distutils.core import setup"
-    packages = """["{0}", "{0}.tests"]""".format(package_name)
-else:
-    setup = "from setuptools import find_packages, setup"
-    packages = "find_packages()"
-
 if arguments.single_module:
-    packages = "()"
-    modules = '["{name}"]'.format(name=package_name)
+    contents = 'pymodules=["{name}"]'.format(name=package_name)
     tests = "tests.py"
 
     core_source_paths = {
@@ -133,7 +120,7 @@ if arguments.single_module:
         """.format(name=name.title(), package_name=package_name),
     }
 else:
-    modules = "()"
+    contents = "packages=find_packages()"
     tests = package_name
 
     core_source_paths = {
@@ -241,7 +228,7 @@ files = {
     os.path.join(name, "setup.py") : """
         import os
 
-        {setup_import}
+        from setuptools import find_packages, setup
 
 
         with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
@@ -251,24 +238,26 @@ files = {
 
         setup(
             name="{package_name}",
+            url="https://github.com/Julian/{package_name}",
+
             description="",
             long_description=long_description,
-            url="",
+
             author="{author}",
             author_email="Julian@GrayVines.com",
-            packages={packages},
-            py_modules={modules},
+
+            {contents},
+
             setup_requires=["vcversioner>=2.16.0.0"],
             vcversioner={{"version_module_paths": ["{package_name}/_version.py"]}},
+
             classifiers=classifiers,
         )
         """.format(
             author=arguments.author,
             package_name=package_name,
-            setup_import=setup,
             classifiers=classifiers,
-            packages=packages,
-            modules=modules,
+            contents=contents,
         ),
     os.path.join(name, ".gitignore") : """
     /{package_name}/_version.py
