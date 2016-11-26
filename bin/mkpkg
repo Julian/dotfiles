@@ -54,7 +54,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--author",
-    default=pwd.getpwuid(os.getuid()).pw_gecos,
+    default=pwd.getpwuid(os.getuid()).pw_gecos.partition(",")[0],
     help="the name of the package author",
 )
 parser.add_argument(
