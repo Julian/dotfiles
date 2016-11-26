@@ -238,7 +238,7 @@ files = {
 
         setup(
             name="{package_name}",
-            url="https://github.com/Julian/{package_name}",
+            url="https://github.com/Julian/{name}",
 
             description="",
             long_description=long_description,
@@ -255,6 +255,7 @@ files = {
         )
         """.format(
             author=arguments.author,
+            name=name,
             package_name=package_name,
             classifiers=classifiers,
             contents=contents,
