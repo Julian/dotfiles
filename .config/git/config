@@ -118,3 +118,6 @@
 
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
+
+[url "https://aur.archlinux.org/"]
+    insteadOf = "aur:"
