@@ -47,9 +47,9 @@ function zsh_directory_name() {
         n)  # Run a venv binary in a corresponding venv
             if [[ -z "$binary" ]]; then
                 if [[ $2 =~ '([^:]+):([^:]+)' ]]; then  # foo:bar is venv foo, bin bar
-                    local binary=$(findenv --existing-only --name "$match[1]" "$match[2]")
+                    local binary=$(findenv --existing-only name "$match[1]" "$match[2]")
                 else
-                    local binary=$(findenv --existing-only --directory . "$2")
+                    local binary=$(findenv --existing-only directory . "$2")
                 fi
 
                 _memoized_venv_paths[$@]=$binary
@@ -64,9 +64,9 @@ function zsh_directory_name() {
             # FIXME: Probably refactor, but here we allow foo:<nothing>, and
             #        also this doesn't pre-filter whatever is there already
             if [[ $2 =~ '([^:]+):([^:]*)' ]]; then
-                local venv=$(findenv --existing-only --name "$match[1]")
+                local venv=$(findenv --existing-only name "$match[1]")
             else
-                local venv=$(findenv --existing-only --directory .)
+                local venv=$(findenv --existing-only directory .)
             fi
 
             # FIXME: if you have ~[pip]<TAB>, zsh seems to do the wrong
