@@ -279,7 +279,7 @@ files = {
             {test_deps}
 
         [testenv:style]
-        deps = git+https://github.com/Julian/ebb-lint@master#egg=ebb-lint
+        deps = ebb-lint
         commands = flake8 {{posargs}} --max-complexity 10 {{toxinidir}}/{tests}
 
         [flake8]
