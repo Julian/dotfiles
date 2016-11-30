@@ -7,7 +7,14 @@ if has("autocmd")
     let g:unite_enable_start_insert = 1
     let g:unite_prompt='» '
 
-    if executable('l')
+    if executable('rg')
+        let g:unite_source_rec_async_command = [
+            \ 'rg', '--follow',
+            \       '--color', 'never', '--no-heading', '--files']
+        let g:unite_source_grep_command = 'rg'
+        let g:unite_source_grep_default_opts = '-i --vimgrep --hidden'
+        let g:unite_source_grep_recursive_opt = ''
+    elseif executable('l')
         let g:unite_source_rec_async_command = ['l', '-1', '-R', '-A']
     endif
 
