@@ -48,7 +48,7 @@ Plug      'tpope/vim-rails',                   {'for': 'ruby'}
 
 Plug      'ajh17/VimCompletesMe'
 Plug      'alfredodeza/coveragepy.vim',        {'for': 'python'}
-Plug      'AndrewRadev/linediff.vim',          {'on': 'Linediff'}
+Plug      'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
 Plug      'AndrewRadev/splitjoin.vim'
 Plug      'AndrewRadev/switch.vim'
 Plug      'b4winckler/vim-angry'
@@ -206,7 +206,7 @@ noremap ]` ]'
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR>:LinediffReset<CR><C-L>
 
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
