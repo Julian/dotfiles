@@ -32,16 +32,18 @@ servers = (
     address = "pi.grayvines.com";
     chatnet = "freenode";
     port = "1123";
+    password = "Julian/Freenode:";
     use_ssl = "yes";
     ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs";
     autoconnect = "yes";
   },
   {
     address = "pi.grayvines.com";
     chatnet = "MagneticSlack";
     port = "1123";
+    password = "Julian/MagneticSlack:";
     use_ssl = "yes";
+    ssl_verify = "yes";
     autoconnect = "yes";
   }
 );
