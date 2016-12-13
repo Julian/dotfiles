@@ -13,3 +13,6 @@
 [submodule "util/irssi-notifier"]
 	path = util/irssi-notifier
 	url = https://github.com/paddykontschak/irssi-notifier.git
+[submodule ".config/zsh/plugins/zsh-autosuggestions"]
+	path = .config/zsh/plugins/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions

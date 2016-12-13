@@ -39,3 +39,5 @@ zstyle ':completion:*:man:*' menu yes select
 
 # make sure history-substring-search is after syntax-highlighting
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source $ZSHPLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
