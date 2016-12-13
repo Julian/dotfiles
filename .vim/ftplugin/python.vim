@@ -3,8 +3,10 @@ let python_highlight_all=1
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_continue = '&sw'
 
-setlocal omnifunc=jedi#completions
-let b:vcm_tab_complete='omni'
+if exists('g:loaded_jedi')
+    setlocal omnifunc=jedi#completions
+    let b:vcm_tab_complete='omni'
+endif
 
 let b:switch_definitions = [
     \ ["assertAlmostEqual", "assertNotAlmostEqual"],
