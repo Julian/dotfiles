@@ -33,9 +33,6 @@ setlocal matchpairs-=<:>
 let b:delimitMate_nesting_quotes = ['"']
 let b:delimitMate_expand_cr = 1
 
-nnoremap <buffer> gd :YcmCompleter GoToDeclaration<CR>
-nnoremap <buffer> [d :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 function! Reindent(delimiter)
     execute "normal! va" . a:delimiter . "o"
     normal! ?\i*
