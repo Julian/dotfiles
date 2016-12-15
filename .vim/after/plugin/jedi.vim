@@ -1,9 +1,3 @@
-if !exists('g:jedi#completions_command')
-    finish
-endif
-
-let g:loaded_jedi = 1
-
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#goto_command = ""
 let g:jedi#goto_assignments_command = ""
