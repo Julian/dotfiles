@@ -47,7 +47,7 @@ Plug      'tpope/vim-rails',                   {'for': 'ruby'}
 " --- Plugins ---
 
 Plug      'ajh17/VimCompletesMe'
-Plug      'alfredodeza/coveragepy.vim',        {'for': 'python'}
+" Plug      'alfredodeza/coveragepy.vim',        {'for': 'python'}
 Plug      'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
 Plug      'AndrewRadev/splitjoin.vim'
 Plug      'AndrewRadev/switch.vim'
@@ -175,10 +175,8 @@ nnoremap      <expr>dS        ":w<CR>:Dispatch "            . (empty(get(t:, 'ru
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
 
-let g:splitjoin_split_mapping = ''
-let g:splitjoin_join_mapping = ''
-nmap s<CR> :SplitjoinSplit<CR>
-nmap ss :SplitjoinJoin<CR>
+nnoremap s<CR> :SplitjoinSplit<CR>
+nnoremap ss :SplitjoinJoin<CR>
 
 " don't use Ex mode, use Q for formatting
 nmap Q gqap
