@@ -63,6 +63,8 @@
     dd = diff --diff-algorithm=default
     df = diff --name-only
 
+    erm = rebase -i @{u}
+
     g = log -m -G
 
     m = !sh -c 'git noff "$1" && git push --delete origin "$1"' -
