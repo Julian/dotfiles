@@ -6,4 +6,5 @@ let g:switch_custom_definitions = [
     \ ['-', '+'],
     \ ['*', '/'],
     \ ['or', 'and'],
+    \ ['yes', 'no'],
 \ ]
