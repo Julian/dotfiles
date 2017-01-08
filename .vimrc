@@ -63,6 +63,7 @@ Plug      'kien/rainbow_parentheses.vim'
 Plug      'kshenoy/vim-signature'
 Plug      'jaxbot/github-issues.vim'
 Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
+Plug      'machakann/vim-highlightedyank'
 Plug      'majutsushi/tagbar'
 Plug      'mhinz/vim-signify'
 Plug      'mbbill/undotree'
@@ -501,6 +502,8 @@ set ignorecase
 set smartcase                          " case-sensitive if upper in search term
 set incsearch                          " do incremental searching
 set hlsearch                           " hilight searches
+
+set inccommand=nosplit
 
 if executable("rg")                        " RIP
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ $*
