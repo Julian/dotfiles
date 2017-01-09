@@ -52,6 +52,7 @@ Plug      'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffRese
 Plug      'AndrewRadev/splitjoin.vim'
 Plug      'AndrewRadev/switch.vim'
 Plug      'b4winckler/vim-angry'
+Plug      'bfredl/nvim-miniyank'
 Plug      'bling/vim-airline'
 Plug      'bruno-/vim-man'
 Plug      'bruno-/vim-vertical-move'
@@ -172,6 +173,13 @@ nnoremap      <expr>dm        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_las
 nnoremap            dx         :w<CR>:Dispatch          tox                                                                                                         <CR>
 nnoremap            dK         :call                    runt#follow()                                                                                               <CR>
 nnoremap      <expr>dS        ":w<CR>:Dispatch "            . (empty(get(t:, 'runt_last_command', '')) ? runt#suite(expand("%")) : t:runt_last_command)         .  "<CR>"
+
+map p     <Plug>(miniyank-autoput)
+map P     <Plug>(miniyank-autoPut)
+map <M-j> <Plug>(miniyank-cycle)
+map <M-c> <Plug>(miniyank-tochar)
+map <M-l> <Plug>(miniyank-toline)
+map <M-b> <Plug>(miniyank-toblock)
 
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
