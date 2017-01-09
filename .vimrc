@@ -511,7 +511,9 @@ set smartcase                          " case-sensitive if upper in search term
 set incsearch                          " do incremental searching
 set hlsearch                           " hilight searches
 
-set inccommand=nosplit
+if exists('+inccommand')
+    set inccommand=nosplit
+endif
 
 if executable("rg")                        " RIP
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ $*
