@@ -19,6 +19,7 @@
 .config/gnupg/trustdb.gpg
 .config/notmuch/
 .config/pip/pip.log
+.config/ptpython/history
 .config/pudb/saved-breakpoints*
 .config/pudb/shell-history
 .config/zsh/.zcompdump
