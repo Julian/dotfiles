@@ -69,7 +69,6 @@ Plug      'majutsushi/tagbar'
 Plug      'mhinz/vim-signify'
 Plug      'mbbill/undotree'
 Plug      'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
-Plug      'scrooloose/syntastic',              {'on': 'SyntasticCheck'}
 Plug      't9md/vim-quickhl'
 Plug      'tommcdo/vim-exchange'
 Plug      'tomtom/tcomment_vim'
@@ -82,6 +81,7 @@ Plug      'tpope/vim-repeat'
 Plug      'tpope/vim-surround'
 Plug      'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
 Plug      'Valodim/vim-zsh-completion'
+Plug      'w0rp/ale'
 
 Plug      'kana/vim-textobj-indent'
 Plug      'Julian/vim-textobj-python',         {'for': 'python'}
