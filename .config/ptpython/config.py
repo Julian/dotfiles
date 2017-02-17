@@ -14,7 +14,7 @@ def configure(repl):
     for name, value in [
         ("confirm_exit", False),
         ("enable_auto_suggest", True),
-        ("enable_mouse_support", True),
+        ("enable_mouse_support", False),
         ("enable_open_in_editor", True),
         ("highlight_matching_parenthesis", True),
         ("show_docstring", True),
