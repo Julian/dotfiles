@@ -89,7 +89,7 @@ Plug      'kana/vim-textobj-syntax'
 Plug      'kana/vim-textobj-user'
 
 Plug      'Shougo/neomru.vim'
-Plug      'Shougo/unite.vim'            |      Plug 'Shougo/vimproc'
+Plug      'Shougo/denite.nvim'
 Plug      'Shougo/unite-outline'
 Plug      'tsukkee/unite-tag'
 
@@ -261,22 +261,22 @@ endfor
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <leader><leader>  :Unite buffer file file_mru tag<CR>
+nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>Unite -no-split -buffer-name=files file_rec/async<CR>
-nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Unite -no-split file_rec/async:
-nnoremap        <leader>f         :<C-U>Unite -no-split -buffer-name=buffers buffer_tab<CR>
-nnoremap        <leader>h         :<C-U>Unite -no-split -buffer-name=tags tag<CR>
-nnoremap        <leader>j         :<C-U>Unite -no-split -buffer-name=test_tags -input=test tag<CR>
-nnoremap        <leader>k         :<C-U>Unite -no-split -buffer-name=tests -input=test/test_ file_rec/async<CR>
-nnoremap        <leader>l         :<C-U>Unite -no-split -buffer-name=lines line<CR>
+nnoremap        <leader>d         :<C-U>Denite -no-split -buffer-name=files file_rec<CR>
+nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite -no-split file_rec:
+nnoremap        <leader>f         :<C-U>Denite -no-split -buffer-name=buffers buffer_tab<CR>
+nnoremap        <leader>h         :<C-U>Denite -no-split -buffer-name=tags tag<CR>
+nnoremap        <leader>j         :<C-U>Denite -no-split -buffer-name=test_tags -input=test tag<CR>
+nnoremap        <leader>k         :<C-U>Denite -no-split -buffer-name=tests -input=test/test_ file_rec<CR>
+nnoremap        <leader>l         :<C-U>Denite -no-split -buffer-name=lines line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap        <leader>n         <C-F>n
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
-nnoremap        <leader>r         :<C-u>Unite -no-split -buffer-name=mru file_mru<CR>
+nnoremap        <leader>r         :<C-u>Denite -no-split -buffer-name=mru file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
 
 nnoremap        <leader>ta        :<C-U>TagbarToggle<CR>
@@ -304,7 +304,7 @@ nnoremap        <leader>gs         :<C-U>Gstatus<CR>
 nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Unite -no-split -buffer-name=config -input=. file:$HOME file_rec/async:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -no-split -buffer-name=config -input=. file:$HOME file_rec:" . $XDG_CONFIG_HOME . "<CR>"
 nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
@@ -333,7 +333,7 @@ nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
 nnoremap        <leader><BS>      :earlier 1f<CR>
 nnoremap        <leader>\         :later 1f<CR>
-nnoremap        <leader>/         :<C-U>Unite -no-split -buffer-name=grep grep:.<CR>
+nnoremap        <leader>/         :<C-U>Denite -no-split -buffer-name=grep grep:.<CR>
 
 
 nnoremap        <leader><tab>     <C-^>
@@ -554,6 +554,8 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 " ===================
 " : Plugin Settings :
 " ===================
+
+let g:python3_host_prog = systemlist('findenv name neovim python')[0]
 
 let g:is_posix = 1
 
