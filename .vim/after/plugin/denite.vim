@@ -19,5 +19,17 @@ if has("autocmd")
 
     call denite#custom#filter(
       \ 'matcher_ignore_globs', 'ignore_globs', split(&wildignore, ','))
-endif
 
+    call denite#custom#map(
+            \ 'insert',
+            \ '<C-n>',
+            \ '<denite:move_to_next_line>',
+            \ 'noremap'
+            \)
+    call denite#custom#map(
+            \ 'insert',
+            \ '<C-p>',
+            \ '<denite:move_to_previous_line>',
+            \ 'noremap'
+            \)
+endif
