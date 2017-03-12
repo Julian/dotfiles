@@ -143,12 +143,16 @@ function :Sp () { tmux split-window }
 function :vsp () { tmux split-window -h }
 function :Vsp () { tmux split-window -h }
 
-# Associated project name for the current directory
-function project() { echo ${${1:-$PWD}:t:l:gs/-/_} }
-
 # Print a Python str
 function pp() {
     python -c "print '$@'"
+}
+
+# Bootstrap some development tools into an environment.
+PYTHON_DEV_PACKAGES=(bpython'[urwid]' ptpython pudb twisted)
+function pydev() {
+    set -u
+    "$(findenv directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES
 }
 
 # Run tests on current directory in a corresponding venv, otherwise globally
