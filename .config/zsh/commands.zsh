@@ -152,7 +152,7 @@ function pp() {
 PYTHON_DEV_PACKAGES=(bpython'[urwid]' ptpython pudb twisted)
 function pydev() {
     set -u
-    "$(findenv directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES
+    "$(findenv directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES $@
 }
 
 # Run tests on current directory in a corresponding venv, otherwise globally
