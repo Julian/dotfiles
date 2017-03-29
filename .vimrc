@@ -60,7 +60,6 @@ Plug      'kien/rainbow_parentheses.vim'
 Plug      'kshenoy/vim-signature'
 Plug      'jaxbot/github-issues.vim'
 Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
-Plug      'machakann/vim-highlightedyank'
 Plug      'majutsushi/tagbar'
 Plug      'mhinz/vim-signify'
 Plug      'mbbill/undotree'
