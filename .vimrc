@@ -40,10 +40,6 @@ Plug      'tpope/vim-fireplace',                        {'for': 'clojure'}
 Plug      'tpope/vim-leiningen',                        {'for': 'clojure'}
 Plug      'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 
-Plug      'thoughtbot/vim-rspec',              {'for': 'ruby'}
-Plug      'tpope/vim-bundler',                 {'for': 'ruby'}
-Plug      'tpope/vim-rails',                   {'for': 'ruby'}
-
 " --- Plugins ---
 
 Plug      'ajh17/VimCompletesMe'
