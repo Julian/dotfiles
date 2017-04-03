@@ -1,0 +1,44 @@
+[virtualenv.ca]
+
+[virtualenv.dev]
+install = [
+    "bpython[urwid]",
+    "coverage",
+    "filesystems",
+    "flake8",
+    "hypothesis",
+    "ptpython",
+    "pudb",
+    "pyrsistent",
+    "twisted",
+]
+link = [
+    "bpython",
+    "bpython-urwid",
+    "coverage",
+    "ptpython",
+    "pudb",
+    "trial",
+    "twist",
+]
+
+[virtualenv.jupyter]
+install = ["jupyter", "hdrhistogram", "matplotlib", "numpy", "ptpython", "requests"]
+link = ["jupyter-notebook"]
+
+[virtualenv.neovim]
+install = ["neovim"]
+
+#
+# [virtualenv.neovim3]
+# install = ["neovim"]
+
+[virtualenv.twine]
+install = ["twine"]
+link = ["twine"]
+
+[virtualenv.rtb]
+requirements = [
+    # "/home/julian/Development/Magnetic/rtb/deploy-requirements.txt",
+    "/home/julian/Development/Magnetic/rtb/test-requirements.txt",
+]

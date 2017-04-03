@@ -1,4 +1,0 @@
-bpython
-pudb
-pytest
-q
