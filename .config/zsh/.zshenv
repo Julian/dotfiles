@@ -36,6 +36,8 @@ export XDG_VIDEOS_DIR=$HOME/Movies
 
 export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 
+export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials.ini
+
 export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
 export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
