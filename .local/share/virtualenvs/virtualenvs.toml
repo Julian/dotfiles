@@ -4,27 +4,37 @@
 install = [
     "bpython[urwid]",
     "coverage",
+    "detox",
+    "git+https://github.com/habnabit/ebb-lint#egg=ebb-lint",
     "filesystems",
     "flake8",
     "hypothesis",
     "ptpython",
     "pudb",
     "pyrsistent",
+    "tox",
     "twisted",
 ]
 link = [
     "bpython",
     "bpython-urwid",
     "coverage",
+    "flake8",
     "ptpython",
     "pudb",
     "trial",
     "twist",
 ]
 
+# [virtualenv.dev3]
+
 [virtualenv.jupyter]
 install = ["jupyter", "hdrhistogram", "matplotlib", "numpy", "ptpython", "requests"]
 link = ["jupyter-notebook"]
+
+[virtualenv.httpie]
+install = ["httpie"]
+link = ["http"]
 
 [virtualenv.neovim]
 install = ["neovim"]
@@ -32,6 +42,14 @@ install = ["neovim"]
 #
 # [virtualenv.neovim3]
 # install = ["neovim"]
+
+[virtualenv.awscli]
+install = ["awscli"]
+link = ["aws"]
+
+[virtualenv.mycli]
+install = ["mycli"]
+link = ["mycli"]
 
 [virtualenv.twine]
 install = ["twine"]
