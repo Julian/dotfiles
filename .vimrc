@@ -550,7 +550,8 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 " : Plugin Settings :
 " ===================
 
-let g:python3_host_prog = systemlist('findenv name neovim python')[0]
+let g:python_host_prog = systemlist('findenv name neovim python')[0]
+let g:python3_host_prog = systemlist('findenv name neovim3 python')[0]
 
 let g:is_posix = 1
 
