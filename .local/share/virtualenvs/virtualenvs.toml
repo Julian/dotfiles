@@ -36,6 +36,10 @@ link = ["jupyter-notebook"]
 install = ["httpie"]
 link = ["http"]
 
+[virtualenv.httpstat]
+install = ["httpstat"]
+link = ["httpstat"]
+
 [virtualenv.neovim]
 install = ["neovim"]
 
