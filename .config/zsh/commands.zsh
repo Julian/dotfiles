@@ -157,12 +157,6 @@ function pydev() {
 
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
-    emulate -L zsh
-    setopt LOCAL_OPTIONS NO_NOMATCH
-    local venv_runner=~[$PYTHON_TEST_RUNNER]
-    if [[ -f "$venv_runner" ]]; then
-        $venv_runner $@ $(project)
-    else
-        $PYTHON_TEST_RUNNER $@ $(project)
-    fi
+    local venv_runner=$(findenv directory . $PYTHON_TEST_RUNNER)
+    $venv_runner "${venv_runner:h:h:t}"
 }
