@@ -13,7 +13,7 @@ install = [
     "pudb",
     "pyrsistent",
     "tox",
-    "twisted",
+    "twisted[conch,h2,tls]",
 ]
 link = [
     "bpython",
