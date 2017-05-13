@@ -42,6 +42,8 @@
     rmdir = true
 
 [alias]
+    a = !sh -c 'git add "${1:-.}" && git dc && git s' -
+
     # Existing operations
     b = branch
     bm = branch --merged
