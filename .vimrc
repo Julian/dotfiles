@@ -85,8 +85,6 @@ Plug      'kana/vim-textobj-user'
 
 Plug      'Shougo/neomru.vim'
 Plug      'Shougo/denite.nvim'
-Plug      'Shougo/unite-outline'
-Plug      'tsukkee/unite-tag'
 
 Develop         vim-runt
 Develop         vim-textobj-assignment
