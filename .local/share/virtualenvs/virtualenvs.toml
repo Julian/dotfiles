@@ -19,6 +19,7 @@ link = [
     "bpython",
     "bpython-urwid",
     "coverage",
+    "detox",
     "flake8",
     "ptpython",
     "pudb",
