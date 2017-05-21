@@ -29,6 +29,10 @@ link = [
 
 # [virtualenv.dev3]
 
+[virtualenv.pychromecast]
+install = ["bpython", "castctrl", "ptpython", "pychromecast"]
+link = ["castctrl"]
+
 [virtualenv.jupyter]
 install = ["jupyter", "hdrhistogram", "matplotlib", "numpy", "ptpython", "requests"]
 link = ["jupyter-notebook"]
@@ -55,6 +59,10 @@ link = ["aws"]
 [virtualenv.mycli]
 install = ["mycli"]
 link = ["mycli"]
+
+[virtualenv.jsonschema]
+install = ["jsonschema[format]", "mock", "pudb", "twisted"]
+link = ["jsonschema"]
 
 [virtualenv.twine]
 install = ["twine"]
