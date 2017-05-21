@@ -26,9 +26,7 @@ call plug#begin(expand('~/.vim/bundle/'))
 
 " --- Themes ---
 
-Plug      'chriskempson/tomorrow-theme',       {'rtp' : 'vim/'}
-Plug      'sickill/vim-monokai'
-Plug      'w0ng/vim-hybrid'
+Plug      'morhetz/gruvbox'
 
 " --- Additional Filetype Support ---
 
@@ -430,7 +428,7 @@ set undolevels=500                                  " more undo
 
 set background=dark                    " make sure this is before colorschemes
 
-let g:preferred_colorscheme = 'hybrid'
+let g:preferred_colorscheme = 'gruvbox'
 
 if has('gui_running') || &t_Co > 8
     execute 'silent colorscheme ' . g:preferred_colorscheme
