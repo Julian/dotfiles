@@ -56,7 +56,7 @@ Plug      'kana/vim-vspec'
 Plug      'kana/vim-submode'
 Plug      'kien/rainbow_parentheses.vim'
 Plug      'kshenoy/vim-signature'
-Plug      'jaxbot/github-issues.vim'
+Plug      'jaxbot/github-issues.vim',          {'on': 'Gissues', 'for': 'gitcommit'}
 Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
 Plug      'majutsushi/tagbar'
 Plug      'mhinz/vim-signify'
@@ -546,8 +546,20 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 " : Plugin Settings :
 " ===================
 
-let g:python_host_prog = systemlist('findenv name neovim python')[0]
-let g:python3_host_prog = systemlist('findenv name neovim3 python')[0]
+if has('nvim')
+    function! s:SetHostProg(setting, job_id, data, event)
+        let {a:setting} = a:data[0]
+    endfunction
+
+    call jobstart(
+        \ ["findenv", "name", "neovim", "python"],
+        \ {"on_stdout": function("s:SetHostProg", ["g:python_host_prog"])},
+        \ )
+    call jobstart(
+        \ ["findenv", "name", "neovim3", "python"],
+        \ {"on_stdout": function("s:SetHostProg", ["g:python3_host_prog"])},
+        \ )
+endif
 
 let g:is_posix = 1
 
