@@ -23,6 +23,7 @@ link = [
     "flake8",
     "ptpython",
     "pudb",
+    "tox",
     "trial",
     "twist",
 ]
