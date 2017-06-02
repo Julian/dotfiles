@@ -41,3 +41,5 @@ zstyle ':completion:*:man:*' menu yes select
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSHPLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $ZSHPLUGINS/history-search-multi-word/history-search-multi-word.plugin.zsh
