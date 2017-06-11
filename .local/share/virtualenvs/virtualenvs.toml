@@ -67,7 +67,7 @@ install = ["mycli"]
 link = ["mycli"]
 
 [virtualenv.jsonschema]
-install = ["jsonschema[format]", "mock", "pudb", "twisted"]
+install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.twine]
