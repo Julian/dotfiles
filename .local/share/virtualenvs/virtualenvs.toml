@@ -1,11 +1,9 @@
-[virtualenv.ca]
-
 [virtualenv.dev]
 install = [
     "bpython[urwid]",
     "coverage",
     "detox",
-    "git+https://github.com/habnabit/ebb-lint#egg=ebb-lint",
+    "ebb-lint",
     "filesystems",
     "flake8",
     "green",
@@ -35,13 +33,9 @@ link = [
 
 # [virtualenv.dev3]
 
-[virtualenv.pychromecast]
-install = ["bpython", "castctrl", "ptpython", "pychromecast"]
-link = ["castctrl"]
-
-[virtualenv.jupyter]
-install = ["jupyter", "hdrhistogram", "matplotlib", "numpy", "ptpython", "requests"]
-link = ["jupyter-notebook"]
+[virtualenv.awscli]
+install = ["awscli"]
+link = ["aws"]
 
 [virtualenv.httpie]
 install = ["httpie"]
@@ -51,6 +45,18 @@ link = ["http"]
 install = ["httpstat"]
 link = ["httpstat"]
 
+[virtualenv.jsonschema]
+install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
+link = ["jsonschema"]
+
+[virtualenv.jupyter]
+install = ["jupyter", "hdrhistogram", "matplotlib", "numpy", "ptpython", "requests"]
+link = ["jupyter-notebook"]
+
+[virtualenv.mycli]
+install = ["mycli"]
+link = ["mycli"]
+
 [virtualenv.neovim]
 install = ["neovim"]
 
@@ -58,24 +64,39 @@ install = ["neovim"]
 # [virtualenv.neovim3]
 # install = ["neovim"]
 
-[virtualenv.awscli]
-install = ["awscli"]
-link = ["aws"]
-
-[virtualenv.mycli]
-install = ["mycli"]
-link = ["mycli"]
-
-[virtualenv.jsonschema]
-install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
-link = ["jsonschema"]
+[virtualenv.pychromecast]
+install = ["bpython", "castctrl", "ptpython", "pychromecast"]
+link = ["castctrl"]
 
 [virtualenv.twine]
 install = ["twine"]
 link = ["twine"]
 
+[virtualenv.atd_ui]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/ATD-UI/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/ATD-UI/test-requirements.txt"]
+link = ["atd"]
+
+[virtualenv.ca]
+install = ["${MAGNETIC_DEVELOPMENT}/ca/"]
+
+[virtualenv.floodgate]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/Floodgate/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/Floodgate/test-requirements.txt"]
+link = ["devpi", "fab", "floodgate"]
+
 [virtualenv.rtb]
 requirements = [
-    # "/home/julian/Development/Magnetic/rtb/deploy-requirements.txt",
-    "/home/julian/Development/Magnetic/rtb/test-requirements.txt",
+    "${MAGNETIC_DEVELOPMENT}/rtb/deploy-requirements.txt",
+    "${MAGNETIC_DEVELOPMENT}/rtb/test-requirements.txt",
 ]
