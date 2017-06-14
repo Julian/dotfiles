@@ -13,6 +13,7 @@ install = [
     "pudb",
     "pyrsistent",
     "pytest",
+    "toml",
     "tox",
     "twisted[conch,h2,tls]",
 ]
