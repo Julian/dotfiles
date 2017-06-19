@@ -38,6 +38,10 @@ link = [
 install = ["awscli"]
 link = ["aws"]
 
+[virtualenv.hg]
+install = ["mercurial"]
+link = ["hg"]
+
 [virtualenv.httpie]
 install = ["httpie"]
 link = ["http"]
@@ -51,7 +55,7 @@ install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.jupyter]
-install = ["jupyter", "hdrhistogram", "matplotlib", "numpy", "ptpython", "requests"]
+install = ["jupyter", "hdrhistogram", "numpy", "ptpython", "requests"]
 link = ["jupyter-notebook"]
 
 [virtualenv.mycli]
@@ -72,6 +76,10 @@ link = ["castctrl"]
 [virtualenv.twine]
 install = ["twine"]
 link = ["twine"]
+
+[virtualenv.ansible]
+requirements = ["${MAGNETIC_DEVELOPMENT}/Ansible/requirements.txt"]
+link = ["ansible", "ansible-playbook"]
 
 [virtualenv.atd_ui]
 install = [
