@@ -72,7 +72,7 @@
 
     g = log -m -G
 
-    m = !sh -c 'git noff "$1" && git push --delete origin "$1"' -
+    m = !sh -c 'git noff "origin/$1" && git push --delete origin "$1"' -
 
     ff = merge --ff-only
     noff = merge --no-ff
