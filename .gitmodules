@@ -15,7 +15,7 @@
 	url = https://github.com/paddykontschak/irssi-notifier.git
 [submodule ".config/zsh/plugins/zsh-autosuggestions"]
 	path = .config/zsh/plugins/zsh-autosuggestions
-	url = git://github.com/zsh-users/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule ".config/zsh/plugins/history-search-multi-word"]
 	path = .config/zsh/plugins/history-search-multi-word
-	url = git@github.com:zdharma/history-search-multi-word.git
+	url = https://github.com/zdharma/history-search-multi-word.git
