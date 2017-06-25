@@ -145,7 +145,7 @@ function :Vsp () { tmux split-window -h }
 
 # Print a Python str
 function pp() {
-    python -c "print '$@'"
+    python -c "print '${@:gs/'/\\'}'"
 }
 
 # Bootstrap some development tools into an environment.
