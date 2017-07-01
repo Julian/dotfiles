@@ -41,7 +41,6 @@ Plug      'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 " --- Plugins ---
 
 Plug      'ajh17/VimCompletesMe'
-" Plug      'alfredodeza/coveragepy.vim',        {'for': 'python'}
 Plug      'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
 Plug      'AndrewRadev/splitjoin.vim'
 Plug      'AndrewRadev/switch.vim'
@@ -75,7 +74,6 @@ Plug      'tpope/vim-rhubarb'
 Plug      'tpope/vim-surround'
 Plug      'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
 Plug      'Valodim/vim-zsh-completion'
-Plug      'w0rp/ale'
 
 Plug      'kana/vim-textobj-indent'
 Plug      'Julian/vim-textobj-python',         {'for': 'python'}
