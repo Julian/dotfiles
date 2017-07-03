@@ -40,6 +40,10 @@ fi
 typeset -A _memoized_venv_paths
 
 function zsh_directory_name() {
+    # Evade zsh-syntax-highlighting, which seems to call us twice when
+    # typing the closing ], and another 2 times when hitting enter, and
+    # worse, 2 times for each character typed on the line :(
+    [[ "$functrace" = _zsh_highlight* ]] && return 1
 
     local binary=$_memoized_venv_paths[$@]
 
