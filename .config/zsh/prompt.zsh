@@ -8,7 +8,7 @@ autoload -Uz vcs_info
 vcs_basic_info='is a %F{yellow}%s%f repository on %F{green}%b%f'
 vcs_action_info='%F{yellow}|%f%F{red}%a%f'
 
-zstyle ':vcs_info:*' enable git bzr hg
+zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' actionformats "$vcs_basic_info$vcs_action_info "
 zstyle ':vcs_info:*' formats "$vcs_basic_info "
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
