@@ -2,7 +2,7 @@
 
 alias m='mv -nv'
 alias n=nvim
-alias p='noglob parallel --tag --progress --nonall --sshlogin - $@'
+alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
 
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
