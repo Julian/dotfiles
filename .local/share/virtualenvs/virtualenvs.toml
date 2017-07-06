@@ -20,6 +20,7 @@ install = [
 link = [
     "bpython",
     "bpython-urwid",
+    "conch",
     "coverage",
     "detox",
     "flake8",
