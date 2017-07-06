@@ -1,0 +1,17 @@
+#! /usr/bin/env python
+import csv
+import json
+import sys
+
+
+if len(sys.argv) > 1:
+    with open(sys.argv[1]) as file:
+        contents = json.load(file)
+else:
+    contents = json.load(sys.stdin)
+
+fields = set().union(key for each in contents for key in each)
+writer = csv.DictWriter(sys.stdout, fields)
+writer.writeheader()
+for each in contents:
+    writer.writerow(each)
