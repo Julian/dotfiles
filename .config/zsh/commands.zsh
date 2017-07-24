@@ -1,5 +1,6 @@
 #--- Aliases -----------------------------------------------------------------
 
+alias d='g d --no-index'
 alias m='mv -nv'
 alias n=nvim
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
@@ -26,13 +27,6 @@ function tunnel() {
     networksetup -setsocksfirewallproxystate Wi-Fi off
 }
 
-if (( $+commands[colordiff] )); then
-    alias diff='colordiff'
-fi
-function d() {
-    wdiff -n $@ | diff
-}
-alias di=diff
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
