@@ -1,7 +1,9 @@
 #--- Options -----------------------------------------------------------------
 
 setopt NO_BEEP              # shh!
+
 setopt EXTENDED_GLOB        # extended patterns support
+setopt GLOB_STAR_SHORT      # **.c == **/*.c
 
 # disable flow control
 unsetopt FLOW_CONTROL
