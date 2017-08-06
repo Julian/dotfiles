@@ -82,6 +82,10 @@ link = ["twine"]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Ansible/requirements.txt"]
 link = ["ansible", "ansible-playbook"]
 
+[virtualenv.ads_txt]
+install = ["${MAGNETIC_DEVELOPMENT}/ads.txt/"]
+link = ["ads.txt"]
+
 [virtualenv.atd_ui]
 install = [
     "${MAGNETIC_DEVELOPMENT}/ATD-UI/",
@@ -94,6 +98,9 @@ link = ["atd"]
 
 [virtualenv.ca]
 install = ["${MAGNETIC_DEVELOPMENT}/ca/"]
+
+[virtualenv.dw]
+install = ["${MAGNETIC_DEVELOPMENT}/DW/"]
 
 [virtualenv.floodgate]
 install = [
