@@ -522,7 +522,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   2 = {
     level = "ALL";
@@ -535,7 +535,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   3 = {
     level = "ALL";
@@ -548,7 +548,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   4 = {
     level = "ALL";
@@ -561,7 +561,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   5 = {
     level = "ALL";
@@ -574,7 +574,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   6 = {
     level = "ALL";
@@ -587,7 +587,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   7 = {
     level = "ALL";
@@ -600,7 +600,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   8 = {
     level = "ALL";
@@ -613,7 +613,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   9 = {
     level = "ALL";
@@ -626,7 +626,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   10 = {
     level = "ALL";
@@ -639,7 +639,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   11 = {
     level = "ALL";
@@ -652,6 +652,7 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "22";
   };
   12 = {
     level = "ALL";
@@ -664,7 +665,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   13 = {
     level = "ALL";
@@ -677,7 +678,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   14 = {
     level = "ALL";
@@ -690,7 +691,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   15 = {
     level = "ALL";
@@ -703,7 +704,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   16 = {
     level = "ALL";
@@ -716,7 +717,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   17 = {
     level = "ALL";
@@ -729,7 +730,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   18 = {
     level = "ALL";
@@ -742,7 +743,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   19 = {
     level = "ALL";
@@ -755,7 +756,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   20 = {
     level = "ALL";
@@ -768,7 +769,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
   21 = {
     level = "ALL";
@@ -781,10 +782,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  22 = { level = "ALL"; sticky = "yes"; parent = "11"; };
-  23 = {
+  22 = {
     level = "ALL";
     items = (
       {
@@ -795,9 +795,8 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
   };
-  24 = {
+  23 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
@@ -808,9 +807,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  25 = {
+  24 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
@@ -821,9 +820,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  26 = {
+  25 = {
     level = "ALL";
     items = (
       {
@@ -834,9 +833,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  27 = {
+  26 = {
     level = "ALL";
     items = (
       {
@@ -847,9 +846,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  28 = {
+  27 = {
     level = "ALL";
     items = (
       {
@@ -860,9 +859,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  29 = {
+  28 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
@@ -873,22 +872,22 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  30 = {
+  29 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "11";
+    parent = "22";
   };
-  31 = {
+  30 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
 mainwindows = {
-  11 = { first_line = "7"; lines = "79"; };
-  31 = { first_line = "1"; lines = "6"; };
+  22 = { first_line = "7"; lines = "79"; };
+  30 = { first_line = "1"; lines = "6"; };
 };
