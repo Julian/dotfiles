@@ -31,6 +31,7 @@ link = [
     "tox",
     "trial",
     "twist",
+    "twistd",
 ]
 
 # [virtualenv.dev3]
