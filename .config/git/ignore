@@ -91,5 +91,6 @@ bower_components/
 # ------- #
 
 .lein-repl-history
+.nrepl-history
 .nrepl-port
 .cljs_rhino_repl/
