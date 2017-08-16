@@ -55,6 +55,7 @@
     c = clone --recursive
     co = checkout
     cp = cherry-pick
+    pushhh = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
     rmb = push --delete origin
     tip = rebase @{u}
 
