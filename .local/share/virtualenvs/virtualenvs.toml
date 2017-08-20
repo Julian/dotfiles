@@ -25,6 +25,7 @@ link = [
     "detox",
     "flake8",
     "green",
+    "python",
     "ptpython",
     "pudb",
     "py.test",
