@@ -76,6 +76,16 @@ install = ["neovim"]
 install = ["bpython", "castctrl", "ptpython", "pychromecast"]
 link = ["castctrl"]
 
+[virtualenv.sphinx]
+install = ["sphinx"]
+link = [
+    "rst2html.py",
+    "rst2html5.py",
+    "sphinx-apidoc",
+    "sphinx-autogen",
+    "sphinx-build",
+]
+
 [virtualenv.twine]
 install = ["twine"]
 link = ["twine"]
