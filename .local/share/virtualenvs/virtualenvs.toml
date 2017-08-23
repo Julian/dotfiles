@@ -41,6 +41,10 @@ link = [
 install = ["awscli"]
 link = ["aws"]
 
+[virtualenv.gtfo]
+install = ["gtfo"]
+link = ["gtfo"]
+
 [virtualenv.hg]
 install = ["mercurial"]
 link = ["hg"]
@@ -90,13 +94,39 @@ link = [
 install = ["twine"]
 link = ["twine"]
 
+[virtualenv.ad2d2]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/ad2d2/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/ad2d2/test-requirements.txt"]
+
+[virtualenv.ds3po]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/ds3po/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/ds3po/test-requirements.txt"]
+
+[virtualenv.ads_txt]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/ads.txt/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/ads.txt/test-requirements.txt"]
+link = ["ads.txt"]
+
 [virtualenv.ansible]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Ansible/requirements.txt"]
 link = ["ansible", "ansible-playbook"]
-
-[virtualenv.ads_txt]
-install = ["${MAGNETIC_DEVELOPMENT}/ads.txt/"]
-link = ["ads.txt"]
 
 [virtualenv.atd_ui]
 install = [
@@ -126,6 +156,14 @@ link = ["devpi", "fab", "floodgate"]
 
 [virtualenv.rtb]
 requirements = [
-    "${MAGNETIC_DEVELOPMENT}/rtb/deploy-requirements.txt",
     "${MAGNETIC_DEVELOPMENT}/rtb/test-requirements.txt",
 ]
+
+[virtualenv.thidwick]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/Thidwick/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/Thidwick/test-requirements.txt"]
