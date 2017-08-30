@@ -154,6 +154,15 @@ install = [
 requirements = ["${MAGNETIC_DEVELOPMENT}/Floodgate/test-requirements.txt"]
 link = ["devpi", "fab", "floodgate"]
 
+[virtualenv.magnetic]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/Magnetic/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/Magnetic/test-requirements.txt"]
+
 [virtualenv.rtb]
 requirements = [
     "${MAGNETIC_DEVELOPMENT}/rtb/test-requirements.txt",
