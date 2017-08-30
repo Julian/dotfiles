@@ -1,0 +1,66 @@
+[global_config]
+  enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, TerminalShot, Logger, LaunchpadBugURLHandler
+  tab_position = bottom
+  title_font = Inconsolata 14
+  title_use_system_font = False
+  window_state = fullscreen
+[keybindings]
+  broadcast_all = None
+  broadcast_group = None
+  broadcast_off = None
+  close_term = <Super>q
+  close_window = <Super>w
+  copy = <Super>c
+  full_screen = <Shift><Super>f
+  help = None
+  new_tab = <Super>t
+  new_terminator = None
+  new_window = <Super>n
+  paste = <Super>v
+  switch_to_tab_1 = <Super>1
+  switch_to_tab_10 = None
+  switch_to_tab_2 = <Super>2
+  switch_to_tab_3 = <Super>3
+  switch_to_tab_4 = <Super>4
+  switch_to_tab_5 = <Super>5
+  switch_to_tab_6 = <Super>6
+  switch_to_tab_7 = <Super>7
+  switch_to_tab_8 = <Super>8
+  zoom_in = <Super>equal
+  zoom_normal = <Super>0
+  zoom_out = <Super>minus
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = True
+      last_active_term = 0231f7ad-7118-4efa-9e19-88653628eeb0
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 3200, 1800
+      title = /bin/zsh
+      type = Window
+    [[[terminal1]]]
+      order = 0
+      parent = child0
+      profile = default
+      type = Terminal
+      uuid = 0231f7ad-7118-4efa-9e19-88653628eeb0
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#ffffff"
+    custom_command = env TERM=xterm-256color zsh -l
+    font = Inconsolata Medium 13
+    foreground_color = "#ffffff"
+    login_shell = True
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
