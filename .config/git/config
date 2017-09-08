@@ -60,6 +60,7 @@
     tip = rebase @{u}
 
     x = commit --message
+    xe = commit --allow-empty --message
     ci = commit
     cim = commit --amend -m
 
@@ -77,6 +78,7 @@
 
     ff = merge --ff-only
     noff = merge --no-ff
+    wip = merge --squash --no-commit
 
     s = status --short
     st = status
