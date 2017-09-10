@@ -41,8 +41,17 @@ link = [
 install = ["awscli"]
 link = ["aws"]
 
+[virtualenv.diff]
+install = [
+    "${DEVELOPMENT}/diff",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+
 [virtualenv.gtfo]
-install = ["gtfo"]
+install = ["${DEVELOPMENT}/gtfo"]
 link = ["gtfo"]
 
 [virtualenv.hg]
@@ -77,8 +86,8 @@ install = ["neovim"]
 # install = ["neovim"]
 
 [virtualenv.pychromecast]
-install = ["bpython", "castctrl", "ptpython", "pychromecast"]
-link = ["castctrl"]
+install = ["bpython", "cast", "ptpython", "pychromecast"]
+link = ["cast"]
 
 [virtualenv.sphinx]
 install = ["sphinx"]
@@ -93,6 +102,10 @@ link = [
 [virtualenv.twine]
 install = ["twine"]
 link = ["twine"]
+
+[virtualenv.watchdog]
+install = ["watchdog"]
+link = ["watchmedo"]
 
 [virtualenv.ad2d2]
 install = [
@@ -165,7 +178,6 @@ requirements = ["${MAGNETIC_DEVELOPMENT}/Magnetic/test-requirements.txt"]
 
 [virtualenv.rtb]
 requirements = [
-    "${MAGNETIC_DEVELOPMENT}/rtb/test-requirements.txt",
 ]
 
 [virtualenv.thidwick]
