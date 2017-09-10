@@ -56,6 +56,7 @@
     co = checkout
     cp = cherry-pick
     pushhh = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+    inithub = "!git remote add origin git@github.com:Julian/$(basename $PWD) && git pushhh"
     rmb = push --delete origin
     tip = rebase @{u}
 
