@@ -30,7 +30,8 @@
 .emacs.d/elpa
 .emacs.d/**/*~
 
-.local/share/virtualenvs
+.local/bin/
+.local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
 *.idx.oft
