@@ -105,7 +105,7 @@ else:
 package_name = package_name.lower().replace("-", "_")
 
 if arguments.single_module:
-    contents = 'pymodules=["{name}"]'.format(name=package_name)
+    contents = 'py_modules=["{name}"]'.format(name=package_name)
     tests = "tests.py"
 
     core_source_paths = {
