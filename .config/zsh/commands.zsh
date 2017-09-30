@@ -1,7 +1,7 @@
 #--- Aliases -----------------------------------------------------------------
 
 alias d='g d --no-index'
-alias m='mv -nv'
+alias m='mv -iv'
 alias n=nvim
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
 
