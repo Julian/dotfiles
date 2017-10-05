@@ -16,6 +16,7 @@ install = [
     "pytoml",
     "pyyaml",
     "tox",
+    "treq",
     "twisted[conch,h2,tls]",
 ]
 link = [
