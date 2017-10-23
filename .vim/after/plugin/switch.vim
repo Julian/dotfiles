@@ -5,6 +5,6 @@ endif
 let g:switch_custom_definitions = [
     \ ['-', '+'],
     \ ['*', '/'],
-    \ ['or', 'and'],
-    \ ['yes', 'no'],
+    \ switch#NormalizedCase(['or', 'and']),
+    \ switch#NormalizedCase(['yes', 'no']),
 \ ]
