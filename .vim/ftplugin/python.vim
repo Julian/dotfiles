@@ -19,33 +19,12 @@ let b:switch_definitions = [
     \ ["==", "!="],
 \ ]
 
-let s:python = substitute(system('which python || which pypy'), '\n', '', '')
-let s:condent = system('which condent')
-if !v:shell_error
-    let s:condent = substitute(s:condent, '\n', '', '')
-    exec 'setlocal equalprg=' . s:python . '\ ' . s:condent
-endif
-
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 setlocal makeprg=python\ %
 
 setlocal matchpairs-=<:>
 let b:delimitMate_nesting_quotes = ['"']
 let b:delimitMate_expand_cr = 1
-
-function! Reindent(delimiter)
-    execute "normal! va" . a:delimiter . "o"
-    normal! ?\i*
-    normal! o
-    normal! =
-    normal! ']
-endfunction
-
-" Make inserting closing delimiters automatically reindent the container and
-" move to the end again
-" inoremap <buffer> } }<C-G>u<C-O>:call Reindent('}')<CR><Right>
-" inoremap <buffer> ] ]<C-G>u<C-O>:call Reindent(']')<CR><Right>
-" inoremap <buffer> ) )<C-G>u<C-O>:call Reindent(')')<CR><Right>
 
 " a / d
 "       foo.bar.baz <=> foo["bar"]["baz"]
