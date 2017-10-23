@@ -57,7 +57,7 @@ Plug      'kien/rainbow_parentheses.vim'
 Plug      'kshenoy/vim-signature'
 Plug      'jaxbot/github-issues.vim',          {'on': 'Gissues', 'for': 'gitcommit'}
 Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
-Plug      'majutsushi/tagbar'
+Plug      'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug      'mhinz/vim-signify'
 Plug      'mbbill/undotree'
 Plug      'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
