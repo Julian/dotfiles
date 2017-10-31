@@ -32,6 +32,7 @@
 .emacs.d/**/*~
 
 .local/bin/
+.local/share/perl5/
 .local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
