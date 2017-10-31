@@ -13,6 +13,7 @@
 
 .tmux/tmux.conf.local
 
+.config/aws/credentials.ini
 .config/bpython/history
 .config/fish/fishd.*
 .config/gnupg/random_seed
