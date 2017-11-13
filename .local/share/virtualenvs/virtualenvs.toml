@@ -1,5 +1,6 @@
 [virtualenv.dev]
 install = [
+    "betterpath",
     "bpython[urwid]",
     "coverage",
     "detox",
@@ -171,6 +172,16 @@ install = [
 requirements = ["${MAGNETIC_DEVELOPMENT}/Floodgate/test-requirements.txt"]
 link = ["devpi", "fab", "floodgate"]
 
+[virtualenv.knox]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/Knox/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/Knox/test-requirements.txt"]
+
 [virtualenv.magnetic]
 install = [
     "${MAGNETIC_DEVELOPMENT}/Magnetic/",
@@ -179,6 +190,15 @@ install = [
     "pudb",
 ]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Magnetic/test-requirements.txt"]
+
+[virtualenv.mux]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/Mux/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/Mux/test-requirements.txt"]
 
 [virtualenv.rtb]
 requirements = [
@@ -192,3 +212,13 @@ install = [
     "pudb",
 ]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Thidwick/test-requirements.txt"]
+
+[virtualenv.vast]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/VAST/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/VAST/test-requirements.txt"]
