@@ -166,7 +166,6 @@ install = ["${MAGNETIC_DEVELOPMENT}/DW/"]
 install = [
     "${MAGNETIC_DEVELOPMENT}/Floodgate/",
     "bpython[urwid]",
-    "ptpython",
     "pudb",
 ]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Floodgate/test-requirements.txt"]
