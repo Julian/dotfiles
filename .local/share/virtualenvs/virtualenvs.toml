@@ -10,7 +10,6 @@ install = [
     "green",
     "hypothesis",
     "perf",
-    "pex",
     "ptpython",
     "pudb",
     "pyrsistent",
@@ -29,7 +28,6 @@ link = [
     "detox",
     "flake8",
     "green",
-    "pex",
     "python",
     "ptpython",
     "pudb",
@@ -89,6 +87,10 @@ install = ["neovim"]
 #
 # [virtualenv.neovim3]
 # install = ["neovim"]
+
+[virtualenv.pex]
+install = ["pex"]
+link = ["pex"]
 
 [virtualenv.pychromecast]
 install = ["bpython", "cast", "ptpython", "pychromecast"]
