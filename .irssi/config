@@ -474,7 +474,8 @@ ignores = (
     pattern = "(active|away)";
     regexp = "yes";
     servertag = "MagneticSlack";
-  }
+  },
+  { mask = "ldlework"; level = "ALL"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
@@ -501,7 +502,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   2 = {
     level = "ALL";
@@ -514,9 +515,20 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   3 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##python-offtopic";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
     level = "ALL";
     items = (
       {
@@ -527,9 +539,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  4 = {
+  5 = {
     level = "ALL";
     items = (
       {
@@ -540,9 +552,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  5 = {
+  6 = {
     level = "ALL";
     items = (
       {
@@ -553,9 +565,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  6 = {
+  7 = {
     level = "ALL";
     items = (
       {
@@ -566,9 +578,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  7 = {
+  8 = {
     level = "ALL";
     items = (
       {
@@ -579,9 +591,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  8 = {
+  9 = {
     level = "ALL";
     items = (
       {
@@ -592,20 +604,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
-  };
-  9 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#twisted.web";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   10 = {
     level = "ALL";
@@ -618,7 +617,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   11 = {
     level = "ALL";
@@ -631,7 +630,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   12 = {
     level = "ALL";
@@ -644,7 +643,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   13 = {
     level = "ALL";
@@ -657,7 +656,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   14 = {
     level = "ALL";
@@ -670,7 +669,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   15 = {
     level = "ALL";
@@ -683,7 +682,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   16 = {
     level = "ALL";
@@ -696,7 +695,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   17 = {
     level = "ALL";
@@ -709,7 +708,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   18 = {
     level = "ALL";
@@ -722,7 +721,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   19 = {
     level = "ALL";
@@ -735,7 +734,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   20 = {
     level = "ALL";
@@ -748,7 +747,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   21 = {
     level = "ALL";
@@ -761,7 +760,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   22 = {
     level = "ALL";
@@ -774,7 +773,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   23 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
@@ -782,12 +781,10 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#agency";
+        name = "#newdsp";
         tag = "MagneticSlack";
       }
     );
-    sticky = "yes";
-    parent = "31";
   };
   24 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
@@ -800,7 +797,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   25 = {
     level = "ALL";
@@ -813,7 +810,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   26 = {
     level = "ALL";
@@ -826,22 +823,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
   27 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#tech-leads";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "31";
-  };
-  28 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
@@ -852,33 +836,22 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  29 = {
+  28 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "31";
+    parent = "23";
   };
-  30 = {
+  29 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
-  31 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#DRMacIver";
-        tag = "freenode";
-      }
-    );
-  };
 };
 mainwindows = {
-  31 = { first_line = "7"; lines = "85"; };
-  30 = { first_line = "1"; lines = "6"; };
+  23 = { first_line = "6"; lines = "86"; };
+  29 = { first_line = "1"; lines = "5"; };
 };
