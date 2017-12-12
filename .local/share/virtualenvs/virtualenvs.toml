@@ -9,6 +9,7 @@ install = [
     "flake8",
     "green",
     "hypothesis",
+    "inflect",
     "perf",
     "ptpython",
     "pudb",
@@ -191,6 +192,18 @@ install = [
     "pudb",
 ]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Magnetic/test-requirements.txt"]
+
+[virtualenv.messages]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/python-messages/",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted",
+]
+requirements = [
+    "${MAGNETIC_DEVELOPMENT}/python-messages/test-requirements.txt",
+]
 
 [virtualenv.mux]
 install = [
