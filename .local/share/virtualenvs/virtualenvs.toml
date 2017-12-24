@@ -54,6 +54,15 @@ install = [
     "twisted[tls]",
 ]
 
+[virtualenv.great]
+install = [
+    "${DEVELOPMENT}/great",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+
 [virtualenv.gtfo]
 install = ["${DEVELOPMENT}/gtfo"]
 link = ["gtfo"]
