@@ -87,6 +87,16 @@ link = ["jsonschema"]
 install = ["jupyter", "hdrhistogram", "numpy", "ptpython", "requests"]
 link = ["jupyter-notebook"]
 
+[virtualenv.minion]
+install = [
+    "${DEVELOPMENT}/Minion",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
+
 [virtualenv.mycli]
 install = ["mycli"]
 link = ["mycli"]
