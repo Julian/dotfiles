@@ -49,13 +49,13 @@ export M2_HOME=$XDG_DATA_HOME/m2
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
 
-typeset -aU include_path
-typeset -T INCLUDE_PATH include_path
-export INCLUDE_PATH
-
 typeset -aU c_include_path
 typeset -T C_INCLUDE_PATH c_include_path
 export C_INCLUDE_PATH
+
+typeset -aU cplus_include_path
+typeset -T CPLUS_INCLUDE_PATH cplus_include_path
+export CPLUS_INCLUDE_PATH
 
 typeset -aU gopath
 typeset -T GOPATH gopath
