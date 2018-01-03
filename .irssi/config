@@ -452,6 +452,7 @@ settings = {
     uberprompt_load_hook = "/^vm_add";
     uberprompt_unload_hook = "/^vm_del";
     notifier_on_regex = "(tos9|JulianWasTaken)";
+    slack_network = "MagneticSlack";
   };
   proxy = { irssiproxy_password = "perceiver696;rockier"; };
 };
