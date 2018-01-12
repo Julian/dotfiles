@@ -234,8 +234,7 @@ install = [
 requirements = ["${MAGNETIC_DEVELOPMENT}/Mux/test-requirements.txt"]
 
 [virtualenv.rtb]
-requirements = [
-]
+requirements = ["${MAGNETIC_DEVELOPMENT}/rtb/test-requirements.txt"]
 
 [virtualenv.thidwick]
 install = [
