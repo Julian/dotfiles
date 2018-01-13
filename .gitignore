@@ -13,6 +13,7 @@
 
 .tmux/tmux.conf.local
 
+.config/ansible/vault-password
 .config/aws/credentials.ini
 .config/bpython/history
 .config/fish/fishd.*
