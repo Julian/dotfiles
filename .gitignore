@@ -36,5 +36,8 @@
 .local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
+.ssh/config.d/
+!.ssh/config.d/Configuration
+
 *.idx.oft
 *.syn.oft
