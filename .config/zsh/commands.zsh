@@ -153,5 +153,5 @@ function pydev() {
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
     local venv_runner=$(findenv directory . $PYTHON_TEST_RUNNER)
-    PYTHONPATH=. $venv_runner "${1:-${venv_runner:h:h:t}}"
+    PYTHONPATH=. $venv_runner "${1:-${venv_runner:h:h:t}}" ${@:2}
 }
