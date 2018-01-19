@@ -127,7 +127,8 @@ else:
     core_source_paths = {
         os.path.join(package_name, "tests", "__init__.py") : "",
         os.path.join(package_name, "__init__.py") : """
-        from {name}._version import __version__
+        from pkg_resources import get_distribution
+        __version__ = get_distribution(__name__).version
         """.format(name=package_name),
     }
 
@@ -249,8 +250,8 @@ files = {
 
             {contents},
 
-            setup_requires=["vcversioner>=2.16.0.0"],
-            vcversioner={{"version_module_paths": ["{package_name}/_version.py"]}},
+            setup_requires=["setuptools_scm"],
+            use_scm_version=True,
 
             classifiers=classifiers,
         )
