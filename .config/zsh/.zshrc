@@ -87,4 +87,6 @@ function zsh_directory_name() {
 
 #--- Local -------------------------------------------------------------------
 
-[[ -f $ZDOTDIR/.zshrc.local ]] && source $ZDOTDIR/.zshrc.local
+[ -d $ZDOTDIR/zshrc.d/ ] && for file in $ZDOTDIR/zshrc.d/*.zsh(N); do
+    source $file
+done
