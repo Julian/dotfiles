@@ -157,7 +157,6 @@ endif
 cnoreabbrev X x
 
 " testing mappings
-nnoremap      <expr><CR>      ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#file(expand("%")) : t:runt_last_command)                .  "<CR>"
 nnoremap      <expr>d<CR>     ":SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
 nnoremap      <expr>dc        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#class(expand("%"), getpos(".")) : t:runt_last_command)  .  "<CR>"
 nnoremap      <expr>dm        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#method(expand("%"), getpos(".")) : t:runt_last_command) .  "<CR>"
@@ -254,6 +253,7 @@ endfor
 
 nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 
+nnoremap        <CR>              :<C-U>SplitSensibly<Space>
 
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Denite -buffer-name=files file_rec<CR>
