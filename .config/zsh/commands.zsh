@@ -31,7 +31,7 @@ function tunnel() {
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
-    alias up="brew update && brew upgrade --all"
+    alias up="brew update && brew upgrade"
 elif (( $+commands[nix-env] )); then
     alias up="nix-channel --update nixpkgs && nix-env -u '*'"
 fi
