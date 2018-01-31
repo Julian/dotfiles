@@ -130,6 +130,10 @@ link = [
 install = ["twine"]
 link = ["twine"]
 
+[virtualenv.yml2json]
+install = ["yml2json"]
+link = ["yml2json"]
+
 [virtualenv.watchdog]
 install = ["watchdog"]
 link = ["watchmedo"]
@@ -192,6 +196,14 @@ install = [
 ]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Floodgate/test-requirements.txt"]
 link = ["devpi", "fab", "floodgate"]
+
+[virtualenv.kafake]
+install = [
+    "${MAGNETIC_DEVELOPMENT}/kafake",
+    "ptpython",
+    "pudb",
+]
+requirements = ["${MAGNETIC_DEVELOPMENT}/kafake/test-requirements.txt"]
 
 [virtualenv.knox]
 install = [
