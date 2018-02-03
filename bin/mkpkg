@@ -261,7 +261,8 @@ files = {
         ),
     os.path.join(name, "tox.ini") : """
         [tox]
-        envlist = {envlist}
+        envlist =
+            {envlist}
         skipsdist = True
 
         [testenv]
@@ -275,13 +276,13 @@ files = {
 
         [testenv:style]
         deps = ebb-lint
-        commands = flake8 {{posargs}} --max-complexity 10 {{toxinidir}}/{tests}
+        commands = flake8 {{posargs}} --max-complexity 10 {{toxinidir}}/{tests} {{toxinidir}}/setup.py
 
         [flake8]
         exclude = {package_name}/__init__.py
         """.format(
             package_name=package_name,
-            envlist=", ".join(tox_envlist),
+            envlist=",\n            ".join(tox_envlist) + ",",
             test_runner=test_runner,
             tests=tests,
             test_deps="\n    ".join(test_deps),
