@@ -224,9 +224,6 @@ files = {
             now=datetime.datetime.now(), author=arguments.author,
         ) + license
     ),
-    os.path.join(name, "MANIFEST.in") : """
-    include version.txt
-    """,
     os.path.join(name, "setup.py") : """
         import os
 
