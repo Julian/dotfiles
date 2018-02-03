@@ -176,7 +176,7 @@ def make_classifiers(supports=arguments.supports, closed=arguments.closed):
         yield "Programming Language :: Python :: Implementation :: Jython"
 
 classifiers = "\n{0}\n        ".format(
-    ",\n".join('            "' + c + '"' for c in make_classifiers())
+    ",\n".join('            "' + c + '"' for c in make_classifiers()) + ","
 )
 
 tox_envlist = sorted(arguments.supports)
