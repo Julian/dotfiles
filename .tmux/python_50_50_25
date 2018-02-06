@@ -4,7 +4,7 @@
 # Left side full height, right side 75-25 horizontal split
 
 select-pane -t 0
-split-window -h -p 50 'bpython'
+split-window -h -p 50 'ptpython'
 select-pane -t 1
 split-window -v -p 25
 select-pane -t 0
