@@ -820,10 +820,3 @@ if has("eval")
         augroup END
     endif
 endif
-
-" ============================
-" : Local / Project Specific :
-" ============================
-
-set secure
-set exrc
