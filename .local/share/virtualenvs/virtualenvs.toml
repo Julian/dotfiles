@@ -56,7 +56,7 @@ install = [
 
 [virtualenv.great]
 install = [
-    "${DEVELOPMENT}/great",
+    "${DEVELOPMENT}/Great",
     "bpython[urwid]",
     "ptpython",
     "pudb",
