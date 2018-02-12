@@ -66,6 +66,10 @@ typeset -aU library_path
 typeset -T LIBRARY_PATH library_path
 export LIBRARY_PATH
 
+typeset -aU ld_library_path
+typeset -T LD_LIBRARY_PATH ld_library_path
+export LD_LIBRARY_PATH
+
 typeset -aU pkg_config_path
 typeset -T PKG_CONFIG_PATH pkg_config_path
 export PKG_CONFIG_PATH
