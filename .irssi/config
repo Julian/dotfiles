@@ -414,6 +414,20 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_2 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_2 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -503,7 +517,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
   2 = {
     level = "ALL";
@@ -516,7 +530,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
   3 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
@@ -528,6 +542,8 @@ windows = {
         tag = "freenode";
       }
     );
+    sticky = "yes";
+    parent = "10";
   };
   4 = {
     level = "ALL";
@@ -540,22 +556,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
   5 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#bpython";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "23";
-  };
-  6 = {
     level = "ALL";
     items = (
       {
@@ -566,9 +569,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  7 = {
+  6 = {
     level = "ALL";
     items = (
       {
@@ -579,9 +582,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  8 = {
+  7 = {
     level = "ALL";
     items = (
       {
@@ -592,9 +595,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  9 = {
+  8 = {
     level = "ALL";
     items = (
       {
@@ -605,9 +608,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  10 = {
+  9 = {
     level = "ALL";
     items = (
       {
@@ -618,7 +621,19 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
+  };
+  10 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#techcrap";
+        tag = "freenode";
+      }
+    );
+    sticky = "yes";
   };
   11 = {
     level = "ALL";
@@ -631,22 +646,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
   12 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#tmux";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "23";
-  };
-  13 = {
     level = "ALL";
     items = (
       {
@@ -657,9 +659,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  14 = {
+  13 = {
     level = "ALL";
     items = (
       {
@@ -670,9 +672,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  15 = {
+  14 = {
     level = "ALL";
     items = (
       {
@@ -683,22 +685,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  16 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#pylib";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "23";
-  };
-  17 = {
+  15 = {
     level = "ALL";
     items = (
       {
@@ -709,22 +698,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  18 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#python3";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "23";
-  };
-  19 = {
+  16 = {
     level = "ALL";
     items = (
       {
@@ -735,22 +711,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  20 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#techcrap";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "23";
-  };
-  21 = {
+  17 = {
     level = "ALL";
     items = (
       {
@@ -761,9 +724,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  22 = {
+  18 = {
     level = "ALL";
     items = (
       {
@@ -774,20 +737,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  23 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#newdsp";
-        tag = "MagneticSlack";
-      }
-    );
-  };
-  24 = {
+  19 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
@@ -798,9 +750,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  25 = {
+  20 = {
     level = "ALL";
     items = (
       {
@@ -811,9 +763,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  26 = {
+  21 = {
     level = "ALL";
     items = (
       {
@@ -824,9 +776,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  27 = {
+  22 = {
     level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
@@ -837,22 +789,22 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  28 = {
+  23 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "23";
+    parent = "10";
   };
-  29 = {
+  24 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
 mainwindows = {
-  23 = { first_line = "6"; lines = "86"; };
-  29 = { first_line = "1"; lines = "5"; };
+  10 = { first_line = "5"; lines = "82"; };
+  24 = { first_line = "1"; lines = "4"; };
 };
