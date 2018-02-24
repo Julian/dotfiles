@@ -112,6 +112,10 @@ install = ["neovim"]
 install = ["pex"]
 link = ["pex"]
 
+[virtualenv.pipenv]
+install = ["pipenv"]
+link = ["pew", "pipenv"]
+
 [virtualenv.pychromecast]
 install = ["bpython", "cast", "ptpython", "pychromecast"]
 link = ["cast"]
