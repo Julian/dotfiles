@@ -174,7 +174,7 @@ link = ["ads.txt"]
 
 [virtualenv.ansible]
 requirements = ["${MAGNETIC_DEVELOPMENT}/Ansible/requirements.txt"]
-link = ["ansible", "ansible-playbook"]
+link = ["ansible", "ansible-playbook", "ansible-vault"]
 
 [virtualenv.atd_ui]
 install = [
