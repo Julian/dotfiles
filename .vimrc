@@ -55,7 +55,6 @@ Plug      'kana/vim-vspec'
 Plug      'kana/vim-submode'
 Plug      'kien/rainbow_parentheses.vim'
 Plug      'kshenoy/vim-signature'
-Plug      'jaxbot/github-issues.vim',          {'on': 'Gissues', 'for': 'gitcommit'}
 Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
 Plug      'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug      'mhinz/vim-signify'
