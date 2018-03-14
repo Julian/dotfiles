@@ -109,8 +109,8 @@ install_parser.add_argument(
 )
 install_parser.add_argument(
     "--vim",
-    default="vim",
-    help="the vim binary to set up",
+    default="nvim",
+    help="the *vim binary to set up",
 )
 
 main(parser.parse_args())
