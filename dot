@@ -77,8 +77,9 @@ def set_up_vim(arguments):
         [
             "zsh", "-c",
             "mkdir -p $XDG_CACHE_HOME/vim && "
-            "{0} -T dumb -E -c PlugUpdate -c quitall".format(
+            "{0} {1} -E -c PlugUpdate -c quitall".format(
                 pipes.quote(arguments.vim),
+                "" if arguments.vim.endswith("nvim") else "-T dumb",
             ),
         ],
     )
