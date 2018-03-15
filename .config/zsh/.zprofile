@@ -1,14 +1,12 @@
 typeset -U path
 
-if [[ "$OSTYPE" == darwin* ]] ; then
-    path=(
-        /usr/local/share/pypy
-        /usr/local/share/pypy3
-        /usr/local/share/npm/bin
-        $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
-        $path
-    )
-fi
+(( $+commands[brew] )) && path=(
+    /usr/local/share/pypy
+    /usr/local/share/pypy3
+    /usr/local/share/npm/bin
+    $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
+    $path
+)
 
 path=(
     $HOME/.local/bin
