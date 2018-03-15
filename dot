@@ -39,6 +39,14 @@ def make_symlinks(arguments):
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
         symlink_unless_present(dotfile, dest)
 
+    # Fall back on linking individual config files if we failed.
+    config_dir = os.path.join(arguments.dest_dir, ".config")
+    config_dotfiles = os.path.join(arguments.dotfiles, ".config")
+    if os.path.realpath(config_dir) != config_dotfiles:
+        for dotfile in os.listdir(config_dotfiles):
+            dest = os.path.join(config_dir, os.path.basename(dotfile))
+            symlink_unless_present(dotfile, dest)
+
     bin_dir = os.path.abspath(os.path.normpath(arguments.bin_dir))
     try:
         os.makedirs(bin_dir)
