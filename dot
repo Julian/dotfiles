@@ -44,6 +44,7 @@ def make_symlinks(arguments):
     config_dotfiles = os.path.join(arguments.dotfiles, ".config")
     if os.path.realpath(config_dir) != config_dotfiles:
         for dotfile in os.listdir(config_dotfiles):
+            dotfile = os.path.join(config_dotfiles, dotfile)
             dest = os.path.join(config_dir, os.path.basename(dotfile))
             symlink_unless_present(dotfile, dest)
 
