@@ -40,5 +40,7 @@
 .ssh/config.d/
 !.ssh/config.d/Configuration
 
+root/etc/nixos/hardware-configuration.nix
+
 *.idx.oft
 *.syn.oft
