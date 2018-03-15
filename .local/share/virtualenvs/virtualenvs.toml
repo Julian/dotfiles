@@ -20,6 +20,7 @@ install = [
     "tox",
     "treq",
     "twisted[conch,h2,tls]",
+    "vmprof",
 ]
 link = [
     "bpython",
@@ -37,6 +38,7 @@ link = [
     "trial",
     "twist",
     "twistd",
+    "vmprofshow",
 ]
 
 # [virtualenv.dev3]
