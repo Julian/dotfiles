@@ -37,7 +37,7 @@
 .local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
-.ssh/config.d/
+.ssh/*
 !.ssh/config.d/Configuration
 
 root/etc/nixos/hardware-configuration.nix
