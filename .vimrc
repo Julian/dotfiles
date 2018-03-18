@@ -26,70 +26,70 @@ call plug#begin(expand('~/.vim/bundle/'))
 
 " --- Themes ---
 
-Plug      'morhetz/gruvbox'
+Plug    'morhetz/gruvbox'
 
 " --- Additional Filetype Support ---
 
-Plug      'sheerun/vim-polyglot'
+Plug    'sheerun/vim-polyglot'
 
-Plug      'guns/vim-clojure-highlight',                 {'for': 'clojure'}
-Plug      'guns/vim-sexp',                              {'for': 'clojure'}
-Plug      'tpope/vim-fireplace',                        {'for': 'clojure'}
-Plug      'tpope/vim-leiningen',                        {'for': 'clojure'}
-Plug      'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+Plug    'guns/vim-clojure-highlight',                 {'for': 'clojure'}
+Plug    'guns/vim-sexp',                              {'for': 'clojure'}
+Plug    'tpope/vim-fireplace',                        {'for': 'clojure'}
+Plug    'tpope/vim-leiningen',                        {'for': 'clojure'}
+Plug    'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 
 " --- Plugins ---
 
-Plug      'ajh17/VimCompletesMe'
-Plug      'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
-Plug      'AndrewRadev/splitjoin.vim'
-Plug      'AndrewRadev/switch.vim'
-Plug      'b4winckler/vim-angry'
-Plug      'bfredl/nvim-miniyank'
-Plug      'bling/vim-airline'
-Plug      'bruno-/vim-man'
-Plug      'bruno-/vim-vertical-move'
-Plug      'dahu/vim-fanfingtastic'
-Plug      'godlygeek/tabular',                 {'on': 'Tabularize'}
-Plug      'kana/vim-vspec'
-Plug      'kana/vim-submode'
-Plug      'kien/rainbow_parentheses.vim'
-Plug      'kshenoy/vim-signature'
-Plug      'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
-Plug      'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
-Plug      'mhinz/vim-signify'
-Plug      'mbbill/undotree'
-Plug      'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
-Plug      't9md/vim-quickhl'
-Plug      'tommcdo/vim-exchange'
-Plug      'tomtom/tcomment_vim'
-Plug      'tpope/vim-abolish'
-Plug      'tpope/vim-dispatch'
-Plug      'tpope/vim-endwise'
-Plug      'tpope/vim-fugitive'
-Plug      'tpope/vim-obsession',               {'on': 'Obsession'}
-Plug      'tpope/vim-repeat'
-Plug      'tpope/vim-rhubarb'
-Plug      'tpope/vim-surround'
-Plug      'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
-Plug      'Valodim/vim-zsh-completion'
+Plug    'ajh17/VimCompletesMe'
+Plug    'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
+Plug    'AndrewRadev/splitjoin.vim'
+Plug    'AndrewRadev/switch.vim'
+Plug    'b4winckler/vim-angry'
+Plug    'bfredl/nvim-miniyank'
+Plug    'bling/vim-airline'
+Plug    'bruno-/vim-man'
+Plug    'bruno-/vim-vertical-move'
+Plug    'dahu/vim-fanfingtastic'
+Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
+Plug    'kana/vim-vspec'
+Plug    'kana/vim-submode'
+Plug    'kien/rainbow_parentheses.vim'
+Plug    'kshenoy/vim-signature'
+Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
+Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
+Plug    'mhinz/vim-signify'
+Plug    'mbbill/undotree'
+Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
+Plug    't9md/vim-quickhl'
+Plug    'tommcdo/vim-exchange'
+Plug    'tomtom/tcomment_vim'
+Plug    'tpope/vim-abolish'
+Plug    'tpope/vim-dispatch'
+Plug    'tpope/vim-endwise'
+Plug    'tpope/vim-fugitive'
+Plug    'tpope/vim-obsession',               {'on': 'Obsession'}
+Plug    'tpope/vim-repeat'
+Plug    'tpope/vim-rhubarb'
+Plug    'tpope/vim-surround'
+Plug    'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
+Plug    'Valodim/vim-zsh-completion'
 
-Plug      'kana/vim-textobj-indent'
-Plug      'Julian/vim-textobj-python',         {'for': 'python'}
-Plug      'kana/vim-textobj-syntax'
-Plug      'kana/vim-textobj-user'
+Plug    'kana/vim-textobj-indent'
+Plug    'Julian/vim-textobj-python',         {'for': 'python'}
+Plug    'kana/vim-textobj-syntax'
+Plug    'kana/vim-textobj-user'
 
-Plug      'Shougo/neomru.vim'
-Plug      'Shougo/denite.nvim'
+Plug    'Shougo/neomru.vim'
+Plug    'Shougo/denite.nvim'
 
-Develop         vim-runt
-Develop         vim-textobj-assignment
-Develop         vim-textobj-brace
-Develop         vim-textobj-variable-segment
+Develop vim-runt
+Develop vim-textobj-assignment
+Develop vim-textobj-brace
+Develop vim-textobj-variable-segment
 
 if executable("tmux")
-    Plug  'tpope/vim-tbone'
-    Plug  'wellle/tmux-complete.vim'
+    Plug 'tpope/vim-tbone'
+    Plug 'wellle/tmux-complete.vim'
     let g:tmuxcomplete#trigger = ''
 endif
 
