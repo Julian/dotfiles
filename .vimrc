@@ -676,25 +676,6 @@ if has("eval")
         endif
     endfunction
 
-    " Toggle the quick fix window
-    function! <SID>ToggleQuickfix()
-        " This is broken if someone decides to do copen or cclose without using
-        " the mapping, but just look at the ugliness required to do it properly
-        " http://vim.wikia.com/wiki/Toggle_to_open_or_close_the_quickfix_window
-        if !exists("s:quickfix_open")
-            let s:quickfix_open = 0
-            return <SID>ToggleQuickfix()
-        else
-            if s:quickfix_open
-                :cclose
-                let s:quickfix_open = 0
-            else
-                :copen
-                let s:quickfix_open = 1
-            endif
-        endif
-    endfunction
-
     " Expand the active window
     function! <SID>ToggleExpando()
         if !exists("s:expando_enabled")
