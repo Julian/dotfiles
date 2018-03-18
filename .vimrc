@@ -565,12 +565,6 @@ let g:tex_flavor='latex'
 
 let g:exchange_no_mappings = '1'
 
-if filereadable('/usr/local/bin/ctags')
-    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-else
-    let g:tagbar_ctags_bin = '/usr/bin/ctags'
-endif
-
 " signature
 let g:SignatureMap = {
       \ 'Leader'             :  "M",
