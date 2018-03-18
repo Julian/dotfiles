@@ -331,11 +331,3 @@ if arguments.sensible and not arguments.bare:
     subprocess.check_call(
         ["git", "--git-dir", git_dir, "commit", "-m", "Initial commit"],
     )
-    subprocess.check_call(
-        [
-            "git", "--git-dir", git_dir,
-            "tag", "-a",
-            "-m", "Empty release",
-            "v0.1.0",
-        ],
-    )
