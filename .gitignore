@@ -13,9 +13,11 @@
 
 .tmux/tmux.conf.local
 
+.config/ad2d2.ini
 .config/ansible/vault-password
 .config/aws/credentials.ini
 .config/bpython/history
+.config/configstore/
 .config/fish/fishd.*
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
@@ -33,7 +35,9 @@
 .emacs.d/**/*~
 
 .local/bin/
+.local/share/great/
 .local/share/perl5/
+.local/share/pypy*/
 .local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
