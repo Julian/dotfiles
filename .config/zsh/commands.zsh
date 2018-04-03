@@ -34,6 +34,8 @@ if (( $+commands[brew] )); then
     alias up="brew update && brew upgrade"
 elif (( $+commands[nix-env] )); then
     alias up="nix-channel --update nixpkgs && nix-env -u '*'"
+elif (( $+commands[pacman] )); then
+    alias up="sudo pacman -Syu"
 fi
 
 if (( $+commands[selecta] )); then
