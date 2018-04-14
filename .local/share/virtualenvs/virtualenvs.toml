@@ -17,6 +17,7 @@ install = [
     "pytest",
     "pytoml",
     "pyyaml",
+    "setuptools",
     "tox",
     "treq",
     "twisted[conch,h2,tls]",
