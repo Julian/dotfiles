@@ -1,29 +1,46 @@
-use Irssi;
+# - Lets you tab over a number of people who've recently spoken in channel
+# - Removes people from the list who leave the channel
+# - Tabcomplete works only from an empty input line and will complete to
+#   the person who last spoke
+# - The same nick is only included once in the list
+# - When at the end of the list, empties the input line and lets you begin
+#   from the start again
+# - /set completion_keep_publics decides how many nicks to remember
+
+use strict;
+use warnings;
+use Irssi::TextUI;
 use Data::Dumper;
 
-my $VERSION = '1.0';
-my %IRSSI = (
+{ package Irssi::Nick; }
+
+use vars qw($VERSION %IRSSI);
+
+$VERSION = '1.1';
+%IRSSI = (
     authors     => 'vague',
-    contact     => 'vague!#irssi\@freenode',
+    contact     => 'vague!#irssi@freenode on irc',
     name        => 'tabcompletenick',
     description => 'tabcomplete, on an empty input buffer, over /set completion_keep_publics nicks in channel, parts for any reason(kick, part, quit) are removed from the tabcomplete list',
     license     => 'GPL2',
+    url         => "http://gplus.to/vague",
+    changed     => "24 Nov 16:00:00 CET 2015",
 );
 
-my $lastspokehash = {};
+my $lastspokehash;
 my $expand_next = 0;
 
 Irssi::signal_add_first('gui key pressed', sub {
   my ($key) = @_;
+
+  return unless exists Irssi::active_win->{active} && Irssi::active_win->{active}->{type} eq "CHANNEL";
+
   my $prompt = Irssi::parse_special('$L');
   my $pos = Irssi::gui_input_get_pos();
+  my $witem = Irssi::active_win()->{active};
+  my $server = Irssi::active_server();
 
-  $server = Irssi::active_server();
-  $witem = Irssi::active_win()->{active};
-
-  return unless $witem->{type} eq "CHANNEL";
-
-  my $arr = $lastspokehash{$server->{tag}}->{$witem->{name}};
+  my $arr = $lastspokehash->{$server->{tag}}->{$witem->{name}} || [];
 
   if(!$expand_next) {
     return unless $key == 9;
@@ -38,7 +55,7 @@ Irssi::signal_add_first('gui key pressed', sub {
       return;
     }
 
-    if($expand_next < scalar @{$arr}) {
+    if($expand_next < @$arr) {
       $expand_next++;
     } else {
       $expand_next = 0;
@@ -60,43 +77,44 @@ Irssi::signal_add_first('gui key pressed', sub {
 
 sub expando_lastspoke {
   my ($server, $witem) = @_;
-  $server = Irssi::active_server();
-  $witem = Irssi::active_win()->{active};
+  $server = Irssi::active_server() unless $server;
+  $witem = Irssi::active_win()->{active} unless $witem;
 
   return '' if $expand_next == 0;
   return '' unless ref($witem) eq 'Irssi::Irc::Channel';
-  my $arr = $lastspokehash{$server->{tag}}->{$witem->{name}};
-  return '' unless @{$arr};
-  return '' unless $expand_last <= $arr;
 
-  return @{$lastspokehash{$server->{tag}}->{$witem->{name}}}[$expand_next - 1];
+  my $arr = $lastspokehash->{$server->{tag}}->{$witem->{name}};
+  return '' unless @$arr;
+  return '' unless $expand_next <= @$arr;
+
+  return @{$lastspokehash->{$server->{tag}}->{$witem->{name}}}[$expand_next - 1];
 }
 
 sub act_public {
-  my ($server, $msg, $nick, $address, $witem) = @_;
+  my ($server, $msg, $nick, $address, $target) = @_;
 
-  return if $witem eq '';
+  return if $target eq '';
 
   my $i = 0;
-  my $arr = $lastspokehash{$server->{tag}}->{$witem};
-  foreach(@{$arr}) {
+  my $arr = $lastspokehash->{$server->{tag}}->{$target};
+  foreach(@$arr) {
     if($_ eq $nick) {
-      splice @{$arr}, $i, 1;
+      splice @$arr, $i, 1;
       last;
     }
     $i++;
   }
 
-  unshift @{$lastspokehash{$server->{tag}}->{$witem}}, $nick;
-  splice @{$lastspokehash{$server->{tag}}->{$witem}}, Irssi::settings_get_int('completion_keep_publics');
+  unshift @{$lastspokehash->{$server->{tag}}->{$target}}, $nick;
+  splice @{$lastspokehash->{$server->{tag}}->{$target}}, Irssi::settings_get_int('completion_keep_publics');
 }
 
 sub _part {
   my ($server, $channel, $nick) = @_;
 
   if(!$channel) {
-    foreach my $chan (keys %{$lastspokehash{$server->{tag}}}) {
-      my $arr = $lastspokehash{$server->{tag}}->{$chan};
+    foreach my $chan (keys %{$lastspokehash->{$server->{tag}}}) {
+      my $arr = $lastspokehash->{$server->{tag}}->{$chan};
       my $i = 0;
       foreach(@{$arr}) {
         if($_ eq $nick) {
@@ -109,7 +127,7 @@ sub _part {
     }
   }
   else {
-    my $arr = $lastspokehash{$server->{tag}}->{$channel};
+    my $arr = $lastspokehash->{$server->{tag}}->{$channel};
     my $i = 0;
     foreach(@{$arr}) {
       if($_ eq $nick) {
@@ -121,8 +139,7 @@ sub _part {
     }
   }
 
-  delete $lastspokehash{$server->{tag}}->{$channel} unless @{$lastspokehash{$server->{tag}}->{$channel}};
-  delete $lastspokehash{$server->{tag}} unless keys %{$lastspokehash{$server->{tag}}};
+  delete $lastspokehash->{$server->{tag}} unless keys %{$lastspokehash->{$server->{tag}}};
 }
 
 Irssi::signal_add_first('message quit', sub {
@@ -143,8 +160,8 @@ Irssi::signal_add_first('message kick', sub {
 Irssi::signal_add_first('message nick', sub {
   my ($server, $newnick, $oldnick, $address) = @_;
 
-  foreach my $chan (keys %{$lastspokehash{$server->{tag}}}) {
-    my $arr = $lastspokehash{$server->{tag}}->{$chan};
+  foreach my $chan (keys %{$lastspokehash->{$server->{tag}}}) {
+    my $arr = $lastspokehash->{$server->{tag}}->{$chan};
     my $i = 0;
     foreach(@{$arr}) {
       if($_ eq $oldnick) {
