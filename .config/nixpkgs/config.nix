@@ -17,6 +17,7 @@
         nodejs
         nixUnstable
         openssl
+        par
         postgresql
         "protobuf-2"
         pstree
