@@ -55,6 +55,7 @@ Plug    'kana/vim-vspec'
 Plug    'kana/vim-submode'
 Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
+Plug    'jceb/vim-orgmode' |                 Plug 'tpope/vim-speeddating'
 Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
 Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug    'mhinz/vim-signify'
@@ -251,7 +252,7 @@ endfor
 
 nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 
-nnoremap        <CR>              :<C-U>SplitSensibly<Space>
+nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.org<CR>
 
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Denite -buffer-name=files file_rec<CR>
