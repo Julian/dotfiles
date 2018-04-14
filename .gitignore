@@ -18,6 +18,7 @@
 .config/aws/credentials.ini
 .config/bpython/history
 .config/configstore/
+.config/enchant/
 .config/fish/fishd.*
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
@@ -35,6 +36,7 @@
 .emacs.d/**/*~
 
 .local/bin/
+.local/share/gem/
 .local/share/great/
 .local/share/perl5/
 .local/share/pypy*/
