@@ -19,6 +19,7 @@
 .config/bpython/history
 .config/configstore/
 .config/darktable/
+.config/docker/credentials.json
 .config/enchant/
 .config/fish/fishd.*
 .config/gnupg/random_seed
