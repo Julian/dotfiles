@@ -107,6 +107,10 @@ link = ["mycli"]
 [virtualenv.neovim]
 install = ["neovim"]
 
+[virtualenv.ngxtop]
+install = ["ngxtop"]
+link = ["ngxtop"]
+
 #
 # [virtualenv.neovim3]
 # install = ["neovim"]
