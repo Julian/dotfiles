@@ -18,6 +18,7 @@
 .config/aws/credentials.ini
 .config/bpython/history
 .config/configstore/
+.config/darktable/
 .config/enchant/
 .config/fish/fishd.*
 .config/gnupg/random_seed
