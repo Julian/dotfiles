@@ -218,9 +218,9 @@ nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 " quote a word
 nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 
-"       '<F1>' is set to help
 "       '<F2>' is set to pastetoggle
 let s:all_modes_mappings = {
+    \   '<F1>'  : '',
     \   '<F12>'  : ':<C-U>make',
     \
     \   '<Up>' : ':diffget<CR>[c',
