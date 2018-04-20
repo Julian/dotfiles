@@ -28,6 +28,12 @@
     log = 50
     tool = vimdiff
 
+[mergetool]
+    prompt = true
+
+[mergetool "vimdiff"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [push]
     default = simple
     followTags = true
