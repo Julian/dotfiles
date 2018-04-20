@@ -20,7 +20,7 @@ install = [
     "setuptools",
     "tox",
     "treq",
-    "twisted[conch,h2,tls]",
+    "twisted[conch,tls]",
     "vmprof",
 ]
 link = [
