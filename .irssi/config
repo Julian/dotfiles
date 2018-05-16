@@ -36,15 +36,6 @@ servers = (
     use_ssl = "yes";
     ssl_verify = "yes";
     autoconnect = "yes";
-  },
-  {
-    address = "pi.grayvines.com";
-    chatnet = "MagneticSlack";
-    port = "1123";
-    password = "Julian/MagneticSlack:";
-    use_ssl = "yes";
-    ssl_verify = "yes";
-    autoconnect = "yes";
   }
 );
 
@@ -112,7 +103,6 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   freenode = { type = "IRC"; };
-  MagneticSlack = { type = "IRC"; };
 };
 
 channels = (
@@ -441,7 +431,6 @@ settings = {
     uberprompt_load_hook = "/^vm_add";
     uberprompt_unload_hook = "/^vm_del";
     notifier_on_regex = "(tos9|JulianWasTaken)";
-    slack_network = "MagneticSlack";
     awl_shared_sbar = "OFF";
     nickcolor_colors = "2 3 4 5 6 7 9 10 11 12 13 14 15 16";
   };
@@ -461,12 +450,6 @@ ignores = (
   { mask = "*away*"; level = "NICKS"; },
   { mask = "*|bnc"; level = "NICKS"; },
   { mask = "irker*"; level = "ALL"; },
-  {
-    level = "MODES";
-    pattern = "(active|away)";
-    regexp = "yes";
-    servertag = "MagneticSlack";
-  },
   { mask = "ldlework"; level = "ALL"; }
 );
 keyboard = (
@@ -494,7 +477,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   2 = {
     level = "ALL";
@@ -507,7 +490,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   3 = {
     level = "ALL";
@@ -520,6 +503,7 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "13";
   };
   4 = {
     level = "ALL";
@@ -532,7 +516,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   5 = {
     level = "ALL";
@@ -545,7 +529,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   6 = {
     level = "ALL";
@@ -558,7 +542,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   7 = {
     level = "ALL";
@@ -571,7 +555,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   8 = {
     level = "ALL";
@@ -584,7 +568,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   9 = {
     level = "ALL";
@@ -597,7 +581,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   10 = {
     level = "ALL";
@@ -610,7 +594,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   11 = {
     level = "ALL";
@@ -623,7 +607,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   12 = {
     level = "ALL";
@@ -636,7 +620,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   13 = {
     level = "ALL";
@@ -649,7 +633,6 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
   };
   14 = {
     level = "ALL";
@@ -662,7 +645,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   15 = {
     level = "ALL";
@@ -675,7 +658,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   16 = {
     level = "ALL";
@@ -688,7 +671,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   17 = {
     level = "ALL";
@@ -701,7 +684,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   18 = {
     level = "ALL";
@@ -714,85 +697,22 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
   19 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#agency-dev";
-        tag = "MagneticSlack";
-      }
-    );
-  };
-  20 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#engineering";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  21 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#general";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  22 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#music";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  23 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#techops-public";
-        tag = "MagneticSlack";
-      }
-    );
-    sticky = "yes";
-    parent = "3";
-  };
-  24 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "3";
+    parent = "13";
   };
-  25 = {
+  20 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
 mainwindows = {
-  3 = { first_line = "4"; lines = "58"; };
-  25 = { first_line = "1"; lines = "3"; };
+  13 = { first_line = "5"; lines = "88"; };
+  20 = { first_line = "1"; lines = "4"; };
 };
