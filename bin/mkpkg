@@ -179,7 +179,7 @@ classifiers = "\n{0}\n        ".format(
     ",\n".join('            "' + c + '"' for c in make_classifiers()) + ","
 )
 
-tox_envlist = sorted(arguments.supports)
+tox_envlist = sorted(arguments.supports) + ["safety"]
 if arguments.style:
     tox_envlist.append("style")
 
@@ -273,6 +273,12 @@ files = {
             {{envpython}} -m doctest {{toxinidir}}/README.rst
         deps =
             {test_deps}
+
+        [testenv:safety]
+        deps = safety
+        commands =
+            {{envbindir}}/pip install {{toxinidir}}
+            safety check
 
         [testenv:style]
         deps = ebb-lint
