@@ -278,7 +278,7 @@ files = {
         deps = safety
         commands =
             {{envbindir}}/pip install {{toxinidir}}
-            safety check
+            {{envbindir}}/safety check
 
         [testenv:style]
         deps = ebb-lint
