@@ -387,9 +387,9 @@ statusbar = {
     delete = { items = { }; disabled = "yes"; };
     prompt = {
       items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
+        uberprompt = { priority = "-1"; };
         input = { priority = "10"; };
+        vim_mode = { alignment = "right"; };
       };
       position = "100";
     };
@@ -477,7 +477,7 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
   2 = {
     level = "ALL";
@@ -490,22 +490,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
   3 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##python-offtopic";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "13";
-  };
-  4 = {
     level = "ALL";
     items = (
       {
@@ -516,9 +503,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  5 = {
+  4 = {
     level = "ALL";
     items = (
       {
@@ -529,9 +516,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  6 = {
+  5 = {
     level = "ALL";
     items = (
       {
@@ -542,9 +529,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  7 = {
+  6 = {
     level = "ALL";
     items = (
       {
@@ -555,9 +542,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  8 = {
+  7 = {
     level = "ALL";
     items = (
       {
@@ -568,9 +555,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  9 = {
+  8 = {
     level = "ALL";
     items = (
       {
@@ -581,7 +568,19 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
+  };
+  9 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pypy";
+        tag = "freenode";
+      }
+    );
+    sticky = "yes";
   };
   10 = {
     level = "ALL";
@@ -594,22 +593,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
   11 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#pypy";
-        tag = "freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "13";
-  };
-  12 = {
     level = "ALL";
     items = (
       {
@@ -620,9 +606,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  13 = {
+  12 = {
     level = "ALL";
     items = (
       {
@@ -633,8 +619,9 @@ windows = {
       }
     );
     sticky = "yes";
+    parent = "9";
   };
-  14 = {
+  13 = {
     level = "ALL";
     items = (
       {
@@ -645,9 +632,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  15 = {
+  14 = {
     level = "ALL";
     items = (
       {
@@ -658,9 +645,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  16 = {
+  15 = {
     level = "ALL";
     items = (
       {
@@ -671,9 +658,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  17 = {
+  16 = {
     level = "ALL";
     items = (
       {
@@ -684,9 +671,9 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  18 = {
+  17 = {
     level = "ALL";
     items = (
       {
@@ -697,22 +684,22 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  19 = {
+  18 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "13";
+    parent = "9";
   };
-  20 = {
+  19 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
 };
 mainwindows = {
-  13 = { first_line = "5"; lines = "88"; };
-  20 = { first_line = "1"; lines = "4"; };
+  9 = { first_line = "4"; lines = "50"; };
+  19 = { first_line = "1"; lines = "3"; };
 };
