@@ -22,6 +22,7 @@
 .config/docker/credentials.json
 .config/enchant/
 .config/fish/fishd.*
+.config/gnupg/pubring.kbx
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
 .config/notmuch/
