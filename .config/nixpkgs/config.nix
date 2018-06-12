@@ -10,6 +10,7 @@
         gdb
         gfortran
         git
+        gnupg
         irssi
         jq
         neovim
@@ -18,6 +19,7 @@
         nixUnstable
         openssl
         par
+        parallel
         postgresql
         "protobuf-2"
         pstree
@@ -28,6 +30,7 @@
         ripgrep
         snappy
         tmux
+        watch
         zsh
       ];
     };
