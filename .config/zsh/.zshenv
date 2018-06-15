@@ -15,6 +15,10 @@ then
     export XDG_CACHE_HOME=$HOME/Library/Caches
     export XDG_DATA_HOME=$HOME/Library/Application\ Support
     export VIRTUALENVS=$HOME/.local/share/virtualenvs
+
+    typeset -aU dyld_library_path
+    typeset -T DYLD_LIBRARY_PATH dyld_library_path
+    export DYLD_LIBRARY_PATH
 else
     export BROWSER=chromium
 
