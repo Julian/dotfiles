@@ -1,1 +1,1 @@
-/Users/Julian/.irssi/scripts/urlinfo.pl
+../urlinfo.pl
