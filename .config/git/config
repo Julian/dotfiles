@@ -122,6 +122,11 @@
     la = !git l --all
     q = !git r @{u}..
 
+[url "git@github.com:Julian/"]
+    insteadOf = "g:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+
 [url "git@github.com:"]
     insteadOf = "gh:"
     pushInsteadOf = "github:"
