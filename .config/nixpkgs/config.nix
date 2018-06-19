@@ -3,6 +3,7 @@
     myPackages = pkgs.buildEnv {
       name = "my-packages";
       paths = [
+        cloc
         coreutils
         ctags
         findutils
@@ -11,6 +12,7 @@
         gfortran
         git
         gnupg
+        inconsolata
         irssi
         jq
         neovim
