@@ -586,10 +586,6 @@ let g:SignatureMap = {
       \ 'GotoPrevMarkerAny'  :  "[=",
       \ }
 
-let g:tcommentTextObjectInlineComment = 'ix'
-let g:tcommentMapLeader1 = ''
-let g:tcommentMapLeader2 = ''
-
 let g:undotree_TreeNodeShape = '✷'
 
 " more stupid things with default mappings
