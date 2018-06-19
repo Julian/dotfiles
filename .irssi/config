@@ -387,9 +387,9 @@ statusbar = {
     delete = { items = { }; disabled = "yes"; };
     prompt = {
       items = {
-        uberprompt = { priority = "-1"; };
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
         input = { priority = "10"; };
-        vim_mode = { alignment = "right"; };
       };
       position = "100";
     };
