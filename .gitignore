@@ -19,7 +19,8 @@
 .config/bpython/history
 .config/configstore/
 .config/darktable/
-.config/docker/credentials.json
+.config/docker/.buildNodeID
+.config/docker/config.json
 .config/enchant/
 .config/fish/fishd.*
 .config/gnupg/pubring.kbx
