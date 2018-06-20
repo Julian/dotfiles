@@ -257,7 +257,7 @@ nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Denite -buffer-name=files file_rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file_rec:
-nnoremap        <leader>f         :<C-U>Denite -buffer-name=buffers buffer_tab<CR>
+nnoremap        <leader>f         :<C-U>Denite -buffer-name=buffers<CR>
 nnoremap        <leader>h         :<C-U>Denite -buffer-name=tags tag<CR>
 nnoremap        <leader>j         :<C-U>Denite -buffer-name=test_tags -input=test tag<CR>
 nnoremap        <leader>k         :<C-U>Denite -buffer-name=tests -input=test/test_ file_rec<CR>
