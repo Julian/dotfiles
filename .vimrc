@@ -565,9 +565,6 @@ let g:is_posix = 1
 let g:tex_flavor='latex'
 
 let g:exchange_no_mappings = '1'
-" dispatch
-let g:nremap = ''
-
 
 " signature
 let g:SignatureMap = {
