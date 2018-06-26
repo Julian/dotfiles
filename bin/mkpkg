@@ -127,8 +127,11 @@ else:
     core_source_paths = {
         os.path.join(package_name, "tests", "__init__.py") : "",
         os.path.join(package_name, "__init__.py") : """
-        from pkg_resources import get_distribution
-        __version__ = get_distribution(__name__).version
+        from pkg_resources import get_distribution, DistributionNotFound
+        try:
+            __version__ = get_distribution(__name__).version
+        except DistributionNotFound:
+            pass
         """.format(name=package_name),
     }
 
