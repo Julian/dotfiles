@@ -182,7 +182,7 @@ classifiers = "\n{0}\n        ".format(
     ",\n".join('            "' + c + '"' for c in make_classifiers()) + ","
 )
 
-tox_envlist = sorted(arguments.supports) + ["safety"]
+tox_envlist = sorted(arguments.supports) + ["readme", "safety"]
 if arguments.style:
     tox_envlist.append("style")
 
@@ -276,6 +276,12 @@ files = {
             {{envpython}} -m doctest {{toxinidir}}/README.rst
         deps =
             {test_deps}
+
+        [testenv:readme]
+        changedir = {{toxinidir}}
+        deps = readme_renderer
+        commands =
+            {{envbindir}}/python setup.py check --restructuredtext --strict
 
         [testenv:safety]
         deps = safety
