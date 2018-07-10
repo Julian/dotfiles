@@ -266,6 +266,10 @@ files = {
                 contents,
                 ("setup_requires", "setuptools_scm"),
             ],
+        ), (
+            "flake8", [
+                ("exclude", package_name + "/__init__.py"),
+            ],
         ),
     ),
     os.path.join(name, "setup.py") : """
@@ -278,8 +282,7 @@ files = {
                 ("envlist", tox_envlist),
                 ("skipsdist", "True"),
             ],
-        ),
-        (
+        ), (
             "testenv", [
                 ("changedir", "{envtmpdir}"),
                 (
@@ -291,8 +294,7 @@ files = {
                 ),
                 ("deps", test_deps),
             ],
-        ),
-        (
+        ), (
             "testenv:readme", [
                 ("changedir", "{toxinidir}"),
                 ("deps", "readme_renderer"),
@@ -302,8 +304,7 @@ files = {
                     ],
                 ),
             ],
-        ),
-        (
+        ), (
             "testenv:safety", [
                 ("deps", "safety"),
                 (
@@ -313,8 +314,7 @@ files = {
                     ],
                 ),
             ],
-        ),
-        (
+        ), (
             "testenv:style", [
                 ("deps", "ebb-lint"),
                 (
@@ -323,23 +323,16 @@ files = {
                 ),
             ],
         ),
-        (
-            "flake8", [
-                ("exclude", package_name + "/__init__.py"),
-            ],
-        ),
     ),
     os.path.join(name, ".testr.conf") : ini(
         defaults=[
             (
                 "test_command",
                 "python -m subunit.run discover . $LISTOPT $IDOPTION",
-            ),
-            (
+            ), (
                 "test_id_option",
                 "--load-list $IDFILE",
-            ),
-            (
+            ), (
                 "test_list_option",
                 "--list",
             ),
