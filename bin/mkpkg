@@ -22,18 +22,12 @@ STATUS_CLASSIFIERS = {
     "inactive" : "Development Status :: 7 - Inactive",
 }
 VERSION_CLASSIFIERS = {
-    "py24" : "Programming Language :: Python :: 2.4",
-    "py25" : "Programming Language :: Python :: 2.5",
-    "py26" : "Programming Language :: Python :: 2.6",
     "py27" : "Programming Language :: Python :: 2.7",
-    "py30" : "Programming Language :: Python :: 2.0",
-    "py31" : "Programming Language :: Python :: 3.1",
-    "py32" : "Programming Language :: Python :: 3.2",
-    "py33" : "Programming Language :: Python :: 3.3",
     "py34" : "Programming Language :: Python :: 3.4",
     "py35" : "Programming Language :: Python :: 3.5",
     "py36" : "Programming Language :: Python :: 3.6",
     "py37" : "Programming Language :: Python :: 3.7",
+    "py38" : "Programming Language :: Python :: 3.8",
 }
 
 
