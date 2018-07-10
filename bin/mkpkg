@@ -1,8 +1,10 @@
 #! /usr/bin/env python2
 
+import ConfigParser
 import argparse
 import datetime
 import errno
+import io
 import os
 import pwd
 import sys
@@ -110,7 +112,7 @@ else:
 package_name = package_name.lower().replace("-", "_")
 
 if arguments.single_module:
-    contents = 'py_modules=["{name}"]'.format(name=package_name)
+    contents = "py_modules", name
     tests = "tests.py"
 
     core_source_paths = {
@@ -126,7 +128,7 @@ if arguments.single_module:
         """.format(name=name.title(), package_name=package_name),
     }
 else:
-    contents = "packages=find_packages()"
+    contents = "packages", "find:"
     tests = package_name
 
     core_source_paths = {
@@ -148,7 +150,25 @@ elif arguments.test_runner == "trial":
     test_deps = ["twisted"]
 
 
-def make_classifiers(supports=arguments.supports, closed=arguments.closed):
+def ini(*sections, **kwargs):
+    """
+    Construct an INI-formatted str with the given contents.
+    """
+
+    lol_python = io.BytesIO()
+    kwargs["defaults"] = dict(kwargs.pop("defaults", {}))
+    parser = ConfigParser.SafeConfigParser(**kwargs)
+    for section, contents in sections:
+        parser.add_section(section)
+        for option, value in contents:
+            if isinstance(value, list):
+                value = "\n" + "\n".join(value)
+            parser.set(section, option, value)
+    parser.write(lol_python)
+    return lol_python.getvalue()
+
+
+def classifiers(supports=arguments.supports, closed=arguments.closed):
     supports = sorted(supports)
 
     yield STATUS_CLASSIFIERS[arguments.status]
@@ -183,9 +203,6 @@ def make_classifiers(supports=arguments.supports, closed=arguments.closed):
     if "jython" in supports:
         yield "Programming Language :: Python :: Implementation :: Jython"
 
-classifiers = "\n{0}\n        ".format(
-    ",\n".join('            "' + c + '"' for c in make_classifiers()) + ","
-)
 
 tox_envlist = sorted(arguments.supports) + ["readme", "safety"]
 if arguments.style:
@@ -232,92 +249,108 @@ files = {
             now=datetime.datetime.now(), author=arguments.author,
         ) + license
     ),
+    os.path.join(name, "setup.cfg") : ini(
+        (
+            "metadata", [
+                ("name", package_name),
+                ("url", "https://github.com/Julian/" + name),
+
+                ("description", ""),
+                ("long_description", "file: README.rst"),
+
+                ("author", arguments.author),
+                (
+                    "author_email", (
+                        arguments.author_email or
+                        "Julian+" + package_name + "@GrayVines.com"
+                    ),
+                ),
+                ("classifiers", list(classifiers())),
+            ],
+        ), (
+            "options", [
+                contents,
+                ("setup_requires", "setuptools_scm"),
+            ],
+        ),
+    ),
     os.path.join(name, "setup.py") : """
-        import os
-
-        from setuptools import find_packages, setup
-
-
-        with open(os.path.join(os.path.dirname(__file__), "README.rst")) as readme:
-            long_description = readme.read()
-
-        classifiers = [{classifiers}]
-
-        setup(
-            name="{package_name}",
-            url="https://github.com/Julian/{name}",
-
-            description="",
-            long_description=long_description,
-
-            author="{author}",
-            author_email="{author_email}",
-
-            {contents},
-
-            setup_requires=["setuptools_scm"],
-            use_scm_version=True,
-
-            classifiers=classifiers,
-        )
-        """.format(
-            author=arguments.author,
-            author_email=(
-                arguments.author_email or
-                "Julian+" + package_name + "@GrayVines.com"
+        from setuptools import setup
+        setup(use_scm_version=True)
+        """.format(contents=contents),
+    os.path.join(name, "tox.ini") : ini(
+        (
+            "tox", [
+                ("envlist", tox_envlist),
+                ("skipsdist", "True"),
+            ],
+        ),
+        (
+            "testenv", [
+                ("changedir", "{envtmpdir}"),
+                (
+                    "commands", [
+                        "{envbindir}/pip install {toxinidir}",
+                        "{envbindir}/" + test_runner + " {posargs:" + tests + "}",
+                        "{envpython} -m doctest {toxinidir}/README.rst",
+                    ],
+                ),
+                ("deps", test_deps),
+            ],
+        ),
+        (
+            "testenv:readme", [
+                ("changedir", "{toxinidir}"),
+                ("deps", "readme_renderer"),
+                (
+                    "commands", [
+                        "{envbindir}/python setup.py check --restructuredtext --strict",
+                    ],
+                ),
+            ],
+        ),
+        (
+            "testenv:safety", [
+                ("deps", "safety"),
+                (
+                    "commands", [
+                        "{envbindir}/pip install {toxinidir}",
+                        "{envbindir}/safety check",
+                    ],
+                ),
+            ],
+        ),
+        (
+            "testenv:style", [
+                ("deps", "ebb-lint"),
+                (
+                    "commands",
+                    "flake8 {posargs} --max-complexity 10 {toxinidir}/" + tests + " {toxinidir}/setup.py",
+                ),
+            ],
+        ),
+        (
+            "flake8", [
+                ("exclude", package_name + "/__init__.py"),
+            ],
+        ),
+    ),
+    os.path.join(name, ".testr.conf") : ini(
+        defaults=[
+            (
+                "test_command",
+                "python -m subunit.run discover . $LISTOPT $IDOPTION",
             ),
-            name=name,
-            package_name=package_name,
-            classifiers=classifiers,
-            contents=contents,
-        ),
-    os.path.join(name, "tox.ini") : """
-        [tox]
-        envlist =
-            {envlist}
-        skipsdist = True
-
-        [testenv]
-        changedir = {{envtmpdir}}
-        commands =
-            {{envbindir}}/pip install {{toxinidir}}
-            {{envbindir}}/{test_runner} {{posargs:{tests}}}
-            {{envpython}} -m doctest {{toxinidir}}/README.rst
-        deps =
-            {test_deps}
-
-        [testenv:readme]
-        changedir = {{toxinidir}}
-        deps = readme_renderer
-        commands =
-            {{envbindir}}/python setup.py check --restructuredtext --strict
-
-        [testenv:safety]
-        deps = safety
-        commands =
-            {{envbindir}}/pip install {{toxinidir}}
-            {{envbindir}}/safety check
-
-        [testenv:style]
-        deps = ebb-lint
-        commands = flake8 {{posargs}} --max-complexity 10 {{toxinidir}}/{tests} {{toxinidir}}/setup.py
-
-        [flake8]
-        exclude = {package_name}/__init__.py
-        """.format(
-            package_name=package_name,
-            envlist=",\n            ".join(tox_envlist) + ",",
-            test_runner=test_runner,
-            tests=tests,
-            test_deps="\n    ".join(test_deps),
-        ),
-
-    os.path.join(name, ".testr.conf") : """
-    [DEFAULT]
-    test_command=python -m subunit.run discover . $LISTOPT $IDOPTION
-    test_id_option=--load-list $IDFILE
-    test_list_option=--list
-    """,
+            (
+                "test_id_option",
+                "--load-list $IDFILE",
+            ),
+            (
+                "test_list_option",
+                "--list",
+            ),
+        ],
+    ),
 }
 
 if arguments.bare:
