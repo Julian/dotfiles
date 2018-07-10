@@ -338,7 +338,13 @@ files = {
             ),
         ],
     ),
-    os.path.join(name, "Pipfile") : "",
+    os.path.join(name, "Pipfile") : """
+    [dev-packages]
+    "bpython[urwid]" = "*"
+    ptpython = "*"
+    pudb = "*"
+    twisted = "*"
+    """,
 }
 
 if arguments.bare:
