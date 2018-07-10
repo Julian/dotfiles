@@ -59,6 +59,11 @@ parser.add_argument(
     help="the name of the package author",
 )
 parser.add_argument(
+    "--author-email",
+    default=None,
+    help="the package author's email",
+)
+parser.add_argument(
     "--status",
     choices=STATUS_CLASSIFIERS,
     default="alpha",
@@ -246,7 +251,7 @@ files = {
             long_description=long_description,
 
             author="{author}",
-            author_email="Julian@GrayVines.com",
+            author_email="{author_email}",
 
             {contents},
 
@@ -257,6 +262,10 @@ files = {
         )
         """.format(
             author=arguments.author,
+            author_email=(
+                arguments.author_email or
+                "Julian+" + package_name + "@GrayVines.com"
+            ),
             name=name,
             package_name=package_name,
             classifiers=classifiers,
