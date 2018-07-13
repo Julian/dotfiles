@@ -140,6 +140,10 @@ link = [
     "sphinx-build",
 ]
 
+[virtualenv.tqdm]
+install = ["tqdm"]
+link = ["tqdm"]
+
 [virtualenv.twine]
 install = ["twine"]
 link = ["twine"]
