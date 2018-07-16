@@ -155,5 +155,9 @@ function pydev() {
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
     local venv_runner=$(findenv directory $PWD $PYTHON_TEST_RUNNER)
-    PYTHONPATH=. $venv_runner "${1:-${venv_runner:h:h:t}}" ${@:2}
+    # This is shell gobbledigook for "does every arg start with -"
+    if [[ ${@[(i)^-*]} -gt $# ]]; then
+        argv+=("${venv_runner:h:h:t}")
+    fi
+    PYTHONPATH=. $venv_runner ${@:1}
 }
