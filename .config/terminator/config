@@ -52,7 +52,6 @@
 [profiles]
   [[default]]
     background_darkness = 0.95
-    background_image = None
     background_type = transparent
     copy_on_selection = True
     cursor_color = "#ffffff"
