@@ -4,7 +4,7 @@ alias d='g d --no-index'
 alias m='mv -iv'
 alias n=nvim
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
-alias r='PYTHONPATH=. $(findenv directory . ptpython)'
+alias r='PYTHONPATH=. $(findenv directory "$PWD" ptpython)'
 
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
