@@ -4,7 +4,6 @@ alias d='g d --no-index'
 alias m='mv -iv'
 alias n=nvim
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
-alias r='PYTHONPATH=. $(findenv directory "$PWD" ptpython)'
 
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
@@ -150,6 +149,16 @@ PYTHON_DEV_PACKAGES=(bpython'[urwid]' ptpython pudb twisted)
 function pydev() {
     set -u
     "$(findenv directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES $@
+}
+
+# Open a REPL for a virtualenv
+function r() {
+    if [[ $# == 0 ]]; then
+        local repl=$(findenv directory "$PWD" ptpython)
+    else
+        local repl=$(findenv name $@ ptpython)
+    fi
+    PYTHONPATH=. $repl
 }
 
 # Run tests on current directory in a corresponding venv, otherwise globally
