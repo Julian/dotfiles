@@ -308,7 +308,7 @@ files = {
                         "{envbindir}/pip install {toxinidir}",
                         "{envbindir}/coverage run --rcfile={toxinidir}/.coveragerc {envbindir}/" + test_runner + " " + tests,
                         "{envbindir}/coverage report --rcfile={toxinidir}/.coveragerc --show-missing",
-                        "{envbindir}/coverage html {posargs} --rcfile={toxinidir}/.coveragerc",
+                        "{envbindir}/coverage html --directory={envtmpdir}/htmlcov --rcfile={toxinidir}/.coveragerc {posargs}",
                     ],
                 ),
             ],
