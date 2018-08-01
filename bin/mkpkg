@@ -284,6 +284,7 @@ files = {
             ],
         ), (
             "testenv", [
+                ("setenv", ""),
                 ("changedir", "{envtmpdir}"),
                 (
                     "commands", [
@@ -293,6 +294,23 @@ files = {
                     ],
                 ),
                 ("deps", test_deps),
+            ],
+        ), (
+            "testenv:coverage", [
+                (
+                    "setenv", [
+                        "{[testenv]setenv}",
+                        "COVERAGE_FILE={envtmpdir}/coverage-data",
+                    ],
+                ),
+                (
+                    "commands", [
+                        "{envbindir}/pip install {toxinidir}",
+                        "{envbindir}/coverage run --rcfile={toxinidir}/.coveragerc {envbindir}/" + test_runner + " " + tests,
+                        "{envbindir}/coverage report --rcfile={toxinidir}/.coveragerc --show-missing",
+                        "{envbindir}/coverage html {posargs} --rcfile={toxinidir}/.coveragerc",
+                    ],
+                ),
             ],
         ), (
             "testenv:readme", [
