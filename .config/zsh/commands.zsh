@@ -91,6 +91,8 @@ if (( $+commands[rg] )); then
     alias rgp="rg --ignore '*test*' --python"
     alias rgt="rg -G '\btests?\b'"
     alias rgpt="rg -G '\btests?\b.*\.py'"
+else
+    alias rg=grep
 fi
 
 if (( $+commands[dircolors] )); then
