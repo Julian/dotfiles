@@ -83,19 +83,14 @@ else
     alias ls='ls -h'
 fi
 
-alias rg='rg --smart-case'
-
-if (( $+commands[ag] )); then
-    AG_OPTIONS='--smart-case'
-    alias ag="ag $AG_OPTIONS"
-
-    alias pag='parallel"" -X ag'
+if (( $+commands[rg] )); then
+    alias prg='parallel"" -X rg'
 
     # Find the pattern in tests / not in tests
-    alias agg="ag --ignore '*test*'"
-    alias agp="ag --ignore '*test*' --python"
-    alias agt="ag -G '\btests?\b'"
-    alias agpt="ag -G '\btests?\b.*\.py'"
+    alias rgg="rg --ignore '*test*'"
+    alias rgp="rg --ignore '*test*' --python"
+    alias rgt="rg -G '\btests?\b'"
+    alias rgpt="rg -G '\btests?\b.*\.py'"
 fi
 
 if (( $+commands[dircolors] )); then
