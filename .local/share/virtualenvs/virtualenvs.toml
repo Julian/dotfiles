@@ -122,6 +122,10 @@ link = ["ngxtop"]
 install = ["pex"]
 link = ["pex"]
 
+[virtualenv.shiv]
+install = ["shiv"]
+link = ["shiv"]
+
 [virtualenv.pipenv]
 install = ["pipenv"]
 link = ["pew", "pipenv"]
