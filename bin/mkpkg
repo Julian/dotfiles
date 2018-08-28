@@ -159,7 +159,7 @@ def ini(*sections, **kwargs):
                 value = "\n" + "\n".join(value)
             parser.set(section, option, value)
     parser.write(lol_python)
-    return lol_python.getvalue()
+    return lol_python.getvalue().replace("\t", "    ").replace("= \n", "=\n")
 
 
 def classifiers(supports=arguments.supports, closed=arguments.closed):
