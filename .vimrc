@@ -463,6 +463,8 @@ set noerrorbells
 set novisualbell
 set vb t_vb=
 
+set showtabline=0
+
 " Change the cursor to an underline in insert mode
 if &term =~ 'xterm\|screen'
     set t_SI=[4\ q
