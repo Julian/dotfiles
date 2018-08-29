@@ -109,6 +109,7 @@ if has('autocmd')
 endif
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
+  set synmaxcol=512
 endif
 
 if has('vim_starting')
