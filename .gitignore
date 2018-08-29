@@ -42,6 +42,7 @@
 .local/bin/
 .local/share/gem/
 .local/share/great/
+.local/share/man/
 .local/share/perl5/
 .local/share/pypy*/
 .local/share/virtualenvs/
