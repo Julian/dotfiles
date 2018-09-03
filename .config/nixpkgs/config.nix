@@ -34,6 +34,7 @@
         snappy
         tmux
         watch
+        wget
         zsh
       ];
     };
