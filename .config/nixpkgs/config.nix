@@ -13,6 +13,7 @@
         git
         gnupg
         inconsolata
+        inetutils
         irssi
         jq
         neovim
