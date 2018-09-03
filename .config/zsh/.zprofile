@@ -17,6 +17,8 @@ path=(
     $path
 )
 
+[[ -d ~/.nix-profile/etc/profile.d/ ]] && source ~/.nix-profile/etc/profile.d/nix.sh
+
 export DEVELOPMENT=$HOME/Development
 (( $+commands[nvim] )) && export EDITOR=nvim || export EDITOR=vim
 
