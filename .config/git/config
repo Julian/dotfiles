@@ -122,7 +122,7 @@
     l = "!. $XDG_CONFIG_HOME/git/helpers && pretty_git_log"
     la = !git l --all
     q = !git r @{u}..
-    unpushed = "!git df && git l --branches --not --remotes"
+    unpushed = "!git df && git push --all --dry-run && git l --branches --not --remotes"
 
 [url "git@github.com:Julian/"]
     insteadOf = "g:"
