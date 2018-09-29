@@ -5,6 +5,13 @@ alias m='mv -iv'
 alias n=nvim
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
 
+# Remove an empty directory, but consider it empty even if it contains some
+# common junk.
+function bye() {
+    rm -f $1/.DS_Store
+    rmdir $@ || printf "\nContents:\n%s\n" "$(ls -A $1)"
+}
+
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
 # t: tmux attach
