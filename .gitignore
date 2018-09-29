@@ -26,15 +26,16 @@
 .config/gnupg/pubring.kbx
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
+.config/gtk-2.0/gtkfilechooser.ini
 .config/notmuch/
 .config/pip/pip.log
 .config/ptpython/history
 .config/pudb/saved-breakpoints*
 .config/pudb/shell-history
-.config/zsh/zshrc.d/
 .config/zsh/.zcompdump
 .config/zsh/cache
 .config/zsh/history
+.config/zsh/zshrc.d/
 
 .emacs.d/elpa
 .emacs.d/**/*~
@@ -45,6 +46,7 @@
 .local/share/man/
 .local/share/perl5/
 .local/share/pypy*/
+.local/share/recently-used.xbel
 .local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
