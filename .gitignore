@@ -27,6 +27,7 @@
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
 .config/gtk-2.0/gtkfilechooser.ini
+.config/keepassc/
 .config/notmuch/
 .config/pip/pip.log
 .config/ptpython/history
