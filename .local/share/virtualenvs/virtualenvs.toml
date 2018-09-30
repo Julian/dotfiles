@@ -45,7 +45,33 @@ link = [
     "vmprofshow",
 ]
 
-# [virtualenv.dev3]
+[virtualenv.dev3]
+python = "python3"
+install = [
+    "betterpath",
+    "bpython[urwid]",
+    "coverage",
+    "detox",
+    "ebb-lint",
+    "filesystems",
+    "flake8",
+    "green",
+    "hypothesis",
+    "inflect",
+    "perf",
+    "ptpython",
+    "pudb",
+    "pyrsistent",
+    "pytest",
+    "pytoml",
+    "pyyaml",
+    "setuptools",
+    "testrepository",
+    "tox",
+    "treq",
+    "twisted[conch,tls]",
+    "vmprof",
+]
 
 [virtualenv.awscli]
 install = ["awscli"]
@@ -68,6 +94,14 @@ install = [
     "pudb",
     "testscenarios",
     "twisted",
+]
+
+[virtualenv.google]
+install = [
+    "google-api-python-client",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
 ]
 
 [virtualenv.great]
@@ -124,15 +158,16 @@ install = ["neovim"]
 install = ["ngxtop"]
 link = ["ngxtop"]
 
-#
-# [virtualenv.neovim3]
-# install = ["neovim"]
+[virtualenv.neovim3]
+python = "python3"
+install = ["neovim"]
 
 [virtualenv.pex]
 install = ["pex"]
 link = ["pex"]
 
 [virtualenv.shiv]
+python = "python3"
 install = ["shiv"]
 link = ["shiv"]
 
