@@ -70,7 +70,6 @@ install = [
     "tox",
     "treq",
     "twisted[conch,tls]",
-    "vmprof",
 ]
 
 [virtualenv.awscli]
@@ -152,7 +151,7 @@ install = ["mycli"]
 link = ["mycli"]
 
 [virtualenv.neovim]
-install = ["neovim"]
+install = ["jedi", "neovim"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
@@ -160,7 +159,7 @@ link = ["ngxtop"]
 
 [virtualenv.neovim3]
 python = "python3"
-install = ["neovim"]
+install = ["jedi", "neovim"]
 
 [virtualenv.pex]
 install = ["pex"]
