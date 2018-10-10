@@ -2,7 +2,7 @@
 
 alias d='g d --no-index'
 alias m='mv -iv'
-alias n=nvim
+alias n=$EDITOR
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
 
 # Remove an empty directory, but consider it empty even if it contains some
