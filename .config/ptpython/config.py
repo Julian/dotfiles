@@ -4,9 +4,9 @@ _MISSING = object()
 def _set(repl, name, value):
     # Sigh...
     if getattr(repl, name, _MISSING) is _MISSING:
-        raise RuntimeError(
-            "{} didn't have a {} attribute. Something's up.".format(repl, name)
-        )
+        message = "ptpython REPL didn't have a {} attribute. Something's up.\n"
+        import sys
+        sys.stderr.write(message.format(name))
     setattr(repl, name, value)
 
 
