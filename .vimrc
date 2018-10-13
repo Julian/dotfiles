@@ -405,10 +405,10 @@ endif
 set directory=$XDG_CACHE_HOME/vim/swap//,~/tmp/vim//,~/tmp//,/var/tmp//,/tmp//
                                                     " swap files
 set history=10000                                   " command line history
-if has('nvim')
-    set shada='50,s100,n$XDG_CACHE_HOME/nvim/shada  " 50 marks, unhuge register
+if has('nvim')                                      " 50 marks, unhuge register
+    let &shada = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/shada")
 else
-    set viminfo='50,s100,n$XDG_CACHE_HOME/vim/info  " 50 marks, unhuge register
+    let &viminfo = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/shada")
 endif
 
 set backup
