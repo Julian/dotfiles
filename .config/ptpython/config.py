@@ -1,3 +1,6 @@
+from prompt_toolkit.output.color_depth import ColorDepth
+
+
 _MISSING = object()
 
 
@@ -12,6 +15,7 @@ def _set(repl, name, value):
 
 def configure(repl):
     for name, value in [
+        ("color_depth", ColorDepth.DEPTH_24_BIT),
         ("confirm_exit", False),
         ("enable_auto_suggest", True),
         ("enable_mouse_support", False),
@@ -20,7 +24,6 @@ def configure(repl):
         ("show_docstring", True),
         ("show_signature", True),
         ("show_status_bar", False),
-        ("true_color", True),
         ("vi_mode", True),
     ]:
         _set(repl=repl, name=name, value=value)
