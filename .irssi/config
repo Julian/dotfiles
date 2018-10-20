@@ -34,6 +34,7 @@ servers = (
     port = "1123";
     password = "Julian/Freenode:";
     use_ssl = "yes";
+    ssl_cert = "~/.irssi/certs/cert.pem";
     ssl_verify = "yes";
     autoconnect = "yes";
   }
