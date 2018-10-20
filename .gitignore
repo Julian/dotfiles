@@ -1,7 +1,8 @@
 .DS_Store
 
-.irssi/sasl.auth
+.irssi/certs/
 .irssi/config.autosave
+.irssi/sasl.auth
 
 .vagrant
 
