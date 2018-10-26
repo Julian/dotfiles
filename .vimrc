@@ -553,14 +553,8 @@ if has('nvim')
         let {a:setting} = a:data[0]
     endfunction
 
-    call jobstart(
-        \ ["findenv", "name", "neovim", "python"],
-        \ {"on_stdout": function("s:SetHostProg", ["g:python_host_prog"])},
-        \ )
-    call jobstart(
-        \ ["findenv", "name", "neovim3", "python"],
-        \ {"on_stdout": function("s:SetHostProg", ["g:python3_host_prog"])},
-        \ )
+    let g:python_host_prog = expand('~/.local/share/virtualenvs/neovim/bin/python')
+    let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim3/bin/python3')
 endif
 
 let g:is_posix = 1
