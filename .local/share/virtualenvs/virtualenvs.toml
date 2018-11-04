@@ -178,6 +178,14 @@ link = ["pew", "pipenv"]
 install = ["bpython", "cast", "ptpython", "pychromecast"]
 link = ["cast"]
 
+[virtualenv.salt]
+install = [
+    "salt",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
+
 [virtualenv.sphinx]
 install = ["sphinx"]
 link = [
