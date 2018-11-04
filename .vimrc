@@ -408,7 +408,7 @@ set history=10000                                   " command line history
 if has('nvim')                                      " 50 marks, unhuge register
     let &shada = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/shada")
 else
-    let &viminfo = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/shada")
+    let &viminfo = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/viminfo")
 endif
 
 set backup
