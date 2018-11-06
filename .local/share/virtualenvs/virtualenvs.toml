@@ -187,7 +187,12 @@ install = [
 ]
 
 [virtualenv.sphinx]
-install = ["sphinx"]
+install = [
+    "sphinx",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+]
 link = [
     "rst2html.py",
     "rst2html5.py",
