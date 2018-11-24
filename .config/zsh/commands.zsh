@@ -143,6 +143,7 @@ function :sp () { tmux split-window }
 function :Sp () { tmux split-window }
 function :vsp () { tmux split-window -h }
 function :Vsp () { tmux split-window -h }
+function peek () { tmux split-window -p 33 $EDITOR $@ || exit; }
 
 # Print a Python str
 function pp() {
