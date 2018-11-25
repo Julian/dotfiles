@@ -185,6 +185,21 @@ install = [
     "ptpython",
     "pudb",
 ]
+link = [
+    "salt",
+    "salt-api",
+    "salt-call",
+    "salt-cloud",
+    "salt-cp",
+    "salt-key",
+    "salt-master",
+    "salt-minion",
+    "salt-proxy",
+    "salt-run",
+    "salt-ssh",
+    "salt-syndic",
+    "salt-unity",
+]
 
 [virtualenv.sphinx]
 install = [
