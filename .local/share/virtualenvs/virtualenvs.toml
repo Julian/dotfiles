@@ -128,7 +128,7 @@ link = ["jsonschema"]
 
 [virtualenv.jupyter]
 install = ["jupyter", "hdrhistogram", "numpy", "ptpython", "requests"]
-link = ["jupyter-notebook"]
+link = ["jupyter"]
 
 [virtualenv.minion]
 install = [
