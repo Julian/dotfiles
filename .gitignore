@@ -39,6 +39,9 @@
 .config/zsh/history
 .config/zsh/zshrc.d/
 
+.config/ldap.conf
+.config/ldap.credentials
+
 .emacs.d/elpa
 .emacs.d/**/*~
 
