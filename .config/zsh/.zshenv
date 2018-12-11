@@ -65,11 +65,6 @@ typeset -aU cplus_include_path
 typeset -T CPLUS_INCLUDE_PATH cplus_include_path
 export CPLUS_INCLUDE_PATH
 
-typeset -aU gopath
-typeset -T GOPATH gopath
-gopath=($XDG_DATA_HOME/go)
-export GOPATH
-
 typeset -aU library_path
 typeset -T LIBRARY_PATH library_path
 export LIBRARY_PATH
