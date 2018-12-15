@@ -1,7 +1,7 @@
 let python_highlight_all=1
 
-let g:pyindent_open_paren = '&sw'
-let g:pyindent_continue = '&sw'
+let g:pyindent_open_paren='&sw'
+let g:pyindent_continue='&sw'
 
 if exists('g:loaded_jedi')
     setlocal omnifunc=jedi#completions
@@ -23,6 +23,9 @@ setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=
 setlocal makeprg=python\ %
 
 setlocal matchpairs-=<:>
+
+setlocal path+=src/
+
 let b:delimitMate_nesting_quotes = ['"']
 let b:delimitMate_expand_cr = 1
 
