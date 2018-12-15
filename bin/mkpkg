@@ -266,6 +266,12 @@ files = {
             now=datetime.datetime.now(), author=arguments.author,
         ) + license
     ),
+    os.path.join(name, "MANIFEST.in"): """
+    include *.rst
+    include COPYING
+    include tox.ini
+    include .coveragerc
+    """,
     os.path.join(name, "setup.cfg"): ini(
         (
             "metadata", [
