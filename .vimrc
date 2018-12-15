@@ -549,10 +549,6 @@ set tabstop=8               " makes # of spaces = 8 for preexisitng tab
 " ===================
 
 if has('nvim')
-    function! s:SetHostProg(setting, job_id, data, event)
-        let {a:setting} = a:data[0]
-    endfunction
-
     let g:python_host_prog = expand('~/.local/share/virtualenvs/neovim/bin/python')
     let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim3/bin/python3')
 endif
