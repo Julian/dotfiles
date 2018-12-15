@@ -239,28 +239,6 @@ files = {
         heading="=" * len(name),
         name=name,
     ),
-    # FIXME: Generate this based on supported versions
-    os.path.join(name, ".travis.yml"): """
-        sudo: false
-        language: python
-        matrix:
-          include:
-            - python: 2.7
-            - python: 3.4
-            - python: 3.5
-            - python: 3.6
-            - python: 3.7
-              dist: xenial
-              sudo: true
-            - python: pypy
-            - python: pypy3
-        install:
-          - pip install tox-travis
-        script:
-          - tox
-        after_success:
-          - tox -e codecov
-    """,
     os.path.join(name, "COPYING"): (
         "Copyright (c) {now.year} {author}\n\n".format(
             now=datetime.datetime.now(), author=arguments.author,
@@ -405,6 +383,28 @@ files = {
             ),
         ],
     ),
+    # FIXME: Generate this based on supported versions
+    os.path.join(name, ".travis.yml"): """
+        sudo: false
+        language: python
+        matrix:
+          include:
+            - python: 2.7
+            - python: 3.4
+            - python: 3.5
+            - python: 3.6
+            - python: 3.7
+              dist: xenial
+              sudo: true
+            - python: pypy
+            - python: pypy3
+        install:
+          - pip install tox-travis
+        script:
+          - tox
+        after_success:
+          - tox -e codecov
+    """,
 }
 
 if arguments.bare:
