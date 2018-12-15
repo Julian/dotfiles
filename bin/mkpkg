@@ -405,6 +405,19 @@ files = {
         after_success:
           - tox -e codecov
     """,
+    os.path.join(name, "codecov.yml"): """
+        coverage:
+        precision: 2
+        round: down
+        status:
+            patch:
+            default:
+                target: 100%
+
+        comment:
+        layout: "header, diff, uncovered"
+        behavior: default
+    """,
 }
 
 if arguments.bare:
