@@ -13,26 +13,27 @@ import textwrap
 
 
 STATUS_CLASSIFIERS = {
-    "planning" : "Development Status :: 1 - Planning",
-    "prealpha" : "Development Status :: 2 - Pre-Alpha",
-    "alpha" : "Development Status :: 3 - Alpha",
-    "beta" : "Development Status :: 4 - Beta",
-    "stable" : "Development Status :: 5 - Production/Stable",
-    "mature" : "Development Status :: 6 - Mature",
-    "inactive" : "Development Status :: 7 - Inactive",
+    "planning": "Development Status :: 1 - Planning",
+    "prealpha": "Development Status :: 2 - Pre-Alpha",
+    "alpha": "Development Status :: 3 - Alpha",
+    "beta": "Development Status :: 4 - Beta",
+    "stable": "Development Status :: 5 - Production/Stable",
+    "mature": "Development Status :: 6 - Mature",
+    "inactive": "Development Status :: 7 - Inactive",
 }
 VERSION_CLASSIFIERS = {
-    "py27" : "Programming Language :: Python :: 2.7",
-    "py34" : "Programming Language :: Python :: 3.4",
-    "py35" : "Programming Language :: Python :: 3.5",
-    "py36" : "Programming Language :: Python :: 3.6",
-    "py37" : "Programming Language :: Python :: 3.7",
-    "py38" : "Programming Language :: Python :: 3.8",
+    "py27": "Programming Language :: Python :: 2.7",
+    "py34": "Programming Language :: Python :: 3.4",
+    "py35": "Programming Language :: Python :: 3.5",
+    "py36": "Programming Language :: Python :: 3.6",
+    "py37": "Programming Language :: Python :: 3.7",
+    "py38": "Programming Language :: Python :: 3.8",
 }
 
 
 def dedented(*args, **kwargs):
     return textwrap.dedent(*args, **kwargs).lstrip("\n")
+
 
 parser = argparse.ArgumentParser(
     description="Oh how exciting! Create a new Python package.",
@@ -110,8 +111,8 @@ if arguments.single_module:
     tests = "tests.py"
 
     core_source_paths = {
-        package_name + ".py" : "",
-        "tests.py" : """
+        package_name + ".py": "",
+        "tests.py": """
         from unittest import TestCase
 
         import {package_name}
@@ -126,8 +127,8 @@ else:
     tests = package_name
 
     core_source_paths = {
-        os.path.join(package_name, "tests", "__init__.py") : "",
-        os.path.join(package_name, "__init__.py") : """
+        os.path.join(package_name, "tests", "__init__.py"): "",
+        os.path.join(package_name, "__init__.py"): """
         from pkg_resources import get_distribution, DistributionNotFound
         try:
             __version__ = get_distribution(__name__).version
@@ -230,7 +231,7 @@ else:
 
 
 files = {
-    os.path.join(name, "README.rst") : """
+    os.path.join(name, "README.rst"): """
     {heading}
     {name}
     {heading}
@@ -239,7 +240,7 @@ files = {
         name=name,
     ),
     # FIXME: Generate this based on supported versions
-    os.path.join(name, ".travis.yml") : """
+    os.path.join(name, ".travis.yml"): """
         sudo: false
         language: python
         matrix:
@@ -260,12 +261,12 @@ files = {
         after_success:
           - tox -e codecov
     """,
-    os.path.join(name, "COPYING") : (
+    os.path.join(name, "COPYING"): (
         "Copyright (c) {now.year} {author}\n\n".format(
             now=datetime.datetime.now(), author=arguments.author,
         ) + license
     ),
-    os.path.join(name, "setup.cfg") : ini(
+    os.path.join(name, "setup.cfg"): ini(
         (
             "metadata", [
                 ("name", package_name),
@@ -294,11 +295,11 @@ files = {
             ],
         ),
     ),
-    os.path.join(name, "setup.py") : """
+    os.path.join(name, "setup.py"): """
         from setuptools import setup
         setup(use_scm_version=True)
         """.format(contents=contents),
-    os.path.join(name, "tox.ini") : ini(
+    os.path.join(name, "tox.ini"): ini(
         (
             "tox", [
                 ("envlist", tox_envlist),
@@ -384,7 +385,7 @@ files = {
             ],
         ),
     ),
-    os.path.join(name, ".testr.conf") : ini(
+    os.path.join(name, ".testr.conf"): ini(
         defaults=[
             (
                 "test_command",
