@@ -95,7 +95,7 @@
     bad = bisect bad
 
     # New operations
-    up = "!git remote update --prune && git merge --ff-only @{u} && git submodule update"
+    up = "!git fetch --all --prune --prune-tags && git merge --ff-only @{u} && git submodule update"
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     inc = !sh -c 'git cia && git stash --include-untracked && $@ && git stash pop'
     changes = !sh -c '[[ "$(git rev-parse --abbrev-ref HEAD)" =~ "master|develop" ]] && git d HEAD...$1 || git d master...$1' -
