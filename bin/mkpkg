@@ -281,6 +281,12 @@ files = {
         from setuptools import setup
         setup(use_scm_version=True)
     """,
+    os.path.join(name, ".coveragerc"): """
+        # vim: filetype=dosini:
+        [run]
+        branch = True
+        source = {package_name}
+    """.format(package_name=package_name),
     os.path.join(name, "tox.ini"): ini(
         (
             "tox", [
@@ -298,7 +304,7 @@ files = {
                         "{envpython} -m doctest {toxinidir}/README.rst",
                     ],
                 ),
-                ("deps", test_deps),
+                ("deps", test_deps + ["codecov,coverage: coverage"]),
             ],
         ), (
             "testenv:coverage", [
