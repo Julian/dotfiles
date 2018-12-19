@@ -14,9 +14,7 @@ let b:switch_definitions = [
     \ ["assertIn", "assertNotIn"],
     \ ["assertIsInstance", "assertNotIsInstance"],
     \ ["assertRegexpMatches", "assertNotRegexpMatches"],
-    \ ["min", "max"],
     \ ["in", "not in"],
-    \ ["==", "!="],
 \ ]
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
