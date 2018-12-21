@@ -1,15 +1,10 @@
 typeset -U path
-
-(( $+commands[brew] )) && path=(
-    /usr/local/share/npm/bin
-    $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
-    $path
-)
-
 path=(
     $HOME/.local/bin
+    /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/bin
     /usr/local/sbin
+    /usr/local/share/npm/bin
     ${GEM_HOME}/bin
     $path
 )
