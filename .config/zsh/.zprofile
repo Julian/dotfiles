@@ -1,8 +1,6 @@
 typeset -U path
 
 (( $+commands[brew] )) && path=(
-    /usr/local/share/pypy
-    /usr/local/share/pypy3
     /usr/local/share/npm/bin
     $(/usr/local/bin/brew --prefix coreutils)/libexec/gnubin
     $path
@@ -13,7 +11,6 @@ path=(
     /usr/local/bin
     /usr/local/sbin
     ${GEM_HOME}/bin
-    ${gopath/%//bin}
     $path
 )
 
