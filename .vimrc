@@ -46,7 +46,6 @@ Plug    'AndrewRadev/splitjoin.vim'
 Plug    'AndrewRadev/switch.vim'
 Plug    'b4winckler/vim-angry'
 Plug    'bfredl/nvim-miniyank'
-Plug    'bling/vim-airline'
 Plug    'bruno-/vim-man'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
@@ -55,6 +54,7 @@ Plug    'kana/vim-vspec'
 Plug    'kana/vim-submode'
 Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
+Plug    'itchyny/lightline.vim'
 Plug    'jceb/vim-orgmode' |                 Plug 'tpope/vim-speeddating'
 Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
 Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
@@ -437,13 +437,6 @@ else
 endif
 
 set laststatus=2                       " always show status line
-
-if &statusline!~?'airline\|powerline' && (!exists("g:powerline_loaded") || !g:powerline_loaded)
-    set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
-    if exists("g:loaded_fugitive")
-        set statusline+=\ %{fugitive#statusline()}
-    endif
-endif
 
 set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
