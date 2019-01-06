@@ -7,8 +7,6 @@ let maplocalleader = ","
 " : Plugins :
 " ===========
 
-let s:load_dynamic_plugins=$VIM_LOAD_DYNAMIC_PLUGINS != "false"
-
 function! <SID>Develop(bundle)
     let bundle_directory = $DEVELOPMENT . '/' . a:bundle
     if isdirectory(bundle_directory)
@@ -94,8 +92,7 @@ if executable("tmux")
     let g:tmuxcomplete#trigger = ''
 endif
 
-if s:load_dynamic_plugins
-    Plug 'davidhalter/jedi-vim'
+if $VIM_LOAD_DYNAMIC_PLUGINS != "false"
 endif
 
 call plug#end()
