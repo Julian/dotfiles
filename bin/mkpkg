@@ -390,20 +390,24 @@ files = {
     # FIXME: Generate this based on supported versions
     os.path.join(name, ".travis.yml"): """
         sudo: false
+        dist: xenial
         language: python
-        matrix:
-          include:
-            - python: 2.7
-            - python: 3.6
-            - python: 3.7
-              dist: xenial
-              sudo: true
-            - python: pypy
-            - python: pypy3
+
+        python:
+            - 2.7
+            - 3.4
+            - 3.5
+            - 3.6
+            - 3.7
+            - pypy2.7-6.0
+            - pypy3.5-6.0
+
         install:
           - pip install tox-travis
+
         script:
           - tox
+
         after_success:
           - tox -e codecov
     """,
