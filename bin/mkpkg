@@ -23,11 +23,11 @@ STATUS_CLASSIFIERS = {
 }
 VERSION_CLASSIFIERS = {
     "py27": "Programming Language :: Python :: 2.7",
-    "py34": "Programming Language :: Python :: 3.4",
     "py35": "Programming Language :: Python :: 3.5",
     "py36": "Programming Language :: Python :: 3.6",
     "py37": "Programming Language :: Python :: 3.7",
     "py38": "Programming Language :: Python :: 3.8",
+    "py39": "Programming Language :: Python :: 3.9",
 }
 
 
