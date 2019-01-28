@@ -44,20 +44,20 @@ elif (( $+commands[pacman] )); then
     alias up="sudo pacman -Syu"
 fi
 
-if (( $+commands[selecta] )); then
-    alias v=$EDITOR' $(find . -type f | selecta)'
+if (( $+commands[fzy] )); then
+    alias v=$EDITOR' $(find . -type f | fzy)'
 
-    function insert-selecta-path-in-command-line() {
+    function insert-fzy-path-in-command-line() {
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
         local selected_path
         echo
-        selected_path=$(find . -type f | selecta) || return
+        selected_path=$(find . -type f | fzy) || return
         eval 'LBUFFER="$LBUFFER$selected_path "'
         zle reset-prompt
     }
-    zle -N insert-selecta-path-in-command-line
+    zle -N insert-fzy-path-in-command-line
 
-    bindkey "^S" insert-selecta-path-in-command-line
+    bindkey "^S" insert-fzy-path-in-command-line
 fi
 
 if (( $+commands[weechat-curses] )); then
