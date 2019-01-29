@@ -127,7 +127,14 @@ install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.jupyter]
-install = ["jupyter", "hdrhistogram", "numpy", "ptpython", "requests"]
+install = [
+    "hdrhistogram",
+    "jupyter",
+    "numpy",
+    "octave_kernel",
+    "ptpython",
+    "requests",
+]
 link = ["jupyter"]
 
 [virtualenv.minion]
