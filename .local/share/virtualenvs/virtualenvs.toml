@@ -163,7 +163,7 @@ python = "python3"
 install = ["jedi", "neovim"]
 
 [virtualenv.pex]
-install = ["pex"]
+install = ["pex", "requests"]
 link = ["pex"]
 
 [virtualenv.shiv]
