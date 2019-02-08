@@ -111,6 +111,7 @@ install = ["${DEVELOPMENT}/gtfo"]
 link = ["gtfo"]
 
 [virtualenv.hg]
+python = "python2"
 install = ["mercurial"]
 link = ["hg"]
 
