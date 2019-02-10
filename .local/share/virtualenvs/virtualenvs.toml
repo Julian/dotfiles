@@ -42,7 +42,7 @@ link = [
 ]
 
 [virtualenv.dev3]
-python = "python3"
+python = "pypy3"
 install = [
     "betterpath",
     "bpython[urwid]",
