@@ -29,6 +29,7 @@
 .config/gnupg/trustdb.gpg
 .config/gtk-2.0/gtkfilechooser.ini
 .config/keepassc/
+.config/litecli/history
 .config/notmuch/
 .config/pip/pip.log
 .config/ptpython/history
