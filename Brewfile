@@ -1,5 +1,6 @@
 brew "coreutils"
 brew "findutils"
+brew "fortune"
 brew "fzy"
 brew "gcc"
 brew "git"
