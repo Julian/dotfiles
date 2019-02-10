@@ -15,7 +15,7 @@ function! <SID>Develop(bundle)
         execute "Plug 'Julian/" . a:bundle . "'"
     endif
 endfunction
-command! -nargs=1 Develop call <SID>Develop('<args>')
+command! -nargs=1 Develop call <SID>Develop(<args>)
 
 if has('vim_starting')
     source ~/.vim/bundle/vim-plug/plug.vim
@@ -81,10 +81,10 @@ Plug    'kana/vim-textobj-user'
 Plug    'Shougo/neomru.vim'
 Plug    'Shougo/denite.nvim'
 
-Develop vim-runt
-Develop vim-textobj-assignment
-Develop vim-textobj-brace
-Develop vim-textobj-variable-segment
+Develop 'vim-runt'
+Develop 'vim-textobj-assignment'
+Develop 'vim-textobj-brace'
+Develop 'vim-textobj-variable-segment'
 
 if executable("tmux")
     Plug 'tpope/vim-tbone'
