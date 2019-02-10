@@ -153,6 +153,10 @@ install = [
 ]
 link = ["jupyter"]
 
+[virtualenv.litecli]
+install = ["litecli"]
+link = ["litecli"]
+
 [virtualenv.minion]
 install = [
     "${DEVELOPMENT}/Minion",
