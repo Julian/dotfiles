@@ -434,6 +434,7 @@ settings = {
     notifier_on_regex = "(tos9|JulianWasTaken)";
     awl_shared_sbar = "OFF";
     nickcolor_colors = "2 3 4 5 6 7 9 10 11 12 13 14 15 16";
+    awl_viewer = "no";
   };
   proxy = { irssiproxy_password = "perceiver696;rockier"; };
 };
