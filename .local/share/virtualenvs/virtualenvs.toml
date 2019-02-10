@@ -65,6 +65,21 @@ install = [
     "treq",
     "twisted[conch,tls]",
 ]
+link = [
+    "bpython:bpython3",
+    "bpython-urwid:bpython-urwid3",
+    "coverage:coverage3",
+    "flake8:flake83",
+    "green:green3",
+    "pip:pip3",
+    "python:python3",
+    "ptpython:ptpython3",
+    "pudb:pudb3",
+    "py.test:py.test3",
+    "testr:testr3",
+    "trial:trial3",
+    "twist:twist3",
+]
 
 [virtualenv.awscli]
 install = ["awscli"]
