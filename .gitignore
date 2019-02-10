@@ -30,6 +30,7 @@
 .config/gtk-2.0/gtkfilechooser.ini
 .config/keepassc/
 .config/litecli/history
+.config/litecli/log
 .config/notmuch/
 .config/pip/pip.log
 .config/ptpython/history
