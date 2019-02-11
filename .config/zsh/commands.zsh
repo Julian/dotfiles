@@ -5,6 +5,11 @@ alias m='mv -iv'
 alias n=$EDITOR
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
 
+# Stick a file into a directory named after it.
+function box() {
+    mkdir "${1:r}" && mv -nv "$1" "${1:r}"
+}
+
 # Remove an empty directory, but consider it empty even if it contains some
 # common junk.
 function bye() {
