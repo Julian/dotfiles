@@ -114,6 +114,7 @@ install = [
 
 [virtualenv.great]
 install = [
+    "-r", "${DEVELOPMENT}/Great/test-requirements.txt",
     "${DEVELOPMENT}/Great",
     "bpython[urwid]",
     "ptpython",
