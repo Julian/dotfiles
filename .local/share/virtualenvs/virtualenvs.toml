@@ -188,7 +188,7 @@ install = ["pex", "requests"]
 link = ["pex"]
 
 [virtualenv.shiv]
-python = "python3"
+python = "python3.7"
 install = ["shiv"]
 link = ["shiv"]
 
