@@ -238,8 +238,8 @@ link = [
 ]
 
 [virtualenv.tox]
-install = ["detox", "tox"]
-link = ["detox", "tox"]
+install = ["tox"]
+link = ["tox"]
 
 [virtualenv.twine]
 install = ["twine"]
