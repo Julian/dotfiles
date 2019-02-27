@@ -44,7 +44,6 @@ Plug    'AndrewRadev/splitjoin.vim'
 Plug    'AndrewRadev/switch.vim'
 Plug    'b4winckler/vim-angry'
 Plug    'bfredl/nvim-miniyank'
-Plug    'bruno-/vim-man'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
