@@ -247,9 +247,19 @@ link = ["tox"]
 install = ["twine"]
 link = ["twine"]
 
-[virtualenv.yml2json]
-install = ["yml2json"]
-link = ["yml2json"]
+[virtualenv.remarshal]
+install = ["remarshal"]
+link = [
+    "json2json",
+    "toml2json",
+    "yaml2json",
+    "json2toml",
+    "toml2toml",
+    "yaml2toml",
+    "json2yaml",
+    "toml2yaml",
+    "yaml2yaml",
+]
 
 [virtualenv.watchdog]
 install = ["watchdog"]
