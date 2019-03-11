@@ -203,6 +203,7 @@ link = ["cast"]
 [virtualenv.salt]
 install = [
     "salt",
+    "salt-ssh",
     "bpython[urwid]",
     "ptpython",
     "pudb",
