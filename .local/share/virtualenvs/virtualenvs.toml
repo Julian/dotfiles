@@ -74,7 +74,7 @@ link = [
     "pip:pip3",
     "python:python3",
     "ptpython:ptpython3",
-    "pudb:pudb3",
+    "pudb3:pudb3",
     "py.test:py.test3",
     "testr:testr3",
     "trial:trial3",
