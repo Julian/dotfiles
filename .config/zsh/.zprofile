@@ -2,6 +2,7 @@ typeset -U path
 path=(
     $HOME/.local/bin
     /usr/local/opt/coreutils/libexec/gnubin
+    /usr/local/opt/findutils/libexec/gnubin
     /usr/local/bin
     /usr/local/sbin
     /usr/local/share/npm/bin
