@@ -24,7 +24,7 @@ export XINITRC=$XDG_CONFIG_HOME/xinitrc
 
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
 export PYTHONDONTWRITEBYTECODE=true
-export PYTHONWARNINGS='default,ignore:Not importing directory:ImportWarning'
+export PYTHONWARNINGS='default,ignore:Not importing directory:ImportWarning,ignore:DEPRECATION::pip._internal.cli.base_command'
 # Specified relatively, so that we can find it in a venv if necessary.
 export PYTHON_TEST_RUNNER=trial
 
