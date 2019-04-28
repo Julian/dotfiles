@@ -144,17 +144,6 @@ link = ["httpstat"]
 install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
 link = ["jsonschema"]
 
-[virtualenv.jupyter]
-install = [
-    "hdrhistogram",
-    "jupyter",
-    "numpy",
-    "octave_kernel",
-    "ptpython",
-    "requests",
-]
-link = ["jupyter"]
-
 [virtualenv.litecli]
 install = ["litecli"]
 link = ["litecli"]
@@ -169,9 +158,23 @@ install = [
 ]
 requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 
-[virtualenv.mycli]
-install = ["mycli"]
-link = ["mycli"]
+[virtualenv.ml]
+python = "python3.7"
+install = [
+    "featuretools",
+    "h2o",
+    "hdrhistogram",
+    "jupyter",
+    "numpy",
+    "octave_kernel",
+    "pandas",
+    "ptpython",
+    "pudb",
+    "requests",
+    "tensorflow",
+    "twisted",
+]
+link = ["jupyter"]
 
 [virtualenv.neovim]
 install = ["jedi", "neovim"]
