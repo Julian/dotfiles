@@ -200,6 +200,10 @@ link = ["shiv"]
 install = ["pipenv"]
 link = ["pew", "pipenv"]
 
+[virtualenv.piptools]
+install = ["pip-tools"]
+link = ["pip-compile"]
+
 [virtualenv.pychromecast]
 install = ["bpython", "cast", "ptpython", "pychromecast"]
 link = ["cast"]
