@@ -156,4 +156,4 @@ else:
     del readline, rlcompleter
 
 
-del os, sys
+del os, sys, _pprint_displayhook
