@@ -67,6 +67,8 @@ htmlcov/
 .testr.conf
 .testrepository/
 
+.ipynb_checkpoints/
+
 # Vim #
 # --- #
 .vimrc.local
