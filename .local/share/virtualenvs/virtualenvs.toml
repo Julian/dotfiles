@@ -249,6 +249,7 @@ link = [
 ]
 
 [virtualenv.tox]
+python = "pypy3"
 install = ["tox"]
 link = ["tox"]
 
