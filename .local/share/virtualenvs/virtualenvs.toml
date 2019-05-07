@@ -167,20 +167,41 @@ requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 [virtualenv.ml]
 python = "python3.7"
 install = [
+    "numpy",
+    "jupyter",
+    "pandas",
+    "tensorflow",
+
+    "altair",
+    "bokeh",
+    "graphviz",
+    "matplotlib",
+    "plotly",
+    "plotnine",
+    "seaborn",
+
     "featuretools",
     "h2o",
+
+    # Lime looks like it depends on old matplotlib at the minute.
+    # "lime",
+    "shap",
+
     "hdrhistogram",
-    "jupyter",
-    "numpy",
+    "networkx",
     "octave_kernel",
-    "pandas",
+
+    "hyperlink",
     "ptpython",
     "pudb",
     "requests",
-    "tensorflow",
     "twisted",
 ]
 link = ["jupyter"]
+
+[virtualenv.lime]
+python = "python3.7"
+install = ["lime"]
 
 [virtualenv.neovim]
 install = ["jedi", "neovim"]
