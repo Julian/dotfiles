@@ -82,7 +82,7 @@ link = [
 ]
 
 [virtualenv.awscli]
-install = ["awscli"]
+install = ["awscli", "boto3"]
 link = ["aws"]
 
 [virtualenv.black]
