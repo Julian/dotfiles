@@ -81,8 +81,17 @@ link = [
     "twist:twist3",
 ]
 
+[virtualenv.aws]
+install = [
+    "awscli",
+    "boto",
+    "boto3",
+    "ptpython",
+    "pudb",
+]
+
 [virtualenv.awscli]
-install = ["awscli", "boto3"]
+install = ["awscli"]
 link = ["aws"]
 
 [virtualenv.black]
