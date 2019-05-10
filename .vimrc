@@ -252,12 +252,12 @@ nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.org<CR>
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>Denite -buffer-name=files file_rec<CR>
-nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file_rec:
+nnoremap        <leader>d         :<C-U>Denite -buffer-name=files file/rec<CR>
+nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
 nnoremap        <leader>f         :<C-U>Denite -buffer-name=buffers<CR>
 nnoremap        <leader>h         :<C-U>Denite -buffer-name=tags tag<CR>
 nnoremap        <leader>j         :<C-U>Denite -buffer-name=test_tags -input=test tag<CR>
-nnoremap        <leader>k         :<C-U>Denite -buffer-name=tests -input=test/test_ file_rec<CR>
+nnoremap        <leader>k         :<C-U>Denite -buffer-name=tests -input=test/test_ file/rec<CR>
 nnoremap        <leader>l         :<C-U>Denite -buffer-name=lines line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap        <leader>n         <C-F>n
@@ -291,7 +291,7 @@ nnoremap        <leader>gs         :<C-U>Gstatus<CR>
 nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -buffer-name=config -input=. file:$HOME file_rec:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -buffer-name=config -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
 nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
