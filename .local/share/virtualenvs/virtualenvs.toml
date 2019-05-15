@@ -194,6 +194,9 @@ install = [
     "featuretools",
     "h2o",
 
+    "xgboost",
+
+    "eli5",
     # Lime looks like it depends on old matplotlib at the minute.
     # "lime",
     "shap",
@@ -205,6 +208,7 @@ install = [
     "hyperlink",
     "ptpython",
     "pudb",
+    "pyrsistent",
     "requests",
     "twisted",
 ]
