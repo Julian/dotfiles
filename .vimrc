@@ -297,6 +297,7 @@ nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>
+nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
