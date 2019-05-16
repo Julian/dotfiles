@@ -90,6 +90,11 @@ install = [
     "pudb",
 ]
 
+[virtualenv.blog]
+python = "python3"
+install = ["-r", "${DEVELOPMENT}/julian.github.io/requirements.txt"]
+link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
+
 [virtualenv.awscli]
 install = ["awscli"]
 link = ["aws"]
@@ -221,13 +226,13 @@ install = ["lime"]
 [virtualenv.neovim]
 install = ["jedi", "neovim"]
 
-[virtualenv.ngxtop]
-install = ["ngxtop"]
-link = ["ngxtop"]
-
 [virtualenv.neovim3]
 python = "python3"
 install = ["jedi", "neovim"]
+
+[virtualenv.ngxtop]
+install = ["ngxtop"]
+link = ["ngxtop"]
 
 [virtualenv.pex]
 install = ["pex", "requests"]
