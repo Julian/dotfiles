@@ -416,7 +416,7 @@ settings = {
     user_name = "tos9";
     nick = "tos9";
     timestamp_format = "%H:%M:%S";
-    use_proxy = "yes";
+    use_proxy = "no";
     proxy_address = "pi.grayvines.com";
     proxy_port = "1123";
   };
@@ -450,7 +450,6 @@ settings = {
     nickcolor_colors = "2 3 4 5 6 7 9 10 11 12 13 14 15 16";
     awl_viewer = "no";
   };
-  proxy = { irssiproxy_password = "perceiver696;rockier"; };
 };
 hilights = (
   { text = "tos9"; color = "%M"; nick = "yes"; word = "yes"; },
