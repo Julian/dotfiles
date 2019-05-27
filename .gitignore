@@ -36,6 +36,7 @@
 .config/ptpython/history
 .config/pudb/saved-breakpoints*
 .config/pudb/shell-history
+.config/weechat/logs/
 .config/zsh/.zcompdump
 .config/zsh/cache
 .config/zsh/history
