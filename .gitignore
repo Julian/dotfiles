@@ -37,6 +37,7 @@
 .config/pudb/saved-breakpoints*
 .config/pudb/shell-history
 .config/weechat/logs/
+.config/weechat/weechat.log
 .config/zsh/.zcompdump
 .config/zsh/cache
 .config/zsh/history
