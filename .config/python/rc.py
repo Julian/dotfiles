@@ -1,5 +1,7 @@
 from __future__ import with_statement
 
+# We want to both use this here but also make it available already in a REPL.
+from pprint import pprint
 import os
 import sys
 
@@ -10,8 +12,6 @@ def _pprint_displayhook(value):
 
     """
 
-    import pprint
-
     if value is not None:
         try:
             import __builtin__
@@ -20,7 +20,7 @@ def _pprint_displayhook(value):
             import builtins
             builtins._ = value
 
-        pprint.pprint(value)
+        pprint(value)
 
 sys.displayhook = _pprint_displayhook
 
