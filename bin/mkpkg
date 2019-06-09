@@ -205,6 +205,78 @@ if arguments.style:
     tox_envlist.append("style")
 
 
+tox_sections = [
+    (
+        "tox", [
+            ("envlist", tox_envlist),
+            ("skipsdist", "True"),
+        ],
+    ), (
+        "testenv", [
+            ("setenv", ""),
+            ("changedir", "{envtmpdir}"),
+            (
+                "commands", [
+                    "{envbindir}/pip install {toxinidir}",
+                    "{envbindir}/" + test_runner + " {posargs:" + tests + "}",
+                    "{envpython} -m doctest {toxinidir}/README.rst",
+                ],
+            ),
+            (
+                "deps", test_deps + [
+                    "" if arguments.closed else "codecov," + "coverage: coverage",
+                ]
+            ),
+        ],
+    ), (
+        "testenv:coverage", [
+            (
+                "setenv", [
+                    "{[testenv]setenv}",
+                    "COVERAGE_FILE={envtmpdir}/coverage-data",
+                ],
+            ),
+            (
+                "commands", [
+                    "{envbindir}/pip install {toxinidir}",
+                    "{envbindir}/coverage run --rcfile={toxinidir}/.coveragerc {envbindir}/" + test_runner + " " + tests,
+                    "{envbindir}/coverage report --rcfile={toxinidir}/.coveragerc --show-missing",
+                    "{envbindir}/coverage html --directory={envtmpdir}/htmlcov --rcfile={toxinidir}/.coveragerc {posargs}",
+                ],
+            ),
+        ],
+    ), (
+        "testenv:readme", [
+            ("changedir", "{toxinidir}"),
+            ("deps", "readme_renderer"),
+            (
+                "commands", [
+                    "{envbindir}/python setup.py check --restructuredtext --strict",
+                ],
+            ),
+        ],
+    ), (
+        "testenv:safety", [
+            ("deps", "safety"),
+            (
+                "commands", [
+                    "{envbindir}/pip install {toxinidir}",
+                    "{envbindir}/safety check",
+                ],
+            ),
+        ],
+    ), (
+        "testenv:style", [
+            ("deps", "ebb-lint"),
+            (
+                "commands",
+                "flake8 {posargs} --max-complexity 10 {toxinidir}/" + tests + " {toxinidir}/setup.py",
+            ),
+        ],
+    ),
+]
+
+
 if arguments.closed:
     license = "All rights reserved.\n"
 else:
@@ -228,6 +300,30 @@ else:
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
         """
+    )
+
+    tox_sections.append(
+        (
+            "testenv:codecov", [
+                (
+                    "passenv", "CODECOV* CI TRAVIS TRAVIS_*",
+                ), (
+                    "setenv", [
+                        "{[testenv]setenv}",
+                        "COVERAGE_DEBUG_FILE={envtmpdir}/coverage-debug",
+                        "COVERAGE_FILE={envtmpdir}/coverage-data",
+                    ],
+                ),
+                (
+                    "commands", [
+                        "{envbindir}/pip install {toxinidir}",
+                        "{envbindir}/coverage run --rcfile={toxinidir}/.coveragerc {envbindir}/" + test_runner + " " + tests,
+                        "{envbindir}/coverage xml -o {envtmpdir}/coverage.xml",
+                        "{envbindir}/codecov --required --disable gcov --file {envtmpdir}/coverage.xml",
+                    ],
+                ),
+            ],
+        ),
     )
 
 
@@ -287,92 +383,7 @@ files = {
         branch = True
         source = {package_name}
     """.format(package_name=package_name),
-    os.path.join(name, "tox.ini"): ini(
-        (
-            "tox", [
-                ("envlist", tox_envlist),
-                ("skipsdist", "True"),
-            ],
-        ), (
-            "testenv", [
-                ("setenv", ""),
-                ("changedir", "{envtmpdir}"),
-                (
-                    "commands", [
-                        "{envbindir}/pip install {toxinidir}",
-                        "{envbindir}/" + test_runner + " {posargs:" + tests + "}",
-                        "{envpython} -m doctest {toxinidir}/README.rst",
-                    ],
-                ),
-                ("deps", test_deps + ["codecov,coverage: coverage"]),
-            ],
-        ), (
-            "testenv:coverage", [
-                (
-                    "setenv", [
-                        "{[testenv]setenv}",
-                        "COVERAGE_FILE={envtmpdir}/coverage-data",
-                    ],
-                ),
-                (
-                    "commands", [
-                        "{envbindir}/pip install {toxinidir}",
-                        "{envbindir}/coverage run --rcfile={toxinidir}/.coveragerc {envbindir}/" + test_runner + " " + tests,
-                        "{envbindir}/coverage report --rcfile={toxinidir}/.coveragerc --show-missing",
-                        "{envbindir}/coverage html --directory={envtmpdir}/htmlcov --rcfile={toxinidir}/.coveragerc {posargs}",
-                    ],
-                ),
-            ],
-        ), (
-            "testenv:codecov", [
-                (
-                    "passenv", "CODECOV* CI TRAVIS TRAVIS_*",
-                ), (
-                    "setenv", [
-                        "{[testenv]setenv}",
-                        "COVERAGE_DEBUG_FILE={envtmpdir}/coverage-debug",
-                        "COVERAGE_FILE={envtmpdir}/coverage-data",
-                    ],
-                ),
-                (
-                    "commands", [
-                        "{envbindir}/pip install {toxinidir}",
-                        "{envbindir}/coverage run --rcfile={toxinidir}/.coveragerc {envbindir}/" + test_runner + " " + tests,
-                        "{envbindir}/coverage xml -o {envtmpdir}/coverage.xml",
-                        "{envbindir}/codecov --required --disable gcov --file {envtmpdir}/coverage.xml",
-                    ],
-                ),
-            ],
-        ), (
-            "testenv:readme", [
-                ("changedir", "{toxinidir}"),
-                ("deps", "readme_renderer"),
-                (
-                    "commands", [
-                        "{envbindir}/python setup.py check --restructuredtext --strict",
-                    ],
-                ),
-            ],
-        ), (
-            "testenv:safety", [
-                ("deps", "safety"),
-                (
-                    "commands", [
-                        "{envbindir}/pip install {toxinidir}",
-                        "{envbindir}/safety check",
-                    ],
-                ),
-            ],
-        ), (
-            "testenv:style", [
-                ("deps", "ebb-lint"),
-                (
-                    "commands",
-                    "flake8 {posargs} --max-complexity 10 {toxinidir}/" + tests + " {toxinidir}/setup.py",
-                ),
-            ],
-        ),
-    ),
+    os.path.join(name, "tox.ini"): ini(*tox_sections),
     os.path.join(name, ".testr.conf"): ini(
         defaults=[
             (
@@ -387,44 +398,50 @@ files = {
             ),
         ],
     ),
-    # FIXME: Generate this based on supported versions
-    os.path.join(name, ".travis.yml"): """
-        sudo: false
-        dist: xenial
-        language: python
-
-        python:
-          - 2.7
-          - 3.4
-          - 3.5
-          - 3.6
-          - 3.7
-          - pypy2.7-6.0
-          - pypy3.5-6.0
-
-        install:
-          - pip install tox-travis
-
-        script:
-          - tox
-
-        after_success:
-          - tox -e codecov
-    """,
-    os.path.join(name, "codecov.yml"): """
-        coverage:
-        precision: 2
-        round: down
-        status:
-            patch:
-            default:
-                target: 100%
-
-        comment:
-        layout: "header, diff, uncovered"
-        behavior: default
-    """,
 }
+
+if not arguments.closed:
+    files.update(
+        {
+            # FIXME: Generate this based on supported versions
+            os.path.join(name, ".travis.yml"): """
+                sudo: false
+                dist: xenial
+                language: python
+
+                python:
+                - 2.7
+                - 3.4
+                - 3.5
+                - 3.6
+                - 3.7
+                - pypy2.7-6.0
+                - pypy3.5-6.0
+
+                install:
+                - pip install tox-travis
+
+                script:
+                - tox
+
+                after_success:
+                - tox -e codecov
+            """,
+            os.path.join(name, "codecov.yml"): """
+                coverage:
+                precision: 2
+                round: down
+                status:
+                    patch:
+                    default:
+                        target: 100%
+
+                comment:
+                layout: "header, diff, uncovered"
+                behavior: default
+            """,
+        },
+    )
 
 if arguments.bare:
     targets = core_source_paths
