@@ -264,6 +264,7 @@ nnoremap        <leader>td        :<C-U>DiffThese<CR>
 nnoremap        <leader>te        :<C-U>call <SID>ToggleExpando()<CR>
 nnoremap        <leader>ti        :<C-U>IndentGuidesToggle<CR>
 nnoremap        <leader>tl        :<C-U>set list!<CR>
+nnoremap        <leader>tn        :<C-U>call <SID>ToggleNumber()<CR>
 nnoremap        <leader>tp        :<C-U>set formatoptions-=c<CR>:set spell<CR>
 nnoremap        <leader>tq        :<C-U>call <SID>ToggleQuickfix()<CR>
 nnoremap        <leader>ts        :<C-U>set spell!<CR>
@@ -645,6 +646,13 @@ if has("eval")
             elseif exists("&number")
                 setlocal nonumber
             endif
+        endif
+    endfunction
+
+    function! <SID>ToggleNumber()
+        setlocal invnumber
+        if exists("&relativenumber")
+            setlocal invrelativenumber
         endif
     endfunction
 
