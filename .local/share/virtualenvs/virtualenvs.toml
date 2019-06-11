@@ -184,7 +184,6 @@ install = [
     "numpy",
     "jupyter",
     "pandas",
-    "tensorflow",
 
     "altair",
     "bokeh",
