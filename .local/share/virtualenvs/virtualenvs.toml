@@ -199,6 +199,8 @@ install = [
     "featuretools",
     "h2o",
 
+    "scikit-learn",
+    "tensorflow",
     "xgboost",
 
     "eli5",
