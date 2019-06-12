@@ -79,6 +79,12 @@ parser.add_argument(
     help="Don't initialize a VCS.",
 )
 parser.add_argument(
+    "-c", "--cli",
+    action="append",
+    help="include a CLI in the resulting package with the given name",
+    default=[],
+)
+parser.add_argument(
     "-s", "--supports",
     action="append",
     help="a version of Python supported by the package",
@@ -327,6 +333,78 @@ else:
     )
 
 
+def _script(name):
+    return """
+    import click
+
+    from {} import __version__
+
+
+    @click.command()
+    @click.version_option(version=__version__)
+    def main():
+        pass
+    """.format(package_name)
+
+
+if len(arguments.cli) == 1:
+    console_scripts = [
+        "{} = {}._cli:main".format(arguments.cli[0], package_name),
+    ]
+    core_source_paths[os.path.join(package_name, "_cli.py")] = _script(
+        name=arguments.cli[0]
+    )
+else:
+    console_scripts = [
+        "{each} = {package_name}._{each}:main".format(
+            each=each, package_name=package_name,
+        ) for each in arguments.cli
+    ]
+    core_source_paths.update(
+        (os.path.join(package_name, "_" + each + ".py"), _script(name=each))
+        for each in arguments.cli
+    )
+
+
+setup_sections = [
+    (
+        "metadata", [
+            ("name", package_name),
+            ("url", "https://github.com/Julian/" + name),
+
+            ("description", ""),
+            ("long_description", "file: README.rst"),
+
+            ("author", arguments.author),
+            (
+                "author_email", (
+                    arguments.author_email or
+                    "Julian+" + package_name + "@GrayVines.com"
+                ),
+            ),
+            ("classifiers", list(classifiers())),
+        ],
+    ), (
+        "options", [
+            contents,
+            ("setup_requires", "setuptools_scm"),
+        ] + (
+            [("install_requires", ["click"])] if console_scripts else []
+        ),
+    )
+] + (
+    [("options.entry_points", [("console_scripts", console_scripts)])]
+    if console_scripts
+    else []
+) + [
+    (
+        "flake8", [
+            ("exclude", package_name + "/__init__.py"),
+        ],
+    ),
+]
+
+
 files = {
     os.path.join(name, "README.rst"): """
         {heading}
@@ -344,35 +422,7 @@ files = {
         include tox.ini
         include .coveragerc
     """,
-    os.path.join(name, "setup.cfg"): ini(
-        (
-            "metadata", [
-                ("name", package_name),
-                ("url", "https://github.com/Julian/" + name),
-
-                ("description", ""),
-                ("long_description", "file: README.rst"),
-
-                ("author", arguments.author),
-                (
-                    "author_email", (
-                        arguments.author_email or
-                        "Julian+" + package_name + "@GrayVines.com"
-                    ),
-                ),
-                ("classifiers", list(classifiers())),
-            ],
-        ), (
-            "options", [
-                contents,
-                ("setup_requires", "setuptools_scm"),
-            ],
-        ), (
-            "flake8", [
-                ("exclude", package_name + "/__init__.py"),
-            ],
-        ),
-    ),
+    os.path.join(name, "setup.cfg"): ini(*setup_sections),
     os.path.join(name, "setup.py"): """
         from setuptools import setup
         setup(use_scm_version=True)
