@@ -183,6 +183,7 @@ python = "python3.7"
 install = [
     "numpy",
     "jupyter",
+    "jupyterlab",
     "pandas",
 
     "altair",
