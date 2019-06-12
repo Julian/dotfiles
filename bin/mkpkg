@@ -102,6 +102,11 @@ parser.add_argument(
     action="store_true",
     help="A closed source package.",
 )
+parser.add_argument(
+    "--readme",
+    default="",
+    help="a (rst) README for the package",
+)
 
 
 def _script(name):
@@ -424,12 +429,19 @@ setup_sections = [
 ]
 
 
+README = """
+{heading}
+{name}
+{heading}
+{readme}
+""".format(
+    heading="=" * len(name),
+    name=name,
+    readme="" if not arguments.readme else "\n" + arguments.readme,
+)
+
 files = {
-    os.path.join(name, "README.rst"): """
-        {heading}
-        {name}
-        {heading}
-    """.format(heading="=" * len(name), name=name),
+    os.path.join(name, "README.rst"): README,
     os.path.join(name, "COPYING"): (
         "Copyright (c) {now.year} {author}\n\n".format(
             now=datetime.datetime.now(), author=arguments.author,
