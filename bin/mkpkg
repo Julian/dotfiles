@@ -107,6 +107,11 @@ parser.add_argument(
     default="",
     help="a (rst) README for the package",
 )
+parser.add_argument(
+    "--docs", "--no-docs",
+    action="store_true",
+    help="generate a Sphinx documentation template for the new package",
+)
 
 
 def _script(name):
@@ -266,6 +271,8 @@ def classifiers(supports=arguments.supports, closed=arguments.closed):
 tox_envlist = sorted(arguments.supports) + ["readme", "safety"]
 if arguments.style:
     tox_envlist.append("style")
+if arguments.docs:
+    tox_envlist.append("docs-{html,doctest,linkcheck,spelling,style}")
 
 
 tox_sections = [
@@ -338,6 +345,42 @@ tox_sections = [
         ],
     ),
 ]
+
+if arguments.docs:
+    tox_sections.extend(
+        [
+            (
+                "testenv:docs-" + each, [
+                    ("changedir", "docs"),
+                    ("whitelist_externals", "make"),
+                    (
+                        "commands", (
+                            "make "
+                            "-f {toxinidir}/docs/Makefile "
+                            "BUILDDIR={envtmpdir}/build "
+                            "SPHINXOPTS='-a -c {toxinidir}/docs/ -n -T -W {posargs}' "
+                        ) + each,
+                    ), (
+                        "deps", [
+                            "-r{toxinidir}/docs/requirements.txt",
+                            "{toxinidir}"
+                        ],
+                    ),
+                ],
+            ) for each in ["html", "doctest", "linkcheck", "spelling"]
+        ],
+    )
+    tox_sections.extend(
+        [
+            (
+                "testenv:docs-style", [
+                    ("changedir", "docs"),
+                    ("commands", "doc8 {posargs} {toxinidir}/docs"),
+                    ("deps", ["doc8", "pygments", "pygments-github-lexers"]),
+                ],
+            ),
+        ],
+    )
 
 
 if arguments.closed:
@@ -421,24 +464,16 @@ setup_sections = [
     if console_scripts
     else []
 ) + [
-    (
-        "flake8", [
-            ("exclude", package_name + "/__init__.py"),
-        ],
-    ),
+    ("flake8", [("exclude", package_name + "/__init__.py")]),
 ]
 
 
-README = """
-{heading}
+heading = """
+{bar}
 {name}
-{heading}
-{readme}
-""".format(
-    heading="=" * len(name),
-    name=name,
-    readme="" if not arguments.readme else "\n" + arguments.readme,
-)
+{bar}
+""".format(bar="=" * len(name), name=name)
+README = heading + "" if not arguments.readme else "\n" + arguments.readme
 
 files = {
     os.path.join(name, "README.rst"): README,
@@ -480,6 +515,23 @@ files = {
         ],
     ),
 }
+
+if arguments.docs:
+    files[os.path.join(name, "docs", "requirements.txt")] = """
+        pygments-github-lexers
+        sphinx
+        sphinxcontrib-spelling
+    """
+    files[os.path.join(name, "docs", "index.rst")] = README + "\n\n" + dedented(
+        """
+        Contents
+        --------
+
+        .. toctree::
+            :glob:
+            :maxdepth: 2
+        """,
+    )
 
 if not arguments.closed:
     files.update(
