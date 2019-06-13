@@ -294,6 +294,7 @@ link = [
     "sphinx-apidoc",
     "sphinx-autogen",
     "sphinx-build",
+    "sphinx-quickstart",
 ]
 
 [virtualenv.tox]
