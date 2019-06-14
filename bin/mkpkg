@@ -114,6 +114,14 @@ parser.add_argument(
 )
 
 
+def root(*segments):
+    return os.path.join(name, *segments)
+
+
+def package(*segments):
+    return os.path.join(package_name, *segments)
+
+
 def _script(name):
     return """
     import click
@@ -177,8 +185,8 @@ else:
     tests = package_name
 
     core_source_paths = {
-        os.path.join(package_name, "tests", "__init__.py"): "",
-        os.path.join(package_name, "__init__.py"): """
+        package("tests", "__init__.py"): "",
+        package("__init__.py"): """
         from pkg_resources import get_distribution, DistributionNotFound
         try:
             __version__ = get_distribution(__name__).version
@@ -191,7 +199,7 @@ else:
         console_scripts = [
             "{} = {}._cli:main".format(arguments.cli[0], package_name),
         ]
-        core_source_paths[os.path.join(package_name, "_cli.py")] = _script(
+        core_source_paths[package("_cli.py")] = _script(
             name=arguments.cli[0]
         )
     else:
@@ -201,7 +209,7 @@ else:
             ) for each in arguments.cli
         ]
         core_source_paths.update(
-            (os.path.join(package_name, "_" + each + ".py"), _script(name=each))
+            (package("_" + each + ".py"), _script(name=each))
             for each in arguments.cli
         )
 
@@ -476,31 +484,31 @@ heading = """
 README = heading + "" if not arguments.readme else "\n" + arguments.readme
 
 files = {
-    os.path.join(name, "README.rst"): README,
-    os.path.join(name, "COPYING"): (
+    root("README.rst"): README,
+    root("COPYING"): (
         "Copyright (c) {now.year} {author}\n\n".format(
             now=datetime.datetime.now(), author=arguments.author,
         ) + license
     ),
-    os.path.join(name, "MANIFEST.in"): """
+    root("MANIFEST.in"): """
         include *.rst
         include COPYING
         include tox.ini
         include .coveragerc
     """,
-    os.path.join(name, "setup.cfg"): ini(*setup_sections),
-    os.path.join(name, "setup.py"): """
+    root("setup.cfg"): ini(*setup_sections),
+    root("setup.py"): """
         from setuptools import setup
         setup(use_scm_version=True)
     """,
-    os.path.join(name, ".coveragerc"): """
+    root(".coveragerc"): """
         # vim: filetype=dosini:
         [run]
         branch = True
         source = {package_name}
     """.format(package_name=package_name),
-    os.path.join(name, "tox.ini"): ini(*tox_sections),
-    os.path.join(name, ".testr.conf"): ini(
+    root("tox.ini"): ini(*tox_sections),
+    root(".testr.conf"): ini(
         defaults=[
             (
                 "test_command",
@@ -517,7 +525,7 @@ files = {
 }
 
 if arguments.docs:
-    files[os.path.join(name, "docs", "requirements.txt")] = """
+    files[root("docs", "requirements.txt")] = """
         pygments-github-lexers
         sphinx
         sphinxcontrib-spelling
@@ -527,7 +535,7 @@ if not arguments.closed:
     files.update(
         {
             # FIXME: Generate this based on supported versions
-            os.path.join(name, ".travis.yml"): """
+            root(".travis.yml"): """
                 sudo: false
                 dist: xenial
                 language: python
@@ -549,7 +557,7 @@ if not arguments.closed:
                 after_success:
                 - tox -e codecov
             """,
-            os.path.join(name, "codecov.yml"): """
+            root("codecov.yml"): """
                 coverage:
                 precision: 2
                 round: down
@@ -569,7 +577,7 @@ if arguments.bare:
     targets = core_source_paths
 else:
     files.update(
-        (os.path.join(name, path), content)
+        (root(path), content)
         for path, content in core_source_paths.iteritems()
     )
     targets = files
@@ -611,7 +619,7 @@ if arguments.docs:
             os.path.join(name, "docs"),
         ],
     )
-    with open(os.path.join(name, "docs", "index.rst"), "w") as index:
+    with open(root("docs", "index.rst"), "w") as index:
         index.write(README)
         index.write("\n\n")
         index.write(
@@ -630,7 +638,7 @@ if arguments.docs:
 if arguments.sensible and not arguments.bare:
     subprocess.check_call(["git", "init", name])
 
-    git_dir = os.path.join(name, ".git")
+    git_dir = root(".git")
     subprocess.check_call(
         ["git", "--git-dir", git_dir, "--work-tree", name, "add", "COPYING"])
     subprocess.check_call(
