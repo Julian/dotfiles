@@ -226,11 +226,11 @@ python = "python3.7"
 install = ["lime"]
 
 [virtualenv.neovim]
-install = ["jedi", "neovim"]
+install = ["pynvim"]
 
 [virtualenv.neovim3]
 python = "python3"
-install = ["jedi", "neovim"]
+install = ["pynvim"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
