@@ -1,3 +1,5 @@
+# --- Development ---
+
 [virtualenv.dev]
 install = [
     "betterpath",
@@ -90,11 +92,6 @@ install = [
     "pudb",
 ]
 
-[virtualenv.blog]
-python = "python3"
-install = ["-r", "${DEVELOPMENT}/julian.github.io/requirements.txt"]
-link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
-
 [virtualenv.awscli]
 install = ["awscli"]
 link = ["aws"]
@@ -104,25 +101,6 @@ python = "python3.7"
 install = ["black"]
 link = ["black"]
 
-[virtualenv.diff]
-install = [
-    "${DEVELOPMENT}/diff",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "twisted[tls]",
-]
-
-[virtualenv.filesystems]
-install = [
-    "${DEVELOPMENT}/filesystems",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "testscenarios",
-    "twisted",
-]
-
 [virtualenv.google]
 install = [
     "google-api-python-client",
@@ -130,21 +108,6 @@ install = [
     "ptpython",
     "pudb",
 ]
-
-[virtualenv.great]
-install = [
-    "-r", "${DEVELOPMENT}/Great/test-requirements.txt",
-    "-r", "${DEVELOPMENT}/Great/automanual/requirements.txt",
-    "${DEVELOPMENT}/Great",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "twisted[tls]",
-]
-
-[virtualenv.gtfo]
-install = ["${DEVELOPMENT}/gtfo"]
-link = ["gtfo"]
 
 [virtualenv.hg]
 python = "python2"
@@ -167,16 +130,6 @@ link = ["jsonschema"]
 python = "pypy3"
 install = ["litecli"]
 link = ["litecli"]
-
-[virtualenv.minion]
-install = [
-    "${DEVELOPMENT}/Minion",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "twisted[tls]",
-]
-requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 
 [virtualenv.ml]
 python = "python3.7"
@@ -323,3 +276,54 @@ link = [
 [virtualenv.watchdog]
 install = ["watchdog"]
 link = ["watchmedo"]
+
+# --- Developing ---
+
+[virtualenv.blog]
+python = "python3"
+install = ["-r", "${DEVELOPMENT}/julian.github.io/requirements.txt"]
+link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
+
+[virtualenv.diff]
+install = [
+    "${DEVELOPMENT}/diff",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+
+[virtualenv.filesystems]
+install = [
+    "${DEVELOPMENT}/filesystems",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "testscenarios",
+    "twisted",
+]
+
+[virtualenv.great]
+install = [
+    "-r", "${DEVELOPMENT}/Great/test-requirements.txt",
+    "-r", "${DEVELOPMENT}/Great/automanual/requirements.txt",
+    "${DEVELOPMENT}/Great",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+
+[virtualenv.gtfo]
+install = ["${DEVELOPMENT}/gtfo"]
+link = ["gtfo"]
+
+[virtualenv.minion]
+install = [
+    "${DEVELOPMENT}/Minion",
+    "bpython[urwid]",
+    "ptpython",
+    "pudb",
+    "twisted[tls]",
+]
+requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
