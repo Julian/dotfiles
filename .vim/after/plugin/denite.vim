@@ -17,9 +17,6 @@ call denite#custom#option('default', s:denite_options)
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
-    call denite#custom#filter(
-        \ 'matcher/ignore_globs', 'ignore_globs', split(&wildignore, ','))
-
     call denite#custom#map(
             \ 'insert',
             \ '<C-n>',
@@ -56,9 +53,6 @@ endfunction
 
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
-    call denite#custom#filter(
-        \ 'matcher/ignore_globs', 'ignore_globs', split(&wildignore, ','))
-
     call denite#custom#map(
             \ 'insert',
             \ '<C-n>',
@@ -89,7 +83,7 @@ function! s:denite_filter_my_settings() abort
 endfunction
 
 if executable('rg')
-    call denite#custom#var('file_rec', 'command',
+    call denite#custom#var('file/rec', 'command',
         \ ['rg', '--follow',
         \        '--color', 'never', '--no-heading', '--files'])
     call denite#custom#var('grep', 'command', 'rg')
@@ -97,5 +91,5 @@ if executable('rg')
         \ ['-i', '--vimgrep', '--hidden', '--no-heading'])
     call denite#custom#var('grep', 'recursive_opts', [])
 elseif executable('l')
-    call denite#custom#var('file_rec', 'command', ['l', '-1', '-R', '-A'])
+    call denite#custom#var('file/rec', 'command', ['l', '-1', '-R', '-A'])
 endif
