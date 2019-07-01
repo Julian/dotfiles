@@ -35,3 +35,5 @@ setopt SHARE_HISTORY
 # Jobs
 
 setopt AUTO_RESUME            # resume existing jobs if command matches
+
+zshaddhistory () { (( $#1 < 500 )) }
