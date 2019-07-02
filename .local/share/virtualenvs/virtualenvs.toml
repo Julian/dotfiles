@@ -149,12 +149,15 @@ install = [
     "seaborn",
     "yellowbrick",
 
+    # auto-sklearn looks like it depends on old scikit-learn at the minute.
+    # "auto-sklearn",
     "featuretools",
     "h2o",
 
     "scikit-learn",
     "tensorflow",
     "xgboost",
+    "xgbfir",
 
     "eli5",
     # Lime looks like it depends on old matplotlib at the minute.
@@ -165,6 +168,8 @@ install = [
     "networkx",
     "octave_kernel",
 
+    "kaggle",
+
     "hyperlink",
     "ptpython",
     "pudb",
@@ -172,11 +177,33 @@ install = [
     "requests",
     "twisted",
 ]
-link = ["jupyter"]
+link = ["jupyter", "kaggle", "ptpython:ml", "xgbfir"]
 
 [virtualenv.lime]
 python = "python3.7"
-install = ["lime"]
+install = [
+    "lime",
+
+    "hyperlink",
+    "ptpython",
+    "pudb",
+    "pyrsistent",
+    "requests",
+    "twisted",
+]
+
+[virtualenv.auto_sklearn]
+python = "python3.7"
+install = [
+    "auto-sklearn",
+
+    "hyperlink",
+    "ptpython",
+    "pudb",
+    "pyrsistent",
+    "requests",
+    "twisted",
+]
 
 [virtualenv.neovim]
 install = ["pynvim"]
