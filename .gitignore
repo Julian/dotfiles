@@ -32,6 +32,7 @@
 .config/keepassc/
 .config/litecli/history
 .config/litecli/log
+.config/mlvds/
 .config/notmuch/
 .config/pip/pip.log
 .config/ptpython/history
