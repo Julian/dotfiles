@@ -24,9 +24,11 @@
 .config/docker/config.json
 .config/enchant/
 .config/fish/fishd.*
-.config/gnupg/pubring.kbx
+.config/gnupg/pubring.kbx*
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
+.config/gnupg/private-keys-*/
+.config/gnupg/openpgp-revocs.d/
 .config/gtk-2.0/gtkfilechooser.ini
 .config/kaggle/kaggle.json
 .config/keepassc/
