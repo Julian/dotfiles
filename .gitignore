@@ -28,6 +28,7 @@
 .config/gnupg/random_seed
 .config/gnupg/trustdb.gpg
 .config/gtk-2.0/gtkfilechooser.ini
+.config/kaggle/kaggle.json
 .config/keepassc/
 .config/litecli/history
 .config/litecli/log
