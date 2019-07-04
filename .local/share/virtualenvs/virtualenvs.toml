@@ -192,7 +192,7 @@ install = [
     "twisted",
 ]
 
-[virtualenv.auto_sklearn]
+[virtualenv.autosklearn]
 python = "python3.7"
 install = [
     "auto-sklearn",
