@@ -234,7 +234,13 @@ install = ["pip-tools"]
 link = ["pip-compile"]
 
 [virtualenv.pychromecast]
-install = ["bpython", "cast", "ptpython", "pychromecast"]
+python = "python3.7"
+install = [
+    "-e", "${DEVELOPMENT}/cast-cli",
+    "bpython",
+    "ptpython",
+    "pychromecast",
+]
 link = ["cast"]
 
 [virtualenv.salt]
