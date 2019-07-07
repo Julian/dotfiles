@@ -205,6 +205,11 @@ install = [
     "twisted",
 ]
 
+
+[virtualenv.mkpkg]
+install = ["-e", "${DEVELOPMENT}/mkpkg"]
+link = ["mkpkg"]
+
 [virtualenv.neovim]
 install = ["pynvim"]
 
