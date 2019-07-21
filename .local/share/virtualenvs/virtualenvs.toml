@@ -230,9 +230,9 @@ python = "python3.7"
 install = ["shiv"]
 link = ["shiv"]
 
-[virtualenv.pipenv]
-install = ["pipenv"]
-link = ["pew", "pipenv"]
+[virtualenv.poetry]
+install = ["poetry"]
+link = ["poetry"]
 
 [virtualenv.piptools]
 install = ["pip-tools"]
