@@ -715,6 +715,6 @@ windows = {
   };
 };
 mainwindows = {
-  9 = { first_line = "4"; lines = "50"; };
+  1 = { first_line = "4"; lines = "50"; };
   19 = { first_line = "1"; lines = "3"; };
 };
