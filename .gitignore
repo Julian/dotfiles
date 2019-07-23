@@ -3,6 +3,7 @@
 .irssi/certs/
 .irssi/config.autosave
 .irssi/sasl.auth
+.irssi/saved_nick_colors
 
 .vagrant
 
