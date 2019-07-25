@@ -145,7 +145,6 @@ install = [
     "matplotlib",
     "plotly",
     "plotnine",
-    "scikit-plot",
     "seaborn",
     "yellowbrick",
 
@@ -155,6 +154,9 @@ install = [
     "h2o",
 
     "scikit-learn",
+    "scikit-optimize[plots]",
+    "scikit-plot",
+
     "tensorflow",
     "xgboost",
     "xgbfir",
