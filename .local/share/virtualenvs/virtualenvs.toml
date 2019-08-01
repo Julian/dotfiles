@@ -295,6 +295,11 @@ link = [
     "sphinx-quickstart",
 ]
 
+[virtualenv.sphobjinv]
+python = "pypy3"
+install = ["sphobjinv"]
+link = ["sphobjinv"]
+
 [virtualenv.tox]
 python = "pypy3"
 install = ["tox"]
