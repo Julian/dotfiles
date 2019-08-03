@@ -5,8 +5,6 @@ endif
 let s:denite_options = {
     \ 'auto_resize': 1,
     \ 'direction': 'dynamicbottom',
-    \ 'highlight_filter_background': 'CursorLine',
-    \ 'highlight_matched_char': 'Type',
     \ 'prompt' : '» ',
     \ 'reversed': 'true',
     \ 'source_names': 'short',
