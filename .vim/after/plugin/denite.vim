@@ -3,15 +3,15 @@ if !exists("g:loaded_denite") || !g:loaded_denite
 endif
 
 let s:denite_options = {
-    \ 'prompt' : '» ',
-    \ 'split': 'floating',
-    \ 'start_filter': 1,
     \ 'auto_resize': 1,
-    \ 'source_names': 'short',
-    \ 'direction': 'botright',
+    \ 'direction': 'dynamicbottom',
     \ 'highlight_filter_background': 'CursorLine',
     \ 'highlight_matched_char': 'Type',
+    \ 'prompt' : '» ',
     \ 'reversed': 'true',
+    \ 'source_names': 'short',
+    \ 'split': 'floating',
+    \ 'start_filter': 1,
     \ }
 call denite#custom#option('default', s:denite_options)
 

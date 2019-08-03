@@ -245,18 +245,18 @@ nnoremap        <leader><leader>  :Denite -start-filter buffer file file_mru tag
 nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.org<CR>
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>Denite -start-filter -buffer-name=files file/rec<CR>
+nnoremap        <leader>d         :<C-U>Denite -start-filter file/rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
-nnoremap        <leader>f         :<C-U>Denite -start-filter -buffer-name=buffers<CR>
-nnoremap        <leader>h         :<C-U>Denite -start-filter -buffer-name=tags tag<CR>
-nnoremap        <leader>j         :<C-U>Denite -start-filter -buffer-name=test_tags -input=test tag<CR>
-nnoremap        <leader>k         :<C-U>Denite -start-filter -buffer-name=tests -input=test/test_ file/rec<CR>
-nnoremap        <leader>l         :<C-U>Denite -start-filter -buffer-name=lines line<CR>
+nnoremap        <leader>f         :<C-U>Denite -start-filter<CR>
+nnoremap        <leader>h         :<C-U>Denite -start-filter tag<CR>
+nnoremap        <leader>j         :<C-U>Denite -start-filter -input=test tag<CR>
+nnoremap        <leader>k         :<C-U>Denite -start-filter -input=test/test_ file/rec<CR>
+nnoremap        <leader>l         :<C-U>Denite -start-filter line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap        <leader>n         <C-F>n
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
-nnoremap        <leader>r         :<C-u>Denite -start-filter -buffer-name=mru file_mru<CR>
+nnoremap        <leader>r         :<C-u>Denite -start-filter file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
 
 nnoremap        <leader>ta        :<C-U>TagbarToggle<CR>
@@ -285,7 +285,7 @@ nnoremap        <leader>gs         :<C-U>Gstatus<CR>
 nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -start-filter -buffer-name=config -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -start-filter -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
 nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nnoremap        <leader>N         <C-F>N
 nnoremap        <leader>P         "*P
@@ -315,7 +315,7 @@ nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
 nnoremap        <leader><BS>      :earlier 1f<CR>
 nnoremap        <leader>\         :later 1f<CR>
-nnoremap        <leader>/         :<C-U>Denite -start-filter -buffer-name=grep grep:.<CR>
+nnoremap        <leader>/         :<C-U>Denite -start-filter grep:.<CR>
 
 
 nnoremap        <leader><tab>     <C-^>
