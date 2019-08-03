@@ -94,6 +94,8 @@
     good = bisect good
     bad = bisect bad
 
+    whoops = reset --hard @{u}
+
     # New operations
     up = "!git fetch --all --prune && git merge --ff-only @{u} && git submodule update"
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
