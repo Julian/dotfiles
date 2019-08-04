@@ -5,9 +5,7 @@ install = [
     "betterpath",
     "bpython[urwid]",
     "coverage",
-    "ebb-lint",
     "filesystems",
-    "flake8",
     "green",
     "hypothesis",
     "inflect",
@@ -29,7 +27,6 @@ link = [
     "bpython-urwid",
     "conch",
     "coverage",
-    "flake8",
     "green",
     "pip",
     "pyperf",
@@ -50,9 +47,7 @@ install = [
     "betterpath",
     "bpython[urwid]",
     "coverage",
-    "ebb-lint",
     "filesystems",
-    "flake8",
     "green",
     "hypothesis",
     "inflect",
@@ -72,7 +67,6 @@ link = [
     "bpython:bpython3",
     "bpython-urwid:bpython-urwid3",
     "coverage:coverage3",
-    "flake8:flake83",
     "green:green3",
     "pip:pip3",
     "python:python3",
@@ -233,11 +227,6 @@ link = ["ngxtop"]
 install = ["pex", "requests"]
 link = ["pex"]
 
-[virtualenv.shiv]
-python = "python3.7"
-install = ["shiv"]
-link = ["shiv"]
-
 [virtualenv.poetry]
 install = ["poetry"]
 link = ["poetry"]
@@ -285,6 +274,11 @@ link = [
     "salt-unity",
 ]
 
+[virtualenv.shiv]
+python = "python3.7"
+install = ["shiv"]
+link = ["shiv"]
+
 [virtualenv.sphinx]
 install = [
     "sphinx",
@@ -305,6 +299,14 @@ link = [
 python = "pypy3"
 install = ["sphobjinv"]
 link = ["sphobjinv"]
+
+[virtualenv.style]
+install = ["ebb-lint"]
+link = ["flake8"]
+
+[virtualenv.style3]
+install = ["ebb-lint"]
+link = ["flake8:flake83"]
 
 [virtualenv.tox]
 python = "pypy3"
