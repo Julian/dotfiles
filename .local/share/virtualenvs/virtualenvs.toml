@@ -103,6 +103,10 @@ python = "python3.7"
 install = ["black"]
 link = ["black"]
 
+[virtualenv.detect-secrets]
+install = ["detect-secrets"]
+link = ["detect-secrets"]
+
 [virtualenv.google]
 install = [
     "google-api-python-client",
