@@ -172,6 +172,8 @@ install = [
 
     "kaggle",
 
+    "nteract_on_jupyter",
+
     "hyperlink",
     "ptpython",
     "pudb",
