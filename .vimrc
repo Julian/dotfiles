@@ -746,7 +746,7 @@ if has("eval")
             autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
             autocmd BufNewFile,BufRead *.tac setlocal filetype=python
 
-            autocmd BufReadCmd *.egg call zip#Browse(expand("<amatch>"))
+            autocmd BufReadCmd *.egg,*.whl call zip#Browse(expand("<amatch>"))
 
             autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
