@@ -50,7 +50,7 @@ elif (( $+commands[pacman] )); then
 fi
 
 if (( $+commands[fzy] )); then
-    alias v=$EDITOR' $(find . -type f | fzy)'
+    alias v=$EDITOR' $(rg --follow --hidden --no-heading --files | fzy)'
 
     function insert-fzy-path-in-command-line() {
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
