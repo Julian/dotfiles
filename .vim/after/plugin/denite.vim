@@ -81,7 +81,7 @@ endfunction
 
 if executable('rg')
     call denite#custom#var('file/rec', 'command',
-        \ ['rg', '--follow',
+        \ ['rg', '--follow', '--hidden',
         \        '--color', 'never', '--no-heading', '--files'])
     call denite#custom#var('grep', 'command', ['rg'])
     call denite#custom#var('grep', 'default_opts',
