@@ -27,7 +27,7 @@ call plug#begin(expand('~/.vim/bundle/'))
 
 Plug    'morhetz/gruvbox'
 
-" --- Additional Filetype Support ---
+" --- Additional FileType Support ---
 
 Plug    'sheerun/vim-polyglot'
 
@@ -106,7 +106,7 @@ endif
 if has('vim_starting')
     set encoding=utf8
 endif
-set autoread                           " automatically reload unmodified bufs
+set autoread                           " auto-reload unmodified buffers
 set gdefault
 set hidden
 set lazyredraw                         " no redraw during macros (much faster)
@@ -119,7 +119,7 @@ let &showbreak='↪   '
 
 set fillchars=diff:·
 
-set pastetoggle=<F2>                   " use f2 to toggle paste mode
+set pastetoggle=<F2>                   " use F2 to toggle paste mode
 
 set isfname-==                         " remove =, which probably is an assign
 
@@ -370,7 +370,7 @@ set foldlevel=99
 " : Guides :
 " ==========
 
-set cursorline                         " hilight current line
+set cursorline                         " highlight current line
 
 set showmatch                          " show matching brackets for a moment
 set matchpairs+=<:>
@@ -474,7 +474,7 @@ set virtualedit=block
 set ignorecase
 set smartcase                          " case-sensitive if upper in search term
 set incsearch                          " do incremental searching
-set hlsearch                           " hilight searches
+set hlsearch                           " highlight searches
 
 if exists('+inccommand')
     set inccommand=nosplit
@@ -514,7 +514,7 @@ set expandtab               " insert space instead of tab
 set shiftround              " rounds indent to a multiple of shiftwidth
 set shiftwidth=4            " makes # of spaces = 4 for new tab
 set softtabstop=4           " makes the spaces feel like tab
-set tabstop=8               " makes # of spaces = 8 for preexisitng tab
+set tabstop=8               " makes # of spaces = 8 for preexisting tab
 
 " ===================
 " : Plugin Settings :
