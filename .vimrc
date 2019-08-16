@@ -445,12 +445,6 @@ set vb t_vb=
 
 set showtabline=1
 
-" Change the cursor to an underline in insert mode
-if &term =~ 'xterm\|screen'
-    set t_SI=[4\ q
-    set t_EI=[2\ q
-endif
-
 if has('multi_byte') || has('gui_running')
     set listchars=tab:▸\ ,eol:¬,trail:·,extends:→,precedes:←
 else
