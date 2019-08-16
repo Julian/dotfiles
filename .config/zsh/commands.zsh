@@ -99,10 +99,10 @@ if (( $+commands[rg] )); then
     alias prg='parallel"" -X rg'
 
     # Find the pattern in tests / not in tests
-    alias rgg="rg --ignore '*test*'"
-    alias rgp="rg --ignore '*test*' --python"
-    alias rgt="rg -G '\btests?\b'"
-    alias rgpt="rg -G '\btests?\b.*\.py'"
+    alias rgg="rg -g '!*test*'"
+    alias rgp="rg -g '!*test*' --type py"
+    alias rgt="rg -g '*test*'"
+    alias rgpt="rg -g '*test*' --type py"
 else
     alias rg=grep
 fi
