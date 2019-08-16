@@ -34,7 +34,7 @@ zstyle ':completion:*:ls:*' file-patterns '%p:globbed-files' '*(/):directories'
 
 # Complete manual by their section
 zstyle ':completion:*:manuals' separate-sections true
-zstyle ':completion:*:manuals.*' insert-sections   true
+zstyle ':completion:*:manuals.*' insert-sections true
 zstyle ':completion:*:man:*' menu yes select
 
 # make sure history-substring-search is after syntax-highlighting
