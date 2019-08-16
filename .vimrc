@@ -417,6 +417,7 @@ set background=dark                    " make sure this is before colorschemes
 let g:preferred_colorscheme = 'gruvbox'
 
 if has('gui_running') || &t_Co > 8
+    set termguicolors
     execute 'silent colorscheme ' . g:preferred_colorscheme
 else
     colorscheme desert
