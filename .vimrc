@@ -87,8 +87,6 @@ Develop 'vim-textobj-variable-segment'
 
 if executable("tmux")
     Plug 'tpope/vim-tbone'
-    Plug 'wellle/tmux-complete.vim'
-    let g:tmuxcomplete#trigger = ''
 endif
 
 if $VIM_LOAD_DYNAMIC_PLUGINS != "false"
