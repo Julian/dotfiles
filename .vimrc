@@ -724,9 +724,6 @@ if has("eval")
             " Automagic line numbers
             autocmd BufEnter * :call <SID>WindowWidth()
 
-            " Always do a full syntax refresh
-            autocmd BufEnter * syntax sync fromstart
-
             " For help files, make <Return> behave like <C-]> (jump to tag)
             autocmd FileType help nmap <buffer> <Return> <C-]>
 
