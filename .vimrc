@@ -89,9 +89,6 @@ if executable("tmux")
     Plug 'tpope/vim-tbone'
 endif
 
-if $VIM_LOAD_DYNAMIC_PLUGINS != "false"
-endif
-
 call plug#end()
 
 " =========
