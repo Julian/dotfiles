@@ -6,7 +6,6 @@ let s:denite_options = {
     \ 'auto_resize': 1,
     \ 'direction': 'dynamicbottom',
     \ 'prompt' : '» ',
-    \ 'reversed': 'true',
     \ 'source_names': 'short',
     \ 'split': 'floating',
     \ 'start_filter': 1,
