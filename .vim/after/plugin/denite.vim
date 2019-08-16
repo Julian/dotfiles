@@ -83,10 +83,13 @@ if executable('rg')
     call denite#custom#var('file/rec', 'command',
         \ ['rg', '--follow',
         \        '--color', 'never', '--no-heading', '--files'])
-    call denite#custom#var('grep', 'command', 'rg')
+    call denite#custom#var('grep', 'command', ['rg'])
     call denite#custom#var('grep', 'default_opts',
         \ ['-i', '--vimgrep', '--hidden', '--no-heading'])
     call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
 elseif executable('l')
     call denite#custom#var('file/rec', 'command', ['l', '-1', '-R', '-A'])
 endif
