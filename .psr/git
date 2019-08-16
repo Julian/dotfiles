@@ -1,5 +1,3 @@
-* commit -v
-* branch --merged
 * shortlog
 * format-patch
 * rev-list lists revisions (good for looping over them)
