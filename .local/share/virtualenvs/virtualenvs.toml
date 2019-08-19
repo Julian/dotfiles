@@ -97,6 +97,10 @@ python = "python3.7"
 install = ["black"]
 link = ["black"]
 
+[virtualenv.colortest]
+install = ["colortest"]
+link = ["colortest"]
+
 [virtualenv.detect-secrets]
 install = ["detect-secrets"]
 link = ["detect-secrets"]
