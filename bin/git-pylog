@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+import os
+import sys
+_, fqon, *rest = sys.argv
+module, _, obj = fqon.rpartition(".")
+path = module.replace(".", os.sep)
+argv = ["git", "log", "-L", ":" + obj + ":" + path + ".py"]
+os.execvp("git", argv)
