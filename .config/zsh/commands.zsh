@@ -17,6 +17,8 @@ function bye() {
     rmdir $@ || printf "\nContents:\n%s\n" "$(ls -A $1)"
 }
 
+function filter() { rg -v "^$@$" }
+
 # ss<x> aliases:
 # p: ssh more suitable for mass parallelizing
 # t: tmux attach
