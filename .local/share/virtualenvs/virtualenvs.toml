@@ -149,10 +149,12 @@ install = [
     "jupyterlab",
     "pandas",
 
+    "ipympl",
+    "matplotlib",
+
     "altair",
     "bokeh",
     "graphviz",
-    "matplotlib",
     "plotly",
     "plotnine",
     "seaborn",
