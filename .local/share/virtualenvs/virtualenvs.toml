@@ -153,6 +153,8 @@ install = [
     "matplotlib",
 
     "altair",
+    "git+https://github.com/altair-viz/altair_pandas",
+
     "bokeh",
     "graphviz",
     "plotly",
