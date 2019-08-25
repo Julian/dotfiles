@@ -239,6 +239,10 @@ install = ["pynvim"]
 install = ["ngxtop"]
 link = ["ngxtop"]
 
+[virtualenv.pep517]
+install = ["pep517"]
+link-module = ["pep517.build:pep517-build", "pep517.check:pep517-check"]
+
 [virtualenv.pex]
 install = ["pex", "requests"]
 link = ["pex"]
