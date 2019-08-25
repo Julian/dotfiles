@@ -240,6 +240,7 @@ install = ["ngxtop"]
 link = ["ngxtop"]
 
 [virtualenv.pep517]
+python = "pypy3"
 install = ["pep517"]
 link-module = ["pep517.build:pep517-build", "pep517.check:pep517-check"]
 
