@@ -52,7 +52,6 @@ Plug    'kana/vim-submode'
 Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
 Plug    'itchyny/lightline.vim'
-Plug    'jceb/vim-orgmode' |                 Plug 'tpope/vim-speeddating'
 Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
 Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug    'mhinz/vim-signify'
@@ -71,6 +70,7 @@ Plug    'tpope/vim-rhubarb'
 Plug    'tpope/vim-surround'
 Plug    'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
 Plug    'Valodim/vim-zsh-completion'
+Plug    'vimwiki/vimwiki'
 
 Plug    'kana/vim-textobj-indent'
 Plug    'Julian/vim-textobj-python',         {'for': 'python'}
@@ -237,7 +237,7 @@ endfor
 
 nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 
-nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.org<CR>
+nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.wiki<CR>
 
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Denite file/rec<CR>
