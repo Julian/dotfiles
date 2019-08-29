@@ -271,6 +271,11 @@ install = [
 ]
 link = ["cast"]
 
+[virtualenv.pydocstyle]
+python = "python3.7"
+install = ["pydocstyle"]
+link = ["pydocstyle"]
+
 [virtualenv.salt]
 install = [
     "salt",
