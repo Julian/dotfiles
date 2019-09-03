@@ -331,6 +331,7 @@ install = ["ebb-lint"]
 link = ["flake8"]
 
 [virtualenv.style3]
+python = "pypy3"
 install = ["ebb-lint"]
 link = ["flake8:flake83"]
 
