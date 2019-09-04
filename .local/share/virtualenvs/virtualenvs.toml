@@ -223,6 +223,10 @@ install = [
     "twisted",
 ]
 
+[virtualenv.bandit]
+python = "pypy3"
+install = ["bandit"]
+link = ["bandit"]
 
 [virtualenv.mkpkg]
 install = ["-e", "${DEVELOPMENT}/mkpkg"]
