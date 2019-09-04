@@ -91,6 +91,8 @@
     s = status --short
     st = status
 
+    v = d @{u}
+
     good = bisect good
     bad = bisect bad
 
