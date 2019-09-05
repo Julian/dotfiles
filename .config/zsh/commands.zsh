@@ -161,22 +161,22 @@ function pp() {
 PYTHON_DEV_PACKAGES=(bpython'[urwid]' ptpython pudb twisted)
 function pydev() {
     set -u
-    "$(findenv directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES $@
+    "$(venvs find directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES $@
 }
 
 # Open a REPL for a virtualenv
 function r() {
     if [[ $# == 0 ]]; then
-        local repl=$(findenv directory "$PWD" ptpython)
+        local repl=$(venvs find directory "$PWD" ptpython)
     else
-        local repl=$(findenv name $@ ptpython)
+        local repl=$(venvs find name $@ ptpython)
     fi
     PYTHONPATH=. $repl
 }
 
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
-    local venv_runner=$(findenv directory $PWD $PYTHON_TEST_RUNNER)
+    local venv_runner=$(venvs find directory $PWD $PYTHON_TEST_RUNNER)
     # This is shell gobbledigook for "does every arg start with -"
     if [[ ${@[(i)^-*]} -gt $# ]]; then
         argv+=("${venv_runner:h:h:t}")
