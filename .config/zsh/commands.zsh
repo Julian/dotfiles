@@ -34,7 +34,7 @@ alias ssx='ssh -X -o "SendEnv WINDOWID"'
 # SSH SOCKS Proxy
 function tunnel() {
     local tunnel_host=${tunnel_host:-pi.grayvines.com}
-    local tunnel_port=${tunnel_port:-8080}
+    local tunnel_port=${tunnel_port:-9050}
     networksetup -setsocksfirewallproxystate Wi-Fi on
     printf 'Tunneling to %s:%s...\n' $tunnel_port $tunnel_host
     ssh -D $tunnel_port -C -N $tunnel_host
