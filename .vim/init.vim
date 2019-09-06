@@ -235,9 +235,10 @@ endfor
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
-
 nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.wiki<CR>
+
+nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
+nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Denite file/rec<CR>
