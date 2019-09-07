@@ -31,6 +31,10 @@ function sst() {
 }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 
+function randomize-mac() {
+    openssl rand -hex 6 | /usr/bin/sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether
+}
+
 # SSH SOCKS Proxy
 function tunnel() {
     local tunnel_host=${tunnel_host:-pi.grayvines.com}
