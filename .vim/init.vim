@@ -484,9 +484,6 @@ endif
 if executable("rg")                        " RIP
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ $*
     set grepformat=%f:%l:%c:%m,%f:%l:%m
-elseif executable("ag")                    " if the silver searcher's around...
-    set grepprg=ag\ --vimgrep\ $*
-    set grepformat=%f:%l:%c:%m
 elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
     set grepprg=/usr/local/bin/grep
 endif
