@@ -426,7 +426,7 @@ set laststatus=2                       " always show status line
 
 set confirm                            " show confirm dialog instead of warn
 set display+=lastline                  " show as much of lastline possible
-set shortmess+=atI                     " show shorter messages
+set shortmess+=actI                    " show shorter messages
 set title                              " change window title to filename
 
 set equalalways                        " hopefully fix how often :sp's mess up
