@@ -53,6 +53,8 @@ elif (( $+commands[nix-env] )); then
     alias up="nix-channel --update nixpkgs && nix-env -u '*'"
 elif (( $+commands[pacman] )); then
     alias up="sudo pacman -Syu"
+elif (( $+commands[pkg] )); then
+    alias up="pkg upgrade"
 fi
 
 if (( $+commands[fzy] )); then
