@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+from __future__ import print_function
 
 from glob import iglob as glob
 import argparse
@@ -71,9 +72,9 @@ def symlink_unless_present(file, dest):
     except OSError as e:
         if e.errno != errno.EEXIST:
             raise
-        print "{0} already exists! Skipping...".format(dest)
+        print("{0} already exists! Skipping...".format(dest))
     else:
-        print "Linked {0} into {1}".format(file, dest)
+        print("Linked {0} into {1}".format(file, dest))
 
 
 def set_up_vim(arguments):
