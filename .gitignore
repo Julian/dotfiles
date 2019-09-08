@@ -7,11 +7,11 @@
 
 .vagrant
 
-.vim/bundle
-.vim/flavors
-.vim/sessions
-.vim/.netrwhist
-.vim/.yankring_history*
+.config/nvim/bundle
+.config/nvim/flavors
+.config/nvim/sessions
+.config/nvim/.netrwhist
+.config/nvim/.yankring_history*
 
 .tmux/tmux.conf.local
 
