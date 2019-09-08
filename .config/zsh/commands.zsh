@@ -103,6 +103,10 @@ else
     alias ls='ls -h'
 fi
 
+if (( $+commands[exa] )); then
+    alias exa='exa --group-directories-first --sort Name'
+fi
+
 if (( $+commands[rg] )); then
     alias prg='parallel"" -X rg'
 
