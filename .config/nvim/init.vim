@@ -19,9 +19,9 @@ endfunction
 command! -nargs=1 Develop call <SID>Develop(<args>)
 
 if has('vim_starting')
-    source ~/.vim/bundle/vim-plug/plug.vim
+    source ~/.local/share/nvim/plug.vim
 endif
-call plug#begin(expand('~/.vim/bundle/'))
+call plug#begin(expand('~/.local/share/nvim/bundle/'))
 
 " --- Themes ---
 
