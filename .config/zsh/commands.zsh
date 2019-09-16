@@ -125,6 +125,9 @@ fi
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
+function conf() { $EDITOR ~/.config/$1 }
+compdef '_files -W ~/.config' conf
+
 alias ymd='date +"%Y-%m-%d"'
 
 # This was written entirely by Michael Magnusson (Mikachu)
