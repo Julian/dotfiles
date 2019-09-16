@@ -30,6 +30,7 @@
 .config/gnupg/private-keys-*/
 .config/gnupg/openpgp-revocs.d/
 .config/gtk-2.0/gtkfilechooser.ini
+.config/jupyter/lab/workspaces
 .config/kaggle/kaggle.json
 .config/keepassc/
 .config/litecli/history
