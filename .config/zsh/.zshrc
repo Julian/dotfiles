@@ -1,4 +1,4 @@
-for filename in $ZDOTDIR/{keybindings,commands,completion,prompt,options}.zsh; do
+for filename in $ZDOTDIR/{options,completion,keybindings,commands,prompt}.zsh; do
     source $filename
 done
 unset filename
