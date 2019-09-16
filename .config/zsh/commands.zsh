@@ -30,6 +30,7 @@ function sst() {
     ssh -t $@ '$SHELL -l -c "tmux attach || tmux"'
 }
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
+compdef _hosts ssp sst ssx
 
 function randomize-mac() {
     openssl rand -hex 6 | /usr/bin/sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether
