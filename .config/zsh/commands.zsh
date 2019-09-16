@@ -91,8 +91,6 @@ alias pip='noglob pip'
 # git convenience
 alias g='noglob git'
 alias git='noglob git'
-alias dev='git checkout develop'
-alias master='git checkout master'
 
 alias sed="sed -E"
 
