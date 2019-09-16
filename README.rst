@@ -1,3 +1,7 @@
+========
+Dotfiles
+========
+
 A work in progress.
 Forever.
 
@@ -9,6 +13,4 @@ Install
 * mkdir $HOME/Development
 * Symlink tmux.conf.os to tmux.conf.local
 * Add login credentials to pypirc
-* Check installed/pip
 * Symlink something to ~/.wallpaper if on Linux
-* Symlink bin
