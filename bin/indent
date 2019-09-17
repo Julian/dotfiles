@@ -7,4 +7,5 @@ else:
     spaces = int(sys.argv[1]) * " "
 
 for line in sys.stdin:
-    sys.stdout.write(spaces + line)
+    sys.stdout.write(spaces)
+    sys.stdout.write(line)
