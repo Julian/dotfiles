@@ -386,9 +386,6 @@ if exists("&undofile")
     set undofile
 endif
 
-set undolevels=500                                  " more undo
-
-
 " =============
 " : Interface :
 " =============
