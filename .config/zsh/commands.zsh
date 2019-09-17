@@ -74,6 +74,10 @@ if (( $+commands[fzy] )); then
     bindkey "^S" insert-fzy-path-in-command-line
 fi
 
+if (( $+commands[nvim] )); then
+    alias view='nvim -R'
+fi
+
 if (( $+commands[weechat-curses] )); then
     alias weechat="weechat-curses -d $XDG_CONFIG_HOME/weechat"
 fi
