@@ -142,10 +142,8 @@ if has("user_commands")
     command! -bang QA qa<bang>
     command! -bang Wa wa<bang>
     command! -bang WA wa<bang>
+    command! -bang X x<bang>
 endif
-
-" this one is reserved unfortunately, but for encryption just use vim -xn
-cnoreabbrev X x
 
 " testing mappings
 nnoremap      <expr>d<CR>     ":SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
