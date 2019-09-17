@@ -1,4 +1,3 @@
-set nocompatible                       " turn off vi compatible, should be first
 set nomodeline
 
 let mapleader = "\<space>"
@@ -103,10 +102,6 @@ if has('syntax') && !exists('g:syntax_on')
   set synmaxcol=512
 endif
 
-if has('vim_starting')
-    set encoding=utf8
-endif
-set autoread                           " auto-reload unmodified buffers
 set gdefault
 set hidden
 set lazyredraw                         " no redraw during macros (much faster)
@@ -142,7 +137,9 @@ if has("user_commands")
     command! -bang QA qa<bang>
     command! -bang Wa wa<bang>
     command! -bang WA wa<bang>
-    command! -bang X x<bang>
+    if has('nvim')                                      " 50 marks, unhuge register
+        command! -bang X x<bang>
+    endif
 endif
 
 " testing mappings
@@ -329,11 +326,8 @@ vnoremap        <leader>y         "*y
 set completeopt=menuone,longest,preview     " follow type in autocomplete
 set pumheight=6                             " Keep a small completion window
 
-set showcmd                                 " display incomplete commands
-
 set suffixes+=.backup,.hbm,.ini             " lower priority when completing
 
-set wildmenu                                " file completion helper window
 set wildmode=longest:full,full
 if exists('&wildignorecase')
     " TODO: Really I want wildsmartcase (which doesn't exist), but I
@@ -385,21 +379,11 @@ endif
 " : History :
 " ===========
 
-set directory=$XDG_CACHE_HOME/vim/swap//,~/tmp/vim//,~/tmp//,/var/tmp//,/tmp//
-                                                    " swap files
-set history=10000                                   " command line history
-if has('nvim')                                      " 50 marks, unhuge register
-    let &shada = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/shada")
-else
-    let &viminfo = "'50,s100,n" . expand("$XDG_CACHE_HOME/nvim/viminfo")
-endif
-
 set backup
-set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
+set backupdir=$XDG_CACHE_HOME/nvim/backups,~/tmp,/tmp
 
 if exists("&undofile")
     set undofile
-    set undodir=$XDG_CACHE_HOME/vim/undo,$HOME/tmp,/tmp
 endif
 
 set undolevels=500                                  " more undo
@@ -408,8 +392,6 @@ set undolevels=500                                  " more undo
 " =============
 " : Interface :
 " =============
-
-set background=dark                    " make sure this is before colorschemes
 
 let g:preferred_colorscheme = 'gruvbox'
 
@@ -420,10 +402,7 @@ else
     colorscheme desert
 endif
 
-set laststatus=2                       " always show status line
-
 set confirm                            " show confirm dialog instead of warn
-set display+=lastline                  " show as much of lastline possible
 set shortmess+=actI                    " show shorter messages
 set title                              " change window title to filename
 
@@ -434,11 +413,6 @@ set splitright                         " new :vsp go on right
 set winminheight=0                     " allow totally minimizing a window
 
 set timeoutlen=500                     " shorten the amount of time to wait
-
-" no bells or blinking
-set noerrorbells
-set novisualbell
-set vb t_vb=
 
 set showtabline=1
 
@@ -457,9 +431,7 @@ endif
 " : Movement :
 " ============
 
-set backspace=indent,eol,start         " backspacing over everything in insert
 set nostartofline                      " never jump back to start of line
-set ruler                              " show the cursor position all the time
 
 set scrolloff=2                        " keep lines above and below cursor
 set sidescrolloff=2                    " same for horizontal
@@ -472,8 +444,6 @@ set virtualedit=block
 
 set ignorecase
 set smartcase                          " case-sensitive if upper in search term
-set incsearch                          " do incremental searching
-set hlsearch                           " highlight searches
 
 if exists('+inccommand')
     set inccommand=nosplit
@@ -503,8 +473,6 @@ set spellfile=~/.vim/spellfile.add
 " ==============
 " : Whitespace :
 " ==============
-
-set autoindent
 
 set expandtab               " insert space instead of tab
 set shiftround              " rounds indent to a multiple of shiftwidth
