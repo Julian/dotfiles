@@ -91,7 +91,7 @@
     s = status --short
     st = status
 
-    v = d @{u}..
+    v = !zsh -c 'cat <(git q) <(echo "\n\n") <(git d @{u}..) | less -FXRS'
 
     good = bisect good
     bad = bisect bad
