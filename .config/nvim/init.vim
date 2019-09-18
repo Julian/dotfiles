@@ -371,7 +371,6 @@ set matchtime=5                        " show for how long (*tenths* of second)
 
 " show a line at column 79
 if exists("&colorcolumn")
-    highlight ColorColumn guibg=#2d2d2d
     set colorcolumn=+1
 endif
 
