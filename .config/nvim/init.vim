@@ -481,10 +481,8 @@ set tabstop=8               " makes # of spaces = 8 for preexisting tab
 " : Plugin Settings :
 " ===================
 
-if has('nvim')
-    let g:python_host_prog = expand('~/.local/share/virtualenvs/neovim/bin/python')
-    let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim3/bin/python3')
-endif
+let g:python_host_prog = expand('~/.local/share/virtualenvs/neovim/bin/python')
+let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim3/bin/python3')
 
 let g:is_posix = 1
 
