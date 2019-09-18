@@ -1,5 +1,6 @@
 #--- Aliases -----------------------------------------------------------------
 
+alias b=bat
 alias d='g d --no-index'
 alias m='mv -iv'
 alias n=$EDITOR
