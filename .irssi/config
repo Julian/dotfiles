@@ -466,7 +466,8 @@ ignores = (
   { mask = "*away*"; level = "NICKS"; },
   { mask = "*|bnc"; level = "NICKS"; },
   { mask = "irker*"; level = "ALL"; },
-  { mask = "ldlework"; level = "ALL"; }
+  { mask = "ldlework"; level = "ALL"; },
+  { mask = "recheck"; level = "ALL"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
