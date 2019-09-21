@@ -238,7 +238,7 @@ nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('co
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         :<C-U>Denite file/rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
-nnoremap        <leader>f         :<C-U>Denite<CR>
+nnoremap        <leader>f         :<C-U>Denite file/rec:`expand('%:h')`<CR>
 nnoremap        <leader>h         :<C-U>Denite tag<CR>
 nnoremap        <leader>j         :<C-U>Denite -input=test tag<CR>
 nnoremap        <leader>k         :<C-U>Denite -input=test/test_ file/rec<CR>
