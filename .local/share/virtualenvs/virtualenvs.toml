@@ -4,7 +4,7 @@
 install = [
     "betterpath",
     "bpython[urwid]",
-    "coverage>=5.0a6",
+    "coverage>=5.0a7",
     "filesystems",
     "glom",
     "green",
@@ -29,7 +29,7 @@ link = [
     "bpython",
     "bpython-urwid",
     "conch",
-    "coverage>=5.0a6",
+    "coverage>=5.0a7",
     "glom",
     "green",
     "pip",
