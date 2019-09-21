@@ -137,7 +137,7 @@ if has("user_commands")
     command! -bang QA qa<bang>
     command! -bang Wa wa<bang>
     command! -bang WA wa<bang>
-    if has('nvim')                                      " 50 marks, unhuge register
+    if has('nvim-0.4')
         command! -bang X x<bang>
     endif
 endif
