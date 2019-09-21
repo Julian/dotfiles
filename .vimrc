@@ -15,8 +15,6 @@ set noerrorbells
 set novisualbell
 set vb t_vb=
 
-set directory=$XDG_CACHE_HOME/vim/swap//,~/tmp/vim//,~/tmp//,/var/tmp//,/tmp//
-                                                    " swap files
 set history=10000                                   " command line history
 set hlsearch                           " highlight searches
 set incsearch                          " do incremental searching
@@ -26,7 +24,6 @@ set laststatus=2                       " always show status line
 set ruler                              " show the cursor position all the time
 
 set showcmd                                 " display incomplete commands
-set undodir=$XDG_CACHE_HOME/vim/undo,$HOME/tmp,/tmp
 
 set wildmenu                                " file completion helper window
 
@@ -35,3 +32,8 @@ set wildmenu                                " file completion helper window
 let &viminfo = "'50,s100,n" . expand("$XDG_CACHE_HOME/vim/viminfo")
 
 source ~/.config/nvim/init.vim
+
+set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
+set directory=$XDG_CACHE_HOME/vim/swap//,~/tmp/vim//,~/tmp//,/var/tmp//,/tmp//
+                                                    " swap files
+set undodir=$XDG_CACHE_HOME/vim/undo,$HOME/tmp,/tmp
