@@ -188,7 +188,7 @@ function r() {
     else
         local repl=$(venvs find name $@ ptpython)
     fi
-    PYTHONPATH=. $repl
+    pythonpath=(. ./src/ $pythonpath) $repl
 }
 
 # Run tests on current directory in a corresponding venv, otherwise globally
