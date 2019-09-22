@@ -56,6 +56,7 @@ brew "tmux"
 brew "trash"
 brew "tree"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+brew "watch"
 brew "wget"
 brew "xsv"
 brew "xz"
