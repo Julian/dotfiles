@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "mas-cli/tap"
 tap "julian/tap"
 tap "universal-ctags/universal-ctags"
 brew "bat"
@@ -27,6 +28,7 @@ brew "libraw"
 brew "libxml2"
 brew "libxslt"
 brew "luajit"
+brew "mas"
 brew "moreutils", args: ["without-parallel"]
 brew "mtr"
 brew "ncurses"
@@ -76,3 +78,6 @@ cask "macpass"
 cask "nteract"
 cask "processing"
 cask "vlc"
+mas "GarageBand", id: 682658836
+mas "Keynote", id: 409183694
+mas "Pages", id: 409201541
