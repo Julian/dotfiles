@@ -2,8 +2,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
-tap "mas-cli/tap"
 tap "julian/tap"
+tap "mas-cli/tap"
 tap "universal-ctags/universal-ctags"
 brew "bat"
 brew "coreutils"
@@ -67,6 +67,7 @@ brew "zsh"
 cask "alacritty"
 cask "android-file-transfer"
 cask "android-sdk"
+cask "anki"
 cask "blender"
 cask "cyberduck"
 cask "darktable"
@@ -80,4 +81,5 @@ cask "processing"
 cask "vlc"
 mas "GarageBand", id: 682658836
 mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
