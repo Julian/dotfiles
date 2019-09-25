@@ -310,6 +310,7 @@ install = ["shiv"]
 link = ["shiv"]
 
 [virtualenv.sphinx]
+python = "python3.7"
 install = [
     "sphinx",
     "bpython[urwid]",
