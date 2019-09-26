@@ -11,6 +11,8 @@
 .config/nvim/sessions
 .config/nvim/.netrwhist
 .config/nvim/.yankring_history*
+.local/share/nvim/shada
+.local/share/nvim/undo
 
 .tmux/tmux.conf.local
 
