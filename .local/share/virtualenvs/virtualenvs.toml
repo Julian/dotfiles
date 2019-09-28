@@ -339,6 +339,25 @@ python = "pypy3"
 install = ["ebb-lint"]
 link = ["flake8:flake83"]
 
+[virtualenv.subunit]
+install = ["python-subunit"]
+link = [
+    "subunit-1to2",
+    "subunit-2to1",
+    "subunit-filter",
+    "subunit-ls",
+    "subunit-notify",
+    "subunit-output",
+    "subunit-stats",
+    "subunit-tags",
+    "subunit2csv",
+    "subunit2disk",
+    "subunit2gtk",
+    "subunit2junitxml",
+    "subunit2pyunit",
+    "tap2subunit",
+]
+
 [virtualenv.tox]
 python = "pypy3"
 install = ["tox"]
