@@ -59,7 +59,6 @@
     brn = branch --remote --no-merged
 
     c = clone --recursive
-    co = checkout
     cp = cherry-pick
     pushhh = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
     inithub = "!git remote add origin git@github.com:Julian/$(basename $PWD) && git pushhh"
@@ -88,8 +87,12 @@
     noff = merge --no-ff
     wip = merge --squash --no-commit
 
+    re = restore
+
     s = status --short
     st = status
+
+    sw = switch
 
     v = !zsh -c 'cat <(git q) <(echo "\n\n") <(git d @{u}..) | less -FXRS'
 
