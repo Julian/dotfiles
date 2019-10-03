@@ -319,6 +319,7 @@ link = ["shiv"]
 python = "python3.7"
 install = [
     "sphinx",
+    "sphinxcontrib.spelling",
     "bpython[urwid]",
     "ptpython",
     "pudb",
