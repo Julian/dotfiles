@@ -84,6 +84,7 @@ link = [
     "trial:trial3",
     "twist:twist3",
 ]
+link-module = ["pydoc"]
 
 [virtualenv.aws]
 install = [
