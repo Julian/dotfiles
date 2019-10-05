@@ -1,9 +1,12 @@
+[bundle]
+development = ["bpython[urwid]", "ptpython", "pudb"]
+
 # --- Development ---
 
 [virtualenv.dev]
+install-bundle = ["development"]
 install = [
     "betterpath",
-    "bpython[urwid]",
     "coverage>=5.0a7",
     "filesystems",
     "glom",
@@ -12,8 +15,6 @@ install = [
     "inflect",
     "jinja2",
     "pendulum",
-    "ptpython",
-    "pudb",
     "pyperf",
     "pyrsistent",
     "pytest",
@@ -47,9 +48,9 @@ link = [
 
 [virtualenv.dev3]
 python = "pypy3"
+install-bundle = ["development"]
 install = [
     "betterpath",
-    "bpython[urwid]",
     "coverage",
     "filesystems",
     "green",
@@ -57,8 +58,6 @@ install = [
     "inflect",
     "jinja2",
     "pendulum",
-    "ptpython",
-    "pudb",
     "pyperf",
     "pyrsistent",
     "pytest",
@@ -87,13 +86,8 @@ link = [
 link-module = ["pydoc"]
 
 [virtualenv.aws]
-install = [
-    "awscli",
-    "boto",
-    "boto3",
-    "ptpython",
-    "pudb",
-]
+install-bundle = ["development"]
+install = ["awscli", "boto", "boto3"]
 
 [virtualenv.awscli]
 install = ["awscli"]
@@ -113,12 +107,8 @@ install = ["detect-secrets"]
 link = ["detect-secrets"]
 
 [virtualenv.google]
-install = [
-    "google-api-python-client",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-]
+install-bundle = ["development"]
+install = ["google-api-python-client"]
 
 [virtualenv.hg]
 python = "python2"
@@ -134,7 +124,8 @@ install = ["httpstat"]
 link = ["httpstat"]
 
 [virtualenv.jsonschema]
-install = ["jsonschema[format]", "mock", "ptpython", "pudb", "twisted"]
+install-bundle = ["development"]
+install = ["jsonschema[format]", "mock", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.litecli]
@@ -144,6 +135,7 @@ link = ["litecli"]
 
 [virtualenv.ml]
 python = "python3.7"
+install-bundle = ["development"]
 install = [
     "numpy",
     "jupyter",
@@ -190,8 +182,6 @@ install = [
     "nteract_on_jupyter",
 
     "hyperlink",
-    "ptpython",
-    "pudb",
     "pyrsistent",
     "requests",
     "twisted",
@@ -200,12 +190,11 @@ link = ["jupyter", "kaggle", "ptpython:ml", "xgbfir"]
 
 [virtualenv.lime]
 python = "python3.7"
+install-bundle = ["development"]
 install = [
     "lime",
 
     "hyperlink",
-    "ptpython",
-    "pudb",
     "pyrsistent",
     "requests",
     "twisted",
@@ -213,12 +202,11 @@ install = [
 
 [virtualenv.autosklearn]
 python = "python3.7"
+install-bundle = ["development"]
 install = [
     "auto-sklearn",
 
     "hyperlink",
-    "ptpython",
-    "pudb",
     "pyrsistent",
     "requests",
     "twisted",
@@ -273,12 +261,8 @@ link = ["pip-compile:pip-compile3"]
 
 [virtualenv.pychromecast]
 python = "python3.7"
-install = [
-    "-e", "${DEVELOPMENT}/cast-cli",
-    "bpython",
-    "ptpython",
-    "pychromecast",
-]
+install-bundle = ["development"]
+install = ["-e", "${DEVELOPMENT}/cast-cli"]
 link = ["cast"]
 
 [virtualenv.pydocstyle]
@@ -287,13 +271,8 @@ install = ["pydocstyle"]
 link = ["pydocstyle"]
 
 [virtualenv.salt]
-install = [
-    "salt",
-    "salt-ssh",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-]
+install-bundle = ["development"]
+install = ["salt", "salt-ssh"]
 link = [
     "salt",
     "salt-api",
@@ -317,13 +296,8 @@ link = ["shiv"]
 
 [virtualenv.sphinx]
 python = "python3.7"
-install = [
-    "sphinx",
-    "sphinxcontrib.spelling",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-]
+install-bundle = ["development"]
+install = ["sphinx", "sphinxcontrib.spelling"]
 link = [
     "rst2html.py",
     "rst2html5.py",
@@ -401,45 +375,27 @@ install = ["-r", "${DEVELOPMENT}/julian.github.io/requirements.txt"]
 link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.diff]
-install = [
-    "${DEVELOPMENT}/diff",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "twisted[tls]",
-]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/diff", "twisted[tls]"]
 
 [virtualenv.filesystems]
-install = [
-    "${DEVELOPMENT}/filesystems",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "testscenarios",
-    "twisted",
-]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/filesystems", "testscenarios", "twisted"]
 
 [virtualenv.great]
-install = [
-    "-r", "${DEVELOPMENT}/Great/test-requirements.txt",
-    "-r", "${DEVELOPMENT}/Great/automanual/requirements.txt",
-    "${DEVELOPMENT}/Great",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "twisted[tls]",
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/Great", "twisted[tls]"]
+requirements = [
+    "${DEVELOPMENT}/Great/test-requirements.txt",
+    "${DEVELOPMENT}/Great/automanual/requirements.txt",
 ]
 
 [virtualenv.gtfo]
+install-bundle = ["development"]
 install = ["${DEVELOPMENT}/gtfo"]
 link = ["gtfo"]
 
 [virtualenv.minion]
-install = [
-    "${DEVELOPMENT}/Minion",
-    "bpython[urwid]",
-    "ptpython",
-    "pudb",
-    "twisted[tls]",
-]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
 requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
