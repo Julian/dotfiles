@@ -270,6 +270,11 @@ python = "python3.7"
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
+[virtualenv.pypinfo]
+python = "python3.7"
+install = ["pypinfo"]
+link = ["pypinfo"]
+
 [virtualenv.salt]
 install-bundle = ["development"]
 install = ["salt", "salt-ssh"]
