@@ -167,6 +167,7 @@ install = [
     "scikit-plot",
 
     "tensorflow",
+    "torch",
     "xgboost",
     "xgbfir",
 
