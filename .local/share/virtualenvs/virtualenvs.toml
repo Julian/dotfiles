@@ -244,7 +244,7 @@ install = ["pep517"]
 link-module = ["pep517.build:pep517-build", "pep517.check:pep517-check"]
 
 [virtualenv.pex]
-install = ["pex", "requests"]
+install = ["pex"]
 link = ["pex"]
 
 [virtualenv.poetry]
