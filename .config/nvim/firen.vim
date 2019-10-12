@@ -1,5 +1,5 @@
 set laststatus=0
-set noshowmode
+set noruler
 
 set spell
 set textwidth=0
