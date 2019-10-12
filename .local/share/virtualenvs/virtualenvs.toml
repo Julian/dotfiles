@@ -88,12 +88,10 @@ link = [
 link-module = ["pydoc"]
 
 [virtualenv.aws]
+python = "python3.7"
 install-bundle = ["development"]
-install = ["awscli", "boto", "boto3"]
-
-[virtualenv.awscli]
-install = ["awscli"]
-link = ["aws"]
+install = ["awscli", "boto", "boto3", "saws"]
+link = ["aws", "saws"]
 
 [virtualenv.black]
 python = "python3.7"
