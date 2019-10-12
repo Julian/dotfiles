@@ -1,4 +1,7 @@
 set laststatus=0
+set noshowmode
+
+set spell
 set textwidth=0
 set wrap
 
