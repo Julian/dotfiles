@@ -371,6 +371,10 @@ link = [
     "yaml2yaml",
 ]
 
+[virtualenv.youtube-dl]
+install = ["youtube-dl"]
+link = ["youtube-dl"]
+
 [virtualenv.watchdog]
 install = ["watchdog"]
 link = ["watchmedo"]
