@@ -385,7 +385,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##math";
+        name = "#vim";
         tag = "Freenode";
       }
     );
@@ -398,7 +398,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#vim";
+        name = "#neovim";
         tag = "Freenode";
       }
     );
@@ -411,7 +411,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#neovim";
+        name = "#zsh";
         tag = "Freenode";
       }
     );
@@ -424,7 +424,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#zsh";
+        name = "#twisted";
         tag = "Freenode";
       }
     );
@@ -437,7 +437,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#twisted";
+        name = "#twisted-dev";
         tag = "Freenode";
       }
     );
@@ -450,7 +450,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#twisted-dev";
+        name = "#pypy";
         tag = "Freenode";
       }
     );
@@ -463,7 +463,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pypy";
+        name = "#techcrap";
         tag = "Freenode";
       }
     );
@@ -476,7 +476,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#techcrap";
+        name = "#hypothesis";
         tag = "Freenode";
       }
     );
@@ -489,7 +489,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#hypothesis";
+        name = "#pypa";
         tag = "Freenode";
       }
     );
@@ -502,7 +502,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-dev";
+        name = "#pypa-dev";
         tag = "Freenode";
       }
     );
@@ -515,7 +515,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pypa";
+        name = "#python-infra";
         tag = "Freenode";
       }
     );
@@ -528,7 +528,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#pypa-dev";
+        name = "#json-schema";
         tag = "Freenode";
       }
     );
@@ -541,7 +541,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#nycpython";
+        name = "##math";
         tag = "Freenode";
       }
     );
@@ -554,7 +554,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-infra";
+        name = "#python-dev";
         tag = "Freenode";
       }
     );
@@ -567,7 +567,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#json-schema";
+        name = "#nycpython";
         tag = "Freenode";
       }
     );
