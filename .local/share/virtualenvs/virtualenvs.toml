@@ -106,6 +106,10 @@ link = ["colortest"]
 install = ["detect-secrets"]
 link = ["detect-secrets"]
 
+[virtualenv.doc8]
+install = ["doc8"]
+link = ["doc8"]
+
 [virtualenv.google]
 install-bundle = ["development"]
 install = ["google-api-python-client"]
