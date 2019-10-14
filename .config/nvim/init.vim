@@ -70,7 +70,7 @@ Plug    'tpope/vim-rhubarb'
 Plug    'tpope/vim-surround'
 Plug    'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
 Plug    'Valodim/vim-zsh-completion'
-Plug    'vimwiki/vimwiki'
+Plug    'vimwiki/vimwiki',                   {'branch': 'dev'}
 
 Plug    'kana/vim-textobj-indent'
 Plug    'Julian/vim-textobj-python',         {'for': 'python'}
@@ -489,6 +489,7 @@ let g:is_posix = 1
 let g:tex_flavor='latex'
 
 let g:exchange_no_mappings = '1'
+let g:vimwiki_key_mappings = {'all_maps': 0}
 
 " signature
 let g:SignatureMap = {
