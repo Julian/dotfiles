@@ -107,7 +107,7 @@ install = ["detect-secrets"]
 link = ["detect-secrets"]
 
 [virtualenv.doc8]
-install = ["doc8"]
+install = ["doc8", "pygments"]
 link = ["doc8"]
 
 [virtualenv.google]
