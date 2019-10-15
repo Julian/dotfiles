@@ -19,7 +19,7 @@ brew "gnu-time"
 brew "gnu-which"
 brew "gnupg"
 brew "graphite2"
-brew "grep", args: ["with-default-names"]
+brew "grep"
 brew "htop"
 brew "imagemagick"
 brew "irssi"
