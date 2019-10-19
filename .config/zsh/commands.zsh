@@ -130,8 +130,14 @@ fi
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
-function conf() { $EDITOR ~/.config/$1 }
-compdef '_files -W ~/.config' conf
+function conf() { 
+    if [[ $# == 0 ]]; then
+        exa $XDG_CONFIG_HOME
+    else
+        $EDITOR $XDG_CONFIG_HOME/$1
+    fi
+}
+compdef "_files -W $XDG_CONFIG_HOME" conf
 
 alias ymd='date +"%Y-%m-%d"'
 
