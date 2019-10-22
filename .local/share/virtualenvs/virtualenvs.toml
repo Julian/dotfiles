@@ -413,3 +413,7 @@ link = ["gtfo"]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
 requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
+
+[virtualenv.regret]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
