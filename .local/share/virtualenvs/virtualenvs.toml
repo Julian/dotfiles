@@ -111,8 +111,22 @@ install = ["doc8", "pygments"]
 link = ["doc8"]
 
 [virtualenv.findme]
+python = "pypy"
 install-bundle = ["development"]
 install = ["findme"]
+link = ["findme"]
+
+[virtualenv.findme-cpython3]
+python = "python3.7"
+install-bundle = ["development"]
+install = ["findme"]
+link = ["findme:findme-cpython3"]
+
+[virtualenv.findme-pypy3]
+python = "pypy3"
+install-bundle = ["development"]
+install = ["findme"]
+link = ["findme:findme-pypy3"]
 
 [virtualenv.google]
 install-bundle = ["development"]
