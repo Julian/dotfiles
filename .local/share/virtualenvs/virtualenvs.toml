@@ -110,6 +110,10 @@ link = ["detect-secrets"]
 install = ["doc8", "pygments"]
 link = ["doc8"]
 
+[virtualenv.findme]
+install-bundle = ["development"]
+install = ["findme"]
+
 [virtualenv.google]
 install-bundle = ["development"]
 install = ["google-api-python-client"]
