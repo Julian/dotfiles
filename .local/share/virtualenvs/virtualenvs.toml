@@ -1,5 +1,5 @@
 [bundle]
-development = ["bpython[urwid]", "ptpython", "pudb"]
+development = ["bpython[urwid]", "ptpython", "pudb", "q"]
 
 # --- Development ---
 
