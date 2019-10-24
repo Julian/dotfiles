@@ -435,3 +435,8 @@ requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 [virtualenv.regret]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
+
+[virtualenv.twisted]
+python = "python3.7"
+install-bundle = ["development"]
+install = ["-e", "${DEVELOPMENT}/twisted"]
