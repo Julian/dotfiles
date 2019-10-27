@@ -204,5 +204,5 @@ function t() {
     if [[ ${@[(i)^-*]} -gt $# ]]; then
         argv+=("${venv_runner:h:h:t}")
     fi
-    PYTHONPATH=. $venv_runner ${@:1}
+    pythonpath=(. ./src/ $pythonpath) $venv_runner ${@:1}
 }
