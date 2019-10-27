@@ -391,6 +391,10 @@ link = [
     "yaml2yaml",
 ]
 
+[virtualenv.vanity]
+install = ["vanity"]
+link = ["vanity"]
+
 [virtualenv.youtube-dl]
 install = ["youtube-dl"]
 link = ["youtube-dl"]
