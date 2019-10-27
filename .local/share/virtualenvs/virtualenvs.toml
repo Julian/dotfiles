@@ -422,11 +422,6 @@ requirements = [
     "${DEVELOPMENT}/Great/automanual/requirements.txt",
 ]
 
-[virtualenv.gtfo]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/gtfo"]
-link = ["gtfo"]
-
 [virtualenv.minion]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
