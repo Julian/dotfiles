@@ -1,11 +1,6 @@
 [bundle]
 development = ["bpython[urwid]", "ptpython", "pudb", "q"]
-
-# --- Development ---
-
-[virtualenv.dev]
-install-bundle = ["development"]
-install = [
+core = [
     "betterpath",
     "coverage>=5.0a7",
     "filesystems",
@@ -25,8 +20,13 @@ install = [
     "testrepository",
     "treq",
     "twisted[conch,tls]",
-    "vmprof",
 ]
+
+# --- Development ---
+
+[virtualenv.dev]
+install-bundle = ["core", "development"]
+install = ["vmprof"]
 link = [
     "bpython",
     "bpython-urwid",
@@ -46,34 +46,16 @@ link = [
     "twistd",
     "vmprofshow",
 ]
+link-module = ["pydoc:pydoc2"]
 
 [virtualenv.dev3]
 python = "pypy3"
-install-bundle = ["development"]
-install = [
-    "betterpath",
-    "coverage",
-    "filesystems",
-    "green",
-    "hypothesis",
-    "inflect",
-    "jinja2",
-    "pendulum",
-    "pyperf",
-    "pyrsistent",
-    "pytest",
-    "pytest-cov",
-    "pytoml",
-    "pyyaml",
-    "setuptools",
-    "testrepository",
-    "treq",
-    "twisted[conch,tls]",
-]
+install-bundle = ["core", "development"]
 link = [
     "bpython:bpython3",
     "bpython-urwid:bpython-urwid3",
     "coverage:coverage3",
+    "glom:glom3",
     "green:green3",
     "pip:pip3",
     "python:python3",
@@ -86,6 +68,37 @@ link = [
     "twist:twist3",
 ]
 link-module = ["pydoc"]
+
+[virtualenv.dev-cpython]
+python = "python2.7"
+install-bundle = ["core", "development"]
+link = [
+    "python:cpython2",
+    "ptpython:ptpython-cpython2",
+    "pudb:pudb-cpython2",
+    "py.test:py.test-cpython2",
+    "trial:trial-cpython2",
+]
+
+[virtualenv.dev3-cpython]
+python = "python3.7"
+install-bundle = ["core", "development"]
+link = [
+    "bpython:bpython-cpython3",
+    "bpython-urwid:bpython-urwid-cpython3",
+    "coverage:coverage-cpython3",
+    "glom:glom-cpython3",
+    "green:green-cpython3",
+    "pip:pip-cpython3",
+    "python:python-cpython3",
+    "ptpython:ptpython-cpython3",
+    "pudb3:pudb-cpython3",
+    "py.test:py.test-cpython3",
+    "pyperf:pyperf-cpython3",
+    "testr:testr-cpython3",
+    "trial:trial-cpython3",
+    "twist:twist-cpython3",
+]
 
 [virtualenv.aws]
 python = "python3.7"
