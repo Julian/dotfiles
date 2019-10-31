@@ -13,9 +13,6 @@
     algorithm = histogram
     tool = vimdiff
 
-[diff "image"]
-    command = git-imagediff
-
 [difftool]
     prompt = false
 
