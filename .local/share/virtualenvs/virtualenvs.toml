@@ -9,6 +9,7 @@ core = [
     "hypothesis",
     "inflect",
     "jinja2",
+    "pathlib2; python_version<='2.7'",
     "pendulum",
     "pyperf",
     "pyrsistent",
