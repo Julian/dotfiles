@@ -299,7 +299,7 @@ link = ["pip-compile:pip-compile3"]
 [virtualenv.pychromecast]
 python = "python3.7"
 install-bundle = ["development"]
-install = ["-e", "${DEVELOPMENT}/cast-cli"]
+install = ["cast-cli"]
 link = ["cast"]
 
 [virtualenv.pydocstyle]
