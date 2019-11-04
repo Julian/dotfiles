@@ -16,4 +16,9 @@ nnoremap <Right> $
 autocmd FocusLost * ++nested write
 autocmd InsertLeave * ++nested write
 
+noremap <D-a> ggVG
+inoremap <D-a> <C-o>gg<C-o>VG
+noremap <D-v> "*p
+inoremap <D-v> <C-o>"*p
+
 startinsert
