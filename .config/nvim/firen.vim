@@ -13,4 +13,7 @@ nnoremap <Up> k
 nnoremap <Down> j
 nnoremap <Right> $
 
+autocmd FocusLost * ++nested write
+autocmd InsertLeave * ++nested write
+
 startinsert
