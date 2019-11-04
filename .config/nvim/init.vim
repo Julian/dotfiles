@@ -345,7 +345,7 @@ set wildignore+=**/.vim-flavor/**
 set wildignore+=*DS_Store*
 set wildignore+=version.txt
 set wildignore+=**/tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+set wildignore+=*.png,*.jpg,*.gif,*.svg
 set wildignore+=*.app,*.dmg,*.pdf,*.so
 set wildignore+=**/.gems/**,**/.chef/checksums/**
 
