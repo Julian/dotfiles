@@ -74,8 +74,8 @@ link-module = ["pydoc"]
 python = "python2.7"
 install-bundle = ["core", "development"]
 link = [
-    "python:cpython2",
     "ptpython:ptpython-cpython2",
+    "python:cpython2",
     "pudb:pudb-cpython2",
     "py.test:py.test-cpython2",
     "trial:trial-cpython2",
@@ -84,6 +84,7 @@ link = [
 [virtualenv.dev3-cpython]
 python = "python3.7"
 install-bundle = ["core", "development"]
+install = ["pyinstrument"]
 link = [
     "bpython:bpython-cpython3",
     "bpython-urwid:bpython-urwid-cpython3",
@@ -91,8 +92,9 @@ link = [
     "glom:glom-cpython3",
     "green:green-cpython3",
     "pip:pip-cpython3",
-    "python:python-cpython3",
     "ptpython:ptpython-cpython3",
+    "pyinstrument",
+    "python:cpython3",
     "pudb3:pudb-cpython3",
     "py.test:py.test-cpython3",
     "pyperf:pyperf-cpython3",
