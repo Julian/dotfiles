@@ -298,7 +298,7 @@ python = "pypy3"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile3"]
 
-[virtualenv.pychromecast]
+[virtualenv.cast]
 python = "python3.7"
 install-bundle = ["development"]
 install = ["cast-cli"]
