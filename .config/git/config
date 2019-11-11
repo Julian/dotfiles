@@ -108,6 +108,7 @@
     fork = !sh -c 'git remote add $1 https://github.com/$1/$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-)) && git fetch $1' -
     issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+ | sort | uniq' -
     stale = "!git for-each-ref --sort=committerdate --shell --format=\"git log -1 --pretty=format:'%Cgreen%ci %Cred%cr%Creset%d' %(refname)\" refs/remotes/origin/ | sh"
+    objects-by-size = "!git rev-list --all | parallel git ls-tree -r --long "{}" | sort --key 3 | uniq | sort --key 4 --numeric-sort"
 
     # Fancy logging.
     #   h = head
