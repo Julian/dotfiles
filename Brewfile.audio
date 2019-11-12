@@ -1,0 +1,3 @@
+tap "homebrew/cask"
+cask "cycling74-max"
+cask "vcv-rack"
