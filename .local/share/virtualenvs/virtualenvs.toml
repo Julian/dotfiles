@@ -390,8 +390,8 @@ install = ["tox"]
 link = ["tox"]
 
 [virtualenv.twine]
-install = ["twine"]
-link = ["twine"]
+install = ["twine", "keyring"]
+link = ["twine", "keyring"]
 
 [virtualenv.remarshal]
 install = ["remarshal"]
