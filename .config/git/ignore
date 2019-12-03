@@ -92,6 +92,7 @@ bower_components/
 # Clojure #
 # ------- #
 
+.cpcache/
 .lein-repl-history
 .nrepl-history
 .nrepl-port
