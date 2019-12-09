@@ -115,7 +115,7 @@ install_parser.add_argument(
 )
 install_parser.add_argument(
     "--dotfiles",
-    default=os.path.expanduser("~/.dotfiles/"),
+    default=os.path.dirname(__file__),
     help="the dotfiles to link",
 )
 install_parser.add_argument(
