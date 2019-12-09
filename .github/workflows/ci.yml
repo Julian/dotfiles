@@ -1,0 +1,17 @@
+name: CI
+
+on: push
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: [pypy2, 3.8]
+
+    steps:
+    - uses: actions/checkout@v2-beta
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+    - name: Bootstrap
+      run: python ./dot install
