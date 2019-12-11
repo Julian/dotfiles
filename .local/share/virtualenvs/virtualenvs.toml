@@ -384,6 +384,11 @@ link = [
     "tap2subunit",
 ]
 
+[virtualenv.termtosvg]
+python = "python3"
+install = ["termtosvg"]
+link = ["termtosvg"]
+
 [virtualenv.tox]
 python = "pypy3"
 install = ["tox"]
