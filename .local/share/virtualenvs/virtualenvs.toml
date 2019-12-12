@@ -435,6 +435,11 @@ install = ["${DEVELOPMENT}/diff", "twisted[tls]"]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/filesystems", "testscenarios", "twisted"]
 
+[virtualenv.svmlight-loader]
+python = "pypy3"
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/svmlight-loader"]
+
 [virtualenv.great]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/Great", "twisted[tls]"]
