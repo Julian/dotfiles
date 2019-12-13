@@ -96,6 +96,7 @@
     good = bisect good
     bad = bisect bad
 
+    pop = reset HEAD~
     whoops = reset --hard @{u}
 
     # New operations
