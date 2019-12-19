@@ -438,7 +438,11 @@ install = ["${DEVELOPMENT}/filesystems", "testscenarios", "twisted"]
 [virtualenv.svmlight-loader]
 python = "pypy3"
 install-bundle = ["development"]
-install = ["${DEVELOPMENT}/svmlight-loader"]
+install = [
+    "Cython; platform_python_implementation == 'pypy'",
+    "${DEVELOPMENT}/svmlight-loader[sklearn]",
+    "pytest",
+]
 
 [virtualenv.great]
 install-bundle = ["development"]
