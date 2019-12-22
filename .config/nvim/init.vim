@@ -447,7 +447,7 @@ if exists('+inccommand')
 endif
 
 if executable("rg")                        " RIP
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ $*
+    set grepprg=rg\ --hidden\ --vimgrep\ --no-heading\ --smart-case\ $*
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
     set grepprg=/usr/local/bin/grep
