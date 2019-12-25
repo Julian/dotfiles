@@ -99,6 +99,8 @@
     pop = reset HEAD~
     whoops = reset --hard @{u}
 
+    release = !sh -c 'git tag -a $1 -m Release' -
+
     # New operations
     up = "!git fetch --all --prune && git merge --ff-only @{u} && git submodule update"
     cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
