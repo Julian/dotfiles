@@ -430,7 +430,7 @@ link = ["watchmedo"]
 
 [virtualenv.blog]
 python = "python3"
-install = ["-r", "${DEVELOPMENT}/julian.github.io/requirements.txt"]
+requirements = ["${DEVELOPMENT}/julian.github.io/requirements.txt"]
 link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.diff]
