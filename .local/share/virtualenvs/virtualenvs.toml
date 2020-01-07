@@ -266,10 +266,11 @@ install = ["-e", "${DEVELOPMENT}/mkpkg"]
 link = ["mkpkg"]
 
 [virtualenv.neovim]
+python = "pypy"
 install = ["pynvim"]
 
 [virtualenv.neovim3]
-python = "python3"
+python = "python3.7"
 install = ["pynvim"]
 
 [virtualenv.ngxtop]
