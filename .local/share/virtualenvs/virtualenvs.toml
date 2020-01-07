@@ -1,5 +1,5 @@
 [bundle]
-development = ["bpython[urwid]", "ptpython", "pudb", "q"]
+development = ["bpython[urwid]", "pipdeptree", "ptpython", "pudb", "q"]
 core = [
     "coverage>=5.0a7",
     "filesystems",
