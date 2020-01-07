@@ -108,7 +108,7 @@ else
 fi
 
 if (( $+commands[exa] )); then
-    alias exa='exa --group-directories-first --sort Name'
+    alias exa='exa --git --group-directories-first --sort Name'
     alias l=exa
 else
     alias l=ls
