@@ -183,13 +183,6 @@ function pp() {
     python -c "print '${@:gs/'/\\'}'"
 }
 
-# Bootstrap some development tools into an environment.
-PYTHON_DEV_PACKAGES=(bpython'[urwid]' ptpython pudb twisted)
-function pydev() {
-    set -u
-    "$(venvs find directory $PWD python)" -m pip install -U $PYTHON_DEV_PACKAGES $@
-}
-
 # Open a REPL for a virtualenv
 function r() {
     if [[ $# == 0 ]]; then
