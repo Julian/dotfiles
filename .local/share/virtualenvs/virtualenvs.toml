@@ -320,25 +320,6 @@ python = "python3.7"
 install = ["pypinfo"]
 link = ["pypinfo"]
 
-[virtualenv.salt]
-install-bundle = ["development"]
-install = ["salt", "salt-ssh"]
-link = [
-    "salt",
-    "salt-api",
-    "salt-call",
-    "salt-cloud",
-    "salt-cp",
-    "salt-key",
-    "salt-master",
-    "salt-minion",
-    "salt-proxy",
-    "salt-run",
-    "salt-ssh",
-    "salt-syndic",
-    "salt-unity",
-]
-
 [virtualenv.shiv]
 python = "python3.7"
 install = ["shiv"]
