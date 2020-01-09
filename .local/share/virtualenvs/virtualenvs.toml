@@ -161,6 +161,15 @@ link = ["http"]
 install = ["httpstat"]
 link = ["httpstat"]
 
+[virtualenv.imaging]
+python = "python3.7"
+install-bundle = ["development"]
+install = [
+    "libraw-cffi",
+    "pillow",
+    "rawkit",
+]
+
 [virtualenv.jsonschema]
 install-bundle = ["development"]
 install = ["jsonschema[format]", "mock", "twisted"]
