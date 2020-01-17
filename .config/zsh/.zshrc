@@ -22,6 +22,7 @@ export PIP_CONFIG_FILE=$XDG_CONFIG_HOME/pip/config
 export TASKRC=$XDG_CONFIG_HOME/taskrc
 
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
+export PYTHONBREAKPOINT=pudb.set_trace
 export PYTHONDONTWRITEBYTECODE=true
 export PYTHONWARNINGS="default,\
 ignore:Not importing directory:ImportWarning,\
