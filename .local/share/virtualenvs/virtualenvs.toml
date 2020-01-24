@@ -82,7 +82,7 @@ link = [
 ]
 
 [virtualenv.dev3-cpython]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["core", "development"]
 install = ["pyinstrument"]
 link = [
@@ -104,13 +104,13 @@ link = [
 ]
 
 [virtualenv.aws]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = ["awscli", "boto", "boto3", "saws"]
 link = ["aws", "saws"]
 
 [virtualenv.black]
-python = "python3.7"
+python = "python3.8"
 install = ["black"]
 link = ["black"]
 
@@ -133,7 +133,7 @@ install = ["findme"]
 link = ["findme"]
 
 [virtualenv.findme-cpython3]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-cpython3"]
@@ -162,7 +162,7 @@ install = ["httpstat"]
 link = ["httpstat"]
 
 [virtualenv.imaging]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = [
     "libraw-cffi",
@@ -181,7 +181,7 @@ install = ["litecli"]
 link = ["litecli"]
 
 [virtualenv.ml]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = [
     "numpy",
@@ -237,7 +237,7 @@ install = [
 link = ["jupyter", "kaggle", "ptpython:ml", "xgbfir"]
 
 [virtualenv.lime]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = [
     "lime",
@@ -249,7 +249,7 @@ install = [
 ]
 
 [virtualenv.autosklearn]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = [
     "auto-sklearn",
@@ -266,7 +266,7 @@ install = ["bandit"]
 link = ["bandit"]
 
 [virtualenv.check-manifest]
-python = "python3.7"
+python = "python3.8"
 install = ["check-manifest"]
 link = ["check-manifest"]
 
@@ -279,7 +279,7 @@ python = "pypy"
 install = ["pynvim"]
 
 [virtualenv.neovim3]
-python = "python3.7"
+python = "python3.8"
 install = ["pynvim"]
 
 [virtualenv.ngxtop]
@@ -287,7 +287,7 @@ install = ["ngxtop"]
 link = ["ngxtop"]
 
 [virtualenv.pep517]
-python = "python3.7"
+python = "python3.8"
 install = ["pep517"]
 link-module = ["pep517.build:pep517-build", "pep517.check:pep517-check"]
 
@@ -296,7 +296,7 @@ install = ["pex"]
 link = ["pex"]
 
 [virtualenv.pipenv]
-python = "python3.7"
+python = "python3.8"
 install = ["pipenv"]
 link = ["pipenv"]
 
@@ -314,28 +314,28 @@ install = ["pip-tools"]
 link = ["pip-compile:pip-compile3"]
 
 [virtualenv.cast]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = ["cast-cli"]
 link = ["cast"]
 
 [virtualenv.pydocstyle]
-python = "python3.7"
+python = "python3.8"
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
 [virtualenv.pypinfo]
-python = "python3.7"
+python = "python3.8"
 install = ["pypinfo"]
 link = ["pypinfo"]
 
 [virtualenv.shiv]
-python = "python3.7"
+python = "python3.8"
 install = ["shiv"]
 link = ["shiv"]
 
 [virtualenv.sphinx]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = ["sphinx", "sphinxcontrib.spelling"]
 link = [
@@ -458,6 +458,6 @@ install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 
 [virtualenv.twisted]
-python = "python3.7"
+python = "python3.8"
 install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/twisted"]
