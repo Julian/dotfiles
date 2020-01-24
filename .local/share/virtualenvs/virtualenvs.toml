@@ -15,7 +15,7 @@ core = [
     "pyrsistent",
     "pytest",
     "pytest-cov",
-    "python-papi; platform_system=='Linux'",
+    "python-papi; platform_system=='Linux' and platform_machine != 'aarch64'",
     "pytoml",
     "pyyaml",
     "testrepository",
