@@ -202,8 +202,7 @@ install = [
     "seaborn",
     "yellowbrick",
 
-    # auto-sklearn looks like it depends on old scikit-learn at the minute.
-    # "auto-sklearn",
+    "auto-sklearn",
     "featuretools",
     "h2o",
 
@@ -217,8 +216,7 @@ install = [
     "xgbfir",
 
     "eli5",
-    # Lime looks like it depends on old matplotlib at the minute.
-    # "lime",
+    "lime",
     "shap",
 
     "hdrhistogram",
@@ -235,30 +233,6 @@ install = [
     "twisted",
 ]
 link = ["jupyter", "kaggle", "ptpython:ml", "xgbfir"]
-
-[virtualenv.lime]
-python = "python3.8"
-install-bundle = ["development"]
-install = [
-    "lime",
-
-    "hyperlink",
-    "pyrsistent",
-    "requests",
-    "twisted",
-]
-
-[virtualenv.autosklearn]
-python = "python3.8"
-install-bundle = ["development"]
-install = [
-    "auto-sklearn",
-
-    "hyperlink",
-    "pyrsistent",
-    "requests",
-    "twisted",
-]
 
 [virtualenv.bandit]
 python = "pypy3"
