@@ -245,7 +245,7 @@ install = ["check-manifest"]
 link = ["check-manifest"]
 
 [virtualenv.mkpkg]
-install = ["-e", "${DEVELOPMENT}/mkpkg"]
+install = ["mkpkg"]
 link = ["mkpkg"]
 
 [virtualenv.neovim]
