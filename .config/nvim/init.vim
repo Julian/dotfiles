@@ -45,7 +45,6 @@ Plug    'AndrewRadev/switch.vim'
 Plug    'b4winckler/vim-angry'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
-Plug    'glacambre/firenvim'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
 Plug    'kana/vim-vspec'
 Plug    'kana/vim-submode'
