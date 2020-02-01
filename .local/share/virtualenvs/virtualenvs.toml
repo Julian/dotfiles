@@ -215,6 +215,13 @@ install = [
     "xgboost",
     "xgbfir",
 
+    "pygithub",
+
+    "h5py",
+    "svmlight-loader",
+
+    "yellowbrick",
+
     "eli5",
     "lime",
     "shap",
@@ -226,6 +233,8 @@ install = [
     "kaggle",
 
     "nteract_on_jupyter",
+
+    "boto3",
 
     "hyperlink",
     "pyrsistent",
