@@ -18,6 +18,7 @@ def configure(repl):
         ("color_depth", ColorDepth.DEPTH_24_BIT),
         ("confirm_exit", False),
         ("enable_auto_suggest", True),
+        ("enable_fuzzy_completion", True),
         ("enable_mouse_support", False),
         ("enable_open_in_editor", True),
         ("highlight_matching_parenthesis", True),
