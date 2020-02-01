@@ -64,6 +64,7 @@
 .local/share/nvim/bundle
 .local/share/nvim/log
 .local/share/perl5/
+.local/share/pip2pi/
 .local/share/pypy*/
 .local/share/recently-used.xbel
 .local/share/virtualenvs/
