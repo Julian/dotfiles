@@ -29,12 +29,3 @@ def configure(repl):
         _set(repl=repl, name=name, value=value)
 
     repl.use_code_colorscheme("monokai")
-
-
-    from prompt_toolkit.keys import Keys
-    @repl.add_key_binding(Keys.ControlD)
-    def _(event):
-        """
-        Temporarily hack around https://github.com/jonathanslenders/ptpython/issues/265
-        """
-        event.app.exit(exception=EOFError, style='class:exiting')
