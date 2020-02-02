@@ -241,7 +241,17 @@ install = [
     "requests",
     "twisted",
 ]
-link = ["jupyter", "kaggle", "ptpython:ml", "xgbfir"]
+link = [
+    "bokeh",
+    "dask-scheduler",
+    "dask-ssh",
+    "dask-worker",
+    "featuretools",
+    "jupyter",
+    "kaggle",
+    "ptpython:ml",
+    "xgbfir",
+]
 
 [virtualenv.bandit]
 python = "pypy3"
