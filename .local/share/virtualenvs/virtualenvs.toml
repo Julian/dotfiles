@@ -244,6 +244,7 @@ link = [
     "jupyter",
     "kaggle",
     "ptpython:ml",
+    "voila",
     "xgbfir",
 ]
 
