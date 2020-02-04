@@ -4,7 +4,7 @@ core = [
     "coverage>=5.0a7",
     "filesystems",
     "glom",
-    "green",
+    "hyperlink",
     "hypothesis",
     "inflect",
     "jinja2",
@@ -182,16 +182,18 @@ link = ["litecli"]
 
 [virtualenv.ml]
 python = "python3.8"
-install-bundle = ["development"]
+install-bundle = ["core", "development"]
 install = [
     "numpy",
+    "pandas",
+
     "jupyter",
     "jupyterlab",
-    "pandas",
+    "nteract_on_jupyter",
+    "octave_kernel",
 
     "ipympl",
     "matplotlib",
-
     "altair",
     "git+https://github.com/altair-viz/altair_pandas",
 
@@ -201,6 +203,8 @@ install = [
     "plotnine",
     "seaborn",
     "yellowbrick",
+
+    "voila",
 
     "auto-sklearn",
     "featuretools",
@@ -215,31 +219,21 @@ install = [
     "xgboost",
     "xgbfir",
 
-    "pygithub",
-
-    "h5py",
-    "svmlight-loader",
-
-    "yellowbrick",
-
     "eli5",
     "lime",
     "shap",
 
-    "hdrhistogram",
-    "networkx",
-    "octave_kernel",
+    "h5py",
+    "svmlight-loader",
 
     "kaggle",
 
-    "nteract_on_jupyter",
+    "hdrhistogram",
+
+    "networkx",
 
     "boto3",
-
-    "hyperlink",
-    "pyrsistent",
     "requests",
-    "twisted",
 ]
 link = [
     "bokeh",
