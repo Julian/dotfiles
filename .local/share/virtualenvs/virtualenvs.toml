@@ -213,6 +213,7 @@ install = [
     "scikit-learn",
     "scikit-optimize[plots]",
     "scikit-plot",
+    "category_encoders",
 
     "tensorflow",
     "torch",
