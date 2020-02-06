@@ -236,6 +236,7 @@ install = [
 
     "boto3",
     "requests",
+    "smart_open",
 ]
 link = [
     "bokeh",
