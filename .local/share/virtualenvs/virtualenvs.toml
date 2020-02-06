@@ -340,6 +340,7 @@ link = [
     "sphinx-build",
     "sphinx-quickstart",
 ]
+link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
 [virtualenv.sphobjinv]
 python = "pypy3"
