@@ -225,6 +225,7 @@ install = [
     "lime",
     "shap",
 
+    "fastparquet",
     "h5py",
     "svmlight-loader",
 
