@@ -340,11 +340,6 @@ link = [
 ]
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
-[virtualenv.sphobjinv]
-python = "pypy3"
-install = ["sphobjinv"]
-link = ["sphobjinv"]
-
 [virtualenv.style]
 install = ["ebb-lint"]
 link = ["flake8"]
