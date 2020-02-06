@@ -184,6 +184,7 @@ link = ["litecli"]
 python = "python3.8"
 install-bundle = ["core", "development"]
 install = [
+    "dask[complete]",
     "numpy",
     "pandas",
 
