@@ -209,6 +209,7 @@ install = [
     "auto-sklearn",
     "featuretools",
     "h2o",
+    "tpot",
 
     "scikit-learn",
     "scikit-optimize[plots]",
