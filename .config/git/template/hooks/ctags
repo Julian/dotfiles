@@ -5,5 +5,5 @@ dir="$(git rev-parse --git-dir)"
 tags_tmp="${dir}/ctags.$$.tmp"
 command -v ctags >/dev/null 2>&1 || exit 0
 trap "rm -f ${tags_tmp}" EXIT
-git ls-files | ctags -L - --tag-relative=yes -f"${tags_tmp}" --languages=-css,javascript,json,sql
+git ls-files | ctags -L - --tag-relative=yes -f"${tags_tmp}" --extras=+q --languages=-css,javascript,json,sql
 mv "$tags_tmp" "${dir}/tags"
