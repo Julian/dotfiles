@@ -11,12 +11,13 @@
 .config/nvim/sessions
 .config/nvim/.netrwhist
 .config/nvim/.yankring_history*
+.local/share/nvim/bundle
+.local/share/nvim/log
 .local/share/nvim/shada
 .local/share/nvim/undo
 
 .tmux/tmux.conf.local
 
-.config/ad2d2.ini
 .config/ansible/vault-password
 .config/aws/credentials.ini
 .config/bpython/history
@@ -61,8 +62,6 @@
 .local/share/gem/
 .local/share/great/
 .local/share/man/
-.local/share/nvim/bundle
-.local/share/nvim/log
 .local/share/perl5/
 .local/share/pip2pi/
 .local/share/pypy*/
