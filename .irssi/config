@@ -314,18 +314,29 @@ hilights = (
   { text = "Julian"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 ignores = (
-  { mask = "bbot2"; level = "ALL NO_ACT"; },
-  { mask = "bbot2_"; level = "ALL NO_ACT"; },
-  { mask = "py-bb"; level = "ALL NO_ACT"; },
-  { mask = "py-bb_"; level = "ALL NO_ACT"; },
   { level = "JOINS PARTS QUITS"; },
-  { mask = "*zzz*"; level = "NICKS NO_ACT"; },
-  { mask = "*afk*"; level = "NICKS NO_ACT"; },
-  { mask = "*away*"; level = "NICKS NO_ACT"; },
-  { mask = "*|bnc"; level = "NICKS NO_ACT"; },
-  { mask = "irker*"; level = "ALL NO_ACT"; },
-  { mask = "ldlework"; level = "ALL NO_ACT"; },
-  { mask = "recheck"; level = "ALL NO_ACT"; }
+  { mask = "bbot2"; level = "NO_ACT"; },
+  { mask = "bbot2_"; level = "NO_ACT"; },
+  { mask = "py-bb"; level = "NO_ACT"; },
+  { mask = "py-bb_"; level = "NO_ACT"; },
+  { mask = "*zzz*"; level = "NO_ACT"; },
+  { mask = "*afk*"; level = "NO_ACT"; },
+  { mask = "*away*"; level = "NO_ACT"; },
+  { mask = "*|bnc"; level = "NO_ACT"; },
+  { mask = "irker*"; level = "NO_ACT"; },
+  { mask = "ldlework"; level = "NO_ACT"; },
+  { mask = "recheck"; level = "NO_ACT"; },
+  { mask = "bbot2"; level = "ALL"; },
+  { mask = "bbot2_"; level = "ALL"; },
+  { mask = "py-bb"; level = "ALL"; },
+  { mask = "py-bb_"; level = "ALL"; },
+  { mask = "*zzz*"; level = "ALL"; },
+  { mask = "*afk*"; level = "ALL"; },
+  { mask = "*away*"; level = "ALL"; },
+  { mask = "*|bnc"; level = "ALL"; },
+  { mask = "irker*"; level = "ALL"; },
+  { mask = "ldlework"; level = "ALL"; },
+  { mask = "recheck"; level = "ALL"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
