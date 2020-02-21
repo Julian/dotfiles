@@ -314,18 +314,18 @@ hilights = (
   { text = "Julian"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 ignores = (
-  { mask = "bbot2"; level = "NO_ACT ALL"; },
-  { mask = "bbot2_"; level = "NO_ACT ALL"; },
-  { mask = "py-bb"; level = "NO_ACT ALL"; },
-  { mask = "py-bb_"; level = "NO_ACT ALL"; },
+  { mask = "bbot2"; level = "ALL NO_ACT"; },
+  { mask = "bbot2_"; level = "ALL NO_ACT"; },
+  { mask = "py-bb"; level = "ALL NO_ACT"; },
+  { mask = "py-bb_"; level = "ALL NO_ACT"; },
   { level = "JOINS PARTS QUITS"; },
-  { mask = "*zzz*"; level = "NO_ACT NICKS"; },
-  { mask = "*afk*"; level = "NO_ACT NICKS"; },
-  { mask = "*away*"; level = "NO_ACT NICKS"; },
-  { mask = "*|bnc"; level = "NO_ACT NICKS"; },
-  { mask = "irker*"; level = "NO_ACT ALL"; },
-  { mask = "ldlework"; level = "NO_ACT ALL"; },
-  { mask = "recheck"; level = "NO_ACT ALL"; },
+  { mask = "*zzz*"; level = "NICKS NO_ACT"; },
+  { mask = "*afk*"; level = "NICKS NO_ACT"; },
+  { mask = "*away*"; level = "NICKS NO_ACT"; },
+  { mask = "*|bnc"; level = "NICKS NO_ACT"; },
+  { mask = "irker*"; level = "ALL NO_ACT"; },
+  { mask = "ldlework"; level = "ALL NO_ACT"; },
+  { mask = "recheck"; level = "ALL NO_ACT"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
