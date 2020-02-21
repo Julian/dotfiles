@@ -53,6 +53,23 @@ fi
 zle -N ctrlz
 bindkey '^Z' ctrlz
 
+function swap-quote-kind() {
+  local c
+
+  for (( c = $#LBUFFER; c > 0; c-- )); do
+    if [[ $LBUFFER[c] == \' ]]; then
+      LBUFFER[c]=\"
+      break
+    elif [[ $LBUFFER[c] == \" ]]; then
+      LBUFFER[c]=\'
+      break
+    fi
+  done
+}
+
+zle -N swap-quote-kind
+bindkey '^Q' swap-quote-kind
+
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search up-line-or-beginning-search
