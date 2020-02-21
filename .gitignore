@@ -21,6 +21,11 @@
 .config/ansible/vault-password
 .config/aws/credentials.ini
 .config/bpython/history
+.config/cmus/cache
+.config/cmus/command-history
+.config/cmus/lib.pl
+.config/cmus/search-history
+.config/cmus/socket
 .config/configstore/
 .config/darktable/
 .config/docker/.buildNodeID
