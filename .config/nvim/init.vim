@@ -723,13 +723,16 @@ if has("eval")
     " : Neovim UI Specific :
     " ======================
 
-    function! OnUIEnter(channel)
-        let l:ui = nvim_get_chan_info(a:channel)
-        if has_key(l:ui, 'client') &&
-        \ has_key(l:ui.client, "name") &&
-        \ l:ui.client.name == "Firenvim"
-            source $XDG_CONFIG_HOME/nvim/firen.vim
-        endif
-    endfunction
-    autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
+    if exists('##UIEnter')
+        function! OnUIEnter(channel)
+            let l:ui = nvim_get_chan_info(a:channel)
+            if has_key(l:ui, 'client') &&
+            \ has_key(l:ui.client, "name") &&
+            \ l:ui.client.name == "Firenvim"
+                source $XDG_CONFIG_HOME/nvim/firen.vim
+            endif
+        endfunction
+
+        autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
+    endif
 endif
