@@ -68,11 +68,12 @@
     cim = commit --amend -m
     fixup = commit --fixup
 
-    d = diff --ignore-all-space --ignore-blank-lines --word-diff=color --find-renames
-    dc = diff --ignore-all-space --ignore-blank-lines --word-diff=color --find-renames --cached
+    d = diff --ignore-all-space --ignore-blank-lines --word-diff=color --color-moved=zebra --color-moved-ws=allow-indentation-change --find-renames
+    dc = diff --ignore-all-space --ignore-blank-lines --word-diff=color --color-moved=zebra --color-moved-ws=allow-indentation-change --find-renames --cached
     di = diff
     dd = diff --diff-algorithm=default
     df = diff --name-only
+    sh = show --ignore-all-space --ignore-blank-lines --word-diff=color --color-moved=zebra --color-moved-ws=allow-indentation-change --find-renames
 
     erm = rebase -i @{u}
 
