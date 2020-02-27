@@ -265,6 +265,7 @@ nnoremap        <leader>tw        :<C-U>set wrap!<CR>
 
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
+nnoremap        <leader>w         :<C-U>DeniteCursorWord grep:.<CR>
 nnoremap        <leader>y         "*y
 
 nnoremap        <leader>gb         :<C-U>Gblame<CR>
