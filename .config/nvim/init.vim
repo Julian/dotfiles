@@ -306,7 +306,7 @@ nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
 nnoremap        <leader><BS>      :earlier 1f<CR>
 nnoremap        <leader>\         :later 1f<CR>
-nnoremap        <leader>/         :<C-U>Denite grep:.<CR>
+nnoremap        <leader>/         :<C-U>Denite -no-empty grep:.<CR>
 
 
 nnoremap        <leader><tab>     <C-^>
