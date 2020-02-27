@@ -445,6 +445,7 @@ set virtualedit=block
 
 set ignorecase
 set smartcase                          " case-sensitive if upper in search term
+set tagcase=followscs
 
 if exists('+inccommand')
     set inccommand=nosplit
