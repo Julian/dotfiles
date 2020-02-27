@@ -9,6 +9,8 @@ let s:denite_options = {
     \ 'source_names': 'short',
     \ 'split': 'floating',
     \ 'start_filter': 1,
+    \ 'vertical_preview': 1,
+    \ 'winrow': 1,
     \ }
 call denite#custom#option('default', s:denite_options)
 
