@@ -236,7 +236,7 @@ nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>Denite file/rec<CR>
+nnoremap        <leader>d         :<C-U>DeniteProjectDir file/rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
 nnoremap        <leader>f         :<C-U>Denite file/rec:`expand('%:h')`<CR>
 nnoremap        <leader>h         :<C-U>Denite tag<CR>
