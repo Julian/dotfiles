@@ -412,6 +412,10 @@ set timeoutlen=500                     " shorten the amount of time to wait
 
 set showtabline=1
 
+if exists('+winblend')
+    set winblend=20                    " make floating windows transparentish
+endif
+
 if has('multi_byte') || has('gui_running')
     set listchars=tab:▸\ ,eol:¬,trail:·,extends:→,precedes:←
 else
