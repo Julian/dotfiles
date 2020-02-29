@@ -134,10 +134,11 @@ function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
 function conf() { 
-    if [[ $# == 0 ]]; then
-        exa $XDG_CONFIG_HOME
+    local target=$XDG_CONFIG_HOME/$1
+    if [[ -d "$target" ]]; then
+        exa "$target"
     else
-        $EDITOR $XDG_CONFIG_HOME/$1
+        $EDITOR "$target"
     fi
 }
 compdef "_files -W $XDG_CONFIG_HOME" conf
