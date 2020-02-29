@@ -134,14 +134,15 @@ function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
 function conf() { 
-    local target=$XDG_CONFIG_HOME/$1
+    local target=($XDG_CONFIG_HOME/$1)
     if [[ -d "$target" ]]; then
-        exa "$target"
+        exa ${~target}
     else
-        $EDITOR "$target"
+        $EDITOR ${~target}
     fi
 }
 compdef "_files -W $XDG_CONFIG_HOME" conf
+alias conf='noglob conf'
 
 alias ymd='date +"%Y-%m-%d"'
 
