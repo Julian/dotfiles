@@ -326,6 +326,11 @@ python = "python3.8"
 install = ["shiv"]
 link = ["shiv"]
 
+[virtualenv.scrapy]
+python = "python3.8"
+install = ["scrapy"]
+link = ["scrapy"]
+
 [virtualenv.sphinx]
 python = "python3.8"
 install-bundle = ["development"]
