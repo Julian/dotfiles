@@ -31,6 +31,14 @@ set wildmenu                                " file completion helper window
 
 let &viminfo = "'50,s100,n" . expand("$XDG_CACHE_HOME/vim/viminfo")
 
+if has('autocmd')
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+  set synmaxcol=512
+endif
+
 source ~/.config/nvim/init.vim
 
 set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
