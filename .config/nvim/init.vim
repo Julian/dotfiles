@@ -94,14 +94,6 @@ call plug#end()
 " : Basic :
 " =========
 
-if has('autocmd')
-  filetype plugin indent on
-endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-  set synmaxcol=512
-endif
-
 set gdefault
 set hidden
 set lazyredraw                         " no redraw during macros (much faster)
