@@ -230,7 +230,7 @@ endfor
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <CR>              :<C-U>SplitSensibly $XDG_DATA_HOME/nvim/global.wiki<CR>
+nnoremap        <CR>              :<C-U>SplitSensibly<CR>:VimwikiIndex<CR>
 
 nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
@@ -493,7 +493,13 @@ let g:is_posix = 1
 let g:tex_flavor='latex'
 
 let g:exchange_no_mappings = '1'
+
 let g:vimwiki_key_mappings = {'all_maps': 0}
+let g:vimwiki_list = [
+    \ {
+    \    'path': expand("$XDG_DATA_HOME/nvim/"),
+    \    'index': 'global',
+    \ }]
 
 " signature
 let g:SignatureMap = {
