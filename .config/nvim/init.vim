@@ -501,7 +501,6 @@ let g:vimwiki_list = [
     \    'index': 'global',
     \ }]
 
-" signature
 let g:SignatureMap = {
       \ 'Leader'             :  "M",
       \ 'PlaceNextMark'      :  "M,",
