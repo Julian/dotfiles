@@ -21,6 +21,7 @@
 .config/ansible/vault-password
 .config/aws/credentials.ini
 .config/bpython/history
+.config/cmus/autosave
 .config/cmus/cache
 .config/cmus/command-history
 .config/cmus/lib.pl
