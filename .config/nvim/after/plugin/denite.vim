@@ -80,7 +80,9 @@ endfunction
 if executable('rg')
     call denite#custom#var('file/rec', 'command',
         \ ['rg', '--follow', '--hidden',
-        \        '--color', 'never', '--no-heading', '--files'])
+        \        '--color', 'never', '--no-heading', '--files',
+        \        '--glob', '!.hg',
+        \ ])
     call denite#custom#var('grep', 'command', ['rg'])
     call denite#custom#var('grep', 'default_opts',
         \ ['--smart-case', '--vimgrep', '--hidden', '--heading'])
