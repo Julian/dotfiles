@@ -222,8 +222,6 @@ endfor
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <CR>              :<C-U>SplitSensibly<CR>:VimwikiIndex<CR>
-
 nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
 nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
@@ -673,6 +671,12 @@ if has("eval")
         close
     endfunction
 
+    function! <SID>MaybeMapCR()
+        if mapcheck('<CR>') == ''
+            nnoremap <buffer> <CR> :<C-U>SplitSensibly<CR>:VimwikiIndex<CR>
+        endif
+    endfunction
+
     if has("autocmd")
         augroup misc
             autocmd!
@@ -683,8 +687,10 @@ if has("eval")
             " Automagic line numbers
             autocmd BufEnter * :call <SID>WindowWidth()
 
-            " For help files, make <Return> behave like <C-]> (jump to tag)
-            autocmd FileType help nmap <buffer> <Return> <C-]>
+            " For help files, make <CR> behave like <C-]> (jump to tag)
+            autocmd FileType help nnoremap <buffer> <CR> <C-]>
+            autocmd FileType vimwiki nnoremap <buffer> <CR> :VimwikiFollowLink<CR>
+            autocmd BufWinEnter * :call <SID>MaybeMapCR()
 
             " Jump to the last known cursor position if it's valid (from the docs)
             autocmd BufReadPost *
