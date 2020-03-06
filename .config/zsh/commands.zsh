@@ -57,6 +57,8 @@ elif (( $+commands[pacman] )); then
     alias up="sudo pacman -Syu"
 elif (( $+commands[pkg] )); then
     alias up="pkg upgrade"
+elif (( $+commands[apt] )); then
+    alias up="sudo apt update && sudo apt upgrade"
 fi
 
 if (( $+commands[fzy] )); then
