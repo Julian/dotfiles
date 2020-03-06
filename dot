@@ -38,7 +38,7 @@ def make_symlinks(arguments):
             continue
 
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
-        symlink_unless_present(dotfile, dest)
+        symlink_unless_present(os.path.abspath(dotfile), dest)
 
     # Fall back on linking individual config files if we failed.
     config_dir = os.path.join(arguments.dest_dir, ".config")
