@@ -27,7 +27,7 @@ core = [
 
 [virtualenv.dev]
 install-bundle = ["core", "development"]
-install = ["vmprof"]
+install = ["vmprof; platform_machine != 'aarch64'"]
 link = [
     "bpython",
     "bpython-urwid",
