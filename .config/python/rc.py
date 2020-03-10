@@ -80,10 +80,10 @@ def edit(editor=None, *args, **kwargs):
             the file (default: ``globals()``)
     """
 
+    from tempfile import NamedTemporaryFile
     import atexit
     import os
     import subprocess
-    import tempfile
     import traceback
     global __last_edited_file__
 
@@ -107,13 +107,15 @@ def edit(editor=None, *args, **kwargs):
         if editing is None:
             raise NameError()
     except NameError:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as tmp:
+        with NamedTemporaryFile(delete=False, suffix=".py") as tmp:
             if content:
                 tmp.writelines(content)
             if globals_ and write_globals:
-                tmp.write("\n\n# Globals:\n")
+                tmp.write(b"\n\n# Globals:\n")
                 matching = (g for g in globals_ if matches(g))
-                tmp.writelines("#    {}\n".format(g) for g in matching)
+                tmp.writelines(
+                    u"#    {}\n".format(g).encode() for g in matching,
+                )
 
         editing, deleted_already = __last_edited_file__ = tmp.name, False
 
@@ -126,7 +128,8 @@ def edit(editor=None, *args, **kwargs):
                     add_history(line.rstrip())
 
         try:
-            execfile(editing, globals_)
+            with open(editing) as file:
+                exec(file.read(), globals_)
         except Exception:
             if retry:
                 traceback.print_exc()
