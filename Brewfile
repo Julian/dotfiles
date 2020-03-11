@@ -31,7 +31,7 @@ brew "libxml2"
 brew "libxslt"
 brew "luajit"
 brew "mas"
-brew "moreutils", args: ["without-parallel"]
+brew "moreutils"
 brew "mtr"
 brew "ncurses"
 brew "neovim"
