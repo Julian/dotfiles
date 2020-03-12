@@ -316,6 +316,7 @@ hilights = (
 ignores = (
   { mask = "bbot2"; level = "ALL"; },
   { mask = "bbot2_"; level = "ALL"; },
+  { mask = "cpython-buildbot"; level = "ALL"; },
   { mask = "py-bb"; level = "ALL"; },
   { mask = "py-bb_"; level = "ALL"; },
   { level = "JOINS PARTS QUITS"; },
