@@ -1,3 +1,4 @@
 tap "homebrew/cask"
+cask "ableton-live-lite"
 cask "cycling74-max"
 cask "vcv-rack"
