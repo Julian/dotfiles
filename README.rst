@@ -6,11 +6,15 @@ A work in progress.
 Forever.
 
 Install
-=======
+-------
 
-* git clone --recursive (to check out submodules)
-* ./dot install
-* mkdir $HOME/Development
+.. code-block:: sh
+
+   $ git clone --recursive https://github.com/Julian/dotfiles ~/.dotfiles
+   $ mkdir ~/Development
+   $ cd ~/.dotfiles && ./dot install
+
+   $ brew analytics off
+
 * Symlink tmux.conf.os to tmux.conf.local
-* Add login credentials to pypirc
 * Symlink something to ~/.wallpaper if on Linux
