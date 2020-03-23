@@ -1,7 +1,7 @@
 [bundle]
 development = ["bpython[urwid]", "pipdeptree", "ptpython", "pudb", "q"]
 core = [
-    "coverage>=5.0a7",
+    "coverage",
     "filesystems",
     "glom",
     "hyperlink",
@@ -32,7 +32,7 @@ link = [
     "bpython",
     "bpython-urwid",
     "conch",
-    "coverage>=5.0a7",
+    "coverage",
     "glom",
     "pip",
     "pyperf",
