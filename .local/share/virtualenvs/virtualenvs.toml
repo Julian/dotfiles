@@ -273,6 +273,11 @@ python = "pypy3"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile3"]
 
+[virtualenv.piptools-cpython3]
+python = "python3.8"
+install = ["pip-tools"]
+link = ["pip-compile:pip-compile-cpython3"]
+
 [virtualenv.cast]
 python = "python3.8"
 install-bundle = ["development"]
