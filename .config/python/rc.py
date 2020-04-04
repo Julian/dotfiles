@@ -114,7 +114,7 @@ def edit(editor=None, *args, **kwargs):
                 tmp.write(b"\n\n# Globals:\n")
                 matching = (g for g in globals_ if matches(g))
                 tmp.writelines(
-                    u"#    {}\n".format(g).encode() for g in matching,
+                    u"#    {}\n".format(g).encode() for g in matching
                 )
 
         editing, deleted_already = __last_edited_file__ = tmp.name, False
