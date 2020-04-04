@@ -34,7 +34,7 @@ def make_symlinks(arguments):
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
         symlink_unless_present(dotfile, dest)
 
-    for each in [".config", ".local"]:
+    for each in [".config", ".local", ".local/share"]:
         dotfile_dir = os.path.join(arguments.dotfiles, each)
         dest_dir = os.path.join(arguments.dest_dir, each)
         try:
