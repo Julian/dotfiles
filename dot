@@ -25,13 +25,7 @@ def make_symlinks(arguments):
 
     """
 
-    ignored = set(
-        [
-            ".git",
-            ".gitignore",
-            ".gitmodules",
-        ],
-    )
+    ignored = {".config", ".git", ".gitignore", ".gitmodules"}
 
     for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
         if os.path.basename(dotfile) in ignored:
@@ -40,14 +34,19 @@ def make_symlinks(arguments):
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
         symlink_unless_present(os.path.abspath(dotfile), dest)
 
-    # Fall back on linking individual config files if we failed.
     config_dir = os.path.join(arguments.dest_dir, ".config")
     config_dotfiles = os.path.join(arguments.dotfiles, ".config")
-    if os.path.realpath(config_dir) != config_dotfiles:
-        for dotfile in os.listdir(config_dotfiles):
-            dotfile = os.path.join(config_dotfiles, dotfile)
-            dest = os.path.join(config_dir, os.path.basename(dotfile))
-            symlink_unless_present(dotfile, dest)
+    try:
+        os.symlink(config_dotfiles, config_dir)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+        # Fall back on linking individual config files if we failed.
+        if os.path.realpath(config_dir) != config_dotfiles:
+            for dotfile in os.listdir(config_dotfiles):
+                dotfile = os.path.join(config_dotfiles, dotfile)
+                dest = os.path.join(config_dir, os.path.basename(dotfile))
+                symlink_unless_present(dotfile, dest)
 
     bin_dir = os.path.abspath(os.path.normpath(arguments.bin_dir))
     try:
