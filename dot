@@ -32,7 +32,7 @@ def make_symlinks(arguments):
             continue
 
         dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
-        symlink_unless_present(os.path.abspath(dotfile), dest)
+        symlink_unless_present(dotfile, dest)
 
     for each in [".config", ".local"]:
         dotfile_dir = os.path.join(arguments.dotfiles, each)
@@ -67,6 +67,7 @@ def symlink_unless_present(file, dest):
 
     """
 
+    file = os.path.abspath(file)
     try:
         os.symlink(file, dest)
     except OSError as e:
