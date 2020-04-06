@@ -87,6 +87,12 @@ if (( $+commands[weechat-curses] )); then
     alias weechat="weechat-curses -d $XDG_CONFIG_HOME/weechat"
 fi
 
+if (( $+commands[osascript] )); then
+    function volume() {
+        osascript -e "set Volume $@"
+    }
+fi
+
 # Suffix Aliases
 alias -s tex=vim
 
