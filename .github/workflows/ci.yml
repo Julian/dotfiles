@@ -18,6 +18,7 @@ jobs:
       uses: actions/setup-python@v1
     - name: Install packages
       run: brew bundle install
+      continue-on-error: true
     - name: Bootstrap
       run: python ./dot install
     - name: Converge venvs
