@@ -19,7 +19,13 @@ export DEVELOPMENT=$HOME/Development
 
 [[ -d $DEVELOPMENT ]] && export IS_DEVELOPMENT_WORKSTATION=yup
 
-cdpath=(${DEVELOPMENT} ${XDG_DESKTOP_DIR} ${HOME} $cdpath)
+cdpath=(
+    ${DEVELOPMENT}
+    ${XDG_DESKTOP_DIR}
+    ${HOME}
+    ${HOME}/.local/share/repositories
+    $cdpath
+)
 
 perl_home=$XDG_DATA_HOME/perl5
 if perl -I$perl_home/lib/perl5 -mlocal::lib -e1 2>/dev/null; then
