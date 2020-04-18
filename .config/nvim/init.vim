@@ -32,6 +32,7 @@ Plug    'sheerun/vim-polyglot'
 
 Plug    'guns/vim-clojure-highlight',                 {'for': 'clojure'}
 Plug    'guns/vim-sexp',                              {'for': 'clojure'}
+Plug    'raimon49/requirements.txt.vim',              {'for': 'requirements'}
 Plug    'tpope/vim-fireplace',                        {'for': 'clojure'}
 Plug    'tpope/vim-leiningen',                        {'for': 'clojure'}
 Plug    'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
