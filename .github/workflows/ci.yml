@@ -23,7 +23,7 @@ jobs:
       run: python ./dot install
     - name: Converge venvs
       run: python -m pip install venvs && venvs converge
-      env: 
+      env:
         C_INCLUDE_PATH: /usr/local/include:/usr/local/opt/openssl@1.1/include
         LIBRARY_PATH: /usr/local/lib:/usr/local/opt/openssl@1.1/lib
         PKG_INCLUDE_PATH: /usr/local/opt/openssl@1.1/lib/pkgconfig
