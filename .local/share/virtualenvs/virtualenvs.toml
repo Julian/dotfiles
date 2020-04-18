@@ -395,15 +395,6 @@ install = ["${DEVELOPMENT}/diff", "twisted[tls]"]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/filesystems", "testscenarios", "twisted"]
 
-[virtualenv.svmlight-loader]
-python = "pypy3"
-install-bundle = ["development"]
-install = [
-    "Cython; platform_python_implementation == 'pypy'",
-    "${DEVELOPMENT}/svmlight-loader[sklearn]",
-    "pytest",
-]
-
 [virtualenv.great]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/Great", "twisted[tls]"]
@@ -425,3 +416,8 @@ install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 python = "python3.8"
 install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/twisted"]
+
+[virtualenv.virtue]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/virtue"]
+link = ["virtue"]
