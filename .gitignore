@@ -27,6 +27,7 @@
 .config/cmus/command-history
 .config/cmus/lib.pl
 .config/cmus/search-history
+.config/cmus/playlists/default
 .config/cmus/socket
 .config/configstore/
 .config/darktable/
