@@ -352,7 +352,7 @@ install = ["termtosvg"]
 link = ["termtosvg"]
 
 [virtualenv.tox]
-python = "pypy3"
+python = "python3.8"
 install = ["tox"]
 link = ["tox"]
 
