@@ -27,6 +27,7 @@ core = [
 # --- Development ---
 
 [virtualenv.dev]
+python = "pypy"
 install-bundle = ["core", "development"]
 link = [
     "bpython",
