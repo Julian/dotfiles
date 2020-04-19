@@ -21,6 +21,7 @@ core = [
     "testrepository",
     "treq",
     "twisted[conch,tls]",
+    "virtue",
 ]
 
 # --- Development ---
