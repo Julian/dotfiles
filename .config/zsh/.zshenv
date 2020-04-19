@@ -29,13 +29,14 @@ else
     alias open=xdg-open
 fi
 
+export XDG_STATE_HOME=$HOME/.local/state
+
 export XDG_DESKTOP_DIR=$HOME/Desktop
 export XDG_DOCUMENTS_DIR=$HOME/Documents
 export XDG_DOWNLOAD_DIR=$XDG_DESKTOP_DIR
 export XDG_MUSIC_DIR=$HOME/Music
 export XDG_PICTURES_DIR=$HOME/Pictures
 export XDG_PUBLICSHARE_DIR=$HOME/Public
-export XDG_STATE_DIR=$HOME/.local/state
 export XDG_TEMPLATES_DIR=$XDG_CONFIG_HOME/templates
 export XDG_VIDEOS_DIR=$HOME/Movies
 
