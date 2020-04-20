@@ -1,5 +1,12 @@
 [bundle]
-development = ["bpython[urwid]", "pipdeptree", "ptpython", "pudb", "q"]
+development = [
+    "bpython[urwid]",
+    "pipdeptree",
+    "ptpython",
+    "pudb",
+    "q",
+    "virtue",
+]
 core = [
     "coverage",
     "filesystems",
@@ -21,7 +28,6 @@ core = [
     "testrepository",
     "treq",
     "twisted[conch,tls]",
-    "virtue",
 ]
 
 # --- Development ---
