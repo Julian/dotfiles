@@ -1,7 +1,0 @@
-* > foo1 > foo2 and MULTIOS
-* cd old_dir new_dir
-* bg, disown, &|
-* limit
-* vared
-* print -P
-* mailpath
