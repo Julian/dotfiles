@@ -88,8 +88,30 @@ if (( $+commands[weechat-curses] )); then
 fi
 
 if (( $+commands[osascript] )); then
+    function _get-volume() {
+        osascript -e 'output volume of (get volume settings)'
+    }
+    function _set-volume() {
+        osascript -e "set Volume $(printf %.1f $1)"
+    }
+
     function volume() {
-        osascript -e "set Volume $@"
+        case "$1" in
+            '') _get-volume                                     ;;
+
+            down) _set-volume $(( $(_get-volume) / 14.0 - 1 ))  ;;
+            up) _set-volume $(( $(_get-volume) / 14.0 + 1 ))    ;;
+
+            u) _set-volume $(( $(_get-volume) / 14.0 + .2 ))  ;;
+            d) _set-volume $(( $(_get-volume) / 14.0 - .2 ))  ;;
+
+            min) _set-volume 0                                  ;;
+            max) _set-volume 100                                ;;
+            off) _set-volume 0                                  ;;
+            mute) _set-volume 0                                 ;;
+
+            *) _set-volume $1                                   ;;
+        esac
     }
 fi
 
