@@ -62,6 +62,7 @@ brew "tmux"
 brew "trash"
 brew "tree"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["with-jansson", "HEAD"]
+brew "util-linux"
 brew "watch"
 brew "wget"
 brew "xsv"
