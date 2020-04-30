@@ -73,6 +73,11 @@ link = [
 ]
 link-module = ["pydoc"]
 
+[virtualenv.aubio]
+python = "python3.8"
+install = ["aubio"]
+link = ["aubio", "aubiocut"]
+
 [virtualenv.aws]
 python = "python3.8"
 install-bundle = ["development"]
