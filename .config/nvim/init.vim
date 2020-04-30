@@ -263,12 +263,12 @@ nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         :<C-U>DeniteCursorWord grep:.<CR>
 nnoremap        <leader>y         "*y
 
-nnoremap        <leader>gb         :<C-U>Gblame<CR>
-nnoremap        <leader>gc         :<C-U>Gcommit<CR>
-nnoremap        <leader>gd         :<C-U>Gdiff<CR>
+nnoremap        <leader>gb         :<C-U>Git blame<CR>
+nnoremap        <leader>gc         :<C-U>Git commit<CR>
+nnoremap        <leader>gd         :<C-U>Gdiffsplit<CR>
 nnoremap        <leader>ge         :<C-U>Gedit<CR>
 nnoremap        <leader>gr         :<C-U>Gread<CR>
-nnoremap        <leader>gs         :<C-U>Gstatus<CR>
+nnoremap        <leader>gs         :<C-U>Git<CR>
 nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
