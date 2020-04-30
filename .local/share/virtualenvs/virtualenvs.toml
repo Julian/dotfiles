@@ -323,6 +323,11 @@ python = "python3.8"
 install = ["scrapy"]
 link = ["scrapy"]
 
+[virtualenv.ssh-audit]
+python = "python3.8"
+install = ["ssh-audit"]
+link = ["ssh-audit"]
+
 [virtualenv.shiv]
 python = "python3.8"
 install = ["shiv"]
