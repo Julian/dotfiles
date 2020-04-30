@@ -94,3 +94,8 @@ typeset -aU hgrcpath
 typeset -T HGRCPATH hgrcpath
 hgrcpath=($XDG_CONFIG_HOME/hg/config.ini $XDG_CONFIG_HOME/hg/)
 export HGRCPATH
+
+# Some tools *ahem docker -H ssh://* do not have a way to specify full paths to
+# binaries, so help them find things they need over SSH. Otherwise rely on the
+# normal path setting in .zprofile.
+[[ -n $SSH_CONNECTION ]]  && path=($path /usr/local/bin)
