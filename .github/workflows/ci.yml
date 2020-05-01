@@ -24,6 +24,9 @@ jobs:
     - name: Install packages
       run: brew bundle install
       if: runner.os == 'macOS'
+    - name: Install packages
+      run: sudo apt-get install -y zsh
+      if: runner.os == 'Linux'
       continue-on-error: true
     - name: Bootstrap
       run: python ./dot install
