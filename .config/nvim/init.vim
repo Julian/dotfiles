@@ -263,9 +263,11 @@ nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         :<C-U>DeniteCursorWord grep:.<CR>
 nnoremap        <leader>y         "*y
 
+nnoremap        <leader>ga         :<C-U>Git difftool<CR>
 nnoremap        <leader>gb         :<C-U>Git blame<CR>
 nnoremap        <leader>gc         :<C-U>Git commit<CR>
 nnoremap        <leader>gd         :<C-U>Gdiffsplit<CR>
+nnoremap        <leader>gf         :<C-U>Git difftool -y<CR>
 nnoremap        <leader>ge         :<C-U>Gedit<CR>
 nnoremap        <leader>gr         :<C-U>Gread<CR>
 nnoremap        <leader>gs         :<C-U>Git<CR>
@@ -300,6 +302,8 @@ nnoremap        <leader>{         :cpfile<CR>
 nnoremap        <leader>}         :cnfile<CR>
 nnoremap        <leader>-         :previous<CR>
 nnoremap        <leader>=         :next<CR>
+nnoremap        <leader>_         :tabprevious<CR>
+nnoremap        <leader>+         :tabnext<CR>
 nnoremap        <leader><BS>      :earlier 1f<CR>
 nnoremap        <leader>\         :later 1f<CR>
 nnoremap        <leader>/         :<C-U>Denite -no-empty grep:.<CR>
@@ -663,18 +667,6 @@ if has("eval")
             let file .= "\<cr>"
         endif
         return ":SplitSensibly " . file
-    endfunction
-
-    function! GdiffAll(...)
-        if a:0 > 0
-            let branch = a:1
-        else
-            let branch = 'develop'
-        endif
-
-        execute 'Git! diff --name-only ' . l:branch
-        global/./execute 'tabedit ' . getline('.') . '| Gdiff ' l:branch . ' | tabprevious'
-        close
     endfunction
 
     function! <SID>MaybeMapCR()
