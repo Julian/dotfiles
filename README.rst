@@ -17,5 +17,4 @@ Install
    $ brew analytics off
 
 * Symlink tmux.conf.os to tmux.conf.local
-* Symlink something to ~/.wallpaper if on Linux
 * Generate a certificate for irssi certauth and /msg *certauth add it
