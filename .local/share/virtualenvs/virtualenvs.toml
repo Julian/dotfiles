@@ -73,6 +73,27 @@ link = [
 ]
 link-module = ["pydoc"]
 
+[virtualenv.dev3-cpython]
+python = "python3.8"
+install-bundle = ["core", "development"]
+install = ["pyinstrument"]
+link = [
+    "bpython:bpython-cpython3",
+    "bpython-urwid:bpython-urwid-cpython3",
+    "coverage:coverage-cpython3",
+    "glom:glom-cpython3",
+    "pip:pip-cpython3",
+    "ptpython:ptpython-cpython3",
+    "pyinstrument",
+    "python:cpython3",
+    "pudb3:pudb-cpython3",
+    "py.test:py.test-cpython3",
+    "pyperf:pyperf-cpython3",
+    "testr:testr-cpython3",
+    "trial:trial-cpython3",
+    "twist:twist-cpython3",
+]
+
 [virtualenv.aubio]
 python = "python3.8"
 install = ["aubio"]
