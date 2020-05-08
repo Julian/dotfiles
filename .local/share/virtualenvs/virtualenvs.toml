@@ -230,6 +230,7 @@ install = [
     "scikit-plot",
     "category_encoders",
 
+    "fbprophet",
     "tensorflow",
     "torch",
     "xgboost",
@@ -448,6 +449,7 @@ install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
 requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 
 [virtualenv.regret]
+python = "pypy3"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 
