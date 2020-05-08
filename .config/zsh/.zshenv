@@ -91,6 +91,10 @@ typeset -aU pythonpath
 typeset -T PYTHONPATH pythonpath
 export PYTHONPATH
 
+typeset -aU pywarnings
+typeset -T PYTHONWARNINGS pywarnings ','
+export PYTHONWARNINGS
+
 typeset -aU hgrcpath
 typeset -T HGRCPATH hgrcpath
 hgrcpath=($XDG_CONFIG_HOME/hg/config.ini $XDG_CONFIG_HOME/hg/)
