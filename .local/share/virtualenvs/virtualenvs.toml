@@ -189,7 +189,7 @@ install = ["jsonschema[format]", "mock", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.litecli]
-python = "pypy3"
+python = "python3.8"
 install = ["litecli"]
 link = ["litecli"]
 
