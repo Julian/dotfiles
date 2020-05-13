@@ -35,11 +35,12 @@
 .config/docker/config.json
 .config/enchant/
 .config/fish/fishd.*
+.config/gnupg/openpgp-revocs.d/
+.config/gnupg/private-keys-*/
 .config/gnupg/pubring.kbx*
 .config/gnupg/random_seed
+.config/gnupg/reader*.status
 .config/gnupg/trustdb.gpg
-.config/gnupg/private-keys-*/
-.config/gnupg/openpgp-revocs.d/
 .config/gtk-2.0/gtkfilechooser.ini
 .config/jupyter/lab/workspaces
 .config/jupyter/migrated
