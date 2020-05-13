@@ -253,7 +253,7 @@ nnoremap        <leader>te        :<C-U>call <SID>ToggleExpando()<CR>
 nnoremap        <leader>ti        :<C-U>IndentGuidesToggle<CR>
 nnoremap        <leader>tl        :<C-U>set list!<CR>
 nnoremap        <leader>tn        :<C-U>call <SID>ToggleNumber()<CR>
-nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell<CR>:setlocal wrap<CR>
+nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell<CR>:setlocal wrap<CR>:setlocal textwidth=0<CR>
 nnoremap        <leader>ts        :<C-U>set spell!<CR>
 nnoremap        <leader>tu        :<C-U>UndotreeToggle<CR>
 nnoremap        <leader>tw        :<C-U>set wrap!<CR>
