@@ -64,7 +64,7 @@ elif (( $+commands[apt] )); then
 fi
 
 if (( $+commands[fzy] )); then
-    alias v=$EDITOR' $(rg --follow --hidden --no-heading --files | fzy)'
+    alias v=$EDITOR' $(fd --type file | fzy)'
 
     function insert-fzy-path-in-command-line() {
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
