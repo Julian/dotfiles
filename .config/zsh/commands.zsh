@@ -70,7 +70,7 @@ if (( $+commands[fzy] )); then
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
         local selected_path
         echo
-        selected_path=$(find . -type f | fzy) || return
+        selected_path=$(fd --type file | fzy) || return
         eval 'LBUFFER="$LBUFFER$selected_path "'
         zle reset-prompt
     }
@@ -122,7 +122,6 @@ alias -s tex=vim
 alias fg=' fg'
 
 # noglobs
-alias find='noglob find'
 alias parallel='noglob parallel'
 alias pip='noglob pip'
 
