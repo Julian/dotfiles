@@ -13,7 +13,6 @@ jobs:
       fail-fast: false
       matrix:
         os: [macos-latest, ubuntu-latest]
-        python-version: [pypy2, 3.8]
 
     steps:
     - uses: actions/checkout@v2
