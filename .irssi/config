@@ -326,7 +326,8 @@ ignores = (
   { mask = "*|bnc"; level = "NICKS"; },
   { mask = "irker*"; level = "ALL"; },
   { mask = "ldlework"; level = "ALL"; },
-  { mask = "Soni"; level = "ALL"; }
+  { mask = "Soni"; level = "ALL"; },
+  { mask = "travis-ci"; level = "ALL"; }
 );
 keyboard = (
   { key = "meta-!"; id = "change_window"; data = "21"; },
