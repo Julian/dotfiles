@@ -111,6 +111,11 @@ python = "pypy3"
 install = ["bandit"]
 link = ["bandit"]
 
+[virtualenv.beets]
+python = "python3.8"
+install = ["beets"]
+link = ["beet"]
+
 [virtualenv.black]
 python = "python3.8"
 install = ["black"]

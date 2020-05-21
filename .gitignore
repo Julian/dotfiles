@@ -21,6 +21,7 @@
 .config/MusicBrainz/
 .config/ansible/vault-password
 .config/aws/credentials.ini
+.config/beets/library.db
 .config/bpython/history
 .config/cmus/autosave
 .config/cmus/cache
