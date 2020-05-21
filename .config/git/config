@@ -81,6 +81,8 @@
 
     m = !sh -c 'git noff "origin/$1" && git push --delete origin "$1"' -
 
+    n = !sh -c 'git reset && $EDITOR "$1" && git add "$1" && git commit && git push' -
+
     ff = merge --ff-only
     noff = merge --no-ff
     wip = merge --squash --no-commit
