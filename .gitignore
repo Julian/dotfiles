@@ -22,6 +22,7 @@
 .config/ansible/vault-password
 .config/aws/credentials.ini
 .config/beets/library.db
+.config/beets/spotify_token.json
 .config/bpython/history
 .config/cmus/autosave
 .config/cmus/cache
