@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1518922483,"metadata":{"github-id":"MDU6SXNzdWUyOTgwNTQ0OTQ=","github-url":"https://github.com/Julian/dotfiles/issues/9","origin":"github"},"title":"make `t` still include ${PWD:t} if the args only start with -","message":"","files":null}]}
+{"version":1,"ops":[{"type":4,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1531775980,"metadata":{"github-id":"MDExOkNsb3NlZEV2ZW50MTczNjI5MTYyMw=="},"status":2}]}
