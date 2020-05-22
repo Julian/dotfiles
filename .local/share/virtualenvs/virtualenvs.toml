@@ -198,6 +198,18 @@ python = "python3.8"
 install = ["litecli"]
 link = ["litecli"]
 
+[virtualenv.math]
+python = "python3.8"
+install-bundle = ["development"]
+install = [
+    "mathlibtools",
+    "sympy",
+]
+link = [
+    "leanproject",
+    "ptpython:math",
+]
+
 [virtualenv.ml]
 python = "python3.8"
 install-bundle = ["core", "development"]
