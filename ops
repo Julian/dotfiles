@@ -1,0 +1,1 @@
+{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1571173908,"metadata":{"github-id":"MDU6SXNzdWU1MDc0ODU1MTY=","github-url":"https://github.com/Julian/dotfiles/issues/54","origin":"github"},"title":"ssh is unhappy if $XDG_CACHE_HOME/ssh doesn't exist for ControlPath","message":"","files":null}]}
