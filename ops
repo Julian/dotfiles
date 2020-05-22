@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1536338532,"metadata":{"github-id":"MDU6SXNzdWUzNTgxMzc0MzM=","github-url":"https://github.com/Julian/dotfiles/issues/19","origin":"github"},"title":"g unpushed --fetch","message":"","files":null}]}
+{"version":1,"ops":[{"type":5,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1540123631,"metadata":{"github-id":"MDEyOkxhYmVsZWRFdmVudDE5MTY2MjMxMDE="},"added":["git"],"removed":[]}]}
