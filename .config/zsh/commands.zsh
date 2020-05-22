@@ -228,10 +228,10 @@ function r() {
 
 # Run tests on current directory in a corresponding venv, otherwise globally
 function t() {
-    local venv_runner=$(venvs find directory $PWD $PYTHON_TEST_RUNNER)
+    local venv_runner=$(venvs find directory $PWD python)
     # This is shell gobbledigook for "does every arg start with -"
     if [[ ${@[(i)^-*]} -gt $# ]]; then
         argv+=("${venv_runner:h:h:t}")
     fi
-    pythonpath=(. ./src/ $pythonpath) $venv_runner ${@:1}
+    pythonpath=(. ./src/ $pythonpath) $venv_runner -m $PYTHON_TEST_RUNNER ${@:1}
 }
