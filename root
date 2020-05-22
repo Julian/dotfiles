@@ -1,0 +1,1 @@
+{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1543594693,"metadata":{"github-id":"MDU6SXNzdWUzODYyNTQ0MTI=","github-url":"https://github.com/Julian/dotfiles/issues/30","origin":"github"},"title":"bye should kill python packages that contain empty __init__.pys","message":"","files":null}]}
