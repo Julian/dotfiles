@@ -1,0 +1,1 @@
+{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1542466490,"metadata":{"github-id":"MDU6SXNzdWUzODE4Njk5Njg=","github-url":"https://github.com/Julian/dotfiles/issues/26","origin":"github"},"title":"Should mkpkg include a MANIFEST.in","message":"E.g.\n\n```\ninclude *.rst\ninclude COPYING\ninclude tox.ini\n```","files":null}]}
