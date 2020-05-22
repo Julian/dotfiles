@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1541258299,"metadata":{"github-id":"MDU6SXNzdWUzNzcwNjM1NzE=","github-url":"https://github.com/Julian/dotfiles/issues/25","origin":"github"},"title":"znc -\u003e database","message":"Index IRC by participant","files":null}]}
+{"version":1,"ops":[{"type":2,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1549830633,"metadata":{"github-id":"MDE3OlJlbmFtZWRUaXRsZUV2ZW50MjEyOTM5NzA2MQ=="},"title":"znc -\u003e database","was":"znc -\u003e database"}]}
