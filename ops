@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1517931528,"metadata":{"github-id":"MDU6SXNzdWUyOTQ4MDQ4MjY=","github-url":"https://github.com/Julian/dotfiles/issues/7","origin":"github"},"title":"g c gh:foo should default to g c gh:ME/foo","message":"","files":null}]}
+{"version":1,"ops":[{"type":4,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1518381102,"metadata":{"github-id":"MDExOkNsb3NlZEV2ZW50MTQ2ODU3OTQ2OA=="},"status":2}]}
