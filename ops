@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1546769597,"metadata":{"github-id":"MDU6SXNzdWUzOTYyNDUyNDY=","github-url":"https://github.com/Julian/dotfiles/issues/37","origin":"github"},"title":"g fetch's --prune-tags (g up) with multiple remotes seems to prune tags unless they exist on *all* remotes","message":"","files":null}]}
+{"version":1,"ops":[{"type":4,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1546954821,"metadata":{"github-id":"MDExOkNsb3NlZEV2ZW50MjA2MDIyODYyMQ=="},"status":2}]}
