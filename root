@@ -1,0 +1,1 @@
+{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1566917383,"metadata":{"github-id":"MDU6SXNzdWU0ODU4NTg0Mjk=","github-url":"https://github.com/Julian/dotfiles/issues/49","origin":"github"},"title":"foo.\u003cext\u003e.j2 should autocmd setfiletype for \u003cext\u003e","message":"","files":null}]}
