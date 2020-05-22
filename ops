@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1539181910,"metadata":{"github-id":"MDU6SXNzdWUzNjg2OTU4MTk=","github-url":"https://github.com/Julian/dotfiles/issues/22","origin":"github"},"title":"Discard long lines from zshhistory","message":"E.g. `zshaddhistory () { (( $#1 \u003c 200 )) }`","files":null}]}
+{"version":1,"ops":[{"type":4,"author":{"id":"744d65d5a97b6604c78b01f5ef1cfe425b5b8a42"},"timestamp":1561946952,"metadata":{"github-id":"MDExOkNsb3NlZEV2ZW50MjQ0OTc3NzM3OQ=="},"status":2}]}
