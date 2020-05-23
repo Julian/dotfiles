@@ -58,6 +58,7 @@ Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
+Plug    'numirias/semshi',                   {'do': ':UpdateRemotePlugins', 'for': 'python'}
 Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
@@ -79,7 +80,7 @@ Plug    'kana/vim-textobj-syntax'
 Plug    'kana/vim-textobj-user'
 
 Plug    'Shougo/neomru.vim'
-Plug    'Shougo/denite.nvim'
+Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
