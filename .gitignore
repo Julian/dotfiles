@@ -23,6 +23,7 @@
 .config/aws/credentials.ini
 .config/beets/library.db
 .config/beets/spotify_token.json
+.config/beets/state.pickle
 .config/bpython/history
 .config/cmus/autosave
 .config/cmus/cache
