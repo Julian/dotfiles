@@ -1,1 +1,3 @@
-plugins: chroma spotify
+import:
+  copy: no
+plugins: badfiles chroma duplicates fetchart lyrics random spotify
