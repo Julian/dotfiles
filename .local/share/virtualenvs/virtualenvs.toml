@@ -430,7 +430,7 @@ install = ["twine", "keyring"]
 link = ["twine", "keyring"]
 
 [virtualenv.watchdog]
-install = ["watchdog"]
+install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
 
 [virtualenv.youtube-dl]
