@@ -292,11 +292,11 @@ link = ["mkpkg"]
 
 [virtualenv.neovim]
 python = "pypy"
-install = ["pynvim"]
+install = ["pynvim", "jedi"]
 
 [virtualenv.neovim3]
 python = "python3.8"
-install = ["pynvim"]
+install = ["pynvim", "jedi"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
