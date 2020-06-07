@@ -17,7 +17,6 @@ core = [
     "jinja2",
     "pathlib2; python_version<='2.7'",
     "subprocess32; python_version<='2.7'",
-    "pendulum",
     "pyinstrument; platform_python_implementation != 'pypy'",
     "pyperf; python_version>='3'",
     "pyrsistent",
