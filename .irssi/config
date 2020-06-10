@@ -1,6 +1,6 @@
 servers = (
   {
-    address = "pi.grayvines.com";
+    address = "pirc.grayvines.com";
     chatnet = "Freenode";
     port = "1123";
     password = "Julian/Freenode:";
