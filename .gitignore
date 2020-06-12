@@ -1,5 +1,6 @@
-.DS_Store
+rss.DS_Store
 
+.irssi/away.log
 .irssi/certs/
 .irssi/config.autosave
 .irssi/sasl.auth
