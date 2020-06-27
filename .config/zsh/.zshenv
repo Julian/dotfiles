@@ -58,6 +58,9 @@ export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 export LEIN_HOME=$XDG_DATA_HOME/lein
 export M2_HOME=$XDG_DATA_HOME/m2
 
+# See man par. Then cry.
+export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
+
 export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/ripgrep
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
