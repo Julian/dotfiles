@@ -390,12 +390,10 @@ link = [
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
 [virtualenv.style]
-install = ["ebb-lint"]
 link = ["flake8"]
 
 [virtualenv.style3]
-python = "pypy3"
-install = ["ebb-lint"]
+python = "python3.8"
 link = ["flake8:flake83"]
 
 [virtualenv.subunit]
