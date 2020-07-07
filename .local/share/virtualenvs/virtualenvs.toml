@@ -238,6 +238,8 @@ install = [
 
     "voila",
 
+    "pandas-profiling[notebook]",
+
     "auto-sklearn",
     "featuretools",
     "h2o",
@@ -257,6 +259,9 @@ install = [
     "eli5",
     "lime",
     "shap",
+
+    "nltk",
+    "sumy",
 
     "fastparquet",
     "h5py",
@@ -282,7 +287,9 @@ link = [
     "featuretools",
     "jupyter",
     "kaggle",
+    "pandas_profiling",
     "ptpython:ml",
+    "sumy",
     "voila",
     "xgbfir",
 ]
