@@ -446,8 +446,11 @@ link = ["youtube-dl"]
 # --- Developing ---
 
 [virtualenv.blog]
-python = "python3"
-requirements = ["${DEVELOPMENT}/julian.github.io/requirements.txt"]
+python = "python3.8"
+requirements = [
+    "${DEVELOPMENT}/julian.github.io/requirements.txt",
+    "${DEVELOPMENT}/til/requirements.txt",
+]
 link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.diff]
