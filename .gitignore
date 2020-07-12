@@ -26,6 +26,9 @@
 .config/beets/spotify_token.json
 .config/beets/state.pickle
 .config/bpython/history
+.config/coc/extensions/db.json
+.config/coc/history.json
+.config/coc/memos.json
 .config/cmus/autosave
 .config/cmus/cache
 .config/cmus/command-history
