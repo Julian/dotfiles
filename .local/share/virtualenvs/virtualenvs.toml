@@ -472,7 +472,7 @@ install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
 requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 
 [virtualenv.regret]
-python = "pypy3"
+python = "python3.8"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 
