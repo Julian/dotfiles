@@ -210,6 +210,16 @@ link = [
 
 [virtualenv.ml]
 python = "python3.8"
+post-commands = [
+    [
+        "jupyter",
+        "labextension",
+        "install",
+        "@jupyter-widgets/jupyterlab-manager",
+        "jupyter-matplotlib",
+    ],
+    ["jupyter", "lab", "build"],
+]
 install-bundle = ["core", "development"]
 install = [
     "dask[complete]",
