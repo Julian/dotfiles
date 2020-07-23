@@ -246,6 +246,7 @@ install = [
     "seaborn",
     "yellowbrick",
 
+    "streamlit",
     "voila",
 
     "pandas-profiling[notebook]",
@@ -299,6 +300,7 @@ link = [
     "kaggle",
     "pandas_profiling",
     "ptpython:ml",
+    "streamlit",
     "sumy",
     "voila",
     "xgbfir",
