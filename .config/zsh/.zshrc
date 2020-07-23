@@ -29,6 +29,10 @@ pywarnings=(
     'ignore:Not importing directory:ImportWarning'
     'ignore:can''t resolve package from __spec__ or __package__:ImportWarning'
     'ignore:DEPRECATION::pip._internal.cli.base_command'
+
+    'ignore:Providing the line is now done:DeprecationWarning'
+    'ignore:Providing the column is now done'
+    'ignore:Deprecated since version 0.16.0. Use Script(...)'
 )
 
 export GPG_TTY=$(tty)
