@@ -71,7 +71,7 @@ if (( $+commands[fzy] )); then
         local selected_path
         echo
         selected_path=$(fd --type file | fzy) || return
-        eval 'LBUFFER="$LBUFFER$selected_path "'
+        LBUFFER+="${(q-)selected_path}"
         zle reset-prompt
     }
     zle -N insert-fzy-path-in-command-line
