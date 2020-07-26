@@ -58,7 +58,7 @@ Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
-Plug    'numirias/semshi',                   {'do': ':UpdateRemotePlugins', 'for': 'python'}
+Plug    'numirias/semshi',                   {'do': ':UpdateRemotePlugins'}
 Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
