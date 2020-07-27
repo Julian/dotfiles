@@ -43,6 +43,7 @@
 .config/enchant/
 .config/fish/fishd.*
 .config/gnupg/
+.config/gh/hosts.yml
 .config/gtk-2.0/gtkfilechooser.ini
 .config/jupyter/lab/workspaces
 .config/jupyter/migrated
