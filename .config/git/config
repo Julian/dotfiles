@@ -16,8 +16,12 @@
 [difftool]
     prompt = false
 
+[init]
+    defaultBranch = main
+
 [gpg]
     program = gpg2
+    
 
 [merge]
     conflictstyle = diff3
