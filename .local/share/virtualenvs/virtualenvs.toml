@@ -353,6 +353,11 @@ python = "python3.8"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile-cpython3"]
 
+[virtualenv.pre-commit]
+python = "python3.8"
+install = ["pre-commit"]
+link = ["pre-commit"]
+
 [virtualenv.pydocstyle]
 python = "python3.8"
 install = ["pydocstyle"]
