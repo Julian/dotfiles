@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "coc-python": ">=1.2.12"
+    "coc-calc": ">=2.0.0",
+    "coc-json": ">=1.2.6",
+    "coc-python": ">=1.2.12",
+    "coc-vimlsp": ">=0.10.1"
   }
 }
