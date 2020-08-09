@@ -15,6 +15,7 @@
 .local/share/nvim/bundle
 .local/share/nvim/log
 .local/share/nvim/shada
+.local/share/nvim/swap
 .local/share/nvim/undo
 
 .tmux/tmux.conf.local
