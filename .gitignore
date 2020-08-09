@@ -26,9 +26,6 @@
 .config/beets/spotify_token.json
 .config/beets/state.pickle
 .config/bpython/history
-.config/coc/extensions/db.json
-.config/coc/history.json
-.config/coc/memos.json
 .config/cmus/autosave
 .config/cmus/cache
 .config/cmus/command-history
@@ -64,6 +61,11 @@
 .config/zsh/cache
 .config/zsh/history
 .config/zsh/zshrc.d/
+
+.config/coc/history.json
+.config/coc/memos.json
+.config/coc/extensions/*
+!.config/coc/extensions/package.json
 
 .config/ldap.conf
 .config/ldap.credentials
