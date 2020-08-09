@@ -1,0 +1,2 @@
+# Stick a file into a directory named after it.
+mkdir "${1:r}" && mv -nv "$1" "${1:r}"

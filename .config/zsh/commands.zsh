@@ -1,3 +1,15 @@
+fpath=($ZDOTDIR/functions $fpath)
+autoload \
+    box \
+    bye \
+    conf \
+    filter \
+    randomize-mac \
+    ssp \
+    sst \
+    tunnel \
+    volume
+
 #--- Aliases -----------------------------------------------------------------
 
 alias b=bat
@@ -8,47 +20,9 @@ alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
 
 alias todo="$EDITOR +':VimwikiIndex'"
 
-# Stick a file into a directory named after it.
-function box() {
-    mkdir "${1:r}" && mv -nv "$1" "${1:r}"
-}
-
-# Remove an empty directory, but consider it empty even if it contains some
-# common junk.
-function bye() {
-    rm -f $1/.DS_Store
-    rmdir $@ || printf "\nContents:\n%s\n" "$(ls -A $1)"
-}
-
-function filter() { rg -v "^$@$" }
-
-# ss<x> aliases:
-# p: ssh more suitable for mass parallelizing
-# t: tmux attach
-# x: X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
-function ssp() {
-    parallel --nonall --sshlogin $@
-}
-function sst() {
-    ssh -t $@ '$SHELL -l -c "tmux attach || tmux"'
-}
+# X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
 compdef _hosts ssp sst ssx
-
-function randomize-mac() {
-    openssl rand -hex 6 | /usr/bin/sed 's/\(..\)/\1:/g; s/.$//' | xargs sudo ifconfig en0 ether
-}
-
-# SSH SOCKS Proxy
-function tunnel() {
-    local tunnel_host=${tunnel_host:-pi.grayvines.com}
-    local tunnel_port=${tunnel_port:-9050}
-    networksetup -setsocksfirewallproxystate Wi-Fi on
-    printf 'Tunneling to %s:%s...\n' $tunnel_port $tunnel_host
-    ssh -D $tunnel_port -C -N $tunnel_host
-    networksetup -setsocksfirewallproxystate Wi-Fi off
-}
-
 
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
@@ -85,34 +59,6 @@ fi
 
 if (( $+commands[weechat-curses] )); then
     alias weechat="weechat-curses -d $XDG_CONFIG_HOME/weechat"
-fi
-
-if (( $+commands[osascript] )); then
-    function _get-volume() {
-        osascript -e 'output volume of (get volume settings)'
-    }
-    function _set-volume() {
-        osascript -e "set Volume $(printf %.1f $1)"
-    }
-
-    function volume() {
-        case "$1" in
-            '') _get-volume                                     ;;
-
-            down) _set-volume $(( $(_get-volume) / 14.0 - 1 ))  ;;
-            up) _set-volume $(( $(_get-volume) / 14.0 + 1 ))    ;;
-
-            u) _set-volume $(( $(_get-volume) / 14.0 + .2 ))  ;;
-            d) _set-volume $(( $(_get-volume) / 14.0 - .2 ))  ;;
-
-            min) _set-volume 0                                  ;;
-            max) _set-volume 100                                ;;
-            off) _set-volume 0                                  ;;
-            mute) _set-volume 0                                 ;;
-
-            *) _set-volume $1                                   ;;
-        esac
-    }
 fi
 
 # Suffix Aliases
@@ -164,14 +110,6 @@ fi
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
-function conf() { 
-    local target=($XDG_CONFIG_HOME/$1)
-    if [[ -d "$target" ]]; then
-        exa ${~target}
-    else
-        $EDITOR ${~target}
-    fi
-}
 compdef "_files -W $XDG_CONFIG_HOME" conf
 alias conf='noglob conf'
 
