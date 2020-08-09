@@ -96,6 +96,8 @@
     s = status --short
     st = status
 
+    sp = stash show --patch
+
     sw = switch
 
     v = !zsh -c 'cat <(git q) <(echo "\n\n") <(git d @{u}..) | less -FXRS'
