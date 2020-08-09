@@ -1,0 +1,2 @@
+# ssh + tmux attach
+ssh -t $@ '$SHELL -l -c "tmux attach || tmux"'

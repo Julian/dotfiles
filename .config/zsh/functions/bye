@@ -1,0 +1,4 @@
+# Remove an empty directory, but consider it empty even if it contains some
+# common junk.
+rm -f $1/.DS_Store
+rmdir $@ || printf "\nContents:\n%s\n" "$(ls -A $1)"
