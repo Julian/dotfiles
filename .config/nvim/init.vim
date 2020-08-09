@@ -58,7 +58,6 @@ Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
-Plug    'numirias/semshi',                   {'do': ':UpdateRemotePlugins'}
 Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
@@ -86,6 +85,10 @@ Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-brace'
 Develop 'vim-textobj-variable-segment'
+
+if has('nvim')
+    Plug 'numirias/semshi',                  {'do': ':UpdateRemotePlugins'}
+endif
 
 if executable("tmux")
     Plug 'tpope/vim-tbone'
