@@ -19,6 +19,9 @@
 [init]
     defaultBranch = main
 
+[difftool "nbdime"]
+    cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+
 [gpg]
     program = gpg2
     
