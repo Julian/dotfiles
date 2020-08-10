@@ -309,6 +309,26 @@ link = [
 install = ["mkpkg"]
 link = ["mkpkg"]
 
+[virtualenv.nbdiff]
+python = "python3.8"
+install = ["nbdime"]
+link = [
+    "git-nbdiffdriver",
+    "git-nbdifftool",
+    "git-nbmergedriver",
+    "git-nbmergetool",
+    "hg-nbdiff",
+    "hg-nbdiffweb",
+    "hg-nbmerge",
+    "hg-nbmergeweb",
+    "nbdiff",
+    "nbdiff-web",
+    "nbdime",
+    "nbmerge",
+    "nbmerge-web",
+    "nbshow",
+]
+
 [virtualenv.neovim]
 python = "pypy"
 install = ["pynvim", "jedi"]
