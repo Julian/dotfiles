@@ -40,7 +40,6 @@ Plug    'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 
 " --- Plugins ---
 
-Plug    'ajh17/VimCompletesMe'
 Plug    'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
 Plug    'AndrewRadev/splitjoin.vim'
 Plug    'AndrewRadev/switch.vim'
@@ -58,6 +57,8 @@ Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
 Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
+Plug    'neoclide/coc.nvim',                 {'branch': 'release'}
+Plug    'neoclide/coc-python'
 Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
