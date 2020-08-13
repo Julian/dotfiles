@@ -185,6 +185,11 @@ install = [
     "rawkit",
 ]
 
+[virtualenv.isort]
+python = "python3.8"
+install = ["isort"]
+link = ["isort"]
+
 [virtualenv.jsonschema]
 install-bundle = ["development"]
 install = ["jsonschema[format]", "mock", "twisted"]
