@@ -436,11 +436,19 @@ link = [
 ]
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
+[virtualenv.steck]
+python = "python3.8"
+install = ["steck"]
+link = ["steck:bpaste"]
+
 [virtualenv.style]
+python = "pypy"
+install = ["flake8"]
 link = ["flake8"]
 
 [virtualenv.style3]
 python = "python3.8"
+install = ["flake8"]
 link = ["flake8:flake83"]
 
 [virtualenv.subunit]
