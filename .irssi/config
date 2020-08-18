@@ -141,6 +141,7 @@ aliases = {
   48 = "/window 48";
   49 = "/window 49";
   50 = "/window 50";
+  backlog = "/msg *backlog $C $0";
 };
 
 statusbar = {
