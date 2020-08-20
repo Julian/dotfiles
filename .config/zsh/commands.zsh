@@ -8,6 +8,7 @@ autoload \
     ssp \
     sst \
     tunnel \
+    unquarantine \
     volume
 
 #--- Aliases -----------------------------------------------------------------
