@@ -11,10 +11,12 @@ inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <Plug>CocCR complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <Plug>CocCR pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+" vim-endwise + coc
+imap <CR> <Plug>CocCR<Plug>DiscretionaryEnd
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
