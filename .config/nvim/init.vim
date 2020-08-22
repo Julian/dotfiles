@@ -82,6 +82,7 @@ Plug    'kana/vim-textobj-user'
 Plug    'Shougo/neomru.vim'
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
+Develop 'lean-unicode.vim'
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-brace'
