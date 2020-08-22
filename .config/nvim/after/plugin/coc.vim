@@ -4,11 +4,14 @@ endif
 
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-Space> coc#refresh()
+
+let g:coc_snippet_next = '<tab>'
 
 if exists('*complete_info')
   inoremap <expr> <Plug>CocCR complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
