@@ -32,7 +32,6 @@ Plug    'sheerun/vim-polyglot'
 
 Plug    'guns/vim-clojure-highlight',                 {'for': 'clojure'}
 Plug    'guns/vim-sexp',                              {'for': 'clojure'}
-Plug    'leanprover/lean.vim'
 Plug    'raimon49/requirements.txt.vim',              {'for': 'requirements'}
 Plug    'tpope/vim-fireplace',                        {'for': 'clojure'}
 Plug    'tpope/vim-leiningen',                        {'for': 'clojure'}
@@ -82,6 +81,7 @@ Plug    'kana/vim-textobj-user'
 Plug    'Shougo/neomru.vim'
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
+Develop 'lean.vim'
 Develop 'lean-unicode.vim'
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
