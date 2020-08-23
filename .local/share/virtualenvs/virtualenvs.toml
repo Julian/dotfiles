@@ -439,7 +439,7 @@ link-module = ["sphinx.ext.intersphinx:intersphinx"]
 [virtualenv.steck]
 python = "python3.8"
 install = ["steck"]
-link = ["steck:bpaste"]
+link = ["steck:bpaste", "steck"]
 
 [virtualenv.style]
 python = "pypy"
