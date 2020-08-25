@@ -98,3 +98,10 @@ bower_components/
 .nrepl-history
 .nrepl-port
 .cljs_rhino_repl/
+
+# Lean #
+# ---- #
+
+*.olean
+/leanpkg.path
+all.lean
