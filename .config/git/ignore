@@ -72,6 +72,7 @@ venv/
 
 # Vim #
 # --- #
+
 .vimrc.local
 Session.vim
 
@@ -79,7 +80,7 @@ Session.vim
 
 # Ruby #
 # ---- #
-Gemfile.lock
+
 Berksfile.lock
 .pryrc
 
