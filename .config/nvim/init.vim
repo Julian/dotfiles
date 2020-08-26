@@ -677,11 +677,18 @@ if has("eval")
         return ":SplitSensibly " . file
     endfunction
 
-    function! <SID>MaybeMapCR()
-        if mapcheck('<CR>') == ''
-            nnoremap <buffer> <CR> :<C-U>SplitSensibly<CR>:VimwikiIndex<CR>
+    function! <SID>CR()
+        if &filetype == 'qf'
+            return "\<CR>"
+        elseif &filetype == 'help'
+            return "\<C-]>"
+        elseif &filetype == 'vimwiki'
+            return ":VimwikiFollowLink\<CR>"
+        else
+            return ":\<C-U>SplitSensibly\<CR>:VimwikiIndex\<CR>"
         endif
     endfunction
+    nnoremap <expr> <CR> <SID>CR()
 
     if has("autocmd")
         augroup misc
@@ -692,11 +699,6 @@ if has("eval")
 
             " Automagic line numbers
             autocmd BufEnter * :call <SID>WindowWidth()
-
-            " For help files, make <CR> behave like <C-]> (jump to tag)
-            autocmd FileType help nnoremap <buffer> <CR> <C-]>
-            autocmd FileType vimwiki nnoremap <buffer> <CR> :VimwikiFollowLink<CR>
-            autocmd BufWinEnter * :call <SID>MaybeMapCR()
 
             " Jump to the last known cursor position if it's valid (from the docs)
             autocmd BufReadPost *
