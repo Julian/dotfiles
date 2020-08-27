@@ -78,7 +78,6 @@ Plug    'Julian/vim-textobj-python',         {'for': 'python'}
 Plug    'kana/vim-textobj-syntax'
 Plug    'kana/vim-textobj-user'
 
-Plug    'Shougo/neomru.vim'
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
 Develop 'lean.vim'
@@ -230,7 +229,7 @@ endfor
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <leader><leader>  :Denite buffer file file_mru tag<CR>
+nnoremap        <leader><leader>  :Denite buffer file tag<CR>
 nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 nnoremap        <leader>b         o<C-R>"<Esc>
@@ -245,7 +244,6 @@ nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap        <leader>n         <C-F>n
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
-nnoremap        <leader>r         :<C-u>Denite file_mru<CR>
 nnoremap        <leader>s         :<C-U>Switch<CR>
 
 "   <leader>t mappings are for togglers
