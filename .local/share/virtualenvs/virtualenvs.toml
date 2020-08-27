@@ -185,6 +185,11 @@ install = [
     "rawkit",
 ]
 
+[virtualenv.interrogate]
+python = "python3.8"
+install = ["interrogate"]
+link = ["interrogate"]
+
 [virtualenv.isort]
 python = "python3.8"
 install = ["isort"]
