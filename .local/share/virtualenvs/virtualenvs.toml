@@ -314,6 +314,11 @@ link = [
 install = ["mkpkg"]
 link = ["mkpkg"]
 
+[virtualenv.mypy]
+python = "python3.8"
+install = ["mypy"]
+link = ["mypy"]
+
 [virtualenv.nbdiff]
 python = "python3.8"
 install = ["nbdime"]
