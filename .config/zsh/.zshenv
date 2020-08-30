@@ -46,8 +46,10 @@ export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials.ini
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker/
 
+export IPYTHONDIR=$XDG_CONFIG_HOME/ipython/
 export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter/
 export KAGGLE_CONFIG_DIR=$XDG_CONFIG_HOME/kaggle/
+export MPLCONFIGDIR=$XDG_CONFIG_HOME/matplotlib/
 
 export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
 export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
