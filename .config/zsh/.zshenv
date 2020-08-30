@@ -60,6 +60,8 @@ export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 export LEIN_HOME=$XDG_DATA_HOME/lein
 export M2_HOME=$XDG_DATA_HOME/m2
 
+export PARALLEL_HOME=$XDG_CONFIG_HOME/parallel
+
 # See man par. Then cry.
 export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
 
