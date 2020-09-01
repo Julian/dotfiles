@@ -52,7 +52,7 @@ Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
 Plug    'itchyny/lightline.vim'
 Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
-Plug    'majutsushi/tagbar',                 {'on': 'TagbarToggle'}
+Plug    'liuchengxu/vista.vim',              {'on': 'Vista'}
 Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
@@ -251,7 +251,7 @@ nnoremap        <leader>s         :<C-U>Switch<CR>
 " Here are explanations for non-self-explanatory ones:
 "
 "   p : prose mode (suitable for editing longer form text)
-nnoremap        <leader>ta        :<C-U>TagbarToggle<CR>
+nnoremap        <leader>ta        :<C-U>Vista!!<CR>
 nnoremap        <leader>tc        :<C-U>DiffChangesDiffToggle<CR>
 nnoremap        <leader>td        :<C-U>DiffThese<CR>
 nnoremap        <leader>te        :<C-U>call <SID>ToggleExpando()<CR>
