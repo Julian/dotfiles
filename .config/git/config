@@ -9,6 +9,22 @@
     gpgsign = false
     verbose = 1
 
+[init]
+    defaultBranch = main
+
+[pull]
+    ff = only
+
+[push]
+    default = simple
+    followTags = true
+
+[rebase]
+    autostash = true
+
+[rerere]
+    enabled = true
+
 [diff]
     algorithm = histogram
     tool = vimdiff
@@ -16,16 +32,9 @@
 [difftool]
     prompt = false
 
-[init]
-    defaultBranch = main
-
 [difftool "nbdime"]
     cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
-
-[gpg]
-    program = gpg2
     
-
 [merge]
     conflictstyle = diff3
     defaultToUpstream = true
@@ -38,15 +47,8 @@
 [mergetool "vimdiff"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
-[push]
-    default = simple
-    followTags = true
-
-[rebase]
-    autostash = true
-
-[rerere]
-    enabled = true
+[gpg]
+    program = gpg2
 
 [svn]
     rmdir = true
