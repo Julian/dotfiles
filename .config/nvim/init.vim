@@ -7,15 +7,19 @@ let maplocalleader = ","
 " : Plugins :
 " ===========
 
-function! <SID>Develop(bundle)
+function! <SID>Develop(bundle, ...)
     let bundle_directory = $DEVELOPMENT . '/' . a:bundle
     if isdirectory(bundle_directory)
         let &runtimepath .= ',' . bundle_directory
     else
-        execute "Plug 'Julian/" . a:bundle . "'"
+        if a:0
+            call plug#('Julian/' . a:bundle, a:1)
+        else
+            call plug#('Julian/' . a:bundle)
+        endif
     endif
 endfunction
-command! -nargs=1 Develop call <SID>Develop(<args>)
+command! -nargs=+ Develop call <SID>Develop(<args>)
 
 if has('vim_starting')
     source ~/.local/share/nvim/plug.vim
@@ -81,7 +85,7 @@ Plug    'kana/vim-textobj-user'
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
 Develop 'lean.vim'
-Develop 'lean-unicode.vim'
+Develop 'lean-unicode.vim',                  {'branch': 'main'}
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-brace'
