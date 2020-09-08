@@ -23,7 +23,7 @@ export TASKRC=$XDG_CONFIG_HOME/taskrc
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/rc.py
 export PYTHONBREAKPOINT=pudb.set_trace
 export PYTHONDONTWRITEBYTECODE=true
-export PYTHON_TEST_RUNNER=twisted.trial
+export PYTHON_TEST_RUNNER=virtue
 pywarnings=(
     default
     'ignore:Not importing directory:ImportWarning'
