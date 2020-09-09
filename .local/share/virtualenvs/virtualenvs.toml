@@ -120,6 +120,11 @@ python = "python3.8"
 install = ["black"]
 link = ["black"]
 
+[virtualenv.build]
+python = "python3.8"
+install = ["build"]
+link = ["python-build"]
+
 [virtualenv.catt]
 python = "python3.8"
 install = ["catt"]
@@ -355,11 +360,6 @@ install = ["pynvim", "jedi"]
 [virtualenv.ngxtop]
 install = ["ngxtop"]
 link = ["ngxtop"]
-
-[virtualenv.pep517]
-python = "python3.8"
-install = ["pep517"]
-link-module = ["pep517.build:pep517-build", "pep517.check:pep517-check"]
 
 [virtualenv.pex]
 install = ["pex"]
