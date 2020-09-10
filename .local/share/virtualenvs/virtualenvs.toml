@@ -361,6 +361,11 @@ install = ["pynvim", "jedi"]
 install = ["ngxtop"]
 link = ["ngxtop"]
 
+[virtualenv.nox]
+python = "python3.8"
+install = ["nox"]
+link = ["nox"]
+
 [virtualenv.pex]
 install = ["pex"]
 link = ["pex"]
