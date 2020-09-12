@@ -5,13 +5,13 @@
         "revision": "18a9b3fb62be07865a7d60e7bdcb0404bfb9e8b0"
       },
       "homebrew/cask": {
-        "revision": "c1916f93e6a24343d429c29fa9896254633a0d1b"
+        "revision": "6d5825636c97c7f182712d2393c1e5445872bb19"
       },
       "homebrew/cask-fonts": {
-        "revision": "4414bae677c4787198fa5ab49ab5d35b9f398cac"
+        "revision": "c671b1bf35993102acdf2eadf8c0077811379bd2"
       },
       "homebrew/core": {
-        "revision": "d035479b7903eb92badd85d9098846a2c06b3e5b"
+        "revision": "e3be15768454f7226768ba11ba4b1b1ea97624cb"
       },
       "julian/tap": {
         "revision": "8d8c31cb1c2e92a55c3b8d957a83d97a48b60041"
@@ -23,13 +23,13 @@
         "revision": "faaef55ab7b513529e06d454d49d973ede007151"
       },
       "homebrew/cask-versions": {
-        "revision": "10fd8cc3a33ade976b26604efb02a685b6063165"
+        "revision": "2ecdadd179b6b5f2c6876feab59c5aa493b69449"
       },
       "github/gh": {
         "revision": "209f59cda890de69b74c224982591642c21323d3"
       },
       "homebrew/cask-drivers": {
-        "revision": "8823747a9863a4a3453f06c553d0568fd91c5c14"
+        "revision": "f44b99adfca696ccccfca8784be23a5e78cfef11"
       }
     },
     "brew": {
@@ -1526,6 +1526,27 @@
             }
           }
         }
+      },
+      "python@3.7": {
+        "version": "3.7.9",
+        "bottle": {
+          "cellar": "/usr/local/Cellar",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/python%403.7-3.7.9.catalina.bottle.tar.gz",
+              "sha256": "0f2cece6843e6b0f0e8c584cb3b8ad2b987e3919e954ec7db2f8e4154ef79255"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/python%403.7-3.7.9.mojave.bottle.tar.gz",
+              "sha256": "3f1ee86cceeebd98cd01a14670d24a1642d5ac1bf6323566daacc25ffb9e1fa2"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/python%403.7-3.7.9.high_sierra.bottle.tar.gz",
+              "sha256": "897e237390c3da53ce82f3a9488e1a53b0766fdfbaa4251f8db5a4660f0fb7fc"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1560,7 +1581,7 @@
         }
       },
       "cyberduck": {
-        "version": "6.8.3.29107",
+        "version": "7.2.5.32097",
         "options": {
           "full_name": "cyberduck"
         }
@@ -1572,7 +1593,7 @@
         }
       },
       "docker": {
-        "version": "2.2.0.0,42247",
+        "version": "2.2.0.3,42716",
         "options": {
           "full_name": "docker"
         }
@@ -1599,13 +1620,13 @@
         }
       },
       "macpass": {
-        "version": "0.7.3",
+        "version": "0.7.11",
         "options": {
           "full_name": "macpass"
         }
       },
       "nteract": {
-        "version": "0.14.5",
+        "version": "0.22.0",
         "options": {
           "full_name": "nteract"
         }
@@ -1663,11 +1684,11 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.0-115-ge93a6aa",
+        "HOMEBREW_VERSION": "2.5.0",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "d035479b7903eb92badd85d9098846a2c06b3e5b",
-        "CLT": "1103.0.32.62",
-        "Xcode": "11.7",
+        "Homebrew/homebrew-core": "e3be15768454f7226768ba11ba4b1b1ea97624cb",
+        "CLT": "1103.0.32.29",
+        "Xcode": "11.5",
         "macOS": "10.15.6"
       }
     }
