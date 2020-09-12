@@ -93,6 +93,7 @@ link = [
     "trial:trial-cpython3",
     "twist:twist-cpython3",
 ]
+link-module = ["venv"]
 
 [virtualenv.aubio]
 python = "python3.8"
