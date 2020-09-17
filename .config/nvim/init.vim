@@ -93,6 +93,7 @@ Develop 'vim-textobj-variable-segment'
 
 if has('nvim')
     Plug 'numirias/semshi',                  {'do': ':UpdateRemotePlugins'}
+    Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
 endif
 
 if executable("tmux")

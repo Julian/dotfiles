@@ -356,7 +356,7 @@ install = ["pynvim", "jedi"]
 
 [virtualenv.neovim3]
 python = "python3.8"
-install = ["pynvim", "jedi"]
+install = ["pynvim", "jedi", "sphinx"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
