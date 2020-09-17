@@ -336,6 +336,10 @@ vnoremap        <leader>y         "*y
 set completeopt=menuone,longest,preview     " follow type in autocomplete
 set pumheight=6                             " Keep a small completion window
 
+if has('nvim')
+    set pumblend=5                          " slightly transparent pum window
+endif
+
 set suffixes+=.backup,.hbm,.ini             " lower priority when completing
 
 set wildmode=longest:full,full
