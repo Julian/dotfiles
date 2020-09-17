@@ -8,8 +8,7 @@
             }
         }
     },
-    "python": {
-        "jediEnabled": false,
-        "venvFolders": [".local/share/virtualenvs"]
-    }
+    "python.jediEnabled": false,
+    "python.venvFolders": [".local/share/virtualenvs"],
+    "suggest.maxPreviewWidth": 120
 }
