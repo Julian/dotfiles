@@ -67,6 +67,7 @@
 .config/coc/extensions/*
 .config/coc/history.json
 .config/coc/lists
+.config/coc/lists-actions-history.json
 .config/coc/memos.json
 .config/coc/mru
 .config/coc/snippets-mru
