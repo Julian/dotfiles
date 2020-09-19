@@ -174,3 +174,16 @@ function t() {
     fi
     pythonpath=(. ./src/ $pythonpath) $venv_runner -m $PYTHON_TEST_RUNNER ${@:1}
 }
+
+MUSIC=~/Music
+PLAYLISTS=$MUSIC/Playlists
+DOCKET=$PLAYLISTS/Docket
+autoload \
+    artist \
+    album \
+    docket \
+    play \
+    shuffle
+compdef "_files -W $MUSIC" artist
+compdef "_files -W $MUSIC" album
+compdef "_files -W $MUSIC" shuffle
