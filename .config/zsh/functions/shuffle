@@ -1,0 +1,1 @@
+mpv --shuffle $MUSIC/$1

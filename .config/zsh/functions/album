@@ -1,0 +1,6 @@
+if [[ $# > 0 ]]; then
+    target=$MUSIC/$1
+else
+    target=$(fd . --exact-depth 2 "$MUSIC" | fzy)
+fi
+mpv "$target"
