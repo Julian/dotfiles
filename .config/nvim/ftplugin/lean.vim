@@ -6,3 +6,5 @@ endfunction
 
 set updatetime=350
 autocmd CursorHold <buffer> silent call <SID>InfoView()
+
+set textwidth=100
