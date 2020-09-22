@@ -131,6 +131,11 @@ python = "python3.8"
 install = ["catt"]
 link = ["catt"]
 
+[virtualenv.cookiecutter]
+python = "python3.8"
+install = ["cookiecutter"]
+link = ["cookiecutter"]
+
 [virtualenv.check-manifest]
 python = "python3.8"
 install = ["check-manifest"]
