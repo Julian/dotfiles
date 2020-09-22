@@ -237,9 +237,12 @@ post-commands = [
 ]
 install-bundle = ["core", "development"]
 install = [
-    "dask[complete]",
     "numpy",
     "pandas",
+
+    "dask[complete]",
+    "koalas",
+    "pyspark",
 
     "jupyter",
     "jupyterlab",
@@ -252,6 +255,7 @@ install = [
     "ipympl",
     "matplotlib",
     "altair",
+    "altair_saver",
     "git+https://github.com/altair-viz/altair_pandas",
 
     "bokeh",
@@ -281,6 +285,8 @@ install = [
     "torch",
     "xgboost",
     "xgbfir",
+
+    "pymc3",
 
     "eli5",
     "lime",
