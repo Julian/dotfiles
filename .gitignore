@@ -50,6 +50,8 @@
 .config/keepassc/
 .config/litecli/history
 .config/litecli/log
+.config/matplotlib/*.cache
+.config/matplotlib/fontlist-*.json
 .config/mlvds/
 .config/notmuch/
 .config/pip/pip.log
