@@ -452,8 +452,14 @@ link = ["shiv"]
 [virtualenv.sphinx]
 python = "python3.8"
 install-bundle = ["development"]
-install = ["sphinx", "sphinxcontrib.spelling"]
+install = ["recommonmark", "sphinx", "sphinxcontrib.spelling"]
 link = [
+    "cm2html",
+    "cm2latex",
+    "cm2man",
+    "cm2pseudoxml",
+    "cm2xetex",
+    "cm2xml",
     "rst2html.py",
     "rst2html5.py",
     "sphinx-apidoc",
