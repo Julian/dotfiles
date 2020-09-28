@@ -4,7 +4,17 @@ function! s:InfoView()
     endif
 endfunction
 
-set updatetime=350
+setlocal updatetime=350
 autocmd CursorHold <buffer> silent call <SID>InfoView()
 
-set textwidth=100
+setlocal textwidth=100
+
+let b:switch_definitions = [
+    \ ["#check", "#reduce", "#eval", "#print"],
+    \ ["squeeze_simp", "simp only [", "simp"],
+    \ ["cases", "rcases", "obtain"],
+    \ ["tt", "ff"],
+    \ ["=", "≠"],
+    \ ["∈", "∉"],
+    \ ["×", "→"],
+\ ]
