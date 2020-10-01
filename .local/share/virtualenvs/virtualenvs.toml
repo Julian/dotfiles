@@ -510,8 +510,8 @@ link = ["termtosvg"]
 
 [virtualenv.tox]
 python = "python3.8"
-install = ["tox"]
-link = ["tox"]
+install = ["tox", "tox-ini-fmt"]
+link = ["tox", "tox-ini-fmt"]
 
 [virtualenv.twine]
 install = ["twine", "keyring"]
