@@ -184,6 +184,6 @@ autoload \
     docket \
     play \
     shuffle
-compdef "_files -W $MUSIC" artist
-compdef "_files -W $MUSIC" album
-compdef "_files -W $MUSIC" shuffle
+compdef '_files -W $MUSIC' artist
+compdef '_files -W $MUSIC' album
+compdef '_files -W $MUSIC' shuffle
