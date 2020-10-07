@@ -4,6 +4,7 @@ path=(
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/opt/findutils/libexec/gnubin
     /usr/local/opt/gnu-sed/libexec/gnubin
+    /usr/local/opt/python@3.9/bin
     /usr/local/opt/python@3.8/bin
     /usr/local/opt/python@3.7/bin
     /usr/local/opt/util-linux/bin
