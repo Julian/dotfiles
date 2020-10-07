@@ -62,8 +62,8 @@ link = [
     "coverage:coverage3",
     "glom:glom3",
     "pip:pip3",
-    "python:python3",
-    "ptpython:ptpython3",
+    "python:pypy3",
+    "ptpython:ptpypy3",
     "pudb3:pudb3",
     "py.test:py.test3",
     "pyperf:pyperf3",
@@ -74,7 +74,7 @@ link = [
 link-module = ["pydoc"]
 
 [virtualenv.dev3-cpython]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["core", "development"]
 install = ["pyinstrument"]
 link = [
@@ -85,7 +85,9 @@ link = [
     "pip:pip-cpython3",
     "ptpython:ptpython-cpython3",
     "pyinstrument",
+    "python:python3",
     "python:cpython3",
+    "ptpython:ptpython3",
     "pudb3:pudb-cpython3",
     "py.test:py.test-cpython3",
     "pyperf:pyperf-cpython3",
@@ -96,12 +98,12 @@ link = [
 link-module = ["venv"]
 
 [virtualenv.aubio]
-python = "python3.8"
+python = "python3.9"
 install = ["aubio"]
 link = ["aubio", "aubiocut"]
 
 [virtualenv.aws]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = ["awscli", "boto", "boto3", "saws"]
 link = ["aws", "saws"]
@@ -112,32 +114,32 @@ install = ["bandit"]
 link = ["bandit"]
 
 [virtualenv.beets]
-python = "python3.8"
+python = "python3.9"
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]
 
 [virtualenv.black]
-python = "python3.8"
+python = "python3.9"
 install = ["black"]
 link = ["black"]
 
 [virtualenv.build]
-python = "python3.8"
+python = "python3.9"
 install = ["build"]
 link = ["python-build"]
 
 [virtualenv.catt]
-python = "python3.8"
+python = "python3.9"
 install = ["catt"]
 link = ["catt"]
 
 [virtualenv.cookiecutter]
-python = "python3.8"
+python = "python3.9"
 install = ["cookiecutter"]
 link = ["cookiecutter"]
 
 [virtualenv.check-manifest]
-python = "python3.8"
+python = "python3.9"
 install = ["check-manifest"]
 link = ["check-manifest"]
 
@@ -160,7 +162,7 @@ install = ["findme"]
 link = ["findme"]
 
 [virtualenv.findme-cpython3]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-cpython3"]
@@ -188,7 +190,7 @@ install = ["httpstat"]
 link = ["httpstat"]
 
 [virtualenv.imaging]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = [
     "libraw-cffi",
@@ -197,12 +199,12 @@ install = [
 ]
 
 [virtualenv.interrogate]
-python = "python3.8"
+python = "python3.9"
 install = ["interrogate"]
 link = ["interrogate"]
 
 [virtualenv.isort]
-python = "python3.8"
+python = "python3.9"
 install = ["isort"]
 link = ["isort"]
 
@@ -212,12 +214,12 @@ install = ["jsonschema[format]", "mock", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.litecli]
-python = "python3.8"
+python = "python3.9"
 install = ["litecli"]
 link = ["litecli"]
 
 [virtualenv.math]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = [
     "mathlibtools",
@@ -229,7 +231,7 @@ link = [
 ]
 
 [virtualenv.ml]
-python = "python3.8"
+python = "python3.9"
 post-commands = [
     [
         "jupyter",
@@ -337,12 +339,12 @@ install = ["mkpkg"]
 link = ["mkpkg"]
 
 [virtualenv.mypy]
-python = "python3.8"
+python = "python3.9"
 install = ["mypy"]
 link = ["mypy"]
 
 [virtualenv.nbdiff]
-python = "python3.8"
+python = "python3.9"
 install = ["nbdime"]
 link = [
     "git-nbdiffdriver",
@@ -366,7 +368,7 @@ python = "pypy"
 install = ["pynvim", "jedi"]
 
 [virtualenv.neovim3]
-python = "python3.8"
+python = "python3.9"
 install = ["pynvim", "jedi", "sphinx"]
 
 [virtualenv.ngxtop]
@@ -374,7 +376,7 @@ install = ["ngxtop"]
 link = ["ngxtop"]
 
 [virtualenv.nox]
-python = "python3.8"
+python = "python3.9"
 install = ["nox"]
 link = ["nox"]
 
@@ -383,7 +385,7 @@ install = ["pex"]
 link = ["pex"]
 
 [virtualenv.pipenv]
-python = "python3.8"
+python = "python3.9"
 install = ["pipenv"]
 link = ["pipenv"]
 
@@ -401,22 +403,22 @@ install = ["pip-tools"]
 link = ["pip-compile:pip-compile3"]
 
 [virtualenv.piptools-cpython3]
-python = "python3.8"
+python = "python3.9"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile-cpython3"]
 
 [virtualenv.pre-commit]
-python = "python3.8"
+python = "python3.9"
 install = ["pre-commit"]
 link = ["pre-commit"]
 
 [virtualenv.pydocstyle]
-python = "python3.8"
+python = "python3.9"
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
 [virtualenv.pypinfo]
-python = "python3.8"
+python = "python3.9"
 install = ["pypinfo"]
 link = ["pypinfo"]
 
@@ -435,22 +437,22 @@ link = [
 ]
 
 [virtualenv.scrapy]
-python = "python3.8"
+python = "python3.9"
 install = ["scrapy"]
 link = ["scrapy"]
 
 [virtualenv.ssh-audit]
-python = "python3.8"
+python = "python3.9"
 install = ["ssh-audit"]
 link = ["ssh-audit"]
 
 [virtualenv.shiv]
-python = "python3.8"
+python = "python3.9"
 install = ["shiv"]
 link = ["shiv"]
 
 [virtualenv.sphinx]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = ["recommonmark", "sphinx", "sphinxcontrib.spelling"]
 link = [
@@ -470,7 +472,7 @@ link = [
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
 [virtualenv.steck]
-python = "python3.8"
+python = "python3.9"
 install = ["steck"]
 link = ["steck:bpaste", "steck"]
 
@@ -480,7 +482,7 @@ install = ["flake8"]
 link = ["flake8"]
 
 [virtualenv.style3]
-python = "python3.8"
+python = "python3.9"
 install = ["flake8"]
 link = ["flake8:flake83"]
 
@@ -509,7 +511,7 @@ install = ["termtosvg"]
 link = ["termtosvg"]
 
 [virtualenv.tox]
-python = "python3.8"
+python = "python3.9"
 install = ["tox", "tox-ini-fmt"]
 link = ["tox", "tox-ini-fmt"]
 
@@ -528,7 +530,7 @@ link = ["youtube-dl"]
 # --- Developing ---
 
 [virtualenv.blog]
-python = "python3.8"
+python = "python3.9"
 requirements = [
     "${DEVELOPMENT}/julian.github.io/requirements.txt",
     "${DEVELOPMENT}/til/requirements.txt",
@@ -557,12 +559,12 @@ install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
 requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
 
 [virtualenv.regret]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 
 [virtualenv.twisted]
-python = "python3.8"
+python = "python3.9"
 install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/twisted"]
 
