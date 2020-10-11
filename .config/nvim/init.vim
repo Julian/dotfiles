@@ -46,6 +46,7 @@ Plug    'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug    'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset']}
 Plug    'AndrewRadev/splitjoin.vim'
 Plug    'AndrewRadev/switch.vim'
+Plug    'andymass/vim-matchup'
 Plug    'b4winckler/vim-angry'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
@@ -88,7 +89,6 @@ Develop 'lean.vim'
 Develop 'lean-unicode.vim',                  {'branch': 'main'}
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
-Develop 'vim-textobj-brace'
 Develop 'vim-textobj-variable-segment'
 
 if has('nvim')
