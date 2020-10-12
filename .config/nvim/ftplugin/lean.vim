@@ -4,13 +4,14 @@ function! s:InfoView()
     endif
 endfunction
 
-setlocal updatetime=300
+setlocal updatetime=400
 autocmd! CursorHold <buffer> silent call <SID>InfoView()
 autocmd! CursorHoldI <buffer> silent call <SID>InfoView()
 
 setlocal textwidth=100
 
 let b:switch_definitions = [
+    \ g:switch_builtins.true_false,
     \ ["#check", "#reduce", "#eval", "#print"],
     \ ["squeeze_simp", "simp only [", "simp"],
     \ ["cases", "rcases", "obtain"],
