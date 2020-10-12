@@ -76,7 +76,7 @@ Plug    'tpope/vim-rhubarb'
 Plug    'tpope/vim-surround'
 Plug    'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
 Plug    'Valodim/vim-zsh-completion'
-Plug    'vimwiki/vimwiki',                   {'branch': 'dev'}
+Plug    'vimwiki/vimwiki',                   {'branch': 'dev', 'on': 'VimwikiIndex'}
 
 Plug    'kana/vim-textobj-indent'
 Plug    'Julian/vim-textobj-python',         {'for': 'python'}
