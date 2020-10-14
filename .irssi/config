@@ -583,6 +583,18 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
+        name = "##chess";
+        tag = "Freenode";
+      }
+    );
+    sticky = "yes";
+  };
+  20 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
         name = "##glyph";
         tag = "Freenode";
       }
@@ -590,7 +602,7 @@ windows = {
     sticky = "yes";
     parent = "1";
   };
-  20 = {
+  21 = {
     level = "ALL";
     items = (
       {
@@ -603,14 +615,14 @@ windows = {
     sticky = "yes";
     parent = "1";
   };
-  21 = {
+  22 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
     parent = "1";
   };
-  22 = {
+  23 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
@@ -623,10 +635,10 @@ mainwindows = {
     first_column = "0";
     columns = "179";
   };
-  22 = { 
+  23 = { 
     first_line = "1";
     lines = "3";
     first_column = "0";
-    columns = "179";
+    columns = "205";
   };
 };
