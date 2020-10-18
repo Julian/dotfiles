@@ -4,8 +4,8 @@ endif
 
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ pumvisible() ? coc#_select_confirm() :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
