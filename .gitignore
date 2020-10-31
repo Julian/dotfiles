@@ -17,6 +17,7 @@
 .local/share/nvim/shada
 .local/share/nvim/swap
 .local/share/nvim/undo
+.local/share/nvim/rplugin.vim
 
 .tmux/tmux.conf.local
 
