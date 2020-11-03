@@ -11,7 +11,8 @@ setlocal textwidth=100
 let b:switch_definitions = [
     \ g:switch_builtins.true_false,
     \ ["#check", "#reduce", "#eval", "#print"],
-    \ ["squeeze_simp", "simp only [", "simp"],
+    \ ["simp", "tidy", "suggest", "hint", "library_search"],
+    \ ["squeeze_simp", "simp only ["],
     \ ["cases", "rcases", "obtain"],
     \ ["tt", "ff"],
     \ ["=", "≠"],
