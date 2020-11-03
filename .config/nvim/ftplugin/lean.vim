@@ -4,8 +4,6 @@ function! s:InfoView()
     endif
 endfunction
 
-setlocal updatetime=400
-autocmd! CursorHold <buffer> silent call <SID>InfoView()
 autocmd! CursorHoldI <buffer> silent call <SID>InfoView()
 
 setlocal textwidth=100
