@@ -1,4 +1,4 @@
 if [[ $# > 0 ]]; then
-    echo "$@" | sort -o "$DOCKET" -u - $DOCKET
+    echo "$@" | sort -o "$DOCKET" -u - -f $DOCKET
 fi
 bat $DOCKET
