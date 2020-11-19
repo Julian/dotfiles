@@ -1,6 +1,7 @@
 typeset -U path
 path=(
     $HOME/.local/bin
+    /opt/homebrew/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/opt/findutils/libexec/gnubin
     /usr/local/opt/gnu-sed/libexec/gnubin
