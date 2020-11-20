@@ -1,6 +1,14 @@
-local homebrew_prefix=$(brew --prefix)
-
 typeset -U path
+path=(
+    /opt/homebrew/bin
+    /usr/local/bin
+    /usr/local/sbin
+    /usr/local/share/npm/bin
+    ${GEM_HOME}/bin
+    $path
+)
+
+local homebrew_prefix=$(brew --prefix)
 path=(
     $HOME/.local/bin
     $homebrew_prefix/opt/coreutils/libexec/gnubin
@@ -10,11 +18,6 @@ path=(
     $homebrew_prefix/opt/python@3.8/bin
     $homebrew_prefix/opt/python@3.7/bin
     $homebrew_prefix/opt/util-linux/bin
-    $homebrew_prefix/bin
-    /usr/local/bin
-    /usr/local/sbin
-    /usr/local/share/npm/bin
-    ${GEM_HOME}/bin
     $path
 )
 
