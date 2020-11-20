@@ -554,20 +554,10 @@ requirements = [
     "${DEVELOPMENT}/Great/automanual/requirements.txt",
 ]
 
-[virtualenv.minion]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/Minion", "twisted[tls]"]
-requirements = ["${DEVELOPMENT}/Minion/test-requirements.txt"]
-
 [virtualenv.regret]
 python = "python3.9"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
-
-[virtualenv.twisted]
-python = "python3.9"
-install-bundle = ["development"]
-install = ["-e", "${DEVELOPMENT}/twisted"]
 
 [virtualenv.virtue]
 install-bundle = ["development"]
