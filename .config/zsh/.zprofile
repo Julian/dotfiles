@@ -1,14 +1,16 @@
+local homebrew_prefix=$(brew --prefix)
+
 typeset -U path
 path=(
     $HOME/.local/bin
-    /opt/homebrew/bin
-    /usr/local/opt/coreutils/libexec/gnubin
-    /usr/local/opt/findutils/libexec/gnubin
-    /usr/local/opt/gnu-sed/libexec/gnubin
-    /usr/local/opt/python@3.9/bin
-    /usr/local/opt/python@3.8/bin
-    /usr/local/opt/python@3.7/bin
-    /usr/local/opt/util-linux/bin
+    $homebrew_prefix/opt/coreutils/libexec/gnubin
+    $homebrew_prefix/opt/findutils/libexec/gnubin
+    $homebrew_prefix/opt/gnu-sed/libexec/gnubin
+    $homebrew_prefix/opt/python@3.9/bin
+    $homebrew_prefix/opt/python@3.8/bin
+    $homebrew_prefix/opt/python@3.7/bin
+    $homebrew_prefix/opt/util-linux/bin
+    $homebrew_prefix/bin
     /usr/local/bin
     /usr/local/sbin
     /usr/local/share/npm/bin
