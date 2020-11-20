@@ -62,6 +62,7 @@
 .config/weechat/logs/
 .config/weechat/weechat.log
 .config/zsh/.zcompdump
+.config/zsh/.zsh_sessions
 .config/zsh/cache
 .config/zsh/history
 .config/zsh/zshrc.d/
