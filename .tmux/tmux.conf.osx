@@ -1,3 +1,0 @@
-set-option -g default-command "reattach-to-user-namespace -l \"$SHELL\""
-bind-key 'P' run-shell "tmux set-buffer \"$(pbpaste)\"; tmux paste-buffer"
-bind-key 'Y' run-shell "tmux show-buffer | pbcopy"
