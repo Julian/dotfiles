@@ -29,7 +29,6 @@
         python2.7
         "python2.7-pip"
         python3
-        reattach-to-user-namespace
         ripgrep
         snappy
         tmux
