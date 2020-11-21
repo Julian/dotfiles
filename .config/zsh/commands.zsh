@@ -101,7 +101,11 @@ if (( $+commands[rg] )); then
     alias rgt="rg -g '*test*'"
     alias rgpt="rg -g '*test*' --type py"
 else
-    alias rg=grep
+    if (( $+commands[ggrep] )); then
+        alias rg=ggrep
+    else
+        alias rg=grep
+    fi
 fi
 
 if (( ! $+commands[bat] )); then
