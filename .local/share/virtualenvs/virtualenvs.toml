@@ -231,7 +231,7 @@ link = [
 ]
 
 [virtualenv.ml]
-python = "python3.9"
+python = "python3.8"
 post-commands = [
     [
         "jupyter",
