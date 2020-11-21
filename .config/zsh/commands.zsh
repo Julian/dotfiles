@@ -104,6 +104,10 @@ else
     alias rg=grep
 fi
 
+if (( ! $+commands[bat] )); then
+    alias bat=cat
+fi
+
 if (( $+commands[dircolors] )); then
     eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
 fi
