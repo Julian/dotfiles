@@ -28,7 +28,7 @@ call plug#begin(expand('~/.local/share/nvim/bundle/'))
 
 " --- Themes ---
 
-Plug    'morhetz/gruvbox'
+Plug    'gruvbox-community/gruvbox'
 
 " --- Additional FileType Support ---
 
