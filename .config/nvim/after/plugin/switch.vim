@@ -6,8 +6,8 @@ let g:switch_custom_definitions = [
     \ ['-', '+'],
     \ ['*', '/'],
     \ ["==", "!="],
-    \ switch#NormalizedCase(['min', 'max']),
-    \ switch#NormalizedCase(['or', 'and']),
-    \ switch#NormalizedCase(['yes', 'no']),
-    \ switch#NormalizedCase(['width', 'height']),
+    \ switch#NormalizedCaseWords(['min', 'max']),
+    \ switch#NormalizedCaseWords(['or', 'and']),
+    \ switch#NormalizedCaseWords(['yes', 'no']),
+    \ switch#NormalizedCaseWords(['width', 'height']),
 \ ]
