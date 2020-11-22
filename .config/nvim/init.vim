@@ -47,8 +47,6 @@ Plug    'andymass/vim-matchup'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
-Plug    'kana/vim-vspec'
-Plug    'kana/vim-submode'
 Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
 Plug    'itchyny/lightline.vim'
@@ -74,8 +72,6 @@ Plug    'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'j
 Plug    'Valodim/vim-zsh-completion'
 Plug    'vimwiki/vimwiki',                   {'branch': 'dev', 'on': 'VimwikiIndex'}
 
-Plug    'kana/vim-textobj-indent'
-Plug    'kana/vim-textobj-syntax'
 Plug    'kana/vim-textobj-user'
 
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
