@@ -334,7 +334,6 @@ vnoremap        <leader>y         "*y
 
 " insert mode completion
 set completeopt=menuone,longest,preview     " follow type in autocomplete
-set pumheight=6                             " Keep a small completion window
 
 if has('nvim')
     set pumblend=5                          " slightly transparent pum window
