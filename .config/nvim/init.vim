@@ -32,9 +32,6 @@ Plug    'gruvbox-community/gruvbox'
 
 " --- Additional FileType Support ---
 
-Plug    'sheerun/vim-polyglot'
-
-Plug    'guns/vim-clojure-highlight',                 {'for': 'clojure'}
 Plug    'guns/vim-sexp',                              {'for': 'clojure'}
 Plug    'raimon49/requirements.txt.vim',              {'for': 'requirements'}
 Plug    'tpope/vim-fireplace',                        {'for': 'clojure'}
@@ -47,7 +44,6 @@ Plug    'AndrewRadev/linediff.vim',          {'on': ['Linediff', 'LinediffReset'
 Plug    'AndrewRadev/splitjoin.vim'
 Plug    'AndrewRadev/switch.vim'
 Plug    'andymass/vim-matchup'
-Plug    'b4winckler/vim-angry'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
@@ -79,7 +75,6 @@ Plug    'Valodim/vim-zsh-completion'
 Plug    'vimwiki/vimwiki',                   {'branch': 'dev', 'on': 'VimwikiIndex'}
 
 Plug    'kana/vim-textobj-indent'
-Plug    'Julian/vim-textobj-python',         {'for': 'python'}
 Plug    'kana/vim-textobj-syntax'
 Plug    'kana/vim-textobj-user'
 
@@ -93,6 +88,8 @@ Develop 'vim-textobj-variable-segment'
 
 if has('nvim')
     Plug 'numirias/semshi',                  {'do': ':UpdateRemotePlugins'}
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
 endif
 
@@ -289,7 +286,7 @@ nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nmap            <leader>N         <Plug>(coc-diagnostic-prev)
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap        <leader>U         :<C-U>PlugUpdate<CR>
+nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
 nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
