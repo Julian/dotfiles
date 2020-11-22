@@ -758,3 +758,7 @@ if has("eval")
         autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
     endif
 endif
+
+if has('nvim')
+    lua require('config')
+endif
