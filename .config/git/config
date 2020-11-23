@@ -92,8 +92,8 @@
 
     n = !sh -c 'git reset && $EDITOR "$1" && git add "$1" && git commit && git push' -
 
-    ff = merge --ff-only
-    noff = merge --no-ff
+    ff = !sh -c 'git merge --ff-only "${1:-upstream/$(git rev-parse --abbrev-ref HEAD)}"' -
+    noff = !sh -c 'git merge --no-ff "${1:-upstream/$(git rev-parse --abbrev-ref HEAD)}"' -
     wip = merge --squash --no-commit
 
     re = restore
