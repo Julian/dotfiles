@@ -283,6 +283,7 @@ nmap            <leader>N         <Plug>(coc-diagnostic-prev)
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
+nnoremap  <expr><leader>V         ":<C-U>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/lua/config/init.lua' . "<CR>"
 nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
