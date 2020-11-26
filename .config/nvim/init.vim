@@ -329,7 +329,7 @@ vnoremap        <leader>y         "*y
 " insert mode completion
 set completeopt=menuone,longest,preview     " follow type in autocomplete
 
-if has('nvim')
+if exists('&pumblend')
     set pumblend=5                          " slightly transparent pum window
 endif
 
