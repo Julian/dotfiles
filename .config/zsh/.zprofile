@@ -25,6 +25,7 @@ path=(
 
 export DEVELOPMENT=$HOME/Development
 (( $+commands[nvim] )) && export EDITOR=nvim || export EDITOR=vim
+(( $+commands[bat] )) && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 [[ -d $DEVELOPMENT ]] && export IS_DEVELOPMENT_WORKSTATION=yup
 
