@@ -1,6 +1,7 @@
 typeset -U path
 path=(
     /opt/homebrew/bin
+    /opt/pypy/bin
     /usr/local/bin
     /usr/local/sbin
     /usr/local/share/npm/bin
