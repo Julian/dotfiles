@@ -370,8 +370,9 @@ install = ["pynvim", "jedi"]
 
 [virtualenv.neovim3]
 python = "python3.9"
-install = ["pynvim", "jedi", "sphinx"]
+install = ["pynvim", "jedi", "python-language-server[all]", "sphinx"]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
+link = ["pyls"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
