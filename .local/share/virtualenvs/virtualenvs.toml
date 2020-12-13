@@ -253,6 +253,7 @@ install = [
 
     "jupyter",
     "jupyterlab",
+    "nbdev",
     "nteract_on_jupyter",
     "octave_kernel",
 
