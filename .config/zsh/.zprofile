@@ -9,18 +9,21 @@ path=(
     $path
 )
 
-local homebrew_prefix=$(brew --prefix)
-path=(
-    $HOME/.local/bin
-    $homebrew_prefix/opt/coreutils/libexec/gnubin
-    $homebrew_prefix/opt/findutils/libexec/gnubin
-    $homebrew_prefix/opt/gnu-sed/libexec/gnubin
-    $homebrew_prefix/opt/python@3.9/bin
-    $homebrew_prefix/opt/python@3.8/bin
-    $homebrew_prefix/opt/python@3.7/bin
-    $homebrew_prefix/opt/util-linux/bin
-    $path
-)
+(( $+commands[brew] )) && {
+    local homebrew_prefix=$(brew --prefix)
+    path=(
+        $homebrew_prefix/opt/coreutils/libexec/gnubin
+        $homebrew_prefix/opt/findutils/libexec/gnubin
+        $homebrew_prefix/opt/gnu-sed/libexec/gnubin
+        $homebrew_prefix/opt/python@3.9/bin
+        $homebrew_prefix/opt/python@3.8/bin
+        $homebrew_prefix/opt/python@3.7/bin
+        $homebrew_prefix/opt/util-linux/bin
+        $path
+    )
+}
+
+path=($HOME/.local/bin $path)
 
 [[ -d ~/.nix-profile/etc/profile.d/ ]] && source ~/.nix-profile/etc/profile.d/nix.sh
 
