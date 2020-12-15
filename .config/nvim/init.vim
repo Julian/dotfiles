@@ -82,8 +82,12 @@ Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-variable-segment'
 
-if has('nvim')
-    Plug 'numirias/semshi',                  {'do': ':UpdateRemotePlugins'}
+if has('nvim-0.5')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Develop 'telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
@@ -753,6 +757,6 @@ if has("eval")
     endif
 endif
 
-if has('nvim')
+if has('nvim-0.5')
     lua require('config')
 endif
