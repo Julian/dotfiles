@@ -2,7 +2,6 @@ if !exists("g:did_coc_loaded") || !g:did_coc_loaded
     finish
 endif
 
-
 inoremap <silent><expr> <Tab>
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ pumvisible() ? coc#_select_confirm() :
@@ -20,9 +19,6 @@ else
 endif
 " vim-endwise + coc
 imap <CR> <Plug>CocCR<Plug>DiscretionaryEnd
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
