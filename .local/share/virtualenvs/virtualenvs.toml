@@ -5,7 +5,7 @@ development = [
     "ptpython",
     "pudb",
     "q",
-    "rich",
+    "rich; python_version>='3'",
     "virtue",
 ]
 core = [
