@@ -707,9 +707,9 @@ if has("eval")
 
             " Jump to the last known cursor position if it's valid (from the docs)
             autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$")                  |
-                \   execute "normal! g`\""                                             |
-                \ endif
+                \   if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit'
+                \ |   execute "normal! g`\""
+                \ | endif
 
         augroup END
 
