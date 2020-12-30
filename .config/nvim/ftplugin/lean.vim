@@ -13,7 +13,7 @@ let b:switch_definitions = [
     \ ["#check", "#reduce", "#eval", "#print"],
     \ ['\(begin\n\s*\)\@<!sorry', 'begin\r  sorry\rend'],
     \ ["tidy", "suggest", "hint", "linarith", "library_search"],
-    \ ["simp", "squeeze_simp", "simp only ["],
+    \ ["simp", "squeeze_simp", "simp only"],
     \ ["cases", "rcases", "obtain"],
     \ ["tt", "ff"],
     \ ["=", "≠"],
