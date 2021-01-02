@@ -127,7 +127,7 @@ link = ["black"]
 [virtualenv.build]
 python = "python3.9"
 install = ["build"]
-link = ["python-build"]
+link = ["pyproject-build"]
 
 [virtualenv.catt]
 python = "python3.9"
