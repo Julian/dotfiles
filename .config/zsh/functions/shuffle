@@ -1,1 +1,1 @@
-mpv --shuffle $MUSIC/$1
+mpv --no-focus-on-open --shuffle $MUSIC/$1

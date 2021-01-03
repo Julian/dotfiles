@@ -3,4 +3,4 @@ if [[ $# > 0 ]]; then
 else
     target=$(fd . --exact-depth 2 "$MUSIC" | fzy)
 fi
-mpv "$target"
+mpv --no-focus-on-open "$target"
