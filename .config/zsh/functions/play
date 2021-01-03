@@ -1,1 +1,1 @@
-mpv "$(beet ls --path $@ | fzy)"
+mpv --no-focus-on-open "$(beet ls --path $@ | fzy)"
