@@ -83,11 +83,13 @@ Develop 'vim-textobj-variable-segment'
 
 if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
+    Develop 'telescope.nvim'
+
     Plug 'neovim/nvim-lspconfig'
+    Plug 'norcalli/snippets.nvim'
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
-    Develop 'telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
