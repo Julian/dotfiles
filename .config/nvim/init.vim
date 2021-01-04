@@ -77,12 +77,12 @@ Plug    'kana/vim-textobj-user'
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
 Develop 'lean.vim'
-Develop 'lean-unicode.vim',                  {'branch': 'main'}
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-variable-segment'
 
 if has('nvim-0.5')
+    Develop 'lean.nvim',                     {'branch': 'main'}
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/plenary.nvim'
@@ -357,7 +357,6 @@ set wildignore+=version.txt
 set wildignore+=**/tmp/**
 set wildignore+=*.png,*.jpg,*.gif,*.svg
 set wildignore+=*.app,*.dmg,*.pdf,*.so
-set wildignore+=**/.olean
 set wildignore+=**/.gems/**,**/.chef/checksums/**
 
 if filereadable("/usr/share/dict/words")
