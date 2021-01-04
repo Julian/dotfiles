@@ -1,7 +1,7 @@
 local completion = require('completion')
 local lspconfig = require('lspconfig')
 
-function cmd(mode, key, cmd)
+local function cmd(mode, key, cmd)
   vim.api.nvim_buf_set_keymap(
     0, mode, key, '<cmd>lua ' .. cmd .. '<CR>', {noremap = true}
   )
@@ -15,7 +15,7 @@ function maybe_hover()
   end
 end
 
-local attached = function(client)
+local function attached(client)
   cmd('n', 'K', 'maybe_hover()')
   cmd('n', 'gd', 'vim.lsp.buf.definition()')
   cmd('n', 'gi', 'vim.lsp.buf.implementation()')
@@ -48,9 +48,10 @@ local lsps = {
   },
   tsserver = {},
   vimls = {},
-  leanls = {},
 }
 
 for lsp, lsp_opts in pairs(lsps) do
   lspconfig[lsp].setup(vim.tbl_extend("force", opts, lsp_opts))
 end
+
+return {attached = attached}
