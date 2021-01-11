@@ -74,6 +74,7 @@ brew "trash"
 brew "tree"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["with-jansson", "HEAD"]
 brew "util-linux"
+brew "w3m"
 brew "watch"
 brew "wget"
 brew "xsv"
