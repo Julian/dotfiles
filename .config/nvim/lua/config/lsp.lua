@@ -8,10 +8,10 @@ local function cmd(mode, key, cmd)
 end
 
 function maybe_hover()
-  if vim.tbl_isempty(vim.lsp.diagnostic.get_line_diagnostics()) then
-    vim.lsp.buf.hover()
-  else
+  if not vim.tbl_isempty(vim.lsp.diagnostic.get_line_diagnostics()) then
     vim.lsp.diagnostic.show_line_diagnostics()
+  elseif vim.lsp.buf_get_clients()[1].resolved_capabilities.hover then
+    vim.lsp.buf.hover()
   end
 end
 
