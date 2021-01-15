@@ -333,7 +333,7 @@ vnoremap        <leader>y         "*y
 " ==============
 
 " insert mode completion
-set completeopt=menuone,longest,preview     " follow type in autocomplete
+set completeopt=menuone,noinsert,noselect,preview
 
 if exists('&pumblend')
     set pumblend=5                          " slightly transparent pum window
