@@ -245,7 +245,6 @@ nnoremap        <leader>j         :<C-U>Denite -input=test tag<CR>
 nnoremap        <leader>k         :<C-U>Denite -input=test/test_ file/rec<CR>
 nnoremap        <leader>l         :<C-U>Denite line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
-nnoremap        <leader>n         <Cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
 nnoremap        <leader>s         :<C-U>Switch<CR>
@@ -285,7 +284,6 @@ nnoremap        <leader>gw         :<C-U>Gwrite<CR>
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
 nmap            <leader>M         <Plug>(quickhl-manual-reset)
-nnoremap        <leader>N         <Cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
