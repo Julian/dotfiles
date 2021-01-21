@@ -19,12 +19,6 @@ endif
 " vim-endwise + coc
 imap <CR> <Plug>CocCR<Plug>DiscretionaryEnd
 
-nmap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> K :call CocAction('doHover')<CR>
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
