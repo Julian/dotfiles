@@ -12,6 +12,7 @@ path=(
 (( $+commands[brew] )) && {
     local homebrew_prefix=$(brew --prefix)
     path=(
+        $homebrew_prefix/sbin
         $homebrew_prefix/opt/coreutils/libexec/gnubin
         $homebrew_prefix/opt/findutils/libexec/gnubin
         $homebrew_prefix/opt/gnu-sed/libexec/gnubin
