@@ -54,7 +54,7 @@ local function on_attach(client, bufnr)
   end
 
   if client.resolved_capabilities.document_highlight then
-    lspconfig.util.nvim_multiline_command [[
+    vim.api.nvim_exec([[
       :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
@@ -63,7 +63,7 @@ local function on_attach(client, bufnr)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]]
+    ]], false)
   end
 end
 
