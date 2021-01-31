@@ -11,14 +11,6 @@ inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 let g:coc_snippet_next = '<tab>'
 
-if exists('*complete_info')
-  inoremap <expr> <Plug>CocCR complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <Plug>CocCR pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-" vim-endwise + coc
-imap <CR> <Plug>CocCR<Plug>DiscretionaryEnd
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
