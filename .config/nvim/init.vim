@@ -60,7 +60,6 @@ Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
 Plug    'tpope/vim-abolish'
-Plug    'tpope/vim-dispatch'
 Plug    'tpope/vim-endwise'
 Plug    'tpope/vim-fugitive'
 Plug    'tpope/vim-obsession',               {'on': 'Obsession'}
@@ -149,11 +148,7 @@ endif
 
 " testing mappings
 nnoremap      <expr>d<CR>     ":SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
-nnoremap      <expr>dc        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#class(expand("%"), getpos(".")) : t:runt_last_command)  .  "<CR>"
-nnoremap      <expr>dm        ":w<CR>:Dispatch "      . (empty(get(t:, 'runt_last_command', '')) ? runt#method(expand("%"), getpos(".")) : t:runt_last_command) .  "<CR>"
-nnoremap            dx         :w<CR>:Dispatch          tox                                                                                                         <CR>
 nnoremap            dK         :call                    runt#follow()                                                                                               <CR>
-nnoremap      <expr>dS        ":w<CR>:Dispatch "            . (empty(get(t:, 'runt_last_command', '')) ? runt#suite(expand("%")) : t:runt_last_command)         .  "<CR>"
 
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
