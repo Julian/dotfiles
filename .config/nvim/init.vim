@@ -56,8 +56,6 @@ Plug    'liuchengxu/vista.vim',              {'on': 'Vista'}
 Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
-Plug    'neoclide/coc.nvim',                 {'branch': 'release'}
-Plug    'neoclide/coc-python'
 Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
@@ -94,6 +92,9 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
+else
+    Plug    'neoclide/coc.nvim',                 {'branch': 'release'}
+    Plug    'neoclide/coc-python'
 endif
 
 if executable("tmux")
