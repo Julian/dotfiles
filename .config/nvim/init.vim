@@ -147,6 +147,8 @@ if has("user_commands")
     endif
 endif
 
+imap <CR>           <CR><Plug>DiscretionaryEnd
+
 " testing mappings
 nnoremap      <expr>d<CR>     ":SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
 nnoremap            dK         :call                    runt#follow()                                                                                               <CR>
