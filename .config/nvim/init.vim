@@ -47,6 +47,7 @@ Plug    'AndrewRadev/switch.vim'
 Plug    'andymass/vim-matchup'
 Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
+Plug    'easymotion/vim-easymotion'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
 Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
@@ -92,8 +93,8 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
 else
-    Plug    'neoclide/coc.nvim',                 {'branch': 'release'}
-    Plug    'neoclide/coc-python'
+    Plug 'neoclide/coc.nvim',                {'branch': 'release'}
+    Plug 'neoclide/coc-python'
 endif
 
 if executable("tmux")
