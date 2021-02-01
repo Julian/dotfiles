@@ -1,5 +1,6 @@
 require('config.completion')
 require('config.lsp')
+require('config.telescope')
 require('config.treesitter')
 
 require('lean').setup{

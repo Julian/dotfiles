@@ -73,8 +73,6 @@ Plug    'vimwiki/vimwiki',                   {'branch': 'dev', 'on': 'VimwikiInd
 
 Plug    'kana/vim-textobj-user'
 
-Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
-
 Develop 'lean.vim'
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
@@ -237,13 +235,13 @@ nnoremap        <leader><leader>  :Denite buffer file tag<CR>
 nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>DeniteProjectDir file/rec<CR>
+nnoremap        <leader>d         :<C-U>Telescope find_files hidden=yes<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
 nnoremap        <leader>f         :<C-U>Denite file/rec:`expand('%:h')`<CR>
-nnoremap        <leader>h         :<C-U>Denite tag<CR>
-nnoremap        <leader>j         :<C-U>Denite -input=test tag<CR>
+nnoremap        <leader>h         <Cmd>lua find_symbols()<CR>
+nnoremap        <leader>j         <Cmd>lua find_symbols_from_buffer()<CR>
 nnoremap        <leader>k         :<C-U>Denite -input=test/test_ file/rec<CR>
-nnoremap        <leader>l         :<C-U>Denite line<CR>
+nnoremap        <leader>l         :<C-U>Telescope current_buffer_fuzzy_find<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
