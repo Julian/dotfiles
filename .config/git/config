@@ -66,6 +66,7 @@
 
     c = clone --recursive
     cp = cherry-pick
+    pluck = !sh -c 'git show "$1" | git apply' -
     pushhh = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
     inithub = "!git remote add origin git@github.com:Julian/$(basename $PWD) && git pushhh"
     rmb = push --delete origin
