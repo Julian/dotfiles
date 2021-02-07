@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import os
+import sys
+
+
+if Path("leanpkg.toml").exists():
+    argv = ["lean-language-server", "--stdio", "--"]
+else:
+    argv = ["lean4", "--server"]
+
+os.execvp(argv[0], argv + sys.argv[1:])
