@@ -1,13 +1,4 @@
 {
-    "languageserver": {
-        "lean": {
-            "command": "lean-language-server",
-            "args": ["--stdio"],
-            "filetypes": ["lean"],
-            "settings": {
-            }
-        }
-    },
     "diagnostic.maxWindowHeight": 40,
     "diagnostic.maxWindowWidth": 200,
     "python.jediEnabled": false,
