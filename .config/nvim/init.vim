@@ -331,7 +331,7 @@ vnoremap        <leader>y         "*y
 " ==============
 
 " insert mode completion
-set completeopt=menuone,noinsert,noselect,preview
+set completeopt=menuone,noinsert,noselect
 
 if exists('&pumblend')
     set pumblend=5                          " slightly transparent pum window
