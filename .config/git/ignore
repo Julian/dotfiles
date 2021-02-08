@@ -102,6 +102,6 @@ bower_components/
 # Lean #
 # ---- #
 
-*.olean
+/_target
 /leanpkg.path
-all.lean
+*.olean
