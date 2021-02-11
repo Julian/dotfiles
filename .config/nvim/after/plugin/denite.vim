@@ -16,6 +16,10 @@ call denite#custom#option('default', s:denite_options)
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
+    if exists("g:loaded_compe") && g:loaded_compe
+        call compe#setup({'enabled': v:false}, 0)
+    endif
+
     call denite#custom#map(
             \ 'insert',
             \ '<C-n>',
@@ -40,6 +44,10 @@ endfunction
 
 autocmd FileType denite-filter call s:denite_filter_my_settings()
 function! s:denite_filter_my_settings() abort
+    if exists("g:loaded_compe") && g:loaded_compe
+        call compe#setup({'enabled': v:false}, 0)
+    endif
+
     call denite#custom#map(
             \ 'insert',
             \ '<C-n>',
