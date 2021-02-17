@@ -2,6 +2,7 @@ local completion = require('completion')
 local snippets = require('snippets')
 
 vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+vim.o.completeopt = "menuone,noselect"
 
 -- Expand a snippet if it exactly matches, otherwise complete.
 function tab()
