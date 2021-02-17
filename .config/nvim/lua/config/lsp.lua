@@ -5,8 +5,12 @@ local lspconfig = require('lspconfig')
 function maybe_hover()
   if not vim.tbl_isempty(vim.lsp.diagnostic.get_line_diagnostics()) then
     vim.lsp.diagnostic.show_line_diagnostics()
-  elseif vim.lsp.buf_get_clients()[1].resolved_capabilities.hover then
-    vim.lsp.buf.hover()
+  else
+    local clients = vim.lsp.buf_get_clients()
+    if not vim.tbl_isempty(clients)
+       and clients[1].resolved_capabilities.hover then
+       vim.lsp.buf.hover()
+    end
   end
 end
 
