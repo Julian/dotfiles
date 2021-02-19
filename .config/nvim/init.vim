@@ -597,7 +597,7 @@ if has("eval")
 
     " If we're in a wide window, enable line numbers.
     function! <SID>WindowWidth()
-        if win_gettype(0) == "popup"
+        if has('nvim') && win_gettype(0) == "popup"
             return
         endif
 
