@@ -149,14 +149,14 @@ endif
 imap <CR>           <CR><Plug>DiscretionaryEnd
 
 " testing mappings
-nnoremap      <expr>d<CR>     ":SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
-nnoremap            dK         :call                    runt#follow()                                                                                               <CR>
+nnoremap      <expr>d<CR>     "<Cmd>SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
+nnoremap            dK         <Cmd>call                    runt#follow()                                                                                               <CR>
 
 " Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
 map s <Plug>(Exchange)
 
-nnoremap s<CR> :SplitjoinSplit<CR>
-nnoremap ss :SplitjoinJoin<CR>
+nnoremap s<CR> <Cmd>SplitjoinSplit<CR>
+nnoremap ss    <Cmd>SplitjoinJoin<CR>
 
 " don't use Ex mode, use Q for formatting
 nmap Q gqap
@@ -203,12 +203,12 @@ nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 "       '<F2>' is set to pastetoggle
 let s:all_modes_mappings = {
     \   '<F1>'  : '',
-    \   '<F12>'  : ':<C-U>make',
+    \   '<F12>'  : '<Cmd>make',
     \
-    \   '<Up>' : ':diffget<CR>[c',
-    \   '<Down>' : ':diffget<CR>]c',
-    \   '<Left>' : ':diffget',
-    \   '<Right>' : ':diffput'
+    \   '<Up>' : '<Cmd>diffget<CR>[c',
+    \   '<Down>' : '<Cmd>diffget<CR>]c',
+    \   '<Left>' : '<Cmd>diffget',
+    \   '<Right>' : '<Cmd>diffput'
     \
     \}
 
@@ -232,53 +232,53 @@ endfor
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <leader><leader>  :Denite buffer file tag<CR>
-nnoremap  <expr><leader><CR>      ':autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
+nnoremap        <leader><leader>  <Cmd>Denite buffer file tag<CR>
+nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         :<C-U>DeniteProjectDir file/rec<CR>
+nnoremap        <leader>d         <Cmd>DeniteProjectDir file/rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
-nnoremap        <leader>f         :<C-U>Denite file/rec:`expand('%:h')`<CR>
-nnoremap        <leader>h         :<C-U>Denite tag<CR>
-nnoremap        <leader>j         :<C-U>Denite -input=test tag<CR>
-nnoremap        <leader>k         :<C-U>Denite -input=test/test_ file/rec<CR>
-nnoremap        <leader>l         :<C-U>Denite line<CR>
+nnoremap        <leader>f         <Cmd>Denite file/rec:`expand('%:h')`<CR>
+nnoremap        <leader>h         <Cmd>Denite tag<CR>
+nnoremap        <leader>j         <Cmd>Denite -input=test tag<CR>
+nnoremap        <leader>k         <Cmd>Denite -input=test/test_ file/rec<CR>
+nnoremap        <leader>l         <Cmd>Denite line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
-nnoremap        <leader>s         :<C-U>Switch<CR>
+nnoremap        <leader>s         <Cmd>Switch<CR>
 
 "   <leader>t mappings are for togglers
 "
 " Here are explanations for non-self-explanatory ones:
 "
 "   p : prose mode (suitable for editing longer form text)
-nnoremap        <leader>ta        :<C-U>Vista!!<CR>
-nnoremap        <leader>tc        :<C-U>DiffChangesDiffToggle<CR>
-nnoremap        <leader>td        :<C-U>DiffThese<CR>
-nnoremap        <leader>te        :<C-U>call <SID>ToggleExpando()<CR>
-nnoremap        <leader>ti        :<C-U>IndentGuidesToggle<CR>
-nnoremap        <leader>tl        :<C-U>set list!<CR>
-nnoremap        <leader>tn        :<C-U>call <SID>ToggleNumber()<CR>
+nnoremap        <leader>ta        <Cmd>Vista!!<CR>
+nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
+nnoremap        <leader>td        <Cmd>DiffThese<CR>
+nnoremap        <leader>te        <Cmd>call <SID>ToggleExpando()<CR>
+nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
+nnoremap        <leader>tl        <Cmd>set list!<CR>
+nnoremap        <leader>tn        <Cmd>call <SID>ToggleNumber()<CR>
 nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell<CR>:setlocal wrap<CR>:setlocal textwidth=0<CR>
-nnoremap        <leader>ts        :<C-U>set spell!<CR>
-nnoremap        <leader>tu        :<C-U>UndotreeToggle<CR>
-nnoremap        <leader>tw        :<C-U>set wrap!<CR>
+nnoremap        <leader>ts        <Cmd>set spell!<CR>
+nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
+nnoremap        <leader>tw        <Cmd>set wrap!<CR>
 
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nnoremap        <leader>v         :<C-U>SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         :<C-U>DeniteCursorWord grep:.<CR>
+nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
+nnoremap        <leader>w         <Cmd>DeniteCursorWord grep:.<CR>
 nnoremap        <leader>y         "*y
 
-nnoremap        <leader>ga         :<C-U>Git difftool<CR>
-nnoremap        <leader>gb         :<C-U>Git blame<CR>
-nnoremap        <leader>gc         :<C-U>Git commit<CR>
-nnoremap        <leader>gd         :<C-U>Gdiffsplit<CR>
-nnoremap        <leader>gf         :<C-U>Git difftool -y<CR>
-nnoremap        <leader>ge         :<C-U>Gedit<CR>
-nnoremap        <leader>gr         :<C-U>Gread<CR>
-nnoremap        <leader>gs         :<C-U>Git<CR>
-nnoremap        <leader>gw         :<C-U>Gwrite<CR>
+nnoremap        <leader>ga         <Cmd>Git difftool<CR>
+nnoremap        <leader>gb         <Cmd>Git blame<CR>
+nnoremap        <leader>gc         <Cmd>Git commit<CR>
+nnoremap        <leader>gd         <Cmd>Gdiffsplit<CR>
+nnoremap        <leader>gf         <Cmd>Git difftool -y<CR>
+nnoremap        <leader>ge         <Cmd>Gedit<CR>
+nnoremap        <leader>gr         <Cmd>Gread<CR>
+nnoremap        <leader>gs         <Cmd>Git<CR>
+nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
@@ -286,40 +286,40 @@ nmap            <leader>M         <Plug>(quickhl-manual-reset)
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
-nnoremap  <expr><leader>V         ":<C-U>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/lua/config/init.lua' . "<CR>"
+nnoremap  <expr><leader>V         "<Cmd>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/lua/config/init.lua' . "<CR>"
 nnoremap        <leader>Y         "*y$
-nnoremap        <leader>Z         :<C-U>SplitSensibly $ZDOTDIR/.zshrc<CR>
+nnoremap        <leader>Z         <Cmd>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
-nnoremap  <expr><leader>VF        ":<C-U>SplitSensibly " . split(&runtimepath, ",")[0] .  "/ftplugin/" . &filetype . ".vim<CR>"
-nnoremap        <leader>VZ        :<C-U>SplitSensibly $ZDOTDIR/.zshrc.local<CR>
+nnoremap  <expr><leader>VF        "<Cmd>SplitSensibly " . split(&runtimepath, ",")[0] .  "/ftplugin/" . &filetype . ".vim<CR>"
+nnoremap        <leader>VZ        <Cmd>SplitSensibly $ZDOTDIR/.zshrc.local<CR>
 
-nnoremap        <leader>0         :wincmd _<CR>
+nnoremap        <leader>0         <Cmd>wincmd _<CR>
 
 
-nnoremap        <leader>`         :<C-U>call <SID>DoCommentTagFormat()<CR>
-nnoremap        <leader>.         :<C-U>setlocal autochdir<CR>
-nnoremap        <leader>;         :lprevious<CR>
-nnoremap        <leader>'         :lnext<CR>
-nnoremap        <leader>[         :cprevious<CR>
-nnoremap        <leader>]         :cnext<CR>
-nnoremap        <leader>{         :cpfile<CR>
-nnoremap        <leader>}         :cnfile<CR>
-nnoremap        <leader>-         :previous<CR>
-nnoremap        <leader>=         :next<CR>
-nnoremap        <leader>_         :tabprevious<CR>
-nnoremap        <leader>+         :tabnext<CR>
-nnoremap        <leader><BS>      :earlier 1f<CR>
-nnoremap        <leader>\         :later 1f<CR>
-nnoremap        <leader>/         :<C-U>Denite -no-empty grep:.<CR>
+nnoremap        <leader>`         <Cmd>call <SID>DoCommentTagFormat()<CR>
+nnoremap        <leader>.         <Cmd>setlocal autochdir<CR>
+nnoremap        <leader>;         <Cmd>lprevious<CR>
+nnoremap        <leader>'         <Cmd>lnext<CR>
+nnoremap        <leader>[         <Cmd>cprevious<CR>
+nnoremap        <leader>]         <Cmd>cnext<CR>
+nnoremap        <leader>{         <Cmd>cpfile<CR>
+nnoremap        <leader>}         <Cmd>cnfile<CR>
+nnoremap        <leader>-         <Cmd>previous<CR>
+nnoremap        <leader>=         <Cmd>next<CR>
+nnoremap        <leader>_         <Cmd>tabprevious<CR>
+nnoremap        <leader>+         <Cmd>tabnext<CR>
+nnoremap        <leader><BS>      <Cmd>earlier 1f<CR>
+nnoremap        <leader>\         <Cmd>later 1f<CR>
+nnoremap        <leader>/         <Cmd>Denite -no-empty grep:.<CR>
 
 
 nnoremap        <leader><tab>     <C-^>
 
 
-vnoremap        <leader>d         :Linediff<CR>
+vnoremap        <leader>d         <Cmd>Linediff<CR>
 vmap            <leader>m         <Plug>(quickhl-manual-this)
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
