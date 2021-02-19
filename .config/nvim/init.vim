@@ -82,7 +82,6 @@ Develop 'vim-textobj-variable-segment'
 
 if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
-    Develop 'telescope.nvim'
 
     Plug 'neovim/nvim-lspconfig'
     Plug 'norcalli/snippets.nvim'
