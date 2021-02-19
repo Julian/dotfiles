@@ -1,4 +1,3 @@
-local completion = require('completion')
 local lspconfig = require('lspconfig')
 
 
@@ -26,8 +25,6 @@ local function on_attach(client, bufnr)
   end
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  completion.on_attach(client, bufnr)
 
   cmd('n', 'K', 'maybe_hover()')
   cmd('n', 'gd', 'vim.lsp.buf.definition()')
