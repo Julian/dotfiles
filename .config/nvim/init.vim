@@ -83,9 +83,8 @@ Develop 'vim-textobj-variable-segment'
 if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
 
+    Plug 'hrsh7th/nvim-compe'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'norcalli/snippets.nvim'
-    Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
