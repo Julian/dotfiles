@@ -6,6 +6,8 @@
 
 .cache/
 
+.terraform/
+
 # Compiled source #
 # --------------- #
 *.com
