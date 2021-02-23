@@ -43,7 +43,6 @@ require'compe'.setup{
     path = true,
     spell = true,
     tags = true,
-    vsnip = true,
   }
 }
 
