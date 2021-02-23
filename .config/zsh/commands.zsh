@@ -163,6 +163,16 @@ function pp() {
     python -c "print '${@:gs/'/\\'}'"
 }
 
+# If only pyed and friends were still alive...
+function pe() {
+    python -c "
+from pathlib import Path
+import sys
+for line in sys.stdin:
+    line = line[:-1]
+    $@"
+}
+
 # Open a REPL for a virtualenv
 function r() {
     if [[ $# == 0 ]]; then
