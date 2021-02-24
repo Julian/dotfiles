@@ -54,6 +54,8 @@ export MPLCONFIGDIR=$XDG_CONFIG_HOME/matplotlib/
 export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
 export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+
 export MATHLIB_CACHE_DIR=${XDG_CACHE_HOME}/mathlib/
 
 export GEM_HOME=$HOME/.local/share/gem
