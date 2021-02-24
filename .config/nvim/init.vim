@@ -49,7 +49,6 @@ Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
 Plug    'easymotion/vim-easymotion'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
-Plug    'kien/rainbow_parentheses.vim'
 Plug    'kshenoy/vim-signature'
 Plug    'itchyny/lightline.vim'
 Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
