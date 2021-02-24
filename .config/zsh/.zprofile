@@ -5,6 +5,7 @@ path=(
     /usr/local/bin
     /usr/local/sbin
     /usr/local/share/npm/bin
+    ${CARGO_HOME}/bin
     ${GEM_HOME}/bin
     $path
 )
