@@ -88,6 +88,7 @@ if has('nvim-0.5')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    Plug 'nvim-treesitter/playground'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
 else
     Plug 'neoclide/coc.nvim',                {'branch': 'release'}
