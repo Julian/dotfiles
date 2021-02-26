@@ -718,6 +718,7 @@ if has("eval")
         augroup filetypes
             autocmd!
             autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+            autocmd BufNewFile,BufRead *.gyp setlocal filetype=json
             autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
             autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
             autocmd BufNewFile,BufRead *.tac setlocal filetype=python
