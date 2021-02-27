@@ -261,6 +261,7 @@ nnoremap        <leader>tl        <Cmd>set list!<CR>
 nnoremap        <leader>tn        <Cmd>call <SID>ToggleNumber()<CR>
 nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell<CR>:setlocal wrap<CR>:setlocal textwidth=0<CR>
 nnoremap        <leader>ts        <Cmd>set spell!<CR>
+nnoremap        <leader>tt        <Cmd>TSPlaygroundToggle<CR>
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>set wrap!<CR>
 
