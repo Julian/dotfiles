@@ -110,6 +110,8 @@ fi
 
 if (( ! $+commands[bat] )); then
     alias bat=cat
+else
+    READNULLCMD=bat
 fi
 
 if (( $+commands[dircolors] )); then
