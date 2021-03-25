@@ -56,6 +56,7 @@
 .config/matplotlib/fontlist-*.json
 .config/mlvds/
 .config/notmuch/
+.config/parallel/tmp/
 .config/pip/pip.log
 .config/ptpython/history
 .config/pudb/saved-breakpoints*
