@@ -255,7 +255,6 @@ nnoremap        <leader>s         <Cmd>Switch<CR>
 nnoremap        <leader>ta        <Cmd>Vista!!<CR>
 nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
 nnoremap        <leader>td        <Cmd>DiffThese<CR>
-nnoremap        <leader>te        <Cmd>call <SID>ToggleExpando()<CR>
 nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
 nnoremap        <leader>tl        <Cmd>set list!<CR>
 nnoremap        <leader>tn        <Cmd>call <SID>ToggleNumber()<CR>
@@ -264,6 +263,7 @@ nnoremap        <leader>ts        <Cmd>set spell!<CR>
 nnoremap        <leader>tt        <Cmd>TSPlaygroundToggle<CR>
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>set wrap!<CR>
+nnoremap        <leader>tx        <Cmd>call <SID>ToggleExpando()<CR>
 
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
