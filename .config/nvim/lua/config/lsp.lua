@@ -3,7 +3,7 @@ local lspconfig = require('lspconfig')
 
 function maybe_hover()
   if not vim.tbl_isempty(vim.lsp.diagnostic.get_line_diagnostics()) then
-    vim.lsp.diagnostic.show_line_diagnostics()
+    vim.lsp.diagnostic.show_line_diagnostics{show_header = false}
   else
     local clients = vim.tbl_values(vim.lsp.buf_get_clients())
     if not vim.tbl_isempty(clients)
