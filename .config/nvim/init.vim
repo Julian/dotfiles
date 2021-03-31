@@ -238,6 +238,7 @@ nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         <Cmd>DeniteProjectDir file/rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
 nnoremap        <leader>f         <Cmd>Denite file/rec:`expand('%:h')`<CR>
+"               <leader>g         Git
 nnoremap        <leader>h         <Cmd>Denite tag<CR>
 nnoremap        <leader>j         <Cmd>Denite -input=test tag<CR>
 nnoremap        <leader>k         <Cmd>Denite -input=test/test_ file/rec<CR>
@@ -249,6 +250,22 @@ nnoremap        <leader>p         "*p
 "               <leader>q         LSP set loclist
 "               <leader>r         LSP rename
 nnoremap        <leader>s         <Cmd>Switch<CR>
+"               <leader>t         Togglers
+nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
+nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
+nnoremap        <leader>w         <Cmd>DeniteCursorWord grep:.<CR>
+nnoremap        <leader>y         "*y
+"               <leader>z         LSP formatting
+
+nnoremap        <leader>ga         <Cmd>Git difftool<CR>
+nnoremap        <leader>gb         <Cmd>Git blame<CR>
+nnoremap        <leader>gc         <Cmd>Git commit<CR>
+nnoremap        <leader>gd         <Cmd>Gdiffsplit<CR>
+nnoremap        <leader>gf         <Cmd>Git difftool -y<CR>
+nnoremap        <leader>ge         <Cmd>Gedit<CR>
+nnoremap        <leader>gr         <Cmd>Gread<CR>
+nnoremap        <leader>gs         <Cmd>Git<CR>
+nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 
 "   <leader>t mappings are for togglers
 "
@@ -267,22 +284,6 @@ nnoremap        <leader>tt        <Cmd>TSPlaygroundToggle<CR>
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>set wrap!<CR>
 nnoremap        <leader>tx        <Cmd>call <SID>ToggleExpando()<CR>
-
-nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         <Cmd>DeniteCursorWord grep:.<CR>
-nnoremap        <leader>y         "*y
-"               <leader>z         LSP formatting
-
-nnoremap        <leader>ga         <Cmd>Git difftool<CR>
-nnoremap        <leader>gb         <Cmd>Git blame<CR>
-nnoremap        <leader>gc         <Cmd>Git commit<CR>
-nnoremap        <leader>gd         <Cmd>Gdiffsplit<CR>
-nnoremap        <leader>gf         <Cmd>Git difftool -y<CR>
-nnoremap        <leader>ge         <Cmd>Gedit<CR>
-nnoremap        <leader>gr         <Cmd>Gread<CR>
-nnoremap        <leader>gs         <Cmd>Git<CR>
-nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
