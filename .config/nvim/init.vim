@@ -243,8 +243,11 @@ nnoremap        <leader>j         <Cmd>Denite -input=test tag<CR>
 nnoremap        <leader>k         <Cmd>Denite -input=test/test_ file/rec<CR>
 nnoremap        <leader>l         <Cmd>Denite line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
+"               <leader>n         LSP goto next diagnostic
 nnoremap  <expr><leader>o         EditFileWORD()
 nnoremap        <leader>p         "*p
+"               <leader>q         LSP set loclist
+"               <leader>r         LSP rename
 nnoremap        <leader>s         <Cmd>Switch<CR>
 
 "   <leader>t mappings are for togglers
@@ -269,6 +272,7 @@ nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoption
 nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         <Cmd>DeniteCursorWord grep:.<CR>
 nnoremap        <leader>y         "*y
+"               <leader>z         LSP formatting
 
 nnoremap        <leader>ga         <Cmd>Git difftool<CR>
 nnoremap        <leader>gb         <Cmd>Git blame<CR>
@@ -282,7 +286,10 @@ nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
+"               <leader>F         LSP folder management
+"               <leader>K         LSP show line diagnostics
 nmap            <leader>M         <Plug>(quickhl-manual-reset)
+"               <leader>N         LSP goto previous diagnostic
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
