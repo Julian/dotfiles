@@ -24,6 +24,7 @@
 
 .config/MusicBrainz/
 .config/ansible/vault-password
+.config/asciinema/install-id
 .config/aws/credentials.ini
 .config/beets/library.db
 .config/beets/spotify_token.json
