@@ -1,2 +1,3 @@
 setlocal updatetime=300
-autocmd! CursorHoldI <buffer> lua maybe_hover()
+autocmd! CursorHold <buffer> LeanPlainGoal
+autocmd! CursorHoldI <buffer> LeanPlainGoal
