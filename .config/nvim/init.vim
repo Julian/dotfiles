@@ -385,11 +385,6 @@ set showmatch                          " show matching brackets for a moment
 set matchpairs+=<:>
 set matchtime=5                        " show for how long (*tenths* of second)
 
-" show a line at column 79
-if exists("&colorcolumn")
-    set colorcolumn=+1
-endif
-
 " ===========
 " : History :
 " ===========
@@ -605,10 +600,13 @@ if has("eval")
     command! -nargs=* -complete=file Ss call <SID>SplitSensiblyCommand('<args>')
     command! -nargs=* -complete=file SS call <SID>SplitSensiblyCommand('<args>')
 
-    " If we're in a wide window, enable line numbers.
+    " If we're in a wide window, enable line numbers and colorcolumn.
     function! <SID>WindowWidth()
-        if has('nvim') && win_gettype(0) == "popup"
+        if &buftype == 'nofile'
             return
+        else
+            " show a line at column 79
+            setlocal colorcolumn=+1
         endif
 
         if winwidth(0) > 90
@@ -711,7 +709,7 @@ if has("eval")
             autocmd VimResized * :wincmd =
 
             " Automagic line numbers
-            autocmd BufEnter * :call <SID>WindowWidth()
+            autocmd BufWinEnter,VimEnter * :call <SID>WindowWidth()
 
             " Jump to the last known cursor position if it's valid (from the docs)
             autocmd BufReadPost *
