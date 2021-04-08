@@ -6,7 +6,8 @@ require('lean').setup{
   lsp = {
     cmd = {"frankenlean", "-M", "4096"},
     on_attach = require('config.lsp').on_attach,
-  }
+  },
+  mappings = true,
 }
 
 require('nvim-treesitter.configs').setup{
