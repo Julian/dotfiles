@@ -17,8 +17,13 @@ end
 --- move to prev/next item in completion menuone
 --- jump to prev/next snippet's placeholder
 _G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
+  local complete_info = vim.fn.complete_info()
+  if complete_info.pum_visible == 1 then
+    if complete_info.selected == -1 then
+      return t "<C-n>"
+    else
+      return vim.fn['compe#confirm']()
+    end
   elseif check_back_space() then
     return t "<Tab>"
   else
