@@ -28,8 +28,7 @@ call plug#begin(expand('~/.local/share/nvim/bundle/'))
 
 " --- Themes ---
 
-Plug    'gruvbox-community/gruvbox'
-Plug    'joshdick/onedark.vim'
+Plug    'sainnhe/sonokai'
 
 " --- Additional FileType Support ---
 
@@ -400,7 +399,7 @@ endif
 " : Interface :
 " =============
 
-let g:preferred_colorscheme = 'onedark'
+let g:preferred_colorscheme = 'sonokai'
 
 if has('gui_running') || &t_Co > 8
     set termguicolors
