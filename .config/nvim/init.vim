@@ -730,6 +730,7 @@ if has("eval")
             autocmd BufNewFile,BufRead *.jinja2,*.j2 setlocal filetype=jinja
             autocmd BufNewFile,BufRead *.mako,*.mak setlocal filetype=html
             autocmd BufNewFile,BufRead *.tac setlocal filetype=python
+            autocmd BufNewFile,BufRead */test/corpus/*.txt setlocal filetype=tree-sitter-test
 
             autocmd BufReadCmd *.egg,*.whl call zip#Browse(expand("<amatch>"))
 
