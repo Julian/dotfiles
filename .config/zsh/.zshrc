@@ -30,6 +30,7 @@ pywarnings=(
     'ignore:can''t resolve package from __spec__ or __package__:ImportWarning'
     'ignore:DEPRECATION::pip._internal.cli.base_command'
 
+    'ignore:Creating a LegacyVersion:DeprecationWarning'
     'ignore:Providing the line is now done:DeprecationWarning'
     'ignore:Providing the column is now done'
     'ignore:Deprecated since version 0.16.0. Use Script(...)'
