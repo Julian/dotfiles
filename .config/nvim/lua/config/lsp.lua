@@ -29,8 +29,8 @@ local function on_attach(client, bufnr)
   cmd('n', 'K', 'maybe_hover()')
   cmd('n', 'gd', 'vim.lsp.buf.definition()')
   cmd('n', 'gD', 'vim.lsp.buf.declaration()')
-  cmd('n', 'gi', 'vim.lsp.buf.implementation()')
-  cmd('n', 'gr', 'vim.lsp.buf.references()')
+  cmd('n', '<leader>Li', 'vim.lsp.buf.implementation()')
+  cmd('n', '<leader>Lr', 'vim.lsp.buf.references()')
 
   cmd('n', '<leader>n', 'vim.lsp.diagnostic.goto_next{popup_opts = {show_header = false}}')
   cmd('n', '<leader>q', 'vim.lsp.diagnostic.set_loclist()')
@@ -38,9 +38,9 @@ local function on_attach(client, bufnr)
   cmd('n', '<leader>K', 'vim.lsp.diagnostic.show_line_diagnostics{show_header = false}')
   cmd('n', '<leader>N', 'vim.lsp.diagnostic.goto_prev{popup_opts = {show_header = false}}')
 
-  cmd('n', '<leader>Fa', 'vim.lsp.buf.add_workspace_folder()')
-  cmd('n', '<leader>Fr', 'vim.lsp.buf.remove_workspace_folder()')
-  cmd('n', '<leader>Fl', 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
+  cmd('n', '<leader>La', 'vim.lsp.buf.add_workspace_folder()')
+  cmd('n', '<leader>Ld', 'vim.lsp.buf.remove_workspace_folder()')
+  cmd('n', '<leader>Ll', 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
 
   if client.resolved_capabilities.document_formatting then
     cmd('n', '<leader>z', 'vim.lsp.buf.formatting()')

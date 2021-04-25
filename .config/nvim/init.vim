@@ -288,8 +288,8 @@ nnoremap        <leader>tx        <Cmd>call <SID>ToggleExpando()<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
-"               <leader>F         LSP folder management
 "               <leader>K         LSP show line diagnostics
+"               <leader>L         LSP folder management and other mappings
 nmap            <leader>M         <Plug>(quickhl-manual-reset)
 "               <leader>N         LSP goto previous diagnostic
 nnoremap        <leader>P         "*P
