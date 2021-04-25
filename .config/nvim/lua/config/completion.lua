@@ -41,6 +41,7 @@ end
 
 require'compe'.setup{
   source = {
+    buffer = true,
     calc = true,
     nvim_lsp = true,
     nvim_lua = true,
