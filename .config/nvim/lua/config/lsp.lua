@@ -26,7 +26,6 @@ local function on_attach(client, bufnr)
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  cmd('n', 'K', 'maybe_hover()')
   cmd('n', 'gd', 'vim.lsp.buf.definition()')
   cmd('n', 'gD', 'vim.lsp.buf.declaration()')
   cmd('n', '<leader>Li', 'vim.lsp.buf.implementation()')
@@ -41,6 +40,10 @@ local function on_attach(client, bufnr)
   cmd('n', '<leader>La', 'vim.lsp.buf.add_workspace_folder()')
   cmd('n', '<leader>Ld', 'vim.lsp.buf.remove_workspace_folder()')
   cmd('n', '<leader>Ll', 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
+
+  if client.resolved_capabilities.hover then
+    cmd('n', 'K', 'vim.lsp.buf.hover()')
+  end
 
   if client.resolved_capabilities.document_formatting then
     cmd('n', '<leader>z', 'vim.lsp.buf.formatting()')
