@@ -19,11 +19,7 @@ end
 _G.tab_complete = function()
   local complete_info = vim.fn.complete_info()
   if complete_info.pum_visible == 1 then
-    if complete_info.selected == -1 then
-      return t "<C-n>"
-    else
-      return vim.fn['compe#confirm']()
-    end
+    return t "<C-n>"
   elseif check_back_space() then
     return t "<Tab>"
   else
