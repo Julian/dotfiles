@@ -12,7 +12,10 @@ zstyle ':completion:*' cache-path $ZDOTDIR/cache
 # Ignore completion for non-existant commands
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
-#  Fuzzy completion matching
+# Smart case-y completion
+zstyle ':completion:*'  matcher-list 'm:{a-z}={A-Z}'
+
+# Fuzzy completion matching
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
