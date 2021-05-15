@@ -18,6 +18,7 @@
 .local/share/nvim/rplugin.vim
 .local/share/nvim/shada
 .local/share/nvim/swap
+.local/share/nvim/tree-sitter-*
 .local/share/nvim/undo
 
 .tmux/tmux.conf.local
