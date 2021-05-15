@@ -89,6 +89,7 @@ local lsps = {
           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
         },
       },
+      telemetry = { enable = false },
     },
   },
   tsserver = {},
