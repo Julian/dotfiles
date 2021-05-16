@@ -56,7 +56,8 @@ export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 
-export MATHLIB_CACHE_DIR=${XDG_CACHE_HOME}/mathlib/
+export ELAN_HOME=$XDG_DATA_HOME/elan/
+export MATHLIB_CACHE_DIR=$XDG_CACHE_HOME/mathlib/
 
 export GEM_HOME=$HOME/.local/share/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
