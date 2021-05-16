@@ -1,5 +1,6 @@
-local lspconfig = require('lspconfig')
+require('config.dap')
 
+local lspconfig = require('lspconfig')
 
 function maybe_hover()
   if not vim.tbl_isempty(vim.lsp.diagnostic.get_line_diagnostics()) then

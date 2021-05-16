@@ -48,12 +48,12 @@ Plug    'bruno-/vim-vertical-move'
 Plug    'dahu/vim-fanfingtastic'
 Plug    'easymotion/vim-easymotion'
 Plug    'godlygeek/tabular',                 {'on': 'Tabularize'}
-Plug    'kshenoy/vim-signature'
 Plug    'itchyny/lightline.vim'
 Plug    'jmcantrell/vim-diffchanges',        {'on': 'DiffChangesDiffToggle'}
+Plug    'kshenoy/vim-signature'
 Plug    'liuchengxu/vista.vim',              {'on': 'Vista'}
-Plug    'mhinz/vim-signify'
 Plug    'mbbill/undotree'
+Plug    'mhinz/vim-signify'
 Plug    'nathanaelkane/vim-indent-guides',   {'on': 'IndentGuidesToggle'}
 Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
@@ -83,6 +83,8 @@ if has('nvim-0.5')
 
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'jbyuki/one-small-step-for-vimkind'
+    Plug 'mfussenegger/nvim-dap'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
@@ -273,6 +275,7 @@ nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 "
 "   p : prose mode (suitable for editing longer form text)
 nnoremap        <leader>ta        <Cmd>Vista!!<CR>
+nnoremap        <leader>tb        <Cmd>lua require'dap'.toggle_breakpoint()<CR>
 nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
 nnoremap        <leader>td        <Cmd>DiffThese<CR>
 nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
