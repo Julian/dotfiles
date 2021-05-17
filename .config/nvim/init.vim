@@ -185,7 +185,7 @@ noremap ]` ]'
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR>:LinediffReset<CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR>:LinediffReset<CR>:QuickhlManualReset<CR><C-L>
 
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
@@ -293,7 +293,6 @@ nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
 "               <leader>K         LSP show line diagnostics
 "               <leader>L         LSP folder management and other mappings
-nmap            <leader>M         <Plug>(quickhl-manual-reset)
 "               <leader>N         LSP goto previous diagnostic
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
