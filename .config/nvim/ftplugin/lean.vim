@@ -1,1 +1,0 @@
-setlocal updatetime=300
