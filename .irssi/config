@@ -8,6 +8,14 @@ servers = (
     ssl_cert = "~/.irssi/certs/cert.pem";
     ssl_verify = "yes";
     autoconnect = "yes";
+  },
+  {
+    address = "irc.libera.chat";
+    chatnet = "Libera";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+    autoconnect = "yes";
   }
 );
 
@@ -15,21 +23,24 @@ chatnets = { Freenode = { type = "IRC"; }; };
 
 channels = (
   { name = "#python"; chatnet = "Freenode"; autojoin = "yes"; },
-  { 
-    name = "#python-offtopic";
-    chatnet = "Freenode";
-    autojoin = "yes";
-  },
-  { name = "#vim"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#zsh"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#twisted"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#pypy"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#python-dev"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#python-testing"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "##math"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#nycpython"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#twisted-dev"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#pypa"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#neovim"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#techcrap"; chatnet = "Freenode"; autojoin = "yes"; },
+
+  { name = "#python"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#python-offtopic"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#vim"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#zsh"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#twisted"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#pypy"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#python-dev"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#python-testing"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "##math"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#nycpython"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#twisted-dev"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#pypa"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#glyph"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#neovim"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#techcrap"; chatnet = "Libera"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -260,18 +271,11 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
   core = {
-    real_name = "tos9";
+    real_name = "Julian Berman";
     user_name = "tos9";
     nick = "tos9";
     timestamp_format = "%H:%M:%S";
@@ -351,10 +355,11 @@ windows = {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#python";
-        tag = "Freenode";
+        tag = "Libera";
       }
     );
     sticky = "yes";
+    parent = "13";
   };
   2 = {
     level = "ALL";
@@ -362,12 +367,12 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-offtopic";
-        tag = "Freenode";
+        name = "#pypy";
+        tag = "Libera";
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "13";
   };
   3 = {
     level = "ALL";
@@ -375,28 +380,177 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-testing";
-        tag = "Freenode";
+        name = "#neovim";
+        tag = "Libera";
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "13";
   };
   4 = {
-    level = "ALL";
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
         type = "CHANNEL";
         chat_type = "IRC";
         name = "#vim";
-        tag = "Freenode";
+        tag = "Libera";
       }
     );
     sticky = "yes";
-    parent = "1";
+    parent = "13";
   };
   5 = {
     level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#pypa";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  6 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##math";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  7 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python-dev";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  8 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twisted";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  9 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#twisted-dev";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  10 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#techcrap";
+        tag = "Libera";
+      }
+    );
+  };
+  11 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#zsh";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  12 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python-offtopic";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  13 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#glyph";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+  };
+  14 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#nycpython";
+        tag = "Libera";
+      }
+    );
+  };
+  15 = {
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python-testing";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "13";
+  };
+  16 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python";
+        tag = "Freenode";
+      }
+    );
+  };
+  17 = {
+    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
     items = (
       {
         type = "CHANNEL";
@@ -405,62 +559,8 @@ windows = {
         tag = "Freenode";
       }
     );
-    sticky = "yes";
-    parent = "1";
   };
-  6 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#zsh";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  7 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#twisted";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  8 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#twisted-dev";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  9 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#pypy";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  10 = {
+  18 = {
     level = "ALL";
     items = (
       {
@@ -471,161 +571,19 @@ windows = {
       }
     );
     sticky = "yes";
-    parent = "1";
-  };
-  11 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#hypothesis";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  12 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#pypa";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  13 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#pypa-dev";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  14 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#python-infra";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  15 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#json-schema";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  16 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##math";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  17 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#python-dev";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  18 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#nycpython";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
+    parent = "13";
   };
   19 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##chess";
-        tag = "Freenode";
-      }
-    );
+    name = "hilight";
+    level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
   20 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##glyph";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  21 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#DRMacIver";
-        tag = "Freenode";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  22 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
     sticky = "yes";
-    parent = "1";
-  };
-  23 = {
-    name = "hilight";
-    level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
-    sticky = "yes";
+    parent = "13";
   };
 };
 mainwindows = {
@@ -635,10 +593,10 @@ mainwindows = {
     first_column = "0";
     columns = "179";
   };
-  23 = { 
+  19 = { 
     first_line = "1";
     lines = "3";
     first_column = "0";
-    columns = "205";
+    columns = "320";
   };
 };
