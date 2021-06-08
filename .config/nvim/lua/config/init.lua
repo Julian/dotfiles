@@ -3,6 +3,7 @@ require('config.lsp')
 require('config.treesitter')
 
 require('lean').setup{
+  abbreviations = { builtin = true },
   lsp = {
     cmd = {"frankenlean", "-M", "4096"},
     on_attach = require('config.lsp').on_attach,
