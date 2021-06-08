@@ -73,12 +73,12 @@ Plug    'kana/vim-textobj-user'
 
 Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
 
-Develop 'lean.vim'
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-variable-segment'
 
 if has('nvim-0.5')
+    Plug    'leanprover/lean.vim'
     Develop 'lean.nvim',                     {'branch': 'main'}
 
     Plug 'hrsh7th/nvim-compe'
