@@ -99,6 +99,8 @@
 .local/share/virtualenvs/
 !.local/share/virtualenvs/**/virtualenvs.toml
 
+.local/state/
+
 .ssh/*
 !.ssh/config.d/Configuration
 
