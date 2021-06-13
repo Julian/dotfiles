@@ -78,7 +78,6 @@ Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-variable-segment'
 
 if has('nvim-0.5')
-    Plug    'leanprover/lean.vim'
     Develop 'lean.nvim',                     {'branch': 'main'}
 
     Plug 'hrsh7th/nvim-compe'

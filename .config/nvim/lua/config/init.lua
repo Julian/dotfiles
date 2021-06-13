@@ -9,7 +9,6 @@ require('lean').setup{
     on_attach = require('config.lsp').on_attach,
   },
   mappings = true,
-  infoview = { max_width = 48 },
 }
 
 require('nvim-treesitter.configs').setup{
