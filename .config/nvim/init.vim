@@ -11,6 +11,10 @@ function! <SID>Develop(bundle, ...)
     let bundle_directory = $DEVELOPMENT . '/' . a:bundle
     if isdirectory(bundle_directory)
         let &runtimepath .= ',' . bundle_directory
+        let bundle_doc = bundle_directory . '/doc/'
+        if isdirectory(bundle_doc)
+            silent! execute 'helptags ' . bundle_doc
+        endif
     else
         if a:0
             call plug#('Julian/' . a:bundle, a:1)
