@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import os
+import re
+import sys
+
+
+LEAN3_MARKER = re.compile(r'"leanprover(?:|-community)/lean:(.*)"')
+LEANPKG = Path("leanpkg.toml")
+
+
+def lean3(version):
+    base_dir = os.environ.get(
+        "LEAN3_DIR", os.path.expanduser("~/.local/share/lean"),
+    )
+    return Path(base_dir) / f"lean-{version}-darwin/bin/lean"
+ 
+
+def lean4(version):
+    base_dir = os.environ.get(
+        "LEAN4_DIR", os.path.expanduser("/opt/lean4/"),
+    )
+    return Path(base_dir) / "nightly/bin/lean"
+
+
+if not LEANPKG.exists():
+    version = "4.0.0"
+else:
+    match = LEAN3_MARKER.search(LEANPKG.read_text())
+    version = match.group(1) if match is not None else "4.0.0"
+
+
+fn = lean3 if version.startswith("3") else lean4
+lean = fn(version)
+os.execvp(lean, [lean] + sys.argv[1:])
