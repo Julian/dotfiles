@@ -407,7 +407,7 @@ endif
 
 let g:preferred_colorscheme = 'sonokai'
 
-if has('gui_running') || &t_Co > 8
+if has('gui_running') || &t_Co > 8 && $TERM != 'xterm-256color'
     set termguicolors
     execute 'silent colorscheme ' . g:preferred_colorscheme
 else
