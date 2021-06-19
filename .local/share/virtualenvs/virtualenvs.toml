@@ -375,7 +375,7 @@ install = [
     "jedi",
     "pyls-isort",
     "pynvim",
-    "python-language-server[all]",
+    "python-language-server[all]>=0.36.2",
     "sphinx",
 ]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
