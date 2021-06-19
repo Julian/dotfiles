@@ -259,7 +259,7 @@ install = [
     "octave_kernel",
 
     "jupyter-lsp",
-    "python-language-server[all]",
+    "python-language-server[all]>=0.36.2",
 
     "ipympl",
     "matplotlib",
