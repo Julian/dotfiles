@@ -3,32 +3,44 @@
 from pathlib import Path
 import os
 import re
+import subprocess
 import sys
 
 
 LEAN3_MARKER = re.compile(r'"leanprover(?:|-community)/lean:(.*)"')
 LEANPKG = Path("leanpkg.toml")
 
+LEAN3_DIR = os.environ.get(
+    "LEAN3_DIR", os.path.expanduser("~/.local/share/lean"),
+)
+LEAN4_DIR = os.environ.get(
+    "LEAN4_DIR", os.path.expanduser("/opt/lean4/"),
+)
+
+
+parent = subprocess.run(
+    ["ps", "-o", "command", "-p", str(os.getppid())],
+    capture_output=True,
+)
+if b"lean-language-server" in parent.stdout:
+    LEAN_DEFAULT_VERSION = "3.30.0"
+else:
+    LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION", "4.0.0")
+
 
 def lean3(version):
-    base_dir = os.environ.get(
-        "LEAN3_DIR", os.path.expanduser("~/.local/share/lean"),
-    )
-    return Path(base_dir) / f"lean-{version}-darwin/bin/lean"
+    return Path(LEAN3_DIR) / f"lean-{version}-darwin/bin/lean"
  
 
 def lean4(version):
-    base_dir = os.environ.get(
-        "LEAN4_DIR", os.path.expanduser("/opt/lean4/"),
-    )
-    return Path(base_dir) / "nightly/bin/lean"
+    return Path(LEAN4_DIR) / "nightly/bin/lean"
 
 
 if not LEANPKG.exists():
-    version = "4.0.0"
+    version = LEAN_DEFAULT_VERSION
 else:
     match = LEAN3_MARKER.search(LEANPKG.read_text())
-    version = match.group(1) if match is not None else "4.0.0"
+    version = match.group(1) if match is not None else LEAN_DEFAULT_VERSION
 
 
 fn = lean3 if version.startswith("3") else lean4
