@@ -245,7 +245,7 @@ post-commands = [
 ]
 install-bundle = ["core", "development"]
 install = [
-    "numpy",
+    "numpy>=1.21.0",
     "pandas",
 
     "dask[complete]",
