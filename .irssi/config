@@ -22,10 +22,6 @@ servers = (
 chatnets = { Freenode = { type = "IRC"; }; };
 
 channels = (
-  { name = "#python"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#neovim"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#techcrap"; chatnet = "Freenode"; autojoin = "yes"; },
-
   { name = "#python"; chatnet = "Libera"; autojoin = "yes"; },
   { name = "#python-offtopic"; chatnet = "Libera"; autojoin = "yes"; },
   { name = "#vim"; chatnet = "Libera"; autojoin = "yes"; },
