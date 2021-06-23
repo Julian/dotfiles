@@ -1,15 +1,5 @@
 servers = (
   {
-    address = "pirc.grayvines.com";
-    chatnet = "Freenode";
-    port = "1123";
-    password = "Julian/Freenode:";
-    use_ssl = "yes";
-    ssl_cert = "~/.irssi/certs/cert.pem";
-    ssl_verify = "yes";
-    autoconnect = "yes";
-  },
-  {
     address = "irc.libera.chat";
     chatnet = "Libera";
     port = "6697";
@@ -19,7 +9,14 @@ servers = (
   }
 );
 
-chatnets = { Freenode = { type = "IRC"; }; };
+chatnets = {
+  Libera = {
+    nick = "Julian";
+    type = "IRC";
+    sasl_mechanism = "PLAIN";
+    sasl_username = "Julian";
+  };
+};
 
 channels = (
   { name = "#python"; chatnet = "Libera"; autojoin = "yes"; },
