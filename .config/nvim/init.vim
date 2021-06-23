@@ -32,7 +32,7 @@ call plug#begin(expand('~/.local/share/nvim/bundle/'))
 
 " --- Themes ---
 
-Plug    'sainnhe/sonokai'
+Plug    'glepnir/zephyr-nvim'
 
 " --- Additional FileType Support ---
 
@@ -405,7 +405,7 @@ endif
 " : Interface :
 " =============
 
-let g:preferred_colorscheme = 'sonokai'
+let g:preferred_colorscheme = 'zephyr'
 
 if has('gui_running') || &t_Co > 8 && $TERM != 'xterm-256color'
     set termguicolors
