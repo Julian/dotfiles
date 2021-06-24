@@ -291,6 +291,10 @@ nnoremap  <expr><leader>V         "<Cmd>SplitSensibly " . fnamemodify(expand("$M
 nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         <Cmd>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
+nnoremap        <leader>Db        <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap        <leader>Dc        <Cmd>lua require'dap'.continue()<CR>
+nnoremap        <leader>Dr        <Cmd>lua require'dap'.repl.open()<CR>
+nnoremap        <leader>Dv        <Cmd>lua require'osv'.launch()<CR>
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
