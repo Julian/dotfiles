@@ -204,24 +204,11 @@ nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 " quote a word
 nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 
-"       '<F2>' is set to pastetoggle
-let s:all_modes_mappings = {
-    \   '<F1>'  : '',
-    \   '<F12>'  : '<Cmd>make',
-    \
-    \   '<Up>' : '<Cmd>diffget<CR>[c',
-    \   '<Down>' : '<Cmd>diffget<CR>]c',
-    \   '<Left>' : '<Cmd>diffget',
-    \   '<Right>' : '<Cmd>diffput'
-    \
-    \}
-
-for [key, value] in items(s:all_modes_mappings)
-    let value = empty(value) ? '<Nop>' : value . '<CR>'
-    execute 'nnoremap ' . key . ' ' . value
-    execute 'inoremap ' . key . ' <C-O>' . value
-    execute 'vnoremap ' . key . ' ' . value
-endfor
+" Use arrow keys for diff-mode putting and getting
+nnoremap <expr> <Up>    &diff ? '<Cmd>diffget<CR>[c' : '<Up>'
+nnoremap <expr> <Down>  &diff ? '<Cmd>diffget<CR>]c' : '<Down>'
+nnoremap <expr> <Left>  &diff ? '<Cmd>diffget<CR>'   : '<Left>'
+nnoremap <expr> <Right> &diff ? '<Cmd>diffput<CR>'   : '<Right>'
 
 " Leader mappings
 " ---------------
