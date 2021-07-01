@@ -74,8 +74,6 @@ export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/ripgrep
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
 
-export TREE_SITTER_DIR=$XDG_DATA_HOME/tree-sitter/
-
 typeset -aU c_include_path
 typeset -T C_INCLUDE_PATH c_include_path
 export C_INCLUDE_PATH
