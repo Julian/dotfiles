@@ -1,6 +1,5 @@
 require('config.completion')
 require('config.lsp')
-require('config.treesitter')
 
 require('lean').setup{
   abbreviations = { builtin = true },
@@ -10,6 +9,8 @@ require('lean').setup{
 }
 
 require('nvim-treesitter.configs').setup{
+  ensure_installed = "maintained",
+  highlight = { enable = true },
   indent = { enable = true },
   playground = {
     enable = true,
@@ -21,4 +22,17 @@ require('nvim-treesitter.configs').setup{
     use_virtual_text = true,
     lint_events = {"BufWrite", "CursorHold"},
   },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+      },
+    },
+  }
 }
