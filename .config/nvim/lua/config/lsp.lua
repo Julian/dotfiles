@@ -70,6 +70,11 @@ local function on_attach(client, bufnr)
       augroup END
     ]], false)
   end
+
+  require "lsp_signature".on_attach{
+    bind = true,
+    handler_opts = { border = "single" }
+  }
 end
 
 local opts = {on_attach = on_attach}

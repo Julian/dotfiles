@@ -86,15 +86,19 @@ if has('nvim-0.5')
 
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
-    Plug 'jbyuki/one-small-step-for-vimkind'
-    Plug 'mfussenegger/nvim-dap'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/playground'
+    Plug 'ray-x/lsp_signature.nvim'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
+
+    Plug 'jbyuki/one-small-step-for-vimkind'
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'theHamsta/nvim-dap-virtual-text'
 else
     Plug 'neoclide/coc.nvim',                {'branch': 'release'}
     Plug 'neoclide/coc-python'
