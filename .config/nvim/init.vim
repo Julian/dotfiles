@@ -1,7 +1,7 @@
 set nomodeline
 
-let mapleader = "\<space>"
-let maplocalleader = ","
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>\<Space>"
 
 " ===========
 " : Plugins :
@@ -223,7 +223,6 @@ nnoremap <expr> <Right> &diff ? '<Cmd>diffput<CR>'   : '<Right>'
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <leader><leader>  <Cmd>Denite buffer file tag<CR>
 nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 nnoremap        <leader>b         o<C-R>"<Esc>
