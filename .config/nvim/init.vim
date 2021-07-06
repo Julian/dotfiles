@@ -401,7 +401,7 @@ endif
 
 let g:preferred_colorscheme = 'zephyr'
 
-if has('gui_running') || &t_Co > 8 && $TERM != 'xterm-256color'
+if has('nvim') && (has('gui_running') || &t_Co > 8 && $TERM != 'xterm-256color')
     set termguicolors
     execute 'silent colorscheme ' . g:preferred_colorscheme
 else
