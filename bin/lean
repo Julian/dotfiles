@@ -7,11 +7,12 @@ import subprocess
 import sys
 
 
+EXECUTABLE = Path(sys.argv[0]).name
 LEAN3_MARKER = re.compile(r'"leanprover(?:|-community)/lean:(.*)"')
 LEANPKG = Path("leanpkg.toml")
 
 LEAN3_DIR = os.environ.get(
-    "LEAN3_DIR", os.path.expanduser("~/.local/share/lean"),
+    "LEAN3_DIR", os.path.expanduser("~/.local/share/lean/"),
 )
 LEAN4_DIR = os.environ.get(
     "LEAN4_DIR", os.path.expanduser("/opt/lean4/"),
@@ -29,11 +30,11 @@ else:
 
 
 def lean3(version):
-    return Path(LEAN3_DIR) / f"lean-{version}-darwin/bin/lean"
- 
+    return Path(LEAN3_DIR) / f"lean-{version}-darwin/bin" / EXECUTABLE
+
 
 def lean4(version):
-    return Path(LEAN4_DIR) / "nightly/bin/lean"
+    return Path(LEAN4_DIR) / "nightly/bin" / EXECUTABLE
 
 
 if not LEANPKG.exists():
