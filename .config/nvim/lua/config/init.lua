@@ -3,13 +3,6 @@ require('config.lsp')
 
 require('lean').setup{
   abbreviations = { builtin = true },
-  finder = {
-    paths = {
-      ".",
-      vim.env.DEVELOPMENT .. "/mathlib",
-      vim.env.DEVELOPMENT .. "/mathlib4",
-    },
-  },
   lsp = { on_attach = require('config.lsp').on_attach },
   lsp3 = { on_attach = require('config.lsp').on_attach },
   mappings = true,
