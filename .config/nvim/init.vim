@@ -599,29 +599,13 @@ if has("eval")
     command! -nargs=* -complete=file Ss call <SID>SplitSensiblyCommand('<args>')
     command! -nargs=* -complete=file SS call <SID>SplitSensiblyCommand('<args>')
 
-    " If we're in a wide window, enable line numbers and colorcolumn.
+    " If we're in a real file, enable colorcolumn.
     function! <SID>WindowWidth()
         if &buftype == 'nofile'
             return
         else
-            " show a line at column 79
+            " show a line at column 80
             setlocal colorcolumn=+1
-        endif
-
-        if winwidth(0) > 90
-            if exists("&relativenumber")
-                setlocal number
-                setlocal relativenumber
-            elseif exists("&number")
-                setlocal number
-            endif
-        else
-            if exists("&relativenumber")
-                setlocal nonumber
-                setlocal norelativenumber
-            elseif exists("&number")
-                setlocal nonumber
-            endif
         endif
     endfunction
 
