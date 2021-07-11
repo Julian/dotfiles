@@ -71,10 +71,12 @@ local function on_attach(client, bufnr)
     ]], false)
   end
 
-  require "lsp_signature".on_attach{
-    bind = true,
-    handler_opts = { border = "single" }
-  }
+  if vim.bo.filetype ~= "lean" and vim.bo.filetype ~= "lean3" then
+    require "lsp_signature".on_attach{
+      bind = true,
+      handler_opts = { border = "single" }
+    }
+  end
 end
 
 local opts = {on_attach = on_attach}

@@ -36,6 +36,7 @@ _G.s_tab_complete = function()
 end
 
 require'compe'.setup{
+  autocomplete = false,
   source = {
     buffer = { priority = 500 },
     calc = { priority = 500 },
