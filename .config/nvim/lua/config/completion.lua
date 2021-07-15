@@ -19,7 +19,14 @@ end
 _G.tab_complete = function()
   local complete_info = vim.fn.complete_info()
   if complete_info.pum_visible == 1 then
-    return t "<C-n>"
+    if vim.fn.len(complete_info.items) > 1 then
+      return t "<C-n>"
+    else
+      local key = complete_info.selected == -1 and (t "<C-n>") or ""
+      return key .. vim.fn['compe#confirm'](t "<CR>")
+    end
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
