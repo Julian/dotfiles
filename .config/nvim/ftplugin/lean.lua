@@ -1,8 +1,15 @@
+local lean = require('lean')
+
 -- Match mathlib's default style.
 vim.bo.textwidth = 100
 
+function _G.lean_live_grep()
+  require'telescope.builtin'.live_grep{
+    path_display = { 'tail' },
+    search_dirs = lean.current_search_paths()
+  }
+end
+
 vim.api.nvim_buf_set_keymap(
-  0, "n", "<LocalLeader>g",
-  "<Cmd>lua require'telescope.builtin'.live_grep{ search_dirs = require'lean'.current_search_paths() }<CR>",
-  { noremap = true }
+  0, "n", "<LocalLeader>g", "<Cmd>lua lean_live_grep()<CR>", { noremap = true }
 )
