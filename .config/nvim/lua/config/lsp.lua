@@ -81,7 +81,7 @@ end
 
 local opts = {on_attach = on_attach}
 local lsps = {
-  pyls = {},
+  pylsp = {},
   sumneko_lua = {
     Lua = {
       runtime = {
