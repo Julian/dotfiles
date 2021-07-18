@@ -24,7 +24,7 @@ parent = subprocess.run(
     capture_output=True,
 )
 if b"lean-language-server" in parent.stdout or b"leanproject" in parent.stdout:
-    LEAN_DEFAULT_VERSION = "3.30.0"
+    LEAN_DEFAULT_VERSION = "3.31.0"
 else:
     LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION", "4.0.0")
 
