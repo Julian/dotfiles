@@ -43,9 +43,10 @@ if (( $+commands[fzy] )); then
 
     function insert-fzy-path-in-command-line() {
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
-        local selected_path
+        local kind
+        [[ "$LBUFFER" =~ "cd " ]] && kind='directory' || kind='file'
         echo
-        selected_path=$(fd --type file | fzy) || return
+        local selected_path=$(fd --type "$kind" | fzy) || return
         LBUFFER+="${(q-)selected_path}"
         zle reset-prompt
     }
