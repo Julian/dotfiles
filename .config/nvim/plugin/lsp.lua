@@ -1,5 +1,3 @@
-require('config.dap')
-
 local lspconfig = require('lspconfig')
 
 function maybe_hover()
@@ -108,4 +106,9 @@ for lsp, lsp_opts in pairs(lsps) do
   lspconfig[lsp].setup(vim.tbl_extend("force", opts, lsp_opts))
 end
 
-return {on_attach = on_attach}
+require('lean').setup{
+  abbreviations = { builtin = true },
+  lsp = { on_attach = on_attach },
+  lsp3 = { on_attach = on_attach },
+  mappings = true,
+}

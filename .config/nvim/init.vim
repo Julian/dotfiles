@@ -748,7 +748,3 @@ if has("eval")
         autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
     endif
 endif
-
-if has('nvim-0.5')
-    lua require('config')
-endif
