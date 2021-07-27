@@ -22,12 +22,10 @@ LEAN4_DIR = os.environ.get(
 parent = subprocess.run(
     ["ps", "-o", "command", "-p", str(os.getppid())],
     capture_output=True,
-).stdout
-executable, _, _ = parent.partition(b" ")
+).stdout.strip()
+need_lean3 = {b"lean-language-server", b"leanproject", b"lean3ls"}
 
-if executable.strip().endswith(
-    (b"lean-language-server", b"leanproject", b"lean3ls"),
-):
+if any(each in parent for each in need_lean3):
     LEAN_DEFAULT_VERSION = "3.31.0"
 else:
     LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION", "4.0.0")
