@@ -45,7 +45,7 @@ end
 require'compe'.setup{
   autocomplete = false,
   source = {
-    buffer = { priority = 500 },
+    buffer = { priority = 400 },
     calc = { priority = 500 },
     nvim_lsp = { priority = 500 },
     nvim_lua = { priority = 500 },
