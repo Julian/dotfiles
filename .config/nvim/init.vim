@@ -290,7 +290,7 @@ nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
-nnoremap  <expr><leader>V         "<Cmd>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/lua/config/init.lua' . "<CR>"
+nnoremap  <expr><leader>V         "<Cmd>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/plugin/init.lua' . "<CR>"
 nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         <Cmd>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
