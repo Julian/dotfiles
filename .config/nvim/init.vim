@@ -405,7 +405,7 @@ if has('nvim') && (has('gui_running') || &t_Co > 8 && $TERM != 'xterm-256color')
     set termguicolors
     execute 'silent colorscheme ' . g:preferred_colorscheme
 else
-    colorscheme desert
+    colorscheme molokai
 endif
 
 set confirm                            " show confirm dialog instead of warn
