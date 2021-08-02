@@ -4,6 +4,10 @@ function _G.q(...)
   return ...
 end
 
+function _G.t(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 require('nvim-treesitter.configs').setup{
   ensure_installed = "maintained",
   highlight = { enable = true },

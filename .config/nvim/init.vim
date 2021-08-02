@@ -154,8 +154,6 @@ if has("user_commands")
     endif
 endif
 
-imap <silent><expr> <CR>      compe#confirm('<CR>') . "\<Plug>DiscretionaryEnd"
-
 " testing mappings
 nnoremap      <expr>d<CR>     "<Cmd>SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
 nnoremap            dK         <Cmd>call                    runt#follow()                                                                                               <CR>
@@ -670,19 +668,6 @@ if has("eval")
         endif
         return ":SplitSensibly " . file
     endfunction
-
-    function! <SID>CR()
-        if &filetype == 'qf'
-            return "\<CR>"
-        elseif &filetype == 'help'
-            return "\<C-]>"
-        elseif &filetype == 'vimwiki'
-            return ":VimwikiFollowLink\<CR>"
-        else
-            return ":\<C-U>SplitSensibly\<CR>:VimwikiIndex\<CR>"
-        endif
-    endfunction
-    nnoremap <expr> <CR> <SID>CR()
 
     if has("autocmd")
         augroup misc
