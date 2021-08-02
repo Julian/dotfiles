@@ -51,8 +51,8 @@ export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter/
 export KAGGLE_CONFIG_DIR=$XDG_CONFIG_HOME/kaggle/
 export MPLCONFIGDIR=$XDG_CONFIG_HOME/matplotlib/
 
-export MYSQL_HISTFILE=${XDG_CACHE_HOME}/mysql_history
-export PSQL_HISTORY=${XDG_CACHE_HOME}/psql_history
+export MYSQL_HISTFILE=$XDG_CACHE_HOME/mysql_history
+export PSQL_HISTORY=$XDG_CACHE_HOME/psql_history
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 
@@ -61,6 +61,8 @@ export MATHLIB_CACHE_DIR=$XDG_CACHE_HOME/mathlib/
 
 export GEM_HOME=$HOME/.local/share/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
+
+export NODE_REPL_HISTORY=$XDG_CACHE_HOME/node_repl_history
 
 export LEIN_HOME=$XDG_DATA_HOME/lein
 export M2_HOME=$XDG_DATA_HOME/m2
