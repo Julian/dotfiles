@@ -42,7 +42,7 @@ _G.mappings = {
         return vim.fn['compe#complete']()
       end
     end;
-    ['S-Tab'] = function()
+    ['S_Tab'] = function()
       if vim.fn.pumvisible() == 1 then
         return t "<C-p>"
       else
@@ -66,14 +66,14 @@ _G.mappings = {
 }
 
 for each, _ in pairs(_G.mappings.i) do
-  local lhs = '<' .. each .. '>'
+  local lhs = '<' .. each:gsub("_", "-") .. '>'
   local rhs = 'v:lua.mappings.i.' .. each .. '()'
   vim.api.nvim_set_keymap('i', lhs, rhs, { expr = true })
   vim.api.nvim_set_keymap('s', lhs, rhs, { expr = true })
 end
 
 for each, _ in pairs(_G.mappings.n) do
-  local lhs = '<' .. each .. '>'
+  local lhs = '<' .. each:gsub("_", "-") .. '>'
   local rhs = 'v:lua.mappings.n.' .. each .. '()'
   vim.api.nvim_set_keymap('n', lhs, rhs, { expr = true, noremap = true })
 end
