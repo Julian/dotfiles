@@ -57,7 +57,7 @@ local function on_attach(client, bufnr)
   end
 
   if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec([[
+    vim.cmd[[
       :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
@@ -66,7 +66,23 @@ local function on_attach(client, bufnr)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]], false)
+    ]]
+  end
+
+  if client.resolved_capabilities.code_action then
+    cmd('n', '<leader>a', 'vim.lsp.buf.code_action()')
+  end
+
+  if client.resolved_capabilities.code_lens then
+    cmd('n', '<leader>Le', 'vim.lsp.codelens.display()')
+    cmd('n', '<leader>Ln', 'vim.lsp.codelens.run()')
+
+    vim.cmd[[
+      augroup lsp_codelens
+        autocmd!
+        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+      augroup END
+    ]]
   end
 
   if vim.bo.filetype ~= "lean" and vim.bo.filetype ~= "lean3" then

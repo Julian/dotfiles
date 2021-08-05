@@ -227,6 +227,7 @@ nnoremap <expr> <Right> &diff ? '<Cmd>diffput<CR>'   : '<Right>'
 
 nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
+"               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         <Cmd>DeniteProjectDir file/rec<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
