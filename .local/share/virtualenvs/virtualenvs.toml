@@ -307,7 +307,7 @@ install = [
     "fastparquet",
     "h5py",
     "svmlight-loader",
-    "tables>=3.7",
+    "tables>=3.6.1",
 
     "kaggle",
 
