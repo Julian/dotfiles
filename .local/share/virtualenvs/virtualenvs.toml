@@ -381,7 +381,7 @@ install = [
     "sphinx",
 ]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
-link = ["pyls"]
+link = ["pylsp"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
