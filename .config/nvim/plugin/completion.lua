@@ -3,14 +3,14 @@ vim.opt.completeopt = { 'menuone', 'noselect' }
 require'compe'.setup{
   autocomplete = false,
   source = {
-    buffer = { priority = 400 },
-    calc = { priority = 500 },
-    nvim_lsp = { priority = 500 },
-    nvim_lua = { priority = 500 },
-    nvim_treesitter = { priority = 500 },
-    path = { priority = 500 },
-    tags = { priority = 500 },
-    vsnip = { priority = 500 },
+    buffer = { priority = 50 },
+    calc = { priority = 40 },
+    nvim_lsp = { priority = 99 },
+    nvim_lua = { priority = 99 },
+    nvim_treesitter = { priority = 90 },
+    path = { priority = 99 },
+    tags = { priority = 90 },
+    vsnip = { priority = 90 },
   }
 }
 
