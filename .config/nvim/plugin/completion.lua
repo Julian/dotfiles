@@ -56,7 +56,7 @@ _G.mappings = {
   n = {
     ['CR'] = function()
       local filetype = vim.opt.filetype:get()
-      if filetype == 'qf' then return t '<CR>'
+      if filetype == 'qf' or vim.fn.bufname() == '[Command Line]' then return t '<CR>'
       elseif filetype == 'help' then return t '<C-]>'
       elseif filetype == 'vimwiki' then return t ':VimwikiFollowLink<CR>'
       else return t ':<C-U>SplitSensibly<CR>:VimwikiIndex<CR>'
