@@ -7,45 +7,53 @@ import subprocess
 import sys
 
 
-EXECUTABLE = Path(sys.argv[0]).name
 LEAN3_MARKER = re.compile(r'"leanprover(?:|-community)/lean:(.*)"')
 LEANPKG = Path("leanpkg.toml")
 
-LEAN3_DIR = os.environ.get(
-    "LEAN3_DIR", os.path.expanduser("~/.local/share/lean/"),
+LEAN3_DIR = Path(
+    os.environ.get("LEAN3_DIR", os.path.expanduser("~/.local/share/lean/")),
 )
-LEAN4_DIR = os.environ.get(
-    "LEAN4_DIR", os.path.expanduser("/opt/lean4/"),
+LEAN4_DIR = Path(
+    os.environ.get("LEAN4_DIR", os.path.expanduser("/opt/lean4/")),
 )
+LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION")
 
 
 parent = subprocess.run(
     ["ps", "-o", "command", "-p", str(os.getppid())],
     capture_output=True,
 ).stdout.strip()
-need_lean3 = {b"lean-language-server", b"leanproject", b"lean3ls"}
-
-if any(each in parent for each in need_lean3):
-    LEAN_DEFAULT_VERSION = "3.31.0"
-else:
-    LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION", "4.0.0")
+needs_lean3 = any(
+    each in parent
+    for each in {b"lean-language-server", b"leanproject", b"lean3ls"}
+)
 
 
 def lean3(version):
-    return Path(LEAN3_DIR) / f"lean-{version}-darwin/bin" / EXECUTABLE
+    return LEAN3_DIR / f"lean-{version}-darwin"
 
 
 def lean4(version):
-    return Path(LEAN4_DIR) / "nightly/bin" / EXECUTABLE
+    return LEAN4_DIR / "nightly"
 
 
-if not LEANPKG.exists():
-    version = LEAN_DEFAULT_VERSION
-else:
+if LEANPKG.exists():
     match = LEAN3_MARKER.search(LEANPKG.read_text())
     version = match.group(1) if match is not None else LEAN_DEFAULT_VERSION
+else:
+    version = LEAN_DEFAULT_VERSION
+
+if not version:
+    if needs_lean3:
+        version = max(
+            LEAN3_DIR.glob("lean-*-darwin"),
+            key=lambda p: tuple(map(int, p.name.split("-")[1].split("."))),
+        )
+    else:
+        version = "4.0.0"
 
 
 fn = lean3 if version.startswith("3") else lean4
-lean = fn(version)
+executable = Path(sys.argv[0]).name
+lean = fn(version) / "bin" / executable
 os.execvp(lean, [lean] + sys.argv[1:])
