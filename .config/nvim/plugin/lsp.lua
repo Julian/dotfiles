@@ -114,6 +114,22 @@ end
 require('lean').setup{
   abbreviations = { builtin = true },
   lsp = { on_attach = on_attach },
-  lsp3 = { on_attach = on_attach },
+  lsp3 = {
+    cmd = { "node", "/Users/julian/Development/lean-client-js/lean-language-server/lib/index.js", "--stdio", "--", "-M", "4096", "-T", "10000" },
+    on_attach = on_attach
+  },
   mappings = true,
 }
+
+local lint = require('lint')
+
+lint.linters.mathlib = {
+  cmd = 'scripts/lint-style.py',
+  stdin = true,
+  args = {'/dev/stdin'},
+  stream = 'stdout',
+  ignore_exitcode = true,
+  parser = require('lint.parser').from_errorformat('::%trror file=%f\\,line=%l\\,code=ERR_%[A-Z]%\\+::ERR_%[A-Z]\\*:%m'),
+}
+
+lint.linters_by_ft = { lean3 = {'mathlib'} }

@@ -86,6 +86,7 @@ if has('nvim-0.5')
 
     Plug 'hrsh7th/nvim-compe'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'mfussenegger/nvim-lint'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
