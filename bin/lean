@@ -45,10 +45,11 @@ else:
 
 if not version:
     if needs_lean3:
-        version = max(
-            LEAN3_DIR.glob("lean-*-darwin"),
-            key=lambda p: tuple(map(int, p.name.split("-")[1].split("."))),
-        )
+        available = {
+            tuple(map(int, path.name.split("-")[1].split("."))): path
+            for path in LEAN3_DIR.glob("lean-*-darwin")
+        }
+        version = ".".join(map(str, max(available)))
     else:
         version = "4.0.0"
 
