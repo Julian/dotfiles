@@ -94,7 +94,6 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/playground'
-    Plug 'ray-x/lsp_signature.nvim'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
 
     Plug 'jbyuki/one-small-step-for-vimkind'

@@ -72,13 +72,6 @@ local function on_attach(client, bufnr)
       augroup END
     ]]
   end
-
-  if vim.bo.filetype ~= "lean" and vim.bo.filetype ~= "lean3" then
-    require "lsp_signature".on_attach{
-      bind = true,
-      handler_opts = { border = "single" }
-    }
-  end
 end
 
 local runtime_path = vim.split(package.path, ';')
