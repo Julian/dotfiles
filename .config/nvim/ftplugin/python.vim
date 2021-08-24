@@ -9,12 +9,13 @@ if exists('g:loaded_jedi')
 endif
 
 let b:switch_definitions = [
+    \ ["\<in\>", "\<not in\>"],
     \ ["assertAlmostEqual", "assertNotAlmostEqual"],
     \ ["assertEqual", "assertNotEqual"],
     \ ["assertIn", "assertNotIn"],
     \ ["assertIsInstance", "assertNotIsInstance"],
     \ ["assertRegexpMatches", "assertNotRegexpMatches"],
-    \ ["in", "not in"],
+    \ ["assertTrue", "assertFalse"],
 \ ]
 
 setlocal errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
