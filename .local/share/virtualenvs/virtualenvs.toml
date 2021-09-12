@@ -222,14 +222,8 @@ link = ["litecli"]
 [virtualenv.math]
 python = "python3.9"
 install-bundle = ["development"]
-install = [
-    "mathlibtools",
-    "sympy",
-]
-link = [
-    "leanproject",
-    "ptpython:math",
-]
+install = ["sympy"]
+link = ["ptpython:math"]
 
 [virtualenv.ml]
 python = "python3.9"
