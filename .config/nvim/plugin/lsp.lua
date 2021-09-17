@@ -81,6 +81,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 local opts = {on_attach = on_attach}
 local lsps = {
   sumneko_lua = {
+    cmd = { "lua-language-server" },
     settings = {
       Lua = {
         runtime = {
@@ -107,10 +108,7 @@ end
 require('lean').setup{
   abbreviations = { builtin = true },
   lsp = { on_attach = on_attach },
-  lsp3 = {
-    cmd = { "node", "/Users/julian/Development/lean-client-js/lean-language-server/lib/index.js", "--stdio", "--", "-M", "4096", "-T", "10000" },
-    on_attach = on_attach
-  },
+  lsp3 = { on_attach = on_attach },
   mappings = true,
 }
 
