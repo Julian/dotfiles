@@ -3,5 +3,9 @@
     "cm_config": {
       "autoCloseBrackets": false
     }
+  },
+  "load_extensions": {
+    "create_assignment/main": true,
+    "validate_assignment/main": true
   }
 }

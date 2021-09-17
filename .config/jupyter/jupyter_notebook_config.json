@@ -1,7 +1,11 @@
 {
   "NotebookApp": {
     "nbserver_extensions": {
-      "nteract_on_jupyter": true
+      "nteract_on_jupyter": true,
+      "nbgrader.server_extensions.formgrader": true,
+      "nbgrader.server_extensions.validate_assignment": true,
+      "nbgrader.server_extensions.assignment_list": true,
+      "nbgrader.server_extensions.course_list": true
     }
   }
 }

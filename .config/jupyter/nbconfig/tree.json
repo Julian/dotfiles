@@ -1,0 +1,7 @@
+{
+  "load_extensions": {
+    "formgrader/main": true,
+    "assignment_list/main": true,
+    "course_list/main": true
+  }
+}
