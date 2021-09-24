@@ -80,6 +80,11 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 local opts = {on_attach = on_attach}
 local lsps = {
+  ccls = {
+    init_options = {
+        compilationDatabaseDirectory = "build",
+      },
+  },
   sumneko_lua = {
     cmd = { "lua-language-server" },
     settings = {
