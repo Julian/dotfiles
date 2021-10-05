@@ -10,10 +10,13 @@ end
 
 require('nvim-treesitter.configs').setup{
   ensure_installed = "maintained",
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = { "rst" },
+  },
   indent = {
     enable = true,
-    disable = { 'python' },
+    disable = { "python" },
   },
   playground = {
     enable = true,
@@ -23,7 +26,7 @@ require('nvim-treesitter.configs').setup{
   query_linter = {
     enable = true,
     use_virtual_text = true,
-    lint_events = {"BufWrite", "CursorHold"},
+    lint_events = { "BufWrite", "CursorHold" },
   },
   textobjects = {
     select = {
