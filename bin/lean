@@ -14,7 +14,7 @@ LEAN3_DIR = Path(
     os.environ.get("LEAN3_DIR", os.path.expanduser("~/.local/share/lean/")),
 )
 LEAN4_DIR = Path(
-    os.environ.get("LEAN4_DIR", os.path.expanduser("/opt/lean4/")),
+    os.environ.get("LEAN4_DIR", Path("/opt/homebrew/Cellar/lean/")),
 )
 LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION")
 
@@ -34,7 +34,7 @@ def lean3(version):
 
 
 def lean4(version):
-    return LEAN4_DIR / "nightly"
+    return next(LEAN4_DIR.glob("HEAD-*"))
 
 
 if LEANPKG.exists():
