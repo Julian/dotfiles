@@ -8,6 +8,8 @@ function _G.t(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+vim.diagnostic.config({ severity_sort = true })
+
 require('nvim-treesitter.configs').setup{
   ensure_installed = "maintained",
   highlight = {
