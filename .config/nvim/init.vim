@@ -85,7 +85,10 @@ if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
 
     Plug 'bfredl/nvim-ipy'
-    Plug 'hrsh7th/nvim-compe'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/vim-vsnip'
     Plug 'mfussenegger/nvim-lint'
     Plug 'neovim/nvim-lspconfig'

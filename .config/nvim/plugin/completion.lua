@@ -1,56 +1,57 @@
-vim.opt.completeopt = { 'menuone', 'noselect' }
+local cmp = require'cmp'
 
-require'compe'.setup{
-  autocomplete = false,
-  source = {
-    buffer = { priority = 50 },
-    calc = { priority = 40 },
-    nvim_lsp = { priority = 99 },
-    nvim_lua = { priority = 99 },
-    nvim_treesitter = { priority = 90 },
-    path = { priority = 99 },
-    tags = { priority = 90 },
-    vsnip = { priority = 90 },
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
+local has_words_before = function()
+local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
+cmp.setup{
+  snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<CR>'] = cmp.mapping.confirm{ select = true },
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn["vsnip#available"]() == 1 then
+        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback() -- <Tab>
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+        feedkey("<Plug>(vsnip-jump-prev)", "")
+      end
+    end, { "i", "s" }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' },
   }
 }
 
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-    return true
-  else
-    return false
-  end
-end
-
 _G.mappings = {
   i = {
-    ['Tab'] = function()
-      local complete_info = vim.fn.complete_info()
-      if complete_info.pum_visible == 1 then
-        if vim.fn.len(complete_info.items) > 1 then
-          return t "<C-n>"
-        else
-          local key = complete_info.selected == -1 and (t "<C-n>") or ""
-          return key .. vim.fn['compe#confirm'](t "<CR>")
-        end
-      elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        return t "<Plug>(vsnip-expand-or-jump)"
-      elseif check_back_space() then
-        return t "<Tab>"
-      else
-        return vim.fn['compe#complete']()
-      end
-    end;
     ['S_Tab'] = function()
       if vim.fn.pumvisible() == 1 then
         return t "<C-p>"
       else
         return t "<S-Tab>"
       end
-    end;
-    ['CR'] = function()
-      return vim.fn['compe#confirm']('\n' .. t('<Plug>DiscretionaryEnd'))
     end;
   };
   n = {

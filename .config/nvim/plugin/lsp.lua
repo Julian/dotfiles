@@ -78,7 +78,12 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-local opts = {on_attach = on_attach}
+local opts = {
+  on_attach = on_attach,
+  capabilities = require'cmp_nvim_lsp'.update_capabilities(
+    vim.lsp.protocol.make_client_capabilities()
+  )
+}
 local lsps = {
   ccls = {
     init_options = {
