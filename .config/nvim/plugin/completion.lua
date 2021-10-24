@@ -45,15 +45,7 @@ cmp.setup{
 }
 
 _G.mappings = {
-  i = {
-    ['S_Tab'] = function()
-      if vim.fn.pumvisible() == 1 then
-        return t "<C-p>"
-      else
-        return t "<S-Tab>"
-      end
-    end;
-  };
+  i = {};
   n = {
     ['CR'] = function()
       local filetype = vim.opt.filetype:get()
