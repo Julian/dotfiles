@@ -18,4 +18,4 @@
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule ".config/zsh/plugins/history-search-multi-word"]
 	path = .config/zsh/plugins/history-search-multi-word
-	url = https://github.com/zdharma/history-search-multi-word.git
+	url = https://github.com/zdharma-continuum/history-search-multi-word.git
