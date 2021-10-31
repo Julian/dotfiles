@@ -133,4 +133,7 @@ lint.linters.mathlib = {
   parser = require('lint.parser').from_errorformat('::%trror file=%f\\,line=%l\\,code=ERR_%[A-Z]%\\+::ERR_%[A-Z]\\*:%m'),
 }
 
-lint.linters_by_ft = { lean3 = {'mathlib'} }
+lint.linters_by_ft = {
+  lean3 = { 'mathlib' };
+  python = { 'flake8' };
+}
