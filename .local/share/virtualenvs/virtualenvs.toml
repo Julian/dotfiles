@@ -483,14 +483,15 @@ install = ["steck"]
 link = ["steck:bpaste", "steck"]
 
 [virtualenv.style]
-python = "pypy"
-install = ["flake8"]
-link = ["flake8"]
-
-[virtualenv.style3]
 python = "python3.9"
-install = ["flake8"]
-link = ["flake8:flake83"]
+install = [
+    "flake8",
+    "flake8-bugbear",
+    "flake8-commas",
+    "flake8-quotes",
+    "flake8-broken-line",
+]
+link = ["flake8"]
 
 [virtualenv.subunit]
 install = ["python-subunit"]
@@ -520,6 +521,11 @@ link = ["termtosvg"]
 python = "python3.9"
 install = ["tox", "tox-ini-fmt"]
 link = ["tox", "tox-ini-fmt"]
+
+[virtualenv.tox4]
+python = "python3.9"
+install = ["tox>=4.0.0a9"]
+link = ["tox4:tox4"]
 
 [virtualenv.twine]
 install = ["twine", "keyring"]
