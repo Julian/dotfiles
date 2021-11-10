@@ -119,7 +119,6 @@ call plug#end()
 " =========
 
 set gdefault
-set hidden
 set lazyredraw                         " no redraw during macros (much faster)
 set linebreak
 set report=0                           " :cmd always shows changed line count

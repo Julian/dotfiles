@@ -6,6 +6,8 @@ set backspace=indent,eol,start        " backspacing over everything in insert
 
 set display+=lastline                 " show as much of lastline possible
 
+set hidden
+
 if has('vim_starting')
     set encoding=utf8
 endif
