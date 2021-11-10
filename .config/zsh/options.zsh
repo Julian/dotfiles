@@ -36,4 +36,8 @@ setopt SHARE_HISTORY
 
 setopt AUTO_RESUME            # resume existing jobs if command matches
 
+# Editing
+
+WORDCHARS=${WORDCHARS/=/}
+
 zshaddhistory () { (( $#1 < 500 )) }
