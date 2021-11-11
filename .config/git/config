@@ -65,6 +65,7 @@
     brn = branch --remote --no-merged
 
     c = clone --recursive
+    cj = !sh -c 'git c gh:"$1" --origin upstream && git --git-dir "${1#*/}/.git" remote add origin g:"${1#*/}" && git --git-dir "${1#*/}/.git" config branch.$(git --git-dir "${1#*/}/.git" rev-parse --abbrev-ref HEAD).pushRemote origin' -
     cp = cherry-pick
     pluck = !sh -c 'git show "$1" | git apply' -
     pushhh = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
