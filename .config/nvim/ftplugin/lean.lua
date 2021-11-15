@@ -3,6 +3,8 @@ local lean = require('lean')
 -- Match mathlib's default style.
 vim.bo.textwidth = 100
 
+vim.opt_local.signcolumn = "yes"
+
 function _G.lean_live_grep()
   require'telescope.builtin'.live_grep{
     path_display = { 'tail' },
