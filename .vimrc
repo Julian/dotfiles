@@ -41,6 +41,11 @@ if has('syntax') && !exists('g:syntax_on')
   set synmaxcol=512
 endif
 
+let g:extra_plugins_to_install = [
+    \ ['neoclide/coc.nvim', {'branch': 'release'}],
+    \ ['neoclide/coc-python'],
+\ ]
+
 source ~/.config/nvim/init.vim
 
 set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp

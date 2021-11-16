@@ -104,14 +104,15 @@ if has('nvim-0.5')
     Plug 'jbyuki/one-small-step-for-vimkind'
     Plug 'mfussenegger/nvim-dap'
     Plug 'theHamsta/nvim-dap-virtual-text'
-else
-    Plug 'neoclide/coc.nvim',                {'branch': 'release'}
-    Plug 'neoclide/coc-python'
 endif
 
 if executable("tmux")
     Plug 'tpope/vim-tbone'
 endif
+
+for each in get(g:, 'extra_plugins_to_install', [])
+    call call('plug#', each)
+endfor
 
 call plug#end()
 
