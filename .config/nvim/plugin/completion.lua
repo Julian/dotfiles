@@ -38,10 +38,10 @@ cmp.setup{
     end, { "i", "s" }),
   },
   sources = {
-    { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_document_symbol' },
     { name = 'vsnip' },
+    { name = 'buffer' },
   }
 }
 
