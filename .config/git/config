@@ -53,6 +53,12 @@
 [svn]
     rmdir = true
 
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
 [alias]
     a = !sh -c 'git add "${1:-.}" && git dc && git s' -
 
