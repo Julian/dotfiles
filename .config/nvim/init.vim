@@ -239,12 +239,13 @@ nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
 nnoremap        <leader>f         <Cmd>Denite file/rec:`expand('%:h')`<CR>
 "               <leader>g         Git
 nnoremap        <leader>h         <Cmd>Denite tag<CR>
+nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
 nnoremap        <leader>j         <Cmd>Denite -input=test tag<CR>
 nnoremap        <leader>k         <Cmd>Denite -input=test/test_ file/rec<CR>
 nnoremap        <leader>l         <Cmd>Denite line<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 "               <leader>n         LSP goto next diagnostic
-nnoremap  <expr><leader>o         EditFileWORD()
+nnoremap        <leader>o         <Cmd>lua jump_to_last_in_project()<CR>
 nnoremap        <leader>p         "*p
 "               <leader>q         LSP set loclist
 "               <leader>r         LSP rename
@@ -291,6 +292,7 @@ nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:
 "               <leader>K         LSP show line diagnostics
 "               <leader>L         LSP folder management and other mappings
 "               <leader>N         LSP goto previous diagnostic
+nnoremap  <expr><leader>O         EditFileWORD()
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
