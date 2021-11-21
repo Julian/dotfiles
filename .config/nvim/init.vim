@@ -75,8 +75,6 @@ Plug    'vimwiki/vimwiki',                   {'branch': 'dev', 'on': 'VimwikiInd
 
 Plug    'kana/vim-textobj-user'
 
-Plug    'Shougo/denite.nvim',                {'do': ':UpdateRemotePlugins'}
-
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
 Develop 'vim-textobj-variable-segment'
@@ -234,15 +232,15 @@ nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input
 
 "               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         <Cmd>DeniteProjectDir file/rec<CR>
-nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:Denite file/rec:
-nnoremap        <leader>f         <Cmd>Denite file/rec:`expand('%:h')`<CR>
+nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_files{ hidden = true }<CR>
+nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope.builtin').find_files{ search_dirs =
+nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { vim.fn.expand('%:h') } }<CR>
 "               <leader>g         Git
-nnoremap        <leader>h         <Cmd>Denite tag<CR>
+nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags<CR>
 nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
-nnoremap        <leader>j         <Cmd>Denite -input=test tag<CR>
-nnoremap        <leader>k         <Cmd>Denite -input=test/test_ file/rec<CR>
-nnoremap        <leader>l         <Cmd>Denite line<CR>
+nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
+nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test/test_' }<CR>
+nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 "               <leader>n         LSP goto next diagnostic
 nnoremap        <leader>o         <Cmd>lua jump_to_last_in_project()<CR>
@@ -253,7 +251,7 @@ nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         <Cmd>DeniteCursorWord grep:.<CR>
+nnoremap        <leader>w         <Cmd>lua require('telescope.builtin').grep_string{ cwd = require('telescope.utils').buffer_dir() }<CR>
 nnoremap        <leader>y         "*y
 "               <leader>z         LSP formatting
 
@@ -288,7 +286,7 @@ nnoremap        <leader>tw        <Cmd>set wrap!<CR>
 nnoremap        <leader>tx        <Cmd>call <SID>ToggleExpando()<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap  <expr><leader>C         ":<C-U>SplitSensibly<CR>:Denite -input=. file:$HOME file/rec:" . $XDG_CONFIG_HOME . "<CR>"
+nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
 "               <leader>K         LSP show line diagnostics
 "               <leader>L         LSP folder management and other mappings
 "               <leader>N         LSP goto previous diagnostic
@@ -327,7 +325,7 @@ nnoremap        <leader>_         <Cmd>tabprevious<CR>
 nnoremap        <leader>+         <Cmd>tabnext<CR>
 nnoremap        <leader><BS>      <Cmd>earlier 1f<CR>
 nnoremap        <leader>\         <Cmd>later 1f<CR>
-nnoremap        <leader>/         <Cmd>Denite -no-empty grep:.<CR>
+nnoremap        <leader>/         <Cmd>lua require('telescope.builtin').live_grep{ cwd = require'telescope.utils'.buffer_dir() }<CR>
 
 
 nnoremap        <leader><tab>     <C-^>
