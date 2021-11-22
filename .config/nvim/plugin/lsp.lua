@@ -85,11 +85,7 @@ local opts = {
   )
 }
 local lsps = {
-  ccls = {
-    init_options = {
-        compilationDatabaseDirectory = "build",
-      },
-  },
+  clangd = {},
   sumneko_lua = {
     cmd = { "lua-language-server" },
     settings = {
