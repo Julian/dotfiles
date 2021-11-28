@@ -71,3 +71,12 @@ for each, _ in pairs(_G.mappings.n) do
   local rhs = 'v:lua.mappings.n.' .. each .. '()'
   vim.api.nvim_set_keymap('n', lhs, rhs, { expr = true, noremap = true })
 end
+
+vim.cmd[[
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+]]
