@@ -240,10 +240,11 @@ post-commands = [
 install-bundle = ["core", "development"]
 install = [
     "numpy>=1.21.1",
+    "scipy>=1.7.3",
     "pandas>=1.3.1",
 
-    "dask[complete]",
-    "pyspark",
+    "dask[complete]>=2021.11.2",
+    "pyspark>=3.2.0",
 
     "jupyter",
     "jupyterlab",
@@ -254,36 +255,38 @@ install = [
     "jupyter-lsp",
     "python-language-server[all]>=0.36.2",
 
-    "ipympl",
-    "matplotlib>=3.4.2",
-    "altair",
-    "altair_saver",
+    "ipympl>=0.8.1",
+    "matplotlib>=3.4.3",
+    "altair>=4.0.1",
+    "altair_saver>=0.4.0",
     "git+https://github.com/altair-viz/altair_pandas",
 
-    "bokeh",
-    "graphviz",
-    "plotly",
-    "plotnine",
-    "seaborn",
+    "bokeh>=2.4.1",
+    "graphviz>=0.18.1",
+    "plotly>=5.4.0",
+    "plotnine>=0.8.0",
+    "seaborn>=0.11.2",
     "yellowbrick",
 
-    "streamlit",
-    "voila",
+    "streamlit>=1.2.0",
+    "voila>=0.2.16",
 
-    "pandas-profiling[notebook]",
+    "pandas-profiling[notebook]>=3.1.0",
 
     "auto-sklearn",
-    "featuretools",
-    "h2o",
-    "tpot",
+    "featuretools>=1.2.0",
+    "h2o>=3.34.0.3",
+    "tpot>=0.11.7",
 
-    "scikit-learn>=0.24.2",
+    "statsmodels>=0.13.1",
+
+    "scikit-learn>=1.0",
     "scikit-optimize[plots]>=0.8.1",
     "scikit-plot>=0.3.7",
     "category_encoders>=2.2.2",
 
-    "fbprophet",
-    "tensorflow>=2.5.0",
+    "fbprophet>=0.7.1",
+    "tensorflow>=2.7.0",
     "torch>=1.9.0",
     "xgboost>=1.4.2",
     "xgbfir",
