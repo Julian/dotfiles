@@ -74,8 +74,8 @@ link = [
 ]
 link-module = ["pydoc"]
 
-[virtualenv.dev3-cpython]
-python = "python3.9"
+[virtualenv.dev-cpython]
+python = "python3.10"
 install-bundle = ["core", "development"]
 install = ["pyinstrument"]
 link = [
@@ -99,48 +99,48 @@ link = [
 link-module = ["venv"]
 
 [virtualenv.aubio]
-python = "python3.9"
+python = "python3.10"
 install = ["aubio"]
 link = ["aubio", "aubiocut"]
 
 [virtualenv.aws]
-python = "python3.9"
+python = "python3.10"
 install-bundle = ["development"]
 install = ["awscli", "boto", "boto3", "saws"]
 link = ["aws", "saws"]
 
 [virtualenv.bandit]
-python = "pypy3"
+python = "python3.10"
 install = ["bandit"]
 link = ["bandit"]
 
 [virtualenv.beets]
-python = "python3.9"
+python = "python3.10"
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]
 
 [virtualenv.black]
-python = "python3.9"
-install = ["black"]
+python = "python3.10"
+install = ["black[jupyter]"]
 link = ["black"]
 
 [virtualenv.build]
-python = "python3.9"
+python = "python3.10"
 install = ["build"]
 link = ["pyproject-build"]
 
 [virtualenv.catt]
-python = "python3.9"
+python = "python3.10"
 install = ["catt"]
 link = ["catt"]
 
 [virtualenv.cookiecutter]
-python = "python3.9"
+python = "python3.10"
 install = ["cookiecutter"]
 link = ["cookiecutter"]
 
 [virtualenv.check-manifest]
-python = "python3.9"
+python = "python3.10"
 install = ["check-manifest"]
 link = ["check-manifest"]
 
@@ -163,7 +163,7 @@ install = ["findme"]
 link = ["findme"]
 
 [virtualenv.findme-cpython3]
-python = "python3.9"
+python = "python3.10"
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-cpython3"]
@@ -191,7 +191,7 @@ install = ["httpstat"]
 link = ["httpstat"]
 
 [virtualenv.imaging]
-python = "python3.9"
+python = "python3.10"
 install-bundle = ["development"]
 install = [
     "libraw-cffi",
@@ -200,12 +200,12 @@ install = [
 ]
 
 [virtualenv.interrogate]
-python = "python3.9"
+python = "python3.10"
 install = ["interrogate"]
 link = ["interrogate"]
 
 [virtualenv.isort]
-python = "python3.9"
+python = "python3.10"
 install = ["isort"]
 link = ["isort"]
 
@@ -215,18 +215,18 @@ install = ["jsonschema[format]", "mock", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.litecli]
-python = "python3.9"
+python = "python3.10"
 install = ["litecli"]
 link = ["litecli"]
 
 [virtualenv.math]
-python = "python3.9"
+python = "python3.10"
 install-bundle = ["development"]
 install = ["sympy"]
 link = ["ptpython:math"]
 
 [virtualenv.ml]
-python = "python3.9"
+python = "python3.10"
 post-commands = [
     [
         "jupyter",
@@ -336,12 +336,12 @@ install = ["mkpkg"]
 link = ["mkpkg"]
 
 [virtualenv.mypy]
-python = "python3.9"
+python = "python3.10"
 install = ["mypy"]
 link = ["mypy"]
 
 [virtualenv.nbdiff]
-python = "python3.9"
+python = "python3.10"
 install = ["nbdime"]
 link = [
     "git-nbdiffdriver",
@@ -365,7 +365,7 @@ python = "pypy"
 install = ["pynvim", "jedi"]
 
 [virtualenv.neovim3]
-python = "python3.9"
+python = "python3.10"
 install = [
     "jedi",
     "pyls-isort",
@@ -381,7 +381,7 @@ install = ["ngxtop"]
 link = ["ngxtop"]
 
 [virtualenv.nox]
-python = "python3.9"
+python = "python3.10"
 install = ["nox"]
 link = ["nox"]
 
@@ -390,7 +390,7 @@ install = ["pex"]
 link = ["pex"]
 
 [virtualenv.pipenv]
-python = "python3.9"
+python = "python3.10"
 install = ["pipenv"]
 link = ["pipenv"]
 
@@ -408,22 +408,22 @@ install = ["pip-tools"]
 link = ["pip-compile:pip-compile3"]
 
 [virtualenv.piptools-cpython3]
-python = "python3.9"
+python = "python3.10"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile-cpython3"]
 
 [virtualenv.pre-commit]
-python = "python3.9"
+python = "python3.10"
 install = ["pre-commit"]
 link = ["pre-commit"]
 
 [virtualenv.pydocstyle]
-python = "python3.9"
+python = "python3.10"
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
 [virtualenv.pypinfo]
-python = "python3.9"
+python = "python3.10"
 install = ["pypinfo"]
 link = ["pypinfo"]
 
@@ -442,22 +442,22 @@ link = [
 ]
 
 [virtualenv.scrapy]
-python = "python3.9"
+python = "python3.10"
 install = ["scrapy"]
 link = ["scrapy"]
 
 [virtualenv.ssh-audit]
-python = "python3.9"
+python = "python3.10"
 install = ["ssh-audit"]
 link = ["ssh-audit"]
 
 [virtualenv.shiv]
-python = "python3.9"
+python = "python3.10"
 install = ["shiv"]
 link = ["shiv"]
 
 [virtualenv.sphinx]
-python = "python3.9"
+python = "python3.10"
 install-bundle = ["development"]
 install = ["recommonmark", "sphinx", "sphinxcontrib.spelling"]
 link = [
@@ -477,12 +477,12 @@ link = [
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
 [virtualenv.steck]
-python = "python3.9"
+python = "python3.10"
 install = ["steck"]
 link = ["steck:bpaste", "steck"]
 
 [virtualenv.style]
-python = "python3.9"
+python = "python3.10"
 install = [
     "flake8",
     "flake8-bugbear",
@@ -517,12 +517,12 @@ install = ["termtosvg"]
 link = ["termtosvg"]
 
 [virtualenv.tox]
-python = "python3.9"
+python = "python3.10"
 install = ["tox", "tox-ini-fmt"]
 link = ["tox", "tox-ini-fmt"]
 
 [virtualenv.tox4]
-python = "python3.9"
+python = "python3.10"
 install = ["tox>=4.0.0a9"]
 link = ["tox4:tox4"]
 
@@ -541,7 +541,7 @@ link = ["youtube-dl"]
 # --- Developing ---
 
 [virtualenv.blog]
-python = "python3.9"
+python = "python3.10"
 requirements = [
     "${DEVELOPMENT}/julian.github.io/requirements.txt",
     "${DEVELOPMENT}/til/requirements.txt",
@@ -565,7 +565,7 @@ requirements = [
 ]
 
 [virtualenv.regret]
-python = "python3.9"
+python = "python3.10"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 
