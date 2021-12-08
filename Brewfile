@@ -79,7 +79,7 @@ brew "tokei"
 brew "tmux"
 brew "trash"
 brew "tree"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["with-jansson", "HEAD"]
+brew "universal-ctags/universal-ctags/universal-ctags"
 brew "util-linux"
 brew "w3m"
 brew "watch"
