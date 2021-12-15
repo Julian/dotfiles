@@ -176,7 +176,11 @@ link = ["findme:findme-pypy3"]
 
 [virtualenv.google]
 install-bundle = ["development"]
-install = ["google-api-python-client"]
+install = [
+    "google-api-python-client",
+    "google-auth-httplib2",
+    "google-auth-oauthlib",
+]
 
 [virtualenv.hg]
 install = ["mercurial"]
