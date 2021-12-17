@@ -3,6 +3,7 @@ function _G.q(...)
   print(unpack(objects))
   return ...
 end
+vim.cmd[[command! -nargs=1 -complete=lua Q lua q(<args>)]]
 
 function _G.t(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
