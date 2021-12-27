@@ -234,7 +234,7 @@ nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input
 "               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_files{ hidden = true }<CR>
-nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope.builtin').find_files{ search_dirs =
+nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope.builtin').find_files{ search_dirs = { "" } }<Left><Left><Left><Left><Left>
 nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { vim.fn.expand('%:h') } }<CR>
 "               <leader>g         Git
 nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags()<CR>
