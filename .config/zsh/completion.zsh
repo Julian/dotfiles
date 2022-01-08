@@ -42,6 +42,7 @@ zstyle ':completion:*:man:*' menu yes select
 
 # make sure history-substring-search is after syntax-highlighting
 source $ZSHPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#434960"  # depends on terminal theme
 
 source $ZSHPLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
 
