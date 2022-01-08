@@ -240,7 +240,7 @@ nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_fil
 nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags()<CR>
 nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
 nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
-nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test/test_' }<CR>
+nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
 nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 "               <leader>n         LSP goto next diagnostic
