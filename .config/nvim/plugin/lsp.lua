@@ -21,7 +21,7 @@ local function on_attach(client, bufnr)
   cmd('n', '<leader>n', 'vim.diagnostic.goto_next{float = { header = false }}')
   cmd('n', '<leader>q', 'vim.diagnostic.setloclist()')
   cmd('n', '<leader>r', 'vim.lsp.buf.rename()')
-  cmd('n', '<leader>K', 'vim.diagnostic.open_float(0, { scope = "line", header = false })')
+  cmd('n', '<leader>K', 'vim.diagnostic.open_float(0, { scope = "line", header = false, focus = false })')
   cmd('n', '<leader>N', 'vim.diagnostic.goto_prev{float = { header = false }}')
 
   cmd('n', '<leader>La', 'vim.lsp.buf.add_workspace_folder()')
