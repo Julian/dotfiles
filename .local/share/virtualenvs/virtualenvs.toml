@@ -34,27 +34,6 @@ core = [
 # --- Development ---
 
 [virtualenv.dev]
-python = "pypy"
-install-bundle = ["core", "development"]
-link = [
-    "bpython",
-    "bpython-urwid",
-    "conch",
-    "coverage",
-    "glom",
-    "pip",
-    "python",
-    "ptpython",
-    "pudb",
-    "py.test",
-    "testr",
-    "trial",
-    "twist",
-    "twistd",
-]
-link-module = ["pydoc:pydoc2"]
-
-[virtualenv.dev3]
 python = "pypy3"
 install-bundle = ["core", "development"]
 link = [
@@ -63,7 +42,6 @@ link = [
     "coverage:coverage3",
     "glom:glom3",
     "pip:pip3",
-    "python:pypy3",
     "ptpython:ptpypy3",
     "pudb3:pudb3",
     "py.test:py.test3",
@@ -97,6 +75,27 @@ link = [
     "twist:twist-cpython3",
 ]
 link-module = ["venv"]
+
+[virtualenv.dev2]
+python = "pypy"
+install-bundle = ["core", "development"]
+link = [
+    "bpython",
+    "bpython-urwid",
+    "conch",
+    "coverage",
+    "glom",
+    "pip",
+    "python",
+    "ptpython",
+    "pudb",
+    "py.test",
+    "testr",
+    "trial",
+    "twist",
+    "twistd",
+]
+link-module = ["pydoc:pydoc2"]
 
 [virtualenv.aubio]
 python = "python3.10"
