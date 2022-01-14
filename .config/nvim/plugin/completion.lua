@@ -41,7 +41,9 @@ cmp.setup{
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_document_symbol' },
     { name = 'vsnip' },
+    { name = 'path' }, {
     { name = 'buffer' },
+    }
   }
 }
 
