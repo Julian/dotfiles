@@ -1,5 +1,0 @@
-version: 2
-root-markers:
-  - .git/
-
-tools:
