@@ -241,7 +241,7 @@ nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_fil
 nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags()<CR>
 nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
 nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
-nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
+nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 "               <leader>n         LSP goto next diagnostic
@@ -253,7 +253,7 @@ nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         <Cmd>lua require('telescope.builtin').grep_string{ cwd = require('telescope.utils').buffer_dir() }<CR>
+nnoremap        <leader>w         <Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
 nnoremap        <leader>y         "*y
 "               <leader>z         LSP formatting
 
@@ -289,6 +289,7 @@ nnoremap        <leader>tx        <Cmd>call <SID>ToggleExpando()<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
+nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
 "               <leader>K         LSP show line diagnostics
 "               <leader>L         LSP folder management and other mappings
 "               <leader>N         LSP goto previous diagnostic
@@ -328,6 +329,7 @@ nnoremap        <leader>+         <Cmd>tabnext<CR>
 nnoremap        <leader><BS>      <Cmd>earlier 1f<CR>
 nnoremap        <leader>\         <Cmd>later 1f<CR>
 nnoremap        <leader>/         <Cmd>lua require('telescope.builtin').live_grep{ cwd = require'telescope.utils'.buffer_dir() }<CR>
+nnoremap        <leader>?         <Cmd>lua require('telescope.builtin').grep_string{ cwd = require('telescope.utils').buffer_dir() }<CR>
 
 
 nnoremap        <leader><tab>     <C-^>
