@@ -110,6 +110,8 @@
     st = status
 
     sp = stash show --patch
+    # stash only untracked
+    su = "!git stash push --quiet && git stash --include-untracked && git stash pop --quiet stash@{1}"
 
     sw = switch
 
