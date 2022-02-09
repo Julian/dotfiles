@@ -85,6 +85,7 @@ if has('nvim-0.5')
     Plug 'bfredl/nvim-ipy'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
     Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-vsnip'

@@ -42,6 +42,7 @@ local function on_attach(client, bufnr)
 
   if client.resolved_capabilities.signature_help then
     cmd('n', '<C-k>', 'vim.lsp.buf.signature_help()')
+    cmd('i', '<C-s>', 'vim.lsp.buf.signature_help()')
   end
 
   if client.resolved_capabilities.document_highlight then
