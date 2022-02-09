@@ -32,7 +32,7 @@ call plug#begin(expand('~/.local/share/nvim/bundle/'))
 
 " --- Themes ---
 
-Plug    'glepnir/zephyr-nvim'
+Plug    'sainnhe/edge'
 
 " --- Additional FileType Support ---
 
@@ -407,7 +407,7 @@ endif
 " : Interface :
 " =============
 
-let g:preferred_colorscheme = 'zephyr'
+let g:preferred_colorscheme = 'edge'
 
 if has('nvim') && (has('gui_running') || &t_Co > 8 && $TERM != 'xterm-256color')
     set termguicolors
