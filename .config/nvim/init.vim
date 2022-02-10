@@ -329,7 +329,7 @@ nnoremap        <leader>_         <Cmd>tabprevious<CR>
 nnoremap        <leader>+         <Cmd>tabnext<CR>
 nnoremap        <leader><BS>      <Cmd>earlier 1f<CR>
 nnoremap        <leader>\         <Cmd>later 1f<CR>
-nnoremap        <leader>/         <Cmd>lua require('telescope.builtin').live_grep{ cwd = require'telescope.utils'.buffer_dir() }<CR>
+nnoremap        <leader>/         <Cmd>lua require('telescope.builtin').live_grep{}<CR>
 nnoremap        <leader>?         <Cmd>lua require('telescope.builtin').grep_string{ cwd = require('telescope.utils').buffer_dir() }<CR>
 
 
