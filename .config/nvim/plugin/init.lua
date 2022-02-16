@@ -1,3 +1,6 @@
+local statfs = vim.loop.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
+_G.SMALL_FILESYSTEM = (statfs.bavail * statfs.bsize) < 5 * 1024 * 1024 * 1024
+
 function _G.q(...)
   local objects = vim.tbl_map(vim.inspect, {...})
   print(unpack(objects))

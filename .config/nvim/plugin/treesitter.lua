@@ -1,7 +1,7 @@
 if vim.g.loaded_nvim_treesitter ~= 1 then return end
 
 require('nvim-treesitter.configs').setup{
-  ensure_installed = "maintained",
+  ensure_installed = SMALL_FILESYSTEM and { "python" } or "maintained",
   highlight = {
     enable = true,
     disable = { "rst" },
