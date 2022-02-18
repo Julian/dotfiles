@@ -28,8 +28,8 @@ compdef _hosts ssp sst ssx
 if (( $+commands[brew] )); then
     alias brew='GREP_OPTIONS= brew'
     alias up="brew update && brew upgrade"
-elif (( $+commands[nix-env] )); then
-    alias up="nix-channel --update nixpkgs && nix-env -u '*'"
+elif (( $+commands[nixos-rebuild] )); then
+    alias up="sudo nixos-rebuild switch --upgrade-all"
 elif (( $+commands[pacman] )); then
     alias up="sudo pacman -Syu"
 elif (( $+commands[pkg] )); then
