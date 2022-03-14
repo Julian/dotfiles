@@ -15,3 +15,7 @@ end
 vim.api.nvim_buf_set_keymap(
   0, "n", "<LocalLeader>g", "<Cmd>lua lean_live_grep()<CR>", { noremap = true }
 )
+
+vim.cmd[[
+  highlight link leanTactic Green
+]]
