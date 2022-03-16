@@ -84,6 +84,7 @@
     ci = commit
     cim = commit --amend -m
     fixup = commit --fixup
+    wip = commit --no-verify --message WIP
 
     d = diff --ignore-all-space --ignore-blank-lines --word-diff=color --color-moved=zebra --color-moved-ws=allow-indentation-change --find-renames
     dc = diff --ignore-all-space --ignore-blank-lines --word-diff=color --color-moved=zebra --color-moved-ws=allow-indentation-change --find-renames --cached
@@ -102,7 +103,7 @@
 
     ff = !sh -c 'git merge --ff-only "${1:-upstream/$(git rev-parse --abbrev-ref HEAD)}"' -
     noff = !sh -c 'git merge --no-ff "${1:-upstream/$(git rev-parse --abbrev-ref HEAD)}"' -
-    wip = merge --squash --no-commit
+    mwip = merge --squash --no-commit
 
     re = restore
 
