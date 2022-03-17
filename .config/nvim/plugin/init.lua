@@ -39,3 +39,5 @@ function _G.jump_to_next_in_project()
 end
 
 vim.diagnostic.config({ severity_sort = true })
+
+vim.opt.laststatus = 3
