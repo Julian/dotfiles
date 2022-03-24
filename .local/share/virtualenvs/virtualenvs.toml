@@ -370,10 +370,6 @@ link = [
 ]
 
 [virtualenv.neovim]
-python = "pypy"
-install = ["pynvim", "jedi"]
-
-[virtualenv.neovim3]
 python = "python3.10"
 install = [
     "jedi",
