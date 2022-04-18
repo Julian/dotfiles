@@ -238,7 +238,7 @@ nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_files{ hidden = true }<CR>
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope.builtin').find_files{ search_dirs = { "" } }<Left><Left><Left><Left><Left>
-nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { vim.fn.expand('%:h') } }<CR>
+nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }<CR>
 "               <leader>g         Git
 nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags()<CR>
 nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
