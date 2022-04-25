@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+local notify = require('notify')
 
 local function on_attach(client, bufnr)
   local function cmd(mode, key, cmd)
@@ -112,7 +113,7 @@ for lsp, lsp_opts in pairs(lsps) do
   lspconfig[lsp].setup(vim.tbl_extend("force", opts, lsp_opts))
 end
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
 require('lean').setup{
   abbreviations = { builtin = true },
@@ -129,6 +130,11 @@ require('lean').setup{
   lsp = { on_attach = on_attach },
   lsp3 = { on_attach = on_attach },
   mappings = true,
+  stderr = {
+    on_lines = function(lines)
+      notify(lines, 'error', { timeout = 3000, render = 'minimal' })
+    end,
+  }
 }
 
 local lint = require('lint')
