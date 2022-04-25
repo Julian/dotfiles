@@ -2,51 +2,45 @@ local lspconfig = require('lspconfig')
 local notify = require('notify')
 
 local function on_attach(client, bufnr)
-  local function cmd(mode, key, cmd)
-    vim.api.nvim_buf_set_keymap(
-      bufnr,
-      mode,
-      key,
-      '<cmd>lua ' .. cmd .. '<CR>',
-      {noremap = true}
-    )
+  local function cmd(mode, lhs, rhs)
+    vim.keymap.set(mode, lhs, rhs, { noremap = true, buffer = true })
   end
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  cmd('n', 'gd', 'vim.lsp.buf.definition()')
-  cmd('n', 'gD', 'vim.lsp.buf.declaration()')
-  cmd('n', '<leader>Li', 'vim.lsp.buf.implementation()')
-  cmd('n', '<leader>Lr', 'vim.lsp.buf.references()')
+  cmd('n', 'gd', vim.lsp.buf.definition)
+  cmd('n', 'gD', vim.lsp.buf.declaration)
+  cmd('n', '<leader>Li', vim.lsp.buf.implementation)
+  cmd('n', '<leader>Lr', vim.lsp.buf.references)
 
-  cmd('n', '<leader>n', 'vim.diagnostic.goto_next{float = { header = false }}')
-  cmd('n', '<leader>q', 'vim.diagnostic.setloclist()')
-  cmd('n', '<leader>r', 'vim.lsp.buf.rename()')
-  cmd('n', '<leader>K', 'vim.diagnostic.open_float(0, { scope = "line", header = false, focus = false })')
-  cmd('n', '<leader>N', 'vim.diagnostic.goto_prev{float = { header = false }}')
+  cmd('n', '<leader>n', function() vim.diagnostic.goto_next{float = { header = false }} end)
+  cmd('n', '<leader>q', vim.diagnostic.setloclist)
+  cmd('n', '<leader>r', vim.lsp.buf.rename)
+  cmd('n', '<leader>K', function() vim.diagnostic.open_float(0, { scope = "line", header = false, focus = false }) end)
+  cmd('n', '<leader>N', function() vim.diagnostic.goto_prev{float = { header = false }} end)
 
-  cmd('n', '<leader>La', 'vim.lsp.buf.add_workspace_folder()')
-  cmd('n', '<leader>Ld', 'vim.lsp.buf.remove_workspace_folder()')
-  cmd('n', '<leader>Ll', 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
+  cmd('n', '<leader>La', vim.lsp.buf.add_workspace_folder)
+  cmd('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder)
+  cmd('n', '<leader>Ll', function() vim.pretty_print(vim.lsp.buf.list_workspace_folders()) end)
 
-  if client.resolved_capabilities.hover then
-    cmd('n', 'K', 'vim.lsp.buf.hover()')
+  if client.server_capabilities.hoverProvider then
+    cmd('n', 'K', vim.lsp.buf.hover)
   end
 
-  if client.resolved_capabilities.document_formatting then
-    cmd('n', '<leader>z', 'vim.lsp.buf.formatting()')
+  if client.server_capabilities.documentFormattingProvider then
+    cmd('n', '<leader>z', vim.lsp.buf.formatting)
   end
 
-  if client.resolved_capabilities.type_definition then
-    cmd('n', 'gy', 'vim.lsp.buf.type_definition()')
+  if client.server_capabilities.typeDefinitionProvider then
+    cmd('n', 'gy', vim.lsp.buf.type_definition)
   end
 
-  if client.resolved_capabilities.signature_help then
-    cmd('n', '<C-k>', 'vim.lsp.buf.signature_help()')
-    cmd('i', '<C-s>', 'vim.lsp.buf.signature_help()')
+  if client.server_capabilities.signatureHelpProvider then
+    cmd('n', '<C-k>', vim.lsp.buf.signature_help)
+    cmd('i', '<C-s>', vim.lsp.buf.signature_help)
   end
 
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.cmd[[
       :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
@@ -59,13 +53,13 @@ local function on_attach(client, bufnr)
     ]]
   end
 
-  if client.resolved_capabilities.code_action then
-    cmd('n', '<leader>a', 'vim.lsp.buf.code_action()')
+  if client.server_capabilities.codeActionProvider then
+    cmd('n', '<leader>a', vim.lsp.buf.code_action)
   end
 
-  if client.resolved_capabilities.code_lens then
-    cmd('n', '<leader>Le', 'vim.lsp.codelens.display()')
-    cmd('n', '<leader>Ln', 'vim.lsp.codelens.run()')
+  if client.server_capabilities.codeLensProvider then
+    cmd('n', '<leader>Le', vim.lsp.codelens.display)
+    cmd('n', '<leader>Ln', vim.lsp.codelens.run)
 
     vim.cmd[[
       augroup lsp_codelens
