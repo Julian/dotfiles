@@ -123,11 +123,6 @@ python = "python3.10"
 install = ["black[jupyter]"]
 link = ["black"]
 
-[virtualenv.build]
-python = "python3.10"
-install = ["build"]
-link = ["pyproject-build"]
-
 [virtualenv.catt]
 python = "python3.10"
 install = ["catt"]
@@ -137,11 +132,6 @@ link = ["catt"]
 python = "python3.10"
 install = ["cookiecutter"]
 link = ["cookiecutter"]
-
-[virtualenv.check-manifest]
-python = "python3.10"
-install = ["check-manifest"]
-link = ["check-manifest"]
 
 [virtualenv.colortest]
 install = ["colortest"]
@@ -340,10 +330,6 @@ link = [
     "xgbfir",
 ]
 
-[virtualenv.mkpkg]
-install = ["mkpkg"]
-link = ["mkpkg"]
-
 [virtualenv.mypy]
 python = "python3.10"
 install = ["mypy"]
@@ -385,38 +371,6 @@ link = ["pylsp"]
 install = ["ngxtop"]
 link = ["ngxtop"]
 
-[virtualenv.nox]
-python = "python3.10"
-install = ["nox"]
-link = ["nox"]
-
-[virtualenv.pex]
-install = ["pex"]
-link = ["pex"]
-
-[virtualenv.pipenv]
-python = "python3.10"
-install = ["pipenv"]
-link = ["pipenv"]
-
-[virtualenv.poetry]
-install = ["poetry"]
-link = ["poetry"]
-
-[virtualenv.piptools]
-install = ["pip-tools"]
-link = ["pip-compile"]
-
-[virtualenv.piptools3]
-python = "pypy3"
-install = ["pip-tools"]
-link = ["pip-compile:pip-compile3"]
-
-[virtualenv.piptools-cpython3]
-python = "python3.10"
-install = ["pip-tools"]
-link = ["pip-compile:pip-compile-cpython3"]
-
 [virtualenv.pre-commit]
 python = "python3.10"
 install = ["pre-commit"]
@@ -455,11 +409,6 @@ link = ["scrapy"]
 python = "python3.10"
 install = ["ssh-audit"]
 link = ["ssh-audit"]
-
-[virtualenv.shiv]
-python = "python3.10"
-install = ["shiv"]
-link = ["shiv"]
 
 [virtualenv.sphinx]
 python = "python3.10"
@@ -531,10 +480,6 @@ python = "python3.10"
 install = ["tox>=4.0.0a9"]
 link = ["tox4:tox4"]
 
-[virtualenv.twine]
-install = ["twine", "keyring"]
-link = ["twine", "keyring"]
-
 [virtualenv.watchdog]
 install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
@@ -542,6 +487,68 @@ link = ["watchmedo"]
 [virtualenv.youtube-dl]
 install = ["youtube-dl"]
 link = ["youtube-dl"]
+
+# --- Packaging ---
+
+[virtualenv.build]
+python = "python3.10"
+install = ["build"]
+link = ["pyproject-build"]
+
+[virtualenv.check-manifest]
+python = "python3.10"
+install = ["check-manifest"]
+link = ["check-manifest"]
+
+[virtualenv.hatch]
+python = "python3.10"
+install = ["hatch"]
+link = ["hatch"]
+
+[virtualenv.mkpkg]
+install = ["mkpkg"]
+link = ["mkpkg"]
+
+[virtualenv.nox]
+python = "python3.10"
+install = ["nox"]
+link = ["nox"]
+
+[virtualenv.pex]
+install = ["pex"]
+link = ["pex"]
+
+[virtualenv.pipenv]
+python = "python3.10"
+install = ["pipenv"]
+link = ["pipenv"]
+
+[virtualenv.poetry]
+install = ["poetry"]
+link = ["poetry"]
+
+[virtualenv.piptools]
+install = ["pip-tools"]
+link = ["pip-compile"]
+
+[virtualenv.piptools3]
+python = "pypy3"
+install = ["pip-tools"]
+link = ["pip-compile:pip-compile3"]
+
+[virtualenv.piptools-cpython3]
+python = "python3.10"
+install = ["pip-tools"]
+link = ["pip-compile:pip-compile-cpython3"]
+
+[virtualenv.shiv]
+python = "python3.10"
+install = ["shiv"]
+link = ["shiv"]
+
+[virtualenv.twine]
+install = ["twine", "keyring"]
+link = ["twine", "keyring"]
 
 # --- Developing ---
 
