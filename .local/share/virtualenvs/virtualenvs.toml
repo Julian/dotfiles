@@ -99,7 +99,7 @@ link-module = ["pydoc:pydoc2"]
 
 [virtualenv.aubio]
 python = "python3.10"
-install = ["aubio"]
+install = ["aubio>=0.4.9"]
 link = ["aubio", "aubiocut"]
 
 [virtualenv.aws]
