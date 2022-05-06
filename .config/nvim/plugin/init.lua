@@ -1,4 +1,5 @@
 vim.diagnostic.config{ severity_sort = true }
+vim.notify = require('notify')
 vim.opt.laststatus = 3
 
 
