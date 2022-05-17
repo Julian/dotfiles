@@ -37,3 +37,10 @@ function _G.jump_to_next_in_project()
     end
   end
 end
+
+--- The parent dir of the current buffer if it has a name, otherwise cwd.
+function _G.parent_or_cwd()
+  local name = vim.fn.expand('%:h')
+  if name == "" then return vim.fn.getcwd() end
+  return name
+end

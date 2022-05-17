@@ -2,10 +2,8 @@ vim.diagnostic.config{ severity_sort = true }
 vim.notify = require('notify')
 vim.opt.laststatus = 3
 
-
---- The parent dir of the current buffer if it has a name, otherwise cwd.
-function _G.parent_or_cwd()
-  local name = vim.fn.expand('%:h')
-  if name == "" then return vim.fn.getcwd() end
-  return name
-end
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>ttd', function()
+  if diagnostics_active then vim.diagnostic.hide() else vim.diagnostic.show() end
+  diagnostics_active = not diagnostics_active
+end)
