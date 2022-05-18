@@ -1,5 +1,3 @@
-if vim.g.loaded_nvim_treesitter ~= 1 then return end
-
 require('nvim-treesitter.configs').setup{
   ensure_installed = {
     'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
