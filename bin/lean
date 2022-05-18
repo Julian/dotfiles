@@ -17,6 +17,7 @@ LEAN4_DIR = Path(
     os.environ.get("LEAN4_DIR", Path("/opt/homebrew/Cellar/lean@4/")),
 )
 LEAN_DEFAULT_VERSION = os.environ.get("LEAN_DEFAULT_VERSION")
+MAYBE_DEBUG = "-debug" if "LEAN_DEBUG" in os.environ else ""
 
 
 parent = subprocess.run(
@@ -30,7 +31,7 @@ needs_lean3 = any(
 
 
 def lean3(version):
-    return LEAN3_DIR / f"lean-{version}-darwin"
+    return LEAN3_DIR / f"lean-{version}-darwin{MAYBE_DEBUG}"
 
 
 def lean4(version):
@@ -47,7 +48,7 @@ if not version:
     if needs_lean3:
         available = {
             tuple(map(int, path.name.split("-")[1].split("."))): path
-            for path in LEAN3_DIR.glob("lean-*-darwin")
+            for path in LEAN3_DIR.glob(f"lean-*-darwin{MAYBE_DEBUG}")
         }
         version = ".".join(map(str, max(available)))
     else:
