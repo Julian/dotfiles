@@ -88,6 +88,7 @@
 .emacs.d/**/*~
 
 .local/bin/
+.local/share/cpptools/
 .local/share/gem/
 .local/share/great/
 .local/share/lean/
