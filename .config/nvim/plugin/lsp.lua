@@ -108,6 +108,10 @@ local lsps = {
           version = 'LuaJIT',
           path = runtime_path,
         },
+        completion= {
+          keywordSnippet="Replace",
+          callSnippet="Replace"
+        },
         diagnostics = {
           globals = { 'describe', 'it', 'pending', 'vim' },
         },
