@@ -1,4 +1,36 @@
 local dap = require('dap')
+local osv = require('osv')
+
+vim.keymap.set('n', '<leader>Db', dap.toggle_breakpoint)
+vim.keymap.set('n', '<leader>Dc', dap.continue)
+vim.keymap.set('n', '<leader>Dd', dap.down)
+vim.keymap.set('n', '<leader>Dn', dap.step_over)
+vim.keymap.set('n', '<leader>Dr', dap.repl.open)
+vim.keymap.set('n', '<leader>Ds', dap.step_into)
+vim.keymap.set('n', '<leader>Du', dap.up)
+vim.keymap.set('n', '<leader>Dv', osv.launch)
+
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = 'OpenDebugAD7',
+}
+dap.configurations.cpp = {
+  {
+    name = 'Launch file',
+    type = 'cppdbg',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    args = function()
+      return vim.fn.split(vim.fn.input('Arguments: '), ' \\+')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = true,
+    miDebuggerPath = 'lldb-mi',
+  },
+}
 
 dap.configurations.lua = {
   {

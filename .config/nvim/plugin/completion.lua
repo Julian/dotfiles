@@ -46,32 +46,16 @@ cmp.setup{
   }
 }
 
-_G.mappings = {
-  i = {};
-  n = {
-    ['CR'] = function()
-      local filetype = vim.opt.filetype:get()
-      if filetype == 'qf' or vim.fn.bufname() == '[Command Line]' then return t '<CR>'
-      elseif filetype == 'help' then return t '<C-]>'
-      elseif filetype == 'vimwiki' then return t ':VimwikiFollowLink<CR>'
-      else return t ':<C-U>SplitSensibly<CR>:VimwikiIndex<CR>'
-      end
-    end;
-  };
-}
-
-for each, _ in pairs(_G.mappings.i) do
-  local lhs = '<' .. each:gsub("_", "-") .. '>'
-  local rhs = 'v:lua.mappings.i.' .. each .. '()'
-  vim.api.nvim_set_keymap('i', lhs, rhs, { expr = true })
-  vim.api.nvim_set_keymap('s', lhs, rhs, { expr = true })
-end
-
-for each, _ in pairs(_G.mappings.n) do
-  local lhs = '<' .. each:gsub("_", "-") .. '>'
-  local rhs = 'v:lua.mappings.n.' .. each .. '()'
-  vim.api.nvim_set_keymap('n', lhs, rhs, { expr = true, noremap = true })
-end
+vim.keymap.set('n', '<CR>', function()
+  local filetype = vim.opt.filetype:get()
+  local dap = require('dap')
+  if filetype == 'qf' or vim.fn.bufname() == '[Command Line]' then return '<CR>'
+  elseif filetype == 'help' then return '<C-]>'
+  elseif filetype == 'vimwiki' then return ':VimwikiFollowLink<CR>'
+  elseif dap.session() ~= nil then dap.run_to_cursor() return ''
+  else return ':<C-U>SplitSensibly<CR>:VimwikiIndex<CR>'
+  end
+end, { expr = true })
 
 vim.cmd[[
 highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
