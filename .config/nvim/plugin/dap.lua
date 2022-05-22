@@ -24,7 +24,7 @@ dap.configurations.cpp = {
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     args = function()
-      return vim.fn.split(vim.fn.input('Arguments: '), ' \\+')
+      return vim.fn.split(vim.fn.input('Arguments: ', '', 'file'), ' \\+')
     end,
     cwd = '${workspaceFolder}',
     stopOnEntry = true,
