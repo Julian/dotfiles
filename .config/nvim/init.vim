@@ -255,7 +255,7 @@ nnoremap        <leader>p         "*p
 nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
+nnoremap  <expr><leader>v         "<Cmd>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/plugin/init.lua' . "<CR>"
 nnoremap        <leader>w         <Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>
 nnoremap        <leader>y         "*y
 "               <leader>z         LSP formatting
@@ -301,7 +301,7 @@ nnoremap  <expr><leader>O         EditFileWORD()
 nnoremap        <leader>P         "*P
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
-nnoremap  <expr><leader>V         "<Cmd>SplitSensibly " . fnamemodify(expand("$MYVIMRC"), ":h") . '/plugin/init.lua' . "<CR>"
+nnoremap        <leader>V         <Cmd>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         <Cmd>SplitSensibly $ZDOTDIR/.zshrc<CR>
 
