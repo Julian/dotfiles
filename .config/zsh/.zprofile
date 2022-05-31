@@ -17,10 +17,7 @@ path=(
         $homebrew_prefix/opt/coreutils/libexec/gnubin
         $homebrew_prefix/opt/findutils/libexec/gnubin
         $homebrew_prefix/opt/gnu-sed/libexec/gnubin
-        $homebrew_prefix/opt/python@3.10/bin
-        $homebrew_prefix/opt/python@3.9/bin
-        $homebrew_prefix/opt/python@3.8/bin
-        $homebrew_prefix/opt/python@3.7/bin
+        $homebrew_prefix/opt/python@*/bin
         $homebrew_prefix/opt/util-linux/bin
         $path
     )
