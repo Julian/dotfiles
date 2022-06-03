@@ -40,4 +40,4 @@ setopt AUTO_RESUME            # resume existing jobs if command matches
 
 WORDCHARS=${WORDCHARS/=/}
 
-zshaddhistory () { (( $#1 < 500 )) }
+zshaddhistory () { (( $#1 < 1500 )) }
