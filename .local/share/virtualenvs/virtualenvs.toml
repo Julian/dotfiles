@@ -477,8 +477,8 @@ link = ["tox", "tox-ini-fmt"]
 
 [virtualenv.tox4]
 python = "python3.10"
-install = ["tox>=4.0.0a9"]
-link = ["tox4:tox4"]
+install = ["tox>=4.0.0b2"]
+link = ["tox:tox4"]
 
 [virtualenv.watchdog]
 install = ["watchdog[watchmedo]"]
