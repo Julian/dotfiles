@@ -121,6 +121,7 @@ local lsps = {
     },
   },
   pylsp = {},
+  texlab = {},
   tsserver = {},
   vimls = {},
 }
