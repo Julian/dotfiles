@@ -124,6 +124,7 @@ local lsps = {
   texlab = {},
   tsserver = {},
   vimls = {},
+  yamlls = {},
 }
 
 for lsp, lsp_opts in pairs(lsps) do
