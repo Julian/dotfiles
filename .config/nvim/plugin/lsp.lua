@@ -137,6 +137,7 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { 
 require('lean').setup{
   abbreviations = { builtin = true },
   infoview = {
+    horizontal_position = 'top',
     autoopen = function()
       for _, window in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
         local buf = vim.api.nvim_win_get_buf(window)
