@@ -91,6 +91,7 @@ Berksfile.lock
 
 node_modules/
 bower_components/
+.parcel-cache/
 
 # Clojure #
 # ------- #
