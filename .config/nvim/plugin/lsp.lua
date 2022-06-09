@@ -122,6 +122,7 @@ local lsps = {
   },
   pylsp = {},
   texlab = {},
+  tailwindcss = {},
   tsserver = {},
   vimls = {},
   yamlls = {},
