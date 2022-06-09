@@ -1,4 +1,4 @@
-vim.diagnostic.config{ severity_sort = true }
+vim.diagnostic.config{ severity_sort = true, float = { border = 'rounded' } }
 vim.notify = require('notify')
 vim.opt.laststatus = 3
 
