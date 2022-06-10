@@ -92,6 +92,7 @@
 .local/share/gem/
 .local/share/great/
 .local/share/lean/
+.local/share/lua-language-server/
 .local/share/man/
 .local/share/perl5/
 .local/share/pip2pi/

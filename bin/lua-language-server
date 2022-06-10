@@ -4,8 +4,8 @@ import os
 import sys
 
 
-_LLS = Path(os.environ["DEVELOPMENT"]) / "lua-language-server"
+_LLS = Path("~/.local/share/lua-language-server/latest").expanduser()
 _BIN = _LLS / "bin"
-executable, = _BIN.glob("*/lua-language-server")
+executable = _BIN / "lua-language-server"
 argv = [str(executable), "-E", str(_LLS / "main.lua")] + sys.argv[1:]
 os.execvp(executable, argv)
