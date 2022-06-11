@@ -53,7 +53,7 @@ abstracts = {
   sb_awaybar = " %1 {sb %W$0-} %N";
 
   # For usercount.pl
-  sb_usercount = " %0 {sb %B$0} %N ";
+  sb_usercount = " %0 {sb %G$0} %N ";
   sb_uc_ircops = "%r*$*";
   sb_uc_ops = "%Ro%K$*";
   sb_uc_halfops = "%Bho%b$*";
@@ -122,13 +122,14 @@ abstracts = {
   ownprivmsg = "%w[$0(%1-)]";
 
   ownprivmsgnick = "{msgnick $*}";
+  privmsgnick = "{msgnick $*}";
 
   #
   # msn-styled privmsgs:
   #ownprivnick = "%B$*%K says:%:";
   #privmsgnick = "%r$*%K says:%:";
   ownprivnick = "%B$*%K%_|";
-  privmsgnick = "%r$*%K%_|";
+  privnick = "%r$*%K%_|";
   action_core = "        %C*%K | %C$0- ";
   action = "%C{action_core $*}%W";
   ownaction = "{action $*}";
@@ -205,7 +206,7 @@ formats = {
     pubmsg_me_channel = "{pubmsgmenick $3 {menick $[-10]0}{msgchannel $1}}$2";
     pubmsg_hilight = "{pubmsghinick $0 $3 $[-10]1}$2";
     pubmsg_hilight_channel = "{pubmsghinick $0 $4 $[-10]1{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick $2 {pubnick $nickcolor$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick $nickcolor$[-10]0}}$1";
     pubmsg_channel = "{pubmsgnick $3 {pubnick $[-10]0}{msgchannel $1}}$2";
 
     #   own_msg = "{ownmsgnick $2 {ownnick $[-10]0}}$1";
@@ -222,7 +223,7 @@ formats = {
     timestamp = "%K%_{timestamp %_$Z} %W";
     #   servertag = "$[-11]0 %W|%n ";
     servertag = "%K";
-    daychange = " %K%_00:00:00%p          * | Day changed! Still up? Today is %%d. %%b, Anno Domino %%Y.%n";
+    daychange = " %K%_00:00:00%p          * | Day changed! Still up? Today is %%d. %%b, Anno Domini %%Y.%n";
     talking_with = "        %p*%K | %W%KYou are now having a conversation with {nick $0}.";
     refnum_too_low = "        %r*%K | Window number must be greater than one.";
     error_server_sticky = "        %r*%K | Window's server is %rsticky%K and it cannot be changed without -unsticky option";
@@ -397,7 +398,7 @@ formats = {
 
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-10]2}}%W$1";
     own_msg_private = "{ownprivmsg msg $0}%W$1";
-    msg_private_query = "{privmsgnick {privnick $[-10]0}} %W$2";
+    msg_private_query = "{privmsgnick {privnick $[-10]0}}%W$2";
     msg_private = "{privmsg $0 $1}%W$2";
 
     # msn-styled:
@@ -493,7 +494,7 @@ formats = {
     joinerror_duplicate = "        %r*%K | Channel {channel $0} already exists - %rcannot create%K it";
     channel_rejoin = "        %r*%K | Channel {channel $0} is temporarily %runavailable%K. Setting up a rejoin, to not rejoin, use /rmrejoins.";
     inviting = "        %g*%K | %gInviting%K {nick $0} to {channel $1}";
-    channel_created = "";
+    channel_created = "        %p*%K | %W%K{channel $0} is created %_$1%_";
     url = "        %p*%K | %W%KHome page for {channelhilight $0}: $1";
     topic = "        %p*%K | %WTopic for channel {channel $0}: %_$1%_";
     no_topic = "        %p*%K | %WNo topic for channel %_$0%_";
@@ -511,7 +512,7 @@ formats = {
     invitelist = "{channel $0}: invite {ban $1}";
     no_such_channel = "        %r*%K | {channel $0}: %rNo such%K channel";
     channel_change = "        %y*%K | %ychannel settings changed%K: %w(%K{mode $1}%w)";
-    channel_synced = "";
+    channel_synced = "        %p*%K | %W%KJoin to {channel $0} was synced in {hilight $1} secs";
     usermode_change = "        %y*%K | {nick $2} %ygave privileges%K on channel {channel $0} to %w(%K{mode $0}%w)";
     user_mode = "        %p*%K | %W%KYour user mode is {mode $0}";
     #   away = "        %g*%K | You have been %gmarked%K as being away";
