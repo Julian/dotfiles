@@ -1,6 +1,5 @@
 vim.diagnostic.config{ severity_sort = true, float = { border = 'rounded' } }
 vim.notify = require('notify')
-vim.opt.laststatus = 3
 
 local diagnostics_active = true
 vim.keymap.set('n', '<leader>ttd', function()
