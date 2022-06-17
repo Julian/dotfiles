@@ -81,6 +81,7 @@ Develop 'vim-textobj-variable-segment'
 if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
 
+    Plug 'b0o/schemastore.nvim'
     Plug 'bfredl/nvim-ipy'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-nvim-lsp'

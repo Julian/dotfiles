@@ -100,6 +100,19 @@ local opts = {
 }
 local lsps = {
   clangd = {},
+  pylsp = {},
+  tailwindcss = {},
+  texlab = {},
+  tsserver = {},
+  vimls = {},
+  yamlls = {},
+
+  jsonls = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
   sumneko_lua = {
     cmd = { "lua-language-server" },
     settings = {
@@ -120,12 +133,6 @@ local lsps = {
       },
     },
   },
-  pylsp = {},
-  texlab = {},
-  tailwindcss = {},
-  tsserver = {},
-  vimls = {},
-  yamlls = {},
 }
 
 for lsp, lsp_opts in pairs(lsps) do
