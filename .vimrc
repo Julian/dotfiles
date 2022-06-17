@@ -44,6 +44,7 @@ endif
 let g:extra_plugins_to_install = [
     \ ['neoclide/coc.nvim', {'branch': 'release'}],
     \ ['neoclide/coc-python'],
+    \ ['tpope/vim-endwise'],
 \ ]
 
 source ~/.config/nvim/init.vim

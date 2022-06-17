@@ -63,7 +63,6 @@ Plug    't9md/vim-quickhl'
 Plug    'tommcdo/vim-exchange'
 Plug    'tomtom/tcomment_vim'
 Plug    'tpope/vim-abolish'
-Plug    'tpope/vim-endwise'
 Plug    'tpope/vim-fugitive'
 Plug    'tpope/vim-obsession',               {'on': 'Obsession'}
 Plug    'tpope/vim-repeat'
