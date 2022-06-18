@@ -443,9 +443,16 @@ else
     set listchars=tab:>-,eol:$,trail:.,extends:>,precedes:<
 endif
 
+let g:is_android = !empty($ANDROID_ROOT)
+
 if has('mouse')
-  set mouse=v                          " ugh no mouse while typing, just visual
   set mousemodel=popup
+
+  if g:is_android
+    set mouse=nv
+  else
+    set mouse=v                        " ugh no mouse while typing, just visual
+  end
 endif
 
 " ============
