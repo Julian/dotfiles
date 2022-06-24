@@ -163,6 +163,7 @@ require('lean').setup{
     end,
   }
 }
+vim.api.nvim_create_autocmd('VimResized', { callback = require('lean.infoview').reposition })
 
 local lint = require('lint')
 
