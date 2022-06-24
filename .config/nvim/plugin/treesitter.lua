@@ -2,7 +2,7 @@ require('nvim-treesitter.configs').setup{
   ensure_installed = {
     'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
     'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java', 'javascript',
-    'json', 'latex', 'llvm', 'lua', 'make', 'markdown', 'ninja', 'nix',
+    'json', 'latex', 'llvm', 'lua', 'make', 'markdown', 'ninja', 'nix', 'org',
     'python', 'query', 'regex', 'rst', 'ruby', 'rust', 'tlaplus', 'toml',
     'typescript', 'vim', 'yaml', 'zig',
   },
@@ -10,6 +10,7 @@ require('nvim-treesitter.configs').setup{
   highlight = {
     enable = true,
     disable = { 'rst' },
+    additional_vim_regex_highlighting = { 'org' },
   },
   indent = {
     enable = true,
