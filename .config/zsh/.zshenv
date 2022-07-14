@@ -6,8 +6,6 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
-export LESSHISTFILE="-"     # ugh, stupid less. Disable ridiculous history file
-
 if [[ "$OSTYPE" == darwin* ]]
 then
     export BROWSER=open
@@ -51,8 +49,11 @@ export JUPYTER_CONFIG_DIR=$XDG_CONFIG_HOME/jupyter/
 export KAGGLE_CONFIG_DIR=$XDG_CONFIG_HOME/kaggle/
 export MPLCONFIGDIR=$XDG_CONFIG_HOME/matplotlib/
 
+export LESSHISTFILE=$XDG_CACHE_HOME/less_history
+
 export MYSQL_HISTFILE=$XDG_CACHE_HOME/mysql_history
 export PSQL_HISTORY=$XDG_CACHE_HOME/psql_history
+export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 
