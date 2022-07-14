@@ -102,6 +102,7 @@ local lsps = {
   clangd = {},
   pylsp = {},
   tailwindcss = {},
+  taplo = {},
   texlab = {},
   tsserver = {},
   vimls = {},
