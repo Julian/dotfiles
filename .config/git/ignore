@@ -105,7 +105,9 @@ bower_components/
 # Lean #
 # ---- #
 
-lean_packages/
+/lean_packages/*
+!/lean_packages/manifest.json
+
 /_target
 /leanpkg.path
 *.olean
