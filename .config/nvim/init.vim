@@ -76,7 +76,7 @@ Plug    'kana/vim-textobj-user'
 
 Develop 'vim-runt'
 Develop 'vim-textobj-assignment'
-Develop 'vim-textobj-variable-segment'
+Develop 'vim-textobj-variable-segment',      {'branch': 'main'}
 
 if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
