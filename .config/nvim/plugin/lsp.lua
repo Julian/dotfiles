@@ -101,6 +101,7 @@ local opts = {
 local lsps = {
   clangd = {},
   pylsp = {},
+  rust_analyzer = {},
   tailwindcss = {},
   taplo = {},
   texlab = {},
