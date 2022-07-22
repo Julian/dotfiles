@@ -54,6 +54,7 @@
 .config/jupyter/migrated
 .config/kaggle/kaggle.json
 .config/keepassc/
+.config/kitty/kitty.conf.bak
 .config/litecli/history
 .config/litecli/log
 .config/matplotlib/*.cache
