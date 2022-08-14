@@ -40,6 +40,7 @@
 .config/cmus/search-history
 .config/cmus/playlists/default
 .config/cmus/socket
+.config/containers/
 .config/configstore/
 .config/darktable/
 .config/docker/.buildNodeID
