@@ -1,0 +1,7 @@
+[[ "$kitty_theme" = "light" ]] && {
+    kitty_theme="dark"
+    kitty +kitten themes --reload-in=all 'Bright Lights'
+} || {
+    kitty_theme="light"
+    kitty +kitten themes --reload-in=all 'Ayu Light'
+}

@@ -6,6 +6,7 @@ autoload \
     filter \
     randomize-mac \
     ssp \
+    st \
     sst \
     tunnel \
     unquarantine \
