@@ -144,7 +144,6 @@ end
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
 require('lean').setup{
-  abbreviations = { builtin = true },
   infoview = {
     horizontal_position = 'top',
     autoopen = function()
