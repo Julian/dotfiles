@@ -560,6 +560,11 @@ requirements = [
 ]
 link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
 
+[virtualenv.bowtie]
+install-bundle = ["development"]
+install = ["-e", "${DEVELOPMENT}/bowtie.py"]
+link = ["bowtie"]
+
 [virtualenv.diff]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/diff", "twisted[tls]"]
