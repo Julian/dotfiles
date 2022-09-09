@@ -1,9 +1,11 @@
 [bundle]
 development = [
     "bpython[urwid]",
+    "debugpy",
     "pipdeptree",
     "ptpython",
     "pudb",
+    "pytest",
     "q",
     "rich; python_version>='3'",
     "virtue",
@@ -21,13 +23,10 @@ core = [
     "pyinstrument; python_version>='3' and platform_python_implementation != 'PyPy'",
     "pyperf; python_version>='3'",
     "pyrsistent",
-    "pytest",
     "pytest-cov",
     "python-papi; platform_system=='Linux' and platform_machine != 'aarch64'",
     "pytoml",
     "pyyaml",
-    "testrepository",
-    "treq",
     "twisted[conch,tls]",
 ]
 
@@ -204,7 +203,7 @@ link = ["isort"]
 
 [virtualenv.jsonschema]
 install-bundle = ["development"]
-install = ["jsonschema[format]", "mock", "twisted"]
+install = ["jsonschema[format]", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.litecli]
