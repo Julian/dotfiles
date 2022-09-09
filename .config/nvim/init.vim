@@ -108,6 +108,7 @@ if has('nvim-0.5')
 
     Plug 'jbyuki/one-small-step-for-vimkind'
     Plug 'mfussenegger/nvim-dap'
+    Plug 'mfussenegger/nvim-dap-python'
     Plug 'rcarriga/nvim-dap-ui'
     Plug 'theHamsta/nvim-dap-virtual-text'
 endif

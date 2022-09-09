@@ -57,6 +57,12 @@ dap.adapters.nlua = function(callback, config)
   callback({ type = 'server', host = config.host, port = config.port })
 end
 
+function _G.pydebug(name)
+  require('dap-python').setup(
+    '~/.local/share/virtualenvs/' .. name .. '/bin/python'
+  )
+end
+
 dapui.setup{}
 dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
 dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
