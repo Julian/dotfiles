@@ -100,6 +100,7 @@ local opts = {
 }
 local lsps = {
   clangd = {},
+  clojure_lsp = {},
   pylsp = {},
   rust_analyzer = {},
   tailwindcss = {},
