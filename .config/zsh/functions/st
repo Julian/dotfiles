@@ -1,7 +1,10 @@
-[[ "$kitty_theme" = "light" ]] && {
-    kitty_theme="dark"
-    kitty +kitten themes --reload-in=all 'Bright Lights'
+local light_theme="$XDG_CONFIG_HOME/kitty/Ayu Light.conf"
+local dark_theme="$XDG_CONFIG_HOME/kitty/Bright Lights.conf"
+local current_theme="$XDG_CONFIG_HOME/kitty/current-theme.conf"
+
+[[ $(readlink -f $current_theme) == $(readlink -f $dark_theme) ]] && {
+    ln -sf $light_theme $current_theme
 } || {
-    kitty_theme="light"
-    kitty +kitten themes --reload-in=all 'Ayu Light'
+    ln -sf $dark_theme $current_theme
 }
+kill -s USR1 "$KITTY_PID"

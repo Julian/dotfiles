@@ -55,6 +55,7 @@
 .config/jupyter/migrated
 .config/kaggle/kaggle.json
 .config/keepassc/
+.config/kitty/current-theme.conf
 .config/kitty/kitty.conf.bak
 .config/litecli/history
 .config/litecli/log
