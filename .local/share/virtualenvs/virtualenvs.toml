@@ -144,6 +144,10 @@ link = ["detect-secrets"]
 install = ["doc8", "pygments"]
 link = ["doc8"]
 
+[virtualenv.esbonio]
+install = ["esbonio"]
+link-module = ["esbonio:esbonio"]
+
 [virtualenv.findme]
 python = "pypy"
 install-bundle = ["development"]
@@ -361,6 +365,7 @@ install = [
     "pyls-isort",
     "pynvim",
     "python-language-server[all]>=0.36.2",
+    "python-lsp-black",
     "sphinx",
 ]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]

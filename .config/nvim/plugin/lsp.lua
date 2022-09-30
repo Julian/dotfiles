@@ -101,7 +101,6 @@ local opts = {
 local lsps = {
   clangd = {},
   clojure_lsp = {},
-  pylsp = {},
   rust_analyzer = {},
   tailwindcss = {},
   taplo = {},
@@ -116,6 +115,15 @@ local lsps = {
       validate = { enable = true },
     },
   },
+
+  esbonio = { cmd = { 'esbonio' } },
+
+  pylsp = {
+    plugins = {
+      black = { enabled = true }
+    }
+  },
+
   sumneko_lua = {
     cmd = { "lua-language-server" },
     settings = {
