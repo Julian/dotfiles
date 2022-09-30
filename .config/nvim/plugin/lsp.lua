@@ -46,7 +46,7 @@ local function on_attach(client, bufnr)
   end
 
   if client.server_capabilities.documentFormattingProvider then
-    cmd('n', '<leader>z', vim.lsp.buf.formatting)
+    cmd('n', '<leader>z', vim.lsp.buf.format)
   end
 
   if client.server_capabilities.typeDefinitionProvider then
