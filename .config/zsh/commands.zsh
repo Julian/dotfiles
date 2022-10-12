@@ -10,6 +10,7 @@ autoload \
     sst \
     tunnel \
     unquarantine \
+    unquote \
     volume
 
 #--- Aliases -----------------------------------------------------------------
