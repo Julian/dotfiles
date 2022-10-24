@@ -7,7 +7,6 @@ path=(
     /usr/local/share/npm/bin
     ${CARGO_HOME}/bin
     ${GEM_HOME}/bin
-    /opt/homebrew/lib/ruby/gems/*/bin
     $path
 )
 
@@ -20,6 +19,7 @@ path=(
         $homebrew_prefix/opt/gnu-sed/libexec/gnubin
         $homebrew_prefix/opt/python@*/bin
         $homebrew_prefix/opt/ruby/bin
+        $homebrew_prefix/lib/ruby/gems/*/bin
         $homebrew_prefix/opt/util-linux/bin
         $path
     )
