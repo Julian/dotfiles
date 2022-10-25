@@ -207,7 +207,7 @@ link = ["isort"]
 
 [virtualenv.jsonschema]
 install-bundle = ["development"]
-install = ["jsonschema[format]", "twisted"]
+install = ["hypothesis-jsonschema", "jsonschema[format]", "twisted"]
 link = ["jsonschema"]
 
 [virtualenv.litecli]
