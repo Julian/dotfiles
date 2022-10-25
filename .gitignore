@@ -16,6 +16,7 @@
 .local/share/nvim/bundle
 .local/share/nvim/log
 .local/share/nvim/lsp.log
+.local/share/nvim/neorg.mpack
 .local/share/nvim/rplugin.vim
 .local/share/nvim/shada
 .local/share/nvim/swap
