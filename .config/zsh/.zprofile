@@ -17,7 +17,7 @@ path=(
         $homebrew_prefix/opt/coreutils/libexec/gnubin
         $homebrew_prefix/opt/findutils/libexec/gnubin
         $homebrew_prefix/opt/gnu-sed/libexec/gnubin
-        $homebrew_prefix/opt/python@*/bin
+        $homebrew_prefix/opt/python@*.*/bin(Onn)
         $homebrew_prefix/opt/ruby/bin
         $homebrew_prefix/lib/ruby/gems/*/bin
         $homebrew_prefix/opt/util-linux/bin
