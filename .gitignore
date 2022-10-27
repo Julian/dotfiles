@@ -52,6 +52,7 @@
 .config/gh/hosts.yml
 .config/gh/state.yml
 .config/gtk-2.0/gtkfilechooser.ini
+.config/httpie/version_info.json
 .config/jupyter/lab/workspaces
 .config/jupyter/migrated
 .config/kaggle/kaggle.json
