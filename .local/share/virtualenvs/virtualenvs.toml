@@ -207,8 +207,13 @@ link = ["isort"]
 
 [virtualenv.jsonschema]
 install-bundle = ["development"]
-install = ["hypothesis-jsonschema", "jsonschema[format]", "twisted"]
-link = ["jsonschema"]
+install = [
+    "check-jsonschema",
+    "hypothesis-jsonschema",
+    "jsonschema[format]",
+    "twisted",
+]
+link = ["check-jsonschema", "jsonschema"]
 
 [virtualenv.litecli]
 python = "python3.11"
