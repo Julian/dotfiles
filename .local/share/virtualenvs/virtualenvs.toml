@@ -289,7 +289,7 @@ install = [
     "scikit-plot>=0.3.7",
     "category_encoders>=2.2.2",
 
-    "fbprophet>=0.7.1",
+    "darts>=0.22.0",
     "tensorflow>=2.9.0",
     "torch>=1.11.0",
     "xgboost>=1.4.2",
