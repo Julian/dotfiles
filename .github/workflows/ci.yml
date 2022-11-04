@@ -20,6 +20,8 @@ jobs:
         submodules: recursive
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
+    - name: Uninstall Conflicting GitHub Runner Packages
+      run: brew uninstall firefox
     - name: Install packages
       run: brew bundle install
       if: runner.os == 'macOS'
