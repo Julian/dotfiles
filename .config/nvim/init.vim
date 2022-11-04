@@ -167,6 +167,7 @@ if has("user_commands")
 endif
 
 map <F1> <Nop>
+imap <F1> <Nop>
 
 " testing mappings
 nnoremap      <expr>d<CR>     "<Cmd>SplitSensibly "       . runt#find_test_file_for(expand("%"))                                                                    .  "<CR>"
