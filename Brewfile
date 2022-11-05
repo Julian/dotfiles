@@ -91,7 +91,7 @@ brew "tokei"
 brew "tmux"
 brew "trash"
 brew "tree"
-brew "universal-ctags/universal-ctags/universal-ctags", args: ["--HEAD"]
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "util-linux"
 brew "w3m"
 brew "watch"
