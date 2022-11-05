@@ -6,6 +6,10 @@ on:
     # Daily at 8:11
     - cron: '11 8 * * *'
 
+concurrency:
+  group: "dotfiles"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
