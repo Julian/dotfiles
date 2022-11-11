@@ -382,8 +382,8 @@ link = ["ngxtop"]
 
 [virtualenv.pre-commit]
 python = "python3.11"
-install = ["pre-commit"]
-link = ["pre-commit"]
+install = ["identify", "pre-commit"]
+link = ["identify-cli", "pre-commit"]
 
 [virtualenv.pydocstyle]
 python = "python3.11"
