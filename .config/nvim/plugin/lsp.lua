@@ -86,6 +86,20 @@ local function on_attach(client, bufnr)
       augroup END
     ]]
   end
+
+  local semanticTokensProvider = client.server_capabilities.semanticTokensProvider
+  if semanticTokensProvider and semanticTokensProvider.full then
+    local augroup = vim.api.nvim_create_augroup("SemanticTokens", {})
+    vim.api.nvim_create_autocmd("TextChanged", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.semantic_tokens_full()
+      end,
+    })
+    -- fire it first time on load as well
+    vim.lsp.buf.semantic_tokens_full()
+  end
 end
 
 local runtime_path = vim.split(package.path, ';')
@@ -189,4 +203,9 @@ lint.linters.mathlib = {
 lint.linters_by_ft = {
   lean3 = { 'mathlib' };
   python = { 'flake8' };
+}
+
+require("nvim-semantic-tokens").setup {
+  preset = "default",
+  highlighters = { require 'nvim-semantic-tokens.table-highlighter' },
 }

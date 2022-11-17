@@ -105,6 +105,7 @@ if has('nvim-0.5')
     Plug 'RRethy/nvim-treesitter-endwise'
     Plug 'rcarriga/nvim-notify'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
+    Plug 'theHamsta/nvim-semantic-tokens'
 
     Plug 'jbyuki/one-small-step-for-vimkind'
     Plug 'mfussenegger/nvim-dap'
