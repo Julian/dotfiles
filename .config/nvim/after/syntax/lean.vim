@@ -15,7 +15,6 @@ highlight link LspEvent @variable
 highlight link LspFunction @function
 highlight link LspMethod @method
 highlight link LspMacro @macro
-highlight link LspKeyword @keyword
 highlight link LspModifier @keyword.function
 highlight link LspComment @comment
 highlight link LspString @string
