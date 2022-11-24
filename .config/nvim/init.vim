@@ -95,7 +95,6 @@ if has('nvim-0.5')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-neorg/neorg'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-ui-select.nvim'
     Plug 'nvim-treesitter/nvim-treesitter'
