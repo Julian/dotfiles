@@ -364,10 +364,11 @@ link = [
 ]
 
 [virtualenv.neovim]
-python = "python3.11"
+python = "python3.10"
 install = [
     "jedi",
     "pyls-isort",
+    "pylsp-mypy",
     "pynvim",
     "python-language-server[all]>=0.36.2",
     "python-lsp-black",
