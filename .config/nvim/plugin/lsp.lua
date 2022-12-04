@@ -132,7 +132,10 @@ local lsps = {
 
   pylsp = {
     plugins = {
-      black = { enabled = true }
+      black = {
+        enabled = true,
+        line_length = 79,
+      }
     }
   },
 
