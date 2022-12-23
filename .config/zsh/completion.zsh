@@ -1,7 +1,7 @@
 #--- Completion --------------------------------------------------------------
 
 # Completions
-fpath=($ZSHPLUGINS/zsh-completions/src $fpath)
+fpath=($ZSHPLUGINS/zsh-completions/src $ZDOTDIR/completions/ $fpath)
 autoload -U compinit
 compinit
 

@@ -1,0 +1,51 @@
+#compdef lake
+
+local curcontext="$curcontext" state ret=1
+
+_lake_commands() {
+  local -a commands=(
+    'new:create a Lean package in a new directory'
+    'init:create a Lean package in the current directory'
+    'build:build targets'
+    'update:update dependencies'
+    'upload:upload build artifacts to a GitHub release'
+    'clean:remove build outputs'
+    'script:manage and run workspace scripts'
+    'scripts:shorthand for `lake script list`'
+    'run:shorthand for `lake script run`'
+    'serve:start the Lean language server'
+    'env:execute a command in the workspace'"'"'s environment'
+    'exe:build an exe and run it in the workspace'"'"'s environment'
+  )
+
+  _describe -t commands 'command' commands "$@"
+}
+
+_arguments -C -A "--version" \
+  '--version[print version and exit]' \
+  '(-h --help)'{-h,--help}'[print help of the program or a command and exit]' \
+  '(-d --dir)'{-d,--dir}'[use the package configuration in a specific directory]:directory:_files -/' \
+  '(-f --file)'{-f,--file}'[use a specific file for the package configuration]:file:_files' \
+  '(-q --quiet)'{-q,--quiet}'[hide progress messages]' \
+  '(-v --verbose)'{-v,--verbose}'[print out additional logging information]' \
+  '(-l --lean)'{-l,--lean}'[specify the `lean` command used by Lake]' \
+  '(-k --key)'{-k,--key}'[set the configuration file option named key]' \
+  '--old[only rebuild modified modules (ignore transitive deps)]' \
+  '(-U --update)'{-U,--update}'[update manifest before building]' \
+  '1: :_lake_commands' \
+  '*:: :->args' && ret=0
+
+case $state in
+  args)
+    case $words[1] in
+      build)
+        local -a lean_files lean_modules
+        lean_files=(**.lean(:r))
+        lean_modules=(${lean_files//\//.})
+        _multi_parts . lean_modules
+        ;;
+    esac
+      ;;
+esac
+
+return ret
