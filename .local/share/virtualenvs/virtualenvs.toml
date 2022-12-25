@@ -206,6 +206,7 @@ install = ["isort"]
 link = ["isort"]
 
 [virtualenv.jsonschema]
+python = "python3.11"
 install-bundle = ["development"]
 install = [
     "check-jsonschema",
@@ -340,7 +341,7 @@ link = [
 
 [virtualenv.mypy]
 python = "python3.11"
-install = ["mypy"]
+install = ["attrs", "mypy", "pyrsistent"]
 link = ["mypy"]
 
 [virtualenv.nbdiff]
