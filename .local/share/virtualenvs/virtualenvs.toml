@@ -276,7 +276,7 @@ install = [
     "streamlit>=1.2.0",
     "voila>=0.2.16",
 
-    "pandas-profiling[notebook]>=3.1.0",
+    "pandas-profiling[notebook]>=3.6.1",
 
     "auto-sklearn>=0.14.7",
     "featuretools>=1.2.0",
