@@ -94,6 +94,7 @@
     dd = diff --diff-algorithm=default
     df = diff --name-only
     sh = show --ignore-all-space --ignore-blank-lines --word-diff=color --color-moved=zebra --color-moved-ws=allow-indentation-change --find-renames
+    sb = !sh -c 'git show "$1" | bat --file-name "$1"' -
 
     erm = rebase -i @{u}
 
