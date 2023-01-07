@@ -5,8 +5,11 @@ vim.notify.setup{
   max_width = 100,
 }
 
-local diagnostics_active = true
 vim.keymap.set('n', '<leader>ttd', function()
-  if diagnostics_active then vim.diagnostic.hide() else vim.diagnostic.show() end
-  diagnostics_active = not diagnostics_active
+  if vim.b.diagnostics_hidden then
+    vim.diagnostic.show(nil, 0)
+  else
+    vim.diagnostic.hide(nil, 0)
+  end
+  vim.b.diagnostics_hidden = not vim.b.diagnostics_hidden
 end)
