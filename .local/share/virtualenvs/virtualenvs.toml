@@ -341,7 +341,7 @@ link = [
 
 [virtualenv.mypy]
 python = "python3.11"
-install = ["attrs", "mypy", "pyrsistent"]
+install = ["mypy"]
 link = ["mypy"]
 
 [virtualenv.nbdiff]
@@ -366,17 +366,8 @@ link = [
 
 [virtualenv.neovim]
 python = "python3.10"
-install = [
-    "jedi",
-    "pyls-isort",
-    "pylsp-mypy",
-    "pynvim",
-    "python-language-server[all]>=0.36.2",
-    "python-lsp-black",
-    "sphinx",
-]
+install = ["jedi", "pynvim", "sphinx"]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
-link = ["pylsp"]
 
 [virtualenv.ngxtop]
 install = ["ngxtop"]
@@ -396,6 +387,11 @@ link = ["pydocstyle"]
 python = "python3.11"
 install = ["pypinfo"]
 link = ["pypinfo"]
+
+[virtualenv.pyright]
+python = "python3.11"
+install = ["pyright"]
+link = ["pyright", "pyright-langserver"]
 
 [virtualenv.remarshal]
 install = ["remarshal"]
@@ -596,6 +592,10 @@ requirements = [
 python = "python3.11"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
+
+[virtualenv.referencing]
+install-bundle = ["development"]
+install = ["-e", "${DEVELOPMENT}/referencing"]
 
 [virtualenv.virtue]
 install-bundle = ["development"]
