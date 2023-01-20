@@ -383,6 +383,15 @@ python = "python3.11"
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
+[virtualenv.pylsp]
+install = [
+    "pyls-isort",
+    "pylsp-mypy",
+    "python-language-server[all]>=0.36.2",
+    "python-lsp-black",
+]
+link = ["pylsp"]
+
 [virtualenv.pypinfo]
 python = "python3.11"
 install = ["pypinfo"]
