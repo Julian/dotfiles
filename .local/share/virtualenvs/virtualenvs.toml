@@ -314,7 +314,7 @@ install = [
 
     "hdrhistogram",
 
-    "networkx",
+    "networkx>=3.0",
 
     "boto3",
     "certifi>=2021.5.30",
