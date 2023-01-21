@@ -6,7 +6,6 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "github/gh"
 tap "julian/tap"
-tap "mas-cli/tap"
 tap "universal-ctags/universal-ctags"
 brew "bat"
 brew "bottom"
@@ -50,7 +49,6 @@ brew "libraw"
 brew "libxml2"
 brew "libxslt"
 brew "luajit"
-brew "mas"
 brew "mold"
 brew "moreutils"
 brew "mtr"
@@ -113,7 +111,3 @@ cask "macpass"
 cask "netnewswire"
 cask "nteract"
 cask "yubico-authenticator"
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Wireguard", id: 1451685025
