@@ -316,7 +316,7 @@ nnoremap        <leader>Z         <Cmd>SplitSensibly $ZDOTDIR/.zshrc<CR>
 nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile func *<CR>:profile file *<CR>
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
-nnoremap  <expr><leader>VF        "<Cmd>SplitSensibly " . split(&runtimepath, ",")[0] .  "/ftplugin/" . &filetype . ".lua<CR>"
+nnoremap  <expr><leader>VF        "<Cmd>SplitSensibly " . split(&runtimepath, ",")[0] .  "/after/ftplugin/" . &filetype . ".lua<CR>"
 nnoremap        <leader>VZ        <Cmd>SplitSensibly $ZDOTDIR/.zshrc.local<CR>
 
 nnoremap        <leader>0         <Cmd>wincmd _<CR>
