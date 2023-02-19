@@ -205,7 +205,7 @@ noremap ]` ]'
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR>:LinediffReset<CR>:QuickhlManualReset<CR><C-L>
+nnoremap <silent> <C-L> :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR>:XchangeClear<CR>:LinediffReset<CR>:QuickhlManualReset<CR>:lua vim.notify.dismiss()<CR><C-L>
 
 " make undo less drastic + prevent accidental irreversible undo
 " not sure why cr one is not working
