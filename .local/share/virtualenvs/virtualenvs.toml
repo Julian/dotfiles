@@ -227,6 +227,11 @@ install-bundle = ["development"]
 install = ["sympy"]
 link = ["ptpython:math"]
 
+[virtualenv.maturin]
+python = "python3.11"
+install = ["maturin"]
+link = ["maturin"]
+
 [virtualenv.ml]
 python = "python3.10"
 post-commands = [
