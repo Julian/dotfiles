@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 local notify = require('notify')
+local rust_tools = require("rust-tools")
 
 local function preview_location_callback(_, result, _)
   if result == nil or vim.tbl_isempty(result) then
@@ -73,6 +74,7 @@ local function on_attach(client, bufnr)
 
   if client.server_capabilities.codeActionProvider then
     cmd('n', '<leader>a', vim.lsp.buf.code_action)
+    cmd('i', '<C-a>', vim.lsp.buf.code_action)
   end
 
   if client.server_capabilities.codeLensProvider then
@@ -113,7 +115,6 @@ local opts = {
 local lsps = {
   clangd = {},
   clojure_lsp = {},
-  rust_analyzer = {},
   tailwindcss = {},
   taplo = {},
   texlab = {},
@@ -191,6 +192,10 @@ require('lean').setup{
 vim.api.nvim_create_autocmd({ 'WinClosed', 'VimResized' }, {
   callback = require('lean.infoview').reposition
 })
+
+rust_tools.setup{
+  server = { on_attach = on_attach },
+}
 
 local lint = require('lint')
 

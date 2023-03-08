@@ -103,6 +103,7 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/playground'
     Plug 'RRethy/nvim-treesitter-endwise'
     Plug 'rcarriga/nvim-notify'
+    Plug 'simrat39/rust-tools.nvim'
     Plug 'stsewd/sphinx.nvim',               {'do': ':UpdateRemotePlugins'}
     Plug 'theHamsta/nvim-semantic-tokens'
 
