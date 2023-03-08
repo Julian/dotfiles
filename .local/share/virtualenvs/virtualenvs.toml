@@ -101,12 +101,6 @@ python = "python3.11"
 install = ["aubio>=0.4.9"]
 link = ["aubio", "aubiocut"]
 
-[virtualenv.aws]
-python = "python3.11"
-install-bundle = ["development"]
-install = ["awscli", "boto", "boto3", "saws"]
-link = ["aws", "saws"]
-
 [virtualenv.bandit]
 python = "python3.11"
 install = ["bandit"]
