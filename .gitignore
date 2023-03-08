@@ -12,6 +12,7 @@
 .config/nvim/sessions
 .config/nvim/.netrwhist
 .config/nvim/.yankring_history*
+.local/share/kitty-ssh-kitten/
 .local/share/nvim/.netrwhist
 .local/share/nvim/bundle
 .local/share/nvim/log
