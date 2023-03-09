@@ -490,11 +490,6 @@ python = "python3.11"
 install = ["tox", "tox-ini-fmt"]
 link = ["tox", "tox-ini-fmt"]
 
-[virtualenv.tox4]
-python = "python3.11"
-install = ["tox>=4.0.0b2"]
-link = ["tox:tox4"]
-
 [virtualenv.watchdog]
 install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
@@ -555,6 +550,11 @@ link = ["pip-compile:pip-compile3"]
 python = "python3.11"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile-cpython3"]
+
+[virtualenv.ruff]
+python = "python3.11"
+install = ["ruff"]
+link = ["ruff"]
 
 [virtualenv.shiv]
 python = "python3.11"
