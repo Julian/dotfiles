@@ -84,6 +84,7 @@
     x = commit --message
     xe = commit --allow-empty --message
     ci = commit
+    cia = commit --amend --no-edit
     cim = commit --amend -m
     fixup = commit --fixup
     wip = commit --no-verify --message WIP
@@ -131,7 +132,6 @@
 
     # New operations
     up = "!git fetch --all --prune && git merge --ff-only @{u} && git submodule update"
-    cia = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     inc = !sh -c 'git cia && git stash --include-untracked && $@ && git stash pop'
     changes = !sh -c '[[ "$(git rev-parse --abbrev-ref HEAD)" =~ "master|develop|trunk" ]] && git d HEAD...$1 || git d ...$1' -
     authors = shortlog --summary --numbered
