@@ -84,8 +84,8 @@
     x = commit --message
     xe = commit --allow-empty --message
     ci = commit
-    cia = commit --amend --no-edit
-    cim = commit --amend -m
+    cia = !zsh -c 'git describe --exact-match HEAD >/dev/null 2>&1 && { echo "Not amending a commit with an existing tag." && git h } || git commit --amend --no-edit'
+    cim = commit --amend --message
     fixup = commit --fixup
     wip = commit --no-verify --message WIP
 
