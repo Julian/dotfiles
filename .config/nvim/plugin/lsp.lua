@@ -115,6 +115,7 @@ local opts = {
 local lsps = {
   clangd = {},
   clojure_lsp = {},
+  gopls = {},
   tailwindcss = {},
   taplo = {},
   texlab = {},
