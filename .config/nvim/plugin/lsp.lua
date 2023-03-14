@@ -195,7 +195,10 @@ vim.api.nvim_create_autocmd({ 'WinClosed', 'VimResized' }, {
 })
 
 rust_tools.setup{
-  server = { on_attach = on_attach },
+  server = {
+    on_attach = on_attach,
+    procMacro = { enable = true },
+  },
 }
 
 local lint = require('lint')
