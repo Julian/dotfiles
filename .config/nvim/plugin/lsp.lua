@@ -121,12 +121,19 @@ local lsps = {
   texlab = {},
   tsserver = {},
   vimls = {},
-  yamlls = {},
 
   jsonls = {
     json = {
       schemas = require('schemastore').json.schemas(),
       validate = { enable = true },
+    },
+  },
+
+  yamlls = {
+    settings = {
+      yaml = {
+        keyOrdering = false,
+      },
     },
   },
 
