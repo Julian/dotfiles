@@ -7,6 +7,7 @@ path=(
     /usr/local/share/npm/bin
     ${CARGO_HOME}/bin
     ${GEM_HOME}/bin
+    ${PNPM_HOME}
     $path
 )
 
