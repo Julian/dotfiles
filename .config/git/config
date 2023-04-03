@@ -16,6 +16,7 @@
     ff = only
 
 [push]
+    atomic = true
     default = simple
     followTags = true
 
