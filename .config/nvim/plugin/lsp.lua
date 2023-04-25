@@ -189,7 +189,10 @@ require('lean').setup{
     end
   },
   lsp = { on_attach = on_attach },
-  lsp3 = { on_attach = on_attach },
+  lsp3 = {
+    cmd = { 'lean-language-server', '--stdio', '--', '-M', '6144', '-T', '3000000' },
+    on_attach = on_attach,
+  },
   mappings = true,
   stderr = {
     on_lines = function(lines)
