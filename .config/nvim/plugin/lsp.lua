@@ -116,6 +116,7 @@ local lsps = {
   clangd = {},
   clojure_lsp = {},
   gopls = {},
+  ruff_lsp = {},
   tailwindcss = {},
   taplo = {},
   texlab = {},
@@ -141,10 +142,17 @@ local lsps = {
 
   pylsp = {
     plugins = {
-      black = {
-        enabled = true,
-        line_length = 79,
-      }
+      black = { enabled = true, line_length = 79 },
+
+      ruff = { enabled = false },
+      autopep8 = { enabled = false },
+      flake8 = { enabled = false },
+      mccabe = { enabled = false },
+      pycodestyle = { enabled = false },
+      pydocstyle = { enabled = false },
+      pyflakes = { enabled = false },
+      pylint = { enabled = false },
+      yapf = { enabled = false },
     }
   },
 

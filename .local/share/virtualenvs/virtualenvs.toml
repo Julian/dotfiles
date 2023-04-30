@@ -554,8 +554,8 @@ link = ["pip-compile:pip-compile-cpython3"]
 
 [virtualenv.ruff]
 python = "python3.11"
-install = ["ruff"]
-link = ["ruff"]
+install = ["ruff", "ruff-lsp"]
+link = ["ruff", "ruff-lsp"]
 
 [virtualenv.shiv]
 python = "python3.11"
