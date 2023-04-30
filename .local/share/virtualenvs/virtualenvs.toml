@@ -227,7 +227,7 @@ install = ["maturin"]
 link = ["maturin"]
 
 [virtualenv.ml]
-python = "python3.10"
+python = "python3.11"
 post-commands = [
     [
         "jupyter",
@@ -244,7 +244,7 @@ install = [
     "scipy>=1.7.3",
     "pandas>=1.3.1",
 
-    "numba>=0.55.0dev0",
+    "numba>=0.57.0rc1",
     "llvmlite>=0.38.0rc1",
 
     "dask[complete]>=2021.11.2",
@@ -270,14 +270,14 @@ install = [
     "plotly>=5.4.0",
     "plotnine>=0.8.0",
     "seaborn>=0.11.2",
-    "git+https://github.com/DistrictDataLabs/yellowbrick",
+    "git+https://github.com/DistrictDataLabs/yellowbrick#egg=yellowbrick",
 
     "streamlit>=1.2.0",
     "voila>=0.2.16",
 
-    "pandas-profiling[notebook]>=3.6.1",
+    "ydata-profiling[notebook]>=3.6.1",
 
-    "auto-sklearn>=0.14.7",
+    "auto-sklearn>=0.15.0",
     "featuretools>=1.2.0",
     "h2o>=3.34.0.3",
     "tpot>=0.11.7",
@@ -289,8 +289,9 @@ install = [
     "scikit-plot>=0.3.7",
     "category_encoders>=2.2.2",
 
-    "darts>=0.22.0",
-    "tensorflow>=2.9.0",
+    "git+https://github.com/catboost/catboost#subdirectory=catboost/python-package&egg=catboost",
+    "darts>=0.24.0",
+    "tensorflow>=2.12.0",
     "torch>=1.11.0",
     "xgboost>=1.4.2",
     "xgbfir",
