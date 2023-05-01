@@ -160,6 +160,17 @@ install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-pypy3"]
 
+[virtualenv.flake8]
+python = "python3.11"
+install = [
+    "flake8",
+    "flake8-bugbear",
+    "flake8-commas",
+    "flake8-quotes",
+    "flake8-broken-line",
+]
+link = ["flake8"]
+
 [virtualenv.google]
 install-bundle = ["development"]
 install = [
@@ -450,17 +461,6 @@ link-module = ["sphinx.ext.intersphinx:intersphinx"]
 python = "python3.11"
 install = ["steck"]
 link = ["steck:bpaste", "steck"]
-
-[virtualenv.style]
-python = "python3.11"
-install = [
-    "flake8",
-    "flake8-bugbear",
-    "flake8-commas",
-    "flake8-quotes",
-    "flake8-broken-line",
-]
-link = ["flake8"]
 
 [virtualenv.subunit]
 install = ["python-subunit"]
