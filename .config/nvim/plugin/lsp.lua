@@ -116,6 +116,7 @@ local lsps = {
   clangd = {},
   clojure_lsp = {},
   gopls = {},
+  marksman = {},
   ruff_lsp = {},
   tailwindcss = {},
   taplo = {},
