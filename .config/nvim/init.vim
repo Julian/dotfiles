@@ -529,6 +529,7 @@ let g:tex_flavor='latex'
 
 let g:endwise_no_mappings = v:true
 let g:exchange_no_mappings = '1'
+let g:nvim_ipy_perform_mappings = 0
 
 let g:vimwiki_key_mappings = {'all_maps': 0}
 let g:vimwiki_list = [
