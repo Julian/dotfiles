@@ -179,6 +179,15 @@ install = [
     "google-auth-oauthlib",
 ]
 
+[virtualenv.gpt]
+install-bundle = ["development"]
+install = [
+  "chromadb",
+  "langchain",
+  "llama-cpp-python",
+  "pygpt4all",
+]
+
 [virtualenv.hg]
 install = ["mercurial"]
 link = ["hg"]
