@@ -68,7 +68,6 @@ Plug    'tpope/vim-obsession',               {'on': 'Obsession'}
 Plug    'tpope/vim-repeat'
 Plug    'tpope/vim-rhubarb'
 Plug    'tpope/vim-surround'
-Plug    'Valloric/MatchTagAlways',           {'for': ['html', 'xhtml', 'xml', 'jinja']}
 Plug    'Valodim/vim-zsh-completion'
 Plug    'vimwiki/vimwiki',                   {'branch': 'dev', 'on': 'VimwikiIndex'}
 
