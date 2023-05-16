@@ -168,8 +168,9 @@ install = [
     "flake8-commas",
     "flake8-quotes",
     "flake8-broken-line",
+    "yesqa",
 ]
-link = ["flake8"]
+link = ["flake8", "yesqa"]
 
 [virtualenv.google]
 install-bundle = ["development"]
