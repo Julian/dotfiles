@@ -121,6 +121,10 @@ if (( $+commands[dircolors] )); then
     eval $( dircolors -b $XDG_CONFIG_HOME/dircolors )
 fi
 
+if (( $+commands[glow] )); then
+    alias md='glow -w $COLUMNS'
+fi
+
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
 function cdc() { cd **/*$1*/ }
 
