@@ -44,7 +44,12 @@
 .config/cmus/socket
 .config/containers/
 .config/configstore/
-.config/darktable/
+.config/darktable/lua/
+.config/darktable/*.db*
+.config/darktable/*.backup
+.config/darktable/*.old
+.config/darktable/*[_.]default
+.config/darktable/*[_.]defaults
 .config/docker/.buildNodeID
 .config/docker/config.json
 .config/enchant/
@@ -99,6 +104,7 @@
 
 .local/bin/
 .local/share/cpptools/
+.local/share/darktable/pkcs11/
 .local/share/gem/
 .local/share/great/
 .local/share/lean/
