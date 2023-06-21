@@ -554,6 +554,10 @@ link = ["shiv"]
 install = ["twine", "keyring"]
 link = ["twine", "keyring"]
 
+[virtualenv.wormhole]
+install = ["magic-wormhole"]
+link = ["wormhole"]
+
 # --- Developing ---
 
 [virtualenv.blog]
