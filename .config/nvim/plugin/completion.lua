@@ -18,9 +18,9 @@ cmp.setup{
     documentation = cmp.config.window.bordered(),
   },
   mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<CR>'] = cmp.mapping.confirm(),
+    ['<CR>'] = cmp.mapping.confirm{ select = false },
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
