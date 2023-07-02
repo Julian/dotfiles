@@ -80,16 +80,18 @@ Develop 'vim-textobj-variable-segment',      {'branch': 'main'}
 if has('nvim-0.5')
     Develop 'lean.nvim',                     {'branch': 'main'}
 
-    Plug 'b0o/schemastore.nvim'
-    Plug 'bfredl/nvim-ipy'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
     Plug 'hrsh7th/cmp-nvim-lsp-document-symbol'
+    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/vim-vsnip'
+    Plug 'petertriho/cmp-git'
+
+    Plug 'b0o/schemastore.nvim'
+    Plug 'bfredl/nvim-ipy'
     Plug 'mfussenegger/nvim-lint'
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/plenary.nvim'

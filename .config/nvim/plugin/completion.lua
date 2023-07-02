@@ -51,6 +51,14 @@ cmp.setup{
   }
 }
 
+require('cmp_git').setup{}
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' },
+  },
+  { { name = 'buffer' }, })
+})
+
 vim.keymap.set('n', '<CR>', function()
   local filetype = vim.opt.filetype:get()
   local dap = require('dap')
