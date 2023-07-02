@@ -27,6 +27,8 @@ zstyle -e ':completion:*:approximate:*' \
 # If using a directory as arg, remove the trailing slash (useful for ln)
 zstyle ':completion:*' squeeze-slashes true
 
+zstyle ':completion:*' verbose yes
+
 # Dircolors on completions
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
