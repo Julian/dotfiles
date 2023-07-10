@@ -40,7 +40,7 @@ local function on_attach(client, bufnr)
 
   cmd('n', '<leader>La', vim.lsp.buf.add_workspace_folder)
   cmd('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder)
-  cmd('n', '<leader>Ll', function() vim.pretty_print(vim.lsp.buf.list_workspace_folders()) end)
+  cmd('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end)
 
   if client.server_capabilities.hoverProvider then
     cmd('n', 'K', vim.lsp.buf.hover)
