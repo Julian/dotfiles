@@ -127,7 +127,7 @@ fi
 
 # Edit all files matching the given grep.
 function vm() {
-    n $(noglob rg --files-with-matches $@)
+    noglob $EDITOR $(rg --files-with-matches $@)
 }
 
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
