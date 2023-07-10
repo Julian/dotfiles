@@ -1,4 +1,4 @@
-local statfs = vim.loop.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
+local statfs = vim.uv.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
 _G.SMALL_FILESYSTEM = (statfs.bavail * statfs.bsize) < 5 * 1024 * 1024 * 1024
 
 function _G.q(...)
