@@ -80,13 +80,18 @@ local function on_attach(client, bufnr)
   if client.server_capabilities.codeLensProvider then
     cmd('n', '<leader>Le', vim.lsp.codelens.display)
     cmd('n', '<leader>Ln', vim.lsp.codelens.run)
-
     vim.cmd[[
       augroup lsp_codelens
         autocmd!
         autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
       augroup END
     ]]
+  end
+
+  if client.server_capabilities.inlayHintProvider then
+    vim.cmd[[hi link LspInlayHint SpecialComment]]
+    cmd('n', '<C-h>', function () vim.lsp.inlay_hint(bufnr, nil) end)
+    cmd('i', '<C-h>', function () vim.lsp.inlay_hint(bufnr, nil) end)
   end
 
   local semanticTokensProvider = client.server_capabilities.semanticTokensProvider
@@ -172,6 +177,7 @@ local lsps = {
         diagnostics = {
           globals = { 'describe', 'it', 'pending', 'vim' },
         },
+        hint = { enable = true },
         workspace = { library = vim.api.nvim_get_runtime_file("", true) },
         telemetry = { enable = false },
       },
