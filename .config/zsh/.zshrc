@@ -31,6 +31,7 @@ pywarnings=(
     'ignore:DEPRECATION::pip._internal.cli.base_command'
 
     'ignore:attrs''s zope-interface support:DeprecationWarning'
+    'ignore:pkg_resources is deprecated as an API:DeprecationWarning'
     'ignore:Creating a LegacyVersion:DeprecationWarning'
     'ignore:Providing the line is now done:DeprecationWarning'
     'ignore:Providing the column is now done'
