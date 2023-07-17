@@ -52,7 +52,6 @@ link = [
 link-module = ["pydoc"]
 
 [virtualenv.dev-cpython]
-python = "python3.11"
 install-bundle = ["core", "development"]
 install = ["pyinstrument"]
 link = [
@@ -76,32 +75,26 @@ link = [
 link-module = ["venv"]
 
 [virtualenv.aubio]
-python = "python3.11"
 install = ["aubio>=0.4.9"]
 link = ["aubio", "aubiocut"]
 
 [virtualenv.bandit]
-python = "python3.11"
 install = ["bandit"]
 link = ["bandit"]
 
 [virtualenv.beets]
-python = "python3.11"
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]
 
 [virtualenv.black]
-python = "python3.11"
 install = ["black[jupyter]"]
 link = ["black"]
 
 [virtualenv.catt]
-python = "python3.11"
 install = ["catt"]
 link = ["catt"]
 
 [virtualenv.cookiecutter]
-python = "python3.11"
 install = ["cookiecutter"]
 link = ["cookiecutter"]
 
@@ -128,7 +121,6 @@ install = ["findme"]
 link = ["findme"]
 
 [virtualenv.findme-cpython3]
-python = "python3.11"
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-cpython3"]
@@ -140,7 +132,6 @@ install = ["findme"]
 link = ["findme:findme-pypy3"]
 
 [virtualenv.flake8]
-python = "python3.11"
 install = [
     "flake8",
     "flake8-bugbear",
@@ -181,7 +172,6 @@ install = ["httpstat"]
 link = ["httpstat"]
 
 [virtualenv.imaging]
-python = "python3.11"
 install-bundle = ["development"]
 install = [
     "libraw-cffi",
@@ -190,17 +180,14 @@ install = [
 ]
 
 [virtualenv.interrogate]
-python = "python3.11"
 install = ["interrogate"]
 link = ["interrogate"]
 
 [virtualenv.isort]
-python = "python3.11"
 install = ["isort"]
 link = ["isort"]
 
 [virtualenv.jsonschema]
-python = "python3.11"
 install-bundle = ["development"]
 install = [
     "check-jsonschema",
@@ -211,23 +198,19 @@ install = [
 link = ["check-jsonschema", "jsonschema"]
 
 [virtualenv.litecli]
-python = "python3.11"
 install = ["litecli"]
 link = ["litecli"]
 
 [virtualenv.math]
-python = "python3.11"
 install-bundle = ["development"]
 install = ["sympy"]
 link = ["ptpython:math"]
 
 [virtualenv.maturin]
-python = "python3.11"
 install = ["maturin"]
 link = ["maturin"]
 
 [virtualenv.ml]
-python = "python3.11"
 post-commands = [
     [
         "jupyter",
@@ -340,12 +323,10 @@ link = [
 ]
 
 [virtualenv.mypy]
-python = "python3.11"
 install = ["mypy"]
 link = ["mypy"]
 
 [virtualenv.nbdiff]
-python = "python3.11"
 install = ["nbdime"]
 link = [
     "git-nbdiffdriver",
@@ -374,12 +355,10 @@ install = ["ngxtop"]
 link = ["ngxtop"]
 
 [virtualenv.pre-commit]
-python = "python3.11"
 install = ["identify", "pre-commit"]
 link = ["identify-cli", "pre-commit"]
 
 [virtualenv.pydocstyle]
-python = "python3.11"
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
@@ -392,12 +371,10 @@ install = [
 link = ["pylsp"]
 
 [virtualenv.pypinfo]
-python = "python3.11"
 install = ["pypinfo"]
 link = ["pypinfo"]
 
 [virtualenv.pyright]
-python = "python3.11"
 install = ["pyright"]
 link = ["pyright", "pyright-langserver"]
 
@@ -416,17 +393,14 @@ link = [
 ]
 
 [virtualenv.scrapy]
-python = "python3.11"
 install = ["scrapy"]
 link = ["scrapy"]
 
 [virtualenv.ssh-audit]
-python = "python3.11"
 install = ["ssh-audit"]
 link = ["ssh-audit"]
 
 [virtualenv.sphinx]
-python = "python3.11"
 install-bundle = ["development"]
 install = ["recommonmark", "sphinx", "sphinxcontrib.spelling"]
 link = [
@@ -446,7 +420,6 @@ link = [
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
 [virtualenv.steck]
-python = "python3.11"
 install = ["steck"]
 link = ["steck:bpaste", "steck"]
 
@@ -475,7 +448,6 @@ install = ["termtosvg"]
 link = ["termtosvg"]
 
 [virtualenv.tox]
-python = "python3.11"
 install = ["tox", "tox-ini-fmt"]
 link = ["tox", "tox-ini-fmt"]
 
@@ -490,17 +462,14 @@ link = ["youtube-dl"]
 # --- Packaging ---
 
 [virtualenv.build]
-python = "python3.11"
 install = ["build"]
 link = ["pyproject-build"]
 
 [virtualenv.check-manifest]
-python = "python3.11"
 install = ["check-manifest"]
 link = ["check-manifest"]
 
 [virtualenv.hatch]
-python = "python3.11"
 install = ["hatch"]
 link = ["hatch"]
 
@@ -509,7 +478,6 @@ install = ["mkpkg"]
 link = ["mkpkg"]
 
 [virtualenv.nox]
-python = "python3.11"
 install = ["nox"]
 link = ["nox"]
 
@@ -518,7 +486,6 @@ install = ["pex"]
 link = ["pex"]
 
 [virtualenv.pipenv]
-python = "python3.11"
 install = ["pipenv"]
 link = ["pipenv"]
 
@@ -536,17 +503,14 @@ install = ["pip-tools"]
 link = ["pip-compile:pip-compile3"]
 
 [virtualenv.piptools-cpython3]
-python = "python3.11"
 install = ["pip-tools"]
 link = ["pip-compile:pip-compile-cpython3"]
 
 [virtualenv.ruff]
-python = "python3.11"
 install = ["ruff", "ruff-lsp"]
 link = ["ruff", "ruff-lsp"]
 
 [virtualenv.shiv]
-python = "python3.11"
 install = ["shiv"]
 link = ["shiv"]
 
@@ -561,7 +525,6 @@ link = ["wormhole"]
 # --- Developing ---
 
 [virtualenv.blog]
-python = "python3.11"
 requirements = [
     "${DEVELOPMENT}/julian.github.io/requirements.txt",
     "${DEVELOPMENT}/til/requirements.txt",
@@ -590,7 +553,6 @@ requirements = [
 ]
 
 [virtualenv.regret]
-python = "python3.11"
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 
