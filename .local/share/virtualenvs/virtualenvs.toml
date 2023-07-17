@@ -473,6 +473,10 @@ link = ["check-manifest"]
 install = ["hatch"]
 link = ["hatch"]
 
+[virtualenv.llm]
+install = ["llm"]
+link = ["llm"]
+
 [virtualenv.mkpkg]
 install = ["mkpkg"]
 link = ["mkpkg"]
