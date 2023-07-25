@@ -9,12 +9,12 @@ telescope.setup{
     sorting_strategy = 'ascending',
     mappings = {
       i = {
-        ['<esc>'] = actions.close
+        ['<esc>'] = actions.close,
       },
     },
   },
   extensions = {
-    ["ui-select"] = { require("telescope.themes").get_dropdown{} }
+    ['ui-select'] = { require('telescope.themes').get_dropdown{} }
   },
 }
 telescope.load_extension('ui-select')

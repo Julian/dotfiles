@@ -260,7 +260,7 @@ nmap            <leader>m         <Plug>(quickhl-manual-this)
 nnoremap        <leader>o         <Cmd>lua jump_to_last_in_project()<CR>
 nnoremap        <leader>p         "*p
 "               <leader>q         LSP set loclist
-"               <leader>r         LSP rename
+nnoremap        <leader>r         <Cmd>lua require('telescope.builtin').registers{}<CR>
 nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
@@ -308,6 +308,7 @@ nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_fil
 "               <leader>N         LSP goto previous diagnostic
 nnoremap  <expr><leader>O         EditFileWORD()
 nnoremap        <leader>P         "*P
+"               <leader>R         LSP rename
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
 nnoremap        <leader>V         <Cmd>SplitSensibly $MYVIMRC<CR>

@@ -29,18 +29,18 @@ local function on_attach(client, bufnr)
   cmd('n', 'gd', vim.lsp.buf.definition)
   cmd('n', 'gD', vim.lsp.buf.declaration)
   cmd('n', 'gK', peek_definition)
-  cmd('n', '<leader>Li', vim.lsp.buf.implementation)
-  cmd('n', '<leader>Lr', vim.lsp.buf.references)
 
   cmd('n', '<leader>n', function() vim.diagnostic.goto_next{float = { header = false }} end)
   cmd('n', '<leader>q', vim.diagnostic.setloclist)
-  cmd('n', '<leader>r', vim.lsp.buf.rename)
   cmd('n', '<leader>K', function() vim.diagnostic.open_float(0, { scope = "line", header = false, focus = false }) end)
   cmd('n', '<leader>N', function() vim.diagnostic.goto_prev{float = { header = false }} end)
+  cmd('n', '<leader>R', vim.lsp.buf.rename)
 
   cmd('n', '<leader>La', vim.lsp.buf.add_workspace_folder)
   cmd('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder)
+  cmd('n', '<leader>Li', vim.lsp.buf.implementation)
   cmd('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end)
+  cmd('n', '<leader>Lr', vim.lsp.buf.references)
 
   if client.server_capabilities.hoverProvider then
     cmd('n', 'K', vim.lsp.buf.hover)
