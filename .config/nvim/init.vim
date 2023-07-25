@@ -296,12 +296,14 @@ nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 "               <leader>ttd       Toggle diagnostics
 nnoremap        <leader>tth       <Cmd>TSBufToggle highlight<CR>
 nnoremap        <leader>ttp       <Cmd>TSPlaygroundToggle<CR>
+nnoremap        <leader>ttt       <Cmd>lua require('telescope.builtin').treesitter{}<CR>
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>setlocal wrap!<CR>
 nnoremap        <leader>tx        <Cmd>call <SID>ToggleExpando()<CR>
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
+nnoremap        <leader>D         <Cmd>lua require('telescope.builtin').diagnostics{ bufnr = 0 }<CR>
 nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
 "               <leader>K         LSP show line diagnostics
 "               <leader>L         LSP folder management and other mappings
