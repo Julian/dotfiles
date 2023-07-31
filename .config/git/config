@@ -72,7 +72,7 @@
     brn = branch --remote --no-merged
 
     c = clone --recursive
-    cc = c --depth=1 --shallow-submodules
+    cc = c --filter=blob:none --also-filter-submodules
     # Clone a repository where I have forked it, setting main to push to
     # my fork but pull from upstream
     cj = !sh -c 'git c gh:"$1" --origin upstream && git --git-dir "${1#*/}/.git" remote add origin g:"${1#*/}" && git --git-dir "${1#*/}/.git" config branch.$(git --git-dir "${1#*/}/.git" rev-parse --abbrev-ref HEAD).pushRemote origin' -
