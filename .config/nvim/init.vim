@@ -140,8 +140,6 @@ let &showbreak='↪   '
 
 set fillchars=diff:·
 
-set pastetoggle=<F2>                   " use F2 to toggle paste mode
-
 set isfname-==                         " remove =, which probably is an assign
 
 set tags=.tags,tags,.git/tags;$HOME    " look up until $HOME for tags

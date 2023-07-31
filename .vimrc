@@ -53,3 +53,5 @@ set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
 set directory=$XDG_CACHE_HOME/vim/swap//,~/tmp/vim//,~/tmp//,/var/tmp//,/tmp//
                                       " swap files
 set undodir=$XDG_CACHE_HOME/vim/undo,$HOME/tmp,/tmp
+
+set pastetoggle=<F2>                   " use F2 to toggle paste mode
