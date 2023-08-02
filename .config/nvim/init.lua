@@ -432,7 +432,7 @@ nnoremap  <expr><leader>O         EditFileWORD()
 nnoremap        <leader>P         "*P
 "               <leader>R         LSP rename
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
-nnoremap        <leader>U         :<C-U>PlugUpdate<CR>:TSUpdate<CR>
+nnoremap        <leader>U         :<C-U>Lazy update<CR>:TSUpdate<CR>
 nnoremap        <leader>V         <Cmd>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>Y         "*y$
 nnoremap        <leader>Z         <Cmd>SplitSensibly $ZDOTDIR/.zshrc<CR>
