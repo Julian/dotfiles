@@ -200,7 +200,9 @@ return {
   {
     'Julian/lean.nvim',
     dev = true,
-    init = function()
+    event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
+    config = function(_, opts)
+      require('lean').setup(opts)
       vim.api.nvim_create_autocmd({ 'WinClosed', 'VimResized' }, {
         -- TODO: Only when Lean is started...
         callback = require('lean.infoview').reposition
