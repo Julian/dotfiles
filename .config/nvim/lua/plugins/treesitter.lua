@@ -3,6 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     event = { 'BufReadPre', 'BufNewFile' },
+    cmd = 'TSUpdate',
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
       { 'RRethy/nvim-treesitter-endwise' },
