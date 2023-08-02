@@ -9,6 +9,7 @@
 .vagrant
 
 .config/nvim/flavors
+.config/nvim/lazy-lock.json
 .config/nvim/sessions
 .config/nvim/.netrwhist
 .config/nvim/.yankring_history*
