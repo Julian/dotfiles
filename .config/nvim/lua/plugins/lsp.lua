@@ -200,6 +200,7 @@ return {
   {
     'Julian/lean.nvim',
     dev = true,
+    dependencies = { 'nvim-lua/plenary.nvim' },
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
     config = function(_, opts)
       require('lean').setup(opts)

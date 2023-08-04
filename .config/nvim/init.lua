@@ -29,6 +29,7 @@ require('lazy').setup('plugins', {
   dev = {
     path = vim.env.DEVELOPMENT,
     patterns = { 'Julian/' },
+    fallback = true,
   },
 })
 

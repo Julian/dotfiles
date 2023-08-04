@@ -19,9 +19,8 @@ return {
   { 'dahu/vim-fanfingtastic' },
   { 'easymotion/vim-easymotion' },
   { 'godlygeek/tabular', cmd = 'Tabularize' },
-  { 'itchyny/lightline.vim' },
+  { 'itchyny/lightline.vim', lazy = false },
   { 'jmcantrell/vim-diffchanges', cmd = 'DiffChangesDiffToggle' },
-  { 'kana/vim-textobj-user' },
   {
     'kshenoy/vim-signature',
     init = function()
@@ -74,7 +73,7 @@ return {
   },
   { 'tomtom/tcomment_vim' },
   { 'tpope/vim-abolish' },
-  { 'tpope/vim-fugitive' },
+  { 'tpope/vim-fugitive', lazy = false },
   { 'tpope/vim-obsession', cmd = 'Obsession' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-rhubarb' },
@@ -104,7 +103,6 @@ return {
   { 'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure' },
 
   { 'mfussenegger/nvim-lint' },
-  { 'nvim-lua/plenary.nvim' },
   { 'nvim-lua/popup.nvim' },
   {
     'rcarriga/nvim-notify',
@@ -118,6 +116,16 @@ return {
   },
 
   { 'Julian/vim-runt', dev = true },
-  { 'Julian/vim-textobj-assignment', dev = true },
-  { 'Julian/vim-textobj-variable-segment', dev = true },
+  {
+    'Julian/vim-textobj-assignment',
+    dev = true,
+    dependencies = 'kana/vim-textobj-user',
+    event = 'VeryLazy',
+  },
+  {
+    'Julian/vim-textobj-variable-segment',
+    dev = true,
+    dependencies = 'kana/vim-textobj-user',
+    event = 'VeryLazy',
+  },
 }
