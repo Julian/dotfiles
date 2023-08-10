@@ -10,7 +10,7 @@ end
 return {
   {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    lazy = false,
     config = function()
       local cmp = require'cmp'
 
@@ -54,7 +54,6 @@ return {
         }
       }
 
-      require('cmp_git').setup{}
       cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
           { name = 'git' },
@@ -90,7 +89,11 @@ return {
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-vsnip' },
       { 'hrsh7th/vim-vsnip' },
-      { 'petertriho/cmp-git' },
+      {
+        'petertriho/cmp-git',
+        opts = {},
+        dependencies = { 'nvim-lua/plenary.nvim' },
+      },
     }
   },
 }
