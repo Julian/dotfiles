@@ -365,7 +365,7 @@ link = ["pydocstyle"]
 [virtualenv.pylsp]
 install = [
     "pyls-isort",
-    "python-language-server[all]>=0.36.2",
+    "python-lsp-server[all]>=1.7.4",
     "python-lsp-black",
 ]
 link = ["pylsp"]

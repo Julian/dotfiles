@@ -98,7 +98,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 return {
   {
     'neovim/nvim-lspconfig',
-    event = 'BufReadPre',
+    lazy = false,
     config = function()
       local lspconfig = require('lspconfig')
 
