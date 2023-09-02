@@ -1,5 +1,5 @@
 local light_theme="$XDG_CONFIG_HOME/kitty/Ayu Light.conf"
-local dark_theme="$XDG_CONFIG_HOME/kitty/Bright Lights.conf"
+local dark_theme="$XDG_CONFIG_HOME/kitty/Kanagawa.conf"
 local current_theme="$XDG_CONFIG_HOME/kitty/current-theme.conf"
 
 [[ $(readlink -f $current_theme) == $(readlink -f $dark_theme) ]] && {
