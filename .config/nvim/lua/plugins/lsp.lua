@@ -99,6 +99,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = false,
+    dependencies = { 'simrat39/rust-tools.nvim' },
     config = function()
       local lspconfig = require('lspconfig')
 
@@ -240,9 +241,16 @@ return {
   {
     'simrat39/rust-tools.nvim',
     opts = {
-        server = {
+      server = {
         on_attach = on_attach,
-        procMacro = { enable = true },
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = { features = "all" },
+            checkOnSave = true,
+            check = { command = "clippy", features = "all" },
+            procMacro = { enable = true },
+          },
+        }
       },
     },
   },
