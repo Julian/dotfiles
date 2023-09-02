@@ -2,6 +2,9 @@
     email = Julian@GrayVines.com
     name = Julian Berman
 
+[advice]
+    diverging = false
+
 [color]
     ui = true
 
