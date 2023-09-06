@@ -6,8 +6,9 @@ return {
       'nvim-telescope/telescope-ui-select.nvim',
     },
     config = function(_, opts)
-      require('telescope').setup(opts)
-      require('telescope').load_extension('ui-select')
+      local telescope = require('telescope')
+      telescope.setup(opts)
+      telescope.load_extension('ui-select')
     end,
     opts = function(_)
       return {
