@@ -80,7 +80,7 @@ return {
   { 'tpope/vim-fugitive', lazy = false },
   { 'tpope/vim-obsession', cmd = 'Obsession' },
   { 'tpope/vim-repeat', lazy = false },
-  { 'tpope/vim-rhubarb' },
+  { 'tpope/vim-rhubarb', lazy = false },
   { 'tpope/vim-surround', lazy = false },
   { 'Valodim/vim-zsh-completion' },
   {
