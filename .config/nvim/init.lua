@@ -289,6 +289,12 @@ vim.api.nvim_create_autocmd('BufReadCmd', {
   command = [[call zip#Browse(expand("<amatch>"))]],
 })
 
+-- Formatting --
+
+if vim.fn.executable('par') then
+  vim.opt.formatprg = 'par'
+end
+
 -- Miscellaneous --
 
 vim.g.python3_host_prog = vim.env.HOME .. '/.local/share/virtualenvs/neovim/bin/python3'
@@ -481,190 +487,178 @@ elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
     set grepprg=/usr/local/bin/grep
 endif
 
-" ==============
-" : Formatting :
-" ==============
-
-if executable("par")
-    set formatprg=par
-endif
-
 
 " ============
 " : Autocmds :
 " ============
 
-if has("eval")
-    " diffthis with some sugar
-    function! DiffTheseCommand()
-        if &diff
-            diffoff!
-        else
-            diffthis
+  " diffthis with some sugar
+  function! DiffTheseCommand()
+      if &diff
+          diffoff!
+      else
+          diffthis
 
-            let window_count = tabpagewinnr(tabpagenr(), '$')
-            if window_count == 2
-                wincmd w
-                diffthis
-                wincmd w
-            endif
-        endif
-    endfunction
+          let window_count = tabpagewinnr(tabpagenr(), '$')
+          if window_count == 2
+              wincmd w
+              diffthis
+              wincmd w
+          endif
+      endif
+  endfunction
 
-    command! DiffThese call DiffTheseCommand()
+  command! DiffThese call DiffTheseCommand()
 
-    " Split a window vertically if it would have at least 79 chars plus a bit
-    " of padding, otherwise split it horizontally
-    function! SplitSensiblyCommand(qargs)
-        let padding = 5  " columns
+  " Split a window vertically if it would have at least 79 chars plus a bit
+  " of padding, otherwise split it horizontally
+  function! SplitSensiblyCommand(qargs)
+      let padding = 5  " columns
 
-        for window_number in range(1, winnr('$'))
-            let buffer_number = winbufnr(window_number)
-            let has_no_name = bufname(buffer_number) == ''
-            if has_no_name && getbufline(buffer_number, 1, '$') == ['']
-                if a:qargs != ''
-                    execute window_number . 'wincmd w'
-                    execute 'edit ' . a:qargs
-                endif
+      for window_number in range(1, winnr('$'))
+          let buffer_number = winbufnr(window_number)
+          let has_no_name = bufname(buffer_number) == ''
+          if has_no_name && getbufline(buffer_number, 1, '$') == ['']
+              if a:qargs != ''
+                  execute window_number . 'wincmd w'
+                  execute 'edit ' . a:qargs
+              endif
 
-                return
-            endif
-        endfor
+              return
+          endif
+      endfor
 
-        if winwidth(0) >= (79 + padding) * 2
-            execute 'vsplit ' . a:qargs
-            wincmd L
-        else
-            execute 'split ' . a:qargs
-        endif
-    endfunction
+      if winwidth(0) >= (79 + padding) * 2
+          execute 'vsplit ' . a:qargs
+          wincmd L
+      else
+          execute 'split ' . a:qargs
+      endif
+  endfunction
 
-    function! SplitSensibly(path)
-        call SplitSensiblyCommand(a:path)
-    endfunction
+  function! SplitSensibly(path)
+      call SplitSensiblyCommand(a:path)
+  endfunction
 
-    command! -nargs=* -complete=file SplitSensibly call SplitSensiblyCommand('<args>')
-    command! -nargs=* -complete=file Ss call SplitSensiblyCommand('<args>')
-    command! -nargs=* -complete=file SS call SplitSensiblyCommand('<args>')
+  command! -nargs=* -complete=file SplitSensibly call SplitSensiblyCommand('<args>')
+  command! -nargs=* -complete=file Ss call SplitSensiblyCommand('<args>')
+  command! -nargs=* -complete=file SS call SplitSensiblyCommand('<args>')
 
-    " If we're in a real file, enable colorcolumn.
-    function! WindowWidth()
-        if &buftype == 'nofile'
-            return
-        else
-            " show a line at column 80
-            setlocal colorcolumn=+1
-        endif
-    endfunction
+  " If we're in a real file, enable colorcolumn.
+  function! WindowWidth()
+      if &buftype == 'nofile'
+          return
+      else
+          " show a line at column 80
+          setlocal colorcolumn=+1
+      endif
+  endfunction
 
-    " Expand the active window
-    function! ToggleExpando()
-        if !exists("s:expando_enabled")
-            let s:expando_enabled = 0
-            return ToggleExpando()
-        else
-            augroup expando
-                autocmd!
-                if !s:expando_enabled
-                    autocmd WinEnter * :45wincmd >
-                    let s:expando_enabled = 1
-                    30wincmd >
-                else
-                    let s:expando_enabled = 0
-                    wincmd =
-                endif
-            augroup END
-        endif
-    endfunction
+  " Expand the active window
+  function! ToggleExpando()
+      if !exists("s:expando_enabled")
+          let s:expando_enabled = 0
+          return ToggleExpando()
+      else
+          augroup expando
+              autocmd!
+              if !s:expando_enabled
+                  autocmd WinEnter * :45wincmd >
+                  let s:expando_enabled = 1
+                  30wincmd >
+              else
+                  let s:expando_enabled = 0
+                  wincmd =
+              endif
+          augroup END
+      endif
+  endfunction
 
-    " Format tagged comment blocks based on the post-tag indentation
-    let b:comment_tags = ['TODO', 'XXX', 'FIXME']
-    function! CommentTagFormat()
-        let line_number = v:lnum
-        let first_line = getline(line_number)
-        let comment_leader = split(&commentstring, '%s')[0]
-        let comment = '^\s*' . comment_leader . '\s*'
+  " Format tagged comment blocks based on the post-tag indentation
+  let b:comment_tags = ['TODO', 'XXX', 'FIXME']
+  function! CommentTagFormat()
+      let line_number = v:lnum
+      let first_line = getline(line_number)
+      let comment_leader = split(&commentstring, '%s')[0]
+      let comment = '^\s*' . comment_leader . '\s*'
 
-        for pattern in map(copy(b:comment_tags), 'comment . v:val . ":\\?\\s*"')
-            if first_line =~ pattern
-                let indent = len(matchstr(first_line, pattern)) - len(comment_leader)
-                let second_line = getline(line_number + 1)
-                call setline(line_number + 1, substitute(second_line, comment, comment_leader . repeat(' ', indent), ''))
-                break
-            endif
-        endfor
-        return 1
-    endfunction
+      for pattern in map(copy(b:comment_tags), 'comment . v:val . ":\\?\\s*"')
+          if first_line =~ pattern
+              let indent = len(matchstr(first_line, pattern)) - len(comment_leader)
+              let second_line = getline(line_number + 1)
+              call setline(line_number + 1, substitute(second_line, comment, comment_leader . repeat(' ', indent), ''))
+              break
+          endif
+      endfor
+      return 1
+  endfunction
 
-    function! DoCommentTagFormat()
-        setlocal formatoptions+=2
-        setlocal formatexpr=CommentTagFormat()
-    endfunction
+  function! DoCommentTagFormat()
+      setlocal formatoptions+=2
+      setlocal formatexpr=CommentTagFormat()
+  endfunction
 
-    " Edit file under cursor (not matching :help 'isfname) (:help gf)
-    " Deliberately left off terminating <cr> if filename can't be found
-    " to allow user to modify before execution. (:help cWORD)
-    function! EditFileWORD()
-        let file = expand('<cWORD>')
-        if findfile(file, &path) != ''
-            let file .= "\<cr>"
-        endif
-        return ":SplitSensibly " . file
-    endfunction
+  " Edit file under cursor (not matching :help 'isfname) (:help gf)
+  " Deliberately left off terminating <cr> if filename can't be found
+  " to allow user to modify before execution. (:help cWORD)
+  function! EditFileWORD()
+      let file = expand('<cWORD>')
+      if findfile(file, &path) != ''
+          let file .= "\<cr>"
+      endif
+      return ":SplitSensibly " . file
+  endfunction
 
-    if has("autocmd")
-        augroup misc
-            autocmd!
+  augroup misc
+      autocmd!
 
-            " Keep splits equal on resize
-            autocmd VimResized * :wincmd =
+      " Keep splits equal on resize
+      autocmd VimResized * :wincmd =
 
-            " Automagic line numbers
-            autocmd BufWinEnter,VimEnter * :call WindowWidth()
+      " Automagic line numbers
+      autocmd BufWinEnter,VimEnter * :call WindowWidth()
 
-            " Jump to the last known cursor position if it's valid (from the docs)
-            autocmd BufReadPost *
-                \   if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit'
-                \ |   execute "normal! g`\""
-                \ | endif
+      " Jump to the last known cursor position if it's valid (from the docs)
+      autocmd BufReadPost *
+          \   if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit'
+          \ |   execute "normal! g`\""
+          \ | endif
 
-        augroup END
+  augroup END
 
-    " =====================
-    " : FileType Specific :
-    " =====================
+  " =====================
+  " : FileType Specific :
+  " =====================
 
-        augroup filetypes
-            autocmd!
-            autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  augroup filetypes
+      autocmd!
+      autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
-            " Auto-close fugitive buffers
-            autocmd BufReadPost fugitive://* set bufhidden=delete
-        augroup END
+      " Auto-close fugitive buffers
+      autocmd BufReadPost fugitive://* set bufhidden=delete
+  augroup END
 
-        augroup formatstupidity
-            " ftplugins are stupid and try to mess with formatoptions
-            autocmd!
-            autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
-            autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=jln
-        augroup END
-    endif
+  augroup formatstupidity
+      " ftplugins are stupid and try to mess with formatoptions
+      autocmd!
+      autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
+      autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=jln
+  augroup END
 
-    " ======================
-    " : Neovim UI Specific :
-    " ======================
+  " ======================
+  " : Neovim UI Specific :
+  " ======================
 
-    if exists('##UIEnter')
-        function! OnUIEnter(channel)
-            let l:ui = nvim_get_chan_info(a:channel)
-            if has_key(l:ui, 'client') &&
-            \ has_key(l:ui.client, "name") &&
-            \ l:ui.client.name == "Firenvim"
-                source $XDG_CONFIG_HOME/nvim/firen.vim
-            endif
-        endfunction
+  if exists('##UIEnter')
+      function! OnUIEnter(channel)
+          let l:ui = nvim_get_chan_info(a:channel)
+          if has_key(l:ui, 'client') &&
+          \ has_key(l:ui.client, "name") &&
+          \ l:ui.client.name == "Firenvim"
+              source $XDG_CONFIG_HOME/nvim/firen.vim
+          endif
+      endfunction
 
-        autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
-    endif
-endif
+      autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
+  endif
 ]]
