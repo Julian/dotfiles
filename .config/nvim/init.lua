@@ -301,6 +301,42 @@ vim.g.python3_host_prog = vim.env.HOME .. '/.local/share/virtualenvs/neovim/bin/
 vim.g.is_posix = 1
 vim.g.tex_flavor = 'latex'
 
+-- UI --
+
+vim.api.nvim_create_autocmd('UIEnter', {
+  callback = function(ev)
+    local ui = vim.api.nvim_get_chan_info(ev.id)
+    if ui.client and ui.client.name and ui.client.name == "Firenvim" then
+      vim.opt.laststatus = 0
+      vim.opt.ruler = false
+
+      vim.opt.spell = true
+      vim.opt.textwidth = 0
+      vim.opt.wrap = true
+
+      -- Display lines make a bit more sense to me for this use case.
+      vim.keymap.set('n', 'j', 'gj')
+      vim.keymap.set('n', 'k', 'gk')
+      vim.keymap.set('n', '$', 'g$')
+      vim.keymap.set('n', '<Up>', 'k')
+      vim.keymap.set('n', '<Down>', 'j')
+      vim.keymap.set('n', '<Right>', '$')
+
+      vim.api.nvim_create_autocmd({ 'FocusLost', 'InsertLeave' }, {
+        pattern = '*',
+        command = '++nested write',
+      })
+
+      vim.keymap.set('n', '<D-a>', 'ggVG')
+      vim.keymap.set('i', '<D-a>', '<C-o>gg<C-o>VG')
+      vim.keymap.set('n', '<D-v>', '"*p')
+      vim.keymap.set('i', '<D-v>', '<C-o>"*p')
+
+      vim.cmd.startinsert()
+    end
+  end
+})
+
 -- Globals --
 
 local statfs = vim.uv.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
@@ -644,21 +680,4 @@ endif
       autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
       autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=jln
   augroup END
-
-  " ======================
-  " : Neovim UI Specific :
-  " ======================
-
-  if exists('##UIEnter')
-      function! OnUIEnter(channel)
-          let l:ui = nvim_get_chan_info(a:channel)
-          if has_key(l:ui, 'client') &&
-          \ has_key(l:ui.client, "name") &&
-          \ l:ui.client.name == "Firenvim"
-              source $XDG_CONFIG_HOME/nvim/firen.vim
-          endif
-      endfunction
-
-      autocmd UIEnter * call OnUIEnter(deepcopy(v:event.chan))
-  endif
 ]]
