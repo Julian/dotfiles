@@ -54,6 +54,7 @@ return {
   },
   {
     'mhinz/vim-signify',
+    lazy = false,
     init = function()
       vim.g.signify_mapping_next_hunk = '<nop>'
       vim.g.signify_mapping_prev_hunk = '<nop>'
