@@ -245,6 +245,7 @@ install = [
     "ipympl>=0.8.1",
     "matplotlib>=3.4.3",
     "altair>=4.0.1",
+    "altair-viewer",
     "altair_saver>=0.4.0",
     "git+https://github.com/altair-viz/altair_pandas",
 
