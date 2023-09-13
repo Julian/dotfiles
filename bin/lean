@@ -35,7 +35,7 @@ def lean3(version):
 
 
 def lean4(version):
-    return next(LEAN4_DIR.glob("HEAD-*"))
+    return next(each for each in LEAN4_DIR.iterdir() if each.is_dir())
 
 
 if LEANPKG.exists():
