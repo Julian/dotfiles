@@ -11,7 +11,8 @@ autoload \
     tunnel \
     unquarantine \
     unquote \
-    volume
+    volume \
+    whenexits
 
 #--- Aliases -----------------------------------------------------------------
 

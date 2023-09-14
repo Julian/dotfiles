@@ -1,0 +1,3 @@
+# Run a command when another process exits, selecting the process via fzy.
+local waiting_on=$(ps aux | fzy | awk '{ print $2 }')
+watch -g ps -opid -p "${waiting_on}"; $@
