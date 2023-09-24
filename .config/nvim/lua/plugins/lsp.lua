@@ -28,7 +28,7 @@ local function on_attach(client, bufnr)
 
   cmd('n', '<leader>n', function() vim.diagnostic.goto_next{float = { header = false }} end)
   cmd('n', '<leader>q', vim.diagnostic.setloclist)
-  cmd('n', '<leader>K', function() vim.diagnostic.open_float(0, { scope = "line", header = false, focus = false }) end)
+  cmd('n', '<leader>K', function() vim.diagnostic.open_float{ scope = "line", header = false, focus = false } end)
   cmd('n', '<leader>N', function() vim.diagnostic.goto_prev{float = { header = false }} end)
   cmd('n', '<leader>R', vim.lsp.buf.rename)
 
@@ -233,7 +233,11 @@ return {
       mappings = true,
       stderr = {
         on_lines = function(lines)
-          vim.notify(lines, 'error', { timeout = 3000, render = 'minimal' })
+          vim.notify(
+            lines,
+            vim.log.levels.ERROR,
+            { timeout = 3000, render = 'minimal' }
+          )
         end,
       }
     }
