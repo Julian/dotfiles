@@ -1,4 +1,5 @@
 brew "gopls"
+brew "ltex-ls"
 brew "lua-language-server"
 brew "rust-analyzer"
 brew "tailwindcss-language-server"

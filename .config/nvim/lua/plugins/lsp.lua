@@ -111,6 +111,7 @@ return {
         clangd = {},
         clojure_lsp = {},
         gopls = {},
+        ltex = {},
         marksman = {},
         ruff_lsp = {},
         tailwindcss = {},
