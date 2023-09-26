@@ -126,6 +126,7 @@
     sw = switch
 
     v = !zsh -c 'cat <(git q) <(echo "\n\n") <(git d @{u}..) | less -FXRS'
+    versions = tag --sort=-version:refname
 
     good = bisect good
     bad = bisect bad
