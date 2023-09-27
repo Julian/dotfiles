@@ -1,4 +1,3 @@
-tap "homebrew/cask"
 brew "imagemagick"
 cask "blender"
 cask "darktable"
