@@ -1,11 +1,12 @@
 return {
   {
-    'sainnhe/edge',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
     config = function()
+      require('kanagawa').setup{}
       vim.cmd[[
-        colorscheme edge
+        colorscheme kanagawa
         highlight link FloatBorder Fg
       ]]
     end,
