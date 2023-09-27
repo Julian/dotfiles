@@ -15,7 +15,6 @@ def main(arguments):
         parser.print_help()
     elif arguments.command == "install":
         make_symlinks(arguments)
-        set_up_vim(arguments)
     sys.exit(0)
 
 
@@ -76,24 +75,6 @@ def symlink_unless_present(file, dest):
         print("{0} already exists! Skipping...".format(dest))
     else:
         print("Linked {0} into {1}".format(file, dest))
-
-
-def set_up_vim(arguments):
-    """
-    Install the Bundles.
-
-    """
-
-    subprocess.call(
-        [
-            "zsh", "-c",
-            "mkdir -p $XDG_CACHE_HOME/vim && "
-            "{0} {1} -E -c PlugUpdate -c quitall".format(
-                shlex.quote(arguments.vim),
-                "" if arguments.vim.endswith("nvim") else "-T dumb",
-            ),
-        ],
-    )
 
 
 parser = argparse.ArgumentParser(description="Dotfiles installer")
