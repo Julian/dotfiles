@@ -1,0 +1,48 @@
+{
+  "entries": {
+    "cask": {
+      "keycastr": {
+        "version": "0.9.13",
+        "options": {
+          "full_name": "keycastr"
+        }
+      },
+      "obs": {
+        "version": "29.1.3",
+        "options": {
+          "full_name": "obs"
+        }
+      },
+      "openttd": {
+        "version": "13.4",
+        "options": {
+          "full_name": "openttd"
+        }
+      },
+      "remarkable": {
+        "version": "3.6.0.761,49938432,H9SNKdPEVW",
+        "options": {
+          "full_name": "remarkable"
+        }
+      },
+      "tailscale": {
+        "version": "1.50.0",
+        "options": {
+          "full_name": "tailscale"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "sonoma": {
+        "HOMEBREW_VERSION": "4.1.13",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "api",
+        "CLT": "15.0.0.0.1.1694021235",
+        "Xcode": "15.0",
+        "macOS": "14.0"
+      }
+    }
+  }
+}

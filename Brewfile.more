@@ -1,0 +1,5 @@
+cask "keycastr"
+cask "obs"
+cask "openttd"
+cask "remarkable"
+cask "tailscale"
