@@ -1,5 +1,4 @@
 brew "chromaprint"
-cask "ableton-live-lite"
 cask "cycling74-max"
 cask "guitar-pro"
 cask "vcv-rack"
