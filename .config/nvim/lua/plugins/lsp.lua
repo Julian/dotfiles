@@ -103,6 +103,14 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
 
+      -- For ltex...
+      local dictionary = {}
+      for _, path in ipairs(vim.opt.spellfile:get()) do
+        for word in io.lines(path) do
+          table.insert(dictionary, word)
+        end
+      end
+
       local opts = {
         on_attach = on_attach,
         capabilities = require'cmp_nvim_lsp'.default_capabilities()
@@ -111,7 +119,6 @@ return {
         clangd = {},
         clojure_lsp = {},
         gopls = {},
-        ltex = {},
         marksman = {},
         ruff_lsp = {},
         tailwindcss = {},
@@ -136,6 +143,14 @@ return {
         },
 
         esbonio = { cmd = { 'esbonio' } },
+
+        ltex = {
+          settings = {
+            ltex = {
+              dictionary = { ["en-US"] = dictionary },
+            },
+          },
+        },
 
         pylsp = {
           plugins = {

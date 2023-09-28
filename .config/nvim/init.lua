@@ -9,6 +9,12 @@ end
 
 local uv = vim.loop or vim.uv
 
+-- Spelling --
+
+-- Needed for ltex-ls, which will get initialized by lazy.nvim immediately for
+-- now.
+vim.opt.spellfile = vim.fn.stdpath('config') .. '/spellfile.add'
+
 -- Plugins --
 
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -145,10 +151,6 @@ vim.opt.scrolloff = 2             -- keep lines above and below cursor
 vim.opt.sidescrolloff = 2         -- same for horizontal
 
 vim.opt.virtualedit = 'block'
-
--- Spelling --
-
-vim.opt.spellfile = vim.fn.stdpath('config') .. '/spellfile.add'
 
 -- Search --
 
