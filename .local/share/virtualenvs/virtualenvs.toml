@@ -112,7 +112,7 @@ link = ["doc8"]
 
 [virtualenv.esbonio]
 install = ["esbonio"]
-link-module = ["esbonio:esbonio"]
+link = ["esbonio"]
 
 [virtualenv.findme]
 python = "pypy"
