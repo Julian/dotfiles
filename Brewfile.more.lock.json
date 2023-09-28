@@ -30,6 +30,30 @@
         "options": {
           "full_name": "tailscale"
         }
+      },
+      "android-file-transfer": {
+        "version": "5071136",
+        "options": {
+          "full_name": "android-file-transfer"
+        }
+      },
+      "android-sdk": {
+        "version": "4333796",
+        "options": {
+          "full_name": "android-sdk"
+        }
+      },
+      "anki": {
+        "version": "2.1.66",
+        "options": {
+          "full_name": "anki"
+        }
+      },
+      "signal": {
+        "version": "6.31.0",
+        "options": {
+          "full_name": "signal"
+        }
       }
     }
   },
