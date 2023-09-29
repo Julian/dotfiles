@@ -530,32 +530,13 @@ link = ["wormhole"]
 # --- Developing ---
 
 [virtualenv.blog]
-requirements = [
-    "${DEVELOPMENT}/julian.github.io/requirements.txt",
-    "${DEVELOPMENT}/til/requirements.txt",
-]
-link = ["invoke", "pelican", "pelican-quickstart", "pelican-themes"]
+requirements = ["${DEVELOPMENT}/til/requirements.txt"]
+link = ["pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.bowtie]
 install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/bowtie"]
 link = ["bowtie"]
-
-[virtualenv.diff]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/diff", "twisted[tls]"]
-
-[virtualenv.filesystems]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/filesystems", "testscenarios", "twisted"]
-
-[virtualenv.great]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/Great", "twisted[tls]"]
-requirements = [
-    "${DEVELOPMENT}/Great/test-requirements.txt",
-    "${DEVELOPMENT}/Great/automanual/requirements.txt",
-]
 
 [virtualenv.regret]
 install-bundle = ["development"]
