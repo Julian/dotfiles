@@ -114,12 +114,6 @@ link = ["doc8"]
 install = ["esbonio"]
 link = ["esbonio"]
 
-[virtualenv.findme]
-python = "pypy"
-install-bundle = ["development"]
-install = ["findme"]
-link = ["findme"]
-
 [virtualenv.findme-cpython3]
 install-bundle = ["development"]
 install = ["findme"]
