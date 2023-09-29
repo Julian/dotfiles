@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 brew "bat"
 brew "bottom"
+brew "btop"
 brew "cgdb"
 brew "cloc"
 brew "coreutils"
