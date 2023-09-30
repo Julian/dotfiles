@@ -59,15 +59,15 @@
     "mas": {
       "Keynote": {
         "id": "409183694",
-        "version": "13.2"
+        "version": "13.0"
       },
       "Numbers": {
         "id": "409203825",
-        "version": "13.2"
+        "version": "13.0"
       },
       "Pages": {
         "id": "409201541",
-        "version": "13.2"
+        "version": "13.0"
       },
       "Wireguard": null
     }
