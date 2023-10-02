@@ -380,10 +380,10 @@ function _G.parent_or_cwd()
   return name
 end
 
-function _G.toggle_numbers()
+vim.keymap.set('n', '<leader>tn', function ()
   vim.wo.number = not vim.wo.number
   vim.wo.relativenumber = not vim.wo.relativenumber
-end
+end)
 
 -- To Port --
 
@@ -429,7 +429,7 @@ nnoremap        <leader>r         <Cmd>lua require('telescope.builtin').register
 nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
-nnoremap  <expr><leader>v         "<Cmd>SplitSensibly " . $MYVIMRC . "<CR>"
+nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>w         <Cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>
 nnoremap        <leader>y         "*y
 "               <leader>z         LSP formatting
@@ -455,7 +455,7 @@ nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
 nnoremap        <leader>td        <Cmd>DiffThese<CR>
 nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
 nnoremap        <leader>tl        <Cmd>setlocal list!<CR>
-nnoremap        <leader>tn        <Cmd>lua toggle_numbers()<CR>
+"               <leader>tn        Toggle numbers
 nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell!<CR>:setlocal wrap!<CR>:setlocal textwidth=0<CR>
 nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 "               <leader>ttd       Toggle diagnostics
