@@ -153,19 +153,23 @@ return {
         },
 
         pylsp = {
-          plugins = {
-            black = { enabled = true, line_length = 79 },
+          settings = {
+            pylsp = {
+              plugins = {
+                black = { enabled = true, line_length = 79 },
 
-            ruff = { enabled = false },
-            autopep8 = { enabled = false },
-            flake8 = { enabled = false },
-            mccabe = { enabled = false },
-            pycodestyle = { enabled = false },
-            pydocstyle = { enabled = false },
-            pyflakes = { enabled = false },
-            pylint = { enabled = false },
-            yapf = { enabled = false },
-          }
+                ruff = { enabled = false },
+                autopep8 = { enabled = false },
+                flake8 = { enabled = false },
+                mccabe = { enabled = false },
+                pycodestyle = { enabled = false },
+                pydocstyle = { enabled = false },
+                pyflakes = { enabled = false },
+                pylint = { enabled = false },
+                yapf = { enabled = false },
+              },
+            },
+          },
         },
 
         lua_ls = {
