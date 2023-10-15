@@ -65,6 +65,8 @@ export MATHLIB_CACHE_DIR=$XDG_CACHE_HOME/mathlib/
 export GEM_HOME=$HOME/.local/share/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
 
+export LUAROCKS_CONFIG=$XDG_CONFIG_HOME/luarocks.lua
+
 export NODE_REPL_HISTORY=$XDG_CACHE_HOME/node_repl_history
 export PNPM_HOME=$XDG_DATA_HOME/pnpm
 
