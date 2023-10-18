@@ -540,6 +540,10 @@ install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
 install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/referencing"]
 
+[virtualenv.url-py]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/url-py"]
+
 [virtualenv.virtue]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/virtue"]
