@@ -102,6 +102,10 @@ return {
 
   { 'b0o/schemastore.nvim' },
   { 'guns/vim-sexp', ft = 'clojure' },
+  {
+    'NoahTheDuke/vim-just',
+    event = { 'BufReadPre justfile', 'BufNewFile justfile' },
+  },
   { 'raimon49/requirements.txt.vim', ft = 'requirements', lazy = false },
   { 'stsewd/sphinx.nvim', build = ':UpdateRemotePlugins' },
   { 'tpope/vim-fireplace', ft = 'clojure' },

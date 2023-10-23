@@ -44,6 +44,8 @@ fi
 if (( $+commands[fzy] )); then
     alias v=$EDITOR' $(fd --type file | fzy)'
 
+    export JUST_CHOOSER='fzy --prompt "recipe> "'
+
     function insert-fzy-path-in-command-line() {
         # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
         local kind
