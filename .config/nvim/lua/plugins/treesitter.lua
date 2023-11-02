@@ -26,7 +26,6 @@ return {
         },
         indent = {
           enable = true,
-          disable = { 'python' },
         },
         playground = {
           enable = true,
