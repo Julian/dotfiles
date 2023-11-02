@@ -74,8 +74,7 @@ return {
   {
     'tommcdo/vim-exchange',
     init = function() vim.g.exchange_no_mappings = true end,
-    keys = '<Plug>(Exchange)',
-    cmd = { 'XchangeClear' },
+    lazy = false,
   },
   { 'tomtom/tcomment_vim', lazy = false },
   { 'tpope/vim-abolish', cmd = { 'Abolish', 'S' } },
