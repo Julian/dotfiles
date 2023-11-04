@@ -10,6 +10,12 @@ return {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
     },
     config = function()
+      require('nvim-treesitter.parsers').get_parser_configs().vhs = {
+        install_info = {
+          url = 'https://github.com/charmbracelet/tree-sitter-vhs',
+          files = {"src/parser.c"},
+        }
+      }
       require('nvim-treesitter.configs').setup{
         ensure_installed = {
           'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
