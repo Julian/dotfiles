@@ -112,7 +112,7 @@ return {
   { 'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure' },
 
   { 'mfussenegger/nvim-lint' },
-  { 'nvim-lua/popup.nvim' },
+  { 'MunifTanjim/nui.nvim' },
   {
     'rcarriga/nvim-notify',
     opts = { max_width = 100 },
