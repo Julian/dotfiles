@@ -5,6 +5,13 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
     },
+    init = function()
+      vim.ui.select = function(...)
+        -- Trigger telescope-ui-select to load
+        require('telescope')
+        return vim.ui.select(...)
+      end
+    end,
     config = function(_, opts)
       local telescope = require('telescope')
       telescope.setup(opts)
