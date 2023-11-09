@@ -189,7 +189,7 @@ return {
               },
               hint = { enable = true },
               workspace = {
-                checkThirdParty = false,
+                checkThirdParty = "ApplyInMemory",
                 library = vim.api.nvim_get_runtime_file("", true),
               },
               telemetry = { enable = false },
