@@ -16,6 +16,7 @@
 .local/share/kitty-ssh-kitten/
 .local/share/nvim/.netrwhist
 .local/share/nvim/bundle
+.local/share/nvim/lazy/
 .local/share/nvim/log
 .local/share/nvim/lsp.log
 .local/share/nvim/neorg.mpack
