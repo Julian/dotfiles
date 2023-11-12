@@ -1,4 +1,3 @@
-cask "android-file-transfer"
 cask "android-sdk"
 cask "anki"
 cask "keycastr"

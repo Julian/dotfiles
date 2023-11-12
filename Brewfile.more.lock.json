@@ -2,13 +2,13 @@
   "entries": {
     "cask": {
       "keycastr": {
-        "version": "0.9.13",
+        "version": "0.9.15",
         "options": {
           "full_name": "keycastr"
         }
       },
       "obs": {
-        "version": "29.1.3",
+        "version": "30.0.0",
         "options": {
           "full_name": "obs"
         }
@@ -20,13 +20,13 @@
         }
       },
       "remarkable": {
-        "version": "3.6.0.761,49938432,H9SNKdPEVW",
+        "version": "3.7.0.801,52494336,qt6-8dKqjWd9zj",
         "options": {
           "full_name": "remarkable"
         }
       },
       "tailscale": {
-        "version": "1.50.0",
+        "version": "1.52.1",
         "options": {
           "full_name": "tailscale"
         }
@@ -44,13 +44,13 @@
         }
       },
       "anki": {
-        "version": "2.1.66",
+        "version": "23.10.1",
         "options": {
           "full_name": "anki"
         }
       },
       "signal": {
-        "version": "6.32.0",
+        "version": "6.38.0",
         "options": {
           "full_name": "signal"
         }
@@ -60,7 +60,7 @@
   "system": {
     "macos": {
       "sonoma": {
-        "HOMEBREW_VERSION": "4.1.13",
+        "HOMEBREW_VERSION": "4.1.19-41-gd3d51d3",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.0.0.0.1.1694021235",
