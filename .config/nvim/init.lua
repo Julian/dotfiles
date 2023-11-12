@@ -3,7 +3,7 @@ vim.opt.modeline = false
 vim.g.mapleader = ' '
 vim.g.maplocalleader = vim.g.mapleader .. vim.g.mapleader
 
-if vim.env.TERM ~= 'xterm-256color' then
+if vim.env.TERM ~= 'xterm-256color' or vim.env.TERMUX_HOME ~= '' then
   vim.opt.termguicolors = true
 end
 
