@@ -1,4 +1,10 @@
 if [[ $# > 0 ]]; then
     echo "$@" | sort -o "$DOCKET" -u - -f $DOCKET
 fi
-$EDITOR $DOCKET
+
+# edit if we're a tty, otherwise cat
+if [[ -t 1 ]]; then
+    $EDITOR $DOCKET
+else
+    cat $DOCKET
+fi
