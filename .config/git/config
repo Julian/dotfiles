@@ -135,7 +135,7 @@
     pop = reset HEAD~
     whoops = reset --hard @{u}
 
-    release = !sh -c 'git tag -a $1 -m Release' -
+    release = !sh -c 'git tag -a $@ -m Release' -
 
     # New operations
     up = "!git fetch --all --prune && git merge --ff-only @{u} && git submodule update"
