@@ -203,22 +203,6 @@ return {
       end
 
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-
-      local lint = require('lint')
-
-      lint.linters.mathlib = {
-        cmd = 'scripts/lint-style.py',
-        stdin = true,
-        args = {'/dev/stdin'},
-        stream = 'stdout',
-        ignore_exitcode = true,
-        parser = require('lint.parser').from_errorformat('::%trror file=%f\\,line=%l\\,code=ERR_%[A-Z]%\\+::ERR_%[A-Z]\\*:%m'),
-      }
-
-      lint.linters_by_ft = {
-        lean3 = { 'mathlib' };
-        python = { 'flake8' };
-      }
     end,
   },
   {
