@@ -173,28 +173,36 @@ return {
         },
 
         lua_ls = {
-          cmd = { "lua-language-server" },
-          settings = {
-            Lua = {
-              runtime = {
-                version = 'LuaJIT',
-                path = runtime_path,
-              },
-              completion= {
-                keywordSnippet="Replace",
-                callSnippet="Replace"
-              },
-              diagnostics = {
-                globals = { 'describe', 'it', 'pending', 'vim' },
-              },
-              hint = { enable = true },
-              workspace = {
-                checkThirdParty = "ApplyInMemory",
-                library = vim.api.nvim_get_runtime_file("", true),
-              },
-              telemetry = { enable = false },
-            },
-          },
+          on_init = function(client)
+            local path = client.workspace_folders[1].name
+            local luarc = path .. '/.luarc.json'
+            if not vim.loop.fs_stat(luarc) and not vim.loop.fs_stat(luarc .. 'c') then
+              client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+                Lua = {
+                  runtime = {
+                    version = 'LuaJIT',
+                    path = runtime_path,
+                  },
+                  completion = {
+                    keywordSnippet = "Replace",
+                    callSnippet = "Replace"
+                  },
+                  diagnostics = {
+                    globals = { 'describe', 'it', 'pending', 'vim' },
+                  },
+                  hint = { enable = true },
+                  workspace = {
+                    checkThirdParty = "ApplyInMemory",
+                    library = vim.api.nvim_get_runtime_file("", true),
+                  },
+                  telemetry = { enable = false },
+                },
+              })
+
+              client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            end
+            return true
+          end,
         },
       }
 
