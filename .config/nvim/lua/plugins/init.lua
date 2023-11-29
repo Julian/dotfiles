@@ -124,7 +124,7 @@ return {
     end,
   },
 
-  { 'Julian/vim-runt', dev = true },
+  { 'Julian/vim-runt', lazy = false, dev = true },
   {
     'Julian/vim-textobj-assignment',
     dev = true,
