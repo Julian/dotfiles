@@ -1,7 +1,6 @@
+version: "1"
 git_protocol: ssh
-# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor:
-# Aliases allow you to create nicknames for gh commands
 aliases:
     c: pr checkout
     co: pr checkout
