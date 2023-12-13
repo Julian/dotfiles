@@ -19,11 +19,11 @@ jobs:
         os: [macos-latest, ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         submodules: recursive
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
     - name: Uninstall Conflicting GitHub Runner Packages
       run: brew uninstall firefox
       if: runner.os == 'macOS'
