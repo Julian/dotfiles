@@ -1,3 +1,16 @@
+local uv = vim.loop or vim.uv
+
+local parsers = {}
+if uv.fs_stat(vim.env.DEVELOPMENT) then
+  parsers = {
+    'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
+    'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java', 'javascript',
+    'json', 'latex', 'llvm', 'lua', 'make', 'markdown', 'ninja', 'nix', 'org',
+    'python', 'query', 'regex', 'rst', 'ruby', 'rust', 'tlaplus', 'toml',
+    'typescript', 'vim', 'yaml', 'zig',
+  }
+end
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -17,13 +30,7 @@ return {
         }
       }
       require('nvim-treesitter.configs').setup{
-        ensure_installed = {
-          'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
-          'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java', 'javascript',
-          'json', 'latex', 'llvm', 'lua', 'make', 'markdown', 'ninja', 'nix', 'org',
-          'python', 'query', 'regex', 'rst', 'ruby', 'rust', 'tlaplus', 'toml',
-          'typescript', 'vim', 'yaml', 'zig',
-        },
+        ensure_installed = parsers,
         ignore_install = { 'phpdoc' },
         highlight = {
           enable = true,
