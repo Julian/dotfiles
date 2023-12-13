@@ -12,7 +12,7 @@ Install
 
    $ git clone --recursive https://github.com/Julian/dotfiles ~/.dotfiles
    $ mkdir ~/Development
-   $ cd ~/.dotfiles && ./dot install
+   $ cd ~/.dotfiles && ./install
 
    $ brew analytics off
 

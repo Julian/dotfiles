@@ -5,16 +5,11 @@ from glob import iglob as glob
 import argparse
 import errno
 import os
-import shlex
-import subprocess
 import sys
 
 
 def main(arguments):
-    if arguments.command == "help":
-        parser.print_help()
-    elif arguments.command == "install":
-        make_symlinks(arguments)
+    make_symlinks(arguments)
     sys.exit(0)
 
 
@@ -78,32 +73,25 @@ def symlink_unless_present(file, dest):
 
 
 parser = argparse.ArgumentParser(description="Dotfiles installer")
-
-subparsers = parser.add_subparsers(help="utility commands", dest="command")
-
-help_parser = subparsers.add_parser("help")
-install_parser = subparsers.add_parser(
-    "install", help="Install the dotfiles into their proper locations.",
-)
-install_parser.add_argument(
+parser.add_argument(
     "-b", "--bin-dir",
     default=os.path.expanduser("~/.local/bin"),
     help="the directory to use for local binaries",
 )
-install_parser.add_argument(
+parser.add_argument(
     "-d", "--dest-dir",
     default=os.path.expanduser("~"),
     help="the directory to link into",
 )
-install_parser.add_argument(
+parser.add_argument(
     "--dotfiles",
     default=os.path.abspath(os.path.dirname(__file__)),
     help="the dotfiles to link",
 )
-install_parser.add_argument(
-    "--vim",
+parser.add_argument(
+    "--nvim",
     default="nvim",
-    help="the *vim binary to set up",
+    help="the nvim binary to set up",
 )
 
 main(parser.parse_args())
