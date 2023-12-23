@@ -2,5 +2,5 @@ version: "1"
 git_protocol: ssh
 editor:
 aliases:
-    c: pr checkout
-    co: pr checkout
+  c: pr checkout
+  co: pr checkout

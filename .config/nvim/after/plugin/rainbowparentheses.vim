@@ -11,4 +11,3 @@ if has("autocmd")
         autocmd Syntax * RainbowParenthesesLoadBraces
     augroup END
 endif
-

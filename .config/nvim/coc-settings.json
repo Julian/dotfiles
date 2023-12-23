@@ -1,7 +1,7 @@
 {
-    "diagnostic.maxWindowHeight": 40,
-    "diagnostic.maxWindowWidth": 200,
-    "python.jediEnabled": false,
-    "python.venvFolders": [".local/share/virtualenvs"],
-    "suggest.maxPreviewWidth": 120
+  "diagnostic.maxWindowHeight": 40,
+  "diagnostic.maxWindowWidth": 200,
+  "python.jediEnabled": false,
+  "python.venvFolders": [".local/share/virtualenvs"],
+  "suggest.maxPreviewWidth": 120
 }

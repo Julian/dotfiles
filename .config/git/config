@@ -38,7 +38,7 @@
 
 [difftool "nbdime"]
     cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
-    
+
 [merge]
     conflictstyle = diff3
     defaultToUpstream = true

@@ -24,4 +24,3 @@ data.location=$XDG_DATA_HOME/task
 #include /usr/local/Cellar/task/2.0.0/share/doc/task/rc/dark-violets-256.theme
 #include /usr/local/Cellar/task/2.0.0/share/doc/task/rc/dark-yellow-green.theme
 #include /usr/local/Cellar/task/2.0.0/share/doc/task/rc/dark-gray-256.theme
-

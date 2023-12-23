@@ -66,4 +66,3 @@ hi Underlined   guifg=#323232                   gui=underline
 hi Ignore       guifg=#c8c8c8
 hi Error        guifg=#ffffff   guibg=#c81414
 hi Todo         guifg=#c81414   guibg=#ffffff
-
