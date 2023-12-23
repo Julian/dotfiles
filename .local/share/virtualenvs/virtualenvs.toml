@@ -533,6 +533,10 @@ install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/bowtie"]
 link = ["bowtie"]
 
+[virtualenv.diff]
+install-bundle = ["development"]
+install = ["${DEVELOPMENT}/diff"]
+
 [virtualenv.regret]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
