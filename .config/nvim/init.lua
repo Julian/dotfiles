@@ -11,8 +11,6 @@ local uv = vim.loop or vim.uv
 
 -- Spelling --
 
--- Needed for ltex-ls, which will get initialized by lazy.nvim immediately for
--- now.
 vim.opt.spellfile = vim.fn.stdpath('config') .. '/spellfile.add'
 
 -- Plugins --
