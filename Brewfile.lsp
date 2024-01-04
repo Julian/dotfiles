@@ -1,3 +1,4 @@
+brew "clojure-lsp"
 brew "gopls"
 brew "lua-language-server"
 brew "rust-analyzer"
