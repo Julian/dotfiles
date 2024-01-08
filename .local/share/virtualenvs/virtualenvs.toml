@@ -159,7 +159,7 @@ link = ["hg"]
 
 [virtualenv.httpie]
 install = ["httpie"]
-link = ["http"]
+link = ["http", "https"]
 
 [virtualenv.httpstat]
 install = ["httpstat"]
