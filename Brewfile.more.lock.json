@@ -2,13 +2,13 @@
   "entries": {
     "cask": {
       "keycastr": {
-        "version": "0.9.15",
+        "version": "0.9.16",
         "options": {
           "full_name": "keycastr"
         }
       },
       "obs": {
-        "version": "30.0.0",
+        "version": "30.0.2",
         "options": {
           "full_name": "obs"
         }
@@ -20,13 +20,13 @@
         }
       },
       "remarkable": {
-        "version": "3.7.0.801,52494336,qt6-8dKqjWd9zj",
+        "version": "3.9.0.816,53477376,qt6-adNuyOp3UK",
         "options": {
           "full_name": "remarkable"
         }
       },
       "tailscale": {
-        "version": "1.52.1",
+        "version": "1.56.1",
         "options": {
           "full_name": "tailscale"
         }
@@ -44,13 +44,13 @@
         }
       },
       "anki": {
-        "version": "23.10.1",
+        "version": "23.12.1",
         "options": {
           "full_name": "anki"
         }
       },
       "signal": {
-        "version": "6.38.0",
+        "version": "6.43.2",
         "options": {
           "full_name": "signal"
         }
@@ -60,12 +60,12 @@
   "system": {
     "macos": {
       "sonoma": {
-        "HOMEBREW_VERSION": "4.1.19-41-gd3d51d3",
+        "HOMEBREW_VERSION": "4.2.3-28-ge74dc47",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
-        "CLT": "15.0.0.0.1.1694021235",
-        "Xcode": "15.0",
-        "macOS": "14.0"
+        "CLT": "15.1.0.0.1.1700200546",
+        "Xcode": "15.1",
+        "macOS": "14.1.2"
       }
     }
   }
