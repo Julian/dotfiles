@@ -997,7 +997,7 @@ Irssi::expando_create('nickcolor', \&expando_neatcolour, {
 	    "message $_ own_action" => 'none')
        } @action_protos),
    });
-   
+
 Irssi::expando_create('inickcolor', \&expando_neatcolour_inv, {
     'message public' 	 => 'none',
     'message own_public' => 'none',
@@ -1005,7 +1005,7 @@ Irssi::expando_create('inickcolor', \&expando_neatcolour_inv, {
 	    "message $_ own_action" => 'none')
        } @action_protos),
    });
-   
+
 Irssi::signal_add({
     'message public'	 => 'msg_line_tag',
     'message own_public' => 'msg_line_clear',

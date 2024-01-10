@@ -3072,9 +3072,7 @@
         "version": "HEAD-0aa6d04",
         "bottle": false,
         "options": {
-          "args": [
-            "HEAD"
-          ]
+          "args": ["HEAD"]
         }
       },
       "util-linux": {

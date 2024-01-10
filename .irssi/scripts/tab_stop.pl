@@ -56,4 +56,3 @@ sub replace_tabs {
 Irssi::signal_add_first('server incoming', \&event_server_incoming);
 
 Irssi::settings_add_str('misc', 'tabstop_replacement', "    ");
-

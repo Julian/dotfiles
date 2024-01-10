@@ -181,7 +181,7 @@ sub get_site {
   my $uri = URI->new($url);
   $uri = URI->new("http://$url") unless $uri and $uri->scheme;
   return unless $uri and $uri->can("host") and $uri->host and $uri->scheme =~ /^https?$/;
-  
+
   for my $site(@$sites) {
     my $match = 1;
     $match &&= _matcher($site->{domain}, $uri->host =~ s/^www\.//ri);

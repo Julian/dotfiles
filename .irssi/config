@@ -544,13 +544,13 @@ windows = {
   };
 };
 mainwindows = {
-  1 = { 
+  1 = {
     first_line = "4";
     lines = "38";
     first_column = "0";
     columns = "320";
   };
-  16 = { 
+  16 = {
     first_line = "1";
     lines = "3";
     first_column = "0";

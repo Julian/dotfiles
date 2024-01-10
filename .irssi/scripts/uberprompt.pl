@@ -250,7 +250,7 @@ THE SOFTWARE.
 
 =over 4
 
-=item * 
+=item *
 
 Resizing the terminal rapidly whilst using this script in debug mode may cause
 irssi to crash. See bug report at http://bugs.irssi.org/index.php?do=details&task_id=772 for details.

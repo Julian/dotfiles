@@ -32,8 +32,8 @@
 # Make sure this is the latest version and use the tutorial
 # provided in https://github.com/ronilaukkarinen/weed
 #
-# Without actions in the tutorial the theme WILL NOT WORK 
-# PROPERLY! 
+# Without actions in the tutorial the theme WILL NOT WORK
+# PROPERLY!
 #
 # Always backup your ~/.irssi -folder before trying!
 #
@@ -112,7 +112,7 @@ abstracts = {
   privmsg = "[$0($1-)]";
 
   #
-  # $0 = "msg", 
+  # $0 = "msg",
   # $1 = target nick
   #
 

@@ -54,14 +54,14 @@ sub sig_printtext {
     if(Irssi::settings_get_bool('hilightwin_showprivmsg')) {
         $opt = MSGLEVEL_HILIGHT|MSGLEVEL_MSGS;
     }
-    
+
     if(
         ($dest->{level} & ($opt)) &&
         ($dest->{level} & MSGLEVEL_NOHILIGHT) == 0 &&
         (!is_ignored($dest))
     ) {
         my $window = Irssi::window_find_name('hilight');
-        
+
         if ($dest->{level} & MSGLEVEL_PUBLIC) {
             $text = $dest->{target}.": ".$text;
             $text = $dest->{server}->{tag} . "/" . $text if ($shownetwork);
