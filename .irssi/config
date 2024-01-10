@@ -485,7 +485,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-offtopic";
+        name = "#glyph";
         tag = "Libera";
       }
     );
@@ -493,49 +493,11 @@ windows = {
     parent = "1";
   };
   13 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#glyph";
-        tag = "Libera";
-      }
-    );
-    sticky = "yes";
-  };
-  14 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#nycpython";
-        tag = "Libera";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  15 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#python-testing";
-        tag = "Libera";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  16 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
-  17 = {
+  14 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
@@ -545,14 +507,14 @@ windows = {
 };
 mainwindows = {
   1 = {
-    first_line = "4";
-    lines = "38";
+    first_line = "8";
+    lines = "96";
     first_column = "0";
     columns = "320";
   };
-  16 = {
+  13 = {
     first_line = "1";
-    lines = "3";
+    lines = "7";
     first_column = "0";
     columns = "320";
   };
