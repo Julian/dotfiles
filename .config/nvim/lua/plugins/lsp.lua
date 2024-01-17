@@ -99,7 +99,6 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = false,
-    dependencies = { 'simrat39/rust-tools.nvim' },
     config = function()
       local lspconfig = require('lspconfig')
 
@@ -242,7 +241,12 @@ return {
     }
   },
   {
-    'simrat39/rust-tools.nvim',
+    'mrcjkb/rustaceanvim',
+    event = { 'BufReadPre *.rs', 'BufNewFile *.rs' },
+    ft = { 'rust' },
+    config = function(_, opts)
+      vim.g.rustaceanvim = vim.tbl_deep_extend("force", {}, opts or {})
+    end,
     opts = {
       server = {
         on_attach = on_attach,
