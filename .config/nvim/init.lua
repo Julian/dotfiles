@@ -342,7 +342,7 @@ vim.api.nvim_create_autocmd('UIEnter', {
 local statfs = uv.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
 _G.SMALL_FILESYSTEM = (statfs.bavail * statfs.bsize) < 5 * 1024 * 1024 * 1024
 
-function _G.q(...) return vim.print(...) end
+_G.q = vim.print
 vim.cmd[[command! -nargs=1 -complete=lua Q lua q(<args>)]]
 
 --- Jump to the next entry in the jumplist which is a child of the current working directory.
