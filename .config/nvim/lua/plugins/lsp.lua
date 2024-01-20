@@ -194,6 +194,24 @@ return {
       end
 
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+
+
+      local lint = require('lint')
+
+      lint.linters.mathlib4 = {
+        cmd = 'scripts/lint-style.py',
+        stdin = false,
+        stream = 'stdout',
+        ignore_exitcode = true,
+        parser = require('lint.parser').from_pattern(
+          '::(%l+) file=([^:]+),line=(%d+),code=ERR_(%w+)::[^ ]+ ERR_%w+: (.+)',
+          { 'severity', 'file', 'lnum', 'code', 'message' }
+        ),
+      }
+
+      lint.linters_by_ft = {
+        lean = { 'mathlib4' };
+      }
     end,
   },
   {
