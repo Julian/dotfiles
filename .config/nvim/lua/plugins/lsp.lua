@@ -228,6 +228,7 @@ return {
     end,
     opts = {
       infoview = {
+        show_processing = false,
         horizontal_position = 'top',
         autoopen = function()
           for _, window in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
