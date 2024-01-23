@@ -1,6 +1,7 @@
 brew "clojure-lsp"
 brew "gopls"
 brew "lua-language-server"
+brew "marksman"
 brew "rust-analyzer"
 brew "tailwindcss-language-server"
 brew "taplo"
