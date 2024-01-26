@@ -413,7 +413,7 @@ nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_fil
 nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope.builtin').find_files{ search_dirs = { "" } }<Left><Left><Left><Left><Left>
 nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }<CR>
 "               <leader>g         Git
-nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags()<CR>
+nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags{ only_sort_tags = true }<CR>
 nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
 nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
 nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
