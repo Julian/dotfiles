@@ -199,6 +199,7 @@ return {
       local lint = require('lint')
 
       lint.linters.mathlib4 = {
+        name = 'mathlib',
         cmd = 'scripts/lint-style.py',
         stdin = false,
         stream = 'stdout',
