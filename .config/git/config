@@ -28,6 +28,7 @@
 
 [rerere]
     enabled = true
+    autoUpdate = true
 
 [diff]
     algorithm = histogram
