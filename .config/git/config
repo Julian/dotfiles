@@ -1,6 +1,7 @@
 [user]
     email = Julian@GrayVines.com
     name = Julian Berman
+    signingKey = ~/.ssh/id_ed25519.pub
 
 [advice]
     diverging = false
@@ -9,7 +10,7 @@
     ui = true
 
 [commit]
-    gpgsign = false
+    gpgsign = true
     verbose = 1
 
 [init]
@@ -56,7 +57,7 @@
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [gpg]
-    program = gpg2
+    format = ssh
 
 [svn]
     rmdir = true
