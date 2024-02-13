@@ -23,6 +23,9 @@
     default = simple
     followTags = true
 
+[branch]
+    sort = -committerdate
+
 [rebase]
     autostash = true
 
