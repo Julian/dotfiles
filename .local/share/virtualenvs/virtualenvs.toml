@@ -205,6 +205,7 @@ install = ["maturin"]
 link = ["maturin"]
 
 [virtualenv.ml]
+python = "python3.11"
 post-commands = [
     [
         "jupyter",
@@ -253,7 +254,7 @@ install = [
     "streamlit>=1.2.0",
     "voila>=0.2.16",
 
-    "ydata-profiling[notebook]>=3.6.1",
+    "ydata-profiling[notebook]>=4.6.5",
 
     # "auto-sklearn>=0.15.0",
     "featuretools>=1.2.0",
