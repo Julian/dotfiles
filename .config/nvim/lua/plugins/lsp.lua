@@ -240,10 +240,7 @@ return {
           return true
         end
       },
-      lsp = {
-        on_attach = on_attach,
-        init_options = { editDelay = 0 },
-      },
+      lsp = { on_attach = on_attach },
       lsp3 = {
         cmd = { 'lean-language-server', '--stdio', '--', '-M', '6144', '-T', '3000000' },
         on_attach = on_attach,
