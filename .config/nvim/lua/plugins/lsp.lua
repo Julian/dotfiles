@@ -69,8 +69,8 @@ local function on_attach(client, bufnr)
   end
 
   if client.server_capabilities.codeActionProvider then
-    cmd('n', '<leader>a', vim.lsp.buf.code_action)
-    cmd('i', '<C-a>', vim.lsp.buf.code_action)
+    cmd('n', '<leader>a', require("actions-preview").code_actions)
+    cmd('i', '<C-a>', require("actions-preview").code_actions)
   end
 
   if client.server_capabilities.codeLensProvider then
@@ -99,6 +99,7 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = false,
+    dependencies = { 'aznhe21/actions-preview.nvim' },
     config = function()
       local lspconfig = require('lspconfig')
 
