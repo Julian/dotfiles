@@ -378,10 +378,16 @@ function _G.parent_or_cwd()
   return name
 end
 
+vim.keymap.set('n', '<leader>n', function () vim.diagnostic.goto_next{float = { header = false }} end)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
 vim.keymap.set('n', '<leader>tn', function ()
   vim.wo.number = not vim.wo.number
   vim.wo.relativenumber = not vim.wo.relativenumber
 end)
+
+vim.keymap.set('n', '<leader>K', function() vim.diagnostic.open_float{ scope = "line", header = false, focus = false } end)
+vim.keymap.set('n', '<leader>N', function() vim.diagnostic.goto_prev{float = { header = false }} end)
 
 -- To Port --
 
@@ -419,10 +425,10 @@ nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ de
 nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
-"               <leader>n         LSP goto next diagnostic
+"               <leader>n         goto next diagnostic
 nnoremap        <leader>o         <Cmd>lua jump_to_last_in_project()<CR>
 nnoremap        <leader>p         "*p
-"               <leader>q         LSP set loclist
+"               <leader>q         set loclist to diagnostics
 nnoremap        <leader>r         <Cmd>lua require('telescope.builtin').registers{}<CR>
 nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
@@ -468,9 +474,9 @@ nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
 nnoremap        <leader>D         <Cmd>lua require('telescope.builtin').diagnostics{ bufnr = 0 }<CR>
 nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
-"               <leader>K         LSP show line diagnostics
+"               <leader>K         show line diagnostics
 "               <leader>L         LSP folder management and other mappings
-"               <leader>N         LSP goto previous diagnostic
+"               <leader>N         goto previous diagnostic
 nnoremap  <expr><leader>O         EditFileWORD()
 nnoremap        <leader>P         "*P
 "               <leader>R         LSP rename

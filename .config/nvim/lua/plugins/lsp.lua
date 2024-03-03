@@ -26,10 +26,6 @@ local function on_attach(client, bufnr)
   cmd('n', 'gD', vim.lsp.buf.declaration)
   cmd('n', 'gK', peek_definition)
 
-  cmd('n', '<leader>n', function() vim.diagnostic.goto_next{float = { header = false }} end)
-  cmd('n', '<leader>q', vim.diagnostic.setloclist)
-  cmd('n', '<leader>K', function() vim.diagnostic.open_float{ scope = "line", header = false, focus = false } end)
-  cmd('n', '<leader>N', function() vim.diagnostic.goto_prev{float = { header = false }} end)
   cmd('n', '<leader>R', vim.lsp.buf.rename)
 
   cmd('n', '<leader>La', vim.lsp.buf.add_workspace_folder)
