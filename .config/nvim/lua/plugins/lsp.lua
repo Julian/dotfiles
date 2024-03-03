@@ -22,13 +22,13 @@ local function on_attach(client, bufnr)
 
   cmd('n', 'gd', vim.lsp.buf.definition)
   cmd('n', 'gD', vim.lsp.buf.declaration)
+  cmd('n', 'gi', vim.lsp.buf.implementation)
   cmd('n', 'gK', peek_definition)
 
   cmd('n', '<leader>R', vim.lsp.buf.rename)
 
   cmd('n', '<leader>La', vim.lsp.buf.add_workspace_folder)
   cmd('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder)
-  cmd('n', '<leader>Li', vim.lsp.buf.implementation)
   cmd('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end)
   cmd('n', '<leader>Lr', vim.lsp.buf.references)
 
@@ -50,7 +50,7 @@ local function on_attach(client, bufnr)
   end
 
   if client.server_capabilities.documentHighlightProvider then
-    vim.cmd[[
+    vim.cmd [[
       :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
       :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
@@ -70,7 +70,7 @@ local function on_attach(client, bufnr)
   if client.server_capabilities.codeLensProvider then
     cmd('n', '<leader>Le', vim.lsp.codelens.display)
     cmd('n', '<leader>Ln', vim.lsp.codelens.run)
-    vim.cmd[[
+    vim.cmd [[
       augroup lsp_codelens
         autocmd!
         autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
@@ -79,9 +79,9 @@ local function on_attach(client, bufnr)
   end
 
   if client.server_capabilities.inlayHintProvider then
-    vim.cmd[[hi link LspInlayHint SpecialComment]]
-    cmd('n', '<C-h>', function () vim.lsp.inlay_hint(bufnr, nil) end)
-    cmd('i', '<C-h>', function () vim.lsp.inlay_hint(bufnr, nil) end)
+    vim.cmd [[hi link LspInlayHint SpecialComment]]
+    cmd('n', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end)
+    cmd('i', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end)
   end
 end
 
@@ -99,7 +99,7 @@ return {
 
       local opts = {
         on_attach = on_attach,
-        capabilities = require'cmp_nvim_lsp'.default_capabilities()
+        capabilities = require 'cmp_nvim_lsp'.default_capabilities()
       }
       local lsps = {
         clangd = {},
@@ -206,7 +206,7 @@ return {
       }
 
       lint.linters_by_ft = {
-        lean = { 'mathlib4' };
+        lean = { 'mathlib4' },
       }
     end,
   },

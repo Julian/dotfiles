@@ -378,7 +378,9 @@ function _G.parent_or_cwd()
   return name
 end
 
-vim.keymap.set('n', '<leader>n', function () vim.diagnostic.goto_next{float = { header = false }} end)
+vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev{ float = { header = false } } end)
+vim.keymap.set('n', ']d', function () vim.diagnostic.goto_next{ float = { header = false } } end)
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 vim.keymap.set('n', '<leader>tn', function ()
@@ -387,7 +389,6 @@ vim.keymap.set('n', '<leader>tn', function ()
 end)
 
 vim.keymap.set('n', '<leader>K', function() vim.diagnostic.open_float{ scope = "line", header = false, focus = false } end)
-vim.keymap.set('n', '<leader>N', function() vim.diagnostic.goto_prev{float = { header = false }} end)
 
 -- To Port --
 
