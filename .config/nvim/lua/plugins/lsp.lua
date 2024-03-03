@@ -1,18 +1,16 @@
-local function preview_location_callback(_, result, _)
-  if result == nil or vim.tbl_isempty(result) then
-    vim.notify('No definition found.')
-    return nil
-  end
-  if vim.tbl_islist(result) then
-    vim.lsp.util.preview_location(result[1])
-  else
-    vim.lsp.util.preview_location(result)
-  end
-end
-
 local function peek_definition()
   local params = vim.lsp.util.make_position_params()
-  return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
+  return vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result, _)
+    if result == nil or vim.tbl_isempty(result) then
+      vim.notify('No definition found.')
+      return nil
+    end
+    if vim.tbl_islist(result) then
+      vim.lsp.util.preview_location(result[1])
+    else
+      vim.lsp.util.preview_location(result)
+    end
+  end)
 end
 
 local function on_attach(client, bufnr)
