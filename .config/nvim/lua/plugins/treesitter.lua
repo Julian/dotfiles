@@ -40,11 +40,6 @@ return {
         indent = {
           enable = true,
         },
-        playground = {
-          enable = true,
-          disable = {},
-          updatetime = 25,
-        },
         query_linter = {
           enable = true,
           use_virtual_text = true,
@@ -66,6 +61,5 @@ return {
         },
       }
     end,
-  },
-  { 'nvim-treesitter/playground', cmd = 'TSPlaygroundToggle' },
+  }
 }

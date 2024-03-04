@@ -465,7 +465,9 @@ nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal s
 nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 "               <leader>ttd       Toggle diagnostics
 nnoremap        <leader>tth       <Cmd>TSBufToggle highlight<CR>
-nnoremap        <leader>ttp       <Cmd>TSPlaygroundToggle<CR>
+nnoremap        <leader>tti       <Cmd>Inspect<CR>
+nnoremap        <leader>ttp       <Cmd>InspectTree<CR>
+nnoremap        <leader>ttq       <Cmd>EditQuery<CR>
 nnoremap        <leader>ttt       <Cmd>lua require('telescope.builtin').treesitter{}<CR>
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>setlocal wrap!<CR>
