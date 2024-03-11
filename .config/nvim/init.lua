@@ -383,12 +383,21 @@ vim.keymap.set('n', ']d', function () vim.diagnostic.goto_next{ float = { header
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
+vim.keymap.set('n', '<leader>K', function()
+    vim.diagnostic.open_float{ scope = "line", header = false, focus = false }
+end, { desc = 'show information about line diagnostics in a flot' })
+
+vim.keymap.set('n', '<leader>tb',
+  require'dap'.toggle_breakpoint,
+  { desc = 'toggle setting a breakpoint via DAP' }
+)
+vim.keymap.set('n', '<leader>tl', function()
+  vim.wo.list = not vim.wo.list
+end)
 vim.keymap.set('n', '<leader>tn', function ()
   vim.wo.number = not vim.wo.number
   vim.wo.relativenumber = not vim.wo.relativenumber
-end)
-
-vim.keymap.set('n', '<leader>K', function() vim.diagnostic.open_float{ scope = "line", header = false, focus = false } end)
+end, { desc = 'toggle line numbers of all kinds' })
 
 -- To Port --
 
@@ -455,12 +464,9 @@ nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 "
 "   p : prose mode (suitable for editing longer form text)
 nnoremap        <leader>ta        <Cmd>Vista!!<CR>
-nnoremap        <leader>tb        <Cmd>lua require'dap'.toggle_breakpoint()<CR>
 nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
 nnoremap        <leader>td        <Cmd>DiffThese<CR>
 nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
-nnoremap        <leader>tl        <Cmd>setlocal list!<CR>
-"               <leader>tn        Toggle numbers
 nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell!<CR>:setlocal wrap!<CR>:setlocal textwidth=0<CR>
 nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 "               <leader>ttd       Toggle diagnostics
