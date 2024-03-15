@@ -108,7 +108,7 @@ return {
   { 'raimon49/requirements.txt.vim', ft = 'requirements', lazy = false },
   { 'stsewd/sphinx.nvim', build = ':UpdateRemotePlugins' },
   { 'tpope/vim-fireplace', ft = 'clojure' },
-  { 'tpope/vim-leiningen', ft = 'clojure' },
+  { 'tpope/vim-salve', ft = 'clojure' },
   { 'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure' },
 
   { 'mfussenegger/nvim-lint' },
