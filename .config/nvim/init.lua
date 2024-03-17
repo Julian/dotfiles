@@ -378,8 +378,18 @@ function _G.parent_or_cwd()
   return name
 end
 
-vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev{ float = { header = false } } end)
-vim.keymap.set('n', ']d', function () vim.diagnostic.goto_next{ float = { header = false } } end)
+-- Jump to next diagnostic, showing the float if it's not likely to already be
+-- visible in the virtual text.
+vim.keymap.set('n', '[d', function()
+  local diagnostic = vim.diagnostic.get_prev()
+  local float = diagnostic.message:find('\n') and { header = false } or false
+  vim.diagnostic.goto_prev{ float = float }
+end)
+vim.keymap.set('n', ']d', function ()
+  local diagnostic = vim.diagnostic.get_next()
+  local float = diagnostic.message:find('\n') and { header = false } or false
+  vim.diagnostic.goto_next{ float = float }
+end)
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
