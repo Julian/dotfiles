@@ -104,10 +104,10 @@ return {
       local lsps = {
         clangd = {},
         clojure_lsp = {},
+        eslint = {},
         gopls = {},
         marksman = {},
         ruff_lsp = {},
-        tailwindcss = {},
         taplo = {},
         texlab = {},
         tsserver = {},
