@@ -105,6 +105,7 @@ bower_components/
 # Lean #
 # ---- #
 
+/.lake/*
 /lean_packages/*
 !/lean_packages/manifest.json
 
