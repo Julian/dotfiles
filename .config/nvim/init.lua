@@ -382,11 +382,13 @@ end
 -- visible in the virtual text.
 vim.keymap.set('n', '[d', function()
   local diagnostic = vim.diagnostic.get_prev()
+  if not diagnostic then return end
   local float = diagnostic.message:find('\n') and { header = false } or false
   vim.diagnostic.goto_prev{ float = float }
 end)
 vim.keymap.set('n', ']d', function ()
   local diagnostic = vim.diagnostic.get_next()
+  if not diagnostic then return end
   local float = diagnostic.message:find('\n') and { header = false } or false
   vim.diagnostic.goto_next{ float = float }
 end)
