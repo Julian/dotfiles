@@ -345,32 +345,6 @@ _G.SMALL_FILESYSTEM = (statfs.bavail * statfs.bsize) < 5 * 1024 * 1024 * 1024
 _G.q = vim.print
 vim.cmd[[command! -nargs=1 -complete=lua Q lua q(<args>)]]
 
---- Jump to the next entry in the jumplist which is a child of the current working directory.
-function _G.jump_to_last_in_project()
-  local cwd = vim.fn.getcwd()
-  local jumplist, current = unpack(vim.fn.getjumplist())
-  for position = current - 1, 1, -1 do
-    local jump = jumplist[position]
-    local path = vim.api.nvim_buf_get_name(jump.bufnr)
-    if vim.startswith(path, cwd) then
-      return vim.api.nvim_win_set_buf(0, jump.bufnr)
-    end
-  end
-end
-
---- Jump to the last entry in the jumplist which is a child of the current working directory.
-function _G.jump_to_next_in_project()
-  local cwd = vim.fn.getcwd()
-  local jumplist, current = unpack(vim.fn.getjumplist())
-  for position = current, #jumplist, 1 do
-    local jump = jumplist[position]
-    local path = vim.api.nvim_buf_get_name(jump.bufnr)
-    if vim.startswith(path, cwd) then
-      return vim.api.nvim_win_set_buf(0, jump.bufnr)
-    end
-  end
-end
-
 --- The parent dir of the current buffer if it has a name, otherwise cwd.
 function _G.parent_or_cwd()
   local name = vim.fn.expand('%:h')
@@ -392,6 +366,31 @@ vim.keymap.set('n', ']d', function ()
   local float = diagnostic.message:find('\n') and { header = false } or false
   vim.diagnostic.goto_next{ float = float }
 end)
+
+vim.keymap.set('n', '<leader>i', function()
+  local cwd = vim.fn.getcwd()
+  local jumplist, current = unpack(vim.fn.getjumplist())
+  for position = current, #jumplist, 1 do
+    local jump = jumplist[position]
+    local path = vim.api.nvim_buf_get_name(jump.bufnr)
+    if vim.startswith(path, cwd) then
+      return vim.api.nvim_win_set_buf(0, jump.bufnr)
+    end
+  end
+end, { desc = 'Jump to the last entry in the jumplist which is a child of the current working directory.' })
+
+vim.keymap.set('n', '<leader>o', function()
+  local cwd = vim.fn.getcwd()
+  local jumplist, current = unpack(vim.fn.getjumplist())
+  for position = current - 1, 1, -1 do
+    local jump = jumplist[position]
+    local path = vim.api.nvim_buf_get_name(jump.bufnr)
+    if vim.startswith(path, cwd) then
+      return vim.api.nvim_win_set_buf(0, jump.bufnr)
+    end
+  end
+end, { desc = 'Jump to the next entry in the jumplist which is a child of the current working directory.' })
+
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
@@ -442,13 +441,13 @@ nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope
 nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }<CR>
 "               <leader>g         Git
 nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags{ only_sort_tags = true }<CR>
-nnoremap        <leader>i         <Cmd>lua jump_to_next_in_project()<CR>
+"               <leader>i         jump_to_last
 nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
 nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
 nmap            <leader>m         <Plug>(quickhl-manual-this)
 "               <leader>n         goto next diagnostic
-nnoremap        <leader>o         <Cmd>lua jump_to_last_in_project()<CR>
+"               <leader>o         jump_to_next
 nnoremap        <leader>p         "*p
 "               <leader>q         set loclist to diagnostics
 nnoremap        <leader>r         <Cmd>lua require('telescope.builtin').registers{}<CR>
