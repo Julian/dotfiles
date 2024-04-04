@@ -245,6 +245,7 @@ vim.keymap.set(
       vim.cmd.diffupdate()
       require('notify').dismiss()
     end)
+    vim.lsp.buf.clear_references()
     return '<C-L>'
   end,
   { expr = true }
