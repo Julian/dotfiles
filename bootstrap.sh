@@ -14,7 +14,7 @@ fi
 main()
 {
     clone_dotfiles
-    continue_with_dot
+    continue_with_install
 }
 
 clone_dotfiles()
@@ -82,7 +82,7 @@ install()
     printf 'done\n'
 }
 
-continue_with_dot()
+continue_with_install()
 {
-    exec $DOTFILES_DEST/dot install
+    exec $DOTFILES_DEST/install
 }
