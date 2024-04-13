@@ -518,10 +518,6 @@ link = ["shiv"]
 install = ["twine", "keyring"]
 link = ["twine", "keyring"]
 
-[virtualenv.uv]
-install = ["uv"]
-link = ["uv"]
-
 [virtualenv.wormhole]
 install = ["magic-wormhole"]
 link = ["wormhole"]
