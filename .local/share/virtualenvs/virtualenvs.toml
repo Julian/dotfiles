@@ -451,10 +451,6 @@ link = ["tox", "tox-ini-fmt"]
 install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
 
-[virtualenv.youtube-dl]
-install = ["youtube-dl"]
-link = ["youtube-dl"]
-
 # --- Packaging ---
 
 [virtualenv.build]
