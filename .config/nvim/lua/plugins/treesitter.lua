@@ -48,6 +48,7 @@ return {
           lint_events = { 'BufWrite', 'CursorHold' },
         },
         endwise = { enable = true },
+        matchup = { enable = true },
         textobjects = {
           select = {
             enable = true,

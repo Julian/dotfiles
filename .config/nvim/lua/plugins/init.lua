@@ -18,7 +18,21 @@ return {
     cmd = { 'SplitjoinJoin', 'SplitjoinSplit' },
   },
   { 'AndrewRadev/switch.vim', lazy = false },
-  { 'andymass/vim-matchup', lazy = false },
+  {
+    'andymass/vim-matchup',
+    lazy = false,
+    keys = {
+      {
+        '<C-j>',
+        vim.cmd.MatchupWhereAmI,
+        desc = 'Matchup Breadcrumbs',
+      },
+    },
+    init = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      vim.g.matchup_surround_enabled = 1
+    end,
+  },
   { 'bruno-/vim-vertical-move' },
   { 'dahu/vim-fanfingtastic', lazy = false },
   { 'easymotion/vim-easymotion' },
