@@ -23,12 +23,14 @@ return {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
     },
     config = function()
+      ---@diagnostic disable-next-line: inject-field
       require('nvim-treesitter.parsers').get_parser_configs().vhs = {
         install_info = {
           url = 'https://github.com/charmbracelet/tree-sitter-vhs',
           files = {"src/parser.c"},
         }
       }
+      ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup{
         ensure_installed = parsers,
         ignore_install = { 'phpdoc' },
