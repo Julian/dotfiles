@@ -15,7 +15,11 @@ return {
   { 'AndrewRadev/linediff.vim', cmd = { 'Linediff', 'LinediffReset' } },
   {
     'AndrewRadev/splitjoin.vim',
-    cmd = { 'SplitjoinJoin', 'SplitjoinSplit' },
+    lazy = false,
+    keys = {
+      { 's<CR>', vim.cmd.SplitjoinSplit },
+      { 'ss', vim.cmd.SplitjoinJoin },
+    },
   },
   { 'AndrewRadev/switch.vim', lazy = false },
   {

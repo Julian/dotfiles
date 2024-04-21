@@ -191,10 +191,8 @@ end
 
 keynop({ 'i', 'n' }, '<F1>')
 
--- Put exchange and splitjoin on s, use cl if you want that, but I rarely do.
+-- Put exchange (and splitjoin) on s, use cl if you want that, but I rarely do.
 keyplug({ 'n', 'v', 's' }, 's', 'Exchange')
-keycmd('n', 's<CR>', 'SplitjoinSplit')
-keycmd('n', 'ss', 'SplitjoinJoin')
 
 -- Use arrow keys for diff-mode putting and getting
 for key, value in pairs{
