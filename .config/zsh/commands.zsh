@@ -5,6 +5,7 @@ autoload \
     conf \
     filter \
     randomize-mac \
+    regenerate-completions \
     ssp \
     st \
     sst \
