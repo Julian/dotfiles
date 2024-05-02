@@ -69,6 +69,7 @@ return {
   { 'liuchengxu/vista.vim', cmd = 'Vista' },
   {
     'mbbill/undotree',
+    cmd = 'UndotreeToggle',
     init = function() vim.g.undotree_TreeNodeShape = '✷' end,
   },
   {
