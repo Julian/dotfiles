@@ -6,10 +6,9 @@ local function peek_definition()
       return nil
     end
     if vim.tbl_islist(result) then
-      vim.lsp.util.preview_location(result[1])
-    else
-      vim.lsp.util.preview_location(result)
+      result = result[1]
     end
+    vim.lsp.util.preview_location(result, { border = 'single' })
   end)
 end
 
