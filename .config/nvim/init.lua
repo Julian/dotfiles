@@ -185,9 +185,6 @@ local function keynop(modes, lhs) vim.keymap.set(modes, lhs, '') end
 local function keyplug(modes, lhs, plug)
   vim.keymap.set(modes, lhs, '<Plug>(' .. plug .. ')')
 end
-local function keycmd(modes, lhs, cmd)
-  vim.keymap.set(modes, lhs, '<Cmd>' .. cmd .. '<CR>')
-end
 
 keynop({ 'i', 'n' }, '<F1>')
 
