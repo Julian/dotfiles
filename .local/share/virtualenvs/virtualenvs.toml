@@ -525,7 +525,6 @@ requirements = ["${DEVELOPMENT}/til/requirements.txt"]
 link = ["pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.bowtie]
-python = "python3.11"
 install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/bowtie"]
 link = ["bowtie"]
