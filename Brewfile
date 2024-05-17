@@ -1,6 +1,5 @@
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "github/gh"
 tap "julian/tap"
 tap "universal-ctags/universal-ctags"
