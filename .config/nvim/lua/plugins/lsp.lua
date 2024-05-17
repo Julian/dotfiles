@@ -17,8 +17,6 @@ local function on_attach(client, bufnr)
     vim.keymap.set(mode, lhs, rhs, { noremap = true, buffer = true })
   end
 
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   cmd('n', 'gd', vim.lsp.buf.definition)
   cmd('n', 'gD', vim.lsp.buf.declaration)
   cmd('n', 'gi', vim.lsp.buf.implementation)
@@ -30,10 +28,6 @@ local function on_attach(client, bufnr)
   cmd('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder)
   cmd('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end)
   cmd('n', '<leader>Lr', vim.lsp.buf.references)
-
-  if client.server_capabilities.hoverProvider then
-    cmd('n', 'K', vim.lsp.buf.hover)
-  end
 
   if client.server_capabilities.documentFormattingProvider then
     cmd('n', '<leader>z', vim.lsp.buf.format)
@@ -153,33 +147,32 @@ return {
           on_init = function(client)
             local path = client.workspace_folders[1].name
             local luarc = path .. '/.luarc.json'
-            if not vim.loop.fs_stat(luarc) and not vim.loop.fs_stat(luarc .. 'c') then
-              client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
-                Lua = {
-                  runtime = {
-                    version = 'LuaJIT',
-                    path = runtime_path,
-                  },
-                  completion = {
-                    keywordSnippet = "Replace",
-                    callSnippet = "Replace"
-                  },
-                  diagnostics = {
-                    globals = { 'describe', 'it', 'pending', 'vim' },
-                  },
-                  hint = { enable = true },
-                  workspace = {
-                    checkThirdParty = "ApplyInMemory",
-                    library = vim.api.nvim_get_runtime_file("", true),
-                  },
-                  telemetry = { enable = false },
-                },
-              })
-
-              client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            if vim.loop.fs_stat(luarc) or vim.loop.fs_stat(luarc .. 'c') then
+              return
             end
-            return true
+            client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+              runtime = {
+                version = 'LuaJIT',
+                path = runtime_path,
+              },
+              completion = {
+                keywordSnippet = "Replace",
+                callSnippet = "Replace"
+              },
+              diagnostics = {
+                globals = { 'describe', 'it', 'pending', 'vim' },
+              },
+              hint = { enable = true },
+              workspace = {
+                checkThirdParty = "ApplyInMemory",
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+              telemetry = { enable = false },
+            })
+
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
           end,
+          settings = { Lua = {} },
         },
       }
 
