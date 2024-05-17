@@ -1,6 +1,6 @@
 local target=($XDG_CONFIG_HOME/$1)
 if [[ -d "$target" ]]; then
-    exa ${~target}
+    eza ${~target}
 else
     $EDITOR ${~target}
 fi

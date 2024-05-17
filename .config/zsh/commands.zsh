@@ -92,9 +92,9 @@ else
     alias ls='ls -h'
 fi
 
-if (( $+commands[exa] )); then
-    alias exa='exa --git --group-directories-first --sort Name'
-    alias l=exa
+if (( $+commands[eza] )); then
+    alias eza='eza --git --group-directories-first --sort Name'
+    alias l=eza
 else
     alias l=ls
 fi
