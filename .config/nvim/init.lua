@@ -254,12 +254,7 @@ end, { expr = true })
 vim.keymap.set('n', 'dK', vim.fn['runt#follow'])
 
 vim.keymap.set('n', '<leader>ttd', function()
-  if vim.b.diagnostics_hidden then
-    vim.diagnostic.enable(0)
-  else
-    vim.diagnostic.disable(0)
-  end
-  vim.b.diagnostics_hidden = not vim.b.diagnostics_hidden
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end)
 
 -- Filetypes --
@@ -391,7 +386,7 @@ end, { desc = 'Jump to the next entry in the jumplist which is a child of the cu
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 vim.keymap.set('n', '<leader>K', function()
-    vim.diagnostic.open_float{ scope = "line", header = false, focus = false }
+    vim.diagnostic.open_float{ scope = "line", header = '', focus = false }
 end, { desc = 'show information about line diagnostics in a flot' })
 
 vim.keymap.set('n', '<leader>tb',
