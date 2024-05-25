@@ -5,6 +5,7 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
     },
+    cmd = { 'Telescope' },
     init = function()
       vim.ui.select = function(...)
         -- Trigger telescope-ui-select to load
