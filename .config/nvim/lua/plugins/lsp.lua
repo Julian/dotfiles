@@ -12,71 +12,74 @@ local function peek_definition()
   end)
 end
 
-local function on_attach(client, bufnr)
-  local function cmd(mode, lhs, rhs)
-    vim.keymap.set(mode, lhs, rhs, { noremap = true, buffer = true })
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    local opts = { noremap = true, buffer = bufnr }
+
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gK', peek_definition, opts)
+
+    vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
+
+    vim.keymap.set('n', '<leader>La', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end, opts)
+    vim.keymap.set('n', '<leader>Lr', vim.lsp.buf.references, opts)
+
+    if client.server_capabilities.documentFormattingProvider then
+      vim.keymap.set('n', '<leader>z', vim.lsp.buf.format, opts)
+    end
+
+    if client.server_capabilities.typeDefinitionProvider then
+      vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
+    end
+
+    if client.server_capabilities.signatureHelpProvider then
+      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+      vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
+    end
+
+    if client.server_capabilities.documentHighlightProvider then
+      vim.cmd [[
+        :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+        :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+        :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+        augroup lsp_document_highlight
+          autocmd!
+          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        augroup END
+      ]]
+    end
+
+    if client.server_capabilities.codeActionProvider then
+      vim.keymap.set('n', '<leader>a', require("actions-preview").code_actions, opts)
+      vim.keymap.set('i', '<C-a>', require("actions-preview").code_actions, opts)
+    end
+
+    if client.server_capabilities.codeLensProvider then
+      vim.keymap.set('n', '<leader>Le', vim.lsp.codelens.display, opts)
+      vim.keymap.set('n', '<leader>Ln', vim.lsp.codelens.run, opts)
+      vim.cmd [[
+        augroup lsp_codelens
+          autocmd!
+          autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+        augroup END
+      ]]
+    end
+
+    if client.server_capabilities.inlayHintProvider then
+      vim.cmd [[hi link LspInlayHint SpecialComment]]
+      vim.keymap.set('n', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end, opts)
+      vim.keymap.set('i', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end, opts)
+    end
   end
-
-  cmd('n', 'gd', vim.lsp.buf.definition)
-  cmd('n', 'gD', vim.lsp.buf.declaration)
-  cmd('n', 'gi', vim.lsp.buf.implementation)
-  cmd('n', 'gK', peek_definition)
-
-  cmd('n', '<leader>R', vim.lsp.buf.rename)
-
-  cmd('n', '<leader>La', vim.lsp.buf.add_workspace_folder)
-  cmd('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder)
-  cmd('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end)
-  cmd('n', '<leader>Lr', vim.lsp.buf.references)
-
-  if client.server_capabilities.documentFormattingProvider then
-    cmd('n', '<leader>z', vim.lsp.buf.format)
-  end
-
-  if client.server_capabilities.typeDefinitionProvider then
-    cmd('n', 'gy', vim.lsp.buf.type_definition)
-  end
-
-  if client.server_capabilities.signatureHelpProvider then
-    cmd('n', '<C-k>', vim.lsp.buf.signature_help)
-    cmd('i', '<C-s>', vim.lsp.buf.signature_help)
-  end
-
-  if client.server_capabilities.documentHighlightProvider then
-    vim.cmd [[
-      :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-      augroup lsp_document_highlight
-        autocmd!
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
-  end
-
-  if client.server_capabilities.codeActionProvider then
-    cmd('n', '<leader>a', require("actions-preview").code_actions)
-    cmd('i', '<C-a>', require("actions-preview").code_actions)
-  end
-
-  if client.server_capabilities.codeLensProvider then
-    cmd('n', '<leader>Le', vim.lsp.codelens.display)
-    cmd('n', '<leader>Ln', vim.lsp.codelens.run)
-    vim.cmd [[
-      augroup lsp_codelens
-        autocmd!
-        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
-      augroup END
-    ]]
-  end
-
-  if client.server_capabilities.inlayHintProvider then
-    vim.cmd [[hi link LspInlayHint SpecialComment]]
-    cmd('n', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end)
-    cmd('i', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end)
-  end
-end
+})
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
@@ -91,7 +94,6 @@ return {
       local lspconfig = require('lspconfig')
 
       local opts = {
-        on_attach = on_attach,
         capabilities = require 'cmp_nvim_lsp'.default_capabilities()
       }
       local lsps = {
@@ -227,11 +229,6 @@ return {
           return true
         end
       },
-      lsp = { on_attach = on_attach },
-      lsp3 = {
-        cmd = { 'lean-language-server', '--stdio', '--', '-M', '6144', '-T', '3000000' },
-        on_attach = on_attach,
-      },
       mappings = true,
       stderr = {
         on_lines = function(lines)
@@ -253,7 +250,6 @@ return {
     end,
     opts = {
       server = {
-        on_attach = on_attach,
         settings = {
           ["rust-analyzer"] = {
             cargo = { features = "all" },
