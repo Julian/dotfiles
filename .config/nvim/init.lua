@@ -79,6 +79,14 @@ vim.opt.wildignore:append {
   '**/.gems/**', '**/.chef/checksums/**',
 }
 
+
+if vim.fn.executable('rg') then
+  vim.o.grepprg = 'rg --hidden --vimgrep --no-heading --smart-case $*'
+  vim.o.grepformat = '%f:%l:%c:%m,%f:%l:%m'
+elseif vim.fn.filereadable('/usr/local/bin/grep') then  -- newer grep
+  vim.o.grepprg = '/usr/local/bin/grep'
+end
+
 uv.fs_open('/usr/share/dict/words', 'r', 438, function(err, fd)
   if err then return end
   vim.schedule(function()
@@ -532,13 +540,6 @@ vnoremap        <leader>d         <Cmd>Linediff<CR>
 vmap            <leader>m         <Plug>(quickhl-manual-this)
 vnoremap        <leader>p         "*p
 vnoremap        <leader>y         "*y
-
-if executable("rg")                        " RIP
-    set grepprg=rg\ --hidden\ --vimgrep\ --no-heading\ --smart-case\ $*
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-elseif filereadable("/usr/local/bin/grep") " or if there's a newer grep...
-    set grepprg=/usr/local/bin/grep
-endif
 
 
 " ============
