@@ -64,7 +64,7 @@ return {
       vim.keymap.set('n', '<CR>', function()
         local filetype = vim.opt.filetype:get()
         local dap = require('dap')
-        if filetype == 'qf' or vim.fn.bufname() == '[Command Line]' then return '<CR>'
+        if filetype == 'qf' or vim.fn.win_gettype() == 'command' then return '<CR>'
         elseif filetype == 'help' then return '<C-]>'
         elseif filetype == 'vimwiki' then return ':VimwikiFollowLink<CR>'
         elseif dap.session() ~= nil then dap.run_to_cursor() return ''
