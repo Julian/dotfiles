@@ -24,27 +24,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gK', peek_definition, opts)
 
-    vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
+    if client.supports_method('textDocument/rename') then
+      vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
+    end
 
     vim.keymap.set('n', '<leader>La', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end, opts)
     vim.keymap.set('n', '<leader>Lr', vim.lsp.buf.references, opts)
 
-    if client.server_capabilities.documentFormattingProvider then
+    if client.supports_method('textDocument/formatting') then
       vim.keymap.set('n', '<leader>z', vim.lsp.buf.format, opts)
     end
 
-    if client.server_capabilities.typeDefinitionProvider then
+    if client.supports_method('textDocument/typeDefinition') then
       vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
     end
 
-    if client.server_capabilities.signatureHelpProvider then
+    if client.supports_method('textDocument/signatureHelp') then
       vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
       vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
     end
 
-    if client.server_capabilities.documentHighlightProvider then
+    if client.supports_method('textDocument/documentHighlight') then
       vim.cmd [[
         :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
         :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
@@ -57,26 +59,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
       ]]
     end
 
-    if client.server_capabilities.codeActionProvider then
+    if client.supports_method('textDocument/codeAction') then
       vim.keymap.set('n', '<leader>a', require("actions-preview").code_actions, opts)
       vim.keymap.set('i', '<C-a>', require("actions-preview").code_actions, opts)
     end
 
-    if client.server_capabilities.codeLensProvider then
+    if client.supports_method('textDocument/codeLens') then
       vim.keymap.set('n', '<leader>Le', vim.lsp.codelens.display, opts)
       vim.keymap.set('n', '<leader>Ln', vim.lsp.codelens.run, opts)
-      vim.cmd [[
-        augroup lsp_codelens
-          autocmd!
-          autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
-        augroup END
-      ]]
+      vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+        buffer = bufnr,
+        callback = function() vim.lsp.codelens.refresh{ bufnr = bufnr } end,
+      })
     end
 
-    if client.server_capabilities.inlayHintProvider then
-      vim.cmd [[hi link LspInlayHint SpecialComment]]
-      vim.keymap.set('n', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end, opts)
-      vim.keymap.set('i', '<C-h>', function() vim.lsp.inlay_hint(bufnr, nil) end, opts)
+    if client.supports_method('textDocument/inlayHint') then
+      -- vim.cmd [[hi link LspInlayHint SpecialComment]]
+      vim.keymap.set({ 'n', 'i' }, '<C-h>', function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled{ bufnr = bufnr }, { bufnr = bufnr })
+      end, opts)
     end
   end
 })
