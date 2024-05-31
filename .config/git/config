@@ -144,6 +144,7 @@
     release = !sh -c 'git tag -a $@ -m Release' -
 
     # New operations
+    pr = !sh -c 'git fetch origin pull/$1/head:pr/$1' -
     up = "!git fetch --all --prune && git merge --ff-only @{u} && git submodule update"
     inc = !sh -c 'git cia && git stash --include-untracked && $@ && git stash pop'
     changes = !sh -c '[[ "$(git rev-parse --abbrev-ref HEAD)" =~ "master|develop|trunk" ]] && git d HEAD...$1 || git d ...$1' -
