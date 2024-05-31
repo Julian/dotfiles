@@ -409,6 +409,14 @@ vim.keymap.set('n', '<leader>tn', function ()
   vim.wo.relativenumber = not vim.wo.relativenumber
 end, { desc = 'toggle line numbers of all kinds' })
 
+vim.keymap.set('n', '<leader>tS', function ()
+  -- FIXME: We aren't actually toggling.
+  vim.o.laststatus = 0
+  vim.api.nvim_set_hl(0 , 'Statusline', { link = 'Normal' })
+  vim.api.nvim_set_hl(0 , 'StatuslineNC', { link = 'Normal' })
+  vim.o.statusline = ('-'):rep(vim.api.nvim_win_get_width(0))
+end, { desc = 'toggle screenshot mode' })
+
 -- To Port --
 
 vim.cmd[[
