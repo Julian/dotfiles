@@ -526,7 +526,10 @@ link = ["pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.bowtie]
 install-bundle = ["development"]
-install = ["-e", "${DEVELOPMENT}/bowtie"]
+install = [
+  "-r", "${DEVELOPMENT}/bowtie/test-requirements.txt",
+  "-e", "${DEVELOPMENT}/bowtie",
+]
 link = ["bowtie"]
 
 [virtualenv.diff]
