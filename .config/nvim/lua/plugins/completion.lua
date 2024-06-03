@@ -58,13 +58,23 @@ return {
       })
 
       vim.keymap.set('n', '<CR>', function()
+        local open_wiki = ':<C-U>VimwikiIndex<CR>'
+
         local filetype = vim.opt.filetype:get()
         local dap = require('dap')
         if filetype == 'qf' or vim.fn.win_gettype() == 'command' then return '<CR>'
         elseif filetype == 'help' then return '<C-]>'
         elseif filetype == 'vimwiki' then return ':VimwikiFollowLink<CR>'
         elseif dap.session() ~= nil then dap.run_to_cursor() return ''
-        else return ':<C-U>SplitSensibly<CR>:VimwikiIndex<CR>'
+        elseif vim.api.nvim_buf_get_name(0):match("TODO") then return open_wiki
+        else
+          local split = ':<C-U>SplitSensibly '
+          local todo = vim.fn.glob('TODO*', true, true)[1]
+          if todo then
+            return split .. todo .. '<CR>'
+          else
+            return split .. '<CR>' .. open_wiki
+          end
         end
       end, { expr = true })
 
