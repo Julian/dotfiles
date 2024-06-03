@@ -117,7 +117,6 @@ return {
       }
     end,
   },
-
   { 'b0o/schemastore.nvim' },
   { 'guns/vim-sexp', ft = 'clojure' },
   {

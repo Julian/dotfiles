@@ -7,7 +7,7 @@ if vim.env.TERM ~= 'xterm-256color' or vim.env.TERMUX_HOME ~= '' then
   vim.opt.termguicolors = true
 end
 
-local uv = vim.loop or vim.uv
+local uv = vim.uv or vim.loop
 
 -- Spelling --
 
