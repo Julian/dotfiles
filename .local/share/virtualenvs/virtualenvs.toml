@@ -7,34 +7,26 @@ development = [
     "pudb",
     "pytest",
     "q",
-    "rich; python_version>='3'",
+    "rich",
     "virtue",
 ]
-core = [
+more = [
     "coverage",
-    "filesystems",
-    "glom",
-    "hyperlink",
     "hypothesis",
     "inflect",
-    "jinja2",
-    "pathlib2; python_version<='2.7'",
-    "subprocess32; python_version<='2.7'",
-    "pyinstrument; python_version>='3' and platform_python_implementation != 'PyPy'",
-    "pyperf; python_version>='3'",
-    "pyrsistent",
+    "pyinstrument; platform_python_implementation != 'PyPy'",
+    "pyperf",
     "pytest-cov",
+    "pytest-xdist",
     "python-papi; platform_system=='Linux' and platform_machine != 'aarch64'",
-    "pytoml",
     "pyyaml",
-    "twisted[conch,tls]; python_version>='3'",
 ]
 
 # --- Development ---
 
 [virtualenv.dev]
 python = "pypy3"
-install-bundle = ["core", "development"]
+install-bundle = ["more", "development"]
 link = [
     "bpython:bpython",
     "bpython-urwid:bpython-urwid",
@@ -52,7 +44,7 @@ link = [
 link-module = ["pydoc"]
 
 [virtualenv.dev-cpython]
-install-bundle = ["core", "development"]
+install-bundle = ["more", "development"]
 install = ["pyinstrument"]
 link = [
     "bpython:bpython-cpython3",
@@ -216,7 +208,7 @@ post-commands = [
     ],
     ["jupyter", "lab", "build"],
 ]
-install-bundle = ["core", "development"]
+install-bundle = ["more", "development"]
 install = [
     "numpy>=1.21.1",
     "scipy>=1.7.3",
@@ -525,11 +517,8 @@ requirements = ["${DEVELOPMENT}/til/requirements.txt"]
 link = ["pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.bowtie]
-install-bundle = ["development"]
-install = [
-  "-r", "${DEVELOPMENT}/bowtie/test-requirements.txt",
-  "-e", "${DEVELOPMENT}/bowtie",
-]
+install-bundle = ["development", "more"]
+install = ["-r", "${DEVELOPMENT}/bowtie/test-requirements.txt"]
 link = ["bowtie"]
 
 [virtualenv.diff]
