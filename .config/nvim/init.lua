@@ -1,17 +1,17 @@
-vim.opt.modeline = false
+vim.o.modeline = false
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = vim.g.mapleader .. vim.g.mapleader
 
 if vim.env.TERM ~= 'xterm-256color' or vim.env.TERMUX_HOME ~= '' then
-  vim.opt.termguicolors = true
+  vim.o.termguicolors = true
 end
 
 local uv = vim.uv or vim.loop
 
 -- Spelling --
 
-vim.opt.spellfile = vim.fn.stdpath('config') .. '/spellfile.add'
+vim.o.spellfile = vim.fn.stdpath('config') .. '/spellfile.add'
 
 -- Plugins --
 
@@ -37,14 +37,14 @@ require('lazy').setup('plugins', {
   },
 })
 
-vim.opt.gdefault = true
-vim.opt.lazyredraw = true               -- no redraw during macros (much faster)
-vim.opt.linebreak = true
-vim.opt.report = 0                      -- :cmd always shows changed line count
-vim.opt.textwidth = 79
+vim.o.gdefault = true
+vim.o.lazyredraw = true               -- no redraw during macros (much faster)
+vim.o.linebreak = true
+vim.o.report = 0                      -- :cmd always shows changed line count
+vim.o.textwidth = 79
 
-vim.opt.wrap = false
-vim.opt.showbreak = '↪   '
+vim.o.wrap = false
+vim.o.showbreak = '↪   '
 
 vim.opt.fillchars:append('diff:·')
 vim.opt.isfname:remove('=')             -- this is probably an assignment
@@ -55,13 +55,13 @@ vim.opt.tags:append('.git/tags;$HOME')  -- look upward until $HOME for tags
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-vim.opt.pumblend = 5                    -- slightly transparent pum window
+vim.o.pumblend = 5                    -- slightly transparent pum window
 vim.opt.suffixes:append{ '.backup', '.hbm', '.ini' }  -- lower priority
 vim.opt.wildmode = { 'longest:full', 'full' }
 
 -- Really I want wildsmartcase (which doesn't exist), but I don't want to hit
 -- longest: if my match was because of case insensitivity.
-vim.opt.wildignorecase = true
+vim.o.wildignorecase = true
 
 vim.opt.wildignore:append {
   '*.db', '*.o', '*.obj',
@@ -97,44 +97,44 @@ end)
 
 -- Folding --
 
-vim.opt.foldmethod = 'indent'
-vim.opt.foldlevel = 99
+vim.o.foldmethod = 'indent'
+vim.o.foldlevel = 99
 
 -- Guides --
 
-vim.opt.cursorline = true               -- highlight current line
-vim.opt.showmatch = true                -- show matching brackets for a moment
+vim.o.cursorline = true               -- highlight current line
+vim.o.showmatch = true                -- show matching brackets for a moment
 vim.opt.matchpairs:append('<:>')
-vim.opt.matchtime = 5                   -- how long? (*tenths* of second)
+vim.o.matchtime = 5                   -- how long? (*tenths* of second)
 
 -- History --
 
-vim.opt.backup = true
+vim.o.backup = true
 vim.opt.backupdir = {
   vim.env.XDG_CACHE_HOME .. '/nvim/backups',
   '~/tmp',
   '/tmp',
 }
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Interface --
 
-vim.opt.confirm = true            -- dialog instead of warning
+vim.o.confirm = true            -- dialog instead of warning
 vim.opt.shortmess:append('actI')  -- show shorter messages
-vim.opt.title = true              -- change title to filename
-vim.opt.equalalways = true        -- hopefully fix how often :sp's mess up
-vim.opt.splitbelow = true         -- new :sp go on bottom
-vim.opt.splitright = true         -- new :vsp go on right
+vim.o.title = true              -- change title to filename
+vim.o.equalalways = true        -- hopefully fix how often :sp's mess up
+vim.o.splitbelow = true         -- new :sp go on bottom
+vim.o.splitright = true         -- new :vsp go on right
 
-vim.opt.winminheight = 0          -- allow totally minimizing a window
+vim.o.winminheight = 0          -- allow totally minimizing a window
 
-vim.opt.timeoutlen = 500          -- shorten the amount of time to wait
+vim.o.timeoutlen = 500          -- shorten the amount of time to wait
 
-vim.opt.showtabline = 1
+vim.o.showtabline = 1
 
-vim.opt.winblend = 20             --  make floating windows transparentish
+vim.o.winblend = 20             --  make floating windows transparentish
 
-vim.opt.listchars= {
+vim.opt.listchars = {
   tab = '▸ ',
   eol = '¬',
   trail = '·',
@@ -144,33 +144,33 @@ vim.opt.listchars= {
 
 IS_ANDROID = vim.env.ANDROID_ROOT ~= nil
 
-vim.opt.mousemodel = 'popup'
-vim.opt.mouse = IS_ANDROID and 'nv' or 'v'
+vim.o.mousemodel = 'popup'
+vim.o.mouse = IS_ANDROID and 'nv' or 'v'
 
 vim.diagnostic.config{ severity_sort = true, float = { border = 'rounded' } }
 
 -- Movement --
 
-vim.opt.startofline = false       -- never jump back to start of line
+vim.o.startofline = false       -- never jump back to start of line
 
-vim.opt.scrolloff = 2             -- keep lines above and below cursor
-vim.opt.sidescrolloff = 2         -- same for horizontal
+vim.o.scrolloff = 2             -- keep lines above and below cursor
+vim.o.sidescrolloff = 2         -- same for horizontal
 
-vim.opt.virtualedit = 'block'
+vim.o.virtualedit = 'block'
 
 -- Search --
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.tagcase = 'followscs'
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.tagcase = 'followscs'
 
 -- Whitespace --
 
-vim.opt.expandtab = true        -- insert space instead of tab
-vim.opt.shiftround = true       -- rounds indent to a multiple of shiftwidth
-vim.opt.shiftwidth = 4          -- makes # of spaces = 4 for new tab
-vim.opt.softtabstop = 4         -- makes the spaces feel like tab
-vim.opt.tabstop = 8             -- makes # of spaces = 8 for preexisting tab
+vim.o.expandtab = true        -- insert space instead of tab
+vim.o.shiftround = true       -- rounds indent to a multiple of shiftwidth
+vim.o.shiftwidth = 4          -- makes # of spaces = 4 for new tab
+vim.o.softtabstop = 4         -- makes the spaces feel like tab
+vim.o.tabstop = 8             -- makes # of spaces = 8 for preexisting tab
 
 -- Bindings --
 
@@ -294,7 +294,7 @@ vim.api.nvim_create_autocmd('BufReadCmd', {
 -- Formatting --
 
 if vim.fn.executable('par') then
-  vim.opt.formatprg = 'par'
+  vim.o.formatprg = 'par'
 end
 
 -- Miscellaneous --
@@ -309,12 +309,12 @@ vim.api.nvim_create_autocmd('UIEnter', {
   callback = function(ev)
     local ui = vim.api.nvim_get_chan_info(ev.id)
     if ui.client and ui.client.name and ui.client.name == "Firenvim" then
-      vim.opt.laststatus = 0
-      vim.opt.ruler = false
+      vim.o.laststatus = 0
+      vim.o.ruler = false
 
-      vim.opt.spell = true
-      vim.opt.textwidth = 0
-      vim.opt.wrap = true
+      vim.o.spell = true
+      vim.o.textwidth = 0
+      vim.o.wrap = true
 
       -- Display lines make a bit more sense to me for this use case.
       vim.keymap.set('n', 'j', 'gj')
