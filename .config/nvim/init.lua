@@ -231,6 +231,9 @@ vim.keymap.set('n', 'g`', "g'")
 vim.keymap.set('n', "]'", ']`')
 vim.keymap.set('n', ']`', "]'")
 
+-- lua command mode
+vim.keymap.set('n', '<C-;>', ':lua ')
+
 -- Preserve flags for &, and add it in visual mode.
 vim.keymap.set({ 'n', 'x' }, '&', ':&&<CR>')
 
