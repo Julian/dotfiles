@@ -148,6 +148,9 @@ return {
 
         lua_ls = {
           on_init = function(client)
+            -- this is a neovim bug seemingly
+            -- (e.g. see prior precedent in neovim/nvim-lspconfig#1471)
+            if not client.workspace_folders then return end
             local path = client.workspace_folders[1].name
             local luarc = path .. '/.luarc.json'
             if vim.loop.fs_stat(luarc) or vim.loop.fs_stat(luarc .. 'c') then
