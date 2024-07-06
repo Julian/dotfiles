@@ -503,6 +503,7 @@ nnoremap        <leader>tx        <Cmd>call ToggleExpando()<CR>
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
 nnoremap        <leader>D         <Cmd>lua require('telescope.builtin').diagnostics{ bufnr = 0 }<CR>
+nnoremap        <leader>F         <Cmd>lua require('telescope.builtin').lsp_references{}<CR>
 nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
 "               <leader>K         show line diagnostics
 "               <leader>L         LSP folder management and other mappings
