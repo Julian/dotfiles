@@ -46,6 +46,7 @@ return {
           { name = 'nvim_lsp_signature_help' },
           { name = 'vsnip' },
           { name = 'path' },
+          { name = 'lazydev', group_index = 0 },
           { { name = 'buffer' }, }
         }
       }

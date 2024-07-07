@@ -209,6 +209,16 @@ return {
     end,
   },
   {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  { 'Bilal2453/luvit-meta' },
+  {
     'Julian/lean.nvim',
     dev = true,
     dependencies = { 'nvim-lua/plenary.nvim' },
