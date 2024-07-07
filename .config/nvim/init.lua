@@ -400,10 +400,6 @@ vim.keymap.set('n', '<leader>K', function()
     vim.diagnostic.open_float{ scope = "line", header = '', focus = false }
 end, { desc = 'show information about line diagnostics in a flot' })
 
-vim.keymap.set('n', '<leader>tb',
-  require'dap'.toggle_breakpoint,
-  { desc = 'toggle setting a breakpoint via DAP' }
-)
 vim.keymap.set('n', '<leader>tl', function()
   vim.wo.list = not vim.wo.list
 end)
@@ -481,16 +477,16 @@ nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 
 "   <leader>t mappings are for togglers
 "
-" Here are explanations for non-self-explanatory ones:
-"
-"   p : prose mode (suitable for editing longer form text)
 nnoremap        <leader>ta        <Cmd>Vista!!<CR>
+"               <leader>tb        DAP breakpoint
 nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
 nnoremap        <leader>td        <Cmd>DiffThese<CR>
 nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
+"               <leader>tl        list
+"               <leader>tn        line numbering
 nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell!<CR>:setlocal wrap!<CR>:setlocal textwidth=0<CR>
 nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
-"               <leader>ttd       Toggle diagnostics
+"               <leader>ttd       diagnostics
 nnoremap        <leader>tth       <Cmd>TSBufToggle highlight<CR>
 nnoremap        <leader>tti       <Cmd>Inspect<CR>
 nnoremap        <leader>ttp       <Cmd>InspectTree<CR>
@@ -499,6 +495,7 @@ nnoremap        <leader>ttt       <Cmd>lua require('telescope.builtin').treesitt
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>setlocal wrap!<CR>
 nnoremap        <leader>tx        <Cmd>call ToggleExpando()<CR>
+"               <leader>tS        screenshotting
 
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>

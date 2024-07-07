@@ -7,6 +7,13 @@ return {
       local dapui = require('dapui')
       local osv = require('osv')
 
+      vim.keymap.set(
+        'n',
+        '<leader>tb',
+        dap.toggle_breakpoint,
+        { desc = 'Toggle setting a breakpoint using DAP' }
+      )
+
       vim.keymap.set('n', '<leader>Db', dap.toggle_breakpoint)
       vim.keymap.set('n', '<leader>Dc', dap.continue)
       vim.keymap.set('n', '<leader>Dd', dap.down)
