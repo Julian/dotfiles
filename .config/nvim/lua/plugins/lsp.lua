@@ -107,6 +107,7 @@ return {
         taplo = {},
         texlab = {},
         tsserver = {},
+        typst_lsp = {},
         vimls = {},
 
         jsonls = {
