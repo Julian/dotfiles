@@ -1,7 +1,7 @@
 local uv = vim.loop or vim.uv
 
 local parsers = {}
-if uv.fs_stat(vim.env.DEVELOPMENT) then
+if vim.env.DEVELOPMENT and uv.fs_stat(vim.env.DEVELOPMENT) then
   parsers = {
     'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
     'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java', 'javascript',
