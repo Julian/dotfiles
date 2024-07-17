@@ -239,7 +239,7 @@ return {
           for _, window in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
             local buf = vim.api.nvim_win_get_buf(window)
             local name = vim.api.nvim_buf_get_name(buf)
-            if not name:match('.*%.lean') then return false end
+            if name ~= "" and not name:match('.*%.lean') then return false end
           end
           return true
         end
