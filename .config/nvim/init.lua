@@ -398,7 +398,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 vim.keymap.set('n', '<leader>K', function()
     vim.diagnostic.open_float{ scope = "line", header = '', focus = false }
-end, { desc = 'show information about line diagnostics in a flot' })
+end, { desc = 'show information about line diagnostics in a float' })
 
 vim.keymap.set('n', '<leader>tl', function()
   vim.wo.list = not vim.wo.list
