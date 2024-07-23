@@ -6,3 +6,5 @@ vim.b.switch_definitions = {
   { 'truthy', 'falsy' },
   vim.fn['switch#Words']({ 'pending', 'it' })
 }
+
+vim.b.use_single_quotes = true
