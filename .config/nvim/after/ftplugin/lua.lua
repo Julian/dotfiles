@@ -1,5 +1,5 @@
-vim.opt_local.softtabstop = 2
-vim.opt_local.shiftwidth = 2
+vim.bo.softtabstop = 2
+vim.bo.shiftwidth = 2
 
 vim.b.switch_definitions = {
   { 'is_true', 'is_false' },
