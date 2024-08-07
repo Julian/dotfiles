@@ -31,7 +31,7 @@ bindkey "^H" backward-delete-char
 bindkey "^K" push-input
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
-# bindkey "^S" insert-selecta-path-in-command-line  -- bound in commands.zsh
+# bindkey "^S" insert-*-path-in-command-line  -- bound in commands.zsh
 bindkey -M viins "^U" backward-kill-line
 bindkey "^W" backward-kill-word
 

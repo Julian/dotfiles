@@ -43,17 +43,30 @@ elif (( $+commands[apt] )); then
 fi
 
 if (( $+commands[fzy] )); then
-    alias v=$EDITOR' $(fd --type file | fzy)'
+    alias v=$EDITOR' $(fd --hidden --type file | fzy)'
 
+    # for `just` filtering
     export JUST_CHOOSER='fzy --prompt "recipe> "'
 
     function insert-fzy-path-in-command-line() {
-        # Copied from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
+        # Modified from https://github.com/garybernhardt/selecta/blob/master/EXAMPLES.md
         local kind
         [[ "$LBUFFER" =~ "cd " ]] && kind='directory' || kind='file'
         echo
-        local selected_path=$(fd --type "$kind" | fzy) || return
+
+        local find_files
+        local prefix="${LBUFFER##* }"
+        if [[ -d "$prefix" ]]; then
+            find_files=(fd --hidden --type "$kind" . "$prefix")
+        else
+            find_files=(fd --hidden --type "$kind" --full-path "$prefix")
+        fi
+
+        local selected_path=$("${find_files[@]}" | fzy) || return
+
+        LBUFFER="${LBUFFER%$prefix}"
         LBUFFER+="${(q-)selected_path}"
+
         zle reset-prompt
     }
     zle -N insert-fzy-path-in-command-line
