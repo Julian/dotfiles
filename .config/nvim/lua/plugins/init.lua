@@ -41,7 +41,21 @@ return {
   { 'dahu/vim-fanfingtastic', lazy = false },
   { 'easymotion/vim-easymotion' },
   { 'godlygeek/tabular', cmd = 'Tabularize' },
-  { 'itchyny/lightline.vim', lazy = false },
+  {
+    'nvim-lualine/lualine.nvim',
+    lazy = false,
+    opts = {
+      options = { icons_enabled = false },
+      sections = {
+        lualine_c = {
+          {
+            'filename',
+            path = 1,  -- absolute path
+          },
+        },
+      },
+    },
+  },
   { 'jmcantrell/vim-diffchanges', cmd = 'DiffChangesDiffToggle' },
   {
     'kshenoy/vim-signature',
