@@ -12,7 +12,6 @@ return {
 
       cmp.setup{
         preselect = cmp.PreselectMode.None,
-        snippet = { expand = function(args) vim.fn["vsnip#anonymous"](args.body) end },
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
@@ -24,8 +23,8 @@ return {
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif vim.fn["vsnip#available"](1) == 1 then
-              feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif vim.snippet.active{ direction = 1 } then
+              vim.snippet.jump(1)
             elseif has_words_before() then
               cmp.complete()
             else
@@ -36,18 +35,17 @@ return {
           ["<S-Tab>"] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-              feedkey("<Plug>(vsnip-jump-prev)", "")
+            elseif vim.snippet.active{ direction = -1 } then
+              vim.snippet.jump(-1)
             end
           end, { "i", "s" }),
         },
         sources = {
           { name = 'nvim_lsp' },
           { name = 'nvim_lsp_signature_help' },
-          { name = 'vsnip' },
           { name = 'path' },
           { name = 'lazydev', group_index = 0 },
-          { { name = 'buffer' }, }
+          { name = 'buffer' },
         }
       }
 
@@ -94,8 +92,6 @@ return {
       { 'hrsh7th/cmp-nvim-lsp-document-symbol' },
       { 'hrsh7th/cmp-nvim-lsp-signature-help' },
       { 'hrsh7th/cmp-path' },
-      { 'hrsh7th/cmp-vsnip' },
-      { 'hrsh7th/vim-vsnip' },
       {
         'petertriho/cmp-git',
         opts = {},
