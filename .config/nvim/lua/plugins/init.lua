@@ -48,10 +48,22 @@ return {
       options = { icons_enabled = false },
       sections = {
         lualine_c = {
-          {
-            'filename',
-            path = 1,  -- absolute path
-          },
+          { 'filename', path = 1 }, -- absolute path
+        },
+        lualine_y = {
+          --- Display Lean file progress when still processing, otherwise
+          --- fallback to cursor progress via the normal lualine componnet.
+          function()
+            if vim.bo.filetype ~= 'lean' then
+                return require('lualine.components.progress')()
+            end
+
+            local percentage = require'lean.progress'.percentage()
+            if percentage >= 100 then
+              return require('lualine.components.progress')()
+            end
+            return string.format('Processing… %.f%%%%', percentage)
+          end
         },
       },
     },
