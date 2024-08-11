@@ -70,6 +70,10 @@ return {
   },
   { 'jmcantrell/vim-diffchanges', cmd = 'DiffChangesDiffToggle' },
   {
+    'lewis6991/satellite.nvim',
+    event = 'BufReadPost',
+  },
+  {
     'kshenoy/vim-signature',
     init = function()
       vim.g.SignatureMap = {
