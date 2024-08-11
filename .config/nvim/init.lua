@@ -519,7 +519,7 @@ nnoremap        <leader>DD        :<C-U>profile start profile.log<CR>:profile fu
 nnoremap        <leader>DQ        :<C-U>profile pause<CR>:noautocmd quitall!<CR>
 
 nnoremap  <expr><leader>VF        "<Cmd>SplitSensibly " . stdpath("config") .  "/after/ftplugin/" . &filetype . ".lua<CR>"
-nnoremap        <leader>VZ        <Cmd>SplitSensibly $ZDOTDIR/.zshrc.local<CR>
+nnoremap        <leader>VZ        <Cmd>SplitSensibly $ZDOTDIR/zshrc.d/*<CR>
 
 nnoremap        <leader>0         <Cmd>wincmd _<CR>
 
