@@ -1,6 +1,6 @@
 brew "imagemagick"
 cask "blender"
 cask "darktable"
-cask "digikam"
 cask "inkscape"
+cask "phoenix-slides"
 cask "processing"
