@@ -31,7 +31,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', '<leader>La', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end, opts)
-    vim.keymap.set('n', '<leader>Lr', vim.lsp.buf.references, opts)
 
     if client.supports_method('textDocument/formatting') then
       vim.keymap.set('n', '<leader>z', vim.lsp.buf.format, opts)
