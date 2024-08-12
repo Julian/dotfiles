@@ -345,6 +345,13 @@ local statfs = uv.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
 _G.SMALL_FILESYSTEM = (statfs.bavail * statfs.bsize) < 5 * 1024 * 1024 * 1024
 
 _G.q = vim.print
+
+--- (Re-)import the given module.
+function _G.r(module)
+  package.loaded[module] = nil
+  return require(module)
+end
+
 vim.cmd[[command! -nargs=1 -complete=lua Q lua q(<args>)]]
 
 --- The parent dir of the current buffer if it has a name, otherwise cwd.
