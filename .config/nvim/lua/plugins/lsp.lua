@@ -215,10 +215,14 @@ return {
     opts = {
       library = {
         { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+        { path = "luassert-types/library", words = { 'assert' } },
+        { path = "busted-types/library", words = { 'describe' } },
       },
     },
   },
   { 'Bilal2453/luvit-meta' },
+  { 'LuaCATS/luassert', name = 'luassert-types' },
+  { 'LuaCATS/busted', name = 'busted-types' },
   {
     'Julian/lean.nvim',
     dev = true,
