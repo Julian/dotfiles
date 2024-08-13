@@ -163,8 +163,7 @@ return {
                 path = runtime_path,
               },
               completion = {
-                keywordSnippet = "Replace",
-                callSnippet = "Replace"
+                callSnippet = 'Both',
               },
               diagnostics = {
                 globals = { 'describe', 'it', 'pending', 'vim' },
