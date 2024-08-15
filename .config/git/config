@@ -132,7 +132,7 @@
     sw = switch
 
     v = !zsh -c 'cat <(git q) <(echo "\n\n") <(git d @{u}..) | less -FXRS'
-    versions = tag --sort=-version:refname
+    versions = tag --list --sort=-version:refname
     whatsnew = !zsh -c 'git d "$(git versions | head -n1)" $@' -
 
     good = bisect good
