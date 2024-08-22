@@ -57,7 +57,7 @@ return {
       })
 
       vim.keymap.set('n', '<CR>', function()
-        local open_wiki = ':<C-U>VimwikiIndex<CR>'
+        local open_wiki = ':<C-U>ObsidianQuickSwitch Scratch<CR>'
 
         local filetype = vim.opt.filetype:get()
         local dap = require('dap')

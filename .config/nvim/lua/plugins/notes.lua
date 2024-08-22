@@ -1,16 +1,40 @@
 return {
   {
-    'vimwiki/vimwiki',
-    branch = 'dev',
-    cmd = 'VimwikiIndex',
-    init = function()
-      vim.g.vimwiki_key_mappings = { all_maps = 0 }
-      vim.g.vimwiki_list = {
+    'epwalsh/obsidian.nvim',
+    version = '*',
+    ft = 'markdown',
+    cmd = {
+      'ObsidianOpen',
+      'ObsidianNew',
+      'ObsidianQuickSwitch',
+      'ObsidianFollowLink',
+      'ObsidianBacklinks',
+      'ObsidianTags',
+      'ObsidianToday',
+      'ObsidianYesterday',
+      'ObsidianTomorrow',
+      'ObsidianDailies',
+      'ObsidianTemplate',
+      'ObsidianSearch',
+      'ObsidianLink',
+      'ObsidianLinkNew',
+      'ObsidianLinks',
+      'ObsidianExtractNote',
+      'ObsidianWorkspace',
+      'ObsidianPasteImg',
+      'ObsidianRename',
+      'ObsidianToggleCheckbox',
+      'ObsidianNewFromTemplate',
+      'ObsidianTOC',
+    },
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      workspaces = {
         {
-          path = vim.env.XDG_DATA_HOME .. '/nvim/',
-          index = 'global',
+          name = 'vault',
+          path = vim.env.XDG_DOCUMENTS_DIR .. '/Obsidian',
         },
-      }
-    end,
+      },
+    },
   },
 }
