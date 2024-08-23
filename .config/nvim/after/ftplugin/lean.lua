@@ -1,21 +1,15 @@
-local lean = require('lean')
+vim.wo.signcolumn = 'yes'
 
 -- Match mathlib's default style.
 vim.bo.textwidth = 100
 
-vim.opt_local.signcolumn = "yes"
-
-function _G.lean_live_grep()
-  require'telescope.builtin'.live_grep{
-    path_display = { 'tail' },
-    search_dirs = lean.current_search_paths()
-  }
-end
-
-vim.api.nvim_buf_set_keymap(
-  0, "n", "<LocalLeader>g", "<Cmd>lua lean_live_grep()<CR>", { noremap = true }
+vim.keymap.set('n', '<LocalLeader>g', function()
+    require'telescope.builtin'.live_grep{
+      path_display = { 'tail' },
+      search_dirs = require('lean').current_search_paths()
+    }
+  end,
+  { buffer = true }
 )
 
-vim.cmd[[
-  highlight link leanTactic Green
-]]
+vim.cmd.highlight('link leanTactic Green')
