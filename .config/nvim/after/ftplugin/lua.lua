@@ -7,4 +7,4 @@ vim.b.switch_definitions = {
   vim.fn['switch#Words']({ 'pending', 'it' })
 }
 
-vim.b.use_single_quotes = true
+vim.b.quote_char = "'"

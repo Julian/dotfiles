@@ -361,6 +361,14 @@ function _G.parent_or_cwd()
   return name
 end
 
+vim.keymap.set('n', 'yq', function()
+  return 'ysiw' .. (vim.b.quote_char or '"')
+end, {
+  desc = 'Quote the surrounding word with a (filetype-specific) quote character.',
+  expr = true,
+  remap = true,
+})
+
 -- Jump to next diagnostic, showing the float if it's not likely to already be
 -- visible in the virtual text.
 vim.keymap.set('n', '[d', function()
@@ -428,9 +436,6 @@ end, { desc = 'toggle screenshot mode' })
 vim.cmd[[
 " delete a surrounding function call (which surround doesn't support OOTB)
 nmap dsc :call search('\<', 'bc')<CR>dt(ds)
-
-" quote a word
-nmap <expr> yq 'ysiw' . (get(b:, 'use_single_quotes', 0) ? "'" : '"')
 
 " Leader mappings
 " ---------------
