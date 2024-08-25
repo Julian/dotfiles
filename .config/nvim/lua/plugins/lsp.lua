@@ -250,11 +250,17 @@ return {
       mappings = true,
       stderr = {
         on_lines = function(lines)
-          vim.notify(
-            lines,
-            vim.log.levels.ERROR,
-            { timeout = 3000, render = 'minimal' }
-          )
+          local opts = {
+            timeout = 3000,
+            render = 'minimal',
+          }
+
+          local _, _, maybe_level, rest = lines:find('^(%w+): (.*)')
+          local level = vim.log.levels[maybe_level:upper()]
+          if not level then
+            rest = lines
+          end
+          vim.notify(rest, level, opts)
         end,
       }
     }
