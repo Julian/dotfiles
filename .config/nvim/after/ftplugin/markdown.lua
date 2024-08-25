@@ -1,3 +1,6 @@
+vim.bo.shiftwidth = 2
+vim.bo.softtabstop = 2
+
 vim.bo.makeprg = 'glow %'
 vim.bo.textwidth = 0
 vim.wo.wrap = true
