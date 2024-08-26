@@ -259,9 +259,8 @@ vim.keymap.set(
 
 -- testing mappings
 vim.keymap.set('n', 'd<CR>', function()
-  local name = vim.fn.expand('%')
-  return '<Cmd>SplitSensibly ' .. vim.fn['runt#find_test_file_for'](name) .. '<CR>'
-end, { expr = true })
+  _G.split(vim.fn['runt#find_test_file_for'](vim.api.nvim_buf_get_name(0)))
+end)
 vim.keymap.set('n', 'dK', vim.fn['runt#follow'])
 
 vim.keymap.set('n', '<leader>ttd', function()
@@ -353,6 +352,34 @@ function _G.r(module)
 end
 
 vim.cmd[[command! -nargs=1 -complete=lua Q lua q(<args>)]]
+
+--- Split a window vertically if it would have sufficient room including
+--- a bit of padding, otherwise split it horizontally
+function _G.split(path, opts)
+  opts = vim.tbl_extend('keep', opts or {}, { padding = 5 })
+
+  local open = vim.cmd.split
+
+  if path
+     and vim.api.nvim_buf_get_name(0) == ''
+     and vim.deep_equal(vim.api.nvim_buf_get_lines(0, 0, -1, false), { '' })
+  then
+    open = vim.cmd.edit
+  else
+    local textwidth = vim.bo.textwidth
+    if textwidth == 0 then textwidth = 79 end
+    textwidth = textwidth + opts.padding
+    if vim.api.nvim_win_get_width(0) >= textwidth * 2 then
+      open = vim.cmd.vsplit
+    end
+  end
+
+  vim.schedule(function() open(path) end)
+end
+
+vim.cmd[[command! -nargs=* -complete=file SplitSensibly lua split('<args>')]]
+vim.cmd[[command! -nargs=* -complete=file Ss lua split('<args>')]]
+vim.cmd[[command! -nargs=* -complete=file SS lua split('<args>')]]
 
 --- The parent dir of the current buffer if it has a name, otherwise cwd.
 function _G.parent_or_cwd()
@@ -450,7 +477,8 @@ nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap  <expr><leader><CR>      '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
+nnoremap        <leader><CR>      <Cmd>ObsidianQuickSwitch<CR>
+nnoremap  <expr><leader><Bar>     '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 "               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
@@ -584,40 +612,6 @@ vnoremap        <leader>y         "*y
   endfunction
 
   command! DiffThese call DiffTheseCommand()
-
-  " Split a window vertically if it would have at least 79 chars plus a bit
-  " of padding, otherwise split it horizontally
-  function! SplitSensiblyCommand(qargs)
-      let padding = 5  " columns
-
-      for window_number in range(1, winnr('$'))
-          let buffer_number = winbufnr(window_number)
-          let has_no_name = bufname(buffer_number) == ''
-          if has_no_name && getbufline(buffer_number, 1, '$') == ['']
-              if a:qargs != ''
-                  execute window_number . 'wincmd w'
-                  execute 'edit ' . a:qargs
-              endif
-
-              return
-          endif
-      endfor
-
-      if winwidth(0) >= (79 + padding) * 2
-          execute 'vsplit ' . a:qargs
-          wincmd L
-      else
-          execute 'split ' . a:qargs
-      endif
-  endfunction
-
-  function! SplitSensibly(path)
-      call SplitSensiblyCommand(a:path)
-  endfunction
-
-  command! -nargs=* -complete=file SplitSensibly call SplitSensiblyCommand('<args>')
-  command! -nargs=* -complete=file Ss call SplitSensiblyCommand('<args>')
-  command! -nargs=* -complete=file SS call SplitSensiblyCommand('<args>')
 
   " If we're in a real file, enable colorcolumn.
   function! WindowWidth()

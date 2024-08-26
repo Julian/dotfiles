@@ -57,23 +57,24 @@ return {
       })
 
       vim.keymap.set('n', '<CR>', function()
-        local open_wiki = ':<C-U>ObsidianQuickSwitch Scratch<CR>'
-
         local filetype = vim.opt.filetype:get()
-        local dap = require('dap')
         if filetype == 'qf' or vim.fn.win_gettype() == 'command' then return '<CR>'
         elseif filetype == 'help' then return '<C-]>'
-        elseif filetype == 'vimwiki' then return ':VimwikiFollowLink<CR>'
-        elseif dap.session() ~= nil then dap.run_to_cursor() return ''
-        elseif vim.api.nvim_buf_get_name(0):match("TODO") then return open_wiki
+        elseif require('dap').session() ~= nil then require('dap').run_to_cursor() return ''
         else
-          local split = ':<C-U>SplitSensibly '
-          local todo = vim.fn.glob('TODO*', true, true)[1]
-          if todo then
-            return split .. todo .. '<CR>'
-          else
-            return split .. '<CR>' .. open_wiki
+          local obsidian = require'obsidian'.get_client()
+          local vault = obsidian.dir.filename
+          local target = vim.fs.joinpath(vault, 'Home.md')
+
+          local workspace = vim.lsp.buf.list_workspace_folders()[1] or vim.uv.cwd()
+          local project_name = vim.fs.basename(workspace)
+          local project_note = vim.fs.joinpath(vault, project_name .. '.md')
+          if vim.uv.fs_stat(project_note) then
+            target = project_note
           end
+
+          _G.split(target)
+          return ''
         end
       end, { expr = true })
 
