@@ -2,3 +2,4 @@ brew "mas"
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "reMarkable Desktop", id: 1276493162
