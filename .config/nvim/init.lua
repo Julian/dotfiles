@@ -411,6 +411,29 @@ vim.keymap.set('n', ']d', function ()
   vim.diagnostic.goto_next{ float = float }
 end)
 
+_G.CDPATH = nil
+
+vim.keymap.set('n', '<leader>e', function()
+  if not _G.CDPATH then
+    local cmd = {'zsh', '-l', '-c', 'printf "%s\n" "$cdpath[@]"'}
+    local stdout = vim.system(cmd):wait().stdout
+    if stdout and stdout ~= '' then
+      _G.CDPATH = vim.split(stdout, '\n', { trimempty = true })
+    end
+  end
+  local directories = vim.iter(_G.CDPATH):map(function(path)
+    return vim.iter(vim.fs.dir(path)):map(function(child, kind)
+      if kind == 'directory' then
+        return vim.fs.joinpath(path, child)
+      end
+    end):totable()
+  end):flatten(1)
+
+  vim.ui.select(directories:totable(), {}, function(choice)
+    require('telescope.builtin').find_files{ search_dirs = { choice } }
+  end)
+end, { desc = 'Search within a directory on the $cdpath.' })
+
 vim.keymap.set('n', '<leader>i', function()
   local cwd = vim.fn.getcwd()
   local jumplist, current = unpack(vim.fn.getjumplist())
@@ -434,7 +457,6 @@ vim.keymap.set('n', '<leader>o', function()
     end
   end
 end, { desc = 'Jump to the next entry in the jumplist which is a child of the current working directory.' })
-
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
@@ -483,7 +505,7 @@ nnoremap  <expr><leader><Bar>     '<Cmd>autocmd BufWritePost <buffer> !' . input
 "               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
 nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_files{ hidden = true }<CR>
-nnoremap        <leader>e         :<C-U>SplitSensibly<CR>:lua require('telescope.builtin').find_files{ search_dirs = { "" } }<Left><Left><Left><Left><Left>
+" nnoremap      <leader>e         Telescope search arbitrary directory
 nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }<CR>
 "               <leader>g         Git
 nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags{ only_sort_tags = true }<CR>
