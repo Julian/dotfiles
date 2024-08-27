@@ -21,7 +21,7 @@
 
 [push]
     atomic = true
-    default = simple
+    default = upstream
     followTags = true
 
 [branch]
