@@ -67,10 +67,23 @@ return {
           local target = vim.fs.joinpath(vault, 'Home.md')
 
           local workspace = vim.lsp.buf.list_workspace_folders()[1] or vim.uv.cwd()
-          local project_name = vim.fs.basename(workspace)
-          local project_note = vim.fs.joinpath(vault, project_name .. '.md')
+
+          -- Look for an exact match, otherwise start stripping off
+          -- any `.`'s until we find one.
+          -- Really I'd like a way to find notes by Obsidian aliases?
+          -- But I don't immediately see that in obsidian.nvim.
+          local name = vim.fs.basename(workspace)
+
+          local project_note = vim.fs.joinpath(vault, 'Projects', name .. '.md')
           if vim.uv.fs_stat(project_note) then
             target = project_note
+          else
+            local n
+            name, n = name:gsub('%..*', '')
+            project_note = vim.fs.joinpath(vault, 'Projects', name .. '.md')
+            if n > 0 and vim.uv.fs_stat(project_note) then
+              target = project_note
+            end
           end
 
           _G.split(target)
