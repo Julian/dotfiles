@@ -35,6 +35,7 @@ return {
           path = vim.env.XDG_DOCUMENTS_DIR .. '/Obsidian',
         },
       },
+      follow_url_func = vim.ui.open,
     },
   },
 }
