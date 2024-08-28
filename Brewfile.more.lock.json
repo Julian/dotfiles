@@ -2,19 +2,19 @@
   "entries": {
     "cask": {
       "keycastr": {
-        "version": "0.9.16",
+        "version": "0.10.0",
         "options": {
           "full_name": "keycastr"
         }
       },
       "obs": {
-        "version": "30.0.2",
+        "version": "30.2.3",
         "options": {
           "full_name": "obs"
         }
       },
       "openttd": {
-        "version": "13.4",
+        "version": "14.1",
         "options": {
           "full_name": "openttd"
         }
@@ -26,7 +26,7 @@
         }
       },
       "tailscale": {
-        "version": "1.56.1",
+        "version": "1.72.2",
         "options": {
           "full_name": "tailscale"
         }
@@ -44,15 +44,21 @@
         }
       },
       "anki": {
-        "version": "23.12.1",
+        "version": "24.06.3",
         "options": {
           "full_name": "anki"
         }
       },
       "signal": {
-        "version": "6.43.2",
+        "version": "7.21.0",
         "options": {
           "full_name": "signal"
+        }
+      },
+      "lulu": {
+        "version": "2.6.3",
+        "options": {
+          "full_name": "lulu"
         }
       }
     }
@@ -60,12 +66,12 @@
   "system": {
     "macos": {
       "sonoma": {
-        "HOMEBREW_VERSION": "4.2.3-28-ge74dc47",
+        "HOMEBREW_VERSION": "4.3.18-29-g01287a7",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
-        "CLT": "15.1.0.0.1.1700200546",
-        "Xcode": "15.1",
-        "macOS": "14.1.2"
+        "CLT": "15.3.0.0.1.1708646388",
+        "Xcode": "15.4",
+        "macOS": "14.6.1"
       }
     }
   }

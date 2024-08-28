@@ -1,6 +1,6 @@
-cask "android-sdk"
 cask "anki"
 cask "keycastr"
+cask "lulu"
 cask "obs"
 cask "openttd"
 cask "signal"
