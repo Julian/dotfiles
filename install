@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 from getpass import getuser
 from pathlib import Path
+from shutil import which
 from subprocess import run
 import argparse
 import os
@@ -62,6 +63,8 @@ def do_extra_gitpod_setup(arguments):
 
     packages = {"bat", "fd-find", "fzy", "ripgrep", "universal-ctags", "zsh"}
     run(["sudo", "apt-get", "install", "--quiet", "-y", *packages], check=True)
+
+    arguments.bin_dir.joinpath("fd").symlink_to(which("fdfind"))
 
     run(["sudo", "chsh", "-s", "zsh"], check=True)
 
