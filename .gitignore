@@ -107,6 +107,7 @@
 .local/bin/
 .local/share/cpptools/
 .local/share/darktable/pkcs11/
+.local/share/elan/
 .local/share/gem/
 .local/share/great/
 .local/share/lean/
