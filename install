@@ -1,10 +1,6 @@
 #! /usr/bin/env python3
-from __future__ import print_function
-
-from glob import iglob as glob
+from pathlib import Path
 import argparse
-import errno
-import os
 import sys
 
 
@@ -16,82 +12,65 @@ def main(arguments):
 def make_symlinks(arguments):
     """
     Symlink all the dotfiles into the destination directory.
-
     """
-
     ignored = {".config", ".local", ".git", ".gitignore", ".gitmodules"}
 
-    for dotfile in glob(os.path.join(arguments.dotfiles, ".*")):
-        if os.path.basename(dotfile) in ignored:
+    for dotfile in arguments.dotfiles.glob(".*"):
+        if dotfile.name in ignored:
             continue
 
-        dest = os.path.join(arguments.dest_dir, os.path.basename(dotfile))
+        dest = arguments.dest_dir / dotfile.name
         symlink_unless_present(dotfile, dest)
 
     for each in [".config", ".local", ".local/share"]:
-        dotfile_dir = os.path.join(arguments.dotfiles, each)
-        dest_dir = os.path.join(arguments.dest_dir, each)
+        dotfile_dir = arguments.dotfiles / each
+        dest_dir = arguments.dest_dir / each
         try:
-            os.symlink(dotfile_dir, dest_dir)
-        except OSError as e:
-            if e.errno != errno.EEXIST:
-                raise
+            dest_dir.symlink_to(dotfile_dir)
+        except FileExistsError:
             # Fall back on linking individual files if we failed.
-            if os.path.realpath(dest_dir) != dotfile_dir:
-                for dotfile in os.listdir(dotfile_dir):
-                    dotfile = os.path.join(dotfile_dir, dotfile)
-                    dest = os.path.join(dest_dir, os.path.basename(dotfile))
+            if dest_dir.resolve() != dotfile_dir:
+                for dotfile in dotfile_dir.iterdir():
+                    dest = dest_dir / dotfile.name
                     symlink_unless_present(dotfile, dest)
 
-    bin_dir = os.path.abspath(os.path.normpath(arguments.bin_dir))
-    try:
-        os.makedirs(bin_dir)
-    except OSError as error:
-        if error.errno != errno.EEXIST:
-            raise
+    bin_dir = arguments.bin_dir.resolve()
+    bin_dir.mkdir(parents=True, exist_ok=True)
 
-    for dotfile in glob(os.path.join(arguments.dotfiles, "bin", ".*")):
-        dest = os.path.join(bin_dir, os.path.basename(dotfile))
-        symlink_unless_present(dotfile, dest)
+    for bin in arguments.dotfiles.joinpath("bin").iterdir():
+        symlink_unless_present(bin, bin_dir / bin.name)
 
 
-def symlink_unless_present(file, dest):
+def symlink_unless_present(path: Path, dest: Path):
     """
     Symlink a file into the destination unless it exists already.
-
     """
-
-    file = os.path.abspath(file)
+    path = path.absolute()
     try:
-        os.symlink(file, dest)
-    except OSError as e:
-        if e.errno != errno.EEXIST:
-            raise
-        print("{0} already exists! Skipping...".format(dest))
+        dest.symlink_to(path)
+    except FileExistsError:
+        print(f"{dest} already exists! Skipping...")
     else:
-        print("Linked {0} into {1}".format(file, dest))
+        print(f"Linked {path} into {dest}")
 
 
 parser = argparse.ArgumentParser(description="Dotfiles installer")
 parser.add_argument(
     "-b", "--bin-dir",
-    default=os.path.expanduser("~/.local/bin"),
+    default=Path.expanduser("~/.local/bin"),
     help="the directory to use for local binaries",
 )
 parser.add_argument(
     "-d", "--dest-dir",
-    default=os.path.expanduser("~"),
+    type=Path,
+    default=Path.home(),
     help="the directory to link into",
 )
 parser.add_argument(
     "--dotfiles",
-    default=os.path.abspath(os.path.dirname(__file__)),
+    type=Path,
+    default=Path(__file__).parent.resolve(),
     help="the dotfiles to link",
-)
-parser.add_argument(
-    "--nvim",
-    default="nvim",
-    help="the nvim binary to set up",
 )
 
 main(parser.parse_args())
