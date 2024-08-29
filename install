@@ -1,10 +1,16 @@
 #! /usr/bin/env python3
+from getpass import getuser
 from pathlib import Path
+from subprocess import run
 import argparse
+import os
 import sys
 
 
 def main(arguments):
+    if "GITPOD_HOST" in os.environ:
+        do_extra_gitpod_setup()  # gitpod-io/gitpod#19255
+
     make_symlinks(arguments)
     sys.exit(0)
 
@@ -39,6 +45,21 @@ def make_symlinks(arguments):
 
     for bin in arguments.dotfiles.joinpath("bin").iterdir():
         pass  # let's not symlink by default for now
+
+
+def do_extra_gitpod_setup():
+    # gitpod-io/gitpod#19254
+    run(["sudo", "chown", "-R", getuser(), str(Path.home())], check=True)
+
+    # gitpod-io/gitpod#19202
+    run(["git", "submodule", "--quiet", "update", "--init"], check=True)
+
+    run(["sudo", "apt-get", "update", "--quiet"], check=True)
+
+    packages = {"bat", "fd-find", "fzy", "ripgrep", "universal-ctags", "zsh"}
+    run(["sudo", "apt-get", "install", "--quiet", "-y", *packages], check=True)
+
+    run(["sudo", "chsh", "-s", "zsh"], check=True)
 
 
 def symlink_unless_present(path: Path, dest: Path):
