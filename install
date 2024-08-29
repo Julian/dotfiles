@@ -9,7 +9,7 @@ import sys
 
 def main(arguments):
     if "GITPOD_HOST" in os.environ:
-        do_extra_gitpod_setup()  # gitpod-io/gitpod#19255
+        do_extra_gitpod_setup(arguments)  # gitpod-io/gitpod#19255
 
     make_symlinks(arguments)
     sys.exit(0)
@@ -47,12 +47,16 @@ def make_symlinks(arguments):
         pass  # let's not symlink by default for now
 
 
-def do_extra_gitpod_setup():
+def do_extra_gitpod_setup(arguments):
     # gitpod-io/gitpod#19254
     run(["sudo", "chown", "-R", getuser(), str(Path.home())], check=True)
 
     # gitpod-io/gitpod#19202
-    run(["git", "submodule", "--quiet", "update", "--init"], check=True)
+    run(
+        ["git", "submodule", "--quiet", "update", "--init"],
+        cwd=arguments.dotfiles,
+        check=True,
+    )
 
     run(["sudo", "apt-get", "update", "--quiet"], check=True)
 
