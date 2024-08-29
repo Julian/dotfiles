@@ -38,7 +38,7 @@ def make_symlinks(arguments):
     bin_dir.mkdir(parents=True, exist_ok=True)
 
     for bin in arguments.dotfiles.joinpath("bin").iterdir():
-        symlink_unless_present(bin, bin_dir / bin.name)
+        pass  # let's not symlink by default for now
 
 
 def symlink_unless_present(path: Path, dest: Path):
