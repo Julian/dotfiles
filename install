@@ -13,6 +13,10 @@ def main(arguments):
         do_extra_gitpod_setup(arguments)  # gitpod-io/gitpod#19255
 
     make_symlinks(arguments)
+
+    if "GITPOD_HOST" in os.environ:
+        arguments.bin_dir.joinpath("fd").symlink_to(which("fdfind"))
+
     sys.exit(0)
 
 
@@ -63,8 +67,6 @@ def do_extra_gitpod_setup(arguments):
 
     packages = {"bat", "fd-find", "fzy", "ripgrep", "universal-ctags", "zsh"}
     run(["sudo", "apt-get", "install", "--quiet", "-y", *packages], check=True)
-
-    arguments.bin_dir.joinpath("fd").symlink_to(which("fdfind"))
 
     run(["sudo", "chsh", "-s", "zsh"], check=True)
 
