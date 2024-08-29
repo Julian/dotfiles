@@ -57,7 +57,7 @@ def symlink_unless_present(path: Path, dest: Path):
 parser = argparse.ArgumentParser(description="Dotfiles installer")
 parser.add_argument(
     "-b", "--bin-dir",
-    default=Path.expanduser("~/.local/bin"),
+    default=Path.home() / ".local/bin",
     help="the directory to use for local binaries",
 )
 parser.add_argument(
