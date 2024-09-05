@@ -249,7 +249,7 @@ vim.keymap.set(
     ]]
     vim.schedule(function()
       vim.cmd.diffupdate()
-      require('notify').dismiss()
+      require('notify').dismiss { pending = true, silent = true }
     end)
     vim.lsp.buf.clear_references()
     return '<C-L>'
