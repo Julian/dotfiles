@@ -7,6 +7,7 @@ path=(
     /usr/local/share/npm/bin
     ${CARGO_HOME}/bin
     ${GEM_HOME}/bin
+    ${LUAROCKS_DATA_DIR}/bin
     ${PNPM_HOME}
     $path
 )
@@ -21,7 +22,6 @@ path=(
         $homebrew_prefix/opt/python@*.*/bin(NOnn)
         $homebrew_prefix/opt/ruby/bin
         $homebrew_prefix/opt/util-linux/bin
-        $XDG_DATA_HOME/luarocks/bin
         $path
     )
 }

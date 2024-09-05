@@ -12,7 +12,11 @@ then
 
     export XDG_CACHE_HOME=$HOME/Library/Caches
     export XDG_DATA_HOME=$HOME/Library/Application\ Support
+
+    # Stuff which contains binaries and thereby can't cope with shebangs with spaces
     export VIRTUALENVS=$HOME/.local/share/virtualenvs
+    # This envvar doesn't really exist, but we use it in the config file.
+    export LUAROCKS_DATA_DIR=$HOME/.local/share/luarocks
 
     typeset -aU dyld_library_path
     typeset -T DYLD_LIBRARY_PATH dyld_library_path
@@ -22,7 +26,9 @@ else
 
     export XDG_CACHE_HOME=$HOME/.cache
     export XDG_DATA_HOME=$HOME/.local/share
+
     export VIRTUALENVS=$XDG_DATA_HOME/virtualenvs
+    export LUAROCKS_DATA_DIR=$XDG_DATA_HOME/luarocks
 
     alias open=xdg-open
 fi
