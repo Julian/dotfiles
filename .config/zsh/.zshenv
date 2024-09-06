@@ -35,14 +35,26 @@ fi
 
 export XDG_STATE_HOME=$HOME/.local/state
 
-export XDG_DESKTOP_DIR=$HOME/Desktop
-export XDG_DOCUMENTS_DIR=$HOME/Documents
-export XDG_DOWNLOAD_DIR=$XDG_DESKTOP_DIR
-export XDG_MUSIC_DIR=$HOME/Music
-export XDG_PICTURES_DIR=$HOME/Pictures
-export XDG_PUBLICSHARE_DIR=$HOME/Public
 export XDG_TEMPLATES_DIR=$XDG_CONFIG_HOME/templates
-export XDG_VIDEOS_DIR=$HOME/Movies
+
+if [[ "$OSTYPE" == linux-android ]]
+then
+    export XDG_DESKTOP_DIR=$HOME/storage/shared/Desktop
+    export XDG_DOCUMENTS_DIR=$HOME/storage/shared/Documents
+    export XDG_DOWNLOAD_DIR=$HOME/storage/shared/Download
+    export XDG_MUSIC_DIR=$HOME/storage/shared/Music
+    export XDG_PICTURES_DIR=$HOME/storage/shared/Pictures
+    export XDG_PUBLICSHARE_DIR=$HOME/storage/shared/Public
+    export XDG_VIDEOS_DIR=$HOME/storage/shared/Movies
+else
+    export XDG_DESKTOP_DIR=$HOME/Desktop
+    export XDG_DOCUMENTS_DIR=$HOME/Documents
+    export XDG_DOWNLOAD_DIR=$XDG_DESKTOP_DIR
+    export XDG_MUSIC_DIR=$HOME/Music
+    export XDG_PICTURES_DIR=$HOME/Pictures
+    export XDG_PUBLICSHARE_DIR=$HOME/Public
+    export XDG_VIDEOS_DIR=$HOME/Movies
+fi
 
 export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 
