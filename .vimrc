@@ -47,8 +47,6 @@ let g:extra_plugins_to_install = [
     \ ['tpope/vim-endwise'],
 \ ]
 
-source ~/.config/nvim/init.vim
-
 set backupdir=$XDG_CACHE_HOME/vim/backups,~/tmp,/tmp
 set directory=$XDG_CACHE_HOME/vim/swap//,~/tmp/vim//,~/tmp//,/var/tmp//,/tmp//
                                       " swap files
