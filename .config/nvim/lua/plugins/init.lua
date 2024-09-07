@@ -159,7 +159,33 @@ return {
     end,
   },
 
-  { 'Julian/vim-runt', lazy = false, dev = true },
+  {
+    'Julian/runt.nvim',
+    dev = true,
+    keys = {
+      {
+        'd<CR>',
+        function()
+          local path = require('runt').current_test_file()
+          if path then
+            _G.split(path)
+          else
+            vim.notify_once(
+              'No test file found.',
+              vim.log.levels.WARN,
+              { title = 'runt.nvim' }
+            )
+          end
+      end,
+        desc = 'Open the corresponding test file for the current file.',
+      },
+      {
+        'dK',
+        function() require('runt').follow() end,
+        desc = 'Continuously follow opening the test file for any file in this buffer.',
+      },
+    }
+  },
   {
     'Julian/vim-textobj-assignment',
     dev = true,

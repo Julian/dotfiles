@@ -257,12 +257,6 @@ vim.keymap.set(
   { expr = true }
 )
 
--- testing mappings
-vim.keymap.set('n', 'd<CR>', function()
-  _G.split(vim.fn['runt#find_test_file_for'](vim.api.nvim_buf_get_name(0)))
-end)
-vim.keymap.set('n', 'dK', vim.fn['runt#follow'])
-
 vim.keymap.set('n', '<leader>ttd', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end)
