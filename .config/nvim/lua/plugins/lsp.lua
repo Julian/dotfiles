@@ -106,7 +106,7 @@ return {
         ruff_lsp = {},
         taplo = {},
         texlab = {},
-        tsserver = {},
+        ts_ls = {},
         typst_lsp = {},
         vimls = {},
 
