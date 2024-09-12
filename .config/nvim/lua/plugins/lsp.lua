@@ -5,7 +5,7 @@ local function peek_definition()
       vim.notify('No definition found.')
       return nil
     end
-    if vim.tbl_islist(result) then
+    if vim.islist(result) then
       result = result[1]
     end
     vim.lsp.util.preview_location(result, { border = 'single' })
