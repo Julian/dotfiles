@@ -1,8 +1,19 @@
+local VAULT = vim.fs.joinpath(vim.env.XDG_DOCUMENTS_DIR, 'Obsidian')
+
 return {
   {
     'epwalsh/obsidian.nvim',
     version = '*',
     ft = 'markdown',
+    keys = {
+      {
+        '<M-CR>',
+        function()
+          require('telescope.builtin').live_grep{ search_dirs = { VAULT } }
+        end,
+        desc = 'Live grep the vault.',
+      },
+    },
     cmd = {
       'ObsidianOpen',
       'ObsidianNew',
@@ -30,10 +41,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       workspaces = {
-        {
-          name = 'vault',
-          path = vim.env.XDG_DOCUMENTS_DIR .. '/Obsidian',
-        },
+        { name = 'vault', path = VAULT },
       },
       follow_url_func = vim.ui.open,
     },
