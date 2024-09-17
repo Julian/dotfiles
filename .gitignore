@@ -29,6 +29,10 @@
 .local/share/nvim/tree-sitter-*
 .local/share/nvim/undo
 
+# Because they will be symlinks to different places :/
+.local/share/repositories/Movies
+.local/share/repositories/Obsidian
+
 .tmux/tmux.conf.local
 
 .config/MusicBrainz/
