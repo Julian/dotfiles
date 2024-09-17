@@ -53,12 +53,14 @@ return {
           select = {
             enable = true,
             keymaps = {
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
               ['aa'] = '@parameter.outer',
               ['ia'] = '@parameter.inner',
+              ['ac'] = '@class.outer',
+              ['ic'] = '@class.inner',
+              ['af'] = '@function.outer',
+              ['if'] = '@function.inner',
+              ['al'] = '@loop.outer',
+              ['il'] = '@loop.inner',
             },
           },
         },
