@@ -7,6 +7,21 @@ return {
     ft = 'markdown',
     keys = {
       {
+        '<leader><CR>',
+        '<Cmd>ObsidianQuickSwitch<CR>',
+        desc = 'Switch to another file in the vault.',
+      },
+      {
+        '†',
+        '<Cmd>ObsidianToday<CR>',
+        desc = "Go to today's note.",
+      },
+      {
+        '<M-t>',
+        '<Cmd>ObsidianToday<CR>',
+        desc = "Go to today's note.",
+      },
+      {
         '<M-CR>',
         function()
           require('telescope.builtin').live_grep{ search_dirs = { VAULT } }

@@ -493,7 +493,6 @@ nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 "   S : remove trailing whitespace
 "   0 : minimize a window
 
-nnoremap        <leader><CR>      <Cmd>ObsidianQuickSwitch<CR>
 nnoremap  <expr><leader><Bar>     '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 "               <leader>a         LSP code action
