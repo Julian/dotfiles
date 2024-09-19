@@ -47,9 +47,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     if client.supports_method('textDocument/documentHighlight') then
       vim.cmd [[
-        :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-        :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-        :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+        :hi LspReferenceRead cterm=reverse gui=reverse
+        :hi LspReferenceWrite guifg=#223249 guibg=#ff9e3b
+        :hi LspReferenceText cterm=bold gui=bold
         augroup lsp_document_highlight
           autocmd!
           autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
