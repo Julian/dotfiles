@@ -150,7 +150,7 @@ return {
   { 'MunifTanjim/nui.nvim' },
   {
     'rcarriga/nvim-notify',
-    opts = { max_width = 100 },
+    opts = { render = "wrapped-compact", max_width = 100 },
     init = function()
       vim.notify = function(...)
         vim.notify = require("notify")
