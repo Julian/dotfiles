@@ -2,6 +2,13 @@ local VAULT = vim.fs.joinpath(vim.env.XDG_DOCUMENTS_DIR, 'Obsidian')
 
 return {
   {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown', 'latex' },
+    cmd = { 'RenderMarkdown' },
+    opts = {},
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+  {
     'epwalsh/obsidian.nvim',
     version = '*',
     ft = 'markdown',
@@ -55,6 +62,7 @@ return {
     },
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
+      ui = { enable = false }, -- let render-markdown do its thing
       workspaces = {
         { name = 'vault', path = VAULT },
       },
