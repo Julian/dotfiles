@@ -247,9 +247,9 @@ statusbar = {
     delete = { items = { }; disabled = "yes"; };
     prompt = {
       items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
+        uberprompt = { priority = "-1"; };
         input = { priority = "10"; };
+        vim_mode = { alignment = "right"; };
       };
       position = "100";
     };
@@ -376,7 +376,7 @@ windows = {
     parent = "1";
   };
   4 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -428,7 +428,7 @@ windows = {
     parent = "1";
   };
   8 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -441,7 +441,7 @@ windows = {
     parent = "1";
   };
   9 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -454,7 +454,20 @@ windows = {
     parent = "1";
   };
   10 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+    level = "ALL";
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#lean";
+        tag = "Libera";
+      }
+    );
+    sticky = "yes";
+    parent = "1";
+  };
+  11 = {
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -466,8 +479,8 @@ windows = {
     sticky = "yes";
     parent = "1";
   };
-  11 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+  12 = {
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -479,8 +492,8 @@ windows = {
     sticky = "yes";
     parent = "1";
   };
-  12 = {
-    level = "CRAP MSGS PUBLICS NOTICES CTCPS ACTIONS KICKS MODES TOPICS NICKS CLIENTCRAP";
+  13 = {
+    level = "ALL";
     items = (
       {
         type = "CHANNEL";
@@ -492,12 +505,12 @@ windows = {
     sticky = "yes";
     parent = "1";
   };
-  13 = {
+  14 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
-  14 = {
+  15 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
@@ -507,15 +520,15 @@ windows = {
 };
 mainwindows = {
   1 = {
-    first_line = "8";
-    lines = "96";
+    first_line = "7";
+    lines = "90";
     first_column = "0";
-    columns = "320";
+    columns = "284";
   };
-  13 = {
+  14 = {
     first_line = "1";
-    lines = "7";
+    lines = "6";
     first_column = "0";
-    columns = "320";
+    columns = "284";
   };
 };
