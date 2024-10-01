@@ -16,19 +16,15 @@ chatnets = {
 
 channels = (
   { name = "#python"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#python-offtopic"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#vim"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#zsh"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#twisted"; chatnet = "Libera"; autojoin = "yes"; },
   { name = "#pypy"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#python-dev"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#python-testing"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "##math"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#nycpython"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#twisted-dev"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#pypa"; chatnet = "Libera"; autojoin = "yes"; },
-  { name = "#glyph"; chatnet = "Libera"; autojoin = "yes"; },
   { name = "#neovim"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#zsh"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#pypa"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#twisted"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#twisted-dev"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#python-dev"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#glyph"; chatnet = "Libera"; autojoin = "yes"; },
+  { name = "#lean"; chatnet = "Libera"; autojoin = "yes"; },
   { name = "#techcrap"; chatnet = "Libera"; autojoin = "yes"; }
 );
 
@@ -247,9 +243,9 @@ statusbar = {
     delete = { items = { }; disabled = "yes"; };
     prompt = {
       items = {
-        uberprompt = { priority = "-1"; };
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
         input = { priority = "10"; };
-        vim_mode = { alignment = "right"; };
       };
       position = "100";
     };
@@ -381,7 +377,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#vim";
+        name = "#zsh";
         tag = "Libera";
       }
     );
@@ -407,7 +403,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "##math";
+        name = "#twisted";
         tag = "Libera";
       }
     );
@@ -420,7 +416,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python-dev";
+        name = "#twisted-dev";
         tag = "Libera";
       }
     );
@@ -433,7 +429,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#twisted";
+        name = "#python-dev";
         tag = "Libera";
       }
     );
@@ -446,7 +442,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#twisted-dev";
+        name = "#glyph";
         tag = "Libera";
       }
     );
@@ -480,37 +476,11 @@ windows = {
     parent = "1";
   };
   12 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#zsh";
-        tag = "Libera";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  13 = {
-    level = "ALL";
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#glyph";
-        tag = "Libera";
-      }
-    );
-    sticky = "yes";
-    parent = "1";
-  };
-  14 = {
     name = "hilight";
     level = "PUBLICS NOTICES CTCPS ACTIONS JOINS PARTS QUITS KICKS MODES TOPICS NICKS HILIGHTS";
     sticky = "yes";
   };
-  15 = {
+  13 = {
     immortal = "yes";
     name = "info";
     level = "ALL";
@@ -525,7 +495,7 @@ mainwindows = {
     first_column = "0";
     columns = "284";
   };
-  14 = {
+  12 = {
     first_line = "1";
     lines = "6";
     first_column = "0";
