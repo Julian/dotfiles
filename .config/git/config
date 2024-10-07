@@ -36,10 +36,7 @@
 
 [diff]
     algorithm = histogram
-    tool = vimdiff
-
-[difftool]
-    prompt = false
+    tool = nvimdiff
 
 [difftool "nbdime"]
     cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
@@ -48,12 +45,15 @@
     conflictstyle = diff3
     defaultToUpstream = true
     log = 50
-    tool = vimdiff
+    tool = nvimdiff
+
+[difftool]
+    prompt = false
 
 [mergetool]
     prompt = true
 
-[mergetool "vimdiff"]
+[mergetool "nvimdiff"]
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [gpg]
