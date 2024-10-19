@@ -150,42 +150,23 @@ return {
         },
 
         lua_ls = {
-          on_init = function(client)
-            -- this is a neovim bug seemingly
-            -- (e.g. see prior precedent in neovim/nvim-lspconfig#1471)
-            if not client.workspace_folders then return end
-            local path = client.workspace_folders[1].name
-            local luarc = path .. '/.luarc.json'
-            if vim.loop.fs_stat(luarc) or vim.loop.fs_stat(luarc .. 'c') then
-              return
-            end
-            client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-              runtime = {
-                version = 'LuaJIT',
-                path = runtime_path,
-              },
+          settings = {
+            Lua = {
+              telemetry = { enable = false },
               completion = {
                 callSnippet = 'Both',
               },
-              diagnostics = {
-                globals = { 'describe', 'it', 'pending', 'vim' },
+              hint = {
+                enable = true,
+                setType = true,
               },
-              hint = { enable = true },
-              workspace = {
-                checkThirdParty = "ApplyInMemory",
-                library = vim.api.nvim_get_runtime_file("", true),
-              },
-              telemetry = { enable = false },
-            })
-
-            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-          end,
-          settings = { Lua = {} },
+            },
+          },
         },
       }
 
       for lsp, lsp_opts in pairs(lsps) do
-        lspconfig[lsp].setup(vim.tbl_extend("force", opts, lsp_opts))
+        lspconfig[lsp].setup(vim.tbl_extend('force', opts, lsp_opts))
       end
 
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
