@@ -8,9 +8,9 @@ vim.keymap.set('n', '<LocalLeader>g', function()
       path_display = { 'tail' },
       search_dirs = require('lean').current_search_paths()
     }
-end, { buffer = true })
+end, { buffer = true, desc = 'live grep the Lean search path.' })
 vim.keymap.set('n', '<LocalLeader>l', function()
     require'telescope'.extensions.loogle.loogle{}
-end, { buffer = true })
+end, { buffer = true, desc = 'search Loogle via Telescope' })
 
 vim.cmd.highlight('link leanTactic Green')
