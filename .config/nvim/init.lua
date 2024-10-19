@@ -390,6 +390,42 @@ end, {
   remap = true,
 })
 
+--- 'Click' if there's something to do, otherwise jump to our vault.
+vim.keymap.set('n', '<CR>', function()
+  local filetype = vim.opt.filetype:get()
+  if filetype == 'qf' or vim.fn.win_gettype() == 'command' then return '<CR>'
+  elseif filetype == 'help' then return '<C-]>'
+  elseif require('dap').session() ~= nil then require('dap').run_to_cursor() return ''
+  else
+    local obsidian = require'obsidian'.get_client()
+    local vault = obsidian.dir.filename
+    local target = vim.fs.joinpath(vault, 'Home.md')
+
+    local workspace = vim.lsp.buf.list_workspace_folders()[1] or vim.uv.cwd()
+
+    -- Look for an exact match, otherwise start stripping off
+    -- any `.`'s until we find one.
+    -- Really I'd like a way to find notes by Obsidian aliases?
+    -- But I don't immediately see that in obsidian.nvim.
+    local name = vim.fs.basename(workspace)
+
+    local project_note = vim.fs.joinpath(vault, 'Projects', name .. '.md')
+    if vim.uv.fs_stat(project_note) then
+      target = project_note
+    else
+      local n
+      name, n = name:gsub('%..*', '')
+      project_note = vim.fs.joinpath(vault, 'Projects', name .. '.md')
+      if n > 0 and vim.uv.fs_stat(project_note) then
+        target = project_note
+      end
+    end
+
+    _G.split(target)
+    return ''
+  end
+end, { expr = true })
+
 -- Jump to next diagnostic, showing the float if it's not likely to already be
 -- visible in the virtual text.
 vim.keymap.set('n', '[d', function()
