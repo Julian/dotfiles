@@ -11,19 +11,19 @@ bindkey -v                    # set vim bindings in zsh
 autoload -U edit-command-line
 zle -N edit-command-line
 
-# If we're in tmux, then ^A is our prefix. Otherwise, bind it to 'move a thing
-# into tmux'. This only works on Linux. Also I haven't ever tried it yet.
-function ctrla() {
-    if [[ -e "$TMUX" ]] && (( $+commands[reptyr] )); then
-        kill -TSTP $$
-        bg >/dev/null 2>&1
-        disown
-        tmux new-window "$SHELL -c 'reptyr $$'"
-        tmux attach
-    else
-        zle push-input
-    fi
+# Find a shell command in the history via fzy.
+# Eventually if I like this, I may replace `^R` with it.
+function history-fzy() {
+  # The awk vomit is an ancient trick for `uniq` without sorting.
+  # We also use --query, so all lines are present (and so you can backspace to
+  # add more), though maybe we should instead pre-grep to only filter over
+  # lines which match the prefix.
+  BUFFER=$(history -r -n 1 | fzy --query "$LBUFFER")
+  CURSOR=$#BUFFER
+
+  zle reset-prompt
 }
+zle -N history-fzy
 
 bindkey "^B" send-break
 bindkey "^E" edit-command-line
@@ -32,6 +32,7 @@ bindkey "^K" push-input
 bindkey "^O" accept-line-and-down-history
 bindkey "^R" history-incremental-search-backward
 # bindkey "^S" insert-*-path-in-command-line  -- bound in commands.zsh
+bindkey "^T" history-fzy
 bindkey -M viins "^U" backward-kill-line
 bindkey "^W" backward-kill-word
 
