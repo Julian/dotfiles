@@ -211,12 +211,14 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
     config = function(_, opts)
+      vim.g.lean_config = opts
       require('lean').setup(opts)
       vim.api.nvim_create_autocmd({ 'WinClosed', 'VimResized' }, {
         -- TODO: Only when Lean is started...
         callback = require('lean.infoview').reposition
       })
     end,
+    ---@type lean.Config
     opts = {
       infoview = {
         show_processing = false,
@@ -230,6 +232,17 @@ return {
           return true
         end
       },
+
+      log = function(level, data)
+        if level < vim.log.levels.INFO then
+          return
+        end
+        vim.notify(
+          vim.inspect(data, { newline = ' ', indent = '' }),
+          level
+        )
+      end,
+
       mappings = true,
       stderr = {
         on_lines = function(lines)
