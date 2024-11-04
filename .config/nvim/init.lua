@@ -494,9 +494,26 @@ vim.keymap.set('n', '<leader>K', function()
     vim.diagnostic.open_float{ scope = "line", header = '', focus = false }
 end, { desc = 'show information about line diagnostics in a float' })
 
+vim.keymap.set('n', '<leader>td', function()
+  if vim.wo.diff then
+    vim.cmd.diffoff { bang = true }
+    return
+  end
+
+  vim.cmd.diffthis()
+  local nonfloating = vim.iter(vim.api.nvim_tabpage_list_wins(0)):filter(function(window)
+    return vim.api.nvim_win_get_config(window).relative == ''
+  end):totable()
+  if #nonfloating == 2 then
+    vim.cmd.wincmd 'w'
+    vim.cmd.diffthis()
+    vim.cmd.wincmd 'w'
+  end
+end, { desc = 'toggle diffing this window, automatically diffing both windows if there are just two.' })
+
 vim.keymap.set('n', '<leader>tl', function()
   vim.wo.list = not vim.wo.list
-end)
+end, { desc = 'toggle list' })
 vim.keymap.set('n', '<leader>tn', function ()
   vim.wo.number = not vim.wo.number
   vim.wo.relativenumber = not vim.wo.relativenumber
@@ -571,7 +588,7 @@ nnoremap        <leader>gw         <Cmd>Gwrite<CR>
 nnoremap        <leader>ta        <Cmd>Vista!!<CR>
 "               <leader>tb        DAP breakpoint
 nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
-nnoremap        <leader>td        <Cmd>DiffThese<CR>
+"               <leader>td        DiffThese
 nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
 "               <leader>tl        list
 "               <leader>tn        line numbering
@@ -645,24 +662,6 @@ vnoremap        <leader>y         "*y
 " ============
 " : Autocmds :
 " ============
-
-  " diffthis with some sugar
-  function! DiffTheseCommand()
-      if &diff
-          diffoff!
-      else
-          diffthis
-
-          let window_count = tabpagewinnr(tabpagenr(), '$')
-          if window_count == 2
-              wincmd w
-              diffthis
-              wincmd w
-          endif
-      endif
-  endfunction
-
-  command! DiffThese call DiffTheseCommand()
 
   " If we're in a real file, enable colorcolumn.
   function! WindowWidth()
