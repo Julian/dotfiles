@@ -12,3 +12,8 @@ repos:
       - id: mixed-line-ending
         args: [--fix, lf]
       - id: trailing-whitespace
+  - repo: https://github.com/woodruffw/zizmor
+    rev: v0.1.6
+
+    hooks:
+    - id: zizmor
