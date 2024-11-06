@@ -105,7 +105,7 @@ return {
         eslint = {},
         gopls = {},
         marksman = {},
-        ruff_lsp = {},
+        ruff = {},
         taplo = {},
         texlab = {},
         ts_ls = {},
