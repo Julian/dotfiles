@@ -501,13 +501,26 @@ vim.keymap.set('n', '<leader>td', function()
   end
 
   vim.cmd.diffthis()
+  local current = vim.api.nvim_get_current_win()
+
   local nonfloating = vim.iter(vim.api.nvim_tabpage_list_wins(0)):filter(function(window)
-    return vim.api.nvim_win_get_config(window).relative == ''
+    return vim.api.nvim_win_get_config(window).relative == '' and window ~= current
   end):totable()
-  if #nonfloating == 2 then
-    vim.cmd.wincmd 'w'
-    vim.cmd.diffthis()
-    vim.cmd.wincmd 'w'
+
+  if #nonfloating == 1 then
+    vim.api.nvim_win_call(nonfloating[1], vim.cmd.diffthis)
+    return
+  end
+
+  local current_filename = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+  local same_filename = vim.iter(nonfloating):filter(function(window)
+    local filename = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(window))
+    return vim.fs.basename(filename) == current_filename
+  end):totable()
+
+  if #same_filename == 1 then
+    vim.api.nvim_win_call(same_filename[1], vim.cmd.diffthis)
+    return
   end
 end, { desc = 'toggle diffing this window, automatically diffing both windows if there are just two.' })
 
