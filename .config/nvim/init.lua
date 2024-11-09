@@ -11,11 +11,13 @@ local uv = vim.uv or vim.loop
 
 -- Spelling --
 
-vim.o.spellfile = vim.fn.stdpath('config') .. '/spellfile.add'
+---@diagnostic disable-next-line: param-type-mismatch
+vim.o.spellfile = vim.fs.joinpath(vim.fn.stdpath('config'), 'spellfile.add')
 
 -- Plugins --
 
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+---@diagnostic disable-next-line: param-type-mismatch
+local lazypath = vim.fs.joinpath(vim.fn.stdpath('data'), 'lazy/lazy.nvim')
 if not uv.fs_stat(lazypath) then
   vim.fn.system{
     'git',
@@ -334,7 +336,7 @@ vim.api.nvim_create_autocmd('UIEnter', {
 
 -- Globals --
 
-local statfs = uv.fs_statfs(vim.fn.expand("$MYVIMRC"))  -- < 5GB left
+local statfs = uv.fs_statfs(vim.env.MYVIMRC)  -- < 5GB left
 _G.SMALL_FILESYSTEM = (statfs.bavail * statfs.bsize) < 5 * 1024 * 1024 * 1024
 
 _G.q = vim.print
