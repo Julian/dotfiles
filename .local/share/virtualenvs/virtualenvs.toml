@@ -283,6 +283,7 @@ install = [
     "hdrhistogram",
 
     "networkx>=3.0",
+    "pygraphviz",
 
     "boto3",
     "certifi>=2021.5.30",
