@@ -526,6 +526,15 @@ vim.keymap.set('n', '<leader>td', function()
   end
 end, { desc = 'toggle diffing this window, automatically diffing both windows if there are just two.' })
 
+vim.keymap.set('n', '<leader>tD', function()
+  vim.cmd.new { mods = { vertical = true } }
+  vim.bo.buftype = 'nofile'
+  vim.cmd 'read ++edit # | 0d_'
+  vim.cmd.diffthis()
+  vim.cmd.wincmd 'p'
+  vim.cmd.diffthis()
+end, { desc = 'Diff a buffer against its original contents (mostly like :h :DiffOrig)' })
+
 vim.keymap.set('n', '<leader>tl', function()
   vim.wo.list = not vim.wo.list
 end, { desc = 'toggle list' })
