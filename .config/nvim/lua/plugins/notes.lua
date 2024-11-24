@@ -55,8 +55,13 @@ return {
     },
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
-      workspaces = {
-        { name = 'vault', path = VAULT },
+      workspaces = { { name = 'vault', path = VAULT } },
+      callbacks = {
+        enter_note = function()
+          local note_window = vim.api.nvim_get_current_win()
+          vim.cmd.Vista()
+          vim.api.nvim_set_current_win(note_window)
+        end,
       },
       follow_url_func = vim.ui.open,
     },
