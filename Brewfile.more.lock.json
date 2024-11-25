@@ -2,7 +2,7 @@
   "entries": {
     "cask": {
       "keycastr": {
-        "version": "0.10.0",
+        "version": "0.10.1",
         "options": {
           "full_name": "keycastr"
         }
@@ -26,7 +26,7 @@
         }
       },
       "tailscale": {
-        "version": "1.72.2",
+        "version": "1.76.6",
         "options": {
           "full_name": "tailscale"
         }
@@ -50,13 +50,13 @@
         }
       },
       "signal": {
-        "version": "7.21.0",
+        "version": "7.34.0",
         "options": {
           "full_name": "signal"
         }
       },
       "lulu": {
-        "version": "2.6.3",
+        "version": "2.9.6",
         "options": {
           "full_name": "lulu"
         }
@@ -72,6 +72,14 @@
         "CLT": "15.3.0.0.1.1708646388",
         "Xcode": "15.4",
         "macOS": "14.6.1"
+      },
+      "sequoia": {
+        "HOMEBREW_VERSION": "4.4.7-9-ge78a0ad",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "api",
+        "CLT": "16.1.0.0.1.1729049160",
+        "Xcode": "16.0",
+        "macOS": "15.0.1"
       }
     }
   }
