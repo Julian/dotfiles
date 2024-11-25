@@ -61,6 +61,9 @@ return {
           local note_window = vim.api.nvim_get_current_win()
           vim.cmd.Vista()
           vim.api.nvim_set_current_win(note_window)
+
+          vim.keymap.set('n', '<leader><leader>t', vim.cmd.ObsidianTOC, { buffer = true })
+          vim.keymap.set('n', '<leader><leader>u', vim.cmd.ObsidianLinks, { buffer = true })
         end,
       },
       follow_url_func = vim.ui.open,
