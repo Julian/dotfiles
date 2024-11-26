@@ -78,6 +78,14 @@ if (( $+commands[nvim] )); then
     alias view='nvim -R'
 fi
 
+if (( $+commands[wormhole-rs] )) && ! (( $+commands[wormhole] )) ; then
+    alias wormhole=wormhole-rs
+fi
+if (( $+commands[wormhole] )); then
+    alias send='wormhole send'
+    alias receive='wormhole receive'
+fi
+
 if (( $+commands[weechat-curses] )); then
     alias weechat="weechat-curses -d $XDG_CONFIG_HOME/weechat"
 fi
