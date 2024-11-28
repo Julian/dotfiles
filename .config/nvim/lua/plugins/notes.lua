@@ -59,7 +59,18 @@ return {
       callbacks = {
         enter_note = function()
           local note_window = vim.api.nvim_get_current_win()
+
           vim.cmd.Vista()
+          vim.api.nvim_create_autocmd('BufEnter', {
+            buffer = 0,
+            callback = function()
+              local windows = vim.api.nvim_tabpage_list_wins(0)
+              if #windows == 1 then
+                vim.cmd.quit()
+              end
+            end
+          })
+
           vim.api.nvim_set_current_win(note_window)
 
           vim.keymap.set('n', '<leader><leader>t', vim.cmd.ObsidianTOC, { buffer = true })
