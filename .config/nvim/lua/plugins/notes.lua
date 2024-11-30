@@ -64,8 +64,10 @@ return {
           vim.api.nvim_create_autocmd('BufEnter', {
             buffer = 0,
             callback = function()
-              local windows = vim.api.nvim_tabpage_list_wins(0)
-              if #windows == 1 then
+              local nonfloating = vim.iter(vim.api.nvim_tabpage_list_wins(0)):filter(function(window)
+                return vim.api.nvim_win_get_config(window).relative ~= ''
+              end):totable()
+              if #nonfloating == 1 then
                 vim.cmd.quit()
               end
             end
