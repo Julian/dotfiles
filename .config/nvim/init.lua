@@ -570,19 +570,6 @@ vim.cmd[[
 " delete a surrounding function call (which surround doesn't support OOTB)
 nmap dsc :call search('\<', 'bc')<CR>dt(ds)
 
-" Leader mappings
-" ---------------
-"
-" Here are explanations for non-self-explanatory ones:
-"
-"   b : paste last deletion on its own line despite it being charwise
-"   n : search forward, but not anything currently displayed
-"   u : undo/redo toggle
-"   B : paste system clipboard on its own line despite it not having a newline
-"   N : search backward, but not anything currently displayed
-"   S : remove trailing whitespace
-"   0 : minimize a window
-
 nnoremap  <expr><leader><Bar>     '<Cmd>autocmd BufWritePost <buffer> !' . input('command: ', '', 'shellcmd') . '<CR>'
 
 "               <leader>a         LSP code action
@@ -669,7 +656,7 @@ nnoremap        <leader>VZ        <Cmd>SplitSensibly $ZDOTDIR/zshrc.d/*<CR>
 nnoremap        <leader>0         <Cmd>wincmd _<CR>
 
 
-nnoremap        <leader>`         <Cmd>call DoCommentTagFormat()<CR>
+"               <leader>`         autoincrementing print debugging
 nnoremap        <leader>.         <Cmd>setlocal autochdir<CR>
 nnoremap        <leader>;         <Cmd>lprevious<CR>
 nnoremap        <leader>'         <Cmd>lnext<CR>
@@ -728,30 +715,6 @@ vnoremap        <leader>y         "*y
               endif
           augroup END
       endif
-  endfunction
-
-  " Format tagged comment blocks based on the post-tag indentation
-  let b:comment_tags = ['TODO', 'XXX', 'FIXME']
-  function! CommentTagFormat()
-      let line_number = v:lnum
-      let first_line = getline(line_number)
-      let comment_leader = split(&commentstring, '%s')[0]
-      let comment = '^\s*' . comment_leader . '\s*'
-
-      for pattern in map(copy(b:comment_tags), 'comment . v:val . ":\\?\\s*"')
-          if first_line =~ pattern
-              let indent = len(matchstr(first_line, pattern)) - len(comment_leader)
-              let second_line = getline(line_number + 1)
-              call setline(line_number + 1, substitute(second_line, comment, comment_leader . repeat(' ', indent), ''))
-              break
-          endif
-      endfor
-      return 1
-  endfunction
-
-  function! DoCommentTagFormat()
-      setlocal formatoptions+=2
-      setlocal formatexpr=CommentTagFormat()
   endfunction
 
   " Edit file under cursor (not matching :help 'isfname) (:help gf)
