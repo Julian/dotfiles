@@ -552,14 +552,14 @@ vim.keymap.set('n', '<leader>ttd', function()
 end, { desc = 'toggle showing diagnostics' })
 
 vim.keymap.set('n', '<leader>`', function()
-  local counter = vim.iter(vim.api.nvim_buf_get_lines(0, 0, -1, false)):fold(1, function(maximum, line)
-    local _, j, count = line:find('%s*vim.print(%d+).*')
+  local counter = vim.iter(vim.api.nvim_buf_get_lines(0, 0, -1, false)):fold(0, function(maximum, line)
+    local _, _, count = line:find('%s*vim.print%((%d+)%).*')
     return math.max(maximum, count or 0)
   end)
 
   local next_indent = vim.fn.indent(vim.api.nvim_win_get_cursor(0)[1] + 1)
   local indent = string.rep(' ', next_indent)
-  local print_debug = ('%svim.print(%d)'):format(indent, counter)
+  local print_debug = ('%svim.print(%d)'):format(indent, counter + 1)
 
   vim.api.nvim_put({ print_debug }, 'l', true, false)
 end, { desc = 'autoincrementing print debugging' })
