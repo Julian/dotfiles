@@ -20,6 +20,7 @@ return {
       telescope.load_extension('ui-select')
     end,
     opts = function(_)
+      local actions = require('telescope.actions')
       return {
         defaults = {
           layout_config = {
@@ -28,7 +29,8 @@ return {
           sorting_strategy = 'ascending',
           mappings = {
             i = {
-              ['<esc>'] = require('telescope.actions').close,
+              ['<C-Q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+              ['<Esc>'] = actions.close,
             },
           },
         },
