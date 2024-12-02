@@ -499,6 +499,10 @@ link = ["ruff", "ruff-lsp"]
 install = ["shiv"]
 link = ["shiv"]
 
+[virtualenv.shrinkray]
+install = ["shrinkray"]
+link = ["shrinkray"]
+
 [virtualenv.twine]
 install = ["twine", "keyring"]
 link = ["twine", "keyring"]
