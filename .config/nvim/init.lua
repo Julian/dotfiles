@@ -564,6 +564,11 @@ vim.keymap.set('n', '<leader>`', function()
   vim.api.nvim_put({ print_debug }, 'l', true, false)
 end, { desc = 'autoincrementing print debugging' })
 
+vim.keymap.set({'v', 's'}, '<leader>r', function()
+  vim.cmd.normal 'd'
+  require('telescope.builtin').registers()
+end, { desc = 'paste from a register via telescope' })
+
 -- To Port --
 
 vim.cmd[[
