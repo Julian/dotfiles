@@ -90,12 +90,15 @@ return {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
-    dependencies = { 'aznhe21/actions-preview.nvim' },
+    dependencies = {
+      'aznhe21/actions-preview.nvim',
+      'saghen/blink.cmp',
+    },
     config = function()
       local lspconfig = require('lspconfig')
 
       local opts = {
-        capabilities = require 'cmp_nvim_lsp'.default_capabilities()
+        capabilities = require('blink.cmp').get_lsp_capabilities()
       }
       local lsps = {
         clangd = {},
@@ -164,7 +167,7 @@ return {
       }
 
       for lsp, lsp_opts in pairs(lsps) do
-        lspconfig[lsp].setup(vim.tbl_extend('force', opts, lsp_opts))
+        lspconfig[lsp].setup(vim.tbl_extend('error', opts, lsp_opts))
       end
 
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
@@ -206,7 +209,10 @@ return {
   {
     'Julian/lean.nvim',
     dev = true,
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'lewis6991/satellite.nvim',
+    },
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
     config = function(_, opts)
       vim.g.lean_config = opts
