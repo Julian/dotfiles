@@ -488,6 +488,11 @@ end, { desc = 'Jump to the next entry in the jumplist which is a child of the cu
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
+vim.keymap.set('n', '<leader>I', vim.show_pos,
+{ desc = 'Inspect the syntax of what is underneath the cursor.' })
+vim.keymap.set('n', '<leader>T', vim.treesitter.inspect_tree,
+{ desc = 'Show the inspected syntax tree for the whole document.' })
+
 vim.keymap.set('n', '<leader>K', function()
     vim.diagnostic.open_float{ scope = "line", header = '', focus = false }
 end, { desc = 'show information about line diagnostics in a float' })
@@ -625,8 +630,6 @@ nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal s
 nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 "               <leader>ttd       diagnostics
 nnoremap        <leader>tth       <Cmd>TSBufToggle highlight<CR>
-nnoremap        <leader>tti       <Cmd>Inspect<CR>
-nnoremap        <leader>ttp       <Cmd>InspectTree<CR>
 nnoremap        <leader>ttq       <Cmd>EditQuery<CR>
 nnoremap        <leader>ttt       <Cmd>lua require('telescope.builtin').treesitter{}<CR>
 nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
@@ -638,6 +641,7 @@ nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
 nnoremap        <leader>D         <Cmd>lua require('telescope.builtin').diagnostics{ bufnr = 0 }<CR>
 nnoremap        <leader>F         <Cmd>lua require('telescope.builtin').lsp_references{}<CR>
+"               <leader>I         inspect
 nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
 "               <leader>K         show line diagnostics
 "               <leader>L         LSP folder management and other mappings
@@ -646,6 +650,7 @@ nnoremap  <expr><leader>O         EditFileWORD()
 nnoremap        <leader>P         "*P
 "               <leader>R         LSP rename
 nnoremap        <leader>S         :<C-U>%s/\s\+$//<cr>:let @/=''<CR>
+"               <leader>T         inspect tree
 nnoremap        <leader>U         :<C-U>Lazy update<CR>:TSUpdate<CR>
 nnoremap        <leader>V         <Cmd>SplitSensibly $MYVIMRC<CR>
 nnoremap        <leader>Y         "*y$
