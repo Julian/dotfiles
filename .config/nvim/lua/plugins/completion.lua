@@ -36,7 +36,8 @@ return {
         },
         ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
       },
-      highlight = { use_nvim_cmp_as_default = true },
+      -- until https://github.com/rebelot/kanagawa.nvim/pull/263 is merged
+      appearance = { use_nvim_cmp_as_default = true },
       trigger = { signature_help = { enabled = true } },
       documentation = { auto_show = true },
       sources = {
