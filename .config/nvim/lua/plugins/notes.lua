@@ -56,6 +56,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       workspaces = { { name = 'vault', path = VAULT } },
+      templates = { folder = 'templates' },
       callbacks = {
         enter_note = function()
           local note_window = vim.api.nvim_get_current_win()
