@@ -38,15 +38,16 @@ return {
       },
       -- until https://github.com/rebelot/kanagawa.nvim/pull/263 is merged
       appearance = { use_nvim_cmp_as_default = true },
-      trigger = { signature_help = { enabled = true } },
-      documentation = { auto_show = true },
+      completion = { documentation = { auto_show = true } },
+      signature = { enabled = true },
       sources = {
-        completion = {
-          enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
-        },
+        default = { "lsp", "path", "snippets", "buffer", "lazydev" },
         providers = {
-          lsp = { fallback_for = { "lazydev" } },
-          lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
         },
       },
     },
