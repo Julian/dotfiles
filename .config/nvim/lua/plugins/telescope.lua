@@ -31,6 +31,7 @@ return {
             i = {
               ['<C-Q>'] = actions.smart_send_to_qflist + actions.open_qflist,
               ['<Esc>'] = actions.close,
+              ['<C-CR>'] = actions.to_fuzzy_refine,
             },
           },
         },
