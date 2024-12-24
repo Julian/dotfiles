@@ -15,7 +15,6 @@ return {
     ---@type blink.cmp.Config
     opts = {
       keymap = {
-        cmdline = { preset = 'super-tab' },
         ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
         ['<C-e>'] = { 'hide', 'fallback' },
 
@@ -42,6 +41,7 @@ return {
       completion = { documentation = { auto_show = true } },
       signature = { enabled = true },
       sources = {
+        cmdline = {},
         default = { "lsp", "path", "snippets", "buffer", "lazydev" },
         providers = {
           lazydev = {
