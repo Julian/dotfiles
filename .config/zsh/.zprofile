@@ -24,6 +24,7 @@ path=(
         $homebrew_prefix/opt/util-linux/bin
         $path
     )
+    fpath=($homebrew_prefix/share/zsh/site-functions $fpath)
 }
 
 path=($HOME/.local/bin $path)
