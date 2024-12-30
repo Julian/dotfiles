@@ -119,6 +119,8 @@ vim.opt.backupdir = {
 }
 vim.o.undofile = true
 
+IS_ANDROID = vim.env.ANDROID_ROOT ~= nil
+
 -- Interface --
 
 vim.o.confirm = true            -- dialog instead of warning
@@ -129,8 +131,8 @@ vim.o.splitbelow = true         -- new :sp go on bottom
 vim.o.splitright = true         -- new :vsp go on right
 
 vim.o.winminheight = 0          -- allow totally minimizing a window
-
-vim.o.timeoutlen = 500          -- shorten the amount of time to wait
+                                -- shorten the amount of time to wait
+vim.o.timeoutlen = IS_ANDROID and 1000 or 500
 
 vim.o.showtabline = 1
 
@@ -143,8 +145,6 @@ vim.opt.listchars = {
   extends = '→',
   precedes = '←',
 }
-
-IS_ANDROID = vim.env.ANDROID_ROOT ~= nil
 
 vim.o.mousemodel = 'popup'
 vim.o.mouse = IS_ANDROID and 'nv' or 'v'
