@@ -424,6 +424,23 @@ vim.keymap.set('n', '<CR>', function()
   end
 end, { expr = true })
 
+-- Jump to the next diff hunk, or if we're not in diff mode, to the next
+-- changed hunk.
+vim.keymap.set('n', '[c', function()
+  if vim.wo.diff then
+    return vim.cmd.normal{ '[c', bang = true }
+  else
+    require 'gitsigns'.nav_hunk 'prev'
+  end
+end)
+vim.keymap.set('n', ']c', function()
+  if vim.wo.diff then
+    return vim.cmd.normal{ ']c', bang = true }
+  else
+    require 'gitsigns'.nav_hunk 'next'
+  end
+end)
+
 -- Jump to next diagnostic, showing the float if it's not likely to already be
 -- visible in the virtual text.
 vim.keymap.set('n', '[d', function()

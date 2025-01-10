@@ -70,6 +70,11 @@ return {
   },
   { 'jmcantrell/vim-diffchanges', cmd = 'DiffChangesDiffToggle' },
   {
+    'lewis6991/gitsigns.nvim',
+    event = 'BufReadPost',
+    opts = {},
+  },
+  {
     'lewis6991/satellite.nvim',
     event = 'BufReadPost',
   },
@@ -101,19 +106,6 @@ return {
     'mbbill/undotree',
     cmd = 'UndotreeToggle',
     init = function() vim.g.undotree_TreeNodeShape = '✷' end,
-  },
-  {
-    'mhinz/vim-signify',
-    lazy = false,
-    init = function()
-      vim.g.signify_mapping_next_hunk = '<nop>'
-      vim.g.signify_mapping_prev_hunk = '<nop>'
-      vim.g.signify_mapping_toggle_highlight = '<nop>'
-      vim.g.signify_mapping_toggle = '<nop>'
-
-      vim.g.signify_update_on_bufenter = 0
-      vim.g.signify_vcs_list = { 'git', 'hg' }
-    end,
   },
   { 'nathanaelkane/vim-indent-guides', cmd = 'IndentGuidesToggle' },
   {
