@@ -50,12 +50,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
         :hi LspReferenceRead cterm=reverse gui=reverse
         :hi LspReferenceWrite guifg=#223249 guibg=#ff9e3b
         :hi LspReferenceText cterm=bold gui=bold
-        augroup lsp_document_highlight
-          autocmd!
-          autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-          autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        augroup END
       ]]
+      vim.api.nvim_create_autocmd('CursorHold', {
+        callback = vim.lsp.buf.document_highlight,
+        buffer = 0,
+        desc = 'Show document highlight on cursor hold.',
+      })
+      vim.api.nvim_create_autocmd('CursorMoved', {
+        callback = vim.lsp.buf.clear_references,
+        buffer = 0,
+        desc = 'Clear highlights when the cursor moves.',
+      })
     end
 
     if client.supports_method('textDocument/codeAction') then
