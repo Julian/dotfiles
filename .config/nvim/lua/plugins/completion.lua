@@ -38,7 +38,10 @@ return {
       },
       -- until https://github.com/rebelot/kanagawa.nvim/pull/263 is merged
       appearance = { use_nvim_cmp_as_default = true },
-      completion = { documentation = { auto_show = true } },
+      completion = {
+        accept = { auto_brackets = { enabled = false } },
+        documentation = { auto_show = true },
+      },
       signature = { enabled = true },
       sources = {
         cmdline = {},
