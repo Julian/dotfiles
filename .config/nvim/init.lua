@@ -191,12 +191,9 @@ vim.cmd[[
   command! -bang X x<bang>
 ]]
 
-local function keynop(modes, lhs) vim.keymap.set(modes, lhs, '') end
 local function keyplug(modes, lhs, plug)
   vim.keymap.set(modes, lhs, '<Plug>(' .. plug .. ')')
 end
-
-keynop({ 'i', 'n' }, '<F1>')
 
 -- Put exchange (and splitjoin) on s, use cl if you want that, but I rarely do.
 keyplug({ 'n', 'v', 's' }, 's', 'Exchange')

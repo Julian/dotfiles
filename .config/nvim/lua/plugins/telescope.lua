@@ -19,6 +19,9 @@ return {
       telescope.load_extension('notify')
       telescope.load_extension('ui-select')
     end,
+    keys = {
+      { '<F1>', "<Cmd>Telescope help_tags<CR>", desc = "Filter through help tags." },
+    },
     opts = function(_)
       local actions = require('telescope.actions')
       return {
