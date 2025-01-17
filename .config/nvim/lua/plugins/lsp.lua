@@ -53,12 +53,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       ]]
       vim.api.nvim_create_autocmd('CursorHold', {
         callback = vim.lsp.buf.document_highlight,
-        buffer = 0,
+        buffer = bufnr,
         desc = 'Show document highlight on cursor hold.',
       })
       vim.api.nvim_create_autocmd('CursorMoved', {
         callback = vim.lsp.buf.clear_references,
-        buffer = 0,
+        buffer = bufnr,
         desc = 'Clear highlights when the cursor moves.',
       })
     end
