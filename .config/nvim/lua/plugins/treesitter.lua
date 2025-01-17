@@ -23,8 +23,22 @@ return {
       { 'nvim-treesitter/nvim-treesitter-textobjects' },
     },
     config = function()
+      local configs = require('nvim-treesitter.parsers').get_parser_configs()
+
+      local tsl_url = vim.fs.joinpath(vim.env.DEVELOPMENT, 'tree-sitter-lean')
+      if not uv.fs_stat(tsl_url) then
+        tsl_url = 'https://github.com/Julian/tree-sitter-lean'
+      end
+
       ---@diagnostic disable-next-line: inject-field
-      require('nvim-treesitter.parsers').get_parser_configs().vhs = {
+      configs.lean = {
+        install_info = {
+          url = tsl_url,
+          files = {"src/parser.c", "src/scanner.c"},
+        },
+      }
+      ---@diagnostic disable-next-line: inject-field
+      configs.vhs = {
         install_info = {
           url = 'https://github.com/charmbracelet/tree-sitter-vhs',
           files = {"src/parser.c"},
