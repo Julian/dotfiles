@@ -65,6 +65,8 @@
 .config/gnupg/
 .config/gh/hosts.yml
 .config/gh/state.yml
+.config/github-copilot/apps.json
+.config/github-copilot/versions.json
 .config/github-copilot/hosts.json
 .config/gtk-2.0/gtkfilechooser.ini
 .config/httpie/version_info.json
