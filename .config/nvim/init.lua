@@ -149,7 +149,11 @@ vim.opt.listchars = {
 vim.o.mousemodel = 'popup'
 vim.o.mouse = IS_ANDROID and 'nv' or 'v'
 
-vim.diagnostic.config{ severity_sort = true, float = { border = 'rounded' } }
+vim.diagnostic.config{
+  virtual_lines = true,
+  severity_sort = true,
+  float = { border = 'rounded' },
+}
 
 -- Movement --
 
