@@ -48,6 +48,8 @@ vim.o.textwidth = 79
 vim.o.wrap = false
 vim.o.showbreak = '↪   '
 
+vim.o.diffopt = 'internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram'
+
 vim.opt.fillchars:append('diff:·')
 vim.opt.isfname:remove('=')             -- this is probably an assignment
 
