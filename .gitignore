@@ -73,6 +73,7 @@
 .config/irb/irb_history
 .config/jupyter/lab/workspaces
 .config/jupyter/migrated
+.config/jupyter/serverconfig
 .config/kaggle/kaggle.json
 .config/keepassc/
 .config/kitty/current-theme.conf
