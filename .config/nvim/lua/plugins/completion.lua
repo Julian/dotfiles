@@ -38,13 +38,16 @@ return {
       },
       -- until https://github.com/rebelot/kanagawa.nvim/pull/263 is merged
       appearance = { use_nvim_cmp_as_default = true },
+      cmdline = { enabled = false },
       completion = {
         accept = { auto_brackets = { enabled = false } },
-        documentation = { auto_show = true },
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
+        ghost_text = { enabled = true },
+        list = { selection = { preselect = function(ctx) return ctx.mode ~= 'cmdline' end } },
+        menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end },
       },
       signature = { enabled = true },
       sources = {
-        cmdline = {},
         default = { "lsp", "path", "snippets", "buffer", "lazydev" },
         providers = {
           lazydev = {
