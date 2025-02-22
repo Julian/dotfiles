@@ -42,7 +42,6 @@ return {
       completion = {
         accept = { auto_brackets = { enabled = false } },
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
-        ghost_text = { enabled = true },
         list = { selection = { preselect = function(ctx) return ctx.mode ~= 'cmdline' end } },
         menu = { auto_show = function(ctx) return ctx.mode ~= 'cmdline' end },
       },
