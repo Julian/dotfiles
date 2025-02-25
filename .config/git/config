@@ -21,11 +21,15 @@
 
 [push]
     atomic = true
+    autoSetupRemote = true
     default = upstream
     followTags = true
 
 [branch]
     sort = -committerdate
+
+[tag]
+    sort = -version:refname
 
 [rebase]
     autostash = true
@@ -42,7 +46,7 @@
     cmd = git-nbdifftool diff \"$LOCAL\" \"$REMOTE\" \"$BASE\"
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
     defaultToUpstream = true
     log = 50
     tool = nvimdiff
