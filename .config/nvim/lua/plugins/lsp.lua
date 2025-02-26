@@ -1,15 +1,18 @@
-local function peek_definition()
-  local params = vim.lsp.util.make_position_params()
-  return vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result, _)
-    if result == nil or vim.tbl_isempty(result) then
-      vim.notify('No definition found.')
-      return nil
-    end
-    if vim.islist(result) then
-      result = result[1]
-    end
-    vim.lsp.util.preview_location(result, { border = 'single' })
-  end)
+---@param method string
+local function peek(method)
+  return function()
+    local params = vim.lsp.util.make_position_params()
+    return vim.lsp.buf_request(0, method, params, function(_, result, _)
+      if result == nil or vim.tbl_isempty(result) then
+        vim.notify('No definition found.')
+        return nil
+      end
+      if vim.islist(result) then
+        result = result[1]
+      end
+      vim.lsp.util.preview_location(result, { border = 'single' })
+    end)
+  end
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -22,7 +25,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gb', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gK', peek_definition, opts)
+    vim.keymap.set('n', 'gk', peek(vim.lsp.protocol.Methods.textDocument_definition), opts)
+    vim.keymap.set('n', 'gK', peek(vim.lsp.protocol.Methods.textDocument_declaration), opts)
 
     if client.supports_method('textDocument/rename') then
       vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
