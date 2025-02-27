@@ -82,6 +82,7 @@ export MATHLIB_CACHE_DIR=$XDG_CACHE_HOME/mathlib/
 
 export GEM_HOME=$HOME/.local/share/gem
 export GEM_SPEC_CACHE=$XDG_CACHE_HOME/gem/spec
+export IRBRC=$XDG_CONFIG_HOME/irb/config.rb
 
 export LUAROCKS_CONFIG=$XDG_CONFIG_HOME/luarocks.lua
 
