@@ -61,6 +61,8 @@ return {
         enter_note = function()
           local note_window = vim.api.nvim_get_current_win()
 
+          vim.wo.spell = true
+
           vim.cmd.Vista()
           vim.api.nvim_create_autocmd('BufEnter', {
             buffer = 0,
@@ -79,9 +81,9 @@ return {
 
           vim.api.nvim_set_current_win(note_window)
 
-          vim.keymap.set('n', '<leader><leader>b', vim.cmd.ObsidianBacklinks, { buffer = true })
-          vim.keymap.set('n', '<leader><leader>l', vim.cmd.ObsidianLinks, { buffer = true })
-          vim.keymap.set('n', '<leader><leader>t', vim.cmd.ObsidianTOC, { buffer = true })
+          vim.keymap.set('n', '<localleader>b', vim.cmd.ObsidianBacklinks, { buffer = true })
+          vim.keymap.set('n', '<localleader>l', vim.cmd.ObsidianLinks, { buffer = true })
+          vim.keymap.set('n', '<localleader>t', vim.cmd.ObsidianTOC, { buffer = true })
         end,
       },
       follow_url_func = vim.ui.open,
