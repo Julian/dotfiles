@@ -32,7 +32,6 @@ link = [
     "bpython-urwid:bpython-urwid",
     "coverage:coverage",
     "glom:glom",
-    "pip:pip",
     "ptpython:ptpypy",
     "pudb3:pudb",
     "py.test:py.test",
@@ -51,7 +50,6 @@ link = [
     "bpython-urwid:bpython-urwid-cpython3",
     "coverage:coverage-cpython3",
     "glom:glom-cpython3",
-    "pip:pip-cpython3",
     "ptpython:ptpython",
     "ptpython:ptpython3",
     "pyinstrument",
@@ -116,17 +114,6 @@ python = "pypy3"
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-pypy3"]
-
-[virtualenv.flake8]
-install = [
-    "flake8",
-    "flake8-bugbear",
-    "flake8-commas",
-    "flake8-quotes",
-    "flake8-broken-line",
-    "yesqa",
-]
-link = ["flake8", "yesqa"]
 
 [virtualenv.google]
 install-bundle = ["development"]
@@ -197,7 +184,7 @@ install = ["maturin"]
 link = ["maturin"]
 
 [virtualenv.ml]
-python = "python3.11"
+python = "python3.12"
 post-commands = [
     [
         "jupyter",
@@ -331,7 +318,7 @@ link = [
 ]
 
 [virtualenv.neovim]
-python = "python3.10"
+python = "python3.13"
 install = ["jedi", "pynvim", "sphinx"]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
 
@@ -466,38 +453,9 @@ link = ["mkpkg"]
 install = ["nox"]
 link = ["nox"]
 
-[virtualenv.pex]
-install = ["pex"]
-link = ["pex"]
-
-[virtualenv.pipenv]
-install = ["pipenv"]
-link = ["pipenv"]
-
-[virtualenv.poetry]
-install = ["poetry"]
-link = ["poetry"]
-
-[virtualenv.piptools]
-install = ["pip-tools"]
-link = ["pip-compile"]
-
-[virtualenv.piptools3]
-python = "pypy3"
-install = ["pip-tools"]
-link = ["pip-compile:pip-compile3"]
-
-[virtualenv.piptools-cpython3]
-install = ["pip-tools"]
-link = ["pip-compile:pip-compile-cpython3"]
-
 [virtualenv.ruff]
 install = ["ruff", "ruff-lsp"]
 link = ["ruff", "ruff-lsp"]
-
-[virtualenv.shiv]
-install = ["shiv"]
-link = ["shiv"]
 
 [virtualenv.shrinkray]
 install = ["shrinkray"]
