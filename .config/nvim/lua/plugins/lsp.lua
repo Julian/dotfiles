@@ -25,8 +25,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gb', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gk', peek(vim.lsp.protocol.Methods.textDocument_definition), opts)
-    vim.keymap.set('n', 'gK', peek(vim.lsp.protocol.Methods.textDocument_declaration), opts)
+    vim.keymap.set('n', 'gK', peek(vim.lsp.protocol.Methods.textDocument_definition), opts)
+    vim.keymap.set('n', 'gL', peek(vim.lsp.protocol.Methods.textDocument_declaration), opts)
 
     if client.supports_method('textDocument/rename') then
       vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
