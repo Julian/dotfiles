@@ -604,6 +604,7 @@ nnoremap  <expr><leader><Bar>     '<Cmd>autocmd BufWritePost <buffer> !' . input
 
 "               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
+"               <leader>c         CopilotChat
 nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_files{ hidden = true }<CR>
 " nnoremap      <leader>e         Telescope search arbitrary directory
 nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }<CR>

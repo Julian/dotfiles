@@ -33,13 +33,65 @@ return {
       },
     },
     init = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
       vim.g.matchup_surround_enabled = 1
     end,
   },
   { 'bruno-/vim-vertical-move' },
   { 'dahu/vim-fanfingtastic', lazy = false },
   { 'easymotion/vim-easymotion' },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim', branch = 'master' },
+    },
+    build = 'make tiktoken',
+    opts = {
+      mappings = {
+        complete = { normal = '', insert = '' },
+        close = { normal = '', insert = '' },
+        reset = { normal = '<localleader>r' },
+        submit_prompt = {},
+        toggle_sticky = {},
+        clear_stickies = {},
+        accept_diff = {},
+        jump_to_diff = {},
+        quickfix_answers = {},
+        quickfix_diffs = {},
+        yank_diff = {},
+        show_diff = {},
+        show_info = {},
+        show_context = {},
+        show_help = { normal = '<localleader>/' },
+      }
+    },
+    keys = {
+      {
+        '<leader>c',
+        function() require('CopilotChat').toggle() end,
+        desc = 'Toggle Copilot Chat',
+      },
+    },
+    cmd = {
+      'CopilotChat',
+      'CopilotChatOpen',
+      'CopilotChatClose',
+      'CopilotChatToggle',
+      'CopilotChatPrompts',
+      'CopilotChatModels',
+      'CopilotChatAgents',
+    },
+  },
   { 'godlygeek/tabular', cmd = 'Tabularize' },
   {
     'nvim-lualine/lualine.nvim',
@@ -137,10 +189,10 @@ return {
   { 'MunifTanjim/nui.nvim' },
   {
     'rcarriga/nvim-notify',
-    opts = { render = "wrapped-compact", max_width = 100 },
+    opts = { render = 'wrapped-compact', max_width = 100 },
     init = function()
       vim.notify = function(...)
-        vim.notify = require("notify")
+        vim.notify = require('notify')
         return vim.notify(...)
       end
     end,
