@@ -261,11 +261,14 @@ return {
         on_lines = function(lines)
           local opts = {
             timeout = 3000,
-            render = 'minimal',
+            render = 'wrapped-compact',
           }
 
           local _, _, maybe_level, rest = lines:find('^(%w+): (.*)')
-          local level = vim.log.levels[maybe_level:upper()]
+          -- Lean uses warning rather than warn...
+          -- and some message don't have any level...
+          -- surely there's another way we should do this.
+          local level = vim.log.levels[(maybe_level or ''):upper()]
           if not level then
             rest = lines
           end
