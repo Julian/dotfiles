@@ -6,7 +6,7 @@ if vim.env.DEVELOPMENT and uv.fs_stat(vim.env.DEVELOPMENT) then
     'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
     'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java', 'javascript',
     'json', 'just', 'latex', 'llvm', 'lua', 'make', 'markdown', 'ninja', 'nix',
-    'org', 'python', 'query', 'regex', 'rst', 'ruby', 'rust', 'tlaplus',
+    'python', 'query', 'regex', 'rst', 'ruby', 'rust', 'tlaplus',
     'toml', 'typescript', 'vim', 'yaml', 'zig',
   }
 end
