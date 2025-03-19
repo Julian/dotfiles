@@ -1,3 +1,4 @@
+brew "elan-init"
 cask "anki"
 cask "keycastr"
 cask "lulu"
