@@ -65,7 +65,7 @@ return {
         toggle_sticky = {},
         clear_stickies = {},
         accept_diff = {},
-        jump_to_diff = {},
+        jump_to_diff = { normal = ']c', insert = false },
         quickfix_answers = {},
         quickfix_diffs = {},
         yank_diff = {},
