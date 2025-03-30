@@ -16,4 +16,13 @@ Install
 
    $ brew analytics off
 
-* Generate a certificate for irssi certauth and /msg *certauth add it
+
+irssi
+=====
+
+.. code-block:: sh
+
+   $ mkdir ~/.irssi/certs
+   $ openssl req -x509 -new -newkey ed25519 -sha256 -nodes -out libera.pem -keyout libera.pem
+
+``/msg nickserv cert add`` it as per the `Libera instructions <https://libera.chat/guides/certfp#add-your-fingerprint-to-nickserv>`_.
