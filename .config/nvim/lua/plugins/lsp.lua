@@ -179,9 +179,6 @@ return {
         lspconfig[lsp].setup(vim.tbl_extend('error', opts, lsp_opts))
       end
 
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-
-
       local lint = require('lint')
 
       lint.linters.mathlib4 = {

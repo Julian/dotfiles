@@ -139,6 +139,7 @@ vim.o.timeoutlen = IS_ANDROID and 1000 or 500
 vim.o.showtabline = 1
 
 vim.o.winblend = 20             --  make floating windows transparentish
+vim.o.winborder = 'rounded'     --  and give them rounded borders by default
 
 vim.opt.listchars = {
   tab = '▸ ',
