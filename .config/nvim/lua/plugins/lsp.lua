@@ -24,17 +24,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gb', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gK', peek(vim.lsp.protocol.Methods.textDocument_definition), opts)
     vim.keymap.set('n', 'gL', peek(vim.lsp.protocol.Methods.textDocument_declaration), opts)
-
-    if client.supports_method('textDocument/rename') then
-      vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
-    end
 
     vim.keymap.set('n', '<leader>La', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ll', function() vim.print(vim.lsp.buf.list_workspace_folders()) end, opts)
+
+    -- grn: rename()
+    -- grr: references()
+    -- gri: implementation()
+    -- gO: document_symbol()
 
     if client.supports_method('textDocument/formatting') then
       vim.keymap.set('n', '<leader>z', vim.lsp.buf.format, opts)
