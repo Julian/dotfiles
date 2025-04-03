@@ -1,66 +1,62 @@
 [bundle]
 development = [
-    "bpython[urwid]",
-    "debugpy",
-    "pipdeptree",
-    "ptpython",
-    "pudb",
-    "pytest",
-    "q",
-    "rich",
-    "virtue",
+  "debugpy",
+  "ptpython",
+  "pudb",
+  "pytest",
+  "rich",
+  "virtue",
+]
+perf = [
+  "pyinstrument; platform_python_implementation != 'PyPy'",
+  "pyperf",
+  "python-papi; platform_system=='Linux' and platform_machine != 'aarch64'",
 ]
 more = [
-    "coverage",
-    "hypothesis",
-    "inflect",
-    "pyinstrument; platform_python_implementation != 'PyPy'",
-    "pyperf",
-    "pytest-cov",
-    "pytest-xdist",
-    "python-papi; platform_system=='Linux' and platform_machine != 'aarch64'",
-    "pyyaml",
+  "inflect",
+  "pyyaml",
+
+  "coverage",
+  "hypothesis",
+  "pytest-cov",
+  "pytest-xdist",
 ]
 
 # --- Development ---
 
 [virtualenv.dev]
 python = "pypy3"
-install-bundle = ["more", "development"]
+install-bundle = ["more", "development", "perf"]
 link = [
-    "bpython:bpython",
-    "bpython-urwid:bpython-urwid",
-    "coverage:coverage",
-    "glom:glom",
-    "ptpython:ptpypy",
-    "pudb3:pudb",
-    "py.test:py.test",
-    "pyperf:pyperf",
-    "testr:testr",
-    "trial:trial",
-    "twist:twist",
+  "coverage:coverage",
+  "glom:glom",
+  "ptpython:ptpypy",
+  "pudb3:pudb",
+  "py.test:py.test",
+  "pyperf:pyperf",
+  "testr:testr",
+  "trial:trial",
+  "twist:twist",
 ]
 link-module = ["pydoc"]
 
 [virtualenv.dev-cpython]
-install-bundle = ["more", "development"]
+install-bundle = ["more", "development", "perf"]
 install = ["pyinstrument"]
 link = [
-    "bpython:bpython-cpython3",
-    "bpython-urwid:bpython-urwid-cpython3",
-    "coverage:coverage-cpython3",
-    "glom:glom-cpython3",
-    "ptpython:ptpython",
-    "ptpython:ptpython3",
-    "pyinstrument",
-    "python:python3",
-    "python:cpython3",
-    "pudb3:pudb-cpython3",
-    "py.test:py.test-cpython3",
-    "pyperf:pyperf-cpython3",
-    "testr:testr-cpython3",
-    "trial:trial-cpython3",
-    "twist:twist-cpython3",
+  "coverage:coverage-cpython3",
+  "glom:glom-cpython3",
+  "ptpython:ptpython",
+  "ptpython:ptpython3",
+  "pyinstrument",
+  "python:python3",
+  "python:cpython3",
+  "pudb3:pudb-cpython3",
+  "py.test:py.test-cpython3",
+  "pyperf:pyperf-cpython3",
+  "testr:testr-cpython3",
+  "trial:trial-cpython3",
+  "twist:twist-cpython3",
 ]
 link-module = ["venv"]
 
@@ -118,9 +114,9 @@ link = ["findme:findme-pypy3"]
 [virtualenv.google]
 install-bundle = ["development"]
 install = [
-    "google-api-python-client",
-    "google-auth-httplib2",
-    "google-auth-oauthlib",
+  "google-api-python-client",
+  "google-auth-httplib2",
+  "google-auth-oauthlib",
 ]
 
 [virtualenv.gpt]
@@ -147,9 +143,9 @@ link = ["httpstat"]
 [virtualenv.imaging]
 install-bundle = ["development"]
 install = [
-    "libraw-cffi",
-    "pillow",
-    "rawkit",
+  "libraw-cffi",
+  "pillow",
+  "rawkit",
 ]
 
 [virtualenv.interrogate]
@@ -163,10 +159,10 @@ link = ["isort"]
 [virtualenv.jsonschema]
 install-bundle = ["development"]
 install = [
-    "check-jsonschema",
-    "hypothesis-jsonschema",
-    "jsonschema[format]",
-    "twisted",
+  "check-jsonschema",
+  "hypothesis-jsonschema",
+  "jsonschema[format]",
+  "twisted",
 ]
 link = ["check-jsonschema", "jsonschema"]
 
@@ -184,114 +180,114 @@ install = ["maturin"]
 link = ["maturin"]
 
 [virtualenv.ml]
-python = "python3.12"
+python = "python3.13"
 post-commands = [
-    [
-        "jupyter",
-        "labextension",
-        "install",
-        "@jupyter-widgets/jupyterlab-manager",
-        "jupyter-matplotlib",
-    ],
-    ["jupyter", "lab", "build"],
-]
-install-bundle = ["more", "development"]
-install = [
-    "numpy>=1.21.1",
-    "scipy>=1.7.3",
-    "ibis-framework[duckdb,examples]",
-
-    "numba>=0.57.0rc1",
-    "llvmlite>=0.38.0rc1",
-
-    "dask[complete]>=2021.11.2",
-    "pyspark>=3.2.0",
-
+  [
     "jupyter",
-    "jupyterlab",
-    "nbdev",
-    "nteract_on_jupyter",
-    "octave_kernel",
+    "labextension",
+    "install",
+    "@jupyter-widgets/jupyterlab-manager",
+    "jupyter-matplotlib",
+  ],
+  ["jupyter", "lab", "build"],
+]
+install-bundle = ["more", "development", "perf"]
+install = [
+  "numpy>=1.21.1",
+  "scipy>=1.7.3",
+  "ibis-framework[duckdb,examples]",
 
-    "jupyter-lsp",
-    "python-language-server[all]>=0.36.2",
+  "numba>=0.57.0rc1",
+  "llvmlite>=0.38.0rc1",
 
-    "ipympl>=0.8.1",
-    "matplotlib>=3.4.3",
-    "altair>=4.0.1",
-    "altair-viewer",
-    "altair_saver>=0.4.0",
+  "dask[complete]>=2021.11.2",
+  "pyspark>=3.2.0",
 
-    "bokeh>=2.4.1",
-    "graphviz>=0.18.1",
-    "plotly>=5.4.0",
-    "plotnine>=0.8.0",
-    "seaborn>=0.11.2",
-    "git+https://github.com/DistrictDataLabs/yellowbrick#egg=yellowbrick",
+  "jupyter",
+  "jupyterlab",
+  "nbdev",
+  "nteract_on_jupyter",
+  "octave_kernel",
 
-    "streamlit>=1.2.0",
-    "voila>=0.2.16",
+  "jupyter-lsp",
+  "python-language-server[all]>=0.36.2",
 
-    # "auto-sklearn>=0.15.0",
-    "featuretools>=1.2.0",
-    "h2o>=3.34.0.3",
-    "tpot>=0.11.7",
+  "ipympl>=0.8.1",
+  "matplotlib>=3.4.3",
+  "altair>=4.0.1",
+  "altair-viewer",
+  "altair_saver>=0.4.0",
 
-    "statsmodels>=0.13.1",
+  "bokeh>=2.4.1",
+  "graphviz>=0.18.1",
+  "plotly>=5.4.0",
+  "plotnine>=0.8.0",
+  "seaborn>=0.11.2",
+  "git+https://github.com/DistrictDataLabs/yellowbrick#egg=yellowbrick",
 
-    "scikit-learn>=1.0",
-    "scikit-optimize[plots]>=0.8.1",
-    "scikit-plot>=0.3.7",
-    "category_encoders>=2.2.2",
+  "streamlit>=1.2.0",
+  "voila>=0.2.16",
 
-    "catboost",
-    "darts>=0.24.0",
-    "tensorflow>=2.12.0",
-    "torch>=1.11.0",
-    "xgboost>=1.4.2",
-    "xgbfir",
+  # "auto-sklearn>=0.15.0",
+  "featuretools>=1.2.0",
+  "h2o>=3.34.0.3",
+  "tpot>=0.11.7",
 
-    "pymc3",
+  "statsmodels>=0.13.1",
 
-    "eli5",
-    "lime",
-    "shap",
+  "scikit-learn>=1.0",
+  "scikit-optimize[plots]>=0.8.1",
+  "scikit-plot>=0.3.7",
+  "category_encoders>=2.2.2",
 
-    "nltk",
-    "sumy",
+  "catboost",
+  "darts>=0.24.0",
+  "tensorflow>=2.12.0",
+  "torch>=1.11.0",
+  "xgboost>=1.4.2",
+  "xgbfir",
 
-    "fastparquet",
-    "h5py",
-    "svmlight-loader",
-    "tables>=3.7.0",
+  "pymc3",
 
-    "kaggle",
+  "eli5",
+  "lime",
+  "shap",
 
-    "hdrhistogram",
+  "nltk",
+  "sumy",
 
-    "networkx>=3.0",
-    "pygraphviz",
+  "fastparquet",
+  "h5py",
+  "svmlight-loader",
+  "tables>=3.7.0",
 
-    "boto3",
-    "certifi>=2021.5.30",
-    "httpx",
-    "requests>=2.26.0",
-    "s3fs",
-    "smart_open",
+  "kaggle",
+
+  "hdrhistogram",
+
+  "networkx>=3.0",
+  "pygraphviz",
+
+  "boto3",
+  "certifi>=2021.5.30",
+  "httpx",
+  "requests>=2.26.0",
+  "s3fs",
+  "smart_open",
 ]
 link = [
-    "bokeh",
-    "dask-scheduler",
-    "dask-ssh",
-    "dask-worker",
-    "featuretools",
-    "jupyter",
-    "kaggle",
-    "ptpython:ml",
-    "streamlit",
-    "sumy",
-    "voila",
-    "xgbfir",
+  "bokeh",
+  "dask-scheduler",
+  "dask-ssh",
+  "dask-worker",
+  "featuretools",
+  "jupyter",
+  "kaggle",
+  "ptpython:ml",
+  "streamlit",
+  "sumy",
+  "voila",
+  "xgbfir",
 ]
 
 [virtualenv.mypy]
@@ -301,20 +297,20 @@ link = ["mypy"]
 [virtualenv.nbdiff]
 install = ["nbdime"]
 link = [
-    "git-nbdiffdriver",
-    "git-nbdifftool",
-    "git-nbmergedriver",
-    "git-nbmergetool",
-    "hg-nbdiff",
-    "hg-nbdiffweb",
-    "hg-nbmerge",
-    "hg-nbmergeweb",
-    "nbdiff",
-    "nbdiff-web",
-    "nbdime",
-    "nbmerge",
-    "nbmerge-web",
-    "nbshow",
+  "git-nbdiffdriver",
+  "git-nbdifftool",
+  "git-nbmergedriver",
+  "git-nbmergetool",
+  "hg-nbdiff",
+  "hg-nbdiffweb",
+  "hg-nbmerge",
+  "hg-nbmergeweb",
+  "nbdiff",
+  "nbdiff-web",
+  "nbdime",
+  "nbmerge",
+  "nbmerge-web",
+  "nbshow",
 ]
 
 [virtualenv.neovim]
@@ -336,9 +332,9 @@ link = ["pydocstyle"]
 
 [virtualenv.pylsp]
 install = [
-    "pyls-isort",
-    "python-lsp-server[all]>=1.7.4",
-    "python-lsp-black",
+  "pyls-isort",
+  "python-lsp-server[all]>=1.7.4",
+  "python-lsp-black",
 ]
 link = ["pylsp"]
 
@@ -353,15 +349,15 @@ link = ["pyright", "pyright-langserver"]
 [virtualenv.remarshal]
 install = ["remarshal"]
 link = [
-    "json2json",
-    "toml2json",
-    "yaml2json",
-    "json2toml",
-    "toml2toml",
-    "yaml2toml",
-    "json2yaml",
-    "toml2yaml",
-    "yaml2yaml",
+  "json2json",
+  "toml2json",
+  "yaml2json",
+  "json2toml",
+  "toml2toml",
+  "yaml2toml",
+  "json2yaml",
+  "toml2yaml",
+  "yaml2yaml",
 ]
 
 [virtualenv.scrapy]
@@ -376,18 +372,18 @@ link = ["ssh-audit"]
 install-bundle = ["development"]
 install = ["recommonmark", "sphinx", "sphinxcontrib.spelling"]
 link = [
-    "cm2html",
-    "cm2latex",
-    "cm2man",
-    "cm2pseudoxml",
-    "cm2xetex",
-    "cm2xml",
-    "rst2html.py",
-    "rst2html5.py",
-    "sphinx-apidoc",
-    "sphinx-autogen",
-    "sphinx-build",
-    "sphinx-quickstart",
+  "cm2html",
+  "cm2latex",
+  "cm2man",
+  "cm2pseudoxml",
+  "cm2xetex",
+  "cm2xml",
+  "rst2html.py",
+  "rst2html5.py",
+  "sphinx-apidoc",
+  "sphinx-autogen",
+  "sphinx-build",
+  "sphinx-quickstart",
 ]
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
@@ -398,20 +394,20 @@ link = ["steck:bpaste", "steck"]
 [virtualenv.subunit]
 install = ["python-subunit"]
 link = [
-    "subunit-1to2",
-    "subunit-2to1",
-    "subunit-filter",
-    "subunit-ls",
-    "subunit-notify",
-    "subunit-output",
-    "subunit-stats",
-    "subunit-tags",
-    "subunit2csv",
-    "subunit2disk",
-    "subunit2gtk",
-    "subunit2junitxml",
-    "subunit2pyunit",
-    "tap2subunit",
+  "subunit-1to2",
+  "subunit-2to1",
+  "subunit-filter",
+  "subunit-ls",
+  "subunit-notify",
+  "subunit-output",
+  "subunit-stats",
+  "subunit-tags",
+  "subunit2csv",
+  "subunit2disk",
+  "subunit2gtk",
+  "subunit2junitxml",
+  "subunit2pyunit",
+  "tap2subunit",
 ]
 
 [virtualenv.termtosvg]
@@ -476,7 +472,7 @@ requirements = ["${DEVELOPMENT}/til/requirements.txt"]
 link = ["pelican", "pelican-quickstart", "pelican-themes"]
 
 [virtualenv.bowtie]
-install-bundle = ["development", "more"]
+install-bundle = ["more", "development", "perf"]
 install = ["-r", "${DEVELOPMENT}/bowtie/test-requirements.txt"]
 link = ["bowtie"]
 
