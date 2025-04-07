@@ -248,9 +248,16 @@ return {
         if level < vim.log.levels.INFO then
           return
         end
-        vim.notify(
-          vim.inspect(data, { newline = ' ', indent = '' }),
-          level
+        local message = (data.message or ''):match('^[^\n]*')
+        ---@diagnostic disable-next-line: unused-local
+        local _ = { newline = ' ', indent = '\n' }
+        vim.notify( -- TODO: somehow we should use `replace`
+          vim.inspect(data),
+          level,
+          {
+            title = message or 'lean.nvim',
+            render = 'wrapped-compact',
+          }
         )
       end,
 
