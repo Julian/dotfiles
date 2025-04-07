@@ -1,8 +1,9 @@
+---@param client vim.lsp.Client
 ---@param method string
-local function peek(method)
+local function peek(client, method)
   return function()
-    local params = vim.lsp.util.make_position_params()
-    return vim.lsp.buf_request(0, method, params, function(_, result, _)
+    local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+    return client:request(method, params, function(_, result, _)
       if result == nil or vim.tbl_isempty(result) then
         vim.notify('No definition found.')
         return nil
@@ -10,7 +11,7 @@ local function peek(method)
       if vim.islist(result) then
         result = result[1]
       end
-      vim.lsp.util.preview_location(result, { border = 'single' })
+      vim.lsp.util.preview_location(result)
     end)
   end
 end
@@ -24,8 +25,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gK', peek(vim.lsp.protocol.Methods.textDocument_definition), opts)
-    vim.keymap.set('n', 'gL', peek(vim.lsp.protocol.Methods.textDocument_declaration), opts)
+    vim.keymap.set('n', 'gK', peek(client, vim.lsp.protocol.Methods.textDocument_definition), opts)
+    vim.keymap.set('n', 'gL', peek(client, vim.lsp.protocol.Methods.textDocument_declaration), opts)
 
     vim.keymap.set('n', '<leader>La', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<leader>Ld', vim.lsp.buf.remove_workspace_folder, opts)
