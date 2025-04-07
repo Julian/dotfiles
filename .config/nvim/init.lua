@@ -155,7 +155,6 @@ vim.o.mouse = IS_ANDROID and 'nv' or 'v'
 vim.diagnostic.config{
   virtual_lines = true,
   severity_sort = true,
-  float = { border = 'rounded' },
 }
 
 -- Movement --
