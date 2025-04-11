@@ -22,6 +22,7 @@ return {
     build = 'make tiktoken',
     opts = {
       model = 'claude-3.7-sonnet-thought',
+      chat_autocomplete = false,
       mappings = {
         complete = { normal = '', insert = '' },
         close = { normal = '', insert = '' },
