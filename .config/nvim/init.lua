@@ -57,7 +57,7 @@ vim.opt.tags:append('.git/tags;$HOME')  -- look upward until $HOME for tags
 
 -- Completion --
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'fuzzy' }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'fuzzy', 'longest', 'popup' }
 
 vim.o.pumblend = 5                    -- slightly transparent pum window
 vim.opt.suffixes:append{ '.backup', '.hbm', '.ini' }  -- lower priority
