@@ -23,6 +23,9 @@ return {
     opts = {
       model = 'claude-3.7-sonnet-thought',
       chat_autocomplete = false,
+      window = {
+        width = 60,
+      },
       mappings = {
         complete = { normal = '', insert = '' },
         close = { normal = '', insert = '' },
