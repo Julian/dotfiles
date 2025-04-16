@@ -2,7 +2,7 @@ local VAULT = vim.fs.joinpath(vim.env.XDG_DOCUMENTS_DIR, 'Obsidian')
 
 return {
   {
-    'epwalsh/obsidian.nvim',
+    'obsidian-nvim/obsidian.nvim',
     version = '*',
     ft = 'markdown',
     keys = {
@@ -10,6 +10,12 @@ return {
         '<leader><CR>',
         '<Cmd>ObsidianQuickSwitch<CR>',
         desc = 'Switch to another file in the vault.',
+      },
+      {
+        '<LocalLeader>e',
+        '<Cmd>ObsidianExtractNote<CR>',
+        mode = 'v',
+        desc = 'Extract the visual selection to a new note.',
       },
       {
         '†',
