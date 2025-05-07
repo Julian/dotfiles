@@ -29,7 +29,7 @@ return {
       mappings = {
         complete = { normal = '', insert = '' },
         close = { normal = '', insert = '' },
-        reset = { normal = '<localleader>r' },
+        reset = { normal = '<C-l>', insert = false },
         submit_prompt = {},
         toggle_sticky = {},
         clear_stickies = {},

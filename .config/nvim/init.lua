@@ -11,7 +11,6 @@ local uv = vim.uv or vim.loop
 
 -- Spelling --
 
----@diagnostic disable-next-line: param-type-mismatch
 vim.o.spellfile = vim.fs.joinpath(vim.fn.stdpath('config'), 'spellfile.add')
 
 -- Plugins --
@@ -92,7 +91,7 @@ elseif vim.fn.filereadable('/usr/local/bin/grep') then  -- newer grep
 end
 
 uv.fs_open('/usr/share/dict/words', 'r', 438, function(err, fd)
-  if err then return end
+  if err or not fd then return end
   vim.schedule(function()
     vim.opt.dictionary:append('/usr/share/dict/words')
   end)
@@ -115,7 +114,7 @@ vim.o.matchtime = 5                   -- how long? (*tenths* of second)
 
 vim.o.backup = true
 vim.opt.backupdir = {
-  vim.env.XDG_CACHE_HOME .. '/nvim/backups',
+  vim.fs.joinpath(vim.env.XDG_CACHE_HOME, 'nvim/backups'),
   '~/tmp',
   '/tmp',
 }
