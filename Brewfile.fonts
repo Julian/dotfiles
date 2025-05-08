@@ -1,5 +1,7 @@
 cask "font-bitter-ht"
 cask "font-cooper-hewitt"
+cask "font-fira-mono"
+cask "font-fira-sans"
 cask "font-ibm-plex-math"
 cask "font-ibm-plex-mono"
 cask "font-ibm-plex-sans"
