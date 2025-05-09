@@ -32,8 +32,10 @@ path=($HOME/.local/bin $path)
 [[ -d ~/.nix-profile/etc/profile.d/ ]] && source ~/.nix-profile/etc/profile.d/nix.sh
 
 export DEVELOPMENT=$HOME/Development
-(( $+commands[nvim] )) && export EDITOR=nvim || export EDITOR=vim
+(( $+commands[nvim] )) && export VISUAL=nvim || export VISUAL=vim
 (( $+commands[bat] )) && export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export EDITOR=$VISUAL
 
 [[ -d $DEVELOPMENT ]] && export IS_DEVELOPMENT_WORKSTATION=yup
 

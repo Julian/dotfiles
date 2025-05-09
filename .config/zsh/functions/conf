@@ -2,5 +2,5 @@ local target=($XDG_CONFIG_HOME/$1)
 if [[ -d "$target" ]]; then
     eza ${~target}
 else
-    $EDITOR ${~target}
+    $VISUAL ${~target}
 fi

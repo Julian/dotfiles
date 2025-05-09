@@ -20,10 +20,8 @@ autoload \
 alias b=bat
 alias d='g d --no-index'
 alias m='mv -iv'
-alias n=$EDITOR
+alias n=$VISUAL
 alias p='noglob parallel --tag --timeout 5 --progress --nonall --sshlogin - $@'
-
-alias todo="$EDITOR +':VimwikiIndex'"
 
 # X11 forwarding with WindowID, useful for e.g. forwarding vim clipboards
 alias ssx='ssh -X -o "SendEnv WINDOWID"'
@@ -43,7 +41,7 @@ elif (( $+commands[apt] )); then
 fi
 
 if (( $+commands[fzy] )); then
-    alias v=$EDITOR' $(fd --hidden --type file | fzy)'
+    alias v=$VISUAL' $(fd --hidden --type file | fzy)'
 
     # for `just` filtering
     export JUST_CHOOSER='fzy --prompt "recipe> "'
@@ -152,7 +150,7 @@ fi
 
 # Edit all files matching the given grep.
 function vm() {
-    noglob $EDITOR $(rg --files-with-matches $@)
+    noglob $VISUAL $(rg --files-with-matches $@)
 }
 
 function cdd() { cd *$1*/ } # stolen from @garybernhardt stolen from @topfunky
@@ -195,7 +193,7 @@ function :sp () { tmux split-window }
 function :Sp () { tmux split-window }
 function :vsp () { tmux split-window -h }
 function :Vsp () { tmux split-window -h }
-function peek () { tmux split-window -p 33 $EDITOR $@ || exit; }
+function peek () { tmux split-window -p 33 $VISUAL $@ || exit; }
 
 # Print a Python str
 function pp() {

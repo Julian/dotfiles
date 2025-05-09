@@ -4,7 +4,7 @@ fi
 
 # edit if we're a tty, otherwise cat
 if [[ -t 1 ]]; then
-    $EDITOR $DOCKET
+    $VISUAL $DOCKET
 else
     cat $DOCKET
 fi
