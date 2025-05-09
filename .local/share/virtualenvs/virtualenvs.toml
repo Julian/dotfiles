@@ -480,6 +480,10 @@ link = ["bowtie"]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/diff"]
 
+[virtualenv.ob]
+install = ["-e", "${DEVELOPMENT}/obsidiana"]
+link = ["ob"]
+
 [virtualenv.regret]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
