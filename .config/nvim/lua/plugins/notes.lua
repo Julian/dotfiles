@@ -1,4 +1,4 @@
-local VAULT = vim.fs.joinpath(vim.env.XDG_DOCUMENTS_DIR, 'Obsidian')
+local VAULT = vim.env.OBSIDIAN_VAULT
 
 return {
   {

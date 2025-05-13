@@ -56,6 +56,8 @@ else
     export XDG_VIDEOS_DIR=$HOME/Movies
 fi
 
+export OBSIDIAN_VAULT=$XDG_DOCUMENTS_DIR/Obsidian
+
 export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 
 export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials.ini
