@@ -3,7 +3,11 @@
 local function peek(client, method)
   return function()
     local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
-    return client:request(method, params, function(_, result, _)
+    return client:request(method, params, function(err, result, _)
+      if err then
+        vim.notify(err.message, vim.log.levels.ERROR)
+        return
+      end
       if result == nil or vim.tbl_isempty(result) then
         vim.notify('No definition found.')
         return nil
