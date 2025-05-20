@@ -484,6 +484,10 @@ install = ["${DEVELOPMENT}/diff"]
 install = ["-e", "${DEVELOPMENT}/obsidiana"]
 link = ["ob"]
 
+[virtualenv.photography]
+install = ["-e", "${DEVELOPMENT}/photography-cli"]
+link = ["photography"]
+
 [virtualenv.regret]
 install-bundle = ["development"]
 install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
