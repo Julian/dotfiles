@@ -225,9 +225,11 @@ vim.keymap.set('v', 'Q', 'gq')
 vim.keymap.set('n', 'Y', 'y$')
 
 -- Swap ; and : and ` and '
-vim.keymap.set({ 'n', 'v' }, ':', ';')
 vim.keymap.set({ 'n', 'v' }, ';', ':')
+vim.keymap.set({ 'n', 'v' }, ':', '<Plug>fanfingtastic_;')
 vim.keymap.set({ 'n', 'v' }, 'q;', 'q:')
+
+-- See :help mark-motions (which we are swapping)
 vim.keymap.set('n', "'", '`')
 vim.keymap.set('n', '`', "'")
 vim.keymap.set('n', "g'", 'g`')
