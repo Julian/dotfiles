@@ -80,6 +80,7 @@ v;cmd=views/thumbtable/paste history
 v;shift;cmd=views/thumbtable/paste history parts
 w=lib/live_view/zoom live view
 w=views/darkroom/full preview
+x;cmd=views/darkroom/synchronize selection
 y;cmd=views/darkroom/redo
 y;cmd=views/map/redo
 z;cmd=views/darkroom/undo
