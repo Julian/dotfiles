@@ -21,7 +21,7 @@ return {
     },
     build = 'make tiktoken',
     opts = {
-      model = 'claude-3.7-sonnet-thought',
+      model = 'claude-sonnet-4',
       chat_autocomplete = false,
       window = {
         width = 60,
