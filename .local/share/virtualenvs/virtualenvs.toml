@@ -485,6 +485,7 @@ install = ["-e", "${DEVELOPMENT}/obsidiana"]
 link = ["ob"]
 
 [virtualenv.photography]
+install-bundle = ["development"]
 install = ["-e", "${DEVELOPMENT}/photography-cli"]
 link = ["photography"]
 
