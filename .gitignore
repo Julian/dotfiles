@@ -90,6 +90,7 @@
 .config/pudb/internal-cmdline-history.txt
 .config/pudb/saved-breakpoints*
 .config/pudb/shell-history
+.config/swiftpm/
 .config/weechat/logs/
 .config/weechat/weechat.log
 .config/zsh/.zcompdump

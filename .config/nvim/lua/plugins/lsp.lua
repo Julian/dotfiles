@@ -121,6 +121,7 @@ return {
         gopls = {},
         marksman = {},
         ruff = {},
+        sourcekit = {},
         taplo = {},
         texlab = {},
         tinymist = {},
