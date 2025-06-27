@@ -59,6 +59,7 @@ return {
       'CopilotChatPrompts',
       'CopilotChatModels',
       'CopilotChatAgents',
+      'CopilotChatLoad',
     },
   },
 }
