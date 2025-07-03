@@ -79,7 +79,7 @@ export SQLITE_HISTORY=$XDG_CACHE_HOME/sqlite_history
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
-export ELAN_HOME=$XDG_DATA_HOME/elan/
+export ELAN_HOME=$HOME/.local/share/elan/
 export MATHLIB_CACHE_DIR=$XDG_CACHE_HOME/mathlib/
 
 export GEM_HOME=$HOME/.local/share/gem
