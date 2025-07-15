@@ -1,6 +1,7 @@
 brew "elan-init"
 brew "enchant"
 brew "llama.cpp"
+brew "whisper-cpp"
 cask "anki"
 cask "keycastr"
 cask "lulu"
