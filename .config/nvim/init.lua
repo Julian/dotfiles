@@ -595,6 +595,19 @@ vim.keymap.set({'v', 's'}, '<leader>r', function()
   require('telescope.builtin').registers()
 end, { desc = 'paste from a register via telescope' })
 
+-- Autocommands --
+
+---If we're in a real file, enable colorcolumn.
+vim.api.nvim_create_autocmd({ 'BufWinEnter', 'VimEnter' }, {
+  callback = function()
+    if vim.bo.buftype == 'nofile' or vim.api.nvim_buf_get_name(0) == '' then
+      return
+    else
+      vim.wo.colorcolumn = '+1'
+    end
+  end,
+})
+
 -- To Port --
 
 vim.cmd[[
@@ -719,16 +732,6 @@ vnoremap        <leader>y         "*y
 " : Autocmds :
 " ============
 
-  " If we're in a real file, enable colorcolumn.
-  function! WindowWidth()
-      if &buftype == 'nofile'
-          return
-      else
-          " show a line at column 80
-          setlocal colorcolumn=+1
-      endif
-  endfunction
-
   " Expand the active window
   function! ToggleExpando()
       if !exists("s:expando_enabled")
@@ -765,9 +768,6 @@ vnoremap        <leader>y         "*y
 
       " Keep splits equal on resize
       autocmd VimResized * :wincmd =
-
-      " Automagic line numbers
-      autocmd BufWinEnter,VimEnter * :call WindowWidth()
 
       " Jump to the last known cursor position if it's valid (from the docs)
       autocmd BufReadPost *
