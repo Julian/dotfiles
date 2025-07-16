@@ -42,7 +42,6 @@ vim.o.gdefault = true
 vim.o.lazyredraw = true               -- no redraw during macros (much faster)
 vim.o.linebreak = true
 vim.o.report = 0                      -- :cmd always shows changed line count
-vim.o.textwidth = 79
 
 vim.o.wrap = false
 vim.o.showbreak = '↪   '
@@ -601,6 +600,7 @@ end, { desc = 'paste from a register via telescope' })
 vim.api.nvim_create_autocmd({ 'BufWinEnter', 'VimEnter' }, {
   callback = function()
     if vim.bo.buftype == 'nofile' or vim.api.nvim_buf_get_name(0) == '' then
+      vim.bo.textwidth = 0
       return
     else
       vim.wo.colorcolumn = '+1'
