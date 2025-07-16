@@ -210,3 +210,7 @@
 
 [url "git@github.com:Julian/"]
     insteadOf = "g:"
+
+# "Actual" machine specific settings, if any, go here.
+[include]
+    path = config.local
