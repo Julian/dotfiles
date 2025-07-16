@@ -46,7 +46,19 @@ return {
     keys = {
       {
         '<leader>c',
-        function() require('CopilotChat').toggle() end,
+        function()
+          local windows = vim.api.nvim_list_wins()
+          local bufnr = vim.api.nvim_win_get_buf(windows[1])
+          if #windows == 1
+            and vim.api.nvim_buf_get_name(bufnr) == ''
+            and vim.api.nvim_buf_line_count(bufnr) == 1
+            and vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)[1] == '' then
+              vim.cmd.CopilotChatOpen()
+              vim.api.nvim_win_close(windows[1], true)
+          else
+            vim.cmd.CopilotChatToggle()
+          end
+        end,
         desc = 'Toggle Copilot Chat',
       },
     },
