@@ -77,6 +77,12 @@ return {
   {
     'lewis6991/satellite.nvim',
     event = 'BufReadPost',
+    opts = {
+      exclude_filetypes = {
+        'copilot-chat',
+        'help',
+      },
+    },
   },
   {
     'kshenoy/vim-signature',
