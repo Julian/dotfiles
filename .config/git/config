@@ -142,6 +142,10 @@
     versions = tag --list --sort=-version:refname
     whatsnew = !zsh -c 'git d "$(git versions | head -n1)" $@' -
 
+    w = worktree list
+    wa = worktree add
+    wr = worktree remove
+
     good = bisect good
     bad = bisect bad
 
