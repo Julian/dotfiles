@@ -63,6 +63,7 @@ return {
     opts = {
       workspaces = { { name = 'vault', path = VAULT } },
       templates = { folder = 'templates' },
+      disable_frontmatter = true, -- constantly breaks things...
       callbacks = {
         enter_note = function()
           local note_window = vim.api.nvim_get_current_win()
