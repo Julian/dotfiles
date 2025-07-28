@@ -1,5 +1,9 @@
 local VAULT = vim.env.OBSIDIAN_VAULT
 
+local function Obsidian(command)
+  return function() vim.cmd.Obsidian(command) end
+end
+
 return {
   {
     'obsidian-nvim/obsidian.nvim',
@@ -8,23 +12,23 @@ return {
     keys = {
       {
         '<leader><CR>',
-        '<Cmd>ObsidianQuickSwitch<CR>',
+        Obsidian 'quick_switch',
         desc = 'Switch to another file in the vault.',
       },
       {
         '<LocalLeader>e',
-        '<Cmd>ObsidianExtractNote<CR>',
+        Obsidian 'extract_note',
         mode = 'v',
         desc = 'Extract the visual selection to a new note.',
       },
       {
         '†',
-        '<Cmd>ObsidianToday<CR>',
+        Obsidian 'today',
         desc = "Go to today's note.",
       },
       {
         '<M-t>',
-        '<Cmd>ObsidianToday<CR>',
+        Obsidian 'today',
         desc = "Go to today's note.",
       },
       {
@@ -35,35 +39,13 @@ return {
         desc = 'Live grep the vault.',
       },
     },
-    cmd = {
-      'ObsidianOpen',
-      'ObsidianNew',
-      'ObsidianQuickSwitch',
-      'ObsidianFollowLink',
-      'ObsidianBacklinks',
-      'ObsidianTags',
-      'ObsidianToday',
-      'ObsidianYesterday',
-      'ObsidianTomorrow',
-      'ObsidianDailies',
-      'ObsidianTemplate',
-      'ObsidianSearch',
-      'ObsidianLink',
-      'ObsidianLinkNew',
-      'ObsidianLinks',
-      'ObsidianExtractNote',
-      'ObsidianWorkspace',
-      'ObsidianPasteImg',
-      'ObsidianRename',
-      'ObsidianToggleCheckbox',
-      'ObsidianNewFromTemplate',
-      'ObsidianTOC',
-    },
+    cmd = { 'Obsidian' },
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
       workspaces = { { name = 'vault', path = VAULT } },
       templates = { folder = 'templates' },
       disable_frontmatter = true, -- constantly breaks things...
+      legacy_commands = false,
       callbacks = {
         enter_note = function()
           local note_window = vim.api.nvim_get_current_win()
@@ -88,9 +70,9 @@ return {
 
           vim.api.nvim_set_current_win(note_window)
 
-          vim.keymap.set('n', '<localleader>b', vim.cmd.ObsidianBacklinks, { buffer = true })
-          vim.keymap.set('n', '<localleader>l', vim.cmd.ObsidianLinks, { buffer = true })
-          vim.keymap.set('n', '<localleader>t', vim.cmd.ObsidianTOC, { buffer = true })
+          vim.keymap.set('n', '<localleader>b', Obsidian 'backlinks', { buffer = true })
+          vim.keymap.set('n', '<localleader>l', Obsidian 'links', { buffer = true })
+          vim.keymap.set('n', '<localleader>t', Obsidian 'toc', { buffer = true })
         end,
       },
       follow_url_func = vim.ui.open,
