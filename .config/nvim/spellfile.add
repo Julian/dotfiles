@@ -18,6 +18,7 @@ commoditized
 componentized
 config
 conformant
+copyrightability
 CPython
 ctypes
 dedent
@@ -37,6 +38,7 @@ Freenode
 garbages
 github
 gorgonzola
+goto
 grep
 hackathon
 hackathons
@@ -59,6 +61,8 @@ Jupyter
 lede
 linter
 linters
+LLM
+LLMs
 LSP
 macOS
 mathlib
@@ -79,6 +83,7 @@ opencv
 OpenCV's
 orderable
 org
+phonebook
 phonorecord
 phonorecords
 plugin
