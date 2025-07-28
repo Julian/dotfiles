@@ -398,8 +398,8 @@ vim.keymap.set('n', '<CR>', function()
   elseif filetype == 'help' then return '<C-]>'
   elseif require('dap').session() ~= nil then require('dap').run_to_cursor() return ''
   else
-    local obsidian = require'obsidian'.get_client()
-    local vault = obsidian.dir.filename
+    require 'obsidian'
+    local vault = Obsidian.dir.filename
     local target = vim.fs.joinpath(vault, 'Home.md')
 
     local workspace = vim.lsp.buf.list_workspace_folders()[1] or vim.uv.cwd()
