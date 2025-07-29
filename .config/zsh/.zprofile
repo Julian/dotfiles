@@ -6,6 +6,7 @@ path=(
     /usr/local/sbin
     /usr/local/share/npm/bin
     ${CARGO_HOME}/bin
+    ${ELAN_HOME}/bin
     ${GEM_HOME}/bin
     ${LUAROCKS_DATA_DIR}/bin
     ${PNPM_HOME}
