@@ -42,7 +42,10 @@ return {
     cmd = { 'Obsidian' },
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {
-      workspaces = { { name = 'vault', path = VAULT } },
+      workspaces = {
+        { name = 'vault', path = VAULT },
+        vim.env.OBSIDIAN_WORK_VAULT and { name = 'work', path = vim.env.OBSIDIAN_WORK_VAULT } or nil,
+      },
       templates = { folder = 'templates' },
       disable_frontmatter = true, -- constantly breaks things...
       legacy_commands = false,
