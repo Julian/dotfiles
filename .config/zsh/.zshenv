@@ -103,8 +103,6 @@ export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
 
 export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/ripgrep
 
-export STARDICT_DATA_DIR=$XDG_DATA_HOME/stardict
-
 typeset -aU c_include_path
 typeset -T C_INCLUDE_PATH c_include_path
 export C_INCLUDE_PATH
