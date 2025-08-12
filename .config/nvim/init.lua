@@ -597,7 +597,7 @@ end, { desc = 'paste from a register via telescope' })
 -- Autocommands --
 
 ---If we're in a real file, enable colorcolumn.
-vim.api.nvim_create_autocmd({ 'BufReadPre', 'VimEnter' }, {
+vim.api.nvim_create_autocmd('BufReadPre', {
   callback = function(data)
     if vim.bo.buftype == 'nofile' or data.file == '' then
       vim.bo.textwidth = 0
