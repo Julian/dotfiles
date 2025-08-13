@@ -20,6 +20,8 @@ local function peek(client, method)
   end
 end
 
+local hl_augroup = vim.api.nvim_create_augroup('LspAutocmds', {})
+
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
@@ -54,6 +56,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
     end
 
+
+    vim.api.nvim_clear_autocmds({ group = hl_augroup, buffer = bufnr })
     if client.supports_method('textDocument/documentHighlight') then
       vim.cmd [[
         :hi LspReferenceRead cterm=reverse gui=reverse
@@ -63,11 +67,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.api.nvim_create_autocmd('CursorHold', {
         callback = vim.lsp.buf.document_highlight,
         buffer = bufnr,
+        group = hl_augroup,
         desc = 'Show document highlight on cursor hold.',
       })
       vim.api.nvim_create_autocmd('CursorMoved', {
         callback = vim.lsp.buf.clear_references,
         buffer = bufnr,
+        group = hl_augroup,
         desc = 'Clear highlights when the cursor moves.',
       })
     end
@@ -81,8 +87,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set('n', '<leader>Le', vim.lsp.codelens.display, opts)
       vim.keymap.set('n', '<leader>Ln', vim.lsp.codelens.run, opts)
       vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
-        buffer = bufnr,
         callback = function() vim.lsp.codelens.refresh{ bufnr = bufnr } end,
+        group = hl_augroup,
+        buffer = bufnr,
       })
     end
 
