@@ -33,7 +33,7 @@ jobs:
         run: sudo apt-get install -y zsh
         if: runner.os == 'Linux'
       - name: Set up uv
-        uses: astral-sh/setup-uv@e92bafb6253dcd438e0484186d7669ea7a8ca1cc
+        uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1
         with:
           enable-cache: false
       - name: Bootstrap
