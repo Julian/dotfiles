@@ -390,6 +390,13 @@ end, {
   expr = true,
   remap = true,
 })
+vim.keymap.set('v', 'yq', function()
+  return 'S' .. (vim.b.quote_char or '"')
+end, {
+  desc = 'Quote the surrounding word with a (filetype-specific) quote character.',
+  expr = true,
+  remap = true,
+})
 
 --- 'Click' if there's something to do, otherwise jump to our vault.
 vim.keymap.set('n', '<CR>', function()
