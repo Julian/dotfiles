@@ -4,6 +4,10 @@ return {
     cmd = 'Copilot',
     event = 'InsertEnter',
     opts = {
+      filetypes = {
+        lean = true,
+        ['*'] = false,
+      },
       suggestion = { enabled = false },
       panel = { enabled = false },
       server_opts_overrides = {
