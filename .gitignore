@@ -78,8 +78,6 @@
 .config/keepassc/
 .config/kitty/current-theme.conf
 .config/kitty/kitty.conf.bak
-.config/litecli/history
-.config/litecli/log
 .config/matplotlib/*.cache
 .config/matplotlib/fontlist-*.json
 .config/mlvds/
@@ -98,6 +96,11 @@
 .config/zsh/cache
 .config/zsh/history
 .config/zsh/zshrc.d/
+
+.config/litecli/history
+.config/litecli/log
+.config/pgcli/history
+.config/pgcli/log
 
 .config/coc/commands
 .config/coc/extensions/*
