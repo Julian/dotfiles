@@ -68,6 +68,10 @@ link = ["aubio", "aubiocut"]
 install = ["bandit"]
 link = ["bandit"]
 
+[virtualenv.beancount]
+install = ["beancount", "fava"]
+link = ["bean-check", "fava"]
+
 [virtualenv.beets]
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]

@@ -3,11 +3,11 @@ local uv = vim.loop or vim.uv
 local parsers = {}
 if vim.env.DEVELOPMENT and uv.fs_stat(vim.env.DEVELOPMENT) then
   parsers = {
-    'bash', 'c', 'c_sharp', 'clojure', 'cmake', 'comment', 'cpp', 'css',
-    'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java', 'javascript',
-    'json', 'just', 'latex', 'llvm', 'lua', 'make', 'markdown', 'ninja', 'nix',
-    'python', 'query', 'regex', 'rst', 'ruby', 'rust', 'tlaplus',
-    'toml', 'typescript', 'vim', 'yaml', 'zig',
+    'bash', 'beancount', 'c', 'c_sharp', 'clojure', 'cmake', 'comment',
+    'cpp', 'css', 'cuda', 'dockerfile', 'dot', 'haskell', 'html', 'java',
+    'javascript', 'json', 'just', 'latex', 'llvm', 'lua', 'make', 'markdown',
+    'ninja', 'nix', 'python', 'query', 'regex', 'rst', 'ruby', 'rust',
+    'tlaplus', 'toml', 'typescript', 'vim', 'yaml', 'zig',
   }
 end
 
