@@ -135,6 +135,14 @@ return {
         ts_ls = {},
         vimls = {},
 
+        beancount = {
+          init_options = {
+            journal_file = {
+              vim.fs.joinpath(vim.env.OBSIDIAN_VAULT, 'ledger.beancount'),
+            },
+          },
+        },
+
         jsonls = {
           json = {
             schemas = require('schemastore').json.schemas(),

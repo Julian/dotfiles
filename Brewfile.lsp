@@ -1,4 +1,5 @@
 tap "julian/tap"
+brew "beancount-language-server"
 brew "clojure-lsp"
 brew "gopls"
 brew "lua-language-server"

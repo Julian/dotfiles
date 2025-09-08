@@ -69,8 +69,15 @@ install = ["bandit"]
 link = ["bandit"]
 
 [virtualenv.beancount]
-install = ["beancount", "fava"]
-link = ["bean-check", "fava"]
+install = ["beancount", "beangulp", "fava"]
+link = [
+  "bean-check",
+  "bean-doctor",
+  "bean-example",
+  "bean-format",
+  "bean-query",
+  "fava",
+]
 
 [virtualenv.beets]
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
