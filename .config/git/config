@@ -38,6 +38,9 @@
     enabled = true
     autoUpdate = true
 
+[stash]
+    showIncludeUntracked = true
+
 [diff]
     algorithm = histogram
     tool = nvimdiff
