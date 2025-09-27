@@ -106,118 +106,110 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
+local lsps = {
+  clangd = {},
+  clojure_lsp = {},
+  eslint = {},
+  gopls = {},
+  marksman = {},
+  ruff = {},
+  sourcekit = {},
+  taplo = {},
+  texlab = {},
+  tinymist = {},
+  ts_ls = {},
+  vimls = {},
+
+  beancount = {
+    init_options = {
+      journal_file = {
+        vim.fs.joinpath(vim.env.OBSIDIAN_VAULT, 'ledger.beancount'),
+      },
+    },
+  },
+
+  jsonls = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+
+  yamlls = {
+    settings = {
+      yaml = {
+        keyOrdering = false,
+      },
+    },
+  },
+
+  esbonio = { cmd = { 'esbonio' } },
+
+  pylsp = {
+    settings = {
+      pylsp = {
+        plugins = {
+          black = { enabled = true, line_length = 79 },
+
+          ruff = { enabled = false },
+          autopep8 = { enabled = false },
+          flake8 = { enabled = false },
+          mccabe = { enabled = false },
+          pycodestyle = { enabled = false },
+          pydocstyle = { enabled = false },
+          pyflakes = { enabled = false },
+          pylint = { enabled = false },
+          yapf = { enabled = false },
+        },
+      },
+    },
+  },
+
+  lua_ls = {
+    settings = {
+      Lua = {
+        telemetry = { enable = false },
+        completion = {
+          callSnippet = 'Both',
+        },
+        hint = {
+          enable = true,
+          setType = true,
+        },
+      },
+    },
+  },
+}
+
+for lsp, lsp_opts in pairs(lsps) do
+  vim.lsp.config(lsp, lsp_opts)
+  vim.lsp.enable(lsp)
+end
+
+local lint = require('lint')
+
+lint.linters.mathlib4 = {
+  name = 'mathlib',
+  cmd = 'scripts/lint-style.py',
+  stdin = false,
+  stream = 'stdout',
+  ignore_exitcode = true,
+  parser = require('lint.parser').from_pattern(
+    '::(%l+) file=([^:]+),line=(%d+),code=ERR_(%w+)::[^ ]+ ERR_%w+: (.+)',
+    { 'severity', 'file', 'lnum', 'code', 'message' }
+  ),
+}
+
+lint.linters_by_ft = {
+  lean = { 'mathlib4' },
+}
+
 return {
   {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile' },
     cmd = { 'LspInfo', 'LspInstall', 'LspUninstall' },
-    dependencies = {
-      'aznhe21/actions-preview.nvim',
-      'saghen/blink.cmp',
-    },
-    config = function()
-      local lspconfig = require('lspconfig')
-
-      local opts = {
-        capabilities = require('blink.cmp').get_lsp_capabilities()
-      }
-      local lsps = {
-        clangd = {},
-        clojure_lsp = {},
-        eslint = {},
-        gopls = {},
-        marksman = {},
-        ruff = {},
-        sourcekit = {},
-        taplo = {},
-        texlab = {},
-        tinymist = {},
-        ts_ls = {},
-        vimls = {},
-
-        beancount = {
-          init_options = {
-            journal_file = {
-              vim.fs.joinpath(vim.env.OBSIDIAN_VAULT, 'ledger.beancount'),
-            },
-          },
-        },
-
-        jsonls = {
-          json = {
-            schemas = require('schemastore').json.schemas(),
-            validate = { enable = true },
-          },
-        },
-
-        yamlls = {
-          settings = {
-            yaml = {
-              keyOrdering = false,
-            },
-          },
-        },
-
-        esbonio = { cmd = { 'esbonio' } },
-
-        pylsp = {
-          settings = {
-            pylsp = {
-              plugins = {
-                black = { enabled = true, line_length = 79 },
-
-                ruff = { enabled = false },
-                autopep8 = { enabled = false },
-                flake8 = { enabled = false },
-                mccabe = { enabled = false },
-                pycodestyle = { enabled = false },
-                pydocstyle = { enabled = false },
-                pyflakes = { enabled = false },
-                pylint = { enabled = false },
-                yapf = { enabled = false },
-              },
-            },
-          },
-        },
-
-        lua_ls = {
-          settings = {
-            Lua = {
-              telemetry = { enable = false },
-              completion = {
-                callSnippet = 'Both',
-              },
-              hint = {
-                enable = true,
-                setType = true,
-              },
-            },
-          },
-        },
-      }
-
-      for lsp, lsp_opts in pairs(lsps) do
-        lspconfig[lsp].setup(vim.tbl_extend('error', opts, lsp_opts))
-      end
-
-      local lint = require('lint')
-
-      lint.linters.mathlib4 = {
-        name = 'mathlib',
-        cmd = 'scripts/lint-style.py',
-        stdin = false,
-        stream = 'stdout',
-        ignore_exitcode = true,
-        parser = require('lint.parser').from_pattern(
-          '::(%l+) file=([^:]+),line=(%d+),code=ERR_(%w+)::[^ ]+ ERR_%w+: (.+)',
-          { 'severity', 'file', 'lnum', 'code', 'message' }
-        ),
-      }
-
-      lint.linters_by_ft = {
-        lean = { 'mathlib4' },
-      }
-    end,
+    dependencies = { 'aznhe21/actions-preview.nvim' },
   },
   {
     'folke/lazydev.nvim',
