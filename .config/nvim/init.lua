@@ -31,6 +31,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup('plugins', {
   defaults = { lazy = true },
+  rocks = { enabled = false },
   dev = {
     path = vim.env.DEVELOPMENT,
     patterns = { 'Julian/' },
