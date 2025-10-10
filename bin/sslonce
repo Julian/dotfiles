@@ -1,4 +1,11 @@
-#! /usr/bin/env python
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.14"
+# dependencies = [
+#     "cryptography",
+# ]
+# ///
+
 # Generate a SSL certificate suitable for one-off testing of things over HTTPS
 #
 #
@@ -8,7 +15,7 @@
 #
 # You also will likely want to enable chrome://flags/#allow-insecure-localhost
 
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 import sys
 
 from cryptography import x509
@@ -21,7 +28,7 @@ from cryptography.x509.oid import NameOID
 def random_serial_number():
     import os
     from cryptography import utils
-    return utils.int_from_bytes(os.urandom(20), "big") >> 1
+    return int.from_bytes(os.urandom(20), "big") >> 1
 
 
 # We do the bare minimum to get a certificate. Obviously do *not* run anything
@@ -43,17 +50,17 @@ certificate = x509.CertificateBuilder().subject_name(
 ).serial_number(
     random_serial_number(),
 ).not_valid_before(
-    datetime.utcnow(),
+    datetime.now(UTC),
 ).not_valid_after(
-    datetime.utcnow() + timedelta(days=1),
+    datetime.now(UTC) + timedelta(days=1),
 ).public_key(
     key.public_key(),
 ).add_extension(
     x509.SubjectAlternativeName([x509.DNSName(u"localhost")]), critical=False,
 ).sign(key, hashes.SHA256(), default_backend())
 
-sys.stdout.write(certificate.public_bytes(serialization.Encoding.PEM))
-sys.stdout.write(
+sys.stdout.buffer.write(certificate.public_bytes(serialization.Encoding.PEM))
+sys.stdout.buffer.write(
     key.private_bytes(
         encoding=serialization.Encoding.PEM,
         format=serialization.PrivateFormat.TraditionalOpenSSL,
