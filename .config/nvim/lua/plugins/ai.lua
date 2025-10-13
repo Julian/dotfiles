@@ -6,6 +6,7 @@ return {
     opts = {
       filetypes = {
         lean = true,
+        lua = true,
         ['*'] = false,
       },
       suggestion = { enabled = false },
