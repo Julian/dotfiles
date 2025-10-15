@@ -47,7 +47,9 @@ return {
         vim.env.OBSIDIAN_WORK_VAULT and { name = 'work', path = vim.env.OBSIDIAN_WORK_VAULT } or nil,
       },
       templates = { folder = 'templates' },
-      disable_frontmatter = true, -- constantly breaks things...
+      frontmatter = {
+        enabled = false, -- constantly breaks things...
+      },
       legacy_commands = false,
       callbacks = {
         enter_note = function()
