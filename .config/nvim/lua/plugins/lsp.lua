@@ -106,85 +106,84 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-local lsps = {
-  clangd = {},
-  clojure_lsp = {},
-  eslint = {},
-  gopls = {},
-  marksman = {},
-  ruff = {},
-  sourcekit = {},
-  taplo = {},
-  texlab = {},
-  tinymist = {},
-  ts_ls = {},
-  vimls = {},
+vim.lsp.config('beancount', {
+  init_options = {
+    journal_file = {
+      vim.fs.joinpath(vim.env.OBSIDIAN_VAULT, 'ledger.beancount'),
+    },
+  },
+})
+vim.lsp.config('esbonio', {
+  cmd = { 'esbonio' },
+})
+vim.lsp.config('jsonls', {
+  json = {
+    schemas = require('schemastore').json.schemas(),
+    validate = { enable = true },
+  },
+})
+vim.lsp.config('yamlls', {
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    },
+  },
+})
 
-  beancount = {
-    init_options = {
-      journal_file = {
-        vim.fs.joinpath(vim.env.OBSIDIAN_VAULT, 'ledger.beancount'),
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      telemetry = { enable = false },
+      completion = {
+        callSnippet = 'Both',
+      },
+      hint = {
+        enable = true,
+        setType = true,
       },
     },
   },
+})
 
-  jsonls = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = { enable = true },
-    },
-  },
+vim.lsp.config('pylsp', {
+  settings = {
+    pylsp = {
+      plugins = {
+        black = { enabled = true, line_length = 79 },
 
-  yamlls = {
-    settings = {
-      yaml = {
-        keyOrdering = false,
+        ruff = { enabled = false },
+        autopep8 = { enabled = false },
+        flake8 = { enabled = false },
+        mccabe = { enabled = false },
+        pycodestyle = { enabled = false },
+        pydocstyle = { enabled = false },
+        pyflakes = { enabled = false },
+        pylint = { enabled = false },
+        yapf = { enabled = false },
       },
     },
   },
+})
 
-  esbonio = { cmd = { 'esbonio' } },
-
-  pylsp = {
-    settings = {
-      pylsp = {
-        plugins = {
-          black = { enabled = true, line_length = 79 },
-
-          ruff = { enabled = false },
-          autopep8 = { enabled = false },
-          flake8 = { enabled = false },
-          mccabe = { enabled = false },
-          pycodestyle = { enabled = false },
-          pydocstyle = { enabled = false },
-          pyflakes = { enabled = false },
-          pylint = { enabled = false },
-          yapf = { enabled = false },
-        },
-      },
-    },
-  },
-
-  lua_ls = {
-    settings = {
-      Lua = {
-        telemetry = { enable = false },
-        completion = {
-          callSnippet = 'Both',
-        },
-        hint = {
-          enable = true,
-          setType = true,
-        },
-      },
-    },
-  },
+vim.lsp.enable {
+  'beancount',
+  'clangd',
+  'clojure_lsp',
+  'eslint',
+  'gopls',
+  'jsonls',
+  'lua_ls',
+  'marksman',
+  'pylsp',
+  'ruff',
+  'sourcekit',
+  'taplo',
+  'texlab',
+  'tinymist',
+  'ts_ls',
+  'vimls',
+  'yamlls',
 }
-
-for lsp, lsp_opts in pairs(lsps) do
-  vim.lsp.config(lsp, lsp_opts)
-  vim.lsp.enable(lsp)
-end
 
 local lint = require('lint')
 
