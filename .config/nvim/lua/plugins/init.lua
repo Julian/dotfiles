@@ -48,7 +48,7 @@ return {
       options = { icons_enabled = false },
       sections = {
         lualine_c = {
-          { 'filename', path = 1 }, -- absolute path
+          { 'filename', path = 1 },
         },
         lualine_y = {
           --- Display Lean file progress when still processing, otherwise
@@ -64,6 +64,11 @@ return {
             end
             return string.format('Processing… %.f%%%%', percentage)
           end
+        },
+      },
+      inactive_sections = {
+        lualine_c = {
+          { 'filename', path = 1 },
         },
       },
     },
