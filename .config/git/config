@@ -142,8 +142,11 @@
     sw = switch
 
     v = !zsh -c 'cat <(git q) <(echo \\\\n\\\\n) <(git d @{u}..) | less -FXRS' -
-    versions = tag --list --sort=-version:refname
     whatsnew = !zsh -c 'git d "$(git versions | head -n1)" $@' -
+
+    versions = tag --list --sort=-version:refname
+    release = !sh -c 'git tag -a $@ -m Release' -
+    calver = "!sh -c 'this_month=$(date +\"v%Y.%-m\"); git release \"$this_month.$(( $(git versions \"$this_month*\" | head -n 1 | cut -d \".\" -f 3) + 1 ))\"' -"
 
     w = worktree list
     wa = worktree add
@@ -155,7 +158,6 @@
     pop = reset HEAD~
     whoops = reset --hard @{u}
 
-    release = !sh -c 'git tag -a $@ -m Release' -
 
     # New operations
     up = !sh -c 'git fetch --prune $1 && git merge --ff-only @{u} && git submodule update' -
