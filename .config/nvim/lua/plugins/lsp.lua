@@ -26,6 +26,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
     local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client then return end
 
     local opts = { noremap = true, buffer = bufnr }
 
@@ -43,22 +44,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- gri: implementation()
     -- gO: document_symbol()
 
-    if client.supports_method('textDocument/formatting') then
+    if client:supports_method('textDocument/formatting') then
       vim.keymap.set('n', '<leader>z', vim.lsp.buf.format, opts)
     end
 
-    if client.supports_method('textDocument/typeDefinition') then
+    if client:supports_method('textDocument/typeDefinition') then
       vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
     end
 
-    if client.supports_method('textDocument/signatureHelp') then
+    if client:supports_method('textDocument/signatureHelp') then
       vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
       vim.keymap.set('i', '<C-s>', vim.lsp.buf.signature_help, opts)
     end
 
 
     vim.api.nvim_clear_autocmds({ group = hl_augroup, buffer = bufnr })
-    if client.supports_method('textDocument/documentHighlight') then
+    if client:supports_method('textDocument/documentHighlight') then
       vim.cmd [[
         :hi LspReferenceRead cterm=reverse gui=reverse
         :hi LspReferenceWrite guifg=#223249 guibg=#ff9e3b
@@ -78,12 +79,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    if client.supports_method('textDocument/codeAction') then
+    if client:supports_method('textDocument/codeAction') then
       vim.keymap.set('n', '<leader>a', require("actions-preview").code_actions, opts)
       vim.keymap.set('i', '<C-a>', require("actions-preview").code_actions, opts)
     end
 
-    if client.supports_method('textDocument/codeLens') then
+    if client:supports_method('textDocument/codeLens') then
       vim.keymap.set('n', '<leader>Le', vim.lsp.codelens.display, opts)
       vim.keymap.set('n', '<leader>Ln', vim.lsp.codelens.run, opts)
       vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
@@ -93,7 +94,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end
 
-    if client.supports_method('textDocument/inlayHint') then
+    if client:supports_method('textDocument/inlayHint') then
       -- vim.cmd [[hi link LspInlayHint SpecialComment]]
       vim.keymap.set({ 'n', 'i' }, '<C-h>', function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled{ bufnr = bufnr }, { bufnr = bufnr })
