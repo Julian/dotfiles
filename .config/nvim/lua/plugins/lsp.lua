@@ -230,7 +230,6 @@ return {
     dev = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'lewis6991/satellite.nvim',
     },
     event = { 'BufReadPre *.lean', 'BufNewFile *.lean' },
     config = function(_, opts)

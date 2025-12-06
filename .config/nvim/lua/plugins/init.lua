@@ -80,16 +80,6 @@ return {
     opts = {},
   },
   {
-    'lewis6991/satellite.nvim',
-    event = 'BufReadPost',
-    opts = {
-      exclude_filetypes = {
-        'copilot-chat',
-        'help',
-      },
-    },
-  },
-  {
     'kshenoy/vim-signature',
     init = function()
       vim.g.SignatureMap = {
