@@ -69,12 +69,13 @@ install = ["bandit"]
 link = ["bandit"]
 
 [virtualenv.beancount]
-install = ["beancount", "beangulp", "fava"]
+install = ["beancount", "beangulp", "beanprice", "fava"]
 link = [
   "bean-check",
   "bean-doctor",
   "bean-example",
   "bean-format",
+  "bean-price",
   "bean-query",
   "fava",
 ]
