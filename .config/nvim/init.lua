@@ -637,7 +637,7 @@ nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags{ on
 nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
 nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
 nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
-nmap            <leader>m         <Plug>(quickhl-manual-this)
+nnoremap        <leader>m         <Cmd>lua require('telescope.builtin').buffers()<CR>
 "               <leader>n         goto next diagnostic
 "               <leader>o         jump_to_next
 nnoremap        <leader>p         "*p
@@ -684,6 +684,7 @@ nnoremap        <leader>tx        <Cmd>call ToggleExpando()<CR>
 nnoremap        <leader>B         o<C-R>*<Esc>
 nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
 nnoremap        <leader>D         <Cmd>lua require('telescope.builtin').diagnostics{ bufnr = 0 }<CR>
+nmap            <leader>H         <Plug>(quickhl-manual-this)
 nnoremap        <leader>F         <Cmd>lua require('telescope.builtin').lsp_references{}<CR>
 "               <leader>I         inspect
 nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
