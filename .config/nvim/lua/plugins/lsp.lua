@@ -146,22 +146,9 @@ vim.lsp.config('lua_ls', {
   },
 })
 
-vim.lsp.config('pylsp', {
+vim.lsp.config('ty', {
   settings = {
-    pylsp = {
-      plugins = {
-        black = { enabled = true, line_length = 79 },
-
-        ruff = { enabled = false },
-        autopep8 = { enabled = false },
-        flake8 = { enabled = false },
-        mccabe = { enabled = false },
-        pycodestyle = { enabled = false },
-        pydocstyle = { enabled = false },
-        pyflakes = { enabled = false },
-        pylint = { enabled = false },
-        yapf = { enabled = false },
-      },
+    ty = {
     },
   },
 })
@@ -175,13 +162,13 @@ vim.lsp.enable {
   'jsonls',
   'lua_ls',
   'marksman',
-  'pylsp',
   'ruff',
   'sourcekit',
   'taplo',
   'texlab',
   'tinymist',
   'ts_ls',
+  'ty',
   'vimls',
   'yamlls',
 }

@@ -343,11 +343,7 @@ install = ["pydocstyle"]
 link = ["pydocstyle"]
 
 [virtualenv.pylsp]
-install = [
-  "pyls-isort",
-  "python-lsp-server[all]>=1.7.4",
-  "python-lsp-black",
-]
+install = ["python-lsp-server[all]>=1.7.4"]
 link = ["pylsp"]
 
 [virtualenv.pypinfo]
@@ -468,6 +464,10 @@ link = ["shrinkray"]
 [virtualenv.twine]
 install = ["twine", "keyring"]
 link = ["twine", "keyring"]
+
+[virtualenv.ty]
+install = ["ty"]
+link = ["ty"]
 
 [virtualenv.wormhole]
 install = ["magic-wormhole"]
