@@ -667,7 +667,7 @@ nnoremap        <leader>ta        <Cmd>Vista!!<CR>
 "               <leader>tb        DAP breakpoint
 nnoremap        <leader>tc        <Cmd>DiffChangesDiffToggle<CR>
 "               <leader>td        DiffThese
-nnoremap        <leader>ti        <Cmd>IndentGuidesToggle<CR>
+nnoremap        <leader>ti        <Cmd>IBLToggle<CR>
 "               <leader>tl        list
 "               <leader>tn        line numbering
 nnoremap        <leader>tp        :<C-U>setlocal formatoptions-=c<CR>:setlocal spell!<CR>:setlocal wrap!<CR>:setlocal textwidth=0<CR>

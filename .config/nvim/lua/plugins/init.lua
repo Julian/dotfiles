@@ -108,7 +108,6 @@ return {
     cmd = 'UndotreeToggle',
     init = function() vim.g.undotree_TreeNodeShape = '✷' end,
   },
-  { 'nathanaelkane/vim-indent-guides', cmd = 'IndentGuidesToggle' },
   {
     't9md/vim-quickhl',
     cmd = 'QuickhlManualReset',
@@ -129,6 +128,14 @@ return {
   { 'raimon49/requirements.txt.vim', ft = 'requirements', lazy = false },
   { 'stsewd/sphinx.nvim', build = ':UpdateRemotePlugins' },
 
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    cmd = 'IBLToggle',
+    main = 'ibl',
+    ---@module 'ibl'
+    ---@type ibl.config
+    opts = {},
+  },
   { 'mfussenegger/nvim-lint' },
   { 'MunifTanjim/nui.nvim' },
   {
