@@ -30,6 +30,22 @@ return {
       window = {
         width = 60,
       },
+      functions = {
+        infoview = {
+          uri = 'lean://infoview',
+          description = 'The contents of the current Lean infoview.',
+          resolve = function()
+            local infoview = require('lean.infoview').get_current_infoview()
+            return {
+              {
+                uri = 'lean://infoview',
+                mimetype = 'text/plain',
+                data = table.concat(infoview:get_lines(), '\n')
+              },
+            }
+          end,
+        },
+      },
       mappings = {
         complete = { normal = '', insert = '' },
         close = { normal = '', insert = '' },
