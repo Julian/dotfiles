@@ -41,11 +41,13 @@ require('lazy').setup('plugins', {
 
 vim.o.gdefault = true
 vim.o.lazyredraw = true               -- no redraw during macros (much faster)
-vim.o.linebreak = true
+vim.o.linebreak = true                -- when wrapping break at `breakat` chars
 vim.o.report = 0                      -- :cmd always shows changed line count
 
 vim.o.wrap = false
-vim.o.showbreak = '↪   '
+vim.o.breakindent = true
+vim.o.breakindentopt = 'shift:2'
+vim.o.showbreak = '↪ '
 
 vim.o.diffopt = 'internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram'
 
