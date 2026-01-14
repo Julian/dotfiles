@@ -80,7 +80,6 @@ return {
           vim.keymap.set('n', '<localleader>t', Obsidian 'toc', { buffer = true })
         end,
       },
-      follow_url_func = vim.ui.open,
     },
   },
 }
