@@ -410,7 +410,7 @@ vim.keymap.set('n', '<CR>', function()
   else
     require 'obsidian'
     local vault = Obsidian.dir.filename
-    local target = vim.fs.joinpath(vault, 'Home.md')
+    local target
 
     local workspace = vim.lsp.buf.list_workspace_folders()[1] or vim.uv.cwd()
 
@@ -432,7 +432,9 @@ vim.keymap.set('n', '<CR>', function()
       end
     end
 
-    _G.split(target)
+    if target then
+      _G.split(target)
+    end
     return ''
   end
 end, { expr = true })
