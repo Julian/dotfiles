@@ -109,9 +109,8 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 vim.lsp.config('beancount', {
   init_options = {
-    journal_file = {
-      vim.fs.joinpath(vim.env.OBSIDIAN_VAULT, 'ledger.beancount'),
-    },
+    journal_file = vim.fs.joinpath(vim.env.XDG_DOCUMENTS_DIR, 'Finance/ledger.beancount'),
+    python_cmd = vim.fs.joinpath(vim.env.VIRTUALENVS, 'beancount/bin/python'),
   },
 })
 vim.lsp.config('esbonio', {
