@@ -170,6 +170,7 @@ vim.lsp.enable {
   'ty',
   'vimls',
   'yamlls',
+  'zizmor',
 }
 
 local lint = require('lint')
