@@ -558,6 +558,11 @@ vim.keymap.set('n', '<leader>td', function()
   end
 end, { desc = 'toggle diffing this window, automatically diffing both windows if there are just two.' })
 
+vim.cmd.packadd 'nvim.undotree'
+vim.keymap.set('n', '<leader>tu', function()
+  require('undotree').open()
+end)
+
 vim.keymap.set('n', '<leader>tD', function()
   vim.cmd.new { mods = { vertical = true } }
   vim.bo.buftype = 'nofile'
@@ -679,7 +684,6 @@ nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 nnoremap        <leader>tth       <Cmd>TSBufToggle highlight<CR>
 nnoremap        <leader>ttq       <Cmd>EditQuery<CR>
 nnoremap        <leader>ttt       <Cmd>lua require('telescope.builtin').treesitter{}<CR>
-nnoremap        <leader>tu        <Cmd>UndotreeToggle<CR>
 nnoremap        <leader>tw        <Cmd>setlocal wrap!<CR>
 nnoremap        <leader>tx        <Cmd>call ToggleExpando()<CR>
 "               <leader>tS        screenshotting
