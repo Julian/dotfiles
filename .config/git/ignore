@@ -112,3 +112,5 @@ bower_components/
 /_target
 /leanpkg.path
 *.olean
+
+**/.claude/settings.local.json
