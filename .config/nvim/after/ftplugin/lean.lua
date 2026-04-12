@@ -3,14 +3,6 @@ vim.wo.signcolumn = 'yes'
 -- Match mathlib's default style.
 vim.bo.textwidth = 100
 
-vim.keymap.del('n', '<LocalLeader>c', { buffer = true })
-vim.keymap.set(
-  'n',
-  '<LocalLeader>C',
-  '<Plug>(LeanInfoviewClearPins)',
-  { buffer = true }
-)
-
 vim.keymap.set('n', '<LocalLeader>g', function()
   require'telescope.builtin'.live_grep{
     glob_pattern = '*.lean',
