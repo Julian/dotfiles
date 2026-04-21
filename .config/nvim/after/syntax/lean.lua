@@ -1,9 +1,2 @@
--- See https://github.com/theHamsta/nvim-semantic-tokens/blob/master/doc/nvim-semantic-tokens.txt
-local mappings = {
-  ['@lsp.type.keyword'] = '@keyword',
-  ['@lsp.type.variable'] = 'Identifier',
-}
-
-for from, to in pairs(mappings) do
-  vim.cmd.highlight('link ' .. from .. ' ' .. to)
-end
+vim.api.nvim_set_hl(0, '@lsp.type.keyword', { link = '@keyword' })
+vim.api.nvim_set_hl(0, '@lsp.type.variable', { link = 'Identifier' })
