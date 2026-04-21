@@ -11,7 +11,6 @@ return {
     version = 'v0.*',
 
     lazy = false,
-    dependencies = { 'giuxtaposition/blink-cmp-copilot' },
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
