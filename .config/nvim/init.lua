@@ -3,7 +3,7 @@ vim.o.modeline = false
 vim.g.mapleader = ' '
 vim.g.maplocalleader = vim.g.mapleader .. vim.g.mapleader
 
-if vim.env.TERM ~= 'xterm-256color' or vim.env.TERMUX_HOME ~= '' then
+if vim.env.TERM ~= 'xterm-256color' or vim.env.TERMUX_HOME then
   vim.o.termguicolors = true
 end
 
@@ -122,7 +122,7 @@ vim.opt.backupdir = {
 }
 vim.o.undofile = true
 
-IS_ANDROID = vim.env.ANDROID_ROOT ~= nil
+local IS_ANDROID = vim.env.ANDROID_ROOT ~= nil
 
 -- Interface --
 
