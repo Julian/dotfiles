@@ -85,13 +85,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     if client:supports_method('textDocument/codeLens') then
-      vim.keymap.set('n', '<leader>Le', vim.lsp.codelens.display, opts)
+      vim.lsp.codelens.enable(true, { bufnr = bufnr })
       vim.keymap.set('n', '<leader>Ln', vim.lsp.codelens.run, opts)
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
-        callback = function() vim.lsp.codelens.refresh{ bufnr = bufnr } end,
-        group = hl_augroup,
-        buffer = bufnr,
-      })
     end
 
     if client:supports_method('textDocument/inlayHint') then
