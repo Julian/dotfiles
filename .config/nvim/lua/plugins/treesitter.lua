@@ -14,71 +14,54 @@ end
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    event = { 'BufReadPre', 'BufNewFile' },
-    cmd = 'TSUpdate',
+    branch = 'main',
+    lazy = false,
     dependencies = {
       { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
       { 'RRethy/nvim-treesitter-endwise' },
-      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+      {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        branch = 'main',
+        config = function()
+          local select = require('nvim-treesitter-textobjects.select').select_textobject
+          local keymaps = {
+            ['aa'] = '@parameter.outer',
+            ['ia'] = '@parameter.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['al'] = '@loop.outer',
+            ['il'] = '@loop.inner',
+          }
+          for lhs, capture in pairs(keymaps) do
+            vim.keymap.set({ 'x', 'o' }, lhs, function()
+              select(capture, 'textobjects')
+            end)
+          end
+        end,
+      },
     },
-    config = function()
-      local configs = require('nvim-treesitter.parsers').get_parser_configs()
-
-      local tsl_url = vim.fs.joinpath(vim.env.DEVELOPMENT, 'tree-sitter-lean')
-      if not uv.fs_stat(tsl_url) then
-        tsl_url = 'https://github.com/Julian/tree-sitter-lean'
+    build = function()
+      vim.cmd('TSUpdate')
+      if #parsers > 0 then
+        require('nvim-treesitter').install(parsers)
       end
-
-      ---@diagnostic disable-next-line: inject-field
-      configs.lean = {
-        install_info = {
-          url = tsl_url,
-          files = {"src/parser.c", "src/scanner.c"},
-        },
-      }
-      ---@diagnostic disable-next-line: inject-field
-      configs.vhs = {
-        install_info = {
-          url = 'https://github.com/charmbracelet/tree-sitter-vhs',
-          files = {"src/parser.c"},
-        }
-      }
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup{
-        ensure_installed = parsers,
-        ignore_install = { 'phpdoc' },
-        highlight = {
-          enable = true,
-          disable = { 'rst' },
-          additional_vim_regex_highlighting = { 'org' },
-        },
-        indent = {
-          enable = true,
-        },
-        query_linter = {
-          enable = true,
-          use_virtual_text = true,
-          lint_events = { 'BufWrite', 'CursorHold' },
-        },
-        endwise = { enable = true },
-        matchup = { enable = true },
-        textobjects = {
-          select = {
-            enable = true,
-            keymaps = {
-              ['aa'] = '@parameter.outer',
-              ['ia'] = '@parameter.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['al'] = '@loop.outer',
-              ['il'] = '@loop.inner',
-            },
+    end,
+    config = function()
+      if vim.env.DEVELOPMENT then
+        local tsl_url = vim.fs.joinpath(vim.env.DEVELOPMENT, 'tree-sitter-lean')
+        if not uv.fs_stat(tsl_url) then
+          tsl_url = 'https://github.com/Julian/tree-sitter-lean'
+        end
+        require('nvim-treesitter.parsers').lean = {
+          install_info = {
+            url = tsl_url,
+            files = { 'src/parser.c', 'src/scanner.c' },
           },
-        },
-      }
+        }
+      end
+      require('nvim-treesitter-endwise').init()
     end,
   }
 }

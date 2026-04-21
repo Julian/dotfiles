@@ -24,7 +24,6 @@ return {
   { 'AndrewRadev/switch.vim', lazy = false },
   {
     'andymass/vim-matchup',
-    lazy = false,
     keys = {
       {
         '<C-j>',
@@ -32,10 +31,16 @@ return {
         desc = 'Matchup Breadcrumbs',
       },
     },
-    init = function()
-      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
-      vim.g.matchup_surround_enabled = 1
-    end,
+    ---@type matchup.Config
+    opts = {
+      treesitter = {
+        stopline = 500,
+      },
+      matchparen = {
+        offscreen = { method = 'popup' },
+      },
+      surround = { enabled = 1 },
+    },
   },
   { 'bruno-/vim-vertical-move' },
   { 'dahu/vim-fanfingtastic', lazy = false },

@@ -167,6 +167,7 @@ vim.lsp.enable {
   'texlab',
   'tinymist',
   'ts_ls',
+  'ts_query_ls',
   'ty',
   'vimls',
   'yamlls',
