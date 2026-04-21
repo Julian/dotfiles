@@ -628,6 +628,34 @@ vim.api.nvim_create_autocmd('BufReadPre', {
 require('vim._core.ui2').enable {
 }
 
+local telescope = function(picker, opts)
+  return function() require('telescope.builtin')[picker](opts) end
+end
+
+vim.keymap.set('n', '<leader>d', telescope('find_files', { hidden = true }))
+vim.keymap.set('n', '<leader>f', function()
+  require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }
+end)
+vim.keymap.set('n', '<leader>h', telescope('tags', { only_sort_tags = true }))
+vim.keymap.set('n', '<leader>j', telescope('tags', { default_text = 'test' }))
+vim.keymap.set('n', '<leader>k', telescope('lsp_document_symbols'))
+vim.keymap.set('n', '<leader>l', telescope('current_buffer_fuzzy_find'))
+vim.keymap.set('n', '<leader>m', telescope('buffers'))
+vim.keymap.set('n', '<leader>r', telescope('registers'))
+vim.keymap.set('n', '<leader>w', telescope('lsp_dynamic_workspace_symbols'))
+vim.keymap.set('n', '<leader>ttt', telescope('treesitter'))
+vim.keymap.set('n', '<leader>C', function()
+  split()
+  require('telescope.builtin').find_files{ default_text = '.', hidden = true, search_dirs = { vim.env.HOME, vim.env.XDG_CONFIG_HOME } }
+end)
+vim.keymap.set('n', '<leader>D', telescope('diagnostics', { bufnr = 0 }))
+vim.keymap.set('n', '<leader>F', telescope('lsp_references'))
+vim.keymap.set('n', '<leader>J', telescope('find_files', { default_text = 'test' }))
+vim.keymap.set('n', '<leader>/', telescope('live_grep', { additional_args = { '--hidden' } }))
+vim.keymap.set('n', '<leader>?', function()
+  require('telescope.builtin').grep_string{ cwd = require('telescope.utils').buffer_dir() }
+end)
+
 -- To Port --
 
 vim.cmd[[
@@ -638,26 +666,26 @@ nnoremap  <expr><leader><Bar>     '<Cmd>autocmd BufWritePost <buffer> !' . input
 
 "               <leader>a         LSP code action
 nnoremap        <leader>b         o<C-R>"<Esc>
-nnoremap        <leader>d         <Cmd>lua require('telescope.builtin').find_files{ hidden = true }<CR>
+"               <leader>d         Telescope find files
 " nnoremap      <leader>e         Telescope search arbitrary directory
-nnoremap        <leader>f         <Cmd>lua require('telescope.builtin').find_files{ hidden = true, search_dirs = { parent_or_cwd() } }<CR>
+"               <leader>f         Telescope find files in parent
 "               <leader>g         Git
-nnoremap        <leader>h         <Cmd>lua require('telescope.builtin').tags{ only_sort_tags = true }<CR>
+"               <leader>h         Telescope tags
 "               <leader>i         jump_to_last
-nnoremap        <leader>j         <Cmd>lua require('telescope.builtin').tags{ default_text = 'test' }<CR>
-nnoremap        <leader>k         <Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>
-nnoremap        <leader>l         <Cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>
-nnoremap        <leader>m         <Cmd>lua require('telescope.builtin').buffers()<CR>
+"               <leader>j         Telescope tags (test)
+"               <leader>k         Telescope document symbols
+"               <leader>l         Telescope buffer fuzzy find
+"               <leader>m         Telescope buffers
 "               <leader>n         goto next diagnostic
 "               <leader>o         jump_to_next
 nnoremap        <leader>p         "*p
 "               <leader>q         set loclist to diagnostics
-nnoremap        <leader>r         <Cmd>lua require('telescope.builtin').registers{}<CR>
+"               <leader>r         Telescope registers
 nnoremap        <leader>s         <Cmd>Switch<CR>
 "               <leader>t         Togglers
 nnoremap        <leader>u         :<C-U>set cpoptions+=u<CR>u:w<CR>:set cpoptions-=u<CR>
 nnoremap        <leader>v         <Cmd>SplitSensibly $MYVIMRC<CR>
-nnoremap        <leader>w         <Cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>
+"               <leader>w         Telescope workspace symbols
 nnoremap        <leader>y         "*y
 "               <leader>z         LSP formatting
 
@@ -685,18 +713,18 @@ nnoremap        <leader>ts        <Cmd>setlocal spell!<CR>
 "               <leader>ttd       diagnostics
 nnoremap        <leader>tth       <Cmd>TSBufToggle highlight<CR>
 nnoremap        <leader>ttq       <Cmd>EditQuery<CR>
-nnoremap        <leader>ttt       <Cmd>lua require('telescope.builtin').treesitter{}<CR>
+"               <leader>ttt       Telescope treesitter
 nnoremap        <leader>tw        <Cmd>setlocal wrap!<CR>
 nnoremap        <leader>tx        <Cmd>call ToggleExpando()<CR>
 "               <leader>tS        screenshotting
 
 nnoremap        <leader>B         o<C-R>*<Esc>
-nnoremap        <leader>C         :<C-U>SplitSensibly<CR><Cmd>lua require('telescope.builtin').find_files{ default_text='.', hidden = true, source_dirs = { os.getenv('HOME'), os.getenv('XDG_CONFIG_HOME') } }<CR>
-nnoremap        <leader>D         <Cmd>lua require('telescope.builtin').diagnostics{ bufnr = 0 }<CR>
+"               <leader>C         Telescope find config files
+"               <leader>D         Telescope diagnostics
 nmap            <leader>H         <Plug>(quickhl-manual-this)
-nnoremap        <leader>F         <Cmd>lua require('telescope.builtin').lsp_references{}<CR>
+"               <leader>F         Telescope LSP references
 "               <leader>I         inspect
-nnoremap        <leader>J         <Cmd>lua require('telescope.builtin').find_files{ default_text = 'test' }<CR>
+"               <leader>J         Telescope find test files
 "               <leader>K         show line diagnostics
 "               <leader>L         LSP folder management and other mappings
 "               <leader>N         goto previous diagnostic
@@ -734,8 +762,8 @@ nnoremap        <leader>_         <Cmd>tabprevious<CR>
 nnoremap        <leader>+         <Cmd>tabnext<CR>
 nnoremap        <leader><BS>      <Cmd>earlier 1f<CR>
 nnoremap        <leader>\         <Cmd>later 1f<CR>
-nnoremap        <leader>/         <Cmd>lua require('telescope.builtin').live_grep{ additional_args = { '--hidden' } }<CR>
-nnoremap        <leader>?         <Cmd>lua require('telescope.builtin').grep_string{ cwd = require('telescope.utils').buffer_dir() }<CR>
+"               <leader>/         Telescope live grep
+"               <leader>?         Telescope grep string in buffer dir
 
 
 nnoremap        <leader><tab>     <C-^>
@@ -782,36 +810,36 @@ vnoremap        <leader>y         "*y
       return ":SplitSensibly " . file
   endfunction
 
-  augroup misc
-      autocmd!
-
-      " Keep splits equal on resize
-      autocmd VimResized * :wincmd =
-
-      " Jump to the last known cursor position if it's valid (from the docs)
-      autocmd BufReadPost *
-          \   if line("'\"") > 0 && line("'\"") <= line("$") && &ft !~# 'commit'
-          \ |   execute "normal! g`\""
-          \ | endif
-
-  augroup END
-
-  " =====================
-  " : FileType Specific :
-  " =====================
-
-  augroup filetypes
-      autocmd!
-      autocmd BufWritePost $MYVIMRC source $MYVIMRC
-
-      " Auto-close fugitive buffers
-      autocmd BufReadPost fugitive://* set bufhidden=delete
-  augroup END
-
-  augroup formatstupidity
-      " ftplugins are stupid and try to mess with formatoptions
-      autocmd!
-      autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
-      autocmd BufNewFile,BufRead * silent! setlocal formatoptions+=jln
-  augroup END
 ]]
+
+-- Keep splits equal on resize
+vim.api.nvim_create_autocmd('VimResized', { command = 'wincmd =' })
+
+-- Jump to the last known cursor position if it's valid (from the docs)
+vim.api.nvim_create_autocmd('BufReadPost', {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    if mark[1] > 0 and mark[1] <= vim.api.nvim_buf_line_count(0) and vim.bo.filetype ~= 'commit' then
+      vim.api.nvim_win_set_cursor(0, mark)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  pattern = vim.env.MYVIMRC,
+  command = 'source $MYVIMRC',
+})
+
+-- Auto-close fugitive buffers
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = 'fugitive://*',
+  callback = function() vim.bo.bufhidden = 'delete' end,
+})
+
+-- ftplugins are stupid and try to mess with formatoptions
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  callback = function()
+    vim.opt_local.formatoptions:remove('ro')
+    vim.opt_local.formatoptions:append('jln')
+  end,
+})
