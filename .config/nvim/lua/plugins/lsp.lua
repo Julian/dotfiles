@@ -275,7 +275,9 @@ return {
           if not level then
             rest = lines
           end
-          vim.notify(rest, level, opts)
+          vim.schedule(function()
+            vim.notify(rest, level, opts)
+          end)
         end,
       }
     }
