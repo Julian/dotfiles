@@ -63,6 +63,7 @@
 .config/docker/config.json
 .config/enchant/
 .config/fish/fishd.*
+.config/git/config.local
 .config/gnupg/
 .config/gh/hosts.yml
 .config/gh/state.yml
