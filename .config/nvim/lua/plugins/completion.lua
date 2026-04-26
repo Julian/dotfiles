@@ -5,7 +5,6 @@ local has_words_before = function()
 end
 
 return {
-  { 'giuxtaposition/blink-cmp-copilot' },
   {
     'saghen/blink.cmp',
     version = 'v0.*',
@@ -48,14 +47,8 @@ return {
       },
       signature = { enabled = true },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
         providers = {
-          copilot = {
-            name = 'copilot',
-            module = 'blink-cmp-copilot',
-            score_offset = 100,
-            async = true,
-          },
           lazydev = {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
