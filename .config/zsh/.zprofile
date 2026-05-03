@@ -20,7 +20,6 @@ path=(
         $homebrew_prefix/opt/uutils-coreutils/libexec/uubin
         $homebrew_prefix/opt/uutils-findutils/libexec/uubin
         $homebrew_prefix/opt/gnu-sed/libexec/gnubin
-        $homebrew_prefix/opt/python@*.*/bin(NOnn)
         $homebrew_prefix/opt/ruby/bin
         $homebrew_prefix/opt/util-linux/bin
         $path
