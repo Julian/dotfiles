@@ -33,6 +33,8 @@ else
     alias open=xdg-open
 fi
 
+# Again for things which can't cope with shebangs with spaces
+export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_STATE_HOME=$HOME/.local/state
 
 export XDG_TEMPLATES_DIR=$XDG_CONFIG_HOME/templates

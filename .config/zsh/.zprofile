@@ -28,7 +28,7 @@ path=(
     fpath=($homebrew_prefix/share/zsh/site-functions $fpath)
 }
 
-path=($HOME/.local/bin $path)
+path=($XDG_BIN_HOME $path)
 
 [[ -d ~/.nix-profile/etc/profile.d/ ]] && source ~/.nix-profile/etc/profile.d/nix.sh
 
