@@ -84,17 +84,9 @@ link = [
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]
 
-[virtualenv.black]
-install = ["black[jupyter]"]
-link = ["black"]
-
 [virtualenv.catt]
 install = ["catt"]
 link = ["catt"]
-
-[virtualenv.cookiecutter]
-install = ["cookiecutter"]
-link = ["cookiecutter"]
 
 [virtualenv.colortest]
 install = ["colortest"]
@@ -131,19 +123,6 @@ install = [
   "google-auth-oauthlib",
 ]
 
-[virtualenv.gpt]
-install-bundle = ["development"]
-install = [
-  "chromadb",
-  "langchain",
-  "llama-cpp-python",
-  "pygpt4all",
-]
-
-[virtualenv.hg]
-install = ["mercurial"]
-link = ["hg"]
-
 [virtualenv.httpie]
 install = ["httpie"]
 link = ["http", "https"]
@@ -163,10 +142,6 @@ install = [
 [virtualenv.interrogate]
 install = ["interrogate"]
 link = ["interrogate"]
-
-[virtualenv.isort]
-install = ["isort"]
-link = ["isort"]
 
 [virtualenv.jsonschema]
 install-bundle = ["development"]
@@ -334,17 +309,9 @@ post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
 install = ["ngxtop"]
 link = ["ngxtop"]
 
-[virtualenv.pre-commit]
-install = ["identify", "pre-commit"]
-link = ["identify-cli", "pre-commit"]
-
 [virtualenv.pydocstyle]
 install = ["pydocstyle"]
 link = ["pydocstyle"]
-
-[virtualenv.pylsp]
-install = ["python-lsp-server[all]>=1.7.4"]
-link = ["pylsp"]
 
 [virtualenv.pypinfo]
 install = ["pypinfo"]
@@ -423,13 +390,17 @@ python = "python3"
 install = ["termtosvg"]
 link = ["termtosvg"]
 
-[virtualenv.tox]
-install = ["tox", "tox-ini-fmt"]
-link = ["tox", "tox-ini-fmt"]
+[virtualenv.ty]
+install = ["ty"]
+link = ["ty"]
 
 [virtualenv.watchdog]
 install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
+
+[virtualenv.wormhole]
+install = ["magic-wormhole"]
+link = ["wormhole"]
 
 # --- Packaging ---
 
@@ -440,10 +411,6 @@ link = ["pyproject-build"]
 [virtualenv.check-manifest]
 install = ["check-manifest"]
 link = ["check-manifest"]
-
-[virtualenv.hatch]
-install = ["hatch"]
-link = ["hatch"]
 
 [virtualenv.mkpkg]
 install = ["mkpkg"]
@@ -460,18 +427,6 @@ link = ["ruff", "ruff-lsp"]
 [virtualenv.shrinkray]
 install = ["shrinkray"]
 link = ["shrinkray"]
-
-[virtualenv.twine]
-install = ["twine", "keyring"]
-link = ["twine", "keyring"]
-
-[virtualenv.ty]
-install = ["ty"]
-link = ["ty"]
-
-[virtualenv.wormhole]
-install = ["magic-wormhole"]
-link = ["wormhole"]
 
 # --- Developing ---
 
