@@ -24,7 +24,7 @@ more = [
 
 # --- Development ---
 
-[virtualenv.dev]
+[venv.dev]
 python = "pypy3"
 install-bundle = ["more", "development", "perf"]
 link = [
@@ -40,7 +40,7 @@ link = [
 ]
 link-module = ["pydoc"]
 
-[virtualenv.dev-cpython]
+[venv.dev-cpython]
 install-bundle = ["more", "development", "perf"]
 install = ["pyinstrument"]
 link = [
@@ -60,15 +60,15 @@ link = [
 ]
 link-module = ["venv"]
 
-[virtualenv.aubio]
+[venv.aubio]
 install = ["aubio>=0.4.9"]
 link = ["aubio", "aubiocut"]
 
-[virtualenv.bandit]
+[venv.bandit]
 install = ["bandit"]
 link = ["bandit"]
 
-[virtualenv.beancount]
+[venv.beancount]
 install = ["beancount", "beangulp", "beanprice", "fava"]
 link = [
   "bean-check",
@@ -80,42 +80,42 @@ link = [
   "fava",
 ]
 
-[virtualenv.beets]
+[venv.beets]
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]
 
-[virtualenv.catt]
+[venv.catt]
 install = ["catt"]
 link = ["catt"]
 
-[virtualenv.colortest]
+[venv.colortest]
 install = ["colortest"]
 link = ["colortest"]
 
-[virtualenv.detect-secrets]
+[venv.detect-secrets]
 install = ["detect-secrets"]
 link = ["detect-secrets"]
 
-[virtualenv.doc8]
+[venv.doc8]
 install = ["doc8", "pygments"]
 link = ["doc8"]
 
-[virtualenv.esbonio]
+[venv.esbonio]
 install = ["esbonio"]
 link = ["esbonio"]
 
-[virtualenv.findme-cpython3]
+[venv.findme-cpython3]
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-cpython3"]
 
-[virtualenv.findme-pypy3]
+[venv.findme-pypy3]
 python = "pypy3"
 install-bundle = ["development"]
 install = ["findme"]
 link = ["findme:findme-pypy3"]
 
-[virtualenv.google]
+[venv.google]
 install-bundle = ["development"]
 install = [
   "google-api-python-client",
@@ -123,15 +123,15 @@ install = [
   "google-auth-oauthlib",
 ]
 
-[virtualenv.httpie]
+[venv.httpie]
 install = ["httpie"]
 link = ["http", "https"]
 
-[virtualenv.httpstat]
+[venv.httpstat]
 install = ["httpstat"]
 link = ["httpstat"]
 
-[virtualenv.imaging]
+[venv.imaging]
 install-bundle = ["development"]
 install = [
   "libraw-cffi",
@@ -139,11 +139,11 @@ install = [
   "rawkit",
 ]
 
-[virtualenv.interrogate]
+[venv.interrogate]
 install = ["interrogate"]
 link = ["interrogate"]
 
-[virtualenv.jsonschema]
+[venv.jsonschema]
 install-bundle = ["development"]
 install = [
   "check-jsonschema",
@@ -153,20 +153,20 @@ install = [
 ]
 link = ["check-jsonschema", "jsonschema"]
 
-[virtualenv.litecli]
+[venv.litecli]
 install = ["litecli"]
 link = ["litecli"]
 
-[virtualenv.math]
+[venv.math]
 install-bundle = ["development"]
 install = ["sympy"]
 link = ["ptpython:math"]
 
-[virtualenv.maturin]
+[venv.maturin]
 install = ["maturin"]
 link = ["maturin"]
 
-[virtualenv.ml]
+[venv.ml]
 python = "python3.13"
 post-commands = [
   [
@@ -277,11 +277,11 @@ link = [
   "xgbfir",
 ]
 
-[virtualenv.mypy]
+[venv.mypy]
 install = ["mypy"]
 link = ["mypy"]
 
-[virtualenv.nbdiff]
+[venv.nbdiff]
 install = ["nbdime"]
 link = [
   "git-nbdiffdriver",
@@ -300,28 +300,28 @@ link = [
   "nbshow",
 ]
 
-[virtualenv.neovim]
+[venv.neovim]
 python = "python3.13"
 install = ["jedi", "pynvim", "sphinx"]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
 
-[virtualenv.ngxtop]
+[venv.ngxtop]
 install = ["ngxtop"]
 link = ["ngxtop"]
 
-[virtualenv.pydocstyle]
+[venv.pydocstyle]
 install = ["pydocstyle"]
 link = ["pydocstyle"]
 
-[virtualenv.pypinfo]
+[venv.pypinfo]
 install = ["pypinfo"]
 link = ["pypinfo"]
 
-[virtualenv.pyright]
+[venv.pyright]
 install = ["pyright"]
 link = ["pyright", "pyright-langserver"]
 
-[virtualenv.remarshal]
+[venv.remarshal]
 install = ["remarshal"]
 link = [
   "json2json",
@@ -335,15 +335,15 @@ link = [
   "yaml2yaml",
 ]
 
-[virtualenv.scrapy]
+[venv.scrapy]
 install = ["scrapy"]
 link = ["scrapy"]
 
-[virtualenv.ssh-audit]
+[venv.ssh-audit]
 install = ["ssh-audit"]
 link = ["ssh-audit"]
 
-[virtualenv.sphinx]
+[venv.sphinx]
 install-bundle = ["development"]
 install = ["recommonmark", "sphinx", "sphinxcontrib.spelling"]
 link = [
@@ -362,11 +362,11 @@ link = [
 ]
 link-module = ["sphinx.ext.intersphinx:intersphinx"]
 
-[virtualenv.steck]
+[venv.steck]
 install = ["steck"]
 link = ["steck:bpaste", "steck"]
 
-[virtualenv.subunit]
+[venv.subunit]
 install = ["python-subunit"]
 link = [
   "subunit-1to2",
@@ -385,86 +385,64 @@ link = [
   "tap2subunit",
 ]
 
-[virtualenv.termtosvg]
+[venv.termtosvg]
 python = "python3"
 install = ["termtosvg"]
 link = ["termtosvg"]
 
-[virtualenv.ty]
+[venv.ty]
 install = ["ty"]
 link = ["ty"]
 
-[virtualenv.watchdog]
+[venv.watchdog]
 install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
 
-[virtualenv.wormhole]
+[venv.wormhole]
 install = ["magic-wormhole"]
 link = ["wormhole"]
 
 # --- Packaging ---
 
-[virtualenv.build]
+[venv.build]
 install = ["build"]
 link = ["pyproject-build"]
 
-[virtualenv.check-manifest]
+[venv.check-manifest]
 install = ["check-manifest"]
 link = ["check-manifest"]
 
-[virtualenv.mkpkg]
+[venv.mkpkg]
 install = ["mkpkg"]
 link = ["mkpkg"]
 
-[virtualenv.nox]
+[venv.nox]
 install = ["nox"]
 link = ["nox"]
 
-[virtualenv.ruff]
+[venv.ruff]
 install = ["ruff", "ruff-lsp"]
 link = ["ruff", "ruff-lsp"]
 
-[virtualenv.shrinkray]
+[venv.shrinkray]
 install = ["shrinkray"]
 link = ["shrinkray"]
 
 # --- Developing ---
 
-[virtualenv.blog]
-requirements = ["${DEVELOPMENT}/til/requirements.txt"]
+[dev.blog]
+project = "${DEVELOPMENT}/blog"
 link = ["pelican", "pelican-quickstart", "pelican-themes"]
 
-[virtualenv.bowtie]
-install-bundle = ["more", "development", "perf"]
-install = ["-r", "${DEVELOPMENT}/bowtie/test-requirements.txt"]
+[dev.bowtie]
+project = "${DEVELOPMENT}/bowtie"
 link = ["bowtie"]
 
-[virtualenv.diff]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/diff"]
+[tool.ob]
 
-[virtualenv.ob]
-install = ["-e", "${DEVELOPMENT}/obsidiana"]
-link = ["ob"]
+[dev.ob]
+project = "${DEVELOPMENT}/obsidiana"
 
-[virtualenv.photography]
-install-bundle = ["development"]
-install = ["-e", "${DEVELOPMENT}/photography-cli"]
+[dev.photography]
+project = "${DEVELOPMENT}/photography-cli"
 link = ["photography"]
-
-[virtualenv.regret]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/regret", "twisted[tls]"]
-
-[virtualenv.referencing]
-install-bundle = ["development"]
-install = ["-e", "${DEVELOPMENT}/referencing"]
-
-[virtualenv.url-py]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/url-py"]
-
-[virtualenv.virtue]
-install-bundle = ["development"]
-install = ["${DEVELOPMENT}/virtue"]
-link = ["virtue"]
