@@ -438,9 +438,9 @@ link = ["pelican", "pelican-quickstart", "pelican-themes"]
 project = "${DEVELOPMENT}/bowtie"
 link = ["bowtie"]
 
-[tool.ob]
+[tool.obsidiana]
 
-[dev.ob]
+[dev.obsidiana]
 project = "${DEVELOPMENT}/obsidiana"
 
 [dev.photography]
