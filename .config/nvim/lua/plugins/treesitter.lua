@@ -42,6 +42,22 @@ return {
         end,
       },
     },
+    init = function()
+      if not vim.env.DEVELOPMENT then return end
+      local local_tsl = vim.fs.joinpath(vim.env.DEVELOPMENT, 'tree-sitter-lean')
+      local install_info
+      if uv.fs_stat(local_tsl) then
+        install_info = { path = local_tsl }
+      else
+        install_info = { url = 'https://github.com/Julian/tree-sitter-lean' }
+      end
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'TSUpdate',
+        callback = function()
+          require('nvim-treesitter.parsers').lean = { install_info = install_info }
+        end,
+      })
+    end,
     build = function()
       vim.cmd('TSUpdate')
       if #parsers > 0 then
@@ -49,18 +65,6 @@ return {
       end
     end,
     config = function()
-      if vim.env.DEVELOPMENT then
-        local tsl_url = vim.fs.joinpath(vim.env.DEVELOPMENT, 'tree-sitter-lean')
-        if not uv.fs_stat(tsl_url) then
-          tsl_url = 'https://github.com/Julian/tree-sitter-lean'
-        end
-        require('nvim-treesitter.parsers').lean = {
-          install_info = {
-            url = tsl_url,
-            files = { 'src/parser.c', 'src/scanner.c' },
-          },
-        }
-      end
       require('nvim-treesitter-endwise').init()
     end,
   }
