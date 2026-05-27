@@ -64,10 +64,6 @@ link-module = ["venv"]
 install = ["aubio>=0.4.9"]
 link = ["aubio", "aubiocut"]
 
-[venv.bandit]
-install = ["bandit"]
-link = ["bandit"]
-
 [venv.beancount]
 install = ["beancount", "beangulp", "beanprice", "fava"]
 link = [
@@ -84,52 +80,27 @@ link = [
 install = ["beets", "beautifulsoup4", "pyacoustid", "requests"]
 link = ["beet"]
 
-[venv.catt]
-install = ["catt"]
-link = ["catt"]
-
-[venv.colortest]
-install = ["colortest"]
-link = ["colortest"]
-
-[venv.detect-secrets]
-install = ["detect-secrets"]
-link = ["detect-secrets"]
-
-[venv.doc8]
-install = ["doc8", "pygments"]
-link = ["doc8"]
-
-[venv.esbonio]
-install = ["esbonio"]
-link = ["esbonio"]
-
-[venv.findme-cpython3]
-install-bundle = ["development"]
-install = ["findme"]
-link = ["findme:findme-cpython3"]
-
-[venv.findme-pypy3]
-python = "pypy3"
-install-bundle = ["development"]
-install = ["findme"]
-link = ["findme:findme-pypy3"]
-
-[venv.google]
-install-bundle = ["development"]
-install = [
-  "google-api-python-client",
-  "google-auth-httplib2",
-  "google-auth-oauthlib",
-]
-
-[venv.httpie]
-install = ["httpie"]
-link = ["http", "https"]
-
-[venv.httpstat]
-install = ["httpstat"]
-link = ["httpstat"]
+[tool]
+bandit = {}
+catt = {}
+colortest = {}
+detect-secrets = {}
+doc8 = { install = ["pygments"] }
+esbonio = {}
+great = {}
+httpie = {}
+httpstat = {}
+interrogate = {}
+litecli = {}
+maturin = {}
+mypy = {}
+ngxtop = {}
+obsidiana = {}
+pydocstyle = {}
+pypinfo = {}
+pyright = {}
+termtosvg = {}
+ty = {}
 
 [venv.imaging]
 install-bundle = ["development"]
@@ -138,10 +109,6 @@ install = [
   "pillow",
   "rawkit",
 ]
-
-[venv.interrogate]
-install = ["interrogate"]
-link = ["interrogate"]
 
 [venv.jsonschema]
 install-bundle = ["development"]
@@ -153,18 +120,10 @@ install = [
 ]
 link = ["check-jsonschema", "jsonschema"]
 
-[venv.litecli]
-install = ["litecli"]
-link = ["litecli"]
-
 [venv.math]
 install-bundle = ["development"]
 install = ["sympy"]
 link = ["ptpython:math"]
-
-[venv.maturin]
-install = ["maturin"]
-link = ["maturin"]
 
 [venv.ml]
 python = "python3.13"
@@ -277,10 +236,6 @@ link = [
   "xgbfir",
 ]
 
-[venv.mypy]
-install = ["mypy"]
-link = ["mypy"]
-
 [venv.nbdiff]
 install = ["nbdime"]
 link = [
@@ -304,22 +259,6 @@ link = [
 python = "python3.13"
 install = ["jedi", "pynvim", "sphinx"]
 post-commands = [["nvim", "+UpdateRemotePlugins", "+quit"]]
-
-[venv.ngxtop]
-install = ["ngxtop"]
-link = ["ngxtop"]
-
-[venv.pydocstyle]
-install = ["pydocstyle"]
-link = ["pydocstyle"]
-
-[venv.pypinfo]
-install = ["pypinfo"]
-link = ["pypinfo"]
-
-[venv.pyright]
-install = ["pyright"]
-link = ["pyright", "pyright-langserver"]
 
 [venv.remarshal]
 install = ["remarshal"]
@@ -385,15 +324,6 @@ link = [
   "tap2subunit",
 ]
 
-[venv.termtosvg]
-python = "python3"
-install = ["termtosvg"]
-link = ["termtosvg"]
-
-[venv.ty]
-install = ["ty"]
-link = ["ty"]
-
 [venv.watchdog]
 install = ["watchdog[watchmedo]"]
 link = ["watchmedo"]
@@ -437,8 +367,6 @@ link = ["pelican", "pelican-quickstart", "pelican-themes"]
 [dev.bowtie]
 project = "${DEVELOPMENT}/bowtie"
 link = ["bowtie"]
-
-[tool.obsidiana]
 
 [dev.obsidiana]
 project = "${DEVELOPMENT}/obsidiana"
