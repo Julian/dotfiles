@@ -23,7 +23,7 @@
     delta
     difftastic
     djview
-    du-dust
+    dust
     duf
     elan
     enchant
@@ -142,7 +142,6 @@
     taps = [ ];
 
     brews = [
-      "gifify"
       "trash"
     ];
 
