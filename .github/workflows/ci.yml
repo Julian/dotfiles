@@ -31,12 +31,6 @@ jobs:
       - name: Build darwin configuration
         run: nix build --print-build-logs '.#darwinConfigurations.Airm.system'
         if: runner.os == 'macOS'
-      - name: Upload flake.lock
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        if: runner.os == 'macOS'
-        with:
-          name: flake-lock
-          path: flake.lock
       - name: Install packages
         run: sudo apt-get install -y zsh
         if: runner.os == 'Linux'
