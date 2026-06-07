@@ -81,7 +81,7 @@
     protobufc
     pstree
     pv
-    pypy3
+    pypy
     ripgrep
     rlwrap
     rustfmt
