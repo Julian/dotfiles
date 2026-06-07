@@ -1,0 +1,7 @@
+{
+  "trustedtaps": [
+    "github/gh",
+    "julian/lean",
+    "julian/tap"
+  ]
+}
