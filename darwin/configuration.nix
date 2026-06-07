@@ -17,7 +17,6 @@
     bat
     bottom
     btop
-    cgdb
     cloc
     cmake
     delta
@@ -142,6 +141,7 @@
     taps = [ ];
 
     brews = [
+      "cgdb"
       "trash"
     ];
 
