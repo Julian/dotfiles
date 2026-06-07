@@ -1,6 +1,0 @@
-brew "imagemagick"
-cask "blender"
-cask "darktable"
-cask "inkscape"
-cask "phoenix-slides"
-cask "processing"
