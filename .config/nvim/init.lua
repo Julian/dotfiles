@@ -432,7 +432,7 @@ vim.keymap.set('n', '<CR>', function()
       end
     end
 
-    target = target or require("obsidian.daily").daily().path.filename
+    target = target or require("obsidian.daily").daily_note_path().filename
     _G.split(target)
     return ''
   end
