@@ -40,7 +40,10 @@ return {
       },
     },
     cmd = { 'Obsidian' },
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+    },
     opts = {
       workspaces = {
         { name = 'vault', path = VAULT },
