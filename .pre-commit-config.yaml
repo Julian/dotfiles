@@ -16,6 +16,6 @@ repos:
         files: "^.config/nvim/spellfile.add$"
         args: ["--ignore-case"]
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.19.0
+    rev: v1.29.0
     hooks:
     - id: zizmor
