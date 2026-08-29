@@ -358,6 +358,10 @@ link = ["ruff", "ruff-lsp"]
 install = ["shrinkray"]
 link = ["shrinkray"]
 
+[venv.theengs]
+install = ["TheengsGateway"]
+link-module = ["TheengsGateway:theengs-gateway"]
+
 # --- Developing ---
 
 [dev.blog]
