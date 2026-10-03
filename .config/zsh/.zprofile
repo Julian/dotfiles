@@ -9,7 +9,7 @@ path=(
     ${ELAN_HOME}/bin
     ${GEM_HOME}/bin
     ${LUAROCKS_DATA_DIR}/bin
-    ${PNPM_HOME}
+    ${PNPM_HOME}/bin
     $path
 )
 
