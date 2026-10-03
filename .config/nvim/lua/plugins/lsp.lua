@@ -237,22 +237,24 @@ return {
         end
       },
 
-      log = function(level, data)
-        if level < vim.log.levels.INFO then
-          return
-        end
-        local message = (data.message or ''):match('^[^\n]*')
-        ---@diagnostic disable-next-line: unused-local
-        local _ = { newline = ' ', indent = '\n' }
-        vim.notify( -- TODO: somehow we should use `replace`
-          vim.inspect(data),
-          level,
-          {
-            title = message or 'lean.nvim',
-            render = 'wrapped-compact',
-          }
-        )
-      end,
+      debug = {
+        log = function(level, data)
+          if level < vim.log.levels.INFO then
+            return
+          end
+          local message = (data.message or ''):match('^[^\n]*')
+          ---@diagnostic disable-next-line: unused-local
+          local _ = { newline = ' ', indent = '\n' }
+          vim.notify( -- TODO: somehow we should use `replace`
+            vim.inspect(data),
+            level,
+            {
+              title = message or 'lean.nvim',
+              render = 'wrapped-compact',
+            }
+          )
+        end,
+      },
 
       mappings = true,
       stderr = {
