@@ -60,7 +60,7 @@ _trial_temp*.lock
 
 .pep8
 
-.coverage
+.coverage*
 htmlcov/
 
 .hypothesis/
