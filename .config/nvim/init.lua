@@ -283,6 +283,19 @@ vim.filetype.add{
     ['.*/test/corpus/.*.txt'] = 'tree-sitter-test',
   }
 }
+vim.filetype.add{
+  pattern = {
+    ['.*'] = {
+      function(_, bufnr)
+        local first = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ''
+        if first:match('^#!.*%suv%s+run%s') then
+          return 'python'
+        end
+      end,
+      { priority = -math.huge }, -- only runs if nothing else matched
+    },
+  },
+}
 vim.api.nvim_create_autocmd('BufReadCmd', {
   pattern = { '*.egg', '*.whl' },
   command = [[call zip#Browse(expand("<amatch>"))]],
