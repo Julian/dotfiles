@@ -82,6 +82,7 @@
 .config/kitty/kitty.conf.bak
 .config/matplotlib/*.cache
 .config/matplotlib/fontlist-*.json
+.config/opencode/service.json
 .config/mlvds/
 .config/notmuch/
 .config/parallel/tmp/
