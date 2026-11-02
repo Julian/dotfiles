@@ -20,7 +20,6 @@
     ff = only
 
 [push]
-    atomic = true
     autoSetupRemote = true
     default = upstream
     followTags = true
@@ -92,9 +91,10 @@
     # my fork but pull from upstream
     cj = !sh -c 'git c gh:"$1" --origin upstream && git --git-dir "${1#*/}/.git" remote add origin g:"${1#*/}" && git --git-dir "${1#*/}/.git" config branch.$(git --git-dir "${1#*/}/.git" rev-parse --abbrev-ref HEAD).pushRemote origin' -
     cp = cherry-pick
-    force = push --force-with-lease
+    force = push --atomic --force-with-lease
+    p = push --atomic
     pluck = !sh -c 'git show "$1" | git apply' -
-    pushhh = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+    pushhh = "!git push --atomic --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
     inithub = "!git remote add origin git@github.com:Julian/$(basename $PWD) && git pushhh"
     rmb = push --delete origin
     tip = rebase @{u}
@@ -122,7 +122,7 @@
 
     m = !sh -c 'git noff "origin/$1" && git push --delete origin "$1"' -
 
-    n = !sh -c 'git reset && $EDITOR "$1" && git add "$1" && git commit && git push' -
+    n = !sh -c 'git reset && $EDITOR "$1" && git add "$1" && git commit && git push --atomic' -
 
     ff = !sh -c 'git merge --ff-only "${1:-upstream/$(git rev-parse --abbrev-ref HEAD)}"' -
     noff = !sh -c 'git merge --no-ff "${1:-upstream/$(git rev-parse --abbrev-ref HEAD)}"' -
